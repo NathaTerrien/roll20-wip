@@ -6,9 +6,9 @@ Personal developpements and works in progress for the Roll20 character sheets an
 ### Savage Worlds French
 
 #### Sources
-* [WIP]() Version 0.2
+* [WIP](./SavageWorldsFrench/) Version 0.2
 
-#### Todo 
+#### Todo
 * Gestion de tous les jets en mode template ou macro
 * Template personnalisé avec informations exhaustives
 * Gestion (optionnelle ?) de cible pour les jets en opposition (autre que combat)
@@ -19,67 +19,67 @@ Personal developpements and works in progress for the Roll20 character sheets an
 ### Chroniques Oubliées (french)
 
 #### Sources
-* [WIP]() Version 1.3
+* [WIP](./ChroniquesOubliees/) Version 1.3
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.2
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.2
 
-#### Todo 
+#### Todo
 * Affichage des dégâts doublés en cas de critique
 * Gestion des caractéristiques supérieures (1d20 ou 2d20kh1)
 
 ### Cypher System (english)
 
 #### Sources
-* [WIP]()
+* [WIP](./CypherSystem/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.3
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.2
 
-#### Todo 
+#### Todo
 
 ### Cypher System (french)
 
 #### Sources
-* [WIP]()
+* [WIP](./CypherSystemFrench/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.3
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.2
 
-#### Todo 
+#### Todo
 
 ### Numenéra tabbed (english)
 
 #### Sources
-* [WIP]()
+* [WIP](./Numenera_NathasNumenera_English/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English) Version 4.8
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English) Version 4.8
 
-#### Todo 
+#### Todo
 
 ### Numenéra tabbed (french)
 
 #### Sources
-* [WIP]()
+* [WIP](./Numenera_NathasNumenera_French/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French) Version 4.8
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French) Version 4.8
 
-#### Todo 
+#### Todo
 
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP]()
+* [WIP](./PortesMonstresTresors/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 2.2
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 2.2
 
-#### Todo 
+#### Todo
 
 ### The One Ring french / L'Anneau Unique
 
 #### Sources
-* [WIP]()
+* [WIP](./Anneau%20Unique/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Anneau%20Unique) Version 1.1
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Anneau%20Unique) Version 1.1
 
-#### Todo 
+#### Todo
 
 ## API Scripts
 
@@ -90,7 +90,7 @@ Personal developpements and works in progress for the Roll20 character sheets an
 * [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
 
-#### Todo 
+#### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
 ###Cypher System
@@ -100,5 +100,5 @@ Personal developpements and works in progress for the Roll20 character sheets an
 * [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
 
-#### Todo 
+#### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
