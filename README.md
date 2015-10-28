@@ -92,7 +92,7 @@ Personal developpements and works in progress for the Roll20 character sheets an
 
 #### Todo 
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
-* 
+
 ###Cypher System
 
 #### Sources
