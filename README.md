@@ -86,11 +86,19 @@ Personal developpements and works in progress for the Roll20 character sheets an
 ### Numenéra
 
 #### Sources
+* [WIP]()
+* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
 
 #### Todo 
-
+* Handle display of every messages through template (attribute change, action parameters reset), both in french and english
+* 
 ###Cypher System
 
 #### Sources
+* [WIP]()
+* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
 
 #### Todo 
+* Handle display of every messages through template (attribute change, action parameters reset), both in french and english
