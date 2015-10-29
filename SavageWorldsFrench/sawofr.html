@@ -22,14 +22,33 @@
     <input type="text" disabled hidden name="attr_rollAttVigueurMc" value="/roll @{rollAttVigueur}" />
 
     <!-- BASTON -->
-    <input type="text" disabled hidden name="attr_rollBastCombat" value="{ floor( ( { { 1d@{combat_de}![Trait],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
-    <input type="text" disabled hidden name="attr_rollBastLancer" value="{ floor( ( { { 1d@{lancer_de}![Trait],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_rollBastTir" value="{ floor( ( { { 1d@{tir_de}![Trait],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_rollBastForce" value="1d@{force_de}!+@{force_bonus}" />
+    <input type="text" disabled hidden name="attr_rollBastCombat" value="{ 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollBastCombatTp" value="{ floor( ( { @{rollBastCombat} } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_rollBastCombatMc" value="/roll @{rollBastCombat} " />
+
+    <input type="text" disabled hidden name="attr_rollBastLancer" value="{ 1d@{lancer_de}![Lancer],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollBastLancerTp" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_rollBastLancerMc" value="/roll @{rollBastLancer}" />
+
+    <input type="text" disabled hidden name="attr_rollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollBastTirTp" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_rollBastTirMc" value="/roll @{rollBastTir}" />
+
+    <input type="text" disabled hidden name="attr_rollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
+
     <!-- ARMES -->
-    <input type="text" disabled hidden name="attr_rollArmeFixe1" value="&{template:default} {{name=@{arme1_nom} }} {{ Attaque=[[@{arme1_comp}]] }} {{ Dégâts=[[ @{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus} ]] }} " />
-    <input type="text" disabled hidden name="attr_rollArmeFixe2" value="&{template:default} {{name=@{arme2_nom} }} {{ Attaque=[[@{arme2_comp}]] }} {{ Dégâts=[[ @{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + @{arme2_dgt_bonus} ]] }} " />
-    <input type="text" disabled hidden name="attr_rollArmeFixe3" value="&{template:default} {{name=@{arme3_nom} }} {{ Attaque=[[@{arme3_comp}]] }} {{ Dégâts=[[ @{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus} ]] }} " />
+    <input type="text" disabled hidden name="attr_rollArmeFixe1Tp" value="&{template:default} {{name=@{arme1_nom} }} {{Attaque=[[ @{[[rollBast[[@{arme1_comp}]]Tp]]} ]]}} {{Dégâts=[[@{rollArmeFixe1Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_rollArmeFixe1Mc" value="/roll @{arme1_comp}" />
+    <input type="text" disabled hidden name="attr_rollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]" />
+
+    <input type="text" disabled hidden name="attr_rollArmeFixe2Tp" value="&{template:default} {{name=@{arme2_nom} }} {{Attaque=[[@{arme2_comp}]]}} {{Dégâts=[[@{rollArmeFixe2Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_rollArmeFixe2Mc" value="/roll @{arme2_comp}" />
+    <input type="text" disabled hidden name="attr_rollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + @{arme2_dgt_bonus}[Dégâts : arme]" />
+
+    <input type="text" disabled hidden name="attr_rollArmeFixe3Tp" value="&{template:default} {{name=@{arme3_nom} }} {{Attaque=[[@{arme3_comp}]]}} {{Dégâts=[[@{rollArmeFixe3Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_rollArmeFixe3Mc" value="/roll @{arme3_comp}" />
+    <input type="text" disabled hidden name="attr_rollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus}[Dégâts : arme]" />
+
     <!-- COMPETENCES -->
     <input type="text" disabled hidden name="attr_rollCompArcane" value="&{template:default} {{name=Jet de @{arcane_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{arcane_de}![Trait],@{joker_de}![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
     <input type="text" disabled hidden name="attr_rollCompCombat" value="&{template:default} {{name=Jet de Combat}} {{Personnage=@{character_name} }} {{Cible=@{target|character_name} }} {{Succès et Relances=[[@{rollBastCombat}]] }}" />
@@ -754,14 +773,20 @@
             <button type="roll"
                 name="Jet_Arme1"
                 class="sheet-btRolTp"
-                value="@{rollArmeFixe1}"
+                value="@{rollArmeFixe1Tp}"
+                title="Arme N°1"
+                >&nbsp;</button>
+            <button type="roll"
+                name="Jet_Arme1Mc"
+                class="sheet-btRolMc"
+                value="@{rollArmeFixe1Mc}"
                 title="Arme N°1"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
             <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="@{rollBastCombat}" SELECTED>Combat</OPTION>
-                <OPTION value="@{rollBastLancer}">Lancer</OPTION>
-                <OPTION value="@{rollBastTir}">Tir</OPTION>
+                <OPTION value="Combat" SELECTED>Combat</OPTION>
+                <OPTION value="Lancer">Lancer</OPTION>
+                <OPTION value="Tir">Tir</OPTION>
             </SELECT>
             <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{rollBastForce}" SELECTED>FORCE</OPTION>
@@ -784,7 +809,13 @@
             <button type="roll"
                 name="Jet_Arme2"
                 class="sheet-btRolTp"
-                value="@{rollArmeFixe2}"
+                value="@{rollArmeFixe2Tp}"
+                title="Attaque Arme n°2"
+                >&nbsp;</button>
+            <button type="roll"
+                name="Jet_Arme2Mc"
+                class="sheet-btRolMc"
+                value="@{rollArmeFixe2Mc}"
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme2_nom" placeholder="Nom de l'arme n°2" title="Nom de l'arme n°2" />
@@ -814,7 +845,13 @@
             <button type="roll"
                 name="Jet_Arme3"
                 class="sheet-btRolTp"
-                value="@{rollArmeFixe3}"
+                value="@{rollArmeFixe3Tp}"
+                title="Attaque Arme n°3"
+                >&nbsp;</button>
+            <button type="roll"
+                name="Jet_Arme3Mc"
+                class="sheet-btRolMc"
+                value="@{rollArmeFixe3Mc}"
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme3_nom" placeholder="Nom de l'arme n°3" title="Nom de l'arme n°3" />
