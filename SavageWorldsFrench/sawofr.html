@@ -23,21 +23,21 @@
 
     <!-- BASTON -->
     <input type="text" disabled hidden name="attr_rollBastCombat" value="{ 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollBastCombatTp" value="{ floor( ( { @{rollBastCombat} } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
-    <input type="text" disabled hidden name="attr_rollBastCombatMc" value="/roll @{rollBastCombat} " />
+    <input type="text" disabled hidden name="attr_CombatTp" value="{ floor( ( { @{rollBastCombat} } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_CombatMc" value="/roll @{rollBastCombat} " />
 
     <input type="text" disabled hidden name="attr_rollBastLancer" value="{ 1d@{lancer_de}![Lancer],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollBastLancerTp" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_rollBastLancerMc" value="/roll @{rollBastLancer}" />
+    <input type="text" disabled hidden name="attr_LancerTp" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_LancerMc" value="/roll @{rollBastLancer}" />
 
     <input type="text" disabled hidden name="attr_rollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollBastTirTp" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_rollBastTirMc" value="/roll @{rollBastTir}" />
+    <input type="text" disabled hidden name="attr_TirTp" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_TirMc" value="/roll @{rollBastTir}" />
 
     <input type="text" disabled hidden name="attr_rollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
 
     <!-- ARMES -->
-    <input type="text" disabled hidden name="attr_rollArmeFixe1Tp" value="&{template:default} {{name=@{arme1_nom} }} {{Attaque=[[ @{[[rollBast[[@{arme1_comp}]]Tp]]} ]]}} {{Dégâts=[[@{rollArmeFixe1Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_rollArmeFixe1Tp" value="&{template:default} {{name=@{arme1_nom} }} {{Attaque=[[ @{arme1_comp} ]]}} {{Dégâts=[[@{rollArmeFixe1Dgt}]]}} " />
     <input type="text" disabled hidden name="attr_rollArmeFixe1Mc" value="/roll @{arme1_comp}" />
     <input type="text" disabled hidden name="attr_rollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]" />
 
@@ -769,11 +769,11 @@
             <div class="sheet-redtitle3" style="width: 35px;">PA</div>
             <div class="sheet-redtitle3" style="width: 150px;">Notes</div>
         </div>
-        <div class="sheet-input"> <!-- ARME FIXE 1 -->
+        <div class="sheet-input"> <!-- ARME FIXE 1 --> <!-- &#64;&#123; &#125; -->
             <button type="roll"
                 name="Jet_Arme1"
                 class="sheet-btRolTp"
-                value="@{rollArmeFixe1Tp}"
+                value="[[&#64;&#123;[[@{character_name}]]|[[@{arme1_comp}]]Tp&#125;]]"
                 title="Arme N°1"
                 >&nbsp;</button>
             <button type="roll"
