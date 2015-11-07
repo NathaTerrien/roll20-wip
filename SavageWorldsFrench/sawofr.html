@@ -144,7 +144,7 @@
     <input type="text" disabled hidden name="attr_rollCompTirMc" value="/roll @{rollBastTirMc}" />
 </div> <!-- *** HIDDEN ROLLS ** -->
 <!-- PARAMETRAGES -->
-<span class="sheet-smallspan">Version 0.2 (2015-10-28)&nbsp;-&nbsp;Style des jets: </span>
+<span class="sheet-smallspan">Version 0.3 (2015-11-07)&nbsp;-&nbsp;Style des jets: </span>
 <input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolTp" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Template</span>
 <input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRolMc" title="Style de jet 'macro', montrant les jets bruts" /><span>Macro</span>
 <!--- ***  FdP *** -->
@@ -967,7 +967,7 @@
             <button type="roll"
                 name="Jet_Arme1"
                 class="sheet-btRolTp"
-                value="[[&#64;&#123;[[@{character_name}]]|[[@{arme1_comp}]]Tp&#125;]]"
+                value="@{rollArmeFixe1Tp}"
                 title="Arme N°1"
                 >&nbsp;</button>
             <button type="roll"
