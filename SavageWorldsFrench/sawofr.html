@@ -23,16 +23,16 @@
 
     <!-- BASTON -->
     <input type="text" disabled hidden name="attr_rollBastCombat" value="{ 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_CombatTp" value="{ floor( ( { @{rollBastCombat} } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
-    <input type="text" disabled hidden name="attr_CombatMc" value="/roll @{rollBastCombat} " />
+    <input type="text" disabled hidden name="attr_rollBastCombatTp" value="{ floor( ( { @{rollBastCombat} } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_rollBastCombatMc" value="@{rollBastCombat} " />
 
     <input type="text" disabled hidden name="attr_rollBastLancer" value="{ 1d@{lancer_de}![Lancer],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_LancerTp" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_LancerMc" value="/roll @{rollBastLancer}" />
+    <input type="text" disabled hidden name="attr_rollBastLancerTp" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_rollBastLancerMc" value="@{rollBastLancer}" />
 
     <input type="text" disabled hidden name="attr_rollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_TirTp" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_TirMc" value="/roll @{rollBastTir}" />
+    <input type="text" disabled hidden name="attr_rollBastTirTp" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_rollBastTirMc" value="@{rollBastTir}" />
 
     <input type="text" disabled hidden name="attr_rollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
 
@@ -50,30 +50,98 @@
     <input type="text" disabled hidden name="attr_rollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus}[Dégâts : arme]" />
 
     <!-- COMPETENCES -->
-    <input type="text" disabled hidden name="attr_rollCompArcane" value="&{template:default} {{name=Jet de @{arcane_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{arcane_de}![Trait],@{joker_de}![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompCombat" value="&{template:default} {{name=Jet de Combat}} {{Personnage=@{character_name} }} {{Cible=@{target|character_name} }} {{Succès et Relances=[[@{rollBastCombat}]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompConduite" value="&{template:default} {{name=Jet de Conduite}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{conduite_de}![Trait],@{joker_de}![Joker]}kh1 + @{conduite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompConnaissance" value="&{template:default} {{name=Jet de @{connaissance_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{connaissance_de}![Trait],@{joker_de}![Joker]}kh1 + @{connaissance_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompCrochetage" value="&{template:default} {{name=Jet de Crochetage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{crochetage_de}![Trait],@{joker_de}![Joker]}kh1 + @{crochetage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompDiscretion" value="&{template:default} {{name=Jet de Discrétion}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{discretion_de}![Trait],@{joker_de}![Joker]}kh1 + @{discretion_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompEquitation" value="&{template:default} {{name=Jet d'Équitation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{equitation_de}![Trait],@{joker_de}![Joker]}kh1 + @{equitation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompEscalade" value="&{template:default} {{name=Jet d'Escalade}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{escalade_de}![Trait],@{joker_de}![Joker]}kh1 + @{escalade_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompIntimidation" value="&{template:default} {{name=Jet d'Intimidation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{intimidation_de}![Trait],@{joker_de}![Joker]}kh1 + @{intimidation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompJeu" value="&{template:default} {{name=Jet de Jeu}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{jeu_de}![Trait],@{joker_de}![Joker]}kh1 + @{jeu_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompLancer" value="&{template:default} {{name=Jet de Lancer}} {{Personnage=@{character_name} }} {{Succès et Relances=[[@{rollBastLancer}]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompNatation" value="&{template:default} {{name=Jet de Natation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{natation_de}![Trait],@{joker_de}![Joker]}kh1 + @{natation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompNavigation" value="&{template:default} {{name=Jet de Navigation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{navigation_de}![Trait],@{joker_de}![Joker]}kh1 + @{navigation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompPerception" value="&{template:default} {{name=Jet de Perception}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{perception_de}![Trait],@{joker_de}![Joker]}kh1 + @{perception_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompPersuasion" value="&{template:default} {{name=Jet de Persuasion}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{persuasion_de}![Trait],@{joker_de}![Joker]}kh1 + @{persuasion_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }}" />
-    <input type="text" disabled hidden name="attr_rollCompPilotage" value="&{template:default} {{name=Jet de Pilotage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{pilotage_de}![Trait],@{joker_de}![Joker]}kh1 + @{pilotage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompPistage" value="&{template:default} {{name=Jet de Pistage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{pistage_de}![Trait],@{joker_de}![Joker]}kh1 + @{pistage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompRecherche" value="&{template:default} {{name=Jet de Recherche}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{recherche_de}![Trait],@{joker_de}![Joker]}kh1 + @{recherche_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompReparation" value="&{template:default} {{name=Jet de Réparation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{reparation_de}![Trait],@{joker_de}![Joker]}kh1 + @{reparation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompReseaux" value="&{template:default} {{name=Jet de Réseaux}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{reseaux_de}![Trait],@{joker_de}![Joker]}kh1 + @{reseaux_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }} " />
-    <input type="text" disabled hidden name="attr_rollCompSarcasme" value="&{template:default} {{name=Jet de Sarcasme}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{sarcasme_de}![Trait],@{joker_de}![Joker]}kh1 + @{sarcasme_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompSoins" value="&{template:default} {{name=Jet de Soins}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{soins_de}![Trait],@{joker_de}![Joker]}kh1 + @{soins_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompSurvie" value="&{template:default} {{name=Jet de Survie}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{survie_de}![Trait],@{joker_de}![Joker]}kh1 + @{survie_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompTir" value="&{template:default} {{name=Jet de Tir}} {{Personnage=@{character_name} }} {{Succès et Relances=[[@{rollBastTir}]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompArcane" value="{ 1d@{arcane_de}![@{arcane_nom}],@{joker_de}![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompArcaneTp" value="&{template:default} {{name=Jet de @{arcane_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompArcane} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompArcaneMc" value="/roll @{rollCompArcane}" />
+
+    <input type="text" disabled hidden name="attr_rollCompCombatTp" value="&{template:default} {{name=Jet de Combat}} {{Personnage=@{character_name} }} {{Cible=@{target|character_name} }} {{Succès et Relances=[[@{rollBastCombatTp}]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompCombatMc" value="/roll @{rollBastCombatMc}" />
+
+    <input type="text" disabled hidden name="attr_rollCompConduite" value="{ 1d@{conduite_de}![Conduite],@{joker_de}![Joker]}kh1 + @{conduite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompConduiteTp" value="&{template:default} {{name=Jet de Conduite}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompConduite} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompConduiteMc" value="/roll @{rollCompConduite}" />
+
+    <input type="text" disabled hidden name="attr_rollCompConnaissance" value="{ 1d@{connaissance_de}![@{connaissance_nom}],@{joker_de}![Joker]}kh1 + @{connaissance_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompConnaissanceTp" value="&{template:default} {{name=Jet de @{connaissance_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompConnaissance} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompConnaissanceMc" value="/roll @{rollCompConnaissance}" />
+
+    <input type="text" disabled hidden name="attr_rollCompCrochetage" value="{ 1d@{crochetage_de}![Crochetage],@{joker_de}![Joker]}kh1 + @{crochetage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompCrochetageTp" value="&{template:default} {{name=Jet de Crochetage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompCrochetage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompCrochetageMc" value="/roll @{rollCompCrochetage}" />
+
+    <input type="text" disabled hidden name="attr_rollCompDiscretion" value="{ 1d@{discretion_de}![Discretion],@{joker_de}![Joker]}kh1 + @{discretion_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompDiscretionTp" value="&{template:default} {{name=Jet de Discrétion}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompDiscretion} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompDiscretionMc" value="/roll @{rollCompDiscretion}" />
+
+    <input type="text" disabled hidden name="attr_rollCompEquitation" value="{ 1d@{equitation_de}![Equitation],@{joker_de}![Joker]}kh1 + @{equitation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompEquitationTp" value="&{template:default} {{name=Jet d'Équitation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompEquitation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompEquitationMc" value="/roll @{rollCompEquitation}" />
+
+    <input type="text" disabled hidden name="attr_rollCompEscalade" value="{ 1d@{escalade_de}![Escalade],@{joker_de}![Joker]}kh1 + @{escalade_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompEscaladeTp" value="&{template:default} {{name=Jet d'Escalade}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompEscalade} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompEscaladeMc" value="/roll @{rollCompEscalade}" />
+
+    <input type="text" disabled hidden name="attr_rollCompIntimidation" value="{ 1d@{intimidation_de}![Intimidation],@{joker_de}![Joker]}kh1 + @{intimidation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompIntimidationTp" value="&{template:default} {{name=Jet d'Intimidation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompIntimidation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompIntimidationMc" value="/roll @{rollCompIntimidation}" />
+
+    <input type="text" disabled hidden name="attr_rollCompJeu" value="{ 1d@{jeu_de}![Jeu],@{joker_de}![Joker]}kh1 + @{jeu_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompJeuTp" value="&{template:default} {{name=Jet de Jeu}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompJeu} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompJeuMc" value="/roll @{rollCompJeu}" />
+
+    <input type="text" disabled hidden name="attr_rollCompLancerTp" value="&{template:default} {{name=Jet de Lancer}} {{Personnage=@{character_name} }} {{Succès et Relances=[[@{rollBastLancerTp}]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompLancerMc" value="/roll @{rollBastLancerMc}" />
+
+    <input type="text" disabled hidden name="attr_rollCompNatation" value="{ 1d@{natation_de}![Natation],@{joker_de}![Joker]}kh1 + @{natation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompNatationTp" value="&{template:default} {{name=Jet de Natation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompNatation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompNatationMc" value="/roll @{rollCompNatation}" />
+
+    <input type="text" disabled hidden name="attr_rollCompNavigation" value="{ 1d@{navigation_de}![Navigation],@{joker_de}![Joker]}kh1 + @{navigation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompNavigationTp" value="&{template:default} {{name=Jet de Navigation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompNavigation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompNavigationMc" value="/roll @{rollCompNavigation}" />
+
+    <input type="text" disabled hidden name="attr_rollCompPerception" value="{ 1d@{perception_de}![Perception],@{joker_de}![Joker]}kh1 + @{perception_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompPerceptionTp" value="&{template:default} {{name=Jet de Perception}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPerception} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompPerceptionMc" value="/roll @{rollCompPerception}" />
+
+    <input type="text" disabled hidden name="attr_rollCompPersuasion" value="{ 1d@{persuasion_de}![Persuasion],@{joker_de}![Joker]}kh1 + @{persuasion_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompPersuasionTp" value="&{template:default} {{name=Jet de Persuasion}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPersuasion} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }}" />
+    <input type="text" disabled hidden name="attr_rollCompPersuasionMc" value="/roll @{rollCompPersuasion}" />
+
+    <input type="text" disabled hidden name="attr_rollCompPilotage" value="{ 1d@{pilotage_de}![Pilotage],@{joker_de}![Joker]}kh1 + @{pilotage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompPilotageTp" value="&{template:default} {{name=Jet de Pilotage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPilotage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompPilotageMc" value="/roll @{rollCompPilotage}" />
+
+    <input type="text" disabled hidden name="attr_rollCompPistage" value="{ 1d@{pistage_de}![Pistage],@{joker_de}![Joker]}kh1 + @{pistage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompPistageTp" value="&{template:default} {{name=Jet de Pistage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPistage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompPistageMc" value="/roll @{rollCompPistage}" />
+
+    <input type="text" disabled hidden name="attr_rollCompRecherche" value="{ 1d@{recherche_de}![Trait],@{joker_de}![Recherche]}kh1 + @{recherche_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompRechercheTp" value="&{template:default} {{name=Jet de Recherche}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompRecherche} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompRechercheMc" value="/roll @{rollCompRecherche}" />
+
+    <input type="text" disabled hidden name="attr_rollCompReparation" value="{ 1d@{reparation_de}![Réparation],@{joker_de}![Joker]}kh1 + @{reparation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompReparationTp" value="&{template:default} {{name=Jet de Réparation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompReparation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompReparationMc" value="/roll @{rollCompReparation}" />
+
+    <input type="text" disabled hidden name="attr_rollCompReseaux" value="{ 1d@{reseaux_de}![Réseaux],@{joker_de}![Joker]}kh1 + @{reseaux_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompReseauxTp" value="&{template:default} {{name=Jet de Réseaux}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompReseaux} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }} " />
+    <input type="text" disabled hidden name="attr_rollCompReseauxMc" value="/roll @{rollCompReseaux}" />
+
+    <input type="text" disabled hidden name="attr_rollCompSarcasme" value="{ 1d@{sarcasme_de}![Sarcasme],@{joker_de}![Joker]}kh1 + @{sarcasme_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompSarcasmeTp" value="&{template:default} {{name=Jet de Sarcasme}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompSarcasme} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompSarcasmeMc" value="/roll @{rollCompSarcasme}" />
+
+    <input type="text" disabled hidden name="attr_rollCompSoins" value="{ 1d@{soins_de}![Soins],@{joker_de}![Joker]}kh1 + @{soins_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompSoinsTp" value="&{template:default} {{name=Jet de Soins}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompSoins} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompSoinsMc" value="/roll @{rollCompSoins}" />
+
+    <input type="text" disabled hidden name="attr_rollCompSurvie" value="{ 1d@{survie_de}![Survie],@{joker_de}![Joker]}kh1 + @{survie_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
+    <input type="text" disabled hidden name="attr_rollCompSurvieTp" value="&{template:default} {{name=Jet de Survie}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompSurvie} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompSurvieMc" value="/roll @{rollCompSurvie}" />
+
+    <input type="text" disabled hidden name="attr_rollCompTirTp" value="&{template:default} {{name=Jet de Tir}} {{Personnage=@{character_name} }} {{Succès et Relances=[[@{rollBastTirTp}]] }}" />
+    <input type="text" disabled hidden name="attr_rollCompTirMc" value="/roll @{rollBastTirMc}" />
 </div> <!-- *** HIDDEN ROLLS ** -->
 <!-- PARAMETRAGES -->
 <span class="sheet-smallspan">Version 0.2 (2015-10-28)&nbsp;-&nbsp;Style des jets: </span>
@@ -205,7 +273,12 @@
                     <button type="roll"
                         name="Jet_Arcane"
                         class="sheet-btRolTp"
-                        value="@{rollCompArcane}"
+                        value="@{rollCompArcaneTp}"
+                        >&nbsp;</button>
+                    <button type="roll"
+                        name="Jet_ArcaneMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompArcaneMc}"
                         >&nbsp;</button>
                     <input type="text" class="sheet-compspe" name="attr_arcane_nom" placeholder="ARCANES" value="ARCANES" title="Nom de la compétence d'Arcanes" />
                     <SELECT class="sheet-attcomptext"  name="attr_arcane_attr"  title="Attribut dont dépend la compétence d'Arcanes">
@@ -228,7 +301,12 @@
                     <button type="roll"
                         name="Jet_Combat"
                         class="sheet-btRolTp"
-                        value="@{rollCompCombat}"
+                        value="@{rollCompCombatTp}"
+                        >Combat</button>
+                    <button type="roll"
+                        name="Jet_CombatMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompCombatMc}"
                         >Combat</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_combat_de" class="sheet-selde">
@@ -244,7 +322,12 @@
                     <button type="roll"
                         name="Jet_Conduite"
                         class="sheet-btRolTp"
-                        value="@{rollCompConduite}"
+                        value="@{rollCompConduiteTp}"
+                        >Conduite</button>
+                    <button type="roll"
+                        name="Jet_ConduiteMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompConduiteMc}"
                         >Conduite</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_conduite_de" class="sheet-selde">
@@ -260,7 +343,13 @@
                     <button type="roll"
                         name="Jet_Connaissance"
                         class="sheet-btRolTp"
-                        value="@{rollCompConnaissance}"
+                        value="@{rollCompConnaissanceTp}"
+                        title="Connaissance"
+                        >&nbsp;</button>
+                    <button type="roll"
+                        name="Jet_ConnaissanceMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompConnaissanceMc}"
                         title="Connaissance"
                         >&nbsp;</button>
                     <input type="text" class="sheet-compspe" name="attr_connaissance_nom" placeholder="Connaissance" value="Connaissance" title="Nom de la compétence de Connaissances" />
@@ -278,7 +367,12 @@
                     <button type="roll"
                         name="Jet_Crochetage"
                         class="sheet-btRolTp"
-                        value="@{rollCompCrochetage}"
+                        value="@{rollCompCrochetageTp}"
+                        >Crochetage</button>
+                    <button type="roll"
+                        name="Jet_CrochetageMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompCrochetageMc}"
                         >Crochetage</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_crochetage_de" class="sheet-selde">
@@ -294,7 +388,12 @@
                     <button type="roll"
                         name="Jet_Discrétion"
                         class="sheet-btRolTp"
-                        value="@{rollCompDiscretion}"
+                        value="@{rollCompDiscretionTp}"
+                        >Discrétion</button>
+                    <button type="roll"
+                        name="Jet_DiscrétionMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompDiscretionMc}"
                         >Discrétion</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_discretion_de" class="sheet-selde">
@@ -310,7 +409,12 @@
                     <button type="roll"
                         name="Jet_Equitation"
                         class="sheet-btRolTp"
-                        value="@{rollCompEquitation}"
+                        value="@{rollCompEquitationTp}"
+                        >Équitation</button>
+                    <button type="roll"
+                        name="Jet_EquitationMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompEquitationMc}"
                         >Équitation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_equitation_de" class="sheet-selde">
@@ -326,7 +430,12 @@
                     <button type="roll"
                         name="Jet_Escalade"
                         class="sheet-btRolTp"
-                        value="@{rollCompEscalade}"
+                        value="@{rollCompEscaladeTp}"
+                        >Escalade</button>
+                    <button type="roll"
+                        name="Jet_EscaladeMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompEscaladeMc}"
                         >Escalade</button>
                     <div class="sheet-attcomptext">FOR</div>
                     <SELECT name="attr_escalade_de" class="sheet-selde">
@@ -342,7 +451,12 @@
                     <button type="roll"
                         name="Jet_Intimidation"
                         class="sheet-btRolTp"
-                        value="@{rollCompIntimidation}"
+                        value="@{rollCompIntimidationTp}"
+                        >Intimidation</button>
+                    <button type="roll"
+                        name="Jet_IntimidationMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompIntimidationMc}"
                         >Intimidation</button>
                     <div class="sheet-attcomptext">ÂME</div>
                     <SELECT name="attr_intimidation_de" class="sheet-selde">
@@ -358,7 +472,12 @@
                     <button type="roll"
                         name="Jet_Jeu"
                         class="sheet-btRolTp"
-                        value="@{rollCompJeu}"
+                        value="@{rollCompJeuTp}"
+                        >Jeu</button>
+                    <button type="roll"
+                        name="Jet_JeuMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompJeuMc}"
                         >Jeu</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_jeu_de" class="sheet-selde">
@@ -374,7 +493,12 @@
                     <button type="roll"
                         name="Jet_Lancer"
                         class="sheet-btRolTp"
-                        value="@{rollCompLancer}"
+                        value="@{rollCompLancerTp}"
+                        >Lancer</button>
+                    <button type="roll"
+                        name="Jet_LancerMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompLancerMc}"
                         >Lancer</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_lancer_de" class="sheet-selde">
@@ -390,7 +514,12 @@
                     <button type="roll"
                         name="Jet_Natation"
                         class="sheet-btRolTp"
-                        value="@{rollCompNatation}"
+                        value="@{rollCompNatationTp}"
+                        >Natation</button>
+                    <button type="roll"
+                        name="Jet_NatationMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompNatationMc}"
                         >Natation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_natation_de" class="sheet-selde">
@@ -406,7 +535,12 @@
                     <button type="roll"
                         name="Jet_Navigation"
                         class="sheet-btRolTp"
-                        value="@{rollCompNavigation}"
+                        value="@{rollCompNavigationTp}"
+                        >Navigation</button>
+                    <button type="roll"
+                        name="Jet_NavigationMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompNavigationMc}"
                         >Navigation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_navigation_de" class="sheet-selde">
@@ -422,7 +556,12 @@
                     <button type="roll"
                         name="Jet_Perception"
                         class="sheet-btRolTp"
-                        value="@{rollCompPerception}"
+                        value="@{rollCompPerceptionTp}"
+                        >Perception</button>
+                    <button type="roll"
+                        name="Jet_PerceptionMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompPerceptionMc}"
                         >Perception</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_perception_de" class="sheet-selde">
@@ -438,7 +577,12 @@
                     <button type="roll"
                         name="Jet_Persuasion"
                         class="sheet-btRolTp"
-                        value="@{rollCompPersuasion}"
+                        value="@{rollCompPersuasionTp}"
+                        >Persuasion</button>
+                    <button type="roll"
+                        name="Jet_PersuasionMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompPersuasionMc}"
                         >Persuasion</button>
                     <div class="sheet-attcomptext">ÂME</div>
                     <SELECT name="attr_persuasion_de" class="sheet-selde">
@@ -454,7 +598,12 @@
                     <button type="roll"
                         name="Jet_Pilotage"
                         class="sheet-btRolTp"
-                        value="@{rollCompPilotage}"
+                        value="@{rollCompPilotageTp}"
+                        >Pilotage</button>
+                    <button type="roll"
+                        name="Jet_PilotageMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompPilotageMc}"
                         >Pilotage</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_pilotage_de" class="sheet-selde">
@@ -470,7 +619,12 @@
                     <button type="roll"
                         name="Jet_Pistage"
                         class="sheet-btRolTp"
-                        value="@{rollCompPistage}"
+                        value="@{rollCompPistageTp}"
+                        >Pistage</button>
+                    <button type="roll"
+                        name="Jet_PistageMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompPistageMc}"
                         >Pistage</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_pistage_de" class="sheet-selde">
@@ -486,7 +640,12 @@
                     <button type="roll"
                         name="Jet_Recherche"
                         class="sheet-btRolTp"
-                        value="@{rollCompRecherche}"
+                        value="@{rollCompRechercheTp}"
+                        >Recherche</button>
+                    <button type="roll"
+                        name="Jet_RechercheMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompRechercheMc}"
                         >Recherche</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_recherche_de" class="sheet-selde">
@@ -502,7 +661,12 @@
                     <button type="roll"
                         name="Jet_Reparation"
                         class="sheet-btRolTp"
-                        value="@{rollCompReparation}"
+                        value="@{rollCompReparationTp}"
+                        >Réparation</button>
+                    <button type="roll"
+                        name="Jet_ReparationMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompReparationMc}"
                         >Réparation</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_reparation_de" class="sheet-selde">
@@ -518,7 +682,12 @@
                     <button type="roll"
                         name="Jet_Reseaux"
                         class="sheet-btRolTp"
-                        value="@{rollCompReseaux}"
+                        value="@{rollCompReseauxTp}"
+                        >Réseaux</button>
+                    <button type="roll"
+                        name="Jet_ReseauxMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompReseauxMc}"
                         >Réseaux</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_reseaux_de" class="sheet-selde">
@@ -534,7 +703,12 @@
                     <button type="roll"
                         name="Jet_Sarcasme"
                         class="sheet-btRolTp"
-                        value="@{rollCompSarcasme}"
+                        value="@{rollCompSarcasmeTp}"
+                        >Sarcasme</button>
+                    <button type="roll"
+                        name="Jet_SarcasmeMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompSarcasmeMc}"
                         >Sarcasme</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_sarcasme_de" class="sheet-selde">
@@ -550,7 +724,12 @@
                     <button type="roll"
                         name="Jet_Soins"
                         class="sheet-btRolTp"
-                        value="@{rollCompSoins}"
+                        value="@{rollCompSoinsTp}"
+                        >Soins</button>
+                    <button type="roll"
+                        name="Jet_SoinsMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompSoinsMc}"
                         >Soins</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_soins_de" class="sheet-selde">
@@ -566,7 +745,12 @@
                     <button type="roll"
                         name="Jet_Survie"
                         class="sheet-btRolTp"
-                        value="@{rollCompSurvie}"
+                        value="@{rollCompSurvieTp}"
+                        >Survie</button>
+                    <button type="roll"
+                        name="Jet_SurvieMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompSurvieMc}"
                         >Survie</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_survie_de" class="sheet-selde">
@@ -582,7 +766,12 @@
                     <button type="roll"
                         name="Jet_Tir"
                         class="sheet-btRolTp"
-                        value="@{rollCompTir}"
+                        value="@{rollCompTirTp}"
+                        >Tir</button>
+                    <button type="roll"
+                        name="Jet_TirMc"
+                        class="sheet-btRolMc"
+                        value="@{rollCompTirMc}"
                         >Tir</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_tir_de" class="sheet-selde">
@@ -599,7 +788,12 @@
                     <button type="roll"
                         name="Jet_Competence"
                         class="sheet-btRolTp"
-                        value="&{template:default} {{name=Jet de @{comp_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{comp_de}![Trait],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}"
+                        value="&{template:default} {{name=Jet de @{comp_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}"
+                        >&nbsp;</button>
+                    <button type="roll"
+                        name="Jet_Competence"
+                        class="sheet-btRolMc"
+                        value="/roll { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]"
                         >&nbsp;</button>
                         <input type="text" class="sheet-compspe" name="attr_comp_nom" placeholder="Compétence" title="Nom de la compétence" />
                         <SELECT class="sheet-attcomptext"  name="attr_comp_att"  title="Attribut dont dépend la compétence">
