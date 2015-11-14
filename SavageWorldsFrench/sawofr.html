@@ -978,9 +978,9 @@
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
             <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="Combat" SELECTED>Combat</OPTION>
-                <OPTION value="Lancer">Lancer</OPTION>
-                <OPTION value="Tir">Tir</OPTION>
+                <OPTION value="@{rollBastCombat}" SELECTED>Combat</OPTION>
+                <OPTION value="@{rollBastLancer}">Lancer</OPTION>
+                <OPTION value="@{rollBastTir}">Tir</OPTION>
             </SELECT>
             <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{rollBastForce}" SELECTED>FORCE</OPTION>
@@ -1076,6 +1076,12 @@
                 <button type="roll"
                     name="Jet_ArmeD"
                     class="sheet-btRolTp"
+                    value="&{template:default} {{name=@{armeD_nom}}} {{ Attaque=[[ @{armeD_comp} ]] }} {{ Dégâts=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]] }} "
+                    title="Attaque"
+                    >&nbsp;</button>
+                <button type="roll"
+                    name="Jet_ArmeDMc"
+                    class="sheet-btRolMc"
                     value="&{template:default} {{name=@{armeD_nom}}} {{ Attaque=[[ @{armeD_comp} ]] }} {{ Dégâts=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]] }} "
                     title="Attaque"
                     >&nbsp;</button>

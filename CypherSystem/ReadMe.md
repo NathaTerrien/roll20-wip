@@ -39,6 +39,7 @@ Set up the API script:
 4. Copy the contents of this [Javascript file](https://github.com/Roll20/roll20-api-scripts/blob/master/CypherSystemSheet/cyphersystemsheet.js) to the big black empty area
 5. Click on _"Save Script"_
 
+
 # Release Notes
 
 ##Release 1.3 (October 25th, 2015)
