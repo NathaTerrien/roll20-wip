@@ -7,19 +7,19 @@
 
     <input type="text" disabled hidden name="attr_RollAME" value="{ 1d@{ame_de}![Âme] , @{joker_de}![Joker] }kh1 + @{ame_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollAME" value="&{template:sawo} {{name=Âme}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAME} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
-    <input type="text" disabled hidden name="attr_jetRollAME" value="/roll @{rollAME}" />
+    <input type="text" disabled hidden name="attr_jetRollAME" value="&{template:sawo} {{name=Âme}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollAME}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
     <input type="text" disabled hidden name="attr_RollFOR" value="{ 1d@{force_de}![Force] , @{joker_de}![Joker] }kh1 + @{force_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollFOR" value="&{template:sawo} {{name=Force}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollFOR} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
-    <input type="text" disabled hidden name="attr_jetRollFOR" value="/roll @{rollFOR}" />
+    <input type="text" disabled hidden name="attr_jetRollFOR" value="&{template:sawo} {{name=Force}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollFOR}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
     <input type="text" disabled hidden name="attr_RollINT" value="{ 1d@{intellect_de}![Intellect] , @{joker_de}![Joker] }kh1 + @{intellect_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollINT" value="&{template:sawo} {{name=Intellect}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollINT} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
-    <input type="text" disabled hidden name="attr_jetRollINT" value="/roll @{rollINT}" />
+    <input type="text" disabled hidden name="attr_jetRollINT" value="&{template:sawo} {{name=Intellect}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollINT}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
     <input type="text" disabled hidden name="attr_RollVIG" value="{ 1d@{vigueur_de}![Vigueur] , @{joker_de}![Joker] }kh1 + @{vigueur_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollVIG" value="&{template:sawo} {{name=Vigueur}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollVIG} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
-    <input type="text" disabled hidden name="attr_jetRollVIG" value="/roll @{rollVIG}" />
+    <input type="text" disabled hidden name="attr_jetRollVIG" value="&{template:sawo} {{name=Vigueur}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollVIG}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
     <!-- BASTON -->
     <input type="text" disabled hidden name="attr_RollBastCombat" value="{ 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
@@ -870,6 +870,12 @@
                 <input type="number" name="attr_resistance_base" value="2+floor((@{vigueur_de}+@{vigueur_bonus})/2)" disabled title="Valeur de Résistance de base" />
                 +<input type="number" name="attr_resistance_bonus" value="0" title="Armure (torse) et autres bonus de vigueur"/>
                 =<input type="number" name="attr_resistance" value="[[@{resistance_base}+@{resistance_bonus}]]" title="Résistance totale" disabled />
+            </div>
+            <div class="sheet-input">
+                <div class="sheet-comptext">Pts POUVOIR</div>
+                <input type="number" name="attr_pointspouvoir" value="0" title="Points de Pouvoir courants" />
+                /
+                <input type="number" name="attr_pointspouvoir_max" value="0" title="Points de Pouvoir maximum"/>
             </div>
         </div>
         <div class="sheet-colblock"> <!-- EQUIPEMENT -->
