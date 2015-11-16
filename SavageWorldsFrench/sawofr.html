@@ -2,6 +2,7 @@
 <div style="display: none;">
     <!-- ATTRIBUTS -->
     <input type="text" disabled hidden name="attr_RollAGI" value="{ 1d@{agilite_de}![Agilité] , @{joker_de}![Joker] }kh1 + @{agilite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+<<<<<<< HEAD
     <input type="text" disabled hidden name="attr_relRollAGI" value="&{template:sawo} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAGI} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
     <input type="text" disabled hidden name="attr_jetRollAGI" value="&{template:sawo} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollAGI}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
@@ -32,11 +33,44 @@
 
     <input type="text" disabled hidden name="attr_RollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4), 0d0 }kh1" />
+=======
+    <input type="text" disabled hidden name="attr_relRollAGI" value="&{template:default} {{name=Jet d'Agilité}} {{perso=@{character_name} }} {{relances=[[  { floor( ( { @{rollAGI} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{bonus=[[@{agilite_bonus}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollAGI" value="&{template:default} {{name=Jet d'Agilité}} {{perso=@{character_name} }} {{jet=[[@{rollAGI}]] }} {{bonus=[[@{agilite_bonus}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+
+    <input type="text" disabled hidden name="attr_RollAME" value="{ 1d@{ame_de}![Âme] , @{joker_de}![Joker] }kh1 + @{ame_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollAME" value="&{template:default} {{name=Jet d'Âme}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollAME} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollAME" value="/roll @{rollAME}" />
+
+    <input type="text" disabled hidden name="attr_RollFOR" value="{ 1d@{force_de}![Force] , @{joker_de}![Joker] }kh1 + @{force_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollFOR" value="&{template:default} {{name=Jet de Force}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollFOR} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollFOR" value="/roll @{rollFOR}" />
+
+    <input type="text" disabled hidden name="attr_RollINT" value="{ 1d@{intellect_de}![Intellect] , @{joker_de}![Joker] }kh1 + @{intellect_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollINT" value="&{template:default} {{name=Jet d'Intellect}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollINT} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollINT" value="/roll @{rollINT}" />
+
+    <input type="text" disabled hidden name="attr_RollVIG" value="{ 1d@{vigueur_de}![Vigueur] , @{joker_de}![Joker] }kh1 + @{vigueur_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollVIG" value="&{template:default} {{name=Jet de Vigueur}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollVIG} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollVIG" value="/roll @{rollVIG}" />
+
+    <!-- BASTON -->
+    <input type="text" disabled hidden name="attr_RollBastCombat" value="{ floor( ( { { 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur] } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_relRollBastCombat" value="@{RollBastCombat}" />
+    <input type="text" disabled hidden name="attr_jetRollBastCombat" value="@{RollBastCombat}" />
+
+    <input type="text" disabled hidden name="attr_RollBastLancer" value="{ 1d@{lancer_de}![Lancer],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollBastLancer" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_jetRollBastLancer" value="@{RollBastLancer}" />
+
+    <input type="text" disabled hidden name="attr_RollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
+>>>>>>> origin/master
     <input type="text" disabled hidden name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
     <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
 
     <!-- ARMES -->
+<<<<<<< HEAD
     <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:sawo} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe1" value="&{template:sawo} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme1_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe1Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]" />
@@ -149,6 +183,117 @@
 <!-- PARAMETRAGES -->
 <span class="sheet-smallspan">Version 1.0 (2015-11-16)&nbsp;-&nbsp;Style des jets: </span>
 <input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
+=======
+    <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:default} {{name=@{arme1_nom} }} {{Attaque=[[ @{arme1_comp} ]]}} {{Dégâts=[[@{rollArmeFixe1Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe1" value="/roll @{arme1_comp}" />
+    <input type="text" disabled hidden name="attr_RollArmeFixe1Dgt" value="{ floor( ( { @{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]  } - {@{Target|resistance}[Résistance] - 4 } ) /4), 0d0 }kh1 " />
+
+    <input type="text" disabled hidden name="attr_relRollArmeFixe2" value="&{template:default} {{name=@{arme2_nom} }} {{Attaque=[[@{arme2_comp}]]}} {{Dégâts=[[@{rollArmeFixe2Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe2" value="/roll @{arme2_comp}" />
+    <input type="text" disabled hidden name="attr_RollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + @{arme2_dgt_bonus}[Dégâts : arme]" />
+
+    <input type="text" disabled hidden name="attr_relRollArmeFixe3" value="&{template:default} {{name=@{arme3_nom} }} {{Attaque=[[@{arme3_comp}]]}} {{Dégâts=[[@{rollArmeFixe3Dgt}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe3" value="/roll @{arme3_comp}" />
+    <input type="text" disabled hidden name="attr_RollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus}[Dégâts : arme]" />
+
+    <!-- COMPETENCES -->
+    <input type="text" disabled hidden name="attr_RollArcane" value="{ 1d@{arcane_de}![@{arcane_nom}],@{joker_de}![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollArcane" value="&{template:default} {{name=Jet de @{arcane_nom} }} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompArcane} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollArcane" value="/roll @{rollCompArcane}" />
+
+    <input type="text" disabled hidden name="attr_relRollCombat" value="&{template:default} {{name=Jet de Combat}} {{Personnage=@{character_name} }} {{Cible=@{target|character_name} }} {{relances=[[@{rollBastCombatTp}]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollCombat" value="/roll @{rollBastCombat}" />
+
+    <input type="text" disabled hidden name="attr_RollConduite" value="{ 1d@{conduite_de}![Conduite],@{joker_de}![Joker]}kh1 + @{conduite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollConduite" value="&{template:default} {{name=Jet de Conduite}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompConduite} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollConduite" value="/roll @{rollCompConduite}" />
+
+    <input type="text" disabled hidden name="attr_RollConnaissance" value="{ 1d@{connaissance_de}![@{connaissance_nom}],@{joker_de}![Joker]}kh1 + @{connaissance_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollConnaissance" value="&{template:default} {{name=Jet de @{connaissance_nom} }} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompConnaissance} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollConnaissance" value="/roll @{rollCompConnaissance}" />
+
+    <input type="text" disabled hidden name="attr_RollCrochetage" value="{ 1d@{crochetage_de}![Crochetage],@{joker_de}![Joker]}kh1 + @{crochetage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollCrochetage" value="&{template:default} {{name=Jet de Crochetage}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompCrochetage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollCrochetage" value="/roll @{rollCompCrochetage}" />
+
+    <input type="text" disabled hidden name="attr_RollDiscretion" value="{ 1d@{discretion_de}![Discretion],@{joker_de}![Joker]}kh1 + @{discretion_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollDiscretion" value="&{template:default} {{name=Jet de Discrétion}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompDiscretion} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollDiscretion" value="/roll @{rollCompDiscretion}" />
+
+    <input type="text" disabled hidden name="attr_RollEquitation" value="{ 1d@{equitation_de}![Equitation],@{joker_de}![Joker]}kh1 + @{equitation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollEquitation" value="&{template:default} {{name=Jet d'Équitation}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompEquitation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollEquitation" value="/roll @{rollCompEquitation}" />
+
+    <input type="text" disabled hidden name="attr_RollEscalade" value="{ 1d@{escalade_de}![Escalade],@{joker_de}![Joker]}kh1 + @{escalade_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollEscalade" value="&{template:default} {{name=Jet d'Escalade}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompEscalade} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollEscalade" value="/roll @{rollCompEscalade}" />
+
+    <input type="text" disabled hidden name="attr_RollIntimidation" value="{ 1d@{intimidation_de}![Intimidation],@{joker_de}![Joker]}kh1 + @{intimidation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollIntimidation" value="&{template:default} {{name=Jet d'Intimidation}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompIntimidation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollIntimidation" value="/roll @{rollCompIntimidation}" />
+
+    <input type="text" disabled hidden name="attr_RollJeu" value="{ 1d@{jeu_de}![Jeu],@{joker_de}![Joker]}kh1 + @{jeu_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollJeu" value="&{template:default} {{name=Jet de Jeu}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompJeu} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollJeu" value="/roll @{rollCompJeu}" />
+
+    <input type="text" disabled hidden name="attr_RollLancer" value="&{template:default} {{name=Jet de Lancer}} {{Personnage=@{character_name} }} {{relances=[[@{rollBastLancerTp}]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollLancer" value="/roll @{rollBastLancer}" />
+
+    <input type="text" disabled hidden name="attr_RollNatation" value="{ 1d@{natation_de}![Natation],@{joker_de}![Joker]}kh1 + @{natation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollNatation" value="&{template:default} {{name=Jet de Natation}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompNatation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollNatation" value="/roll @{rollCompNatation}" />
+
+    <input type="text" disabled hidden name="attr_RollNavigation" value="{ 1d@{navigation_de}![Navigation],@{joker_de}![Joker]}kh1 + @{navigation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollNavigation" value="&{template:default} {{name=Jet de Navigation}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompNavigation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollNavigation" value="/roll @{rollCompNavigation}" />
+
+    <input type="text" disabled hidden name="attr_RollPerception" value="{ 1d@{perception_de}![Perception],@{joker_de}![Joker]}kh1 + @{perception_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPerception" value="&{template:default} {{name=Jet de Perception}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompPerception} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollPerception" value="/roll @{rollCompPerception}" />
+
+    <input type="text" disabled hidden name="attr_RollPersuasion" value="{ 1d@{persuasion_de}![Persuasion],@{joker_de}![Joker]}kh1 + @{persuasion_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPersuasion" value="&{template:default} {{name=Jet de Persuasion}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompPersuasion} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }}" />
+    <input type="text" disabled hidden name="attr_jetRollPersuasion" value="/roll @{rollCompPersuasion}" />
+
+    <input type="text" disabled hidden name="attr_RollPilotage" value="{ 1d@{pilotage_de}![Pilotage],@{joker_de}![Joker]}kh1 + @{pilotage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPilotage" value="&{template:default} {{name=Jet de Pilotage}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompPilotage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollPilotage" value="/roll @{rollCompPilotage}" />
+
+    <input type="text" disabled hidden name="attr_RollPistage" value="{ 1d@{pistage_de}![Pistage],@{joker_de}![Joker]}kh1 + @{pistage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPistage" value="&{template:default} {{name=Jet de Pistage}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompPistage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollPistage" value="/roll @{rollCompPistage}" />
+
+    <input type="text" disabled hidden name="attr_RollRecherche" value="{ 1d@{recherche_de}![Trait],@{joker_de}![Recherche]}kh1 + @{recherche_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollRecherche" value="&{template:default} {{name=Jet de Recherche}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompRecherche} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollRecherche" value="/roll @{rollCompRecherche}" />
+
+    <input type="text" disabled hidden name="attr_RollReparation" value="{ 1d@{reparation_de}![Réparation],@{joker_de}![Joker]}kh1 + @{reparation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollReparation" value="&{template:default} {{name=Jet de Réparation}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompReparation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollReparation" value="/roll @{rollCompReparation}" />
+
+    <input type="text" disabled hidden name="attr_RollReseaux" value="{ 1d@{reseaux_de}![Réseaux],@{joker_de}![Joker]}kh1 + @{reseaux_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollReseaux" value="&{template:default} {{name=Jet de Réseaux}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompReseaux} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }} " />
+    <input type="text" disabled hidden name="attr_jetRollReseaux" value="/roll @{rollCompReseaux}" />
+
+    <input type="text" disabled hidden name="attr_RollSarcasme" value="{ 1d@{sarcasme_de}![Sarcasme],@{joker_de}![Joker]}kh1 + @{sarcasme_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollSarcasme" value="&{template:default} {{name=Jet de Sarcasme}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompSarcasme} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollSarcasme" value="/roll @{rollCompSarcasme}" />
+
+    <input type="text" disabled hidden name="attr_RollSoins" value="{ 1d@{soins_de}![Soins],@{joker_de}![Joker]}kh1 + @{soins_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollSoins" value="&{template:default} {{name=Jet de Soins}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompSoins} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollSoins" value="/roll @{rollCompSoins}" />
+
+    <input type="text" disabled hidden name="attr_RollSurvie" value="{ 1d@{survie_de}![Survie],@{joker_de}![Joker]}kh1 + @{survie_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollSurvie" value="&{template:default} {{name=Jet de Survie}} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { @{rollCompSurvie} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollSurvie" value="/roll @{rollCompSurvie}" />
+
+    <input type="text" disabled hidden name="attr_relRollTir" value="&{template:default} {{name=Jet de Tir}} {{Personnage=@{character_name} }} {{relances=[[@{rollBastTirTp}]] }}" />
+    <input type="text" disabled hidden name="attr_jetRollTir" value="/roll @{rollBastTir}" />
+</div> <!-- *** HIDDEN ROLLS ** -->
+<!-- PARAMETRAGES -->
+<span class="sheet-smallspan">Version 0.4 (2015-11-15)&nbsp;-&nbsp;Style des jets: </span>
+<input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succés/Relances</span>
+>>>>>>> origin/master
 <input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet 'macro', montrant les jets bruts" /><span>Jets bruts</span>
 <!--- ***  FdP *** -->
 <div class="sheet-main">
@@ -791,12 +936,20 @@
                     <button type="roll"
                         name="Btrel-Competence"
                         class="sheet-btRolrel"
+<<<<<<< HEAD
                         value="&{template:sawo} {{name=@{comp_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur] } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}"
+=======
+                        value="&{template:default} {{name=Jet de @{comp_nom} }} {{Personnage=@{character_name} }} {{relances=[[  { floor( ( { { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}"
+>>>>>>> origin/master
                         >&nbsp;</button>
                     <button type="roll"
                         name="Btjet-Competence"
                         class="sheet-btRoljet"
+<<<<<<< HEAD
                         value="&{template:sawo} {{name=@{comp_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[{ 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}"
+=======
+                        value="/roll { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]"
+>>>>>>> origin/master
                         >&nbsp;</button>
                         <input type="text" class="sheet-compspe" name="attr_comp_nom" placeholder="Compétence" title="Nom de la compétence" />
                         <SELECT class="sheet-attcomptext"  name="attr_comp_att"  title="Attribut dont dépend la compétence">
@@ -980,6 +1133,7 @@
                 title="Arme N°1"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
+<<<<<<< HEAD
             <SELECT name="attr_arme1_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                 <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
                 <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
@@ -991,6 +1145,12 @@
                 <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
                 <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
                 <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
+=======
+            <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="@{RollBastCombat}" SELECTED>Combat</OPTION>
+                <OPTION value="@{RollBastLancer}">Lancer</OPTION>
+                <OPTION value="@{RollBastTir}">Tir</OPTION>
+>>>>>>> origin/master
             </SELECT>
             <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
@@ -1023,6 +1183,7 @@
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme2_nom" placeholder="Nom de l'arme n°2" title="Nom de l'arme n°2" />
+<<<<<<< HEAD
             <SELECT name="attr_arme2_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                 <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
                 <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
@@ -1034,6 +1195,12 @@
                 <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
                 <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
                 <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
+=======
+            <SELECT name="attr_arme2_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="@{RollBastCombat}" SELECTED>Combat</OPTION>
+                <OPTION value="@{RollBastLancer}">Lancer</OPTION>
+                <OPTION value="@{RollBastTir}">Tir</OPTION>
+>>>>>>> origin/master
             </SELECT>
             <SELECT name="attr_arme2_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
@@ -1066,6 +1233,7 @@
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme3_nom" placeholder="Nom de l'arme n°3" title="Nom de l'arme n°3" />
+<<<<<<< HEAD
             <SELECT name="attr_arme3_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                 <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
                 <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
@@ -1077,6 +1245,12 @@
                 <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
                 <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
                 <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
+=======
+            <SELECT name="attr_arme3_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="@{RollBastCombat}" SELECTED>Combat</OPTION>
+                <OPTION value="@{RollBastLancer}">Lancer</OPTION>
+                <OPTION value="@{RollBastTir}">Tir</OPTION>
+>>>>>>> origin/master
             </SELECT>
             <SELECT name="attr_arme3_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
@@ -1100,12 +1274,17 @@
                 <button type="roll"
                     name="Btrel-ArmeD"
                     class="sheet-btRolrel"
+<<<<<<< HEAD
                     value="&{template:sawo} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{armeD_comp_rel} ]]}} {{degatsrel=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}  - (@{Target|resistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}}  {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}"
+=======
+                    value="&{template:default} {{name=@{armeD_nom}}} {{ Attaque=[[ @{armeD_comp} ]] }} {{ Dégâts=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]] }} "
+>>>>>>> origin/master
                     title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="Btjet-ArmeD"
                     class="sheet-btRoljet"
+<<<<<<< HEAD
                     value="&{template:sawo} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{armeD_comp_jet} ]]}} {{degats=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}"
                     title="Attaque"
                     >&nbsp;</button>
@@ -1121,6 +1300,16 @@
                     <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
                     <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
                     <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
+=======
+                    value="&{template:default} {{name=@{armeD_nom}}} {{ Attaque=[[ @{armeD_comp} ]] }} {{ Dégâts=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]] }} "
+                    title="Attaque"
+                    >&nbsp;</button>
+                <input type="text" class="sheet-compspe"  name="attr_armeD_nom" placeholder="Nom de l'arme" title="Nom de l'arme" />
+                <SELECT name="attr_armeD_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                    <OPTION value="@{RollBastCombat}" SELECTED>Combat</OPTION>
+                    <OPTION value="@{RollBastLancer}">Lancer</OPTION>
+                    <OPTION value="@{RollBastTir}">Tir</OPTION>
+>>>>>>> origin/master
                 </SELECT>
                 <SELECT name="attr_armeD_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                     <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
