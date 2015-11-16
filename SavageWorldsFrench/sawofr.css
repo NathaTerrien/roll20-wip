@@ -1,10 +1,50 @@
-input[type=radio].sheet-styleRolTp,
-input[type=radio].sheet-styleRolMc{
+/* TEMPLATES */
+.sheet-rolltemplate-sawo table {
+    width: 189px;
+    padding: 2px;
+    border: none;
+    background-color: #FBFCFC;
+    border-top: 1px solid #CD071E;
+    border-bottom: 1px solid #CD071E;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.sheet-rolltemplate-sawo tr {
+    border-left: 1px solid #CD071E;
+    border-right: 1px solid #CD071E;
+}
+.sheet-rolltemplate-sawo tr.sheet-septpl {
+    border-top: 1px dashed #CD071E;
+}
+.sheet-rolltemplate-sawo tr.sheet-septpl:first-child {
+    border-top: none;
+}
+.sheet-rolltemplate-sawo th {
+    background-color: #CD071E;
+    color : #FBFCFC;
+    line-height: 1.2em;
+    font-size: 1.1em;
+    text-align: center;
+    font-family: Candal;
+    font-variant: small-caps;
+    font-weight: normal;
+    margin-bottom: 4px;
+}
+.sheet-rolltemplate-sawo td {
+    padding-left: 5px;
+    font-size: 0.9em;
+}
+.sheet-rolltemplate-sawo td.sheet-info {
+    font-style: italic;
+    background-color:#F6F1EC;
+}
+/* FDP */
+input[type=radio].sheet-styleRolrel,
+input[type=radio].sheet-styleRoljet{
     margin-left: 10px;
     margin-right: 2px;
 }
-input[type=radio].sheet-styleRolTp + span,
-input[type=radio].sheet-styleRolMc + span{
+input[type=radio].sheet-styleRolrel + span,
+input[type=radio].sheet-styleRoljet + span{
     font-size:11px;
     color: #888888;
     text-align:left;
@@ -37,7 +77,7 @@ button[type="roll"]:hover{
     border-color:#CD071E;
     font-weight: bold;
 }
-button[type="roll"].sheet-btRolTp{
+button[type="roll"].sheet-btRolrel{
     width: 142px;
     border-width: 1px;
     border-style: solid;
@@ -49,26 +89,38 @@ button[type="roll"].sheet-btRolTp{
     background: transparent;
     text-transform: uppercase;
 }
-button[type="roll"].sheet-btRolTp:before{
+button[type="roll"].sheet-btRolrel:before{
     content: "t  ";
     text-transform: lowercase;
 }
-button[type="roll"].sheet-btRolTp:hover:before{
+button[type="roll"].sheet-btRolrel:hover:before{
     font-weight: bold;
     color: #CD071E;
 }
-button[type="roll"].sheet-btRolTp:hover{
+button[type="roll"].sheet-btRolrel:hover{
     border-width: 1px;
     border-style: solid;
     border-color:#CD071E;
 }
-input[type=radio].sheet-styleRolTp:checked ~ div.sheet-main button[type=roll].sheet-btRolTp{
+input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
     display: inline-block;
 }
-input[type=radio].sheet-styleRolMc:checked ~ div.sheet-main button[type=roll].sheet-btRolTp{
+input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
     display: none;
 }
-button[type="roll"].sheet-btRolMc{
+input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main select.sheet-selComprel{
+    display: inline-block;
+}
+input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main select.sheet-selComprel{
+    display: none;
+}
+input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main select.sheet-selCompjet{
+    display: none;
+}
+input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main select.sheet-selCompjet{
+    display: inline-block;
+}
+button[type="roll"].sheet-btRoljet{
     width: 142px;
     border-width: 1px;
     border-style: solid;
@@ -80,23 +132,23 @@ button[type="roll"].sheet-btRolMc{
     background: transparent;
     text-transform: uppercase;
 }
-button[type="roll"].sheet-btRolMc:before{
+button[type="roll"].sheet-btRoljet:before{
     content: "t  ";
     text-transform: lowercase;
 }
-button[type="roll"].sheet-btRolMc:hover:before{
+button[type="roll"].sheet-btRoljet:hover:before{
     font-weight: bold;
     color: #CD071E;
 }
-button[type="roll"].sheet-btRolMc:hover{
+button[type="roll"].sheet-btRoljet:hover{
     border-width: 1px;
     border-style: solid;
     border-color:#CD071E;
 }
-input[type=radio].sheet-styleRolTp:checked ~ div.sheet-main button[type=roll].sheet-btRolMc{
+input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRoljet{
     display: none;
 }
-input[type=radio].sheet-styleRolMc:checked ~ div.sheet-main button[type=roll].sheet-btRolMc{
+input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].sheet-btRoljet{
     display: inline-block;
 }
 div.sheet-main{
@@ -202,7 +254,7 @@ input[type="checkbox"]{
 }
 input[type="radio"]{
     margin-right: 2px;
-    margin-left: 4px;
+    margin-left: 1px;
 }
 select{
     border: none;

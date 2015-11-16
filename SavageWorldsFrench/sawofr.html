@@ -1,152 +1,155 @@
 <!-- *** HIDDEN ROLLS ** -->
 <div style="display: none;">
     <!-- ATTRIBUTS -->
-    <input type="text" disabled hidden name="attr_rollAttAgilite" value="{ 1d@{agilite_de}![Agilité] , @{joker_de}![Joker] }kh1 + @{agilite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollAttAgiliteTp" value="&{template:default} {{name=Jet d'Agilité}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollAttAgilite} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollAttAgiliteMc" value="/roll @{rollAttAgilite}" />
+    <input type="text" disabled hidden name="attr_RollAGI" value="{ 1d@{agilite_de}![Agilité] , @{joker_de}![Joker] }kh1 + @{agilite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollAGI" value="&{template:sawo} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAGI} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollAGI" value="&{template:sawo} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollAGI}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollAttAme" value="{ 1d@{ame_de}![Âme] , @{joker_de}![Joker] }kh1 + @{ame_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollAttAmeTp" value="&{template:default} {{name=Jet d'Âme}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollAttAme} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollAttAmeMc" value="/roll @{rollAttAme}" />
+    <input type="text" disabled hidden name="attr_RollAME" value="{ 1d@{ame_de}![Âme] , @{joker_de}![Joker] }kh1 + @{ame_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollAME" value="&{template:sawo} {{name=Âme}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAME} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollAME" value="/roll @{rollAME}" />
 
-    <input type="text" disabled hidden name="attr_rollAttForce" value="{ 1d@{force_de}![Force] , @{joker_de}![Joker] }kh1 + @{force_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollAttForceTp" value="&{template:default} {{name=Jet de Force}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollAttForce} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollAttForceMc" value="/roll @{rollAttForce}" />
+    <input type="text" disabled hidden name="attr_RollFOR" value="{ 1d@{force_de}![Force] , @{joker_de}![Joker] }kh1 + @{force_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollFOR" value="&{template:sawo} {{name=Force}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollFOR} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollFOR" value="/roll @{rollFOR}" />
 
-    <input type="text" disabled hidden name="attr_rollAttIntellect" value="{ 1d@{intellect_de}![Intellect] , @{joker_de}![Joker] }kh1 + @{intellect_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollAttIntellectTp" value="&{template:default} {{name=Jet d'Intellect}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollAttIntellect} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollAttIntellectMc" value="/roll @{rollAttIntellect}" />
+    <input type="text" disabled hidden name="attr_RollINT" value="{ 1d@{intellect_de}![Intellect] , @{joker_de}![Joker] }kh1 + @{intellect_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollINT" value="&{template:sawo} {{name=Intellect}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollINT} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollINT" value="/roll @{rollINT}" />
 
-    <input type="text" disabled hidden name="attr_rollAttVigueur" value="{ 1d@{vigueur_de}![Vigueur] , @{joker_de}![Joker] }kh1 + @{vigueur_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollAttVigueurTp" value="&{template:default} {{name=Jet de Vigueur}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollAttVigueur} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollAttVigueurMc" value="/roll @{rollAttVigueur}" />
+    <input type="text" disabled hidden name="attr_RollVIG" value="{ 1d@{vigueur_de}![Vigueur] , @{joker_de}![Joker] }kh1 + @{vigueur_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollVIG" value="&{template:sawo} {{name=Vigueur}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollVIG} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollVIG" value="/roll @{rollVIG}" />
 
     <!-- BASTON -->
-    <input type="text" disabled hidden name="attr_rollBastCombat" value="{ 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollBastCombatTp" value="{ floor( ( { @{rollBastCombat} } - {@{Target|parade}[Parade] - 4 } ) /4[Difficulté]), 0d0 }kh1 " />
-    <input type="text" disabled hidden name="attr_rollBastCombatMc" value="@{rollBastCombat} " />
+    <input type="text" disabled hidden name="attr_RollBastCombat" value="{ 1d@{combat_de}![Combat],@{joker_de}![Joker]}kh1 + @{combat_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollBastCombat" value="{ floor( ( { @{RollBastCombat} } - (@{Target|parade}[Parade] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_jetRollBastCombat" value="@{RollBastCombat}" />
 
-    <input type="text" disabled hidden name="attr_rollBastLancer" value="{ 1d@{lancer_de}![Lancer],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollBastLancerTp" value="{ floor( ( { @{rollBastLancer} } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_rollBastLancerMc" value="@{rollBastLancer}" />
+    <input type="text" disabled hidden name="attr_RollBastLancer" value="{ 1d@{lancer_de}![Lancer],@{joker_de}![Joker]}kh1 + @{lancer_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollBastLancer" value="{ floor( ( { @{rollBastLancer} } ) /4), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_jetRollBastLancer" value="@{RollBastLancer}" />
 
-    <input type="text" disabled hidden name="attr_rollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollBastTirTp" value="{ floor( ( { @{rollBastTir} } ) /4[Difficulté]), 0d0 }kh1" />
-    <input type="text" disabled hidden name="attr_rollBastTirMc" value="@{rollBastTir}" />
+    <input type="text" disabled hidden name="attr_RollBastTir" value="{ 1d@{tir_de}![Tir],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + @{tir_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4), 0d0 }kh1" />
+    <input type="text" disabled hidden name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
-    <input type="text" disabled hidden name="attr_rollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
+    <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
 
     <!-- ARMES -->
-    <input type="text" disabled hidden name="attr_rollArmeFixe1Tp" value="&{template:default} {{name=@{arme1_nom} }} {{Attaque=[[ @{arme1_comp} ]]}} {{Dégâts=[[@{rollArmeFixe1Dgt}]]}} " />
-    <input type="text" disabled hidden name="attr_rollArmeFixe1Mc" value="/roll @{arme1_comp}" />
-    <input type="text" disabled hidden name="attr_rollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:sawo} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe1" value="&{template:sawo} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme1_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe1Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe1Dgt" value="{ floor( ( @{jetRollArmeFixe1Dgt} - (@{Target|resistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
-    <input type="text" disabled hidden name="attr_rollArmeFixe2Tp" value="&{template:default} {{name=@{arme2_nom} }} {{Attaque=[[@{arme2_comp}]]}} {{Dégâts=[[@{rollArmeFixe2Dgt}]]}} " />
-    <input type="text" disabled hidden name="attr_rollArmeFixe2Mc" value="/roll @{arme2_comp}" />
-    <input type="text" disabled hidden name="attr_rollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + @{arme2_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe2" value="&{template:sawo} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme2_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe2Dgt}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe2" value="&{template:sawo} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme2_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe2Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + @{arme2_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe2Dgt" value="{ floor( ( @{jetRollArmeFixe2Dgt} - (@{Target|resistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
-    <input type="text" disabled hidden name="attr_rollArmeFixe3Tp" value="&{template:default} {{name=@{arme3_nom} }} {{Attaque=[[@{arme3_comp}]]}} {{Dégâts=[[@{rollArmeFixe3Dgt}]]}} " />
-    <input type="text" disabled hidden name="attr_rollArmeFixe3Mc" value="/roll @{arme3_comp}" />
-    <input type="text" disabled hidden name="attr_rollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe3" value="&{template:sawo} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme3_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe3Dgt}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe3" value="&{template:sawo} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme3_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe3Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe3Dgt" value="{ floor( ( @{jetRollArmeFixe3Dgt} - (@{Target|resistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
     <!-- COMPETENCES -->
-    <input type="text" disabled hidden name="attr_rollCompArcane" value="{ 1d@{arcane_de}![@{arcane_nom}],@{joker_de}![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompArcaneTp" value="&{template:default} {{name=Jet de @{arcane_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompArcane} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompArcaneMc" value="/roll @{rollCompArcane}" />
+    <input type="text" disabled hidden name="attr_RollArcane" value="{ 1d@{arcane_de}![@{arcane_nom}],@{joker_de}![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollArcane" value="&{template:sawo} {{name=@{arcane_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollArcane} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollArcane" value="&{template:sawo} {{name=@{arcane_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollArcane}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompCombatTp" value="&{template:default} {{name=Jet de Combat}} {{Personnage=@{character_name} }} {{Cible=@{target|character_name} }} {{Succès et Relances=[[@{rollBastCombatTp}]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompCombatMc" value="/roll @{rollBastCombatMc}" />
+    <input type="text" disabled hidden name="attr_relRollCombat" value="&{template:sawo} {{name=Combat}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[@{relRollBastCombat}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollCombat" value="&{template:sawo} {{name=Combat}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{jetRollBastCombat}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompConduite" value="{ 1d@{conduite_de}![Conduite],@{joker_de}![Joker]}kh1 + @{conduite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompConduiteTp" value="&{template:default} {{name=Jet de Conduite}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompConduite} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompConduiteMc" value="/roll @{rollCompConduite}" />
+    <input type="text" disabled hidden name="attr_RollConduite" value="{ 1d@{conduite_de}![Conduite],@{joker_de}![Joker]}kh1 + @{conduite_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollConduite" value="&{template:sawo} {{name=Conduite}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollConduite} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollConduite" value="&{template:sawo} {{name=Conduite}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollConduite}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompConnaissance" value="{ 1d@{connaissance_de}![@{connaissance_nom}],@{joker_de}![Joker]}kh1 + @{connaissance_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompConnaissanceTp" value="&{template:default} {{name=Jet de @{connaissance_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompConnaissance} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompConnaissanceMc" value="/roll @{rollCompConnaissance}" />
+    <input type="text" disabled hidden name="attr_RollConnaissance" value="{ 1d@{connaissance_de}![@{connaissance_nom}],@{joker_de}![Joker]}kh1 + @{connaissance_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollConnaissance" value="&{template:sawo} {{name=@{connaissance_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollConnaissance} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollConnaissance" value="&{template:sawo} {{name=@{connaissance_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollConnaissance}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompCrochetage" value="{ 1d@{crochetage_de}![Crochetage],@{joker_de}![Joker]}kh1 + @{crochetage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompCrochetageTp" value="&{template:default} {{name=Jet de Crochetage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompCrochetage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompCrochetageMc" value="/roll @{rollCompCrochetage}" />
+    <input type="text" disabled hidden name="attr_RollCrochetage" value="{ 1d@{crochetage_de}![Crochetage],@{joker_de}![Joker]}kh1 + @{crochetage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollCrochetage" value="&{template:sawo} {{name=Crochetage}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollCrochetage} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollCrochetage" value="&{template:sawo} {{name=Crochetage}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollCrochetage}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompDiscretion" value="{ 1d@{discretion_de}![Discretion],@{joker_de}![Joker]}kh1 + @{discretion_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompDiscretionTp" value="&{template:default} {{name=Jet de Discrétion}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompDiscretion} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompDiscretionMc" value="/roll @{rollCompDiscretion}" />
+    <input type="text" disabled hidden name="attr_RollDiscretion" value="{ 1d@{discretion_de}![Discretion],@{joker_de}![Joker]}kh1 + @{discretion_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollDiscretion" value="&{template:sawo} {{name=Discrétion}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollDiscretion} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollDiscretion" value="&{template:sawo} {{name=Discrétion}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollDiscretion}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompEquitation" value="{ 1d@{equitation_de}![Equitation],@{joker_de}![Joker]}kh1 + @{equitation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompEquitationTp" value="&{template:default} {{name=Jet d'Équitation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompEquitation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompEquitationMc" value="/roll @{rollCompEquitation}" />
+    <input type="text" disabled hidden name="attr_RollEquitation" value="{ 1d@{equitation_de}![Equitation],@{joker_de}![Joker]}kh1 + @{equitation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollEquitation" value="&{template:sawo} {{name=Équitation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollEquitation} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollEquitation" value="&{template:sawo} {{name=Équitation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollEquitation}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompEscalade" value="{ 1d@{escalade_de}![Escalade],@{joker_de}![Joker]}kh1 + @{escalade_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompEscaladeTp" value="&{template:default} {{name=Jet d'Escalade}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompEscalade} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompEscaladeMc" value="/roll @{rollCompEscalade}" />
+    <input type="text" disabled hidden name="attr_RollEscalade" value="{ 1d@{escalade_de}![Escalade],@{joker_de}![Joker]}kh1 + @{escalade_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollEscalade" value="&{template:sawo} {{name=Escalade}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollEscalade} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollEscalade" value="&{template:sawo} {{name=Escalade}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollEscalade}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompIntimidation" value="{ 1d@{intimidation_de}![Intimidation],@{joker_de}![Joker]}kh1 + @{intimidation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompIntimidationTp" value="&{template:default} {{name=Jet d'Intimidation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompIntimidation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompIntimidationMc" value="/roll @{rollCompIntimidation}" />
+    <input type="text" disabled hidden name="attr_RollIntimidation" value="{ 1d@{intimidation_de}![Intimidation],@{joker_de}![Joker]}kh1 + @{intimidation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollIntimidation" value="&{template:sawo} {{name=Intimidation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollIntimidation} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollIntimidation" value="&{template:sawo} {{name=Intimidation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollIntimidation}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompJeu" value="{ 1d@{jeu_de}![Jeu],@{joker_de}![Joker]}kh1 + @{jeu_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompJeuTp" value="&{template:default} {{name=Jet de Jeu}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompJeu} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompJeuMc" value="/roll @{rollCompJeu}" />
+    <input type="text" disabled hidden name="attr_RollJeu" value="{ 1d@{jeu_de}![Jeu],@{joker_de}![Joker]}kh1 + @{jeu_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollJeu" value="&{template:sawo} {{name=Jeu}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollJeu} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollJeu" value="&{template:sawo} {{name=Jeu}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollJeu}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompLancerTp" value="&{template:default} {{name=Jet de Lancer}} {{Personnage=@{character_name} }} {{Succès et Relances=[[@{rollBastLancerTp}]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompLancerMc" value="/roll @{rollBastLancerMc}" />
+    <input type="text" disabled hidden name="attr_relRollLancer" value="&{template:sawo} {{name=Lancer}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[@{relRollBastLancer}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollLancer" value="&{template:sawo} {{name=Lancer}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{jetRollBastLancer}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompNatation" value="{ 1d@{natation_de}![Natation],@{joker_de}![Joker]}kh1 + @{natation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompNatationTp" value="&{template:default} {{name=Jet de Natation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompNatation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompNatationMc" value="/roll @{rollCompNatation}" />
+    <input type="text" disabled hidden name="attr_RollNatation" value="{ 1d@{natation_de}![Natation],@{joker_de}![Joker]}kh1 + @{natation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollNatation" value="&{template:sawo} {{name=Natation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollNatation} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollNatation" value="&{template:sawo} {{name=Natation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollNatation}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompNavigation" value="{ 1d@{navigation_de}![Navigation],@{joker_de}![Joker]}kh1 + @{navigation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompNavigationTp" value="&{template:default} {{name=Jet de Navigation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompNavigation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompNavigationMc" value="/roll @{rollCompNavigation}" />
+    <input type="text" disabled hidden name="attr_RollNavigation" value="{ 1d@{navigation_de}![Navigation],@{joker_de}![Joker]}kh1 + @{navigation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollNavigation" value="&{template:sawo} {{name=Navigation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollNavigation} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollNavigation" value="&{template:sawo} {{name=Navigation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollNavigation}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompPerception" value="{ 1d@{perception_de}![Perception],@{joker_de}![Joker]}kh1 + @{perception_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompPerceptionTp" value="&{template:default} {{name=Jet de Perception}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPerception} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompPerceptionMc" value="/roll @{rollCompPerception}" />
+    <input type="text" disabled hidden name="attr_RollPerception" value="{ 1d@{perception_de}![Perception],@{joker_de}![Joker]}kh1 + @{perception_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPerception" value="&{template:sawo} {{name=Perception}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollPerception} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollPerception" value="&{template:sawo} {{name=Perception}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollPerception}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompPersuasion" value="{ 1d@{persuasion_de}![Persuasion],@{joker_de}![Joker]}kh1 + @{persuasion_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompPersuasionTp" value="&{template:default} {{name=Jet de Persuasion}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPersuasion} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }}" />
-    <input type="text" disabled hidden name="attr_rollCompPersuasionMc" value="/roll @{rollCompPersuasion}" />
+    <input type="text" disabled hidden name="attr_RollPersuasion" value="{ 1d@{persuasion_de}![Persuasion],@{joker_de}![Joker]}kh1 + @{persuasion_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPersuasion" value="&{template:sawo} {{name=Persuasion}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollPersuasion} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{charisme=@{charisme}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollPersuasion" value="&{template:sawo} {{name=Persuasion}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollPersuasion}]]}} {{charisme=@{charisme}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompPilotage" value="{ 1d@{pilotage_de}![Pilotage],@{joker_de}![Joker]}kh1 + @{pilotage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompPilotageTp" value="&{template:default} {{name=Jet de Pilotage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPilotage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompPilotageMc" value="/roll @{rollCompPilotage}" />
+    <input type="text" disabled hidden name="attr_RollPilotage" value="{ 1d@{pilotage_de}![Pilotage],@{joker_de}![Joker]}kh1 + @{pilotage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPilotage" value="&{template:sawo} {{name=Pilotage}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollPilotage} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollPilotage" value="&{template:sawo} {{name=Pilotage}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollPilotage}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompPistage" value="{ 1d@{pistage_de}![Pistage],@{joker_de}![Joker]}kh1 + @{pistage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompPistageTp" value="&{template:default} {{name=Jet de Pistage}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompPistage} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompPistageMc" value="/roll @{rollCompPistage}" />
+    <input type="text" disabled hidden name="attr_RollPistage" value="{ 1d@{pistage_de}![Pistage],@{joker_de}![Joker]}kh1 + @{pistage_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollPistage" value="&{template:sawo} {{name=Pistage}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollPistage} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollPistage" value="&{template:sawo} {{name=Pistage}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollPistage}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompRecherche" value="{ 1d@{recherche_de}![Trait],@{joker_de}![Recherche]}kh1 + @{recherche_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompRechercheTp" value="&{template:default} {{name=Jet de Recherche}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompRecherche} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompRechercheMc" value="/roll @{rollCompRecherche}" />
+    <input type="text" disabled hidden name="attr_RollRecherche" value="{ 1d@{recherche_de}![Trait],@{joker_de}![Recherche]}kh1 + @{recherche_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollRecherche" value="&{template:sawo} {{name=Recherche}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollRecherche} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollRecherche" value="&{template:sawo} {{name=Recherche}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollRecherche}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompReparation" value="{ 1d@{reparation_de}![Réparation],@{joker_de}![Joker]}kh1 + @{reparation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompReparationTp" value="&{template:default} {{name=Jet de Réparation}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompReparation} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompReparationMc" value="/roll @{rollCompReparation}" />
+    <input type="text" disabled hidden name="attr_RollReparation" value="{ 1d@{reparation_de}![Réparation],@{joker_de}![Joker]}kh1 + @{reparation_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollReparation" value="&{template:sawo} {{name=Réparation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollReparation} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollReparation" value="&{template:sawo} {{name=Réparation}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollReparation}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompReseaux" value="{ 1d@{reseaux_de}![Réseaux],@{joker_de}![Joker]}kh1 + @{reseaux_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompReseauxTp" value="&{template:default} {{name=Jet de Réseaux}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompReseaux} } ) /4[Difficulté]), 0d0 }kh1 ]] }} {{ Charisme=@{charisme} }} " />
-    <input type="text" disabled hidden name="attr_rollCompReseauxMc" value="/roll @{rollCompReseaux}" />
+    <input type="text" disabled hidden name="attr_RollReseaux" value="{ 1d@{reseaux_de}![Réseaux],@{joker_de}![Joker]}kh1 + @{reseaux_bonus}[Bonus] + @{charisme}[Charisme] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollReseaux" value="&{template:sawo} {{name=Réseaux}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollReseaux} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{charisme=@{charisme}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} " />
+    <input type="text" disabled hidden name="attr_jetRollReseaux" value="&{template:sawo} {{name=Réseaux}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollReseaux}]]}} {{charisme=@{charisme}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} " />
 
-    <input type="text" disabled hidden name="attr_rollCompSarcasme" value="{ 1d@{sarcasme_de}![Sarcasme],@{joker_de}![Joker]}kh1 + @{sarcasme_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompSarcasmeTp" value="&{template:default} {{name=Jet de Sarcasme}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompSarcasme} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompSarcasmeMc" value="/roll @{rollCompSarcasme}" />
+    <input type="text" disabled hidden name="attr_RollSarcasme" value="{ 1d@{sarcasme_de}![Sarcasme],@{joker_de}![Joker]}kh1 + @{sarcasme_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollSarcasme" value="&{template:sawo} {{name=Sarcasme}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollSarcasme} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollSarcasme" value="&{template:sawo} {{name=Sarcasme}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollSarcasme}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompSoins" value="{ 1d@{soins_de}![Soins],@{joker_de}![Joker]}kh1 + @{soins_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompSoinsTp" value="&{template:default} {{name=Jet de Soins}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompSoins} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompSoinsMc" value="/roll @{rollCompSoins}" />
+    <input type="text" disabled hidden name="attr_RollSoins" value="{ 1d@{soins_de}![Soins],@{joker_de}![Joker]}kh1 + @{soins_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollSoins" value="&{template:sawo} {{name=Soins}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollSoins} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollSoins" value="&{template:sawo} {{name=Soins}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollSoins}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompSurvie" value="{ 1d@{survie_de}![Survie],@{joker_de}![Joker]}kh1 + @{survie_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]" />
-    <input type="text" disabled hidden name="attr_rollCompSurvieTp" value="&{template:default} {{name=Jet de Survie}} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { @{rollCompSurvie} } ) /4[Difficulté]), 0d0 }kh1 ]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompSurvieMc" value="/roll @{rollCompSurvie}" />
+    <input type="text" disabled hidden name="attr_RollSurvie" value="{ 1d@{survie_de}![Survie],@{joker_de}![Joker]}kh1 + @{survie_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollSurvie" value="&{template:sawo} {{name=Survie}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollSurvie} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollSurvie" value="&{template:sawo} {{name=Survie}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollSurvie}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
-    <input type="text" disabled hidden name="attr_rollCompTirTp" value="&{template:default} {{name=Jet de Tir}} {{Personnage=@{character_name} }} {{Succès et Relances=[[@{rollBastTirTp}]] }}" />
-    <input type="text" disabled hidden name="attr_rollCompTirMc" value="/roll @{rollBastTirMc}" />
+    <input type="text" disabled hidden name="attr_relRollTir" value="&{template:sawo} {{name=Tir}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[@{relRollBastTir}]]}} {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollTir" value="&{template:sawo} {{name=Tir}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{jetRollBastTir}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 </div> <!-- *** HIDDEN ROLLS ** -->
 <!-- PARAMETRAGES -->
-<span class="sheet-smallspan">Version 0.3 (2015-11-07)&nbsp;-&nbsp;Style des jets: </span>
-<input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolTp" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Template</span>
-<input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRolMc" title="Style de jet 'macro', montrant les jets bruts" /><span>Macro</span>
+<span class="sheet-smallspan">Version 1.0 (2015-11-16)&nbsp;-&nbsp;Style des jets: </span>
+<input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
+<input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet 'macro', montrant les jets bruts" /><span>Jets bruts</span>
 <!--- ***  FdP *** -->
 <div class="sheet-main">
     <div class="sheet-mycol"> <!-- ** COL1 ** -->
@@ -168,14 +171,14 @@
                 <div class="sheet-redtitle2">ATTRIBUTS</div>
                 <div class="sheet-input"> <!-- AGILITE -->
                     <button type="roll"
-                        name="Jet_Agilite"
-                        class="sheet-btRolTp"
-                        value="@{rollAttAgiliteTp}"
+                        name="Btrel-Agilite"
+                        class="sheet-btRolrel"
+                        value="@{relRollAGI}"
                         >AGILITÉ</button>
                     <button type="roll"
-                        name="Jet_AgiliteMc"
-                        class="sheet-btRolMc"
-                        value="@{rollAttAgiliteMc}"
+                        name="Btjet-Agilite"
+                        class="sheet-btRoljet"
+                        value="@{jetRollAGI}"
                         >AGILITÉ</button>
                     <SELECT name="attr_agilite_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -188,14 +191,14 @@
                 </div> <!-- FIN AGILITE -->
                 <div class="sheet-input"> <!-- AME -->
                     <button type="roll"
-                        name="Jet_Ame"
-                        class="sheet-btRolTp"
-                        value="@{rollAttAmeTp}"
+                        name="Btrel-Ame"
+                        class="sheet-btRolrel"
+                        value="@{relRollAME}"
                         >ÂME</button>
                     <button type="roll"
-                        name="Jet_AmeMc"
-                        class="sheet-btRolMc"
-                        value="@{rollAttAmeMc}"
+                        name="Btjet-Ame"
+                        class="sheet-btRoljet"
+                        value="@{jetRollAME}"
                         >ÂME</button>
                     <SELECT name="attr_ame_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -208,14 +211,14 @@
                 </div> <!-- FIN AME -->
                 <div class="sheet-input"> <!-- FORCE -->
                     <button type="roll"
-                        name="Jet_Force"
-                        class="sheet-btRolTp"
-                        value="@{rollAttForceTp}"
+                        name="Btrel-Force"
+                        class="sheet-btRolrel"
+                        value="@{relRollFOR}"
                         >FORCE</button>
                     <button type="roll"
-                        name="Jet_ForceMc"
-                        class="sheet-btRolMc"
-                        value="@{rollAttForceMc}"
+                        name="Btjet-Force"
+                        class="sheet-btRoljet"
+                        value="@{jetRollFOR}"
                         >FORCE</button>
                     <SELECT name="attr_force_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -228,14 +231,14 @@
                 </div> <!-- FIN FORCE -->
                 <div class="sheet-input"> <!-- INTELLECT -->
                     <button type="roll"
-                        name="Jet_Intellect"
-                        class="sheet-btRolTp"
-                        value="@{rollAttIntellectTp}"
+                        name="Btrel-Intellect"
+                        class="sheet-btRolrel"
+                        value="@{relRollINT}"
                         >INTELLECT</button>
                     <button type="roll"
-                        name="Jet_IntellectMc"
-                        class="sheet-btRolMc"
-                        value="@{rollAttIntellectMc}"
+                        name="Btjet-Intellect"
+                        class="sheet-btRoljet"
+                        value="@{jetRollINT}"
                         >INTELLECT</button>
                     <SELECT name="attr_intellect_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -248,14 +251,14 @@
                 </div> <!-- FIN INTELLECT -->
                 <div class="sheet-input"> <!-- VIGUEUR -->
                     <button type="roll"
-                        name="Jet_Vigueur"
-                        class="sheet-btRolTp"
-                        value="@{rollAttVigueurTp}"
+                        name="Btrel-Vigueur"
+                        class="sheet-btRolrel"
+                        value="@{relRollVIG}"
                         >VIGUEUR</button>
                     <button type="roll"
-                        name="Jet_VigueurMc"
-                        class="sheet-btRolMc"
-                        value="@{rollAttVigueurMc}"
+                        name="Btjet-Vigueur"
+                        class="sheet-btRoljet"
+                        value="@{jetRollVIG}"
                         >VIGUEUR</button>
                     <SELECT name="attr_vigueur_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -271,14 +274,14 @@
                 <div class="sheet-redtitle2">COMPÉTENCES</div>
                 <div class="sheet-input"> <!-- ARCANES -->
                     <button type="roll"
-                        name="Jet_Arcane"
-                        class="sheet-btRolTp"
-                        value="@{rollCompArcaneTp}"
+                        name="Btrel-Arcane"
+                        class="sheet-btRolrel"
+                        value="@{relRollArcane}"
                         >&nbsp;</button>
                     <button type="roll"
-                        name="Jet_ArcaneMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompArcaneMc}"
+                        name="Btjet-Arcane"
+                        class="sheet-btRoljet"
+                        value="@{jetRollArcane}"
                         >&nbsp;</button>
                     <input type="text" class="sheet-compspe" name="attr_arcane_nom" placeholder="ARCANES" value="ARCANES" title="Nom de la compétence d'Arcanes" />
                     <SELECT class="sheet-attcomptext"  name="attr_arcane_attr"  title="Attribut dont dépend la compétence d'Arcanes">
@@ -299,14 +302,14 @@
                 </div> <!-- FIN ARCANES -->
                 <div class="sheet-input"> <!-- COMBAT -->
                     <button type="roll"
-                        name="Jet_Combat"
-                        class="sheet-btRolTp"
-                        value="@{rollCompCombatTp}"
+                        name="Btrel-Combat"
+                        class="sheet-btRolrel"
+                        value="@{relRollCombat}"
                         >Combat</button>
                     <button type="roll"
-                        name="Jet_CombatMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompCombatMc}"
+                        name="Btjet-Combat"
+                        class="sheet-btRoljet"
+                        value="@{jetRollCombat}"
                         >Combat</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_combat_de" class="sheet-selde">
@@ -320,14 +323,14 @@
                 </div> <!-- FIN COMBAT -->
                 <div class="sheet-input"> <!-- CONDUITE -->
                     <button type="roll"
-                        name="Jet_Conduite"
-                        class="sheet-btRolTp"
-                        value="@{rollCompConduiteTp}"
+                        name="Btrel-Conduite"
+                        class="sheet-btRolrel"
+                        value="@{relRollConduite}"
                         >Conduite</button>
                     <button type="roll"
-                        name="Jet_ConduiteMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompConduiteMc}"
+                        name="Btjet-Conduite"
+                        class="sheet-btRoljet"
+                        value="@{jetRollConduite}"
                         >Conduite</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_conduite_de" class="sheet-selde">
@@ -341,15 +344,15 @@
                 </div> <!-- FIN CONDUITE -->
                 <div class="sheet-input"> <!-- CONNAISSANCE -->
                     <button type="roll"
-                        name="Jet_Connaissance"
-                        class="sheet-btRolTp"
-                        value="@{rollCompConnaissanceTp}"
+                        name="Btrel-Connaissance"
+                        class="sheet-btRolrel"
+                        value="@{relRollConnaissance}"
                         title="Connaissance"
                         >&nbsp;</button>
                     <button type="roll"
-                        name="Jet_ConnaissanceMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompConnaissanceMc}"
+                        name="Btjet-Connaissance"
+                        class="sheet-btRoljet"
+                        value="@{jetRollConnaissance}"
                         title="Connaissance"
                         >&nbsp;</button>
                     <input type="text" class="sheet-compspe" name="attr_connaissance_nom" placeholder="Connaissance" value="Connaissance" title="Nom de la compétence de Connaissances" />
@@ -365,14 +368,14 @@
                 </div> <!-- FIN CONNAISSANCE -->
                 <div class="sheet-input"> <!-- CROCHETAGE -->
                     <button type="roll"
-                        name="Jet_Crochetage"
-                        class="sheet-btRolTp"
-                        value="@{rollCompCrochetageTp}"
+                        name="Btrel-Crochetage"
+                        class="sheet-btRolrel"
+                        value="@{relRollCrochetage}"
                         >Crochetage</button>
                     <button type="roll"
-                        name="Jet_CrochetageMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompCrochetageMc}"
+                        name="Btjet-Crochetage"
+                        class="sheet-btRoljet"
+                        value="@{jetRollCrochetage}"
                         >Crochetage</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_crochetage_de" class="sheet-selde">
@@ -386,14 +389,14 @@
                 </div> <!-- FIN CROCHETAGE -->
                 <div class="sheet-input"> <!-- DISCRÉTION -->
                     <button type="roll"
-                        name="Jet_Discrétion"
-                        class="sheet-btRolTp"
-                        value="@{rollCompDiscretionTp}"
+                        name="Btrel-Discrétion"
+                        class="sheet-btRolrel"
+                        value="@{relRollDiscretion}"
                         >Discrétion</button>
                     <button type="roll"
-                        name="Jet_DiscrétionMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompDiscretionMc}"
+                        name="Btjet-Discrétion"
+                        class="sheet-btRoljet"
+                        value="@{jetRollDiscretion}"
                         >Discrétion</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_discretion_de" class="sheet-selde">
@@ -407,14 +410,14 @@
                 </div> <!-- FIN DISCRÉTION -->
                 <div class="sheet-input"> <!-- ÉQUITATION -->
                     <button type="roll"
-                        name="Jet_Equitation"
-                        class="sheet-btRolTp"
-                        value="@{rollCompEquitationTp}"
+                        name="Btrel-Equitation"
+                        class="sheet-btRolrel"
+                        value="@{relRollEquitation}"
                         >Équitation</button>
                     <button type="roll"
-                        name="Jet_EquitationMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompEquitationMc}"
+                        name="Btjet-Equitation"
+                        class="sheet-btRoljet"
+                        value="@{jetRollEquitation}"
                         >Équitation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_equitation_de" class="sheet-selde">
@@ -428,14 +431,14 @@
                 </div> <!-- FIN ÉQUITATION -->
                 <div class="sheet-input"> <!-- ESCALADE -->
                     <button type="roll"
-                        name="Jet_Escalade"
-                        class="sheet-btRolTp"
-                        value="@{rollCompEscaladeTp}"
+                        name="Btrel-Escalade"
+                        class="sheet-btRolrel"
+                        value="@{relRollEscalade}"
                         >Escalade</button>
                     <button type="roll"
-                        name="Jet_EscaladeMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompEscaladeMc}"
+                        name="Btjet-Escalade"
+                        class="sheet-btRoljet"
+                        value="@{jetRollEscalade}"
                         >Escalade</button>
                     <div class="sheet-attcomptext">FOR</div>
                     <SELECT name="attr_escalade_de" class="sheet-selde">
@@ -449,14 +452,14 @@
                 </div> <!-- FIN ESCALADE -->
                 <div class="sheet-input"> <!-- INTIMIDATION -->
                     <button type="roll"
-                        name="Jet_Intimidation"
-                        class="sheet-btRolTp"
-                        value="@{rollCompIntimidationTp}"
+                        name="Btrel-Intimidation"
+                        class="sheet-btRolrel"
+                        value="@{relRollIntimidation}"
                         >Intimidation</button>
                     <button type="roll"
-                        name="Jet_IntimidationMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompIntimidationMc}"
+                        name="Btjet-Intimidation"
+                        class="sheet-btRoljet"
+                        value="@{jetRollIntimidation}"
                         >Intimidation</button>
                     <div class="sheet-attcomptext">ÂME</div>
                     <SELECT name="attr_intimidation_de" class="sheet-selde">
@@ -470,14 +473,14 @@
                 </div> <!-- FIN INTIMIDATION -->
                 <div class="sheet-input"> <!-- JEU -->
                     <button type="roll"
-                        name="Jet_Jeu"
-                        class="sheet-btRolTp"
-                        value="@{rollCompJeuTp}"
+                        name="Btrel-Jeu"
+                        class="sheet-btRolrel"
+                        value="@{relRollJeu}"
                         >Jeu</button>
                     <button type="roll"
-                        name="Jet_JeuMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompJeuMc}"
+                        name="Btjet-Jeu"
+                        class="sheet-btRoljet"
+                        value="@{jetRollJeu}"
                         >Jeu</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_jeu_de" class="sheet-selde">
@@ -491,14 +494,14 @@
                 </div> <!-- FIN JEU -->
                 <div class="sheet-input"> <!-- LANCER -->
                     <button type="roll"
-                        name="Jet_Lancer"
-                        class="sheet-btRolTp"
-                        value="@{rollCompLancerTp}"
+                        name="Btrel-Lancer"
+                        class="sheet-btRolrel"
+                        value="@{relRollLancer}"
                         >Lancer</button>
                     <button type="roll"
-                        name="Jet_LancerMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompLancerMc}"
+                        name="Btjet-Lancer"
+                        class="sheet-btRoljet"
+                        value="@{jetRollLancer}"
                         >Lancer</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_lancer_de" class="sheet-selde">
@@ -512,14 +515,14 @@
                 </div> <!-- FIN LANCER -->
                 <div class="sheet-input"> <!-- NATATION -->
                     <button type="roll"
-                        name="Jet_Natation"
-                        class="sheet-btRolTp"
-                        value="@{rollCompNatationTp}"
+                        name="Btrel-Natation"
+                        class="sheet-btRolrel"
+                        value="@{relRollNatation}"
                         >Natation</button>
                     <button type="roll"
-                        name="Jet_NatationMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompNatationMc}"
+                        name="Btjet-Natation"
+                        class="sheet-btRoljet"
+                        value="@{jetRollNatation}"
                         >Natation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_natation_de" class="sheet-selde">
@@ -533,14 +536,14 @@
                 </div> <!-- FIN NATATION -->
                 <div class="sheet-input"> <!-- NAVIGATION -->
                     <button type="roll"
-                        name="Jet_Navigation"
-                        class="sheet-btRolTp"
-                        value="@{rollCompNavigationTp}"
+                        name="Btrel-Navigation"
+                        class="sheet-btRolrel"
+                        value="@{relRollNavigation}"
                         >Navigation</button>
                     <button type="roll"
-                        name="Jet_NavigationMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompNavigationMc}"
+                        name="Btjet-Navigation"
+                        class="sheet-btRoljet"
+                        value="@{jetRollNavigation}"
                         >Navigation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_navigation_de" class="sheet-selde">
@@ -554,14 +557,14 @@
                 </div> <!-- FIN NAVIGATION -->
                 <div class="sheet-input"> <!-- PERCEPTION -->
                     <button type="roll"
-                        name="Jet_Perception"
-                        class="sheet-btRolTp"
-                        value="@{rollCompPerceptionTp}"
+                        name="Btrel-Perception"
+                        class="sheet-btRolrel"
+                        value="@{relRollPerception}"
                         >Perception</button>
                     <button type="roll"
-                        name="Jet_PerceptionMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompPerceptionMc}"
+                        name="Btjet-Perception"
+                        class="sheet-btRoljet"
+                        value="@{jetRollPerception}"
                         >Perception</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_perception_de" class="sheet-selde">
@@ -575,14 +578,14 @@
                 </div> <!-- FIN PERCEPTION -->
                 <div class="sheet-input"> <!-- PERSUASION -->
                     <button type="roll"
-                        name="Jet_Persuasion"
-                        class="sheet-btRolTp"
-                        value="@{rollCompPersuasionTp}"
+                        name="Btrel-Persuasion"
+                        class="sheet-btRolrel"
+                        value="@{relRollPersuasion}"
                         >Persuasion</button>
                     <button type="roll"
-                        name="Jet_PersuasionMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompPersuasionMc}"
+                        name="Btjet-Persuasion"
+                        class="sheet-btRoljet"
+                        value="@{jetRollPersuasion}"
                         >Persuasion</button>
                     <div class="sheet-attcomptext">ÂME</div>
                     <SELECT name="attr_persuasion_de" class="sheet-selde">
@@ -596,14 +599,14 @@
                 </div> <!-- FIN PERSUASION -->
                 <div class="sheet-input"> <!-- PILOTAGE -->
                     <button type="roll"
-                        name="Jet_Pilotage"
-                        class="sheet-btRolTp"
-                        value="@{rollCompPilotageTp}"
+                        name="Btrel-Pilotage"
+                        class="sheet-btRolrel"
+                        value="@{relRollPilotage}"
                         >Pilotage</button>
                     <button type="roll"
-                        name="Jet_PilotageMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompPilotageMc}"
+                        name="Btjet-Pilotage"
+                        class="sheet-btRoljet"
+                        value="@{jetRollPilotage}"
                         >Pilotage</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_pilotage_de" class="sheet-selde">
@@ -617,14 +620,14 @@
                 </div> <!-- FIN PILOTAGE -->
                 <div class="sheet-input"> <!-- PISTAGE -->
                     <button type="roll"
-                        name="Jet_Pistage"
-                        class="sheet-btRolTp"
-                        value="@{rollCompPistageTp}"
+                        name="Btrel-Pistage"
+                        class="sheet-btRolrel"
+                        value="@{relRollPistage}"
                         >Pistage</button>
                     <button type="roll"
-                        name="Jet_PistageMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompPistageMc}"
+                        name="Btjet-Pistage"
+                        class="sheet-btRoljet"
+                        value="@{jetRollPistage}"
                         >Pistage</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_pistage_de" class="sheet-selde">
@@ -638,14 +641,14 @@
                 </div> <!-- FIN PISTAGE -->
                 <div class="sheet-input"> <!-- RECHERCHE -->
                     <button type="roll"
-                        name="Jet_Recherche"
-                        class="sheet-btRolTp"
-                        value="@{rollCompRechercheTp}"
+                        name="Btrel-Recherche"
+                        class="sheet-btRolrel"
+                        value="@{relRollRecherche}"
                         >Recherche</button>
                     <button type="roll"
-                        name="Jet_RechercheMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompRechercheMc}"
+                        name="Btjet-Recherche"
+                        class="sheet-btRoljet"
+                        value="@{jetRollRecherche}"
                         >Recherche</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_recherche_de" class="sheet-selde">
@@ -659,14 +662,14 @@
                 </div> <!-- FIN RECHERCHE -->
                 <div class="sheet-input"> <!-- RÉPARATION -->
                     <button type="roll"
-                        name="Jet_Reparation"
-                        class="sheet-btRolTp"
-                        value="@{rollCompReparationTp}"
+                        name="Btrel-Reparation"
+                        class="sheet-btRolrel"
+                        value="@{relRollReparation}"
                         >Réparation</button>
                     <button type="roll"
-                        name="Jet_ReparationMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompReparationMc}"
+                        name="Btjet-Reparation"
+                        class="sheet-btRoljet"
+                        value="@{jetRollReparation}"
                         >Réparation</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_reparation_de" class="sheet-selde">
@@ -680,14 +683,14 @@
                 </div> <!-- FIN RÉPARATION -->
                 <div class="sheet-input"> <!-- RÉSEAUX -->
                     <button type="roll"
-                        name="Jet_Reseaux"
-                        class="sheet-btRolTp"
-                        value="@{rollCompReseauxTp}"
+                        name="Btrel-Reseaux"
+                        class="sheet-btRolrel"
+                        value="@{relRollReseaux}"
                         >Réseaux</button>
                     <button type="roll"
-                        name="Jet_ReseauxMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompReseauxMc}"
+                        name="Btjet-Reseaux"
+                        class="sheet-btRoljet"
+                        value="@{jetRollReseaux}"
                         >Réseaux</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_reseaux_de" class="sheet-selde">
@@ -701,14 +704,14 @@
                 </div> <!-- FIN RÉSEAUX -->
                 <div class="sheet-input"> <!-- SARCASME -->
                     <button type="roll"
-                        name="Jet_Sarcasme"
-                        class="sheet-btRolTp"
-                        value="@{rollCompSarcasmeTp}"
+                        name="Btrel-Sarcasme"
+                        class="sheet-btRolrel"
+                        value="@{relRollSarcasme}"
                         >Sarcasme</button>
                     <button type="roll"
-                        name="Jet_SarcasmeMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompSarcasmeMc}"
+                        name="Btjet-Sarcasme"
+                        class="sheet-btRoljet"
+                        value="@{jetRollSarcasme}"
                         >Sarcasme</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_sarcasme_de" class="sheet-selde">
@@ -722,14 +725,14 @@
                 </div> <!-- FIN SARCASME -->
                 <div class="sheet-input"> <!-- SOINS -->
                     <button type="roll"
-                        name="Jet_Soins"
-                        class="sheet-btRolTp"
-                        value="@{rollCompSoinsTp}"
+                        name="Btrel-Soins"
+                        class="sheet-btRolrel"
+                        value="@{relRollSoins}"
                         >Soins</button>
                     <button type="roll"
-                        name="Jet_SoinsMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompSoinsMc}"
+                        name="Btjet-Soins"
+                        class="sheet-btRoljet"
+                        value="@{jetRollSoins}"
                         >Soins</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_soins_de" class="sheet-selde">
@@ -743,14 +746,14 @@
                 </div> <!-- FIN SOINS -->
                 <div class="sheet-input"> <!-- SURVIE -->
                     <button type="roll"
-                        name="Jet_Survie"
-                        class="sheet-btRolTp"
-                        value="@{rollCompSurvieTp}"
+                        name="Btrel-Survie"
+                        class="sheet-btRolrel"
+                        value="@{relRollSurvie}"
                         >Survie</button>
                     <button type="roll"
-                        name="Jet_SurvieMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompSurvieMc}"
+                        name="Btjet-Survie"
+                        class="sheet-btRoljet"
+                        value="@{jetRollSurvie}"
                         >Survie</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_survie_de" class="sheet-selde">
@@ -764,14 +767,14 @@
                 </div> <!-- FIN SURVIE -->
                 <div class="sheet-input"> <!-- TIR -->
                     <button type="roll"
-                        name="Jet_Tir"
-                        class="sheet-btRolTp"
-                        value="@{rollCompTirTp}"
+                        name="Btrel-Tir"
+                        class="sheet-btRolrel"
+                        value="@{relRollTir}"
                         >Tir</button>
                     <button type="roll"
-                        name="Jet_TirMc"
-                        class="sheet-btRolMc"
-                        value="@{rollCompTirMc}"
+                        name="Btjet-Tir"
+                        class="sheet-btRoljet"
+                        value="@{jetRollTir}"
                         >Tir</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_tir_de" class="sheet-selde">
@@ -786,14 +789,14 @@
                 <fieldset class="repeating_competences"> <!-- COMPETENCE (S) LIBRE(S) -->
                     <div class="sheet-input">
                     <button type="roll"
-                        name="Jet_Competence"
-                        class="sheet-btRolTp"
-                        value="&{template:default} {{name=Jet de @{comp_nom} }} {{Personnage=@{character_name} }} {{Succès et Relances=[[  { floor( ( { { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur] } ) /4[Difficulté]), 0d0 }kh1 ]] }}"
+                        name="Btrel-Competence"
+                        class="sheet-btRolrel"
+                        value="&{template:sawo} {{name=@{comp_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur] } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}"
                         >&nbsp;</button>
                     <button type="roll"
-                        name="Jet_Competence"
-                        class="sheet-btRolMc"
-                        value="/roll { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + ?{Modificateur|0}[Modificateur]"
+                        name="Btjet-Competence"
+                        class="sheet-btRoljet"
+                        value="&{template:sawo} {{name=@{comp_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[{ 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}"
                         >&nbsp;</button>
                         <input type="text" class="sheet-compspe" name="attr_comp_nom" placeholder="Compétence" title="Nom de la compétence" />
                         <SELECT class="sheet-attcomptext"  name="attr_comp_att"  title="Attribut dont dépend la compétence">
@@ -963,27 +966,34 @@
             <div class="sheet-redtitle3" style="width: 35px;">PA</div>
             <div class="sheet-redtitle3" style="width: 150px;">Notes</div>
         </div>
-        <div class="sheet-input"> <!-- ARME FIXE 1 --> <!-- &#64;&#123; &#125; -->
+        <div class="sheet-input"> <!-- ARME FIXE 1 -->
             <button type="roll"
-                name="Jet_Arme1"
-                class="sheet-btRolTp"
-                value="@{rollArmeFixe1Tp}"
+                name="Btrel-Arme1"
+                class="sheet-btRolrel"
+                value="@{relRollArmeFixe1}"
                 title="Arme N°1"
                 >&nbsp;</button>
             <button type="roll"
-                name="Jet_Arme1Mc"
-                class="sheet-btRolMc"
-                value="@{rollArmeFixe1Mc}"
+                name="Btjet-Arme1"
+                class="sheet-btRoljet"
+                value="@{jetRollArmeFixe1}"
                 title="Arme N°1"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
-            <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="@{rollBastCombat}" SELECTED>Combat</OPTION>
-                <OPTION value="@{rollBastLancer}">Lancer</OPTION>
-                <OPTION value="@{rollBastTir}">Tir</OPTION>
+            <SELECT name="attr_arme1_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
+                <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
+                <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+            </SELECT>
+            <SELECT name="attr_arme1_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
+                <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
+                <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
             </SELECT>
             <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
-                <OPTION value="@{rollBastForce}" SELECTED>FORCE</OPTION>
+                <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
             </SELECT>+<input name="attr_arme1_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
             <SELECT name="attr_arme1_dgt_de" class="sheet-selde" title="Dé de dégâts">
@@ -1001,25 +1011,32 @@
         </div> <!-- FIN ARME FIXE 1 -->
         <div class="sheet-input"> <!-- ARME FIXE 2 -->
             <button type="roll"
-                name="Jet_Arme2"
-                class="sheet-btRolTp"
-                value="@{rollArmeFixe2Tp}"
+                name="Btrel-Arme2"
+                class="sheet-btRolrel"
+                value="@{relRollArmeFixe2}"
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <button type="roll"
-                name="Jet_Arme2Mc"
-                class="sheet-btRolMc"
-                value="@{rollArmeFixe2Mc}"
+                name="Btjet-Arme2"
+                class="sheet-btRoljet"
+                value="@{jetRollArmeFixe2}"
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme2_nom" placeholder="Nom de l'arme n°2" title="Nom de l'arme n°2" />
-            <SELECT name="attr_arme2_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="@{rollBastCombat}" SELECTED>Combat</OPTION>
-                <OPTION value="@{rollBastLancer}">Lancer</OPTION>
-                <OPTION value="@{rollBastTir}">Tir</OPTION>
+            <SELECT name="attr_arme2_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
+                <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
+                <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+            </SELECT>
+            <SELECT name="attr_arme2_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
+                <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
+                <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
             </SELECT>
             <SELECT name="attr_arme2_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
-                <OPTION value="@{rollBastForce}" SELECTED>FORCE</OPTION>
+                <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
             </SELECT>+<input name="attr_arme2_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
             <SELECT name="attr_arme2_dgt_de" class="sheet-selde" title="Dé de dégâts">
@@ -1037,25 +1054,32 @@
         </div> <!-- FIN ARME FIXE 2 -->
         <div class="sheet-input"> <!-- ARME FIXE 3 -->
             <button type="roll"
-                name="Jet_Arme3"
-                class="sheet-btRolTp"
-                value="@{rollArmeFixe3Tp}"
+                name="Btrel-Arme3"
+                class="sheet-btRolrel"
+                value="@{relRollArmeFixe3}"
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <button type="roll"
-                name="Jet_Arme3Mc"
-                class="sheet-btRolMc"
-                value="@{rollArmeFixe3Mc}"
+                name="Btjet-Arme3"
+                class="sheet-btRoljet"
+                value="@{jetRollArmeFixe3}"
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme3_nom" placeholder="Nom de l'arme n°3" title="Nom de l'arme n°3" />
-            <SELECT name="attr_arme3_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="@{rollBastCombat}" SELECTED>Combat</OPTION>
-                <OPTION value="@{rollBastLancer}">Lancer</OPTION>
-                <OPTION value="@{rollBastTir}">Tir</OPTION>
+            <SELECT name="attr_arme3_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
+                <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
+                <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+            </SELECT>
+            <SELECT name="attr_arme3_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
+                <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
+                <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
             </SELECT>
             <SELECT name="attr_arme3_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
-                <OPTION value="@{rollBastForce}" SELECTED>FORCE</OPTION>
+                <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
             </SELECT>+<input name="attr_arme3_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
             <SELECT name="attr_arme3_dgt_de" class="sheet-selde" title="Dé de dégâts">
@@ -1074,25 +1098,32 @@
         <fieldset class="repeating_armes">
             <div class="sheet-input"> <!-- ARME DYNAMIQUE -->
                 <button type="roll"
-                    name="Jet_ArmeD"
-                    class="sheet-btRolTp"
-                    value="&{template:default} {{name=@{armeD_nom}}} {{ Attaque=[[ @{armeD_comp} ]] }} {{ Dégâts=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]] }} "
+                    name="Btrel-ArmeD"
+                    class="sheet-btRolrel"
+                    value="&{template:sawo} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{armeD_comp_rel} ]]}} {{degatsrel=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}  - (@{Target|resistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}}  {{cible=@{target|character_name}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}"
                     title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
-                    name="Jet_ArmeDMc"
-                    class="sheet-btRolMc"
-                    value="&{template:default} {{name=@{armeD_nom}}} {{ Attaque=[[ @{armeD_comp} ]] }} {{ Dégâts=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]] }} "
+                    name="Btjet-ArmeD"
+                    class="sheet-btRoljet"
+                    value="&{template:sawo} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{armeD_comp_jet} ]]}} {{degats=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus} ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}"
                     title="Attaque"
                     >&nbsp;</button>
                 <input type="text" class="sheet-compspe"  name="attr_armeD_nom" placeholder="Nom de l'arme" title="Nom de l'arme" />
-                <SELECT name="attr_armeD_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                    <OPTION value="@{rollBastCombat}" SELECTED>Combat</OPTION>
-                    <OPTION value="@{rollBastLancer}">Lancer</OPTION>
-                    <OPTION value="@{rollBastTir}">Tir</OPTION>
+                <SELECT name="attr_armeD_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                    <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                    <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
+                    <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
+                    <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+                </SELECT>
+                <SELECT name="attr_armeD_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                    <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
+                    <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
+                    <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
+                    <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
                 </SELECT>
                 <SELECT name="attr_armeD_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
-                    <OPTION value="@{rollBastForce}" SELECTED>FORCE</OPTION>
+                    <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                     <OPTION value="0d4">_</OPTION>
                 </SELECT>+<input name="attr_armeD_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
                 <SELECT name="attr_armeD_dgt_de" class="sheet-selde" title="Dé de dégâts">
@@ -1137,3 +1168,86 @@
         </fieldset>
    </div> <!-- ** FIN POUVOIRS ** -->
 </div>
+<!-- *** TEMPLATES ** -->
+<rolltemplate class="sheet-rolltemplate-sawo">
+    {{#perso}}
+        <table>
+           <tr>
+                <td style="text-align: center;">
+                    <b>{{perso}}</b>{{#rollTotal() secoue 1}} (Secoué){{/rollTotal() secoue 1}}
+                    {{#attaque}}attaque{{/attaque}}
+                    {{^attaque}}fait un jet{{/attaque}}
+                </td>
+            </tr>
+            {{#cible}}
+                <tr>
+                    <td style="text-align: center;">
+                        {{^attaque}}contre{{/attaque}}
+                        <b>{{cible}}</b>
+                    </td>
+                </tr>
+            {{/cible}}
+        </table>
+    {{/perso}}
+    <table>
+        <tr>
+            <th colspan="2">
+                {{name}}
+            </th>
+        </tr>
+        {{#relances}}
+            <tr>
+                <td style="text-align: right;">{{relances}}</td>
+                <td class="sheet-info" style="font-weight: bold;">succès+relances{{#attaque}} (attaque){{/attaque}}</td>
+            </tr>
+        {{/relances}}
+        {{#jet}}
+            <tr>
+                <td class="sheet-info" style="text-align: right;font-weight: bold;">Jet : </td>
+                <td>{{jet}}</td>
+            </tr>
+        {{/jet}}
+        {{#degatsrel}}
+            <tr>
+                <td style="text-align: right;">{{degatsrel}}</td>
+                <td class="sheet-info" style="font-weight: bold;">succès+relances (dégâts)</td>
+            </tr>
+        {{/degatsrel}}
+        {{#degats}}
+            <tr>
+                <td class="sheet-info" style="text-align: right;font-weight: bold">Dégâts : </td>
+                <td>{{degats}}</td>
+            </tr>
+        {{/degats}}
+    </table>
+    <table style="border-top:none;">
+        {{#rollGreater() blessures 0}}
+            <tr class="sheet-septpl">
+                {{#rollLess() blessures 4}}
+                    <td style="text-align: right;">{{blessures}}</td>
+                    <td class="sheet-info">Blessures</td>
+                {{/rollLess() blessures 4}}
+                {{#rollTotal() blessures 4}}
+                    <td colspan="2" style="text-align: center;color: red;">Blessures Critiques</td>
+                {{/rollTotal() blessures 4}}
+            </tr>
+        {{/rollGreater() blessures 0}}
+        {{#rollGreater() fatigue 0}}
+            <tr class="sheet-septpl">
+                {{#rollLess() fatigue 3}}
+                    <td style="text-align: right;">{{fatigue}}</td>
+                    <td class="sheet-info">Fatigue</td>
+                {{/rollLess() fatigue 3}}
+                {{#rollTotal() fatigue 3}}
+                    <td colspan="2" style="text-align: center;color: red;">Fatigue Critique</td>
+                {{/rollTotal() fatigue 3}}
+            </tr>
+        {{/rollGreater() fatigue 0}}
+        {{#rollGreater() encombrement 0}}
+            <tr class="sheet-septpl">
+                <td style="text-align: right;">{{encombrement}}</td>
+                <td class="sheet-info">Encombrement</td>
+            </tr>
+        {{/rollGreater() encombrement 0}}
+    </table>
+</rolltemplate>
