@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* TEMPLATES */
 .sheet-rolltemplate-sawo table {
     width: 189px;
@@ -39,8 +38,6 @@
     background-color:#F6F1EC;
 }
 /* FDP */
-=======
->>>>>>> origin/master
 input[type=radio].sheet-styleRolrel,
 input[type=radio].sheet-styleRoljet{
     margin-left: 10px;
@@ -106,7 +103,6 @@ button[type="roll"].sheet-btRolrel:hover{
     border-color:#CD071E;
 }
 input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
-<<<<<<< HEAD
     display: inline-block;
 }
 input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
@@ -124,13 +120,6 @@ input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main select.sheet-selCom
 input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main select.sheet-selCompjet{
     display: inline-block;
 }
-=======
-    display: inline-block;
-}
-input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
-    display: none;
-}
->>>>>>> origin/master
 button[type="roll"].sheet-btRoljet{
     width: 142px;
     border-width: 1px;
