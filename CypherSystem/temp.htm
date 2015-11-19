@@ -1,0 +1,31 @@
+<button type="roll" class="sheet-macrobt" title="Might Roll, with pop-up questions for paramters"
+                                            value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=Might}} {{attrEdge=@{mightedge}}} {{bonusToRoll=[[@{rollQstBonus}]]}} {{difficulty=[[@{rollQstDiff}]]}} {{targNum=[[@{targNumQst}]]}} {{finalDiff=[[@{rollQstDiff}-@{rollQstAsset}-@{rollQstRollEff}]]}} {{targNumRoll=[[(@{rollQstDiff}-@{rollQstAsset}-@{rollQstRollEff})*3-(1*@{rollQstBonus})]]}} {{totalCost=[[@{MightCostQst}]]}} {{effortCost=[[@{effortCostQst}]]}} {{effortRoll=[[@{rollQstRollEff}]]}} {{effortDmg=[[@{rollQstRollDmg}]]}} {{statExpense=[[@{rollQstCost}]]}} {{assets=[[@{rollQstAsset}]]}} {{bonusDmg=[[@{rollQstRollDmg}*3]]}}"
+                                            name="roll_macroMightCheck"></button>
+
+<div style="display: none;"> <!-- HIDDEN Rolls and Calculations -->
+	<!-- Using the Action Section -->
+    <input type="hidden" name="attr_targNum" value="@{rollVarDiff}*3" />
+    <input type="hidden" name="attr_effortCost" value="ceil((@{rollVarRollEff}+@{rollVarRollDmg})/6)+(@{rollVarRollEff}+@{rollVarRollDmg})*2" />
+    <input type="hidden" name="attr_effortSpeedCost" value="ceil((@{rollVarRollEff}+@{rollVarRollDmg})/6)+(@{rollVarRollEff}+@{rollVarRollDmg})*(2+@{armorspeedcost})" />
+    <input type="hidden" name="attr_totalCost" value="@{effortCost}+@{rollVarCost}" />
+    <input type="hidden" name="attr_totalSpeedCost" value="@{effortSpeedCost}+@{rollVarCost}" />
+    <input type="hidden" name="attr_MightCost" value="@{totalCost}-@{mightedge}" />
+    <input type="hidden" name="attr_SpeedCost" value="@{totalSpeedCost}-@{speededge}" />
+    <input type="hidden" name="attr_IntelCost" value="@{totalCost}-@{intellectedge}" />
+    <!-- Using questions -->
+	<input type="hidden" name="attr_rollQstDiff" value="?{Difficulty|0 - Routine,0|1 - Simple,1|2 - Standard,2|3 - Demanding,3|4 - Difficult,4|5 - Challenging,5|6 - Intimidating,6|7 - Formidable,7|8 - Heroic,8|9 - Immortal,9|10 - Impossible,10}" />
+	<input type="hidden" name="attr_rollQstCost" value="?{Cost|0}" />
+	<input type="hidden" name="attr_rollQstBonus" value="?{Bonus|0}" />
+	<input type="hidden" name="attr_rollQstRollEff" value="?{Effort to Roll|0|1|2|3|4|5|6}" />
+	<input type="hidden" name="attr_rollQstRollDmg" value="?{Effort to Damage|0|1|2|3|4|5|6}" />
+	<input type="hidden" name="attr_rollQstAsset" value="?{Asset|0|1|2}" />
+    <input type="hidden" name="attr_targNumQst" value="@{rollQstDiff}*3" />
+    <input type="hidden" name="attr_effortCostQst" value="ceil((@{rollQstRollEff}+@{rollQstRollDmg})/6)+(@{rollQstRollEff}+@{rollQstRollDmg})*2" />
+    <input type="hidden" name="attr_effortSpeedCostQst" value="ceil((@{rollQstRollEff}+@{rollQstRollDmg})/6)+(@{rollQstRollEff}+@{rollQstRollDmg})*(2+@{armorspeedcost})" />
+    <input type="hidden" name="attr_totalCostQst" value="@{effortCostQst}+@{rollQstCost}" />
+    <input type="hidden" name="attr_totalSpeedCostQst" value="@{effortSpeedCostQst}+@{rollQstCost}" />
+    <input type="hidden" name="attr_MightCostQst" value="@{totalCostQst}-@{mightedge}" />
+    <input type="hidden" name="attr_SpeedCostQst" value="@{totalSpeedCostQst}-@{speededge}" />
+    <input type="hidden" name="attr_IntelCostQst" value="@{totalCostQst}-@{intellectedge}" />
+</div> <!-- END HIDDEN Rolls and Calculations -->
+
