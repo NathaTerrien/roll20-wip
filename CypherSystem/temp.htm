@@ -1,6 +1,10 @@
-<button type="roll" class="sheet-macrobt" title="Might Roll, with pop-up questions for paramters"
-                                            value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=Might}} {{attrEdge=@{mightedge}}} {{bonusToRoll=[[@{rollQstBonus}]]}} {{difficulty=[[@{rollQstDiff}]]}} {{targNum=[[@{targNumQst}]]}} {{finalDiff=[[@{rollQstDiff}-@{rollQstAsset}-@{rollQstRollEff}]]}} {{targNumRoll=[[(@{rollQstDiff}-@{rollQstAsset}-@{rollQstRollEff})*3-(1*@{rollQstBonus})]]}} {{totalCost=[[@{MightCostQst}]]}} {{effortCost=[[@{effortCostQst}]]}} {{effortRoll=[[@{rollQstRollEff}]]}} {{effortDmg=[[@{rollQstRollDmg}]]}} {{statExpense=[[@{rollQstCost}]]}} {{assets=[[@{rollQstAsset}]]}} {{bonusDmg=[[@{rollQstRollDmg}*3]]}}"
-                                            name="roll_macroMightCheck"></button>
+<button type="roll" class="sheet-macrobt" title="Might Skill Roll, with pop-up questions for parameters"
+                                    value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=@{skillmightname}}} {{attrEdge=@{mightedge}}} {{difficulty=[[@{rollQstDiff}]]}} {{effortRoll=[[@{rollQstRollEff}]]}} {{assets=[[@{rollQstAsset}]]}} {{bonusToRoll=[[@{rollQstBonus}]]}} {{statExpense=[[@{rollQstCost}]]}} {{effortDmg=[[@{rollQstRollDmg}]]}} {{targNum=[[@{targNumQst}]]}} {{finalDiff=[[@{rollQstDiff}-(1*@{rollQstAsset})-(1*@{rollQstRollEff})-(1*@{skillmightlvl})]]}} {{targNumRoll=[[(3*@{rollQstDiff})-(3*@{rollQstAsset})-(3*@{rollQstRollEff})-(3*@{skillmightlvl})-(1*@{rollQstBonus})]]}} {{totalCost=[[@{MightCostQst}]]}} {{effortCost=[[@{effortCostQst}]]}} {{bonusDmg=[[@{rollQstRollDmg}*3]]}} {{skilled=[[@{skillmightlvl}]]}}"
+                                    name="roll_macroMightSkillCheck"></button>
+<button type="roll" class="sheet-macrobt" title="Initiative Roll, with pop-up questions for parameters"
+                            value="&{template:cyphInit} {{charid=@{character_id}}} {{stat=speed}} {{skilled=[[@{InitVarSkill}*3]]}} {{finalRoll=[[1d20+(@{rollQstRollEff}*3)+(@{InitVarSkill}*3)+(@{rollQstAsset}*3)+(1*@{rollQstBonus}) &{tracker}]]}}  {{bonusToRoll=[[@{rollQstBonus}]]}} {{speedEdge=[[@{speededge}]]}} {{effortsUsed=[[@{rollQstRollEff}]]}}  {{assets=[[@{rollQstAsset}]]}} {{effortCost=[[ceil(@{rollQstRollEff}/6)+@{rollQstRollEff}*(2+@{armorspeedcost})]]}} {{statExpense=[[@{rollQstCost}]]}} {{totalCost=[[ceil(@{rollQstRollEff}/6)+@{rollQstRollEff}*(2+@{armorspeedcost})+@{rollQstCost}-@{speededge}]]}}"
+                            name="roll_macroInitCheck"></button>
+
 
 <div style="display: none;"> <!-- HIDDEN Rolls and Calculations -->
 	<!-- Using the Action Section -->
