@@ -800,3 +800,15 @@ input[type=radio].sheet-styleTheStrange:checked ~ div.sheet-main  img.sheet-game
     font-size: 1em;
     border: 1px solid LightGray;
 }
+.sheet-rolltemplate-cyphBasicRoll hr
+, .sheet-rolltemplate-cyphRecovery hr
+, .sheet-rolltemplate-cyphInit hr
+,.sheet-rolltemplate-cyphMsg hr {
+    margin: 4px 0 4px 0;
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(5,109,161,1.75), rgba(0,0,0,0));
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(5,109,161,1.75), rgba(0,0,0,0));
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(5,109,161,1.75), rgba(0,0,0,0));
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(5,109,161,1.75), rgba(0,0,0,0));
+}
