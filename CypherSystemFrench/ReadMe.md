@@ -56,7 +56,7 @@ Le script API permet que l'&eacute;tat du personnage soit automatiquement mis &a
 ##Version 1.4 (21 Novembre 2015)
 [Voir le détail sur le forum Roll20](https://app.roll20.net/forum/post/2357046/cypher-system-core-rule-book-sheet/?pageforid=2645489#post-2645489)
 
-* Nouvelle option de la feuille pour choisir le type de paramètrage des jets : via la section Action ou via Questions (type macro)
+* Nouvelle option de la feuille pour choisir le type de paramétrage des jets : via la section Action ou via Questions (type macro)
 * Nouveaux boutons pour montrer dans le chat le détails des Aptitudes Spéciales, Cyphers et Artefacts
 
 ##Version 1.3 (25 Octobre 2015)
