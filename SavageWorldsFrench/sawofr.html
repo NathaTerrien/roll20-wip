@@ -1,3 +1,30 @@
+<!-- SCRIPTS -->
+<script type="text/worker">
+on("change:arme1_comp", function() {
+    getAttrs(["arme1_comp"], function(values) {
+        setAttrs({
+            arme1_comp_rel: "@{relRollBast" + values.arme1_comp + "}",
+            arme1_comp_jet: "@{jetRollBast" + values.arme1_comp + "}"
+        });
+    });
+});
+on("change:arme2_comp", function() {
+    getAttrs(["arme2_comp"], function(values) {
+        setAttrs({
+            arme2_comp_rel: "@{relRollBast" + values.arme2_comp + "}",
+            arme2_comp_jet: "@{jetRollBast" + values.arme2_comp + "}"
+        });
+    });
+});
+on("change:arme3_comp", function() {
+    getAttrs(["arme3_comp"], function(values) {
+        setAttrs({
+            arme3_comp_rel: "@{relRollBast" + values.arme3_comp + "}",
+            arme3_comp_jet: "@{jetRollBast" + values.arme3_comp + "}"
+        });
+    });
+});
+</script>
 <!-- *** HIDDEN ROLLS ** -->
 <div style="display: none;">
     <!-- ATTRIBUTS -->
@@ -986,18 +1013,14 @@
                 title="Arme N°1"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
-            <SELECT name="attr_arme1_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+            <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                 <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
-                <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
-                <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+                <OPTION value="Combat">Combat</OPTION>
+                <OPTION value="Lancer">Lancer</OPTION>
+                <OPTION value="Tir">Tir</OPTION>
             </SELECT>
-            <SELECT name="attr_arme1_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
-                <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
-                <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
-            </SELECT>
+            <input type="hidden" name="attr_arme1_comp_rel" value="" />
+            <input type="hidden" name="attr_arme1_comp_jet" value="" />
             <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
@@ -1029,18 +1052,14 @@
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme2_nom" placeholder="Nom de l'arme n°2" title="Nom de l'arme n°2" />
-            <SELECT name="attr_arme2_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+            <SELECT name="attr_arme2_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                 <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
-                <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
-                <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+                <OPTION value="Combat">Combat</OPTION>
+                <OPTION value="Lancer">Lancer</OPTION>
+                <OPTION value="Tir">Tir</OPTION>
             </SELECT>
-            <SELECT name="attr_arme2_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
-                <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
-                <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
-            </SELECT>
+            <input type="hidden" name="attr_arme2_comp_rel" value="" />
+            <input type="hidden" name="attr_arme2_comp_jet" value="" />
             <SELECT name="attr_arme2_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
@@ -1072,18 +1091,14 @@
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme3_nom" placeholder="Nom de l'arme n°3" title="Nom de l'arme n°3" />
-            <SELECT name="attr_arme3_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+            <SELECT name="attr_arme3_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                 <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
-                <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
-                <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+                <OPTION value="Combat">Combat</OPTION>
+                <OPTION value="Lancer">Lancer</OPTION>
+                <OPTION value="Tir">Tir</OPTION>
             </SELECT>
-            <SELECT name="attr_arme3_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
-                <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
-                <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
-            </SELECT>
+            <input type="hidden" name="attr_arme3_comp_rel" value="" />
+            <input type="hidden" name="attr_arme3_comp_jet" value="" />
             <SELECT name="attr_arme3_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
@@ -1102,6 +1117,16 @@
             <input name="attr_arme3_notes" style="width: 190px;" type="text" placeholder="Notes" title="Notes sur l'arme" />
         </div> <!-- FIN ARME FIXE 3 -->
         <fieldset class="repeating_armes">
+            <script type="text/worker">
+                on("change:repeating_armes:armed_comp", function() {
+                    getAttrs(["repeating_armes_armeD_comp"], function(values) {
+                        setAttrs({
+                            repeating_armes_armeD_comp_rel: "@{relRollBast" + values.repeating_armes_armeD_comp + "}",
+                            repeating_armes_armeD_comp_jet: "@{jetRollBast" + values.repeating_armes_armeD_comp + "}"
+                        });
+                    });
+                });
+            </script>
             <div class="sheet-input"> <!-- ARME DYNAMIQUE -->
                 <button type="roll"
                     name="Btrel-ArmeD"
@@ -1116,18 +1141,14 @@
                     title="Attaque"
                     >&nbsp;</button>
                 <input type="text" class="sheet-compspe"  name="attr_armeD_nom" placeholder="Nom de l'arme" title="Nom de l'arme" />
-                <SELECT name="attr_armeD_comp_rel" class="sheet-selComprel" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <SELECT name="attr_armeD_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
                     <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                    <OPTION value="@{relRollBastCombat}">Combat (succès et relances)</OPTION>
-                    <OPTION value="@{relRollBastLancer}">Lancer (succès et relances)</OPTION>
-                    <OPTION value="@{relRollBastTir}">Tir (succès et relances)</OPTION>
+                    <OPTION value="Combat">Combat</OPTION>
+                    <OPTION value="Lancer">Lancer</OPTION>
+                    <OPTION value="Tir">Tir</OPTION>
                 </SELECT>
-                <SELECT name="attr_armeD_comp_jet" class="sheet-selCompjet" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
-                    <OPTION value="0" SELECTED> - Choisir une compétence :</OPTION>
-                    <OPTION value="@{jetRollBastCombat}">Combat (jet)</OPTION>
-                    <OPTION value="@{jetRollBastLancer}">Lancer (jet)</OPTION>
-                    <OPTION value="@{jetRollBastTir}">Tir (jet)</OPTION>
-                </SELECT>
+                <input type="hidden" name="attr_armeD_comp_rel" value="" />
+                <input type="hidden" name="attr_armeD_comp_jet" value="" />
                 <SELECT name="attr_armeD_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                     <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                     <OPTION value="0d4">_</OPTION>
