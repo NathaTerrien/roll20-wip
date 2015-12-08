@@ -47,9 +47,9 @@
 			                    </select>
 							</td>
                             <td class="sheet-boxinput"><input type="number" name="attr_FORCE" title="Force" value="10" min="0" max="30"/></td>
-							<td class="sheet-boxinputlight"><input type="number" name="attr_FOR" value="floor((@{FORCE}-10)/2)" disabled /></td>
+							<td class="sheet-boxinputlight"><input type="number" name="attr_FOR" value="floor((@{FORCE}-10)/2)" readonly /></td>
 							<td class="sheet-boxinput"><input type="number" name="attr_FOR_BONUS" title="Bonus au Test" /></td>
-                            <td class="sheet-boxinputlight"><input type="number" name="attr_FOR_TEST" value="@{FOR}+@{FOR_BONUS}" disabled /></td>
+                            <td class="sheet-boxinputlight"><input type="number" name="attr_FOR_TEST" value="@{FOR}+@{FOR_BONUS}" readonly /></td>
 						</tr>
 						<tr>
 							<td class="sheet-boxtitre"><button class="sheet-boxtitre" type="roll" name="JET_DEX" title="Jet de Dext&eacute;rit&eacute;" value="&{template:co1} {{name=Dext&eacute;rit&eacute;}} {{subtags=Caract&eacute;ristique}} {{carac=[[{@{DEX_SUP}d20cs20cf1}kh1+[[@{DEX_TEST}]]]]}}"> DEX</button></td>
