@@ -7,7 +7,7 @@
 <div style="display:inline-block;font-size:11px;color: #888888;text-align:left;font-weight: bold;margin-left:10px;">- Rolls type:</div>
 <input type="radio" name="attr_sheetRolls" value="0" class="sheet-actionRoll" checked="checked" title="Roll using the Action section parameters" /><span>Action Section</span>
 <input type="radio" name="attr_sheetRolls" value="1" class="sheet-macroRoll" title="Roll using roll queries for parameters" /><span>Roll Queries</span>
-<div style="display:inline-block;font-size:11px;color: #888888;text-align:left;margin-left:10px;">- Version 1.4 (2015-11-21)</div>
+<div style="display:inline-block;font-size:11px;color: #888888;text-align:left;margin-left:10px;">- Version 1.5 (alpha)</div>
 <div class="sheet-main">
     <div style="display: none;"> <!-- HIDDEN Rolls and Calculations -->
         <!-- Using the Action Section -->
@@ -367,13 +367,13 @@
                         <div class="sheet-text1" style="text-align: left;">SPECIAL ABILITIES</div>
                         <fieldset class="repeating_abilities">
                             <div class="sheet-text2">
-                                <button type="roll" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{abilityname}}} {{type=Special Ability}} {{use=@{abilityuse}}} {{description=@{abilitydesc}}}">Name</button>
-                                <input type="text" style="width: 190px;font-weight: bold;" name="attr_abilityname" title="Ability name"s placeholder="Name" />
-                                <select name="attr_abilityuse" style="width: 90px;" title="Eventual conditions of use of this ability: enabler, action, once a day etc.">
+                                <input type="text" style="width: 210px;font-weight: bold;" name="attr_abilityname" title="Ability name"s placeholder="Name" />
+                                <select name="attr_abilityuse" style="width: 85px;" title="Eventual conditions of use of this ability: enabler, action, once a day etc.">
                                     <option selected="selected">Action</option>
                                     <option>Enabler</option>
                                     <option>Other</option>
                                 </select>
+                                <button type="roll" name="ShowAbility" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{abilityname}}} {{type=Special Ability}} {{use=@{abilityuse}}} {{description=@{abilitydesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                             </div>
                             <div><textarea style="height: 46px" name="attr_abilitydesc" title="Ability description" placeholder="Description and notes"></textarea></div>
                         </fieldset>
@@ -599,10 +599,10 @@
                         </table>
                         <fieldset class="repeating_cypher-list">
                             <div class="sheet-text2">
-                                <button type="roll" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}">Name</button>
-                                <input type="text" style="width: 210px;font-weight: bold;" name="attr_cypher-name" title="Name of the cypher" placeholder="Cypher" />
+                                <input type="text" style="width: 235px;font-weight: bold;" name="attr_cypher-name" title="Name of the cypher" placeholder="Cypher" />
                                 Lvl&nbsp;
                                 <input type="number" style="width: 40px;" name="attr_cypher-level" title="Level of the Cypher" min="0" value="1" />
+                                <button type="roll" name="ShowCypher" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                             </div>
                             <div>
                                 <textarea name="attr_cypher-description" style="height: 46px; width: 100%;" title="Description of the Cypher" placeholder="Description"></textarea>
@@ -617,10 +617,10 @@
                         <div class="sheet-text1" style="text-align: left;">ARTIFACTS</div>
                         <fieldset class="repeating_artifact-list">
                             <div class="sheet-text2" style="text-align: left;">
-                                <button type="roll" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{artifact-name}}} {{type=Artefact}} {{level=@{artifact-level}}} {{depletion=@{artdepthreshold} in @{artdepdice}}} {{description=@{artifact-description}}}">Name</button>
-                                <input type="text" style="width: 210px;font-weight: bold;" name="attr_artifact-name" title="Name" placeholder="Artifact" />
+                                <input type="text" style="width: 235px;font-weight: bold;" name="attr_artifact-name" title="Name" placeholder="Artifact" />
                                 Lvl&nbsp;
                                 <input type="number" style="width: 40px;" name="attr_artifact-level" title="Level" min="0" max="99" value="1" />
+                                <button type="roll" name="ShowArtifact" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{artifact-name}}} {{type=Artefact}} {{level=@{artifact-level}}} {{depletion=@{artdepthreshold} in @{artdepdice}}} {{description=@{artifact-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                             </div>
                             <div class="sheet-text2" style="text-align: left;">
                                 Depletion &nbsp;
@@ -676,12 +676,17 @@
                         <fieldset class="repeating_equipment-list">
                             <table>
                               <tr>
-                                  <td style="width: 100%; text-align: left;"><input type="text" name="attr_equipment-name" title="Item" placeholder="Equipment name" /></td>
-                                  <td width="50px"><input type="number" name="attr_equipment-qty" title="Quantity" value="1" /></td>
+                                  <td style="width: 100%; text-align: left;"><input type="text" name="attr_equipment-name" style="width:100%" title="Item" placeholder="Equipment name" /></td>
+                                  <td width="50px">
+                                    <input type="number" name="attr_equipment-qty" title="Quantity" value="1" />
+                                    <button type="roll" name="ShowItem" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=Equipment}} {{description=@{equipment-name}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                                  </td>
                               </tr>
                             </table>
                         </fieldset>
-                        <div class="sheet-text2" style="text-align: left;">MISC.</div>
+                        <div class="sheet-text2" style="text-align: left;">MISC.
+                            <button type="roll" name="ShowMiscEquip" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=Misc. equipment}} {{description=@{possessions}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                        </div>
                         <textarea name="attr_possessions" style="height: 100px; width: 100%;" title="Miscellaneous equipment"></textarea>
                     </div>
                 </div>

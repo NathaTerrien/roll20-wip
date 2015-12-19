@@ -58,13 +58,15 @@ input[type=radio].sheet-styleNpc:checked ~ .sheet-npc{
     display: inherit;
 }
 button[type=roll].sheet-btDesc{
-    font-family: inherit;
     color: inherit;
-    font-size:inherit;
     height:20px;
-    line-height: 11px;
+    width:22px;
+    line-height: 16px;
     vertical-align: middle;
     padding:none;
+    border:none;
+    margin:none;
+    background:none;
 }
 button[type=roll].sheet-btDesc:before{
     content:none;
