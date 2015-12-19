@@ -3,16 +3,11 @@ Personal developments and works in progress for the Roll20 character sheets and 
 
 ## WIP
 
-### Savage Worlds French
-
-#### Sources
-* [WIP](./SavageWorldsFrench/) Version 0.2
-
-#### Todo
-* Gestion de tous les jets en mode template ou macro
-* Template personnalisé avec informations exhaustives
-* Gestion (optionnelle ?) de cible pour les jets en opposition (autre que combat)
-* Tests ...
+### Sheets I wish to make or enhance
+* Würm french and english
+* Dragon de Poche 2 (french)
+* Castles & Crusades
+* Wastburg (french)
 
 ## Official sheets
 
@@ -20,30 +15,33 @@ Personal developments and works in progress for the Roll20 character sheets and 
 
 #### Sources
 * [WIP](./ChroniquesOubliees/) Version 1.3
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.2
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.2
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.3
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.3
 
 #### Todo
-* Affichage des dégâts doublés en cas de critique
-* Gestion des caractéristiques supérieures (1d20 ou 2d20kh1)
 
 ### Cypher System (english)
 
 #### Sources
-* [WIP](./CypherSystem/)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.3
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.2
+* [WIP](./CypherSystem/)  Version 1.4
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.4
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.4
 
 #### Todo
+* Change "Name" button to logo/info button
+* Name info button so that it can be dragged to the macro bar
+* Add info button to equipment and consummables
+* Figure how to make attack roll button (taking in account attributes, skills, damage etc)
 
 ### Cypher System (french)
 
 #### Sources
-* [WIP](./CypherSystemFrench/)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.3
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.2
+* [WIP](./CypherSystemFrench/) Version 1.4
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.4
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.4
 
 #### Todo
+Cf. english version
 
 ### Numenéra tabbed (english)
 
@@ -71,6 +69,24 @@ Personal developments and works in progress for the Roll20 character sheets and 
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 2.2
 
 #### Todo
+* Calcule automatiqueme des modificateurs de caractéristiques, tout en restant modifiables pour les homerules (sheet workers)
+* Total du poids de l'inventaire et calcul de l'encombrement et des vitesses (sheet workers)
+* Affichage des capacités de classe en fonction de la classe (cf. fiche Moldvay)
+* scripts API de génération de personnage
+
+### Savage Worlds French
+
+#### Sources
+* [WIP](./SavageWorldsFrench/) Version 1.1
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.1
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.1
+
+#### Todo
+* Tests ...
+* Gérer poids unitaire * quantité dans l'inventaire
+* Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
+* Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
+* Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
 
 ### The One Ring french / L'Anneau Unique
 
@@ -80,6 +96,7 @@ Personal developments and works in progress for the Roll20 character sheets and 
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Anneau%20Unique) Version 1.1
 
 #### Todo
+* Ajouter les descriptifs VF en infobulles (cf. fiche VO)
 
 ## API Scripts
 
