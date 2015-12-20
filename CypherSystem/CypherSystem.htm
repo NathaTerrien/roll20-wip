@@ -36,7 +36,7 @@
         <input type="hidden" name="attr_IntelCostQst" value="@{totalCostQst}-@{intellectedge}" />
     </div> <!-- END HIDDEN Rolls and Calculations -->
     <table>
-        <!-- ******* COL 1 **************** -->
+<!-- ******* COL 1 **************** -->
         <tr>
         <td width="352px" valign="top"> <!-- COL 1 -->
             <div class="sheet-supblock"> <!--- Name -->
@@ -389,7 +389,8 @@
                 </div>
             </div> <!-- END BACKGROUND -->
         </td> <!-- END COL 1 -->
-        <!-- ******* COL 2 **************** -->
+<!-- ******* COL 2 **************** -->
+    <!-- *** SKILLS *** -->
         <td width="352px" valign="top"> <!-- COL 2 -->
             <div class="sheet-supblock"> <!-- MIGHT SKILLS -->
                 <div class="sheet-blublock">
@@ -478,12 +479,60 @@
                     </div>
                 </div>
             </div> <!-- END INTEL SKILLS -->
-            <div class="sheet-supblock"> <!-- ATTACKS -->
+    <!-- *** ATTACKS *** -->
+            <div class="sheet-supblock"> <!-- MIGHT ATTACKS -->
                 <div class="sheet-blublock">
                     <div class="sheet-inpblock2">
                         <table>
                             <tr>
-                                <td class="sheet-text1" style="text-align: left;">ATTACKS</td>
+                                <td class="sheet-text1" style="text-align: left;">ATTACKS • MIGHT</td>
+                                <td class="sheet-text2" style="width: 30px;text-align: center;">MOD</td>
+                                <td class="sheet-text2" style="width: 50px;text-align: center;">DAM</td>
+                            </tr>
+                        </table>
+                        <fieldset class="repeating_attackmight">
+                            <table>
+                                <tr>
+                                    <td class="sheet-text1" style="text-align: left;">
+                                        <input type="text" style="width: 160px;" name="attr_atkmightname" title="Attack: weapon or power/ability name" placeholder="Attack" />
+                                    </td>
+                                    <td class="sheet-text2" style="width: 30px;text-align: center;">
+                                        <input type="number" name="attr_atkmightmod" min="0" style="width:30px;" title="Mod" value="0" />
+                                    </td>
+                                    <td class="sheet-text2" style="width: 40px;text-align: center;">
+                                        <input type="number" name="attr_atkmightdmg" min="0" style="width:40px;" title="Damage" value="0" />
+                                    </td>
+                                    <td class="sheet-text2" style="width: 40px;text-align: center;">
+                                        <select  name="attr_atkmightlvl" style="width: 40px" title="I = inability, U = untrained, T = trained, S = specialized">
+                                            <option value="-1">I&nbsp;&nbsp;&nbsp;&nbsp;Inability</option>
+                                            <option value="0" selected>U&nbsp;&nbsp;&nbsp;&nbsp;Untrained</option>
+                                            <option value="1">T&nbsp;&nbsp;&nbsp;&nbsp;Trained</option>
+                                            <option value="2">S&nbsp;&nbsp;&nbsp;&nbsp;Specialized</option>
+                                        </select>
+                                    </td>
+                                    <td class="sheet-text2" style="width: 20px;text-align: center;">
+                                        <button type="roll" class="sheet-actionbt" title="Might Attack Roll, using the Action section parameters"
+                                            value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=@{skillmightname}}} {{attrEdge=@{mightedge}}} {{bonusToRoll=[[@{rollVarBonus}]]}} {{difficulty=[[@{rollVarDiff}]]}} {{targNum=[[@{targNum}]]}} {{finalDiff=[[@{rollVarDiff}-(1*@{rollVarAsset})-(1*@{rollVarRollEff})-(1*@{skillmightlvl})]]}} {{targNumRoll=[[(3*@{rollVarDiff})-(3*@{rollVarAsset})-(3*@{rollVarRollEff})-(3*@{skillmightlvl})-(1*@{rollVarBonus})]]}} {{totalCost=[[@{MightCost}]]}} {{effortCost=[[@{effortCost}]]}} {{effortRoll=[[@{rollVarRollEff}]]}} {{effortDmg=[[@{rollVarRollDmg}]]}} {{statExpense=[[@{rollVarCost}]]}} {{assets=[[@{rollVarAsset}]]}} {{bonusDmg=[[@{rollVarRollDmg}*3]]}} {{skilled=[[@{skillmightlvl}]]}}"
+                                            name="roll_actionMightAttack"></button>
+                                        <button type="roll" class="sheet-macrobt" title="Might Attack Roll, roll queries for parameters"
+                                            value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=@{skillmightname}}} {{attrEdge=@{mightedge}}} {{difficulty=[[@{rollQstDiff}]]}} {{effortRoll=[[@{rollQstRollEff}]]}} {{assets=[[@{rollQstAsset}]]}} {{bonusToRoll=[[@{rollQstBonus}]]}} {{statExpense=[[@{rollQstCost}]]}} {{effortDmg=[[@{rollQstRollDmg}]]}} {{targNum=[[@{targNumQst}]]}} {{finalDiff=[[@{rollQstDiff}-(1*@{rollQstAsset})-(1*@{rollQstRollEff})-(1*@{skillmightlvl})]]}} {{targNumRoll=[[(3*@{rollQstDiff})-(3*@{rollQstAsset})-(3*@{rollQstRollEff})-(3*@{skillmightlvl})-(1*@{rollQstBonus})]]}} {{totalCost=[[@{MightCostQst}]]}} {{effortCost=[[@{effortCostQst}]]}} {{bonusDmg=[[@{rollQstRollDmg}*3]]}} {{skilled=[[@{skillmightlvl}]]}}"
+                                            name="roll_macroMightAttack"></button>
+                                    </td>
+                                    <td class="sheet-text2" style="width: 20px;text-align: center;">
+                                        <button type="roll" name="ShowMightAttack" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{abilityname}}} {{type=Special Ability}} {{use=@{abilityuse}}} {{description=@{abilitydesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                    </div>
+                </div>
+            </div> <!-- END MIGHT ATTACKS -->
+            <div class="sheet-supblock"> <!-- OTHER ATTACKS -->
+                <div class="sheet-blublock">
+                    <div class="sheet-inpblock2">
+                        <table>
+                            <tr>
+                                <td class="sheet-text1" style="text-align: left;">Other ATTACKS</td>
                                 <td class="sheet-text2" style="width: 30px;text-align: center;">MOD</td>
                                 <td class="sheet-text2" style="width: 50px;text-align: center;">DAM</td>
                             </tr>
@@ -497,7 +546,7 @@
                                     <td class="sheet-text2" style="width: 30px;text-align: center;">
                                         <input type="number" name="attr_atkmod" min="0" style="width:30px;" title="Mod" value="0" />
                                     </td>
-                                    <td class="sheet-text2" style="width: 30px;text-align: center;">
+                                    <td class="sheet-text2" style="width: 50px;text-align: center;">
                                         <input type="number" name="attr_atkdmg" min="0" style="width:50px;" title="Damage" value="0" />
                                     </td>
                                 </tr>
@@ -505,7 +554,7 @@
                         </fieldset>
                     </div>
                 </div>
-            </div> <!-- END ATTACKS -->
+            </div> <!-- END OTHER ATTACKS -->
             <div class="sheet-supblock"> <!-- ADVANCEMENT -->
                 <div class="sheet-blublock">
                     <div class="sheet-inpblock2">
@@ -580,7 +629,7 @@
                 </div>
             </div> <!-- END ADVANCEMENT -->
         </td> <!-- END COL 2 -->
-        <!-- ******* COL 3 **************** -->
+<!-- ******* COL 3 **************** -->
         <td valign="top"> <!-- COL 3 -->
             <img class="sheet-gamelogoCypher" src="https://lh4.googleusercontent.com/-T_PWRmd-TxE/Vfs9cEqYWbI/AAAAAAAAW0I/rUC1JdU-UXg/w900-h263/Roll20_cypher_logo.png" />
             <img class="sheet-gamelogoNumenera" src="http://upload.wikimedia.org/wikipedia/en/8/8e/Numenera_Logo.png" />
@@ -669,23 +718,23 @@
                         </table>
                         <table>
                             <tr>
-                                <td class="sheet-text2" style="text-align: left;">ITEM</td>
-                                <td class="sheet-text2" style="width:50px;">#</td>
+                                <td class="sheet-text2" style="width: 260px;text-align: left;">ITEM</td>
+                                <td style="text-align: left;">#</td>
                             </tr>
                         </table>
                         <fieldset class="repeating_equipment-list">
                             <table>
                               <tr>
                                   <td style="width: 100%; text-align: left;"><input type="text" name="attr_equipment-name" style="width:100%" title="Item" placeholder="Equipment name" /></td>
-                                  <td width="50px">
+                                  <td width="70px">
                                     <input type="number" name="attr_equipment-qty" title="Quantity" value="1" />
-                                    <button type="roll" name="ShowItem" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=Equipment}} {{description=@{equipment-name}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                                    <button type="roll" name="ShowItem" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=Item}} {{type=Equipment}} {{description=@{equipment-name} #@{equipment-qty}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                                   </td>
                               </tr>
                             </table>
                         </fieldset>
                         <div class="sheet-text2" style="text-align: left;">MISC.
-                            <button type="roll" name="ShowMiscEquip" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=Misc. equipment}} {{description=@{possessions}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                            <button type="roll" name="ShowMiscEquip" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=Misc. equipment}}  {{type=Equipment}} {{description=@{possessions}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                         </div>
                         <textarea name="attr_possessions" style="height: 100px; width: 100%;" title="Miscellaneous equipment"></textarea>
                     </div>

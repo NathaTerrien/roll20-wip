@@ -67,9 +67,15 @@ button[type=roll].sheet-btDesc{
     border:none;
     margin:none;
     background:none;
+    border-radius:10px;
+    opacity: 0.4;
 }
 button[type=roll].sheet-btDesc:before{
     content:none;
+}
+button[type=roll].sheet-btDesc:hover{
+   box-shadow: 1px 1px 1px 1px #888888;
+   opacity: 0.7;
 }
 button[type=roll].sheet-basicbt {
     padding: 2px 0px 0px 1px;
@@ -366,7 +372,7 @@ input[type=radio].sheet-styleTheStrange:checked ~ div.sheet-main input[type=text
 select{
     height: 20px;
     margin: 0px;
-    padding-left: 0.3em;
+    padding-left: 0em;
     padding-right: 0.2em;
     padding-top: 0.2em;
     padding-bottom: 0.1em;
