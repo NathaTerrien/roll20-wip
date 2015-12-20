@@ -493,8 +493,8 @@
                         <fieldset class="repeating_attackmight">
                             <table>
                                 <tr>
-                                    <td class="sheet-text1" style="text-align: left;">
-                                        <input type="text" style="width: 160px;" name="attr_atkmightname" title="Attack: weapon or power/ability name" placeholder="Attack" />
+                                    <td class="sheet-text1" style="text-align: left;" COLSPAN="2">
+                                        <input type="text" style="width: 240px;" name="attr_atkmightname" title="Attack: weapon or power/ability name" placeholder="Attack" />
                                     </td>
                                     <td class="sheet-text2" style="width: 30px;text-align: center;">
                                         <input type="number" name="attr_atkmightmod" min="0" style="width:30px;" title="Mod" value="0" />
@@ -502,7 +502,10 @@
                                     <td class="sheet-text2" style="width: 40px;text-align: center;">
                                         <input type="number" name="attr_atkmightdmg" min="0" style="width:40px;" title="Damage" value="0" />
                                     </td>
-                                    <td class="sheet-text2" style="width: 40px;text-align: center;">
+                                </tr>
+                                <tr>
+                                    <td class="sheet-text2" style="width: 40px;text-align: right;">
+                                        Skilled:
                                         <select  name="attr_atkmightlvl" style="width: 40px" title="I = inability, U = untrained, T = trained, S = specialized">
                                             <option value="-1">I&nbsp;&nbsp;&nbsp;&nbsp;Inability</option>
                                             <option value="0" selected>U&nbsp;&nbsp;&nbsp;&nbsp;Untrained</option>
@@ -510,7 +513,11 @@
                                             <option value="2">S&nbsp;&nbsp;&nbsp;&nbsp;Specialized</option>
                                         </select>
                                     </td>
-                                    <td class="sheet-text2" style="width: 20px;text-align: center;">
+                                    <td>
+                                        Cost:
+                                        <input type="number" name="attr_atkmightcost" min="0" style="width:30px;" title="Cost" value="0" />
+                                    </td>
+                                    <td class="sheet-text2" style="width: 30px;text-align: center;">
                                         <button type="roll" class="sheet-actionbt" title="Might Attack Roll, using the Action section parameters"
                                             value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=@{skillmightname}}} {{attrEdge=@{mightedge}}} {{bonusToRoll=[[@{rollVarBonus}]]}} {{difficulty=[[@{rollVarDiff}]]}} {{targNum=[[@{targNum}]]}} {{finalDiff=[[@{rollVarDiff}-(1*@{rollVarAsset})-(1*@{rollVarRollEff})-(1*@{skillmightlvl})]]}} {{targNumRoll=[[(3*@{rollVarDiff})-(3*@{rollVarAsset})-(3*@{rollVarRollEff})-(3*@{skillmightlvl})-(1*@{rollVarBonus})]]}} {{totalCost=[[@{MightCost}]]}} {{effortCost=[[@{effortCost}]]}} {{effortRoll=[[@{rollVarRollEff}]]}} {{effortDmg=[[@{rollVarRollDmg}]]}} {{statExpense=[[@{rollVarCost}]]}} {{assets=[[@{rollVarAsset}]]}} {{bonusDmg=[[@{rollVarRollDmg}*3]]}} {{skilled=[[@{skillmightlvl}]]}}"
                                             name="roll_actionMightAttack"></button>
@@ -518,7 +525,7 @@
                                             value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=might}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=@{skillmightname}}} {{attrEdge=@{mightedge}}} {{difficulty=[[@{rollQstDiff}]]}} {{effortRoll=[[@{rollQstRollEff}]]}} {{assets=[[@{rollQstAsset}]]}} {{bonusToRoll=[[@{rollQstBonus}]]}} {{statExpense=[[@{rollQstCost}]]}} {{effortDmg=[[@{rollQstRollDmg}]]}} {{targNum=[[@{targNumQst}]]}} {{finalDiff=[[@{rollQstDiff}-(1*@{rollQstAsset})-(1*@{rollQstRollEff})-(1*@{skillmightlvl})]]}} {{targNumRoll=[[(3*@{rollQstDiff})-(3*@{rollQstAsset})-(3*@{rollQstRollEff})-(3*@{skillmightlvl})-(1*@{rollQstBonus})]]}} {{totalCost=[[@{MightCostQst}]]}} {{effortCost=[[@{effortCostQst}]]}} {{bonusDmg=[[@{rollQstRollDmg}*3]]}} {{skilled=[[@{skillmightlvl}]]}}"
                                             name="roll_macroMightAttack"></button>
                                     </td>
-                                    <td class="sheet-text2" style="width: 20px;text-align: center;">
+                                    <td class="sheet-text2" style="width: 40px;text-align: center;">
                                         <button type="roll" name="ShowMightAttack" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{abilityname}}} {{type=Special Ability}} {{use=@{abilityuse}}} {{description=@{abilitydesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                                     </td>
                                 </tr>
