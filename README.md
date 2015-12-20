@@ -23,14 +23,15 @@ Personal developments and works in progress for the Roll20 character sheets and 
 ### Cypher System (english)
 
 #### Sources
-* [WIP](./CypherSystem/)  Version 1.4
+* [WIP](./CypherSystem/)  Version 1.5 alpha
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.4
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.4
 
 #### Todo
-* Change "Name" button to logo/info button
-* Name info button so that it can be dragged to the macro bar
-* Add info button to equipment and consummables
+* ~~Change "Name" button to logo/info button~~
+* ~~Name info button so that it can be dragged to the macro bar~~
+* ~~Add info button to equipment and consummables~~
+* Take damage track in account for effort cost calculation
 * Figure how to make attack roll button (taking in account attributes, skills, damage etc)
 
 ### Cypher System (french)
