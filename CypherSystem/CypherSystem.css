@@ -26,7 +26,8 @@ input[type=radio].sheet-styleNumenera + span,
 input[type=radio].sheet-styleTheStrange + span,
 input[type=radio].sheet-styleNpc + span,
 input[type=radio].sheet-actionRoll + span,
-input[type=radio].sheet-macroRoll + span{
+input[type=checkbox].chkparam + span,
+{
     font-size:11px;
     color: #888888;
     text-align:left;
