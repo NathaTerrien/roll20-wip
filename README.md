@@ -37,8 +37,8 @@ Personal developments and works in progress for the Roll20 character sheets and 
 ### Cypher System (french)
 
 #### Sources
-* [WIP](./CypherSystemFrench/) Version 1.4
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.4
+* [WIP](./CypherSystemFrench/) Version 1.5 (2012-12-21)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2012-12-21)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.4
 
 #### Todo
