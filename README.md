@@ -78,13 +78,12 @@ Cf. english version
 ### Savage Worlds French
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.1
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.1
+* [WIP](./SavageWorldsFrench/) Version 1.2 (2015-12-22)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.1
 
 #### Todo
-* Tests ...
-* Gérer poids unitaire * quantité dans l'inventaire
+* ~~Gérer poids unitaire * quantité dans l'inventaire~~
 * Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
