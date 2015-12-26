@@ -3,6 +3,15 @@ Personal developments and works in progress for the Roll20 character sheets and 
 
 ## WIP
 
+### Trail of Cthulhu (french)
+
+#### Sources
+* [WIP](./Trail of Cthulhu_french/) Version 1.0 (2015-12-26)
+
+#### Todo
+* Terminologies manquantes
+* Ajouter des jets ?
+
 ### Sheets I wish to make or enhance
 * Würm french and english
 * Dragon de Poche 2 (french)
@@ -23,23 +32,18 @@ Personal developments and works in progress for the Roll20 character sheets and 
 ### Cypher System (english)
 
 #### Sources
-* [WIP](./CypherSystem/) Version 1.5 (2012-12-21)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2012-12-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.4
+* [WIP](./CypherSystem/) Version 1.5 (2015-12-21)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2015-12-21)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2015-12-21)
 
 #### Todo
-* ~~Change "Name" button to logo/info button~~
-* ~~Name info button so that it can be dragged to the macro bar~~
-* ~~Add info button to equipment and consummables~~
-* ~~Take damage track in account for effort cost calculation~~
-* ~~Figure how to make attack roll button (taking in account attributes, skills, damage etc)~~
 
 ### Cypher System (french)
 
 #### Sources
-* [WIP](./CypherSystemFrench/) Version 1.5 (2012-12-21)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2012-12-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.4
+* [WIP](./CypherSystemFrench/) Version 1.5 (2015-12-21)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2015-12-21)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2015-12-21)
 
 #### Todo
 Cf. english version
@@ -47,7 +51,7 @@ Cf. english version
 ### Numenéra tabbed (english)
 
 #### Sources
-* [WIP](./Numenera_NathasNumenera_English/)
+* [WIP](./Numenera_NathasNumenera_English/) Version 4.8
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English) Version 4.8
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English) Version 4.8
 
@@ -56,7 +60,7 @@ Cf. english version
 ### Numenéra tabbed (french)
 
 #### Sources
-* [WIP](./Numenera_NathasNumenera_French/)
+* [WIP](./Numenera_NathasNumenera_French/) Version 4.8
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French) Version 4.8
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French) Version 4.8
 
@@ -80,10 +84,9 @@ Cf. english version
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 1.2 (2015-12-22)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.1
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 
 #### Todo
-* ~~Gérer poids unitaire * quantité dans l'inventaire~~
 * Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
