@@ -483,16 +483,61 @@
     </div> <!-- FIN EQUIPEMENT -->
 </div>
 <!--- templates -->
+<rolltemplate class="sheet-rolltemplate-pmtchar">
+    <table>
+        <tr><th colspan="2">{{name}}</th></tr>
+        <tr><td colspan="2"><hr/></td></tr>
+        {{#tabcar}}
+            <tr><td><span class="tcat">Force</span></td><td style="text-align:right;">{{for}}</td></tr>
+            <tr><td><span class="tcat">Dextérité</span></td><td style="text-align:right;">{{dex}}</td></tr>
+            <tr><td><span class="tcat">Constitution</span></td><td style="text-align:right;">{{con}}</td></tr>
+            <tr><td><span class="tcat">Intelligence</span></td><td style="text-align:right;">{{int}}</td></tr>
+            <tr><td><span class="tcat">Sagesse</span></td><td style="text-align:right;">{{sag}}</td></tr>
+            <tr><td><span class="tcat">Charisme</span></td><td style="text-align:right;">{{cha}}</td></tr>
+            <tr><td colspan="2"><hr/></td></tr>
+            <tr>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">[Clerc](!pmt-newchar clerc|?{Nom|Un Clerc}|{{tabcar}})</td>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">[Guerrier](!pmt-newchar guerrier|?{Nom|Un Guerrier}|{{tabcar}})</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">[Magicien](!pmt-newchar magicien|{{tabcar}})</td>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">[Voleur](!pmt-newchar voleur|?{Nom|Un Voleur}|{{tabcar}})</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">
+                    {{#elfe}}
+                        [Elfe](!pmt-newchar elfe|?{Nom|Un Elfe}|{{tabcar}})
+                    {{/elfe}}
+                </td>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">
+                    {{#halfelin}}
+                        [Halfelin](!pmt-newchar halfelin|?{Nom|Un Halfelin}|{{tabcar}})
+                    {{/halfelin}}
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">
+                    {{#nain}}
+                        [Nain](!pmt-newchar nain|?{Nom|Un Nain}|{{tabcar}})
+                    {{/nain}}
+                </td>
+                <td style="text-align: center;" title="Cliquer pour créer automatiquement un nouveau personnage de cette classe, avec le tirage de caractéristiques ci-dessus.">
+
+                </td>
+            </tr>
+        {{/tabcar}}
+    </table>
+</rolltemplate>
 <rolltemplate class="sheet-rolltemplate-pmt">
     <table>
         <tr><td class="subheader">{{subtags}}</td></tr>
         <tr><th>{{name}}</th></tr>
         <tr><td><hr/></td></tr>
         {{#DV}}
-            <tr class="rowcolor"><td><span class="tcat">PV gagnés : </span>{{DV}}</td></tr>
+            <tr><td><span class="tcat">PV gagnés : </span>{{DV}}</td></tr>
         {{/DV}}
         {{#carac}}
-            <tr class="rowcolor"><td><span class="tcat">Jet : </span>{{carac}} &lt; {{target}}</td></tr>
+            <tr><td><span class="tcat">Jet : </span>{{carac}} &lt; {{target}}</td></tr>
             {{#rollGreater() carac target}}
                 <tr><td class="subheader" style="color:red;"><b>&Eacute;chec !</b></td></tr>
             {{/rollGreater() carac target}}
@@ -504,7 +549,7 @@
             {{/rollLess() carac target}}
         {{/carac}}
         {{#JS}}
-            <tr class="rowcolor"><td><span class="tcat">Jet : </span>{{JS}} &gt;= {{target}}</td></tr>
+            <tr><td><span class="tcat">Jet : </span>{{JS}} &gt;= {{target}}</td></tr>
             {{#rollGreater() JS target}}
                 <tr><td class="subheader" style="color:green;"><b>Réussite !</b></td></tr>
             {{/rollGreater() JS target}}
@@ -517,10 +562,10 @@
         {{/JS}}
         {{#talent}}
             {{#rollTotal() target 0}}
-                <tr class="rowcolor"><td><span class="tcat">Jet : </span>{{talent}}</td></tr>
+                <tr><td><span class="tcat">Jet : </span>{{talent}}</td></tr>
             {{/rollTotal() target 0}}
             {{#rollGreater() target 0}}
-                <tr class="rowcolor"><td><span class="tcat">Jet : </span>{{talent}} &lt;= {{target}}</td></tr>
+                <tr><td><span class="tcat">Jet : </span>{{talent}} &lt;= {{target}}</td></tr>
                 {{#rollGreater() talent target}}
                     <tr><td class="subheader" style="color:red;"><b>&Eacute;chec !</b></td></tr>
                 {{/rollGreater() talent target}}
@@ -533,7 +578,7 @@
             {{/rollGreater() target 0}}
         {{/talent}}
         {{#attaque}}
-            <tr class="rowcolor"><td><span class="tcat">Jet : </span>{{attaque}} contre CA</td></tr>
+            <tr><td><span class="tcat">Jet : </span>{{attaque}} contre CA</td></tr>
             {{#degats}}
                 <tr><td><span class="tcat">Dégâts : </span>{{degats}}</td></tr>
             {{/degats}}

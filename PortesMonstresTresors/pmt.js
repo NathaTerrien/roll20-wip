@@ -13,25 +13,91 @@ var PmT = PmT || (function () {
         log("Enjoy!");
     },
     //-----------------------------------------------------------------------------
-    charRoll = function (playerId) {
+    charRoll = function (playerId,paramArray) {
+        //méthode de détermination des caractéristiques
+        var tirage = parseInt(paramArray[0]) || 0;
+        var carFOR = 0;
+        var carDEX = 0;
+        var carCON = 0;
+        var carINT  = 0;
+        var carSAG = 0;
+        var carCHA  = 0;
+        var tabcars=[0,0,0,0];
         //Lancer les jets de caractéristiques
-        var carFOR = randomInteger(6) + randomInteger(6) + randomInteger(6);
-        var carDEX = randomInteger(6) + randomInteger(6) + randomInteger(6);
-        var carCON = randomInteger(6) + randomInteger(6) + randomInteger(6);
-        var carINT  = randomInteger(6) + randomInteger(6) + randomInteger(6);
-        var carSAG = randomInteger(6) + randomInteger(6) + randomInteger(6);
-        var carCHA  = randomInteger(6) + randomInteger(6) + randomInteger(6);
-        var msg = "&{template:default} {{name=Tirage de caractéristiques}}";
-        msg = msg + "{{Force="+carFOR+"}}";
-        msg = msg + "{{Dextérité="+carDEX+"}}";
-        msg = msg + "{{Constitution="+carCON+"}}";
-        msg = msg + "{{Intelligence="+carINT+"}}";
-        msg = msg + "{{Sagesse="+carSAG+"}}";
-        msg = msg + "{{Charisme="+carCHA+"}}";
+        switch(tirage) {
+            case 0: //Tirage 3d6 dans l'ordre
+                carFOR = randomInteger(6) + randomInteger(6) + randomInteger(6);
+                carDEX = randomInteger(6) + randomInteger(6) + randomInteger(6);
+                carCON = randomInteger(6) + randomInteger(6) + randomInteger(6);
+                carINT  = randomInteger(6) + randomInteger(6) + randomInteger(6);
+                carSAG = randomInteger(6) + randomInteger(6) + randomInteger(6);
+                carCHA  = randomInteger(6) + randomInteger(6) + randomInteger(6);
+                break;
+            case 1: //Tirage 4d6 dans l'ordre, on garde les 3 meilleurs
+                //Force
+                tabcars[0]=randomInteger(6);
+                tabcars[1]=randomInteger(6);
+                tabcars[2]=randomInteger(6);
+                tabcars[3]=randomInteger(6);
+                tabcars.sort(function(a, b){return b-a});
+                carFOR=tabcars[0]+tabcars[1]+tabcars[2];
+                //Dextérité
+                tabcars[0]=randomInteger(6);
+                tabcars[1]=randomInteger(6);
+                tabcars[2]=randomInteger(6);
+                tabcars[3]=randomInteger(6);
+                tabcars.sort(function(a, b){return b-a});
+                carDEX=tabcars[0]+tabcars[1]+tabcars[2];
+                //Constitution
+                tabcars[0]=randomInteger(6);
+                tabcars[1]=randomInteger(6);
+                tabcars[2]=randomInteger(6);
+                tabcars[3]=randomInteger(6);
+                tabcars.sort(function(a, b){return b-a});
+                carCON=tabcars[0]+tabcars[1]+tabcars[2];
+                //Intelligence
+                tabcars[0]=randomInteger(6);
+                tabcars[1]=randomInteger(6);
+                tabcars[2]=randomInteger(6);
+                tabcars[3]=randomInteger(6);
+                tabcars.sort(function(a, b){return b-a});
+                carINT=tabcars[0]+tabcars[1]+tabcars[2];
+                //Sagesse
+                tabcars[0]=randomInteger(6);
+                tabcars[1]=randomInteger(6);
+                tabcars[2]=randomInteger(6);
+                tabcars[3]=randomInteger(6);
+                tabcars.sort(function(a, b){return b-a});
+                carSAG=tabcars[0]+tabcars[1]+tabcars[2];
+                //Charisme
+                tabcars[0]=randomInteger(6);
+                tabcars[1]=randomInteger(6);
+                tabcars[2]=randomInteger(6);
+                tabcars[3]=randomInteger(6);
+                tabcars.sort(function(a, b){return b-a});
+                carCHA=tabcars[0]+tabcars[1]+tabcars[2];
+                break;
+        }
+        //Commencer à construire le template de chat
+        var msg = "&{template:pmtchar} {{name=Tirage de caractéristiques}}";
+        msg = msg + "{{for="+carFOR+"}}";
+        msg = msg + "{{dex="+carDEX+"}}";
+        msg = msg + "{{con="+carCON+"}}";
+        msg = msg + "{{int="+carINT+"}}";
+        msg = msg + "{{sag="+carSAG+"}}";
+        msg = msg + "{{cha="+carCHA+"}}";
+        msg = msg + "{{tabcar="+carFOR+","+carDEX+","+carCON+","+carINT+","+carSAG+","+carCHA+"}}";
+        //Classes avec prérequis
+        if(carINT>8){msg = msg + "{{elfe=1}}"};
+        if(carDEX>8 && carCON>8){msg = msg + "{{halfelin=1}}"};
+        if(carCON>8){msg = msg + "{{nain=1}}"};
+        //Fin
         sendChat("player|"+playerId, msg);
+        return;
     },
-    charNew = function (paramArray) {
-        //TODO
+    charNew = function (playerId,paramArray) {
+        sendChat("player|"+playerId, "" + paramArray[0] + " " + paramArray[1] + " " + paramArray[2]);
+        return;
     },
     //-----------------------------------------------------------------------------
     handleAttributeEvent = function(obj, prev) {
@@ -65,7 +131,7 @@ var PmT = PmT || (function () {
                 paramArray[0] = msg.content.split(" ")[1];
                 //log("Function called:"+functionCalled+" Parameters:"+paramArray[0]); //DEBUG
                 if (parseInt(paramArray[0].indexOf("|")) !=-1) {
-                    //more than 1 parameter (supposedly character_id as first paramater)
+                    //more than 1 parameter (supposedly character_id as first parameter)
                     paramArray = paramArray[0].split("|");
                 };
             };
@@ -74,7 +140,7 @@ var PmT = PmT || (function () {
             case '!pmt-rollchar':
                 // Initier une création de perso, et proposer des choix
                 //sendChat("GM", "&{template:pmt} {{chatmessage=cypher-checkpcstate}} {{noCharacter="+msg.content+"}}");
-                charRoll(msg.playerid);
+                charRoll(msg.playerid,paramArray);
                 break;
             case '!pmt-newchar':
                 // Créer un personnage à partir des choix et carac générés par rollchar/charRoll

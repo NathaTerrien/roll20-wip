@@ -1,12 +1,15 @@
 /* TEMPLATES */
-.sheet-rolltemplate-pmt hr{
+.sheet-rolltemplate-pmt hr,
+.sheet-rolltemplate-pmtchar hr
+{
     padding: 0px;
     margin: 2px;
     border-style: dashed;
     border-width: 1px;
     border-color: black;
 }
-.sheet-rolltemplate-pmt table {
+.sheet-rolltemplate-pmt table,
+.sheet-rolltemplate-pmtchar table{
     width: 189px;
     padding: 2px;
     border: 1px solid;
@@ -16,7 +19,8 @@
     background-origin: border-box;
     background-size: cover;
 }
-.sheet-rolltemplate-pmt th {
+.sheet-rolltemplate-pmt th,
+.sheet-rolltemplate-pmtchar th{
     color: rgb(126, 45, 64);
     padding-left: 5px;
     font-size: 1.5em;
@@ -25,27 +29,32 @@
     font-variant: small-caps;
     font-weight: bold;
 }
-.sheet-rolltemplate-pmt .sheet-subheader {
+.sheet-rolltemplate-pmt .sheet-subheader,
+.sheet-rolltemplate-pmtchar .sheet-subheader {
     color: #000;
     font-size: 1em;
     font-style: italic;
     text-align: right;
 }
-.sheet-rolltemplate-pmt .sheet-arrow-right {
+.sheet-rolltemplate-pmt .sheet-arrow-right,
+.sheet-rolltemplate-pmtchar .sheet-arrow-right {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
     border-left: 180px solid rgb(126, 45, 64);
 }
-.sheet-rolltemplate-pmt .sheet-tcat {
+.sheet-rolltemplate-pmt .sheet-tcat,
+.sheet-rolltemplate-pmtchar .sheet-tcat {
     font-family: 'Courier New';
     font-size: 15px;
     font-weight: bold;
 }
-.sheet-rolltemplate-pmt td {
+.sheet-rolltemplate-pmt td,
+.sheet-rolltemplate-pmtchar td {
     padding-left: 5px;
     font-size: 14px;
  }
-.sheet-rolltemplate-pmt .inlinerollresult  {
+.sheet-rolltemplate-pmt .inlinerollresult,
+.sheet-rolltemplate-pmtchar .inlinerollresult {
     background-color: rgba(255,255,255,0.9);
     border-width: 0px 0px 0px 1px;
     border-color: black;
@@ -55,7 +64,8 @@
     border-bottom-style: solid;
     border-top-right-radius: 3px;
 }
-.sheet-rolltemplate-pmt .inlinerollresult.fullcrit {
+.sheet-rolltemplate-pmt .inlinerollresult.fullcrit,
+.sheet-rolltemplate-pmtchar .inlinerollresult.fullcrit {
     color: #3FB315;
     border-width: 0px 0px 0px 1px;
     border-color: #3FB315;
@@ -65,7 +75,8 @@
     border-bottom-style: solid;
     border-top-right-radius: 3px;
 }
-.sheet-rolltemplate-pmt .inlinerollresult.fullfail {
+.sheet-rolltemplate-pmt .inlinerollresult.fullfail,
+.sheet-rolltemplate-pmtchar .inlinerollresult.fullfail {
     color: #B31515;
     border-width: 0px 0px 0px 1px;
     border-color: #B31515;
@@ -75,7 +86,8 @@
     border-bottom-style: solid;
     border-top-right-radius: 3px;
 }
-.sheet-rolltemplate-pmt .inlinerollresult.importantroll {
+.sheet-rolltemplate-pmt .inlinerollresult.importantroll,
+.sheet-rolltemplate-pmtchar .inlinerollresult.importantroll {
     color: #4A57ED;
     border-width: 0px 0px 0px 1px;
     border-color: #4A57ED;
