@@ -36,9 +36,8 @@
                                             </div>
                                         </div>
                                         <div class="sheet-2colrow">
-                                            <div class="sheet-col" style="width: 60px;">
+                                            <div class="sheet-col" style="width: 80px;">
                                                 <div class="sheet-row sheet-libel1" style="text-align: left;">
-                                                    CA
                                                     <input class="sheet-inCA" type="text" name="attr_CA" placeholder="CA" title="Classe d'Armure (CA)"/>
                                                 </div>
                                             </div>
@@ -88,10 +87,6 @@
     </div> <!-- FIN portrait, nom, classe etc... -->
     <hr/>
     <div style="display: table; width:100%;"> <!-- TABLE carac & JS -->
-        <div style="display: table-row">
-            <div  class="sheet-titre1" style="width: 70%;">CARACT&Eacute;RISTIQUES</div>
-            <div  class="sheet-titre1">JETS DE SAUVEGARDE</div>
-        </div>
         <div style="display: table-row"> <!-- LIGNE carac & JS -->
             <div style="display: table-cell; "> <!-- CELL carac  -->
                 <div style="display: table; text-align: left;"> <!-- CARAC -->
@@ -110,7 +105,7 @@
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_FOR" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: table-cell;">Toucher, dommages et for&ccedil;age de porte</div>
+                        <div style="display: inline-block;">Toucher, dommages et for&ccedil;age de porte</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -127,7 +122,7 @@
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_DEX" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: table-cell;">CA, attaques &agrave; distance et initiative</div>
+                        <div style="display: inline-block;">CA, attaques &agrave; distance et initiative</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -144,7 +139,7 @@
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_CON" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: table-cell;">Points de Vie, par D&eacute; de Vie</div>
+                        <div style="display: inline-block;">Points de Vie, par D&eacute; de Vie</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -161,7 +156,7 @@
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_INT" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: table-cell;">Langues suppl&eacute;mentaires</div>
+                        <div style="display: inline-block;">Langues suppl&eacute;mentaires</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -178,7 +173,7 @@
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_SAG" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: table-cell;">JS (effets magiques)</div>
+                        <div style="display: inline-block;">JS (effets magiques)</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -193,9 +188,17 @@
                             Charisme
                         </div>
                         <div class="sheet-carac-mod">
-                            <input name="attr_MOD_CHA" type="number" class="sheet-carac-mod" />
+                            <input name="attr_MOD_CHA" type="number" class="sheet-carac-mod" title="Ajustement aux r&eacute;actions"/>
                         </div>
-                        <div style="display: table-cell;">Ajustement aux r&eacute;actions</div>
+                        <div style="display: inline-block;">Réactions</div>
+                        <div class="sheet-carac-mod">
+                            <input name="attr_MaxCompagnons" type="number" class="sheet-carac-mod" title="Nombre maximum de Compagnons d'Armes"/>
+                        </div>
+                        <div style="display: inline-block;">Compagnons</div>
+                        <div class="sheet-carac-mod">
+                            <input name="attr_MoralCompagnons" type="number" class="sheet-carac-mod" title="Moral desCompagnons d'Armes"/>
+                        </div>
+                        <div style="display: inline-block;">Moral</div>
                     </div>
                 </div> <!-- FIN CARACS -->
             </div> <!-- FIN CELL carac -->
@@ -210,7 +213,7 @@
                             value="&{template:pmt} {{name=Souffles}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Souffles}]]}}"
                              name='JS_SOU' class="sheet-carac-roll"></button>
                         </div>
-                        <div class="sheet-carac-lib">
+                        <div class="sheet-js-lib">
                             Souffles
                         </div>
                     </div>
@@ -223,7 +226,7 @@
                             value="&{template:pmt} {{name=Poison et Mort}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Poison}]]}}"
                              name='JS_POIS' class="sheet-carac-roll"></button>
                         </div>
-                        <div class="sheet-carac-lib">
+                        <div class="sheet-js-lib">
                             Poison, Mort
                         </div>
                     </div>
@@ -236,7 +239,7 @@
                             value="&{template:pmt} {{name=P&eacute;trification, Paralysie}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Petrification}]]}}"
                              name='JS_PETRI' class="sheet-carac-roll"></button>
                         </div>
-                        <div class="sheet-carac-lib">
+                        <div class="sheet-js-lib">
                             P&eacute;trification, Paralysie
                         </div>
                     </div>
@@ -249,7 +252,7 @@
                             value="&{template:pmt} {{name=B&acirc;tons, Baguettes}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Baton}]]}}"
                              name='JS_BATON' class="sheet-carac-roll"></button>
                         </div>
-                        <div class="sheet-carac-lib">
+                        <div class="sheet-js-lib">
                             B&acirc;tons, Baguettes
                         </div>
                     </div>
@@ -262,7 +265,7 @@
                             value="&{template:pmt} {{name=Sorts, Objets Magiques}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Sorts}]]}}"
                              name='JS_SORTS' class="sheet-carac-roll"></button>
                         </div>
-                        <div class="sheet-carac-lib">
+                        <div class="sheet-js-lib">
                             Sorts, Objets Magiques
                         </div>
                     </div>
