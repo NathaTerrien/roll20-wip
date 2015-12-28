@@ -5,6 +5,8 @@ var PmT = PmT || (function () {
     schemaversion = 1.0,
     author="Natha (roll20userid:75857)",
     warning = "This script is meant to be used with the Portes-Monstres-Trésors sheet",
+    sortsDivins=["Détection de la Magie","Détection du Mal","Lumière","Protection contre le Mal","Purification","Regain d’Assurance","Résistance au Froid","Soins Légers"],
+    sortsProfanes=["Bouclier","Charme-personne","Détection de la Magie","Disque Flottant","Lecture des Langages","Lecture de la Magie","Lumière","Projectile Magique","Protection contre le Mal","Sommeil","Ventriloquie","Verrouillage"],
     //-----------------------------------------------------------------------------
     checkInstall = function() {
         log(""+author+"'s Portes-Monstres-Trésors script version "+version+" ("+releasedate+") installed.");
@@ -96,7 +98,274 @@ var PmT = PmT || (function () {
         return;
     },
     charNew = function (playerId,paramArray) {
-        sendChat("player|"+playerId, "" + paramArray[0] + " " + paramArray[1] + " " + paramArray[2]);
+        /*
+            paramArray[0] : classe
+            paramArray[1] : nom du personnage
+            paramArray[2] : valeurs des caractéristiques, séparées par des ,
+        */
+        var classe = paramArray[0];
+        var nom = paramArray[1];
+        var tmp = paramArray[2] || "";
+        var tabcars = tmp.split(",");
+        //Préparation des valeurs
+        var Niveau= 1;
+        var CA = "";
+        var Alignement="Neutralité"
+        var Force=parseInt(tabcars[0]);
+        var MOD_FOR=0;
+        if (Force <4) {MOD_FOR=-3}
+            else if (Force>3 && Force<6) {MOD_FOR=-2}
+            else if (Force>5 && Force<9) {MOD_FOR=-1}
+            else if (Force>12 && Force<16) {MOD_FOR=1}
+            else if (Force>15 && Force<18) {MOD_FOR=2}
+            else if (Force>17) {MOD_FOR=3}
+            else {MOD_FOR=0};
+        var Dexterite=parseInt(tabcars[1]);
+        var MOD_DEX=0;
+        if (Dexterite <4) {MOD_DEX=-3}
+            else if (Dexterite>3 && Dexterite<6) {MOD_DEX=-2}
+            else if (Dexterite>5 && Dexterite<9) {MOD_DEX=-1}
+            else if (Dexterite>12 && Dexterite<16) {MOD_DEX=1}
+            else if (Dexterite>15 && Dexterite<18) {MOD_DEX=2}
+            else if (Dexterite>17) {MOD_DEX=3}
+            else {MOD_DEX=0};
+        var Constitution=parseInt(tabcars[2]);
+        var MOD_CON=0;
+        if (Constitution <4) {MOD_CON=-3}
+            else if (Constitution>3 && Constitution<6) {MOD_CON=-2}
+            else if (Constitution>5 && Constitution<9) {MOD_CON=-1}
+            else if (Constitution>12 && Constitution<16) {MOD_CON=1}
+            else if (Constitution>15 && Constitution<18) {MOD_CON=2}
+            else if (Constitution>17) {MOD_CON=3}
+            else {MOD_CON=0};
+        var Intelligence=parseInt(tabcars[3]);
+        var MOD_INT=0;
+        if (Intelligence>12 && Intelligence<16) {MOD_INT=1}
+            else if (Intelligence>15 && Intelligence<18) {MOD_INT=2}
+            else if (Intelligence>17) {MOD_INT=3}
+            else {MOD_INT=0};
+        var Sagesse=parseInt(tabcars[4]);
+        var MOD_SAG=0;
+        if (Sagesse <4) {MOD_SAG=-3}
+            else if (Sagesse>3 && Sagesse<6) {MOD_SAG=-2}
+            else if (Sagesse>5 && Sagesse<9) {MOD_SAG=-1}
+            else if (Sagesse>12 && Sagesse<16) {MOD_SAG=1}
+            else if (Sagesse>15 && Sagesse<18) {MOD_SAG=2}
+            else if (Sagesse>17) {MOD_SAG=3}
+            else {MOD_SAG=0};
+        var Charisme=parseInt(tabcars[5]);
+        var MOD_CHA=0;
+        var MaxCompagnons=0;
+        var MoralCompagnons=0;
+        if (Charisme <4) {
+                MOD_CHA=2;
+                MaxCompagnons=1;
+                MoralCompagnons=4;
+            }
+            else if (Charisme>3 && Charisme<6) {
+                MOD_CHA=1;
+                MaxCompagnons=2;
+                MoralCompagnons=5;
+            }
+            else if (Charisme>5 && Charisme<9) {
+                MOD_CHA=1;
+                MaxCompagnons=3;
+                MoralCompagnons=6;
+            }
+            else if (Charisme>12 && Charisme<16) {
+                MOD_CHA=-1;
+                MaxCompagnons=5;
+                MoralCompagnons=8;
+            }
+            else if (Charisme>15 && Charisme<18) {
+                MOD_CHA=-1;
+                MaxCompagnons=6;
+                MoralCompagnons=9;
+            }
+            else if (Charisme>17) {
+                MOD_CHA=-2;
+                MaxCompagnons=7;
+                MoralCompagnons=10;
+            }
+            else {
+                MOD_CHA=0;
+                MaxCompagnons=4;
+                MoralCompagnons=7;
+            };
+        // en fonction de la classe
+        var DV = 0;
+        var PV = 0;
+        var libclasse = "";
+        var XP = 0;
+        var ATK_Bonus=1;
+        var JS_Souffles=0;
+        var JS_Poison=0;
+        var JS_Petrification=0;
+        var JS_Baton=0;
+        var JS_Sorts=0;
+        var ToucheCAm6=20;
+        var ToucheCAm5=20;
+        var ToucheCAm4=20;
+        var ToucheCAm3=20;
+        var ToucheCAm2=20;
+        var ToucheCAm1=20;
+        var ToucheCA0=19;
+        var ToucheCA1=18;
+        var ToucheCA2=17;
+        var ToucheCA3=16;
+        var ToucheCA4=15;
+        var ToucheCA5=14;
+        var ToucheCA6=13;
+        var ToucheCA7=12;
+        var ToucheCA8=11;
+        var ToucheCA9=10;
+        var equippo= (randomInteger(8)+randomInteger(8)+randomInteger(8))*10;
+        var lesort="";
+        switch(classe){
+            case 'clerc':
+                DV = 6;
+                libclasse = "Clerc";
+                XP = 1565;
+                JS_Souffles=16;
+                JS_Poison=11;
+                JS_Petrification=14;
+                JS_Baton=12;
+                JS_Sorts=15;
+                lesort=sortsDivins[randomInteger(8)];
+                break;
+            case 'guerrier':
+                DV = 8;
+                libclasse = "Guerrier";
+                XP = 2035;
+                JS_Souffles=17;
+                JS_Poison=14;
+                JS_Petrification=16;
+                JS_Baton=15;
+                JS_Sorts=18;
+                lesort="";
+                break;
+            case 'magicien':
+                DV = 4;
+                libclasse = "Magicien";
+                XP = 2501;
+                JS_Souffles=16;
+                JS_Poison=13;
+                JS_Petrification=13;
+                JS_Baton=13;
+                JS_Sorts=14;
+                lesort=sortsProfanes[randomInteger(12)];
+                break;
+            case 'voleur':
+                DV = 4;
+                libclasse = "Voleur";
+                XP = 1251;
+                JS_Souffles=16;
+                JS_Poison=14;
+                JS_Petrification=13;
+                JS_Baton=15;
+                JS_Sorts=14;
+                lesort="";
+                break;
+            case 'elfe':
+                DV = 6;
+                libclasse = "Elfe";
+                XP = 4065;
+                JS_Souffles=15;
+                JS_Poison=12;
+                JS_Petrification=13;
+                JS_Baton=13;
+                JS_Sorts=15;
+                lesort=sortsProfanes[randomInteger(12)];
+                break;
+            case 'halfelin':
+                DV = 6;
+                libclasse = "Halfelin";
+                XP = 2035;
+                JS_Souffles=13;
+                JS_Poison=8;
+                JS_Petrification=10;
+                JS_Baton=9;
+                JS_Sorts=12;
+                lesort="";
+                break;
+            case 'nain':
+                DV = 8;
+                libclasse = "Nain";
+                XP = 2187;
+                JS_Souffles=13;
+                JS_Poison=8;
+                JS_Petrification=10;
+                JS_Baton=9;
+                JS_Sorts=12;
+                lesort="";
+                break;
+        }
+        var PV = Math.max(DV+MOD_CON,1);
+        var CaDesc= 9-MOD_DEX;
+        var CaAsc = 10+MOD_DEX;
+        var CA = "" + CaDesc + " (" + CaAsc +  ")"
+        //Création de l'objet character
+        var char = createObj("character", {
+                name: nom,
+                gmnotes: "Personnage créé automatiquemet par pmt.js",
+                inplayerjournals: "all",
+                controlledby: playerId,
+            });
+        //Base
+        createObj("attribute", {name: "Classe", current: libclasse, characterid: char.id});
+        createObj("attribute", {name: "Niveau", current: Niveau, characterid: char.id});
+        createObj("attribute", {name: "DV", current: DV, characterid: char.id});
+        createObj("attribute", {name: "PV", current: PV, max: PV, characterid: char.id});
+        createObj("attribute", {name: "XP", current: 0, max: XP, characterid: char.id});
+        createObj("attribute", {name: "CA", current: CA, characterid: char.id});
+        createObj("attribute", {name: "Alignement", current: Alignement, characterid: char.id});
+        createObj("attribute", {name: "equip-divers", current: lesort, characterid: char.id}); // TODO
+        // Caractéristiques
+        createObj("attribute", {name: "Force", current: Force, characterid: char.id});
+        createObj("attribute", {name: "MOD_FOR", current: MOD_FOR, characterid: char.id});
+        createObj("attribute", {name: "Dexterite", current: Dexterite, characterid: char.id});
+        createObj("attribute", {name: "MOD_DEX", current: MOD_DEX, characterid: char.id});
+        createObj("attribute", {name: "Constitution", current: Constitution, characterid: char.id});
+        createObj("attribute", {name: "MOD_CON", current: MOD_CON, characterid: char.id});
+        createObj("attribute", {name: "Intelligence", current: Intelligence, characterid: char.id});
+        createObj("attribute", {name: "MOD_INT", current: MOD_INT, characterid: char.id});
+        createObj("attribute", {name: "Sagesse", current: Sagesse, characterid: char.id});
+        createObj("attribute", {name: "MOD_SAG", current: MOD_SAG, characterid: char.id});
+        createObj("attribute", {name: "Charisme", current: Charisme, characterid: char.id});
+        createObj("attribute", {name: "MOD_CHA", current: MOD_CHA, characterid: char.id});
+        createObj("attribute", {name: "MaxCompagnons", current: MaxCompagnons, characterid: char.id});
+        createObj("attribute", {name: "MoralCompagnons", current: MoralCompagnons, characterid: char.id});
+        // Jets de Sauvegarde
+        createObj("attribute", {name: "JS_Souffles", current: JS_Souffles, characterid: char.id});
+        createObj("attribute", {name: "JS_Poison", current: JS_Poison, characterid: char.id});
+        createObj("attribute", {name: "JS_Petrification", current: JS_Petrification, characterid: char.id});
+        createObj("attribute", {name: "JS_Baton", current: JS_Baton, characterid: char.id});
+        createObj("attribute", {name: "JS_Sorts", current: JS_Sorts, characterid: char.id});
+        // Attaques
+        createObj("attribute", {name: "ATK_Bonus", current: ATK_Bonus, characterid: char.id});
+        createObj("attribute", {name: "ToucheCAm6", current: ToucheCAm6, characterid: char.id});
+        createObj("attribute", {name: "ToucheCAm5", current: ToucheCAm5, characterid: char.id});
+        createObj("attribute", {name: "ToucheCAm4", current: ToucheCAm4, characterid: char.id});
+        createObj("attribute", {name: "ToucheCAm3", current: ToucheCAm3, characterid: char.id});
+        createObj("attribute", {name: "ToucheCAm2", current: ToucheCAm2, characterid: char.id});
+        createObj("attribute", {name: "ToucheCAm1", current: ToucheCAm1, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA0", current: ToucheCA0, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA1", current: ToucheCA1, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA2", current: ToucheCA2, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA3", current: ToucheCA3, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA4", current: ToucheCA4, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA5", current: ToucheCA5, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA6", current: ToucheCA6, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA7", current: ToucheCA7, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA8", current: ToucheCA8, characterid: char.id});
+        createObj("attribute", {name: "ToucheCA9", current: ToucheCA9, characterid: char.id});
+        // Sorts
+        // TODO
+        // Equipement
+        createObj("attribute", {name: "equip-po", current: equippo, characterid: char.id});
+        // TODO
+        //Signalement du résultat
+        sendChat("player|"+playerId, "Personnage '" + nom + "' de classe '" + classe + "' créé (id : " + char.id + ").");
         return;
     },
     //-----------------------------------------------------------------------------
@@ -128,7 +397,7 @@ var PmT = PmT || (function () {
                 functionCalled = msg.content;
             } else {
                 functionCalled = msg.content.split(" ")[0];
-                paramArray[0] = msg.content.split(" ")[1];
+                paramArray[0] = msg.content.replace(functionCalled,"").trim();
                 //log("Function called:"+functionCalled+" Parameters:"+paramArray[0]); //DEBUG
                 if (parseInt(paramArray[0].indexOf("|")) !=-1) {
                     //more than 1 parameter (supposedly character_id as first parameter)
