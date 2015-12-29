@@ -97,6 +97,7 @@ var PmT = PmT || (function () {
         sendChat("player|"+playerId, msg);
         return;
     },
+    //-----------------------------------------------------------------------------
     charNew = function (playerId,paramArray) {
         /*
             paramArray[0] : classe
@@ -195,7 +196,6 @@ var PmT = PmT || (function () {
         // en fonction de la classe
         var DV = 0;
         var PV = 0;
-        var libclasse = "";
         var XP = 0;
         var ATK_Bonus=1;
         var JS_Souffles=0;
@@ -224,7 +224,6 @@ var PmT = PmT || (function () {
         switch(classe){
             case 'clerc':
                 DV = 6;
-                libclasse = "Clerc";
                 XP = 1565;
                 JS_Souffles=16;
                 JS_Poison=11;
@@ -235,7 +234,6 @@ var PmT = PmT || (function () {
                 break;
             case 'guerrier':
                 DV = 8;
-                libclasse = "Guerrier";
                 XP = 2035;
                 JS_Souffles=17;
                 JS_Poison=14;
@@ -246,7 +244,6 @@ var PmT = PmT || (function () {
                 break;
             case 'magicien':
                 DV = 4;
-                libclasse = "Magicien";
                 XP = 2501;
                 JS_Souffles=16;
                 JS_Poison=13;
@@ -257,7 +254,6 @@ var PmT = PmT || (function () {
                 break;
             case 'voleur':
                 DV = 4;
-                libclasse = "Voleur";
                 XP = 1251;
                 JS_Souffles=16;
                 JS_Poison=14;
@@ -268,7 +264,6 @@ var PmT = PmT || (function () {
                 break;
             case 'elfe':
                 DV = 6;
-                libclasse = "Elfe";
                 XP = 4065;
                 JS_Souffles=15;
                 JS_Poison=12;
@@ -279,7 +274,6 @@ var PmT = PmT || (function () {
                 break;
             case 'halfelin':
                 DV = 6;
-                libclasse = "Halfelin";
                 XP = 2035;
                 JS_Souffles=13;
                 JS_Poison=8;
@@ -290,7 +284,6 @@ var PmT = PmT || (function () {
                 break;
             case 'nain':
                 DV = 8;
-                libclasse = "Nain";
                 XP = 2187;
                 JS_Souffles=13;
                 JS_Poison=8;
@@ -304,7 +297,7 @@ var PmT = PmT || (function () {
         var CaDesc= 9-MOD_DEX;
         var CaAsc = 10+MOD_DEX;
         var CA = "" + CaDesc + " (" + CaAsc +  ")"
-        //Création de l'objet character
+        //Création du personnage / l'objet character
         var char = createObj("character", {
                 name: nom,
                 gmnotes: "Personnage créé automatiquemet par pmt.js",
@@ -312,7 +305,7 @@ var PmT = PmT || (function () {
                 controlledby: playerId,
             });
         //Base
-        createObj("attribute", {name: "Classe", current: libclasse, characterid: char.id});
+        createObj("attribute", {name: "Classe", current: classe, characterid: char.id});
         createObj("attribute", {name: "Niveau", current: Niveau, characterid: char.id});
         createObj("attribute", {name: "DV", current: DV, characterid: char.id});
         createObj("attribute", {name: "PV", current: PV, max: PV, characterid: char.id});
@@ -360,10 +353,14 @@ var PmT = PmT || (function () {
         createObj("attribute", {name: "ToucheCA8", current: ToucheCA8, characterid: char.id});
         createObj("attribute", {name: "ToucheCA9", current: ToucheCA9, characterid: char.id});
         // Sorts
-        // TODO
+        if (lesort.length > 0){
+            // TODO Possible ?
+            //newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = lesort;
+        };
         // Equipement
         createObj("attribute", {name: "equip-po", current: equippo, characterid: char.id});
-        // TODO
+        // TODO : ajouter les consommables. Possible ?
+        //---
         //Signalement du résultat
         sendChat("player|"+playerId, "Personnage '" + nom + "' de classe '" + classe + "' créé (id : " + char.id + ").");
         return;
