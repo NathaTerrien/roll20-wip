@@ -302,7 +302,9 @@ var PmT = PmT || (function () {
                 name: nom,
                 gmnotes: "Personnage créé automatiquemet par pmt.js",
                 inplayerjournals: "all",
-                controlledby: playerId,
+                imgsrc: "",
+                avatar: "",
+                controlledby: playerId
             });
         //Base
         createObj("attribute", {name: "Classe", current: classe, characterid: char.id});
@@ -352,15 +354,38 @@ var PmT = PmT || (function () {
         createObj("attribute", {name: "ToucheCA7", current: ToucheCA7, characterid: char.id});
         createObj("attribute", {name: "ToucheCA8", current: ToucheCA8, characterid: char.id});
         createObj("attribute", {name: "ToucheCA9", current: ToucheCA9, characterid: char.id});
+        //Argent
+        createObj("attribute", {name: "equip-po", current: equippo, characterid: char.id});
+        //---
+        //Eléments qui seront traités par Sheet Worker sheet:opened, et stocké dans l'attribut "todo"
+        var todo="";
+        var obj = {};
         // Sorts
         if (lesort.length > 0){
-            // TODO Possible ?
-            //newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = lesort;
+            var sort = {};
+            sort["nom"]=lesort;
+            sort["niveau"]="1";
+            obj["type"]="sort";
+            obj["valeur"]=sort;
+            if(todo.length == 0 ){todo=JSON.stringify(obj)} else {todo+= "|"+JSON.stringify(obj)};
         };
-        // Equipement
-        createObj("attribute", {name: "equip-po", current: equippo, characterid: char.id});
-        // TODO : ajouter les consommables. Possible ?
+        // Equipements
+        var equip={};
+        equip["nom"]="Armure de cuir";
+        equip["poids"]="1.5";
+        equip["qte"]="1";
+        obj["type"]="equipement";
+        obj["valeur"]=equip;
+        if(todo.length == 0 ){todo=JSON.stringify(obj)} else {todo+= "|"+JSON.stringify(obj)};
+        equip["nom"]="Flèches";
+        equip["poids"]="2";
+        equip["qte"]="12";
+        obj["type"]="equipement";
+        obj["valeur"]=equip;
+        todo+= "|"+JSON.stringify(obj);
+        // Attaques
         //---
+        createObj("attribute", {name: "todo", current: todo, characterid: char.id});
         //Signalement du résultat
         sendChat("player|"+playerId, "Personnage '" + nom + "' de classe '" + classe + "' créé (id : " + char.id + ").");
         return;

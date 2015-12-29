@@ -1,3 +1,18 @@
+<!-- **** SCRIPTS / SHEET WORKERS -->
+<script type="text/worker">
+on('sheet:opened',function(){
+    getAttrs(["todo"], function(values) {
+        if(values.todo.length > 0){
+
+        };
+        setAttrs({
+            arme1_comp_rel: "@{relRollBast" + values.arme1_comp + "}",
+            arme1_comp_jet: "@{jetRollBast" + values.arme1_comp + "}"
+        });
+    });
+});
+</script>
+<input type="hidden" name="attr_todo" value=""/>
 <!-- FdP -->
 <div class="sheet-mainBg" style="width:832px;">
     <div style="width:100%;display: table;"> <!-- portrait, nom, classe etc... -->
