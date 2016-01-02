@@ -1555,17 +1555,12 @@ on("change:vigueur_de change:vigueur_bonus change:resistance_bonus", function() 
     });
 });
 //Inventaire et encombrement
-/* on('change:repeating_equipements remove:repeating_equipements',function(){
-
-    TAS.repeatingSimpleSum('equipements','equippoids','encombpoids');
-});
-*/
 on("change:repeating_equipements:equipqte change:repeating_equipements:equippdsunit", function() {
     getAttrs(["repeating_equipements_equipqte", "repeating_equipements_equippdsunit"], function(values) {
         var qte = parseFloat(values.repeating_equipements_equipqte) || 1.0;
         var pds = parseFloat(values.repeating_equipements_equippdsunit) || 0.0;
         setAttrs({
-         repeating_spells_equippoids: qte*pds
+         repeating_equipements_equippoids: qte*pds
         });
    });
    TAS.repeatingSimpleSum('equipements','equippoids','encombpoids');

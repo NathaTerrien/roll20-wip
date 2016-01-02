@@ -1,3 +1,272 @@
+/* FDP */
+input[type=radio].sheet-optionCaDesc,
+input[type=radio].sheet-optionCaAsc{
+    margin-left: 10px;
+    margin-right: 2px;
+}
+input[type=radio].sheet-optionCaDesc + span,
+input[type=radio].sheet-optionCaAsc + span{
+    font-size:11px;
+    color: #888888;
+    text-align:left;
+}
+span.sheet-smallspan{
+    font-size:11px;
+    color: #888888;
+    text-align:left;
+}
+input[type=radio].sheet-optionCaDesc:checked ~ div.sheet-mainBg div.sheet-optionCaDesc{
+    display: inline-block;
+}
+input[type=radio].sheet-optionCaAsc:checked ~ div.sheet-mainBg div.sheet-optionCaDesc{
+    display: none;
+}
+input[type=radio].sheet-optionCaAsc:checked ~ div.sheet-mainBg div.sheet-optionCaAsc{
+    display: inline-block;
+}
+input[type=radio].sheet-optionCaDesc:checked ~ div.sheet-mainBg div.sheet-optionCaAsc{
+    display: none;
+}
+div,
+textarea,
+span,
+input,
+select{
+    box-sizing: border-box;
+    color: black;
+    font-family: 'Courier New';
+    font-size: 14px;
+    font-weight: normal;
+    border-radius: 0px;
+    text-align:left;
+}
+input{
+    background-color:rgba(255,255,255,0.9);
+    padding-left: 0.3em;
+    padding-right: 0.2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    margin: 0px;
+    border-bottom-left-radius: 4px;
+}
+.charsheet button[type="roll"] {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    height: 26px;
+    text-align: left;
+    color:black;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 12px;
+    transition: border 2s;
+}
+.charsheet button[type="roll"]:hover{
+    border: 2px black inset;
+}
+select{
+    background-color:rgba(255,255,255,0.5);
+    padding: 0px;
+    margin: 0px;
+    height: 1.6em;
+    line-height: 1.6em;
+    max-height 1.6em;
+    font-weight:normal;
+    border-width: 1px 2px 1px 2px;
+    border-color: black;
+    border-style: solid;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+hr{
+    padding: 0px;
+    margin: 4px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: black;
+}
+span{
+    text-align: left;
+    padding-left: 0.3em;
+    padding-right: 0.2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+}
+textarea {
+    resize: vertical;
+    display: inline-block;
+    text-align: left;
+    background-color:rgba(255,255,255,0.9);
+    padding-left: 0.3em;
+    padding-right: 0.2em;
+    padding-top: 0.2em;
+    padding-bottom: 0.1em;
+    margin: 0px;
+    border-bottom-left-radius: 4px;
+}
+.sheet-mainBg{
+    background-image:url(https://lh4.googleusercontent.com/-le0NmFIQGQ0/VIIlSitbl6I/AAAAAAAATP0/5rPXPhYzId0/w611-h788-no/vieuxpapier5.jpg);
+    background-repeat:no-repeat;
+    background-origin: border-box;
+    background-size: cover;
+    padding-top : 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 6px;
+    border: none;
+}
+.sheet-portrait{
+    width: 100px;
+    max-width: 100px;
+}
+.sheet-libel1{
+    padding-bottom: 6px;
+    padding-top: 0px;
+    font-weight: bold;
+}
+input.sheet-inMainNum{
+    text-align: right;
+    border-width: 0px 0px 1px 2px;
+    border-color: black;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-right-radius: 3px;
+}
+input.sheet-inMainNum:read-only,
+input.sheet-inMainNum:disabled{
+    background-color:rgba(255,255,255,0.5);
+}
+input.sheet-inPetitNum{
+    max-width: 44px;
+    text-align: right;
+    border-width: 0px 0px 0px 1px;
+    border-color: black;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-right-radius: 3px;
+}
+input.sheet-inPetitNum:read-only,
+input.sheet-inPetitNum:disabled{
+    background-color:rgba(255,255,255,0.5);
+}
+input.sheet-inMainTxt{
+    border-width: 0px 0px 1px 2px;
+    border-color: black;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-right-radius: 3px;
+}
+input.sheet-inCA{
+    height: 35px;
+    max-width: 40px;
+    text-align: center;
+    border : solid black 2px;
+    font-size: 16px;
+    font-weight: bold;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background-color:rgba(255,255,255,0.5);
+}
+input.sheet-inPV{
+    height: 35px;
+    max-width: 45px;
+    text-align: center;
+    border : solid black 2px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: none;
+    margin: none;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 100px;
+}
+input.sheet-inPVMax{
+    height: 35px;
+    max-width: 45px;
+    text-align: center;
+    border : solid black 2px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: none;
+    margin: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 0px;
+}
+div.sheet-titre1{
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: left;
+    padding: 4px;
+    text-decoration: underline;
+}
+div.sheet-carac-num{
+    display: inline-block;
+    padding: 5px;
+    background-color: black;
+    text-align: center;
+}
+input.sheet-carac-num{
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+    border: none;
+    border-radius:15px;
+    font-weight: bold;
+}
+div.sheet-carac-lib{
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 6px;
+    text-align: left;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+    width: 85px;
+}
+div.sheet-js-lib{
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 6px;
+    text-align: left;
+    font-family: "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+div.sheet-carac-roll{
+    display: inline-block;
+}
+div.sheet-carac-mod{
+    display: inline-block;
+    text-align: left;
+    width: 47px;
+    padding-right: 6px;
+}
+input.sheet-carac-mod{
+    display: inline-block;
+    width: 25px;
+    font-size:12px;
+    text-align: right;
+    border-width: 0px 0px 1px 2px;
+    border-color: black;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-right-radius: 3px;
+}
 /* TEMPLATES */
 .sheet-rolltemplate-pmt hr,
 .sheet-rolltemplate-pmtchar hr
@@ -91,245 +360,6 @@
     color: #4A57ED;
     border-width: 0px 0px 0px 1px;
     border-color: #4A57ED;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: solid;
-    border-bottom-style: solid;
-    border-top-right-radius: 3px;
-}
-/* FDP */
-div,
-textarea,
-span,
-input,
-select{
-    box-sizing: border-box;
-    color: black;
-    font-family: 'Courier New';
-    font-size: 14px;
-    font-weight: normal;
-    border-radius: 0px;
-    text-align:left;
-}
-input{
-    background-color:rgba(255,255,255,0.9);
-    padding-left: 0.3em;
-    padding-right: 0.2em;
-    padding-top: 0.2em;
-    padding-bottom: 0.1em;
-    margin: 0px;
-    border-bottom-left-radius: 4px;
-}
-.charsheet button[type="roll"] {
-    box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    height: 26px;
-    text-align: left;
-    color:black;
-    border: 2px solid rgba(255,255,255,0.5);
-    border-radius: 12px;
-    transition: border 2s;
-}
-.charsheet button[type="roll"]:hover{
-    border: 2px black inset;
-}
-select{
-    background-color:rgba(255,255,255,0.5);
-    padding: 0px;
-    margin: 0px;
-    height: 1.6em;
-    line-height: 1.6em;
-    max-height 1.6em;
-    font-weight:normal;
-    border-width: 1px 2px 1px 2px;
-    border-color: black;
-    border-style: solid;
-    border-top-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-}
-hr{
-    padding: 0px;
-    margin: 4px;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: black;
-}
-span{
-    text-align: left;
-    padding-left: 0.3em;
-    padding-right: 0.2em;
-    padding-top: 0.2em;
-    padding-bottom: 0.1em;
-}
-textarea {
-    resize: vertical;
-    display: inline-block;
-    text-align: left;
-    background-color:rgba(255,255,255,0.9);
-    padding-left: 0.3em;
-    padding-right: 0.2em;
-    padding-top: 0.2em;
-    padding-bottom: 0.1em;
-    margin: 0px;
-    border-bottom-left-radius: 4px;
-}
-.sheet-mainBg{
-    /*
-    background: linear-gradient(#F8ECC2, #FFF8CB, #F8ECC2);
-    background: linear-gradient(#B4C6B5, #D3E8D4, #B4C6B5);
-    */
-    background-image:url(https://lh4.googleusercontent.com/-le0NmFIQGQ0/VIIlSitbl6I/AAAAAAAATP0/5rPXPhYzId0/w611-h788-no/vieuxpapier5.jpg);
-    background-repeat:no-repeat;
-    background-origin: border-box;
-    background-size: cover;
-    padding-top : 6px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 6px;
-    border: none;
-}
-.sheet-portrait{
-    width: 100px;
-    max-width: 100px;
-}
-.sheet-libel1{
-    padding-bottom: 6px;
-    padding-top: 0px;
-    font-weight: bold;
-}
-input.sheet-inMainNum{
-    text-align: right;
-    border-width: 0px 0px 1px 2px;
-    border-color: black;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: solid;
-    border-bottom-style: solid;
-    border-top-right-radius: 3px;
-    /* box-shadow: 4px 4px 8px rgba(0,0,0,.3); */
-}
-input.sheet-inPetitNum{
-    max-width: 44px;
-    text-align: right;
-    border-width: 0px 0px 0px 1px;
-    border-color: black;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: solid;
-    border-bottom-style: solid;
-    border-top-right-radius: 3px;
-}
-input.sheet-inMainTxt{
-    border-width: 0px 0px 1px 2px;
-    border-color: black;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: solid;
-    border-bottom-style: solid;
-    border-top-right-radius: 3px;
-}
-input.sheet-inCA{
-    height: 60px;
-    width: 70px;
-    text-align: center;
-    vertical-align: top;
-    border : solid black 2px;
-    font-size: 15px;
-    font-weight: bold;
-    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    line-height: 20px;
-    padding: 0px 0px 15px 0px;
-}
-input.sheet-inPV{
-    height: 35px;
-    max-width: 40px;
-    text-align: center;
-    border : solid black 2px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
-    border-top-left-radius: 100px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 100px;
-}
-input.sheet-inPVMax{
-    height: 35px;
-    max-width: 40px;
-    text-align: center;
-    border : solid black 2px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 4px 4px 8px rgba(0,0,0,.3);
-    border-top-left-radius: 0px;
-    border-top-right-radius: 100px;
-    border-bottom-right-radius: 100px;
-    border-bottom-left-radius: 0px;
-}
-div.sheet-titre1{
-    display: inline-block;
-    font-weight: bold;
-    font-size: 15px;
-    text-align: left;
-    padding: 4px;
-    text-decoration: underline;
-}
-div.sheet-carac-num{
-    display: inline-block;
-    padding: 5px;
-    background-color: black;
-    text-align: center;
-}
-input.sheet-carac-num{
-    width: 26px;
-    height: 26px;
-    background-color: white;
-    text-align: center;
-    vertical-align: middle;
-    border: none;
-    border-radius:15px;
-    font-weight: bold;
-}
-div.sheet-carac-lib{
-    display: inline-block;
-    padding-left: 4px;
-    padding-right: 6px;
-    text-align: left;
-    font-family: "Times New Roman", serif;
-    font-size: 14px;
-    font-weight: bold;
-    width: 85px;
-}
-div.sheet-js-lib{
-    display: inline-block;
-    padding-left: 4px;
-    padding-right: 6px;
-    text-align: left;
-    font-family: "Times New Roman", serif;
-    font-size: 14px;
-    font-weight: bold;
-}
-div.sheet-carac-roll{
-    display: inline-block;
-}
-div.sheet-carac-mod{
-    display: inline-block;
-    text-align: left;
-    width: 47px;
-    padding-right: 6px;
-}
-input.sheet-carac-mod{
-    display: inline-block;
-    width: 25px;
-    font-size:12px;
-    text-align: right;
-    border-width: 0px 0px 1px 2px;
-    border-color: black;
     border-top-style: none;
     border-right-style: none;
     border-left-style: solid;

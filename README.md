@@ -3,15 +3,6 @@ Personal developments and works in progress for the Roll20 character sheets and 
 
 ## WIP
 
-### Trail of Cthulhu (french)
-
-#### Sources
-* [WIP](./Trail of Cthulhu_french/) Version 1.0 (2015-12-26)
-
-#### Todo
-* Terminologies manquantes
-* Ajouter des jets ?
-
 ### Sheets I wish to make or enhance
 * Würm french and english
 * Dragon de Poche 2 (french)
@@ -100,6 +91,16 @@ Cf. english version
 
 #### Todo
 * Ajouter les descriptifs VF en infobulles (cf. fiche VO)
+
+### Trail of Cthulhu (french)
+
+#### Sources
+* [WIP](./Trail of Cthulhu_french/) Version 1.0 (2015-12-26)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Trail%20of%20Cthulhu_french) Version 1.0 (2015-12-26)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Trail%20of%20Cthulhu_french) Version 1.0 (2015-12-26)
+
+#### Todo
+* Ajouter des jets ?
 
 ## API Scripts
 

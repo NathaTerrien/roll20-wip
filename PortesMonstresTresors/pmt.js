@@ -7,6 +7,21 @@ var PmT = PmT || (function () {
     warning = "This script is meant to be used with the Portes-Monstres-Trésors sheet",
     sortsDivins=["Détection de la Magie","Détection du Mal","Lumière","Protection contre le Mal","Purification","Regain d’Assurance","Résistance au Froid","Soins Légers"],
     sortsProfanes=["Bouclier","Charme-personne","Détection de la Magie","Disque Flottant","Lecture des Langages","Lecture de la Magie","Lumière","Projectile Magique","Protection contre le Mal","Sommeil","Ventriloquie","Verrouillage"],
+    // 58 PO + Standard = 65
+    packClerc='{"nom":"Armure de cuir rembourré","qte":"1","poids":"10"}|{"nom":"Bouclier","qte":"1","poids":"5"}|{"nom":"Casque","qte":"1","poids":"2.5"}|{"nom":"Fronde","qte":"1","poids":"0"}|{"nom":"Masse","qte":"1","poids":"1.5"}|{"nom":"Pierres de fronde","qte":"10","poids":"0.15"}|{"nom":"Symbole religieux en bois","qte":"1","poids":"0"}',
+    // 94 PO + Standard = 103
+    packGuerrier='{"nom":"Arc court","qte":"1","poids":"1"}|{"nom":"Armure de cuir rembourré","qte":"1","poids":"10"}|{"nom":"Bouclier","qte":"1","poids":"5"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Casque","qte":"1","poids":"2.5"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée longue","qte":"1","poids":"2"}',
+    // 54 PO + Standard = 61
+    packMagicien='{"nom":"Bâton","qte":"1","poids":"4"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Fléchettes","qte":"10","poids":"0.1"}|{"nom":"Grimoire","qte":"1","poids":"1.5"}|{"nom":"Encre (fiole de 30 ml)","qte":"1","poids":"0"}|{"nom":"Plume","qte":"1","poids":"0"}',
+    // 78 PO + Standard = 85
+    packVoleur='{"nom":"Arc court","qte":"1","poids":"1"}|{"nom":"Armure de cuir","qte":"1","poids":"7.5"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée courte","qte":"1","poids":"1"}|{"nom":"Pitons","qte":"12","poids":"0.33"}|{"nom":"Outils de crochetage","qte":"1","poids":"0.5"}',
+    // 7 PO
+    packStandard='{"nom":"Sac à dos (20 kg)","qte":"1","poids":"1"}|{"nom":"Silex et amorce","qte":"1","poids":"0"}|{"nom":"Gourde","qte":"1","poids":"0.5"}|{"nom":"Jour de rations de voyage","qte":"4","poids":"2"}|{"nom":"Corde en chanvre de 15 m de long","qte":"1","poids":"5"}|{"nom":"Torches","qte":"4","poids":"2"}',
+    //Attaques
+    atkClerc='{"nom":"Fronde","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"0"}|{"nom":"Masse","mod":"@{MOD_FOR}","nbde":"1","de":"6","moddgt":"@{MOD_FOR}"}',
+    atkGuerrier='{"nom":"Arc court","mod":"@{MOD_DEX}","nbde":"1","de":"6","moddgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Epée longue","mod":"@{MOD_FOR}","nbde":"1","de":"8","moddgt":"@{MOD_FOR}"}',
+    atkMagicien='{"nom":"Bâton","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Fléchette","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}',
+    atkVoleur='{"nom":"Arc court","mod":"@{MOD_DEX}","nbde":"1","de":"6","moddgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Epée courte","mod":"@{MOD_FOR}","nbde":"1","de":"6","moddgt":"@{MOD_FOR}"}',
     //-----------------------------------------------------------------------------
     checkInstall = function() {
         log(""+author+"'s Portes-Monstres-Trésors script version "+version+" ("+releasedate+") installed.");
@@ -197,7 +212,7 @@ var PmT = PmT || (function () {
         var DV = 0;
         var PV = 0;
         var XP = 0;
-        var ATK_Bonus=1;
+        var ATK_Bonus=0;
         var JS_Souffles=0;
         var JS_Poison=0;
         var JS_Petrification=0;
@@ -219,8 +234,14 @@ var PmT = PmT || (function () {
         var ToucheCA7=12;
         var ToucheCA8=11;
         var ToucheCA9=10;
-        var equippo= (randomInteger(8)+randomInteger(8)+randomInteger(8))*10;
-        var lesort="";
+        var lesort ="";
+        var lepack="";
+        var latak="";
+        var lecout=0;
+        var CaAscArmure = 0;
+        var CaDescArmure = 0;
+        var CaBouclier = 0;
+        var CaracPrinc = 0;
         switch(classe){
             case 'clerc':
                 DV = 6;
@@ -230,7 +251,14 @@ var PmT = PmT || (function () {
                 JS_Petrification=14;
                 JS_Baton=12;
                 JS_Sorts=15;
-                lesort=sortsDivins[randomInteger(8)];
+                lesort=sortsDivins[randomInteger(8)-1];
+                lepack=""+packClerc+"|"+packStandard;
+                lecout=65;
+                CaAscArmure = 12;
+                CaDescArmure = 7;
+                CaBouclier = 1;
+                CaracPrinc = Sagesse;
+                latak = atkClerc;
                 break;
             case 'guerrier':
                 DV = 8;
@@ -241,6 +269,13 @@ var PmT = PmT || (function () {
                 JS_Baton=15;
                 JS_Sorts=18;
                 lesort="";
+                lepack=""+packGuerrier+"|"+packStandard;
+                lecout=103;
+                CaAscArmure = 12;
+                CaDescArmure = 7;
+                CaBouclier = 1;
+                CaracPrinc = Force;
+                latak = atkGuerrier;
                 break;
             case 'magicien':
                 DV = 4;
@@ -250,7 +285,14 @@ var PmT = PmT || (function () {
                 JS_Petrification=13;
                 JS_Baton=13;
                 JS_Sorts=14;
-                lesort=sortsProfanes[randomInteger(12)];
+                lesort=sortsProfanes[randomInteger(12)-1];
+                lepack=""+packMagicien+"|"+packStandard;
+                lecout=61;
+                CaAscArmure = 10;
+                CaDescArmure = 9;
+                CaBouclier = 0;
+                CaracPrinc = Intelligence;
+                latak = atkMagicien;
                 break;
             case 'voleur':
                 DV = 4;
@@ -261,6 +303,13 @@ var PmT = PmT || (function () {
                 JS_Baton=15;
                 JS_Sorts=14;
                 lesort="";
+                lepack=""+packVoleur+"|"+packStandard;
+                lecout=85;
+                CaAscArmure = 11;
+                CaDescArmure = 8;
+                CaBouclier = 0;
+                CaracPrinc = Dexterite;
+                latak = atkVoleur;
                 break;
             case 'elfe':
                 DV = 6;
@@ -270,7 +319,14 @@ var PmT = PmT || (function () {
                 JS_Petrification=13;
                 JS_Baton=13;
                 JS_Sorts=15;
-                lesort=sortsProfanes[randomInteger(12)];
+                lesort=sortsProfanes[randomInteger(12)-1];
+                lepack=""+packGuerrier+"|"+packStandard;
+                lecout=103;
+                CaAscArmure = 12;
+                CaDescArmure = 7;
+                CaBouclier = 1;
+                CaracPrinc = Math.max(Force, Intelligence);
+                latak = atkGuerrier;
                 break;
             case 'halfelin':
                 DV = 6;
@@ -281,6 +337,13 @@ var PmT = PmT || (function () {
                 JS_Baton=9;
                 JS_Sorts=12;
                 lesort="";
+                lepack=""+packVoleur+"|"+packStandard;
+                lecout=85;
+                CaAscArmure = 11;
+                CaDescArmure = 8;
+                CaBouclier = 0;
+                CaracPrinc = Math.max(Dexterite, Constitution);
+                latak = atkVoleur;
                 break;
             case 'nain':
                 DV = 8;
@@ -291,19 +354,28 @@ var PmT = PmT || (function () {
                 JS_Baton=9;
                 JS_Sorts=12;
                 lesort="";
+                lepack=""+packGuerrier+"|"+packStandard;
+                lecout=103;
+                CaAscArmure = 12;
+                CaDescArmure = 7;
+                CaBouclier = 1;
+                CaracPrinc = Force;
+                latak = atkGuerrier;
                 break;
         }
+        var BonusXp = 0;
+        if (CaracPrinc <6) {BonusXp=-10}
+            else if (CaracPrinc>5 && CaracPrinc<9) {BonusXp=-5}
+            else if (CaracPrinc>12 && CaracPrinc<16) {BonusXp=5}
+            else if (CaracPrinc>16) {BonusXp=10}
+            else {BonusXp=0};
+        var equippo= Math.max(((randomInteger(8)+randomInteger(8)+randomInteger(8))*10)-lecout,0);
         var PV = Math.max(DV+MOD_CON,1);
-        var CaDesc= 9-MOD_DEX;
-        var CaAsc = 10+MOD_DEX;
-        var CA = "" + CaDesc + " (" + CaAsc +  ")"
         //Création du personnage / l'objet character
         var char = createObj("character", {
                 name: nom,
                 gmnotes: "Personnage créé automatiquemet par pmt.js",
                 inplayerjournals: "all",
-                imgsrc: "",
-                avatar: "",
                 controlledby: playerId
             });
         //Base
@@ -312,9 +384,11 @@ var PmT = PmT || (function () {
         createObj("attribute", {name: "DV", current: DV, characterid: char.id});
         createObj("attribute", {name: "PV", current: PV, max: PV, characterid: char.id});
         createObj("attribute", {name: "XP", current: 0, max: XP, characterid: char.id});
-        createObj("attribute", {name: "CA", current: CA, characterid: char.id});
+        createObj("attribute", {name: "BonusXp", current: BonusXp, characterid: char.id});
+        createObj("attribute", {name: "CaAscArmure", current: CaAscArmure, characterid: char.id});
+        createObj("attribute", {name: "CaDescArmure", current: CaDescArmure, characterid: char.id});
+        createObj("attribute", {name: "CaBouclier", current: CaBouclier, characterid: char.id});
         createObj("attribute", {name: "Alignement", current: Alignement, characterid: char.id});
-        createObj("attribute", {name: "equip-divers", current: lesort, characterid: char.id}); // TODO
         // Caractéristiques
         createObj("attribute", {name: "Force", current: Force, characterid: char.id});
         createObj("attribute", {name: "MOD_FOR", current: MOD_FOR, characterid: char.id});
@@ -358,34 +432,14 @@ var PmT = PmT || (function () {
         createObj("attribute", {name: "equip-po", current: equippo, characterid: char.id});
         //---
         //Eléments qui seront traités par Sheet Worker sheet:opened, et stocké dans l'attribut "todo"
-        var todo="";
-        var obj = {};
-        // Sorts
+        // -- Sorts
         if (lesort.length > 0){
-            var sort = {};
-            sort["nom"]=lesort;
-            sort["niveau"]="1";
-            obj["type"]="sort";
-            obj["valeur"]=sort;
-            if(todo.length == 0 ){todo=JSON.stringify(obj)} else {todo+= "|"+JSON.stringify(obj)};
+            createObj("attribute", {name: "todosort", current: lesort, characterid: char.id});
         };
-        // Equipements
-        var equip={};
-        equip["nom"]="Armure de cuir";
-        equip["poids"]="1.5";
-        equip["qte"]="1";
-        obj["type"]="equipement";
-        obj["valeur"]=equip;
-        if(todo.length == 0 ){todo=JSON.stringify(obj)} else {todo+= "|"+JSON.stringify(obj)};
-        equip["nom"]="Flèches";
-        equip["poids"]="2";
-        equip["qte"]="12";
-        obj["type"]="equipement";
-        obj["valeur"]=equip;
-        todo+= "|"+JSON.stringify(obj);
-        // Attaques
-        //---
-        createObj("attribute", {name: "todo", current: todo, characterid: char.id});
+        // -- Equipements
+        createObj("attribute", {name: "todoequip", current: lepack, characterid: char.id});
+        // -- Attaques
+        createObj("attribute", {name: "todoatk", current: latak, characterid: char.id});
         //Signalement du résultat
         sendChat("player|"+playerId, "Personnage '" + nom + "' de classe '" + classe + "' créé (id : " + char.id + ").");
         return;

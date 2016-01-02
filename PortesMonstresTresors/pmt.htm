@@ -1,113 +1,560 @@
 <!-- **** SCRIPTS / SHEET WORKERS -->
 <script type="text/worker">
-on('sheet:opened',function(){
-    getAttrs(["todo"], function(values) {
-        if(values.todo.length > 0){
+/* ---- BEGIN: TheAaronSheet.js ---- */
+// Github:   https://github.com/shdwjk/TheAaronSheet/blob/master/TheAaronSheet.js
+// By:       The Aaron, Arcane Scriptomancer
+// Contact:  https://app.roll20.net/users/104025/the-aaron
+var TAS = TAS || (function(){
+    'use strict';
 
-        };
-        setAttrs({
-            arme1_comp_rel: "@{relRollBast" + values.arme1_comp + "}",
-            arme1_comp_jet: "@{jetRollBast" + values.arme1_comp + "}"
+    var version = '0.2.0',
+        lastUpdate = 1448523710,
+
+        queuedUpdates = {}, //< Used for delaying saves till the last momment.
+
+    log = function(){
+        _.each(arguments,function(m){
+            switch(typeof m){
+                case 'string':
+                    console.log('<TAS> :: '+m);
+                    break;
+                case 'number':
+                    console.log('<TAS> :: [number]: '+m);
+                    break;
+                default:
+                    console.log('<TAS> :: ['+typeof m +']:');
+                    console.log(m);
+                    console.log('<TAS> :: =========================================================');
+            }
+        });
+    },
+
+    prepareUpdate = function( attribute, value ){
+        queuedUpdates[attribute]=value;
+    },
+
+    applyQueuedUpdates = function() {
+      setAttrs(queuedUpdates);
+      queuedUpdates = {};
+    },
+
+    namesFromArgs = function(args,base){
+        return _.chain(args)
+            .reduce(function(memo,attr){
+                if('string' === typeof attr) {
+                    memo.push(attr);
+                } else if(_.isArray(args) || _.isArguments(args)){
+                    memo = namesFromArgs(attr,memo);
+                }
+                return memo;
+            },(_.isArray(base) && base) || [])
+            .uniq()
+            .value();
+    },
+
+    addId = function(obj,value){
+        Object.defineProperty(obj,'id',{
+            value: value,
+            writeable: false,
+            enumerable: false
+        });
+    },
+
+    addProp = function(obj,prop,value,fullname){
+        (function(){
+            var pname=(_.contains(['S','F','I','D'],prop) ? '_'+prop : prop),
+                full_pname = fullname || prop,
+                pvalue=value;
+
+            _.each(['S','I','F'],function(p){
+                if( !_.has(obj,p)){
+                    Object.defineProperty(obj, p, {
+                        value: {},
+                        enumerable: false,
+                        readonly: true
+                    });
+                }
+            });
+            if( !_.has(obj,'D')){
+                Object.defineProperty(obj, 'D', {
+                    value: _.reduce(_.range(10),function(m,d){
+                            Object.defineProperty(m, d, {
+                                value: {},
+                                enumerable: true,
+                                readonly: true
+                            });
+                            return m;
+                        },{}),
+                    enumerable: false,
+                    readonly: true
+                });
+            }
+
+
+            // Raw value
+            Object.defineProperty(obj, pname, {
+                enumerable: true,
+                set: function(v){
+                    pvalue=v;
+                    prepareUpdate(full_pname,v);
+                },
+                get: function(){
+                    return pvalue;
+                }
+            });
+
+            // string value
+            Object.defineProperty(obj.S, pname, {
+                enumerable: true,
+                set: function(v){
+                    var val=v.toString();
+                    pvalue=val;
+                    prepareUpdate(full_pname,val);
+                },
+                get: function(){
+                    return pvalue.toString();
+                }
+            });
+
+            // int value
+            Object.defineProperty(obj.I, pname, {
+                enumerable: true,
+                set: function(v){
+                    var val=parseInt(v,10) || 0;
+                    pvalue=val;
+                    prepareUpdate(full_pname,val);
+                },
+                get: function(){
+                    return parseInt(pvalue,10) || 0;
+                }
+            });
+
+            // float value
+            Object.defineProperty(obj.F, pname, {
+                enumerable: true,
+                set: function(v){
+                    var val=parseFloat(v) || 0;
+                    pvalue=val;
+                    prepareUpdate(full_pname,val);
+                },
+                get: function(){
+                    return parseFloat(pvalue) || 0;
+                }
+            });
+            _.each(_.range(10),function(d){
+                Object.defineProperty(obj.D[d], pname, {
+                    enumerable: true,
+                    set: function(v){
+                        var val=(parseFloat(v) || 0).toFixed(d);
+                        pvalue=val;
+                        prepareUpdate(full_pname,val);
+                    },
+                    get: function(){
+                        return (parseFloat(pvalue) || 0).toFixed(d);
+                    }
+                });
+            });
+
+        }());
+    },
+
+    repeating = function( section ) {
+        return (function(s){
+            var sectionName = s,
+                attrNames = [],
+                fieldNames = [],
+                operations = [],
+
+            repAttrs = function(){
+                attrNames = namesFromArgs(arguments,attrNames);
+                return this;
+            },
+            repFields = function(){
+                fieldNames = namesFromArgs(arguments,fieldNames);
+                return this;
+            },
+            repReduce = function(func, initial, final, context) {
+                operations.push({
+                    type: 'reduce',
+                    func: (func && _.isFunction(func) && func) || _.noop,
+                    memo: (_.isUndefined(initial) && 0) || initial,
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+                return this;
+            },
+            repMap = function(func, final, context) {
+                operations.push({
+                    type: 'map',
+                    func: (func && _.isFunction(func) && func) || _.noop,
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+                return this;
+            },
+            repEach = function(func, final, context) {
+                operations.push({
+                    type: 'each',
+                    func: (func && _.isFunction(func) && func) || _.noop,
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+                return this;
+            },
+            repTap = function(final, context) {
+                operations.push({
+                    type: 'tap',
+                    final: (final && _.isFunction(final) && final) || _.noop,
+                    context: context || {}
+                });
+                return this;
+            },
+            repExecute = function(){
+                var rowSet = {},
+                    attrSet = {},
+                    fieldIds = [],
+                    fullFieldNames = [];
+
+                // call each operation per row.
+                // call each operation's final
+                getSectionIDs("repeating_"+sectionName,function(ids){
+                    fieldIds = ids;
+                    fullFieldNames = _.reduce(fieldIds,function(memo,id){
+                        return memo.concat(_.map(fieldNames,function(name){
+                            return 'repeating_'+sectionName+'_'+id+'_'+name;
+                        }));
+                    },[]);
+                    getAttrs( _.uniq(attrNames.concat(fullFieldNames)), function(values){
+                        _.each(attrNames,function(aname){
+                            if(values.hasOwnProperty(aname)){
+                                addProp(attrSet,aname,values[aname]);
+                            }
+                        });
+
+                        rowSet = _.reduce(fieldIds,function(memo,id){
+                            var r={};
+                            addId(r,id);
+                            _.each(fieldNames,function(name){
+                                var fn = 'repeating_'+sectionName+'_'+id+'_'+name;
+                                addProp(r,name,values[fn],fn);
+                            });
+
+                            memo[id]=r;
+
+                            return memo;
+                        },{});
+
+                        _.each(operations,function(op){
+                            var res;
+                            switch(op.type){
+                                case 'tap':
+                                    _.bind(op.final,op.context,rowSet,attrSet)();
+                                    break;
+
+                                case 'each':
+                                    _.each(rowSet,function(r){
+                                        _.bind(op.func,op.context,r,attrSet,r.id,rowSet)();
+                                    });
+                                    _.bind(op.final,op.context,rowSet,attrSet)();
+                                    break;
+
+                                case 'map':
+                                    res = _.map(rowSet,function(r){
+                                        return _.bind(op.func,op.context,r,attrSet,r.id,rowSet)();
+                                    });
+                                    _.bind(op.final,op.context,res,rowSet,attrSet)();
+                                    break;
+
+                                case 'reduce':
+                                    res = op.memo;
+                                    _.each(rowSet,function(r){
+                                        res = _.bind(op.func,op.context,res,r,attrSet,r.id,rowSet)();
+                                    });
+                                    _.bind(op.final,op.context,res,rowSet,attrSet)();
+                                    break;
+                            }
+                        });
+
+                        // finalize attrs
+                        applyQueuedUpdates();
+                    });
+                });
+            };
+
+            return {
+                attrs: repAttrs,
+                attr: repAttrs,
+
+                column: repFields,
+                columns: repFields,
+                field: repFields,
+                fields: repFields,
+
+                reduce: repReduce,
+                inject: repReduce,
+                foldl: repReduce,
+
+                map: repMap,
+                collect: repMap,
+
+                each: repEach,
+                forEach: repEach,
+
+                tap: repTap,
+                'do': repTap,
+
+                execute: repExecute,
+                go: repExecute,
+                run: repExecute
+            };
+        }(section));
+    },
+
+
+    repeatingSimpleSum = function(section, field, destination){
+        repeating(section)
+            .attr(destination)
+            .field(field)
+            .reduce(function(m,r){
+                return m + (r.F[field]);
+            },0,function(t,r,a){
+                a[destination]=t;
+            })
+            .execute();
+    };
+
+    console.log('-=> TheAaronSheet v'+version+' <=-  ['+(new Date(lastUpdate*1000))+']');
+
+    return {
+        repeatingSimpleSum: repeatingSimpleSum,
+        repeating: repeating
+    };
+}());
+/* ---- END: TheAaronSheet.js ---- */
+on('sheet:opened',function(){
+        // **** Gestion 1ière ouverture après création du personnage
+        getAttrs(["todoequip"], function(values) {
+            //Equipements
+            if(values.todoequip.length > 0){
+                var newrowid ="";
+                var newrowattrs = {};
+                var TabEq = [];
+                var arrayLength = 0;
+                var obj = {};
+                TabEq = values.todoequip.split("|");
+                arrayLength = TabEq.length;
+                if (arrayLength > 0){
+                    for (var i = 0; i < arrayLength; i++) {
+                        obj=JSON.parse(TabEq[i]);
+                        newrowid = generateRowID();
+                        newrowattrs = {};
+                        newrowattrs["repeating_equipement_" + newrowid + "_equipnom"] = obj.nom;
+                        newrowattrs["repeating_equipement_" + newrowid + "_equipqte"] = obj.qte;
+                        newrowattrs["repeating_equipement_" + newrowid + "_equippoids"] = obj.poids;
+                        newrowattrs["repeating_equipement_" + newrowid + "_equippoidstot"] = ((parseFloat(obj.qte) || 1.0) * (parseFloat(obj.poids) || 0.0)).toFixed(1);
+                        setAttrs(newrowattrs);
+                    }
+                    TAS.repeatingSimpleSum('equipement','equippoidstot','encombrement');
+                    getAttrs(["encombrement"], function (values) {
+                        var enc = parseFloat(values.encombrement) || 0.0;
+                        var explo = 0;
+                        var combat = 0;
+                        if (enc>=41) {
+                            explo = 9;
+                            combat = 3;
+                        } else if (enc>=21 && enc<31) {
+                            explo = 24;
+                            combat = 9;
+                        } else if (enc>=31 && enc<41) {
+                            explo = 24;
+                            combat = 9;
+                        } else {
+                            explo = 36;
+                            combat = 12;
+                        };
+                        setAttrs({
+                            mvtexploration: explo,
+                            mvtcombat: combat,
+                            mvtcourse: explo,
+                            mvtexterieur: explo*3
+                        });
+                    });                };
+                setAttrs({todoequip: ""});
+                nodoequip = 0;
+            };
+        });
+        getAttrs(["todosort"], function(values) {
+            //Sorts
+            if(values.todosort.length > 0){
+                var newrowid ="";
+                var newrowattrs = {};
+                var TabEq = [];
+                var arrayLength = 0;
+                var obj = {};
+                newrowid = generateRowID();
+                newrowattrs = {};
+                newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = values.todosort;
+                newrowattrs["repeating_sorts_" + newrowid + "_sort-niveau"] = "1";
+                setAttrs(newrowattrs);
+                setAttrs({todosort: ""});
+            };
+        });
+        getAttrs(["todoatk"], function(values) {
+            //Attaques
+            if(values.todoatk.length > 0){
+                var newrowid ="";
+                var newrowattrs = {};
+                var TabAtk = [];
+                var arrayLength = 0;
+                var obj = {};
+                TabAtk = values.todoatk.split("|");
+                arrayLength = TabAtk.length;
+                if (arrayLength > 0){
+                    for (var i = 0; i < arrayLength; i++) {
+                        obj=JSON.parse(TabAtk[i]);
+                        newrowid = generateRowID();
+                        newrowattrs = {};
+                        newrowattrs["repeating_attaques_" + newrowid + "_attaque-nom"] = obj.nom;
+                        newrowattrs["repeating_attaques_" + newrowid + "_attaque-carac"] = obj.mod;
+                        newrowattrs["repeating_attaques_" + newrowid + "_attaque-degats-nbde"] = obj.nbde;
+                        newrowattrs["repeating_attaques_" + newrowid + "_attaque-degats-de"] = obj.de;
+                        newrowattrs["repeating_attaques_" + newrowid + "_attaque-degats-carac"] = obj.moddgt;
+                        setAttrs(newrowattrs);
+                    }
+                };
+                setAttrs({todoatk: ""});
+            };
         });
     });
-});
+    on("change:repeating_equipement:equipqte change:repeating_equipement:equippoids", function() {
+        getAttrs(["repeating_equipement_equipqte", "repeating_equipement_equippoids"], function(values) {
+                setAttrs({
+                    repeating_equipement_equippoidstot: ((parseFloat(values.repeating_equipement_equipqte) || 1.0)*(parseFloat(values.repeating_equipement_equippoids) || 0.0)).toFixed(1)
+                });
+                TAS.repeatingSimpleSum('equipement','equippoidstot','encombrement');
+            });
+    });
+    on("change:encombrement", function() {
+        getAttrs(["encombrement"], function (values) {
+            var enc = parseFloat(values.encombrement) || 0.0;
+            var explo = 0;
+            var combat = 0;
+            if (enc>=41) {
+                explo = 9;
+                combat = 3;
+            } else if (enc>=21 && enc<31) {
+                explo = 24;
+                combat = 9;
+            } else if (enc>=31 && enc<41) {
+                explo = 24;
+                combat = 9;
+            } else {
+                explo = 36;
+                combat = 12;
+            };
+            setAttrs({
+                mvtexploration: explo,
+                mvtcombat: combat,
+                mvtcourse: explo,
+                mvtexterieur: explo*3
+            });
+        });
+    });
 </script>
-<input type="hidden" name="attr_todo" value=""/>
+<!-- PARAMETRAGES -->
+<span class="sheet-smallspan">v2.0 - <b>Options :</b></span>
+<input type="radio" name="attr_sheetOptionCa" value="0" class="sheet-optionCaDesc" checked="checked" title="Utiliser la Classe d'Armure (CA) descendante" /><span>CA descendante</span>
+<input type="radio" name="attr_sheetOptionCa" value="1" class="sheet-optionCaAsc" title="Utiliser la Classe d'Armure (CA) ascendante" /><span>CA ascendante</span>
 <!-- FdP -->
 <div class="sheet-mainBg" style="width:832px;">
-    <div style="width:100%;display: table;"> <!-- portrait, nom, classe etc... -->
-        <div style="display; table-row;">
-            <div style="display: table-cell; width:220px;"> <!-- portrait -->
-                <img style="width:220px;" src="http://lh5.googleusercontent.com/-RtdTN5mdBt8/VHCVJdiLETI/AAAAAAAATJQ/qH2mckC0xG0/w823-h646-no/dragon_noir.png"/>
-            </div> <!-- FIN portrait -->
-            <div style="display:table-cell;width:calc(inherit-220px);vertical-align:top;text-align:left;"> <!--titre, nom, classe ... -->
-                <img style="width:500px" src="http://lh4.googleusercontent.com/-Lx2C7ZSAnYE/VHYzI6JcLWI/AAAAAAAATLw/agtXHfY_jPM/w976-h85-no/FdPLogo2.png"/>
-                <div style="display: table;width:calc(inherit-10%);">
-                    <div style="display: table-row;">  <!-- nom, classe etc... -->
-                        <div style="display: table-cell;">
-                            <div style="display: table;width:inherit;">
-                                <div style="display: table-row;">
-                                    <div style="display: table-cell;width:50%;text-align:left;"> <!-- nom classe colonne 1 -->
-                                        <input class="sheet-inMainTxt" type="text" name="attr_character_name" placeholder="Nom du personnage" />
-                                        <div class="sheet-row sheet-libel1">
-                                            Nom du personnage
-                                        </div>
-                                        <div class="sheet-2colrow">
-                                            <div class="sheet-col" style="width: 24px;">
-                                                <div class="sheet-row">
-                                                    <input class="sheet-inMainNum" type="text" name="attr_Niveau" style="width: 40px;" placeholder="1" />
-                                                </div>
-                                                <div class="sheet-row sheet-libel1">
-                                                    Niveau
-                                                </div>
-                                            </div>
-                                            <div class="sheet-col" style="text-align: left;white-space: nowrap;">
-                                                <input class="sheet-inMainNum" type="text" name="attr_XP" style="width: 65px;text-align:right;" placeholder="0" />
-                                                <b>/</b>
-                                                <input class="sheet-inMainNum" type="text" name="attr_XP_max" style="width: 65px;text-align:right;" placeholder="0" />
-                                                <div class="sheet-row sheet-libel1" style="white-space: nowrap;">
-                                                    XP / Prochain niveau
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="sheet-2colrow">
-                                            <div class="sheet-col" style="width: 80px;">
-                                                <div class="sheet-row sheet-libel1" style="text-align: left;">
-                                                    <input class="sheet-inCA" type="text" name="attr_CA" placeholder="CA" title="Classe d'Armure (CA)"/>
-                                                </div>
-                                            </div>
-                                            <div class="sheet-col">
-                                                <SELECT name="attr_Alignement" size="1"  style="width: 120px;">
-                                                    <OPTION>Loi</OPTION>
-                                                    <OPTION>Neutralité</OPTION>
-                                                    <OPTION>Chaos</OPTION>
-                                                </SELECT>
-                                                <div class="sheet-col sheet-libel1">
-                                                    Alignement
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- FIN nom, classe colonne 1 -->
-                                    <div style="display: table-cell;text-align:left;"> <!-- nom, classe colonne 2 -->
-                                        <SELECT name="attr_Classe" size="1"  style="width: 150px;">
-                                            <option value="clerc">Clerc</option>
-                                            <option value="guerrier">Guerrier</option>
-                                            <option value="magicien">Magicien</option>
-                                            <option value="voleur">Voleur</option>
-                                            <option value="elfe">Elfe</option>
-                                            <option value="halfelin">Halfelin</option>
-                                            <option value="nain">Nain</option>
-                                        </SELECT>
-                                        <div class="sheet-row sheet-libel1">
-                                            Classe
-                                        </div>
-                                        <input class="sheet-inMainTxt" type="text" name="attr_Race" placeholder="Race" />
-                                        <div class="sheet-row sheet-libel1">
-                                            Race (r&egrave;gles avanc&eacute;es)
-                                        </div>
-                                        <div class="sheet-row sheet-libel1" style="text-align:left;">
-                                            PV
-                                            <input class="sheet-inPV" type="text" name="attr_PV" placeholder="PV" title="Points de Vie courant"/>
-                                            <input class="sheet-inPVMax" type="text" name="attr_PV_max" placeholder="MAX" title="Points de Vie maximum"/>
-                                            DV
-                                            <SELECT name="attr_DV" size="1"  style="text-align: right; width: 60px;">
-                                                <option value="4">d4</option>
-                                                <option value="6">d6</option>
-                                                <option value="8">d8</option>
-                                                <option value="10">d10</option>
-                                                <option value="12">d12</option>
-                                            </SELECT>
-                                            <button type='roll' value="&{template:pmt} {{name=D&eacute; de Vie}} {{DV=[[1d@{DV}+@{MOD_CON}]]}}" name='DV'></button>
-                                        </div>
-                                    </div> <!-- FIN nom, classe colonne 2 -->
-                                </div>
+    <table style="width:100%;"> <!-- portrait, nom, classe etc... -->
+        <tr>
+            <td style="width:300px;text-align:center;">
+                <img style="width:100%" src="http://lh4.googleusercontent.com/-Lx2C7ZSAnYE/VHYzI6JcLWI/AAAAAAAATLw/agtXHfY_jPM/w976-h85-no/FdPLogo2.png"/>
+                <img style="width:180px;" src="http://lh5.googleusercontent.com/-RtdTN5mdBt8/VHCVJdiLETI/AAAAAAAATJQ/qH2mckC0xG0/w823-h646-no/dragon_noir.png"/>
+            </td> <!-- FIN portrait -->
+            <td style="width:530px;"> <!--titre, nom, classe ... -->
+                <table style="width:100%;">
+                    <tr><td colspan="3"></td></tr>
+                    <tr>
+                        <td>
+                            <input class="sheet-inMainTxt" type="text" name="attr_character_name" placeholder="Nom du personnage" />
+                        </td>
+                        <td>
+                            <SELECT name="attr_Classe" size="1"  style="width: 115px;">
+                                <option value="clerc">Clerc</option>
+                                <option value="guerrier">Guerrier</option>
+                                <option value="magicien">Magicien</option>
+                                <option value="voleur">Voleur</option>
+                                <option value="elfe">Elfe</option>
+                                <option value="halfelin">Halfelin</option>
+                                <option value="nain">Nain</option>
+                            </SELECT>
+                        </td>
+                        <td>
+                            <SELECT name="attr_Alignement" size="1"  style="width: 115px;">
+                                <OPTION>Loi</OPTION>
+                                <OPTION>Neutralité</OPTION>
+                                <OPTION>Chaos</OPTION>
+                            </SELECT>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-libel1">Nom du personnage</td>
+                        <td class="sheet-libel1">Classe</td>
+                        <td class="sheet-libel1">Alignement</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input class="sheet-inMainNum" type="number" name="attr_XP" style="width: 80px;text-align:right;" value="0" />
+                            <b>/</b>
+                            <input class="sheet-inMainNum" type="number" name="attr_XP_max" style="width: 80px;text-align:right;" value="0" />
+                        </td>
+                        <td><input class="sheet-inMainNum" type="number" name="attr_BonusXp" style="width: 50px;" value="0" /> %</td>
+                        <td><input class="sheet-inMainNum" type="number" name="attr_Niveau" style="width: 50px;" value="1" /></td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-libel1">XP / Prochain niveau</td>
+                        <td class="sheet-libel1">Bonus d'XP</td>
+                        <td class="sheet-libel1">Niveau</td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-libel1">
+                            <div class="sheet-optionCaDesc">
+                                <input class="sheet-inCA" type="text" name="attr_CaDesc" title="Classe d'Armure totale"  value="[[@{CaDescArmure}-@{CaBouclier}-(@{MOD_DEX}*1)]]" disabled />=<input name="attr_CaDescArmure" type="number" class="sheet-inMainNum" style="width:40px;" value="9" title="Classe d'armure de l'armure (9 sans armure)"/>-<input name="attr_CaBouclier" type="number" class="sheet-inMainNum" style="width:35px;" value="0" title="Bonus de CA de bouclier"/>-<input name="attr_CaDex" type="number" class="sheet-inMainNum" style="width:35px;" value="@{MOD_DEX}" title="Modificateur de Dextéroté" disabled />
                             </div>
-                        </div>
-                    </div> <!-- FIN nom, classe etc... -->
-                </div>
-            </div>  <!--titre, nom, classe ... -->
-        </div>
-    </div> <!-- FIN portrait, nom, classe etc... -->
+                            <div class="sheet-optionCaAsc">
+                                <input class="sheet-inCA" type="text" name="attr_CaAsc" title="Classe d'Armure totale" value="[[@{CaAscArmure}+@{CaBouclier}+@{MOD_DEX}]]" disabled />=<input name="attr_CaAscArmure" type="number" class="sheet-inMainNum" style="width:40px;" value="10" title="Classe d'armure de l'armure (10 sans armure)"/>+<input name="attr_CaBouclier" type="number" class="sheet-inMainNum" style="width:35px;" value="0" title="Bonus de CA de bouclier"/>+<input name="attr_CaDex" type="number" class="sheet-inMainNum" style="width:35px;" value="@{MOD_DEX}" title="Modificateur de Dextéroté" disabled />
+                            </div>
+                        </td>
+                        <td class="sheet-libel1">
+                                <input class="sheet-inPV" type="number" name="attr_PV" placeholder="PV" title="Points de Vie courant" value="0"/>
+                                <b>/</b>
+                                <input class="sheet-inPVMax" type="number" name="attr_PV_max" placeholder="MAX" title="Points de Vie maximum"  value="0"/>
+                        </td>
+                        <td class="sheet-libel1">
+                            <SELECT name="attr_DV" size="1"  style="text-align: right; width: 50px;">
+                                <option value="4">d4</option>
+                                <option value="6">d6</option>
+                                <option value="8">d8</option>
+                                <option value="10">d10</option>
+                                <option value="12">d12</option>
+                            </SELECT>
+                            <button type='roll' value="&{template:pmt} {{name=Dé de Vie}} {{DV=[[1d@{DV}+@{MOD_CON}]]}}" name='DV' />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-libel1">
+                            <div class="sheet-optionCaDesc sheet-libel1">CA=Armure-Bouclier-DEX</div>
+                            <div class="sheet-optionCaAsc sheet-libel1">CA=Armure+Bouclier+DEX</div>
+                        </td>
+                        <td class="sheet-libel1">Points de Vie</td>
+                        <td class="sheet-libel1">Dé de Vie</td>
+                    </tr>
+                </table>
+            </td>  <!--titre, nom, classe ... -->
+        </tr>
+    </table> <!-- FIN portrait, nom, classe etc... -->
     <hr/>
     <div style="display: table; width:100%;"> <!-- TABLE carac & JS -->
         <div style="display: table-row"> <!-- LIGNE carac & JS -->
@@ -136,16 +583,16 @@ on('sheet:opened',function(){
                         </div>
                         <div class="sheet-carac-roll">
                             <button type='roll'
-                            value="&{template:pmt} {{name=Dext&eacute;rit&eacute;}} {{subtags=Jet de Caractéristique}} {{carac=[[1d20-(?{Bonus/Malus|0})]]}} {{target=[[@{Dexterite}]]}}"
+                            value="&{template:pmt} {{name=Dextérité}} {{subtags=Jet de Caractéristique}} {{carac=[[1d20-(?{Bonus/Malus|0})]]}} {{target=[[@{Dexterite}]]}}"
                              name='DEX' class="sheet-carac-roll"></button>
                         </div>
                         <div class="sheet-carac-lib">
-                            Dext&eacute;rit&eacute;
+                            Dextérité
                         </div>
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_DEX" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: inline-block;">CA, attaques &agrave; distance et initiative</div>
+                        <div style="display: inline-block;">CA, attaques à distance et initiative</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -162,7 +609,7 @@ on('sheet:opened',function(){
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_CON" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: inline-block;">Points de Vie, par D&eacute; de Vie</div>
+                        <div style="display: inline-block;">Points de Vie, par Dé de Vie</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -179,7 +626,7 @@ on('sheet:opened',function(){
                         <div class="sheet-carac-mod">
                             <input name="attr_MOD_INT" type="number" class="sheet-carac-mod" />
                         </div>
-                        <div style="display: inline-block;">Langues suppl&eacute;mentaires</div>
+                        <div style="display: inline-block;">Langues supplémentaires</div>
                     </div>
                     <div  style="display: table-row;">
                         <div class="sheet-carac-num">
@@ -211,7 +658,7 @@ on('sheet:opened',function(){
                             Charisme
                         </div>
                         <div class="sheet-carac-mod">
-                            <input name="attr_MOD_CHA" type="number" class="sheet-carac-mod" title="Ajustement aux r&eacute;actions"/>
+                            <input name="attr_MOD_CHA" type="number" class="sheet-carac-mod" title="Ajustement aux réactions"/>
                         </div>
                         <div style="display: inline-block;">Réactions</div>
                         <div class="sheet-carac-mod">
@@ -259,11 +706,11 @@ on('sheet:opened',function(){
                         </div>
                         <div class="sheet-carac-roll">
                             <button type='roll'
-                            value="&{template:pmt} {{name=P&eacute;trification, Paralysie}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Petrification}]]}}"
+                            value="&{template:pmt} {{name=Pétrification, Paralysie}} {{subtags=Jet de Sauvegarde}} {{JS=[[1d20+(?{Bonus/Malus|0})]]}} {{target=[[@{JS_Petrification}]]}}"
                              name='JS_PETRI' class="sheet-carac-roll"></button>
                         </div>
                         <div class="sheet-js-lib">
-                            P&eacute;trification, Paralysie
+                            Pétrification, Paralysie
                         </div>
                     </div>
                     <div  style="display: table-row;">
@@ -293,60 +740,64 @@ on('sheet:opened',function(){
                         </div>
                     </div>
                 </div> <!-- FIN JS et + -->
-                <div style="display: table; text-align: left;margin-top:4px;">
-                    <div style="display:table-row">
-                        <div style="display:table-cell">
-                            <input name="attr_ATK_Bonus" type="number" class="sheet-inMainNum" default="0" placeholder="0"
-                                title="Bonus aux attaques avec la règle optionnelle de CA ascendante"/>
-                        </div>
-                        <div  style="display:table-cell;margin-left:4px;padding-left:4px;" class="sheet-libel1">
-                            Bonus à l'attaque
+                <div class="sheet-optionCaAsc">
+                    <div style="display: table; text-align: left;margin-top:4px;">
+                        <div style="display:table-row">
+                            <div style="display:table-cell">
+                                <input name="attr_ATK_Bonus" type="number" class="sheet-inMainNum" default="0" placeholder="0"
+                                    title="Bonus aux attaques avec la règle optionnelle de CA ascendante"/>
+                            </div>
+                            <div  style="display:table-cell;margin-left:4px;padding-left:4px;" class="sheet-libel1">
+                                Bonus à l'attaque
+                            </div>
                         </div>
                     </div>
                 </div>
             </div> <!-- FIN CELL JS -->
         </div> <!-- FIN LIGNE carac & JS -->
     </div> <!-- TABLE carac & JS -->
-    <hr/>
-    <div style="width: 100%;text-align:center;"> <!-- TABLE CA -->
-        <div style="display: table; width:100%;">
-            <div style="display: table-row;text-align: center;">
-                <div style="display: table-cell; text-align: left;"><b>CA :</b></div>
-                <div style="display: table-cell;text-align: center;">-6</div>
-                <div style="display: table-cell;text-align: center;">-5</div>
-                <div style="display: table-cell;text-align: center;">-4</div>
-                <div style="display: table-cell;text-align: center;">-3</div>
-                <div style="display: table-cell;text-align: center;">-2</div>
-                <div style="display: table-cell;text-align: center;">-1</div>
-                <div style="display: table-cell;text-align: center;">0</div>
-                <div style="display: table-cell;text-align: center;">1</div>
-                <div style="display: table-cell;text-align: center;">2</div>
-                <div style="display: table-cell;text-align: center;">3</div>
-                <div style="display: table-cell;text-align: center;">4</div>
-                <div style="display: table-cell;text-align: center;">5</div>
-                <div style="display: table-cell;text-align: center;">6</div>
-                <div style="display: table-cell;text-align: center;">7</div>
-                <div style="display: table-cell;text-align: center;">8</div>
-                <div style="display: table-cell;text-align: center;">9</div>
-            </div>
-            <div style="display: table-row;text-align: center;">
-                <div style="display: table-cell; text-align: left;"><b>D20&gt;=&nbsp;</b></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm6" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm5" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm4" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm3" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm2" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm1" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA0" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA1" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA2" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA3" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA4" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA5" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA6" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA7" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA8" class="sheet-inPetitNum" /></div>
-                <div style="display: table-cell;"><input type="number" name="attr_ToucheCA9" class="sheet-inPetitNum" /></div>
+    <div class="sheet-optionCaDesc">  <!-- TABLE CA -->
+        <hr/>
+        <div style="width: 100%;text-align:center;">
+            <div style="display: table; width:100%;">
+                <div style="display: table-row;text-align: center;">
+                    <div style="display: table-cell; text-align: left;"><b>CA :</b></div>
+                    <div style="display: table-cell;text-align: center;">-6</div>
+                    <div style="display: table-cell;text-align: center;">-5</div>
+                    <div style="display: table-cell;text-align: center;">-4</div>
+                    <div style="display: table-cell;text-align: center;">-3</div>
+                    <div style="display: table-cell;text-align: center;">-2</div>
+                    <div style="display: table-cell;text-align: center;">-1</div>
+                    <div style="display: table-cell;text-align: center;">0</div>
+                    <div style="display: table-cell;text-align: center;">1</div>
+                    <div style="display: table-cell;text-align: center;">2</div>
+                    <div style="display: table-cell;text-align: center;">3</div>
+                    <div style="display: table-cell;text-align: center;">4</div>
+                    <div style="display: table-cell;text-align: center;">5</div>
+                    <div style="display: table-cell;text-align: center;">6</div>
+                    <div style="display: table-cell;text-align: center;">7</div>
+                    <div style="display: table-cell;text-align: center;">8</div>
+                    <div style="display: table-cell;text-align: center;">9</div>
+                </div>
+                <div style="display: table-row;text-align: center;">
+                    <div style="display: table-cell; text-align: left;"><b>D20&gt;=&nbsp;</b></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm6" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm5" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm4" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm3" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm2" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCAm1" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA0" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA1" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA2" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA3" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA4" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA5" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA6" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA7" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA8" class="sheet-inPetitNum" /></div>
+                    <div style="display: table-cell;"><input type="number" name="attr_ToucheCA9" class="sheet-inPetitNum" /></div>
+                </div>
             </div>
         </div>
     </div> <!-- FIN TABLE CA -->
@@ -365,25 +816,25 @@ on('sheet:opened',function(){
                 </div>
                 <div style="display: table-cell;width:420px;">
                     <input type="text" name="attr_attaque-nom" class="sheet-inMainTxt" placeholder="Nom de l'arme / attaque" />
-                    1d20+<select name="attr_attaque-carac" size="1"  style="text-align: left; width: 60px;" title="Bonus de caract&eacute;ristique &agrave; l'attaque">
+                    1d20+<select name="attr_attaque-carac" size="1"  style="text-align: left; width: 60px;" title="Bonus de caractéristique à l'attaque">
                         <option value="0">-</option>
                         <option value="@{MOD_FOR}" selected>FOR</option>
                         <option value="@{MOD_DEX}">DEX</option>
                     </select>+<input type="number" name="attr_attaque-bonus" class="sheet-inMainNum" style="width: 45px;" title="Bonus au jet d'attaque" placeholder="0" value="0" />
                 </div>
                 <div style="display: table-cell; text-align: right;">
-                    <b>D&eacute;g&acirc;ts</b>
-                    <input type="number" name="attr_attaque-degats-nbde" class="sheet-inMainNum" style="width: 45px;" title="Nombre de d&eacute;s de d&eacute;g&acirc;ts" placeholder="1" value="1" /><select name="attr_attaque-degats-de" size="1"  style="text-align: right; width:55px;" title="D&eacute; de d&eacute;g&acirc;ts">
+                    <b>Dég&acirc;ts</b>
+                    <input type="number" name="attr_attaque-degats-nbde" class="sheet-inMainNum" style="width: 45px;" title="Nombre de dés de dég&acirc;ts" placeholder="1" value="1" /><select name="attr_attaque-degats-de" size="1"  style="text-align: right; width:55px;" title="Dé de dég&acirc;ts">
                         <option value="4" selected>d4</option>
                         <option value="6">d6</option>
                         <option value="8">d8</option>
                         <option value="10">d10</option>
                         <option value="12">d12</option>
-                    </select>+<select name="attr_attaque-degats-carac" size="1"  style="text-align: left; width: 60px;" title="Bonus de caract&eacute;ristique aux d&eacute;g&acirc;ts">
+                    </select>+<select name="attr_attaque-degats-carac" size="1"  style="text-align: left; width: 60px;" title="Bonus de caractéristique aux dég&acirc;ts">
                         <option value="0">-</option>
                         <option value="@{MOD_FOR}" selected>FOR</option>
                         <option value="@{MOD_DEX}">DEX</option>
-                    </select>+<input type="number" name="attr_attaque-degats-bonus" class="sheet-inMainNum"  style="width: 45px;" title="Bonus au jet de d&eacute;g&acirc;" placeholder="0" value="0" />
+                    </select>+<input type="number" name="attr_attaque-degats-bonus" class="sheet-inMainNum"  style="width: 45px;" title="Bonus au jet de dég&acirc;" placeholder="0" value="0" />
                 </div>
             </div>
         </fieldset>
@@ -400,7 +851,7 @@ on('sheet:opened',function(){
                                 value="&{template:pmt} {{name=@{talent-nom}}} {{subtags=Talent}} {{talent=[[@{talent-nbde}d@{talent-de}]]}} {{target=[[@{talent-chance}]]}}"></button>
                         </div>
                         <input style="width:170px;" type="text" name="attr_talent-nom" class="sheet-inMainTxt" placeholder="Nom du talent" />
-                        &nbsp;<input type="number" name="attr_talent-nbde" class="sheet-inMainNum" style="width: 45px;" title="Nombre de d&eacute;s" placeholder="1" value="1" />
+                        &nbsp;<input type="number" name="attr_talent-nbde" class="sheet-inMainNum" style="width: 45px;" title="Nombre de dés" placeholder="1" value="1" />
                         <select name="attr_talent-de" size="1"  style="text-align: right; width: 65px;">
                             <option value="4">d4</option>
                             <option value="6" selected>d6</option>
@@ -409,7 +860,7 @@ on('sheet:opened',function(){
                             <option value="12">d12</option>
                             <option value="20">d20</option>
                             <option value="100">d100</option>
-                        </select>&lt;=<input type="number" name="attr_talent-chance" class="sheet-inMainNum"  style="width: 45px;" title="R&eacute;ussite si jet inf&eacute;rieur ou &eacute;gal &agrave;" placeholder="2" value="2" />
+                        </select>&lt;=<input type="number" name="attr_talent-chance" class="sheet-inMainNum"  style="width: 45px;" title="Réussite si jet inférieur ou égal à" placeholder="2" value="2" />
                     </div>
                 </fieldset>
             </div> <!-- FIN CELL Talents -->
@@ -421,12 +872,12 @@ on('sheet:opened',function(){
                     <div style="display: table-row;">
                         <input type="text" name="attr_sort-nom" class="sheet-inMainTxt" placeholder="Nom du sort" />
                         <input type="text" name="attr_sort-niveau" class="sheet-inMainNum"  style="width: 25px;" placeholder="1" title="Niveau du sort" />
-                        P<input type="checkbox" name="attr_sort-prepare1" title="Sort pr&eacute;par&eacute; une fois" />
-                        <input type="checkbox" name="attr_sort-prepare2" title="Sort pr&eacute;par&eacute; deux fois" />
-                        <input type="checkbox" name="attr_sort-prepare3" title="Sort pr&eacute;par&eacute; trois fois" />
-                        L<input type="checkbox" name="attr_sort-lance1" title="Sort lanc&eacute; une fois" />
-                        <input type="checkbox" name="attr_sort-lance2" title="Sort lanc&eacute; deux fois" />
-                        <input type="checkbox" name="attr_sort-lance3" title="Sort lanc&eacute; trois fois" />
+                        P<input type="checkbox" name="attr_sort-prepare1" title="Sort préparé une fois" />
+                        <input type="checkbox" name="attr_sort-prepare2" title="Sort préparé deux fois" />
+                        <input type="checkbox" name="attr_sort-prepare3" title="Sort préparé trois fois" />
+                        L<input type="checkbox" name="attr_sort-lance1" title="Sort lancé une fois" />
+                        <input type="checkbox" name="attr_sort-lance2" title="Sort lancé deux fois" />
+                        <input type="checkbox" name="attr_sort-lance3" title="Sort lancé trois fois" />
                     </div>
                 </fieldset>
             </div> <!-- FIN CELL SORTS  -->
@@ -435,18 +886,18 @@ on('sheet:opened',function(){
     <hr/>
     <div style="display: table; text-align:left; width:100%;"> <!-- EQUIPEMENT -->
         <div style="display: table-row; width:100%;">
-            <div  class="sheet-titre1" style="width:150px;">&Eacute;QUIPEMENT</div>
+            <div  class="sheet-titre1" style="width:150px;">ÉQUIPEMENT</div>
             <div style="display: table-cell;text-align:right;width:calc(100%-15px);"> <!-- CELL EQUIP LISTE -->
                 Richesses
-                <input name="attr_equip-pc" title="Pi&egrave;ces de Cuivre (pc)" class="sheet-inMainNum" type="text" style="width: 65px;text-align:right;" placeholder="0" />
+                <input name="attr_equip-pc" title="Pièces de Cuivre (pc)" class="sheet-inMainNum" type="number" style="width: 65px;" value="0" />
                 pc
-                <input name="attr_equip-pa" title="Pi&egrave;ces d'Argent (pa)" class="sheet-inMainNum" type="text" style="width: 65px;text-align:right;" placeholder="0" />
+                <input name="attr_equip-pa" title="Pièces d'Argent (pa)" class="sheet-inMainNum" type="number" style="width: 65px;" value="0" />
                 pa
-                <input name="attr_equip-pe" title="Pi&egrave;ces d'&Eacute;lectrum (pe)" class="sheet-inMainNum" type="text" style="width: 65px;text-align:right;" placeholder="0" />
+                <input name="attr_equip-pe" title="Pièces d'Électrum (pe)" class="sheet-inMainNum" type="number" style="width: 65px;" value="0" />
                 pe
-                <input name="attr_equip-po" title="Pi&egrave;ces d'Or (po)" class="sheet-inMainNum" type="text" style="width: 65px;text-align:right;" placeholder="0" />
+                <input name="attr_equip-po" title="Pièces d'Or (po)" class="sheet-inMainNum" type="number" style="width: 65px;" value="0" />
                 po
-                <input name="attr_equip-pp" title="Pi&egrave;ces de Platine (pp)" class="sheet-inMainNum" type="text" style="width: 65px;text-align:right;" placeholder="0" />
+                <input name="attr_equip-pp" title="Pièces de Platine (pp)" class="sheet-inMainNum" type="number" style="width: 65px;" value="0" />
                 pp
             </div>
         </div>
@@ -459,28 +910,28 @@ on('sheet:opened',function(){
             <div style="display: table-cell;">Exploration</div>
             <div style="display: table-cell;">Combat</div>
             <div style="display: table-cell;">Course</div>
-            <div style="display: table-cell;">Ext&eacute;rieur</div>
+            <div style="display: table-cell;">Extérieur</div>
         </div>
         <div style="display: table-row; width:100%;">
             <div style="display:table-cell;text-align: center;">
-                <input type="text" name="attr_encombrement" class="sheet-inPetitNum" title="Encombrement : poids total transport&eacute; par le personnage" placeholder="0"/>
+                <input type="text" name="attr_encombrement" class="sheet-inPetitNum" title="Encombrement : poids total transporté par le personnage" value="0" readonly />
                 kg
             </div>
             <div style="display: table-cell;text-align:right;"><b>Mouvement&nbsp;</b></div>
             <div style="display:table-cell;">
-                <input type="text" name="attr_mvt-exploration" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un tour d'exploration" placeholder="36"/>
+                <input type="text" name="attr_mvtexploration" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un tour d'exploration" placeholder="36"/>
                 m/tour
             </div>
             <div style="display:table-cell;">
-                <input type="text" name="attr_mvt-combat" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un round de combat" placeholder="12"/>
+                <input type="text" name="attr_mvtcombat" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un round de combat" placeholder="12"/>
                 m/round
             </div>
             <div style="display:table-cell;">
-                <input type="text" name="attr_mvt-course" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un round de course" placeholder="36"/>
+                <input type="text" name="attr_mvtcourse" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un round de course" placeholder="36"/>
                 m/round
             </div>
             <div style="display:table-cell;">
-                <input type="text" name="attr_mvt-exterieur" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un tour &agrave; l'ext&eacute;rieur" placeholder="108"/>
+                <input type="text" name="attr_mvtexterieur" class="sheet-inPetitNum" title="Distance parcourue par le personnage en un tour à l'extérieur" placeholder="108"/>
                 m/tour
             </div>
         </div> <!-- Fin Encombrement et deplacmeent -->
@@ -488,22 +939,30 @@ on('sheet:opened',function(){
     <br/>
     <div style="display: table; text-align:left; width:100%;"> <!-- EQUIPEMENT suite -->
         <div style="display: table-row;">
-            <div style="display: table-cell;width:400px;"> <!-- CELL EQUIP LISTE -->
-                <div  class="sheet-libel1">Consommables</div>
+            <div style="display: table-cell;"> <!-- CELL EQUIP LISTE -->
+                <table style="width:100%;">
+                    <tr>
+                        <td class="sheet-libel1" style="width:320px;">Liste d'équipements</td>
+                        <td style="width:50px;">Qté</td>
+                        <td style="width:60px;">Poids</td>
+                        <td style="width:50px;">Tot.</td>
+                    </tr>
+                </table>
                 <fieldset class="repeating_equipement" >
                     <div style="display: table-row;">
                         <div style="display: table-cell;">
-                                <input type="text" name="attr_equip-nom" class="sheet-inMainTxt" style="width: 330px;" placeholder="Nom de l'&eacute;quipement" />
-                                <input type="number" name="attr_equip-qte" class="sheet-inMainNum"  style="width: 50px;" placeholder="1" title="Quantit&eacute;" />
+                                <input type="text" name="attr_equipnom" class="sheet-inMainTxt" style="width: 310px;" placeholder="Nom de l'équipement" />
+                                <input type="number" name="attr_equipqte" class="sheet-inMainNum"  style="width: 50px;" value="1" title="Quantité" />
+                                <input type="number" name="attr_equippoids" class="sheet-inMainNum"  style="width: 60px;" value="0" title="Poids unitaire" />
+                                <input type="text" name="attr_equippoidstot" class="sheet-inMainNum"  style="width: 50px;" value="0" title="Poids total" readonly />
                         </div>
                     </div>
                 </fieldset>
             </div> <!-- FIN CELL EQUIP LISTE -->
-            <div style="display:table-cell;padding:5px;"></div>
             <div style="display:table-cell;border-left: 1px solid black;padding:5px;"></div>
-            <div style="display: table-cell;width:350px;"> <!-- CELL EQUIP DIVERS -->
+            <div style="display: table-cell;width:300px;"> <!-- CELL EQUIP DIVERS -->
                 <div class="sheet-libel1">Divers</div>
-                <textarea name="attr_equip-divers"  title="&Eacute;quipement divers" placeholder="&Eacute;quipement divers"></textarea>
+                <textarea name="attr_equip-divers"  title="Équipement divers" placeholder="Équipement divers"></textarea>
             </div> <!-- FIN CELL EQUIP DIVERS -->
         </div>
     </div> <!-- FIN EQUIPEMENT -->
@@ -520,10 +979,10 @@ on('sheet:opened',function(){
         {{#carac}}
             <tr><td><span class="tcat">Jet : </span>{{carac}} &lt; {{target}}</td></tr>
             {{#rollGreater() carac target}}
-                <tr><td class="subheader" style="color:red;"><b>&Eacute;chec !</b></td></tr>
+                <tr><td class="subheader" style="color:red;"><b>Échec !</b></td></tr>
             {{/rollGreater() carac target}}
             {{#rollTotal() carac target}}
-                <tr><td class="subheader" style="color:red;"><b>&Eacute;chec !</b></td></tr>
+                <tr><td class="subheader" style="color:red;"><b>Échec !</b></td></tr>
             {{/rollTotal() carac target}}
             {{#rollLess() carac target}}
                 <tr><td class="subheader" style="color:green;"><b>Réussite !</b></td></tr>
@@ -538,7 +997,7 @@ on('sheet:opened',function(){
                 <tr><td class="subheader" style="color:green;"><b>Réussite !</b></td></tr>
             {{/rollTotal() JS target}}
             {{#rollLess() JS target}}
-                <tr><td class="subheader" style="color:red;"><b>&Eacute;chec !</b></td></tr>
+                <tr><td class="subheader" style="color:red;"><b>Échec !</b></td></tr>
             {{/rollLess() JS target}}
         {{/JS}}
         {{#talent}}
@@ -548,7 +1007,7 @@ on('sheet:opened',function(){
             {{#rollGreater() target 0}}
                 <tr><td><span class="tcat">Jet : </span>{{talent}} &lt;= {{target}}</td></tr>
                 {{#rollGreater() talent target}}
-                    <tr><td class="subheader" style="color:red;"><b>&Eacute;chec !</b></td></tr>
+                    <tr><td class="subheader" style="color:red;"><b>Échec !</b></td></tr>
                 {{/rollGreater() talent target}}
                 {{#rollTotal() talent target}}
                     <tr><td class="subheader" style="color:green;"><b>Réussite !</b></td></tr>
