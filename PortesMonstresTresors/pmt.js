@@ -16,7 +16,7 @@ var PmT = PmT || (function () {
     // 78 PO + Standard = 85
     packVoleur='{"nom":"Arc court","qte":"1","poids":"1"}|{"nom":"Armure de cuir","qte":"1","poids":"7.5"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée courte","qte":"1","poids":"1"}|{"nom":"Pitons","qte":"12","poids":"0.33"}|{"nom":"Outils de crochetage","qte":"1","poids":"0.5"}',
     // 7 PO
-    packStandard='{"nom":"Sac à dos (20 kg)","qte":"1","poids":"1"}|{"nom":"Silex et amorce","qte":"1","poids":"0"}|{"nom":"Gourde","qte":"1","poids":"0.5"}|{"nom":"Jour de rations de voyage","qte":"4","poids":"2"}|{"nom":"Corde en chanvre de 15 m de long","qte":"1","poids":"5"}|{"nom":"Torches","qte":"4","poids":"2"}',
+    packStandard='{"nom":"Sac à dos (20 kg)","qte":"1","poids":"1"}|{"nom":"Silex et amorce","qte":"1","poids":"0"}|{"nom":"Gourde","qte":"1","poids":"0.5"}|{"nom":"Jour de rations de voyage","qte":"4","poids":"0.5"}|{"nom":"Corde en chanvre de 15 m de long","qte":"1","poids":"5"}|{"nom":"Torches","qte":"4","poids":"0.5"}',
     //Attaques
     atkClerc='{"nom":"Fronde","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"0"}|{"nom":"Masse","mod":"@{MOD_FOR}","nbde":"1","de":"6","moddgt":"@{MOD_FOR}"}',
     atkGuerrier='{"nom":"Arc court","mod":"@{MOD_DEX}","nbde":"1","de":"6","moddgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Epée longue","mod":"@{MOD_FOR}","nbde":"1","de":"8","moddgt":"@{MOD_FOR}"}',
@@ -242,8 +242,10 @@ var PmT = PmT || (function () {
         var CaDescArmure = 0;
         var CaBouclier = 0;
         var CaracPrinc = 0;
+        var laclasse = 0;
         switch(classe){
             case 'clerc':
+                laclasse = 0;
                 DV = 6;
                 XP = 1565;
                 JS_Souffles=16;
@@ -261,6 +263,7 @@ var PmT = PmT || (function () {
                 latak = atkClerc;
                 break;
             case 'guerrier':
+                laclasse = 1;
                 DV = 8;
                 XP = 2035;
                 JS_Souffles=17;
@@ -278,6 +281,7 @@ var PmT = PmT || (function () {
                 latak = atkGuerrier;
                 break;
             case 'magicien':
+                laclasse = 2;
                 DV = 4;
                 XP = 2501;
                 JS_Souffles=16;
@@ -295,6 +299,7 @@ var PmT = PmT || (function () {
                 latak = atkMagicien;
                 break;
             case 'voleur':
+                laclasse = 3;
                 DV = 4;
                 XP = 1251;
                 JS_Souffles=16;
@@ -312,6 +317,7 @@ var PmT = PmT || (function () {
                 latak = atkVoleur;
                 break;
             case 'elfe':
+                laclasse = 4;
                 DV = 6;
                 XP = 4065;
                 JS_Souffles=15;
@@ -329,6 +335,7 @@ var PmT = PmT || (function () {
                 latak = atkGuerrier;
                 break;
             case 'halfelin':
+                laclasse = 5;
                 DV = 6;
                 XP = 2035;
                 JS_Souffles=13;
@@ -346,6 +353,7 @@ var PmT = PmT || (function () {
                 latak = atkVoleur;
                 break;
             case 'nain':
+                laclasse = 6;
                 DV = 8;
                 XP = 2187;
                 JS_Souffles=13;
@@ -379,7 +387,7 @@ var PmT = PmT || (function () {
                 controlledby: playerId
             });
         //Base
-        createObj("attribute", {name: "Classe", current: classe, characterid: char.id});
+        createObj("attribute", {name: "Classe", current: laclasse, characterid: char.id});
         createObj("attribute", {name: "Niveau", current: Niveau, characterid: char.id});
         createObj("attribute", {name: "DV", current: DV, characterid: char.id});
         createObj("attribute", {name: "PV", current: PV, max: PV, characterid: char.id});

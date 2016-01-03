@@ -27,6 +27,67 @@ input[type=radio].sheet-optionCaAsc:checked ~ div.sheet-mainBg div.sheet-optionC
 input[type=radio].sheet-optionCaDesc:checked ~ div.sheet-mainBg div.sheet-optionCaAsc{
     display: none;
 }
+/* Class Tabs */
+
+.charsheet input.sheet-classeClerc,
+.charsheet input.sheet-classeNain,
+.charsheet input.sheet-classeElfe,
+.charsheet input.sheet-classeGuerrier,
+.charsheet input.sheet-classeHalfelin,
+.charsheet input.sheet-classeMagicien,
+.charsheet input.sheet-classeVoleur {
+    display: none;
+}
+
+.charsheet .sheet-classeClerc:checked~ div.sheet-mainBg div.sheet-Nain,
+.charsheet .sheet-classeClerc:checked~ div.sheet-mainBg div.sheet-Elfe,
+.charsheet .sheet-classeClerc:checked~ div.sheet-mainBg div.sheet-Halfelin,
+.charsheet .sheet-classeClerc:checked~ div.sheet-mainBg div.sheet-Voleur,
+.charsheet .sheet-classeClerc:checked~ div.sheet-mainBg div.sheet-Guerrier,
+.charsheet .sheet-classeClerc:checked~ div.sheet-mainBg div.sheet-Magicien,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-Clerc,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-Elfe,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-Halfelin,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-Voleur,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-Guerrier,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-Magicien,
+.charsheet .sheet-classeNain:checked~ div.sheet-mainBg div.sheet-sorts,
+.charsheet .sheet-classeElfe:checked~ div.sheet-mainBg div.sheet-Clerc,
+.charsheet .sheet-classeElfe:checked~ div.sheet-mainBg div.sheet-Nain,
+.charsheet .sheet-classeElfe:checked~ div.sheet-mainBg div.sheet-Halfelin,
+.charsheet .sheet-classeElfe:checked~ div.sheet-mainBg div.sheet-Voleur,
+.charsheet .sheet-classeElfe:checked~ div.sheet-mainBg div.sheet-Guerrier,
+.charsheet .sheet-classeElfe:checked~ div.sheet-mainBg div.sheet-Magicien,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-Clerc,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-Nain,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-Elfe,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-Voleur,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-Guerrier,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-Magicien,
+.charsheet .sheet-classeHalfelin:checked~ div.sheet-mainBg div.sheet-sorts,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-Clerc,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-Nain,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-Elfe,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-Halfelin,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-Guerrier,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-Magicien,
+.charsheet .sheet-classeVoleur:checked~ div.sheet-mainBg div.sheet-sorts,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-Clerc,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-Nain,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-Elfe,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-Halfelin,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-Voleur,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-Magicien,
+.charsheet .sheet-classeGuerrier:checked~ div.sheet-mainBg div.sheet-sorts,
+.charsheet .sheet-classeMagicien:checked~ div.sheet-mainBg div.sheet-Clerc,
+.charsheet .sheet-classeMagicien:checked~ div.sheet-mainBg div.sheet-Nain,
+.charsheet .sheet-classeMagicien:checked~ div.sheet-mainBg div.sheet-Elfe,
+.charsheet .sheet-classeMagicien:checked~ div.sheet-mainBg div.sheet-Halfelin,
+.charsheet .sheet-classeMagicien:checked~ div.sheet-mainBg div.sheet-Voleur,
+.charsheet .sheet-classeMagicien:checked~ div.sheet-mainBg div.sheet-Guerrier {
+    display: none;
+}
+/** Autres */
 div,
 textarea,
 span,
@@ -51,17 +112,21 @@ input{
 }
 .charsheet button[type="roll"] {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    height: 26px;
+    padding: none;
+    margin: none;
+    height: 22px;
+    width: 22px;
+    line-height: 16px;
     text-align: left;
     color:black;
-    border: 2px solid rgba(255,255,255,0.5);
+    border: 1px solid black;
     border-radius: 12px;
-    transition: border 2s;
+    font-size:10px;
 }
 .charsheet button[type="roll"]:hover{
-    border: 2px black inset;
+    border: 1px solid red;
+    font-weight: bolder;
+    color: red;
 }
 select{
     background-color:rgba(255,255,255,0.5);
