@@ -1301,8 +1301,8 @@ var TAS = TAS || (function(){
                 <div class="sheet-sorts"> <!-- SORTS -->
                     <b>Sorts :</b>
                     <fieldset class="repeating_sorts">
-                        <div style="display: table-row;">
-                            <input type="text" name="attr_sort-nom" class="sheet-inMainTxt" style="width: 310px;" placeholder="Nom/description du sort" />
+                        <div style="display: inline-block;white-space: nowrap;width:100%; text-align:left;">
+                            <input type="text" name="attr_sort-nom" class="sheet-inMainTxt" style="width: 300px;" placeholder="Nom/description du sort" />
                             <input type="text" name="attr_sort-niveau" class="sheet-inMainNum"  style="width: 25px;" placeholder="1" title="Niveau du sort" />
                             P<input type="checkbox" name="attr_sort-prepare1" title="Sort préparé une fois" />
                             <input type="checkbox" name="attr_sort-prepare2" title="Sort préparé deux fois" />
@@ -1649,5 +1649,10 @@ var TAS = TAS || (function(){
                 </td>
             </tr>
         {{/tabcar}}
+        {{#personnage}}
+            <tr><td><span class="tcat">Nom</span></td><td style="text-align:right;"><b>{{personnage}}</b></td></tr>
+            <tr><td><span class="tcat">Classe</span></td><td style="text-align:right;text-transform: capitalize;">{{classe}}</td></tr>
+            <tr><td colspan="2" style="text-align: center;color:blue;font-weight:bold;text-decoration:underline;">[Ouvrir la Feuille de Personnage](http://journal.roll20.net/character/{{charid}})</a></td></tr>
+        {{/personnage}}
     </table>
 </rolltemplate>

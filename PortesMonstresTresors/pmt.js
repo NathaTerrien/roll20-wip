@@ -387,7 +387,6 @@ var PmT = PmT || (function () {
         //Création du personnage / l'objet character
         var char = createObj("character", {
                 name: nom,
-                gmnotes: "Personnage créé automatiquemet par pmt.js",
                 inplayerjournals: "all",
                 controlledby: playerId
             });
@@ -453,8 +452,12 @@ var PmT = PmT || (function () {
         createObj("attribute", {name: "todoequip", current: lepack, characterid: char.id});
         // -- Attaques
         createObj("attribute", {name: "todoatk", current: latak, characterid: char.id});
-        //Signalement du résultat
-        sendChat("player|"+playerId, "Personnage '" + nom + "' de classe '" + classe + "' créé (id : " + char.id + ").");
+        //Affichage du résultat
+        var msg = "&{template:pmtchar} {{name=Personnage créé}}";
+        msg = msg + "{{personnage="+nom+"}}";
+        msg = msg + "{{classe="+classe+"}}";
+        msg = msg + "{{charid="+char.id+"}}";
+        sendChat("player|"+playerId, msg);
         return;
     },
     //-----------------------------------------------------------------------------

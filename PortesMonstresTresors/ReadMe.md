@@ -10,40 +10,46 @@ Le jeu complet est disponible gratuitement en PDF sur le site du [Scriptorium.D1
 # Version courante
 3.0 [Screenshot](pmt_v3.jpg)
 
-# Script API
-Un [script API](pmt.js) est disponible depuis la version 3.0 pour créer des personnages rapidement (le taux de mortalité est élevé en OSR ;) ).
+# Script API de création de personnage
+Un [script API](pmt.js) est disponible pour créer des personnages rapidement (le taux de mortalité est élevé en OSR ;) ).  
+Ce type de script nécessite un compte Roll20 Pro pour être exécuté.
 
 Ajoutez le script à votre campagne (pensez à resauvegarder le script avant chaque session, sans modification, si jamais il ne répond plus. L'API Roll20 a parfois du mal à se "réveiller").
 
-Utilisez la commande (ou créez des macros contenant ces commandes) :
+Pour lancer le tirage d'un personnage, utilisez les commandes suivantes (ou créez des macros contenant ces commandes) :   
 
-Pour un tirage 3d6 dans l'ordre :
+* 3d6 dans l'ordre :  
 ```
 !pmt-rollchar 0
-```
-
-Pour un tirage 4d6 dont on garde les 3 meilleurs, dans l'ordre :
+```  
+* 4d6 dont on garde les 3 meilleurs, dans l'ordre :  
 ```
 !pmt-rollchar 1
 ```
 
-Dans le chat s'affiche le tirage, ainsi que des boutons API (rose) avec le nom des classes que
+Dans le chat s'affiche le tirage de caractéristiques, suivi de boutons API (rose) indiquant le nom des classes que vous pouvez créer (en fonction de prérequis et du tirage) :  
+![Tirage et choix de classe](pmt_v3_creapj_01.jpg)
 
-Cliquez sur une des classes. Un nom de personnage est demandé : renseignez-le et validez.
+Cliquez sur une des classes.  
+Un nom de personnage doit être renseigné :  
+![Saisie du nom du personnage](pmt_v3_creapj_02.jpg)
 
-Un message dans le chat doit indiquer la création du personnage (par exemple "Personnage 'Frère Tuck' de classe 'clerc' créé (id : -K7CijvNr11gaxnwamWI)").
+Un message dans le chat indique lorsque la création du personnage est terminée, et un lien permet d'ouvrir la feuille de personnage Roll20 (il faudra probablement cliquer sur l'onglet "Character Sheet" pour voir la feuille) :  
+![Personnage créé et ouverture de la feuille](pmt_v3_creapj_03.jpg)
 
-Ouvrez la feuille de personnage en cliquant sur le nom du personnage dans le journal.
+**NB** : lors de la première ouverture de la session après la création du personnage, des opérations sont menées pour finaliser la feuille : complétion des sections répétables de sort, attaques et équipements.  
+Si ces informations n'apparaissent pas, fermer la feuille et réouvrez la après quelques secondes. Au pire, recharger la campagne en rafraîchissant le cache (Ctrl+F5) et réouvrez la feuille.
 
-Par défaut, le personnage créé est attribué au joueur qui a cliqué dans le chat (même s'il est visible par tous, seul ce joueur et le MJ pourront le modifier).
+Par défaut, le personnage créé est attribué au joueur qui a cliqué dans le chat (même s'il est visible par tous, seul ce joueur et le MJ pourront modifier le personnage).
 
 # Notes de version
 ##v3.0 (Janvier 2016).
-Les personnages existants ne sont malheureusement que partiellement rétro-compatibles. Il faudra reprendre certains éléments : classe, attaques et équipements notamment.
+Les personnages existants ne sont malheureusement que partiellement rétro-compatibles.  
+Il faudra reprendre certains éléments : classe, attaques et équipements notamment.
 
 Nouveautés :
 
-* Pour les comptes pros : [script API](pmt.js) permettant la création accélérée de personnage par tirage aléatoire. cf. ci-dessus.
+* Pour les comptes pros : [script API](pmt.js) permettant la création accélérée de personnage par tirage aléatoire. Cf. ci-dessus.
 * Pour tous les types de comptes :
   * Mise en page légèrement revue pour une meilleure lisibilité (normalement ...)
   * Calcul automatisé des modificateurs de caractéristiques (modifiables au besoin), dont le nombre et le moral des Compagnons liés au Charisme (nouveaux champs).
