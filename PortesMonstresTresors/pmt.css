@@ -283,6 +283,7 @@ div.sheet-carac-num{
 }
 input.sheet-carac-num{
     width: 26px;
+    max-width: 26px;
     height: 26px;
     background-color: white;
     text-align: center;
@@ -290,6 +291,12 @@ input.sheet-carac-num{
     border: none;
     border-radius:15px;
     font-weight: bold;
+}
+input[type=number].sheet-carac-num::-webkit-inner-spin-button,
+input[type=number].sheet-carac-num::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 div.sheet-carac-lib{
     display: inline-block;

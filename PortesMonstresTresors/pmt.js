@@ -1,27 +1,33 @@
 var PmT = PmT || (function () {
     'use strict';
     var version = 1.0,
-    releasedate= "2015-12-01",
+    releasedate= "2016-01-04",
     schemaversion = 1.0,
     author="Natha (roll20userid:75857)",
     warning = "This script is meant to be used with the Portes-Monstres-Trésors sheet",
     sortsDivins=["Détection de la Magie","Détection du Mal","Lumière","Protection contre le Mal","Purification","Regain d’Assurance","Résistance au Froid","Soins Légers"],
     sortsProfanes=["Bouclier","Charme-personne","Détection de la Magie","Disque Flottant","Lecture des Langages","Lecture de la Magie","Lumière","Projectile Magique","Protection contre le Mal","Sommeil","Ventriloquie","Verrouillage"],
-    // 58 PO + Standard = 65
+    // Clerc 58 PO + Standard = 65
     packClerc='{"nom":"Armure de cuir rembourré","qte":"1","poids":"10"}|{"nom":"Bouclier","qte":"1","poids":"5"}|{"nom":"Casque","qte":"1","poids":"2.5"}|{"nom":"Fronde","qte":"1","poids":"0"}|{"nom":"Masse","qte":"1","poids":"1.5"}|{"nom":"Pierres de fronde","qte":"10","poids":"0.15"}|{"nom":"Symbole religieux en bois","qte":"1","poids":"0"}',
-    // 94 PO + Standard = 103
+    // Guerrier 94 PO + Standard = 103
     packGuerrier='{"nom":"Arc court","qte":"1","poids":"1"}|{"nom":"Armure de cuir rembourré","qte":"1","poids":"10"}|{"nom":"Bouclier","qte":"1","poids":"5"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Casque","qte":"1","poids":"2.5"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée longue","qte":"1","poids":"2"}',
-    // 54 PO + Standard = 61
+    // Magicien 54 PO + Standard = 61
     packMagicien='{"nom":"Bâton","qte":"1","poids":"4"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Fléchettes","qte":"10","poids":"0.1"}|{"nom":"Grimoire","qte":"1","poids":"1.5"}|{"nom":"Encre (fiole de 30 ml)","qte":"1","poids":"0"}|{"nom":"Plume","qte":"1","poids":"0"}',
-    // 78 PO + Standard = 85
+    // Voleur 78 PO + Standard = 85
     packVoleur='{"nom":"Arc court","qte":"1","poids":"1"}|{"nom":"Armure de cuir","qte":"1","poids":"7.5"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée courte","qte":"1","poids":"1"}|{"nom":"Pitons","qte":"12","poids":"0.33"}|{"nom":"Outils de crochetage","qte":"1","poids":"0.5"}',
-    // 7 PO
+    // Elfe 89 PO + Standard = 96
+    packElfe='{"nom":"Arc long","qte":"1","poids":"1"}|{"nom":"Armure de cuir rembourré","qte":"1","poids":"10"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée longue","qte":"1","poids":"2"}',
+    // Halfelin 47 PO + Standard = 54
+    packHalfelin='{"nom":"Arc court","qte":"1","poids":"1"}|{"nom":"Armure de cuir","qte":"1","poids":"7.5"}|{"nom":"Carquois","qte":"1","poids":"0.5"}|{"nom":"Flèches","qte":"20","poids":"0.07"}|{"nom":"Dague","qte":"1","poids":"0.5"}|{"nom":"Epée courte","qte":"1","poids":"1"}',
+    // Standard 7 PO
     packStandard='{"nom":"Sac à dos (20 kg)","qte":"1","poids":"1"}|{"nom":"Silex et amorce","qte":"1","poids":"0"}|{"nom":"Gourde","qte":"1","poids":"0.5"}|{"nom":"Jour de rations de voyage","qte":"4","poids":"0.5"}|{"nom":"Corde en chanvre de 15 m de long","qte":"1","poids":"5"}|{"nom":"Torches","qte":"4","poids":"0.5"}',
     //Attaques
-    atkClerc='{"nom":"Fronde","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"0"}|{"nom":"Masse","mod":"@{MOD_FOR}","nbde":"1","de":"6","moddgt":"@{MOD_FOR}"}',
-    atkGuerrier='{"nom":"Arc court","mod":"@{MOD_DEX}","nbde":"1","de":"6","moddgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Epée longue","mod":"@{MOD_FOR}","nbde":"1","de":"8","moddgt":"@{MOD_FOR}"}',
-    atkMagicien='{"nom":"Bâton","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Fléchette","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}',
-    atkVoleur='{"nom":"Arc court","mod":"@{MOD_DEX}","nbde":"1","de":"6","moddgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","nbde":"1","de":"4","moddgt":"@{MOD_FOR}"}|{"nom":"Epée courte","mod":"@{MOD_FOR}","nbde":"1","de":"6","moddgt":"@{MOD_FOR}"}',
+    atkClerc='{"nom":"Fronde","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"4","moddgt":"0","bonusdgt":"0"}|{"nom":"Masse","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"6","moddgt":"@{MOD_FOR}","bonusdgt":"0"}',
+    atkGuerrier='{"nom":"Arc court","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"6","moddgt":"0","bonusdgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Epée longue","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"8","moddgt":"@{MOD_FOR}","bonusdgt":"0"}',
+    atkMagicien='{"nom":"Bâton","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Fléchette","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}',
+    atkVoleur='{"nom":"Arc court","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"6","moddgt":"0","bonusdgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Epée courte","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"6","moddgt":"@{MOD_FOR}","bonusdgt":"0"}',
+    atkElfe='{"nom":"Arc long","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"6","moddgt":"0","bonusdgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Epée longue","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"8","moddgt":"@{MOD_FOR}","bonusdgt":"0"}',
+    atkHalfelin='{"nom":"Arc court","mod":"@{MOD_DEX}","bonus":"1","nbde":"1","de":"6","moddgt":"0","bonusdgt":"0"}|{"nom":"Dague (Mêlée)","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Dague (Lancer)","mod":"@{MOD_DEX}","bonus":"1","nbde":"1","de":"4","moddgt":"@{MOD_FOR}","bonusdgt":"0"}|{"nom":"Epée courte","mod":"@{MOD_FOR}","bonus":"0","nbde":"1","de":"6","moddgt":"@{MOD_FOR}","bonusdgt":"0"}',
     //-----------------------------------------------------------------------------
     checkInstall = function() {
         log(""+author+"'s Portes-Monstres-Trésors script version "+version+" ("+releasedate+") installed.");
@@ -56,42 +62,42 @@ var PmT = PmT || (function () {
                 tabcars[1]=randomInteger(6);
                 tabcars[2]=randomInteger(6);
                 tabcars[3]=randomInteger(6);
-                tabcars.sort(function(a, b){return b-a});
+                tabcars.sort(function(a, b){return b-a;});
                 carFOR=tabcars[0]+tabcars[1]+tabcars[2];
                 //Dextérité
                 tabcars[0]=randomInteger(6);
                 tabcars[1]=randomInteger(6);
                 tabcars[2]=randomInteger(6);
                 tabcars[3]=randomInteger(6);
-                tabcars.sort(function(a, b){return b-a});
+                tabcars.sort(function(a, b){return b-a;});
                 carDEX=tabcars[0]+tabcars[1]+tabcars[2];
                 //Constitution
                 tabcars[0]=randomInteger(6);
                 tabcars[1]=randomInteger(6);
                 tabcars[2]=randomInteger(6);
                 tabcars[3]=randomInteger(6);
-                tabcars.sort(function(a, b){return b-a});
+                tabcars.sort(function(a, b){return b-a;});
                 carCON=tabcars[0]+tabcars[1]+tabcars[2];
                 //Intelligence
                 tabcars[0]=randomInteger(6);
                 tabcars[1]=randomInteger(6);
                 tabcars[2]=randomInteger(6);
                 tabcars[3]=randomInteger(6);
-                tabcars.sort(function(a, b){return b-a});
+                tabcars.sort(function(a, b){return b-a;});
                 carINT=tabcars[0]+tabcars[1]+tabcars[2];
                 //Sagesse
                 tabcars[0]=randomInteger(6);
                 tabcars[1]=randomInteger(6);
                 tabcars[2]=randomInteger(6);
                 tabcars[3]=randomInteger(6);
-                tabcars.sort(function(a, b){return b-a});
+                tabcars.sort(function(a, b){return b-a;});
                 carSAG=tabcars[0]+tabcars[1]+tabcars[2];
                 //Charisme
                 tabcars[0]=randomInteger(6);
                 tabcars[1]=randomInteger(6);
                 tabcars[2]=randomInteger(6);
                 tabcars[3]=randomInteger(6);
-                tabcars.sort(function(a, b){return b-a});
+                tabcars.sort(function(a, b){return b-a;});
                 carCHA=tabcars[0]+tabcars[1]+tabcars[2];
                 break;
         }
@@ -105,9 +111,9 @@ var PmT = PmT || (function () {
         msg = msg + "{{cha="+carCHA+"}}";
         msg = msg + "{{tabcar="+carFOR+","+carDEX+","+carCON+","+carINT+","+carSAG+","+carCHA+"}}";
         //Classes avec prérequis
-        if(carINT>8){msg = msg + "{{elfe=1}}"};
-        if(carDEX>8 && carCON>8){msg = msg + "{{halfelin=1}}"};
-        if(carCON>8){msg = msg + "{{nain=1}}"};
+        if(carINT>8){msg = msg + "{{elfe=1}}";}
+        if(carDEX>8 && carCON>8){msg = msg + "{{halfelin=1}}";}
+        if(carCON>8){msg = msg + "{{nain=1}}";}
         //Fin
         sendChat("player|"+playerId, msg);
         return;
@@ -125,50 +131,49 @@ var PmT = PmT || (function () {
         var tabcars = tmp.split(",");
         //Préparation des valeurs
         var Niveau= 1;
-        var CA = "";
-        var Alignement="Neutralité"
+        var Alignement="Neutralité";
         var Force=parseInt(tabcars[0]);
         var MOD_FOR=0;
-        if (Force <4) {MOD_FOR=-3}
-            else if (Force>3 && Force<6) {MOD_FOR=-2}
-            else if (Force>5 && Force<9) {MOD_FOR=-1}
-            else if (Force>12 && Force<16) {MOD_FOR=1}
-            else if (Force>15 && Force<18) {MOD_FOR=2}
-            else if (Force>17) {MOD_FOR=3}
-            else {MOD_FOR=0};
+        if (Force <4) {MOD_FOR=-3;}
+            else if (Force>3 && Force<6) {MOD_FOR=-2;}
+            else if (Force>5 && Force<9) {MOD_FOR=-1;}
+            else if (Force>12 && Force<16) {MOD_FOR=1;}
+            else if (Force>15 && Force<18) {MOD_FOR=2;}
+            else if (Force>17) {MOD_FOR=3;}
+            else {MOD_FOR=0;}
         var Dexterite=parseInt(tabcars[1]);
         var MOD_DEX=0;
-        if (Dexterite <4) {MOD_DEX=-3}
-            else if (Dexterite>3 && Dexterite<6) {MOD_DEX=-2}
-            else if (Dexterite>5 && Dexterite<9) {MOD_DEX=-1}
-            else if (Dexterite>12 && Dexterite<16) {MOD_DEX=1}
-            else if (Dexterite>15 && Dexterite<18) {MOD_DEX=2}
-            else if (Dexterite>17) {MOD_DEX=3}
-            else {MOD_DEX=0};
+        if (Dexterite <4) {MOD_DEX=-3;}
+            else if (Dexterite>3 && Dexterite<6) {MOD_DEX=-2;}
+            else if (Dexterite>5 && Dexterite<9) {MOD_DEX=-1;}
+            else if (Dexterite>12 && Dexterite<16) {MOD_DEX=1;}
+            else if (Dexterite>15 && Dexterite<18) {MOD_DEX=2;}
+            else if (Dexterite>17) {MOD_DEX=3;}
+            else {MOD_DEX=0;}
         var Constitution=parseInt(tabcars[2]);
         var MOD_CON=0;
-        if (Constitution <4) {MOD_CON=-3}
-            else if (Constitution>3 && Constitution<6) {MOD_CON=-2}
-            else if (Constitution>5 && Constitution<9) {MOD_CON=-1}
-            else if (Constitution>12 && Constitution<16) {MOD_CON=1}
-            else if (Constitution>15 && Constitution<18) {MOD_CON=2}
-            else if (Constitution>17) {MOD_CON=3}
-            else {MOD_CON=0};
+        if (Constitution <4) {MOD_CON=-3;}
+            else if (Constitution>3 && Constitution<6) {MOD_CON=-2;}
+            else if (Constitution>5 && Constitution<9) {MOD_CON=-1;}
+            else if (Constitution>12 && Constitution<16) {MOD_CON=1;}
+            else if (Constitution>15 && Constitution<18) {MOD_CON=2;}
+            else if (Constitution>17) {MOD_CON=3;}
+            else {MOD_CON=0;}
         var Intelligence=parseInt(tabcars[3]);
         var MOD_INT=0;
-        if (Intelligence>12 && Intelligence<16) {MOD_INT=1}
-            else if (Intelligence>15 && Intelligence<18) {MOD_INT=2}
-            else if (Intelligence>17) {MOD_INT=3}
-            else {MOD_INT=0};
+        if (Intelligence>12 && Intelligence<16) {MOD_INT=1;}
+            else if (Intelligence>15 && Intelligence<18) {MOD_INT=2;}
+            else if (Intelligence>17) {MOD_INT=3;}
+            else {MOD_INT=0;}
         var Sagesse=parseInt(tabcars[4]);
         var MOD_SAG=0;
-        if (Sagesse <4) {MOD_SAG=-3}
-            else if (Sagesse>3 && Sagesse<6) {MOD_SAG=-2}
-            else if (Sagesse>5 && Sagesse<9) {MOD_SAG=-1}
-            else if (Sagesse>12 && Sagesse<16) {MOD_SAG=1}
-            else if (Sagesse>15 && Sagesse<18) {MOD_SAG=2}
-            else if (Sagesse>17) {MOD_SAG=3}
-            else {MOD_SAG=0};
+        if (Sagesse <4) {MOD_SAG=-3;}
+            else if (Sagesse>3 && Sagesse<6) {MOD_SAG=-2;}
+            else if (Sagesse>5 && Sagesse<9) {MOD_SAG=-1;}
+            else if (Sagesse>12 && Sagesse<16) {MOD_SAG=1;}
+            else if (Sagesse>15 && Sagesse<18) {MOD_SAG=2;}
+            else if (Sagesse>17) {MOD_SAG=3;}
+            else {MOD_SAG=0;}
         var Charisme=parseInt(tabcars[5]);
         var MOD_CHA=0;
         var MaxCompagnons=0;
@@ -207,7 +212,7 @@ var PmT = PmT || (function () {
                 MOD_CHA=0;
                 MaxCompagnons=4;
                 MoralCompagnons=7;
-            };
+            }
         // en fonction de la classe
         var DV = 0;
         var PV = 0;
@@ -326,13 +331,13 @@ var PmT = PmT || (function () {
                 JS_Baton=13;
                 JS_Sorts=15;
                 lesort=sortsProfanes[randomInteger(12)-1];
-                lepack=""+packGuerrier+"|"+packStandard;
-                lecout=103;
+                lepack=""+packElfe+"|"+packStandard;
+                lecout=96;
                 CaAscArmure = 12;
                 CaDescArmure = 7;
-                CaBouclier = 1;
+                CaBouclier = 0;
                 CaracPrinc = Math.max(Force, Intelligence);
-                latak = atkGuerrier;
+                latak = atkElfe;
                 break;
             case 'halfelin':
                 laclasse = 5;
@@ -344,13 +349,13 @@ var PmT = PmT || (function () {
                 JS_Baton=9;
                 JS_Sorts=12;
                 lesort="";
-                lepack=""+packVoleur+"|"+packStandard;
-                lecout=85;
+                lepack=""+packHalfelin+"|"+packStandard;
+                lecout=54;
                 CaAscArmure = 11;
                 CaDescArmure = 8;
                 CaBouclier = 0;
                 CaracPrinc = Math.max(Dexterite, Constitution);
-                latak = atkVoleur;
+                latak = atkHalfelin;
                 break;
             case 'nain':
                 laclasse = 6;
@@ -372,13 +377,13 @@ var PmT = PmT || (function () {
                 break;
         }
         var BonusXp = 0;
-        if (CaracPrinc <6) {BonusXp=-10}
-            else if (CaracPrinc>5 && CaracPrinc<9) {BonusXp=-5}
-            else if (CaracPrinc>12 && CaracPrinc<16) {BonusXp=5}
-            else if (CaracPrinc>16) {BonusXp=10}
-            else {BonusXp=0};
+        if (CaracPrinc <6) {BonusXp=-10;}
+            else if (CaracPrinc>5 && CaracPrinc<9) {BonusXp=-5;}
+            else if (CaracPrinc>12 && CaracPrinc<16) {BonusXp=5;}
+            else if (CaracPrinc>16) {BonusXp=10;}
+            else {BonusXp=0;}
         var equippo= Math.max(((randomInteger(8)+randomInteger(8)+randomInteger(8))*10)-lecout,0);
-        var PV = Math.max(DV+MOD_CON,1);
+        PV = Math.max(DV+MOD_CON,1);
         //Création du personnage / l'objet character
         var char = createObj("character", {
                 name: nom,
@@ -439,11 +444,11 @@ var PmT = PmT || (function () {
         //Argent
         createObj("attribute", {name: "equip-po", current: equippo, characterid: char.id});
         //---
-        //Eléments qui seront traités par Sheet Worker sheet:opened, et stocké dans l'attribut "todo"
+        //Eléments stockés dans des attributs todoxxx et qui seront traités par Sheet Worker sheet opened
         // -- Sorts
         if (lesort.length > 0){
             createObj("attribute", {name: "todosort", current: lesort, characterid: char.id});
-        };
+        }
         // -- Equipements
         createObj("attribute", {name: "todoequip", current: lepack, characterid: char.id});
         // -- Attaques
@@ -464,19 +469,19 @@ var PmT = PmT || (function () {
         var attrName = obj.get("name");
         if ( attrName=="might" || attrName=="speed" || attrName=="intellect" || attrName=="SpecialDamage") {
             checkCharStates(getObj("character", obj.get("_characterid")));
-        };
+        }
         return;
     },
     //-----------------------------------------------------------------------------
     handleInput = function(msg) {
         if (msg.type !== "api") {
             return;
-        };
+        }
+        var paramArray= [];
+        var functionCalled = "";
         if (msg.content.indexOf("!pmt-") !== 0) {
             return;
         } else {
-            var paramArray= new Array(1);
-            var functionCalled;
             if (parseInt(msg.content.indexOf(" ")) ==-1) {
                 functionCalled = msg.content;
             } else {
@@ -486,9 +491,9 @@ var PmT = PmT || (function () {
                 if (parseInt(paramArray[0].indexOf("|")) !=-1) {
                     //more than 1 parameter (supposedly character_id as first parameter)
                     paramArray = paramArray[0].split("|");
-                };
-            };
-        };
+                }
+            }
+        }
         switch(functionCalled) {
             case '!pmt-rollchar':
                 // Initier une création de perso, et proposer des choix
