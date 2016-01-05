@@ -1,15 +1,17 @@
 # roll20-wip
-Personal developments and works in progress for the Roll20 character sheets and API scripts
+Personal developments and works in progress for the Roll20 character sheets and API scripts.
+
+Updated 2015-01-04.
+## Planned sheets (creation or enhancements)
+* [Supersix](http://supersix.fr/telechargements/), french
+* [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
+* [Dragon de Poche 2](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
+* [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
+* Castles & Crusades, english
 
 ## WIP
 
-### Sheets I wish to make or enhance
-* Würm french and english
-* Dragon de Poche 2 (french)
-* Castles & Crusades
-* Wastburg (french)
-
-## Official sheets
+## Existing sheets
 
 ### Chroniques Oubliées (french)
 
@@ -60,15 +62,11 @@ Cf. english version
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP](./PortesMonstresTresors/)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 2.2
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 2.2
+* [WIP](./PortesMonstresTresors/) Version 3.0 (2016-01-04)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.0 (2016-01-04)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.0 (2016-01-04)
 
 #### Todo
-* Calcule automatiqueme des modificateurs de caractéristiques, tout en restant modifiables pour les homerules (sheet workers)
-* Total du poids de l'inventaire et calcul de l'encombrement et des vitesses (sheet workers)
-* Affichage des capacités de classe en fonction de la classe (cf. fiche Moldvay)
-* scripts API de génération de personnage
 
 ### Savage Worlds French
 
@@ -104,6 +102,16 @@ Cf. english version
 
 ## API Scripts
 
+###Cypher System
+
+#### Sources
+* [WIP]()
+* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
+
+#### Todo
+* Handle display of every messages through template (attribute change, action parameters reset), both in french and english
+
 ### Numenéra
 
 #### Sources
@@ -114,12 +122,9 @@ Cf. english version
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
-###Cypher System
-
-#### Sources
+###Portes Monstres Tresors
 * [WIP]()
-* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
-* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
+* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
+* [Official]()
 
 #### Todo
-* Handle display of every messages through template (attribute change, action parameters reset), both in french and english
