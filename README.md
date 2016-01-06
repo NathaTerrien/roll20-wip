@@ -67,6 +67,7 @@ Cf. english version
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.0 (2016-01-04)
 
 #### Todo
+* Calcul de la richesse totale
 
 ### Savage Worlds French
 
