@@ -1,0 +1,49 @@
+<!-- FDP -->
+<div class="sheet-main">
+    <div class="sheet-ligne"> <!-- HAUT -->
+        <div class="sheet-mycol"> <!-- Identité -->
+            <div class="sheet-ligne">
+                <div class="sheet-lib1">nom : </div>
+                <input name="attr_character_name"class="sheet-biginptxt" type="text" placeholder="Nom du super héros" title="Nom du super héros"/>
+            </div>
+            <div class="sheet-ligne">
+                <div class="sheet-lib1">couverture : </div>
+                <input name="attr_couverture" type="text" class="sheet-inptxt1" placeholder="Identité secrète" title="Identité secrète du super héros (nom + métier dans la vie civile lorsqu’il n’est pas costumé)"/>
+            </div>
+            <div class="sheet-ligne">
+                <div class="sheet-lib1">destin : </div>
+                <input name="attr_destin" type="number" value="0" />
+            </div>
+            <div class="sheet-ligne">
+                <div class="sheet-lib1">gentillesse : </div>
+                <input name="attr_gentillesse" type="number" value="0" />
+            </div>
+            <div class="sheet-ligne">
+                <div class="sheet-lib1">vilenie : </div>
+                <input name="attr_vilenie" type="number" value="0" />
+            </div>
+        </div> <!-- FIN Identité -->
+        <div class="sheet-mycol"> <!-- Forces & Faiblesses -->
+            <div class="sheet-lib1">forces : </div>
+            <fieldset class="repeating_forces">
+                <div></div>
+            </fieldset>
+            <div class="sheet-lib1">faiblesses : </div>
+            <fieldset class="repeating_faiblesses">
+                <div></div>
+            </fieldset>
+        </div>  <!-- FIN Forces & Faiblesses -->
+    </div>  <!-- FIN HAUT -->
+    <div class="sheet-ligne"> <!-- MILIEU -->
+    </div>  <!-- FIN MILIEU -->
+    <div class="sheet-ligne"> <!-- BAS -->
+        <div class="sheet-mycol"> <!-- Super pouvoir -->
+            <div class="sheet-lib1">super pouvoir : </div>
+            <div class="sheet-info">effet|puissance|contrôle|coût|restriction</div>
+        </div>  <!-- FIN Super pouvoir -->
+        <div class="sheet-mycol"> <!-- Relations -->
+            <div class="sheet-lib1">relations : </div>
+            <div class="sheet-info">qui|type|confidientialité|intensité</div>
+        </div>  <!-- FIN Relations -->
+    </div>  <!-- FIN BAS -->
+</div>

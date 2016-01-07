@@ -1,0 +1,75 @@
+/* latin */
+@font-face {
+  font-family: 'Bangers';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Bangers'), local('Bangers-Regular'), url(http://fonts.gstatic.com/s/bangers/v8/yJQgrSMUoqRj-0SbnQsv4g.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+div,
+button,
+textarea,
+span,
+input,
+select,
+table,
+tr,
+td,
+th{
+    box-sizing: border-box;
+}
+div.sheet-main{
+    width: 832px;
+    background: white;
+    text-align:center;
+    font-family: 'Bangers',cursive;
+}
+div.sheet-lib1{
+    display: inline-block;
+    font-family: 'Bangers',cursive;
+    font-weight: bolder;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-style: italic;
+    width: 125px;
+    white-space: nowrap;
+}
+div.sheet-ligne{
+    display: block;
+    width: 100%;
+    margin: none;
+    padding: none;
+    white-space: nowrap;
+    text-align: left;
+}
+div.sheet-info{
+    font-size: 12px;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    text-transform: capitalize;
+    font-family: 'Bangers',cursive;
+}
+div.sheet-mycol{
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    min-height: 160px;
+    margin: 3px;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: left;
+    box-shadow: 5px 5px 3px #888888;
+    border-radius: 3px;
+}
+input{
+    display: inline-block;
+    font-family: 'Bangers',cursive;
+}
+input[type="text"].sheet-biginptxt{
+    font-size: 16px;
+    width: calc(100% - 130px);
+}
+input[type="text"].sheet-inptxt1{
+    width: calc(100% - 130px);
+}

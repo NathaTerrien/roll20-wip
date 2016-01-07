@@ -1,0 +1,42 @@
+https://app.roll20.net/join/1066455/EJaWmw
+
+Section répétables :
+- Forces ?
+- Faiblesses ?
+- Super pouvoir ? 
+  * 1 seul pouvoir et des effets ?
+- Relations ?
+
+Destin / Gentillesse / Vilenie : 
+- min ?
+- max ?
+- courant / max ?
+
+Muscle / Cervelle / Coeur :
+- min ?
+- max ?
+- courant / max ?
+
+Jauge d'état : 
+- 4 max ?
+- de bas en haut ?
+
+Jets :
+- quoi ?
+- questions ?
+- Succès / échec ?
+- Critique ?
+
+Boutons d'infos ?
+
+Images / design : 
+- Sources ? (PNG, GIF pour transparence)
+- Couleurs ?
+- Polices ?
+
+Jeu : 
+- Version complète ?
+- Impression ?
+
+Lancer autant de d6 que de carac.
+
