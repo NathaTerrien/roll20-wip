@@ -1,5 +1,6 @@
 <!-- FDP -->
 <div class="sheet-main">
+    <div style="text-align:left;"><img style="width:300px;" src="https://lh3.googleusercontent.com/-rB6nBMObEzQ/VpAM5T9sflI/AAAAAAAAX9A/-7xEFkMw8VY/s614-Ic42/Supersix_fdp.png" /></div>
     <div class="sheet-ligne"> <!-- HAUT -->
         <div class="sheet-mycol"> <!-- Identité -->
             <div class="sheet-ligne">
@@ -10,6 +11,8 @@
                 <div class="sheet-lib1">couverture : </div>
                 <input name="attr_couverture" type="text" class="sheet-inptxt1" placeholder="Identité secrète" title="Identité secrète du super héros (nom + métier dans la vie civile lorsqu’il n’est pas costumé)"/>
             </div>
+        </div>
+        <div class="sheet-mycol"> <!-- Identité -->
             <div class="sheet-ligne">
                 <div class="sheet-lib1">destin : </div>
                 <input name="attr_destin" type="number" value="0" />
@@ -17,33 +20,107 @@
             <div class="sheet-ligne">
                 <div class="sheet-lib1">gentillesse : </div>
                 <input name="attr_gentillesse" type="number" value="0" />
-            </div>
-            <div class="sheet-ligne">
                 <div class="sheet-lib1">vilenie : </div>
                 <input name="attr_vilenie" type="number" value="0" />
             </div>
         </div> <!-- FIN Identité -->
-        <div class="sheet-mycol"> <!-- Forces & Faiblesses -->
-            <div class="sheet-lib1">forces : </div>
+    </div>
+    <div class="sheet-ligne">
+        <div class="sheet-mycol"> <!-- Forces  -->
+            <div class="sheet-lib2">forces : </div>
             <fieldset class="repeating_forces">
-                <div></div>
+                <div class="sheet-ligne">
+                    <input type="text" name="attr_forcenom" class="sheet-inpnom" placeholder="Force" title="Force" />
+                    <input type="text" name="attr_forcedesc" class="sheet-inpdesc" placeholder="Description" title="Description" />
+                    <button type="roll" name="InfoForce" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                </div>
             </fieldset>
-            <div class="sheet-lib1">faiblesses : </div>
+        </div>  <!-- FIN Forces  -->
+        <div class="sheet-mycol"> <!-- Faiblesses -->
+            <div class="sheet-lib2">faiblesses : </div>
             <fieldset class="repeating_faiblesses">
-                <div></div>
+                <div class="sheet-ligne">
+                    <input type="text" name="attr_faiblessenom" class="sheet-inpnom" placeholder="Faiblesse" title="Faiblesse" />
+                    <input type="text" name="attr_faiblessedesc" class="sheet-inpdesc" placeholder="Description" title="Description" />
+                    <button type="roll" name="InfoFaiblesse" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                </div>
             </fieldset>
-        </div>  <!-- FIN Forces & Faiblesses -->
+        </div>  <!-- FIN Faiblesses -->
     </div>  <!-- FIN HAUT -->
     <div class="sheet-ligne"> <!-- MILIEU -->
+        <div class="sheet-milieu">
+            <div class="sheet-jauge">
+                Jauge d'état
+            </div>
+            <div class="sheet-centre">
+                <div class="sheet-ligne">
+                    <div class="sheet-bulle">
+                        <div class="sheet-carac">muscle</div>
+                        <input type="number" name="attr_muscle" class="sheet-carac" value="0" title="Muscle" />
+                    </div>
+                </div>
+                <div class="sheet-ligne">
+                    <img style="width:300px;" src="https://lh3.googleusercontent.com/-G6YUbdCT_oA/VpAOYlNt2JI/AAAAAAAAX9w/_Xgty_VnECE/s541-Ic42/Supersix_logo.png" />
+                </div>
+                <div class="sheet-ligne">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="sheet-bulle">
+                                    <div class="sheet-carac">cervelle</div>
+                                    <input type="number" name="attr_cervelle" class="sheet-carac" value="0" title="Cervelle" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="sheet-bulle">
+                                    <div class="sheet-carac">coeur</div>
+                                    <input type="number" name="attr_coeur" class="sheet-carac" value="0" title="Coeur" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>  <!-- FIN MILIEU -->
     <div class="sheet-ligne"> <!-- BAS -->
         <div class="sheet-mycol"> <!-- Super pouvoir -->
-            <div class="sheet-lib1">super pouvoir : </div>
+            <div class="sheet-ligne">
+                <div class="sheet-lib2">super pouvoir : </div>
+                <input type="text" name="attr_superpouvoir" class="sheet-inpnom" style="width:230px;" placeholder="Super Pouvoir" title="Super Pouvoir" />
+            </div>
             <div class="sheet-info">effet|puissance|contrôle|coût|restriction</div>
+            <fieldset class="repeating_supereffets">
+                <div class="sheet-ligne">
+                    <input type="text" name="attr_effetnom" class="sheet-inpeffet" placeholder="Effet" title="Effet" />
+                    <input type="number" name="attr_effetpuissance" value="0" title="Puissance" />
+                    <input type="number" name="attr_effetcontrole" value="0" title="Contrôle" />
+                    <input type="number" name="attr_effetcout" value="0" title="Coût" />
+                    <button type="roll" name="SuperPouvoir" class="sheet-macrobt" title="Jet" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}" />
+                </div>
+                <div class="sheet-ligne" style="border-bottom: 1px solid black;">
+                    <input type="text" name="attr_effetrestriction" class="sheet-inpdesc" style="width:358px;" placeholder="Description, Restriction, Durée ..." title="Description, Restriction, Durée ..." />
+                    <button type="roll" name="InfoPouvoir" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                </div>
+            </fieldset>
         </div>  <!-- FIN Super pouvoir -->
         <div class="sheet-mycol"> <!-- Relations -->
-            <div class="sheet-lib1">relations : </div>
-            <div class="sheet-info">qui|type|confidientialité|intensité</div>
+            <div class="sheet-lib2">relations : </div>
+            <div class="sheet-info">qui|type|intensité</div>
+            <fieldset class="repeating_relations">
+                <div class="sheet-ligne">
+                    <input type="text" name="attr_relationnom" class="sheet-inpnom" style="width:210px;" placeholder="Relation" title="Relation" />
+                    <SELECT name="attr_relationtype" style="width:80px;">
+                        <OPTION>Amitié</OPTION>
+                        <OPTION>Amour</OPTION>
+                        <OPTION>Famille</OPTION>
+                        <OPTION>Travail</OPTION>
+                    </SELECT>
+                    <input type="number" name="attr_relationintensite" value="0" title="Intentisé" />
+                    <button type="roll" name="Relation" class="sheet-macrobt" title="Jet" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}" />
+                    <button type="roll" name="InfoRelation" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                </div>
+            </fieldset>
         </div>  <!-- FIN Relations -->
     </div>  <!-- FIN BAS -->
 </div>

@@ -1,4 +1,4 @@
-/* latin */
+/******** DIVERS ***********************************************/
 @font-face {
   font-family: 'Bangers';
   font-style: normal;
@@ -18,6 +18,18 @@ td,
 th{
     box-sizing: border-box;
 }
+table{
+    width: 100%;
+}
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+/******** DIV ***********************************************/
+div{
+    margin: none;
+    padding: none;
+}
 div.sheet-main{
     width: 832px;
     background: white;
@@ -33,14 +45,23 @@ div.sheet-lib1{
     font-style: italic;
     width: 125px;
     white-space: nowrap;
+    text-align: right;
+}
+div.sheet-lib2{
+    display: inline-block;
+    font-family: 'Bangers',cursive;
+    font-weight: bolder;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-style: italic;
+    width: 150px;
+    white-space: nowrap;
 }
 div.sheet-ligne{
     display: block;
     width: 100%;
-    margin: none;
-    padding: none;
     white-space: nowrap;
-    text-align: left;
+    text-align: center;
 }
 div.sheet-info{
     font-size: 12px;
@@ -54,7 +75,7 @@ div.sheet-mycol{
     display: inline-block;
     vertical-align: top;
     width: 400px;
-    min-height: 160px;
+    min-height: 80px;
     margin: 3px;
     padding: 5px;
     border: 1px solid black;
@@ -62,9 +83,52 @@ div.sheet-mycol{
     box-shadow: 5px 5px 3px #888888;
     border-radius: 3px;
 }
+div.sheet-milieu{
+    display: block;
+    width:100%:
+    background-color: gray;
+    /*
+    background-image: url('https://lh3.googleusercontent.com/-G6YUbdCT_oA/VpAOYlNt2JI/AAAAAAAAX9w/_Xgty_VnECE/s541-Ic42/Supersix_logo.png');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: 270px 134px;
+    */
+    margin: 5px;
+}
+div.sheet-jauge{
+    width:150px;
+    display: inline-block;
+    background-color: transparent;
+}
+div.sheet-centre{
+    width:680px;
+    display: inline-block;
+    background-color: transparent;
+    min-height: 200px;
+}
+div.sheet-bulle{
+    width: 150px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 30px;
+    background-color: white;
+    text-align: center;
+    display: inline-block;
+}
+div.sheet-carac{
+    text-align: center;
+    background-color: black;
+    color: white;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: 16px;;
+}
+/******** INPUT ***********************************************/
 input{
     display: inline-block;
     font-family: 'Bangers',cursive;
+    padding: none;
+    margin: none;
 }
 input[type="text"].sheet-biginptxt{
     font-size: 16px;
@@ -72,4 +136,72 @@ input[type="text"].sheet-biginptxt{
 }
 input[type="text"].sheet-inptxt1{
     width: calc(100% - 130px);
+}
+input[type="text"].sheet-inpnom{
+    font-size: 12px;
+    font-weight: bold;
+    width: 100px;
+}
+input[type="text"].sheet-inpdesc{
+    font-size: 11px;
+    font-weight: normal;
+    width: 255px;
+}
+input[type="text"].sheet-inpeffet{
+    font-size: 12px;
+    font-weight: bold;
+    width: 210px;
+}
+input[type="number"]{
+    text-align: right;
+    font-family: 'Bangers',cursive;
+}
+select{
+    padding: none;
+    margin: none;
+    vertical-align: top;
+}
+/******** BOUTONS ***********************************************/
+button[type=roll].sheet-btDesc{
+    color: inherit;
+    height:20px;
+    width:22px;
+    line-height: 16px;
+    vertical-align: middle;
+    padding:none;
+    border:none;
+    margin:none;
+    background:none;
+    border-radius:10px;
+    opacity: 0.4;
+}
+button[type=roll].sheet-btDesc:before{
+    content:none;
+}
+button[type=roll].sheet-btDesc:hover{
+   box-shadow: 1px 1px 1px 1px #888888;
+   opacity: 0.7;
+}
+button[type=roll].sheet-macrobt {
+    padding: 2px 0px 0px 1px;
+    margin: 0px 0px 0px 0px;
+    text-shadow: none;
+    box-shadow: none;
+    text-align:center;
+    vertical-align: middle;
+    line-height: 0px;
+    height: 20px;
+    width: 20px;
+    font-size: 1.2em;
+    font-weight: normal;
+    color:#22428F;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(34,66,143,0.5);
+    border-radius: 3px;
+}
+button[type=roll].sheet-macrobt:hover{
+    border-width: 2px;
+    border-color:#22428F;
+    font-weight: bold;
 }
