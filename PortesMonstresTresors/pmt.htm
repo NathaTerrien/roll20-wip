@@ -340,13 +340,16 @@ var TAS = TAS || (function(){
                 var enc = parseFloat(values.encombrement) || 0.0;
                 var explo = 0;
                 var combat = 0;
-                if (enc>=41) {
+                if (enc>=71) {
+                    explo = 3;
+                    combat = 1;
+                } else if (enc>=41 && enc<71) {
                     explo = 9;
                     combat = 3;
-                } else if (enc>=21 && enc<31) {
-                    explo = 24;
-                    combat = 9;
                 } else if (enc>=31 && enc<41) {
+                    explo = 18;
+                    combat = 6;
+                } else if (enc>=21 && enc<31) {
                     explo = 24;
                     combat = 9;
                 } else {
@@ -391,7 +394,6 @@ var TAS = TAS || (function(){
                         setAttrs(newrowattrs);
                     }
                     TAS.repeatingSimpleSum('equipement','equippoidstot','encombrement');
-                    PMT.majEncombrement();
                 }
                 setAttrs({todoequip: ""});
             }
@@ -403,12 +405,17 @@ var TAS = TAS || (function(){
                 var newrowattrs = {};
                 var TabEq = [];
                 var arrayLength = 0;
-                var obj = {};
-                newrowid = generateRowID();
-                newrowattrs = {};
-                newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = values.todosort;
-                newrowattrs["repeating_sorts_" + newrowid + "_sort-niveau"] = "1";
-                setAttrs(newrowattrs);
+                TabEq = values.todosort.split("|");
+                arrayLength = TabEq.length;
+                if (arrayLength > 0){
+                    for (var i = 0; i < arrayLength; i++) {
+                        newrowid = generateRowID();
+                        newrowattrs = {};
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = TabEq[i];
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-niveau"] = "1";
+                        setAttrs(newrowattrs);
+                    }
+                }
                 setAttrs({todosort: ""});
             }
         });
@@ -440,6 +447,7 @@ var TAS = TAS || (function(){
                 setAttrs({todoatk: ""});
             }
         });
+        PMT.majEncombrement();
     });
 // Inventaire / équipement
     on("change:repeating_equipement:equipqte change:repeating_equipement:equippoids", function() {
@@ -600,7 +608,7 @@ var TAS = TAS || (function(){
     });
 </script>
 <!-- PARAMETRAGES -->
-<span class="sheet-smallspan">v3.0 - <b>Options :</b></span>
+<span class="sheet-smallspan">v3.1 - <b>Options :</b></span>
 <input type="radio" name="attr_sheetOptionCa" value="0" class="sheet-optionCaDesc" checked="checked" title="Utiliser la Classe d'Armure (CA) descendante" /><span>CA descendante</span>
 <input type="radio" name="attr_sheetOptionCa" value="1" class="sheet-optionCaAsc" title="Utiliser la Classe d'Armure (CA) ascendante" /><span>CA ascendante</span>
 <input type="radio" name="attr_Classe" value="0" class="sheet-classeClerc" checked="checked" />
@@ -666,10 +674,10 @@ var TAS = TAS || (function(){
                     <tr>
                         <td class="sheet-libel1">
                             <div class="sheet-optionCaDesc">
-                                <input class="sheet-inCA" type="text" name="attr_CaDesc" title="Classe d'Armure totale"  value="[[@{CaDescArmure}-@{CaBouclier}-(@{MOD_DEX}*1)]]" disabled />=<input name="attr_CaDescArmure" type="number" class="sheet-inMainNum" style="width:40px;" value="9" title="Classe d'armure de l'armure (9 sans armure)"/>-<input name="attr_CaBouclier" type="number" class="sheet-inMainNum" style="width:35px;" value="0" title="Bonus de CA de bouclier"/>-<input name="attr_CaDex" type="number" class="sheet-inMainNum" style="width:35px;" value="@{MOD_DEX}" title="Modificateur de Dextérité" disabled />
+                                <input class="sheet-inCA" type="text" name="attr_CaDesc" title="Classe d'Armure totale"  value="[[@{CaDescArmure}-@{CaBouclier}-(@{MOD_DEX}*1)]]" disabled />=<input name="attr_CaDescArmure" type="number" class="sheet-inMainNum" style="width:40px;" value="9" title="Classe d'armure de l'armure (9 sans armure)"/>-<input name="attr_CaBouclier" type="number" class="sheet-inMainNum" style="width:35px;" value="0" title="Bonus de CA de bouclier"/>-<input name="attr_CaDex" type="number" class="sheet-inMainNum" style="width:40px;" value="@{MOD_DEX}" title="Modificateur de Dextérité" disabled />
                             </div>
                             <div class="sheet-optionCaAsc">
-                                <input class="sheet-inCA" type="text" name="attr_CaAsc" title="Classe d'Armure totale" value="[[@{CaAscArmure}+@{CaBouclier}+@{MOD_DEX}]]" disabled />=<input name="attr_CaAscArmure" type="number" class="sheet-inMainNum" style="width:40px;" value="10" title="Classe d'armure de l'armure (10 sans armure)"/>+<input name="attr_CaBouclier" type="number" class="sheet-inMainNum" style="width:35px;" value="0" title="Bonus de CA de bouclier"/>+<input name="attr_CaDex" type="number" class="sheet-inMainNum" style="width:35px;" value="@{MOD_DEX}" title="Modificateur de Dextéroté" disabled />
+                                <input class="sheet-inCA" type="text" name="attr_CaAsc" title="Classe d'Armure totale" value="[[@{CaAscArmure}+@{CaBouclier}+@{MOD_DEX}]]" disabled />=<input name="attr_CaAscArmure" type="number" class="sheet-inMainNum" style="width:40px;" value="10" title="Classe d'armure de l'armure (10 sans armure)"/>+<input name="attr_CaBouclier" type="number" class="sheet-inMainNum" style="width:35px;" value="0" title="Bonus de CA de bouclier"/>+<input name="attr_CaDex" type="number" class="sheet-inMainNum" style="width:40px;" value="@{MOD_DEX}" title="Modificateur de Dextérité" disabled />
                             </div>
                         </td>
                         <td class="sheet-libel1">
