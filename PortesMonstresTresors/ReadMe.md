@@ -44,12 +44,13 @@ Par défaut, le personnage créé est attribué au joueur qui a cliqué dans le 
 
 # Notes de version
 ##v3.1 (14 Janvier 2016).
+* Ajout du nom du personnage sur tous les templates de jet dans le chat (utile lorsqu'un joueur contrôle plusieurs personnages)
+* Agrandissement de la zone du modificateur de DEX pour le calcul de la CA (une valeur négative n'était pas visible)
+* Correction du calcul automatique des distances de mouvement en fonction de l'encombrement
 * Mise à jour du [script API](pmt.js) de création de personnage :
   * Correction des sorts de Clerc : désormais, tous les sorts de niveau 1 sont ajoutés à la feuille
   * La CA ascendante est désormais activée par défaut
-  * Correction du nom des armures, en vertu de l'[errata de PMT du 03/01/2016](http://www.scriptorium.d100.fr/wp-content/uploads/2016/01/PMT-errata-3-01-16.pdf)
-* Agrandissement de la zone du modificateur de DEX pour le calcul de la CA (les valeurs négatives n'étaient pas visibles)
-* Correction du calcul automatique des distances de mouvement en fonction de l'encombrement
+  * Correction du nom des armures, en vertue de l'[errata de PMT du 03/01/2016](http://www.scriptorium.d100.fr/wp-content/uploads/2016/01/PMT-errata-3-01-16.pdf)
 
 ##v3.0 (Janvier 2016).
 Les personnages existants ne sont malheureusement que partiellement rétro-compatibles.

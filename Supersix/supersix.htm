@@ -24,15 +24,15 @@
                 <input name="attr_vilenie" type="number" value="0" />
             </div>
         </div> <!-- FIN Identité -->
-    </div>
-    <div class="sheet-ligne">
+    </div>  
+    <div class="sheet-ligne">        
         <div class="sheet-mycol"> <!-- Forces  -->
             <div class="sheet-lib2">forces : </div>
             <fieldset class="repeating_forces">
                 <div class="sheet-ligne">
                     <input type="text" name="attr_forcenom" class="sheet-inpnom" placeholder="Force" title="Force" />
                     <input type="text" name="attr_forcedesc" class="sheet-inpdesc" placeholder="Description" title="Description" />
-                    <button type="roll" name="InfoForce" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <button type="roll" name="InfoForce" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Forces  -->
@@ -42,53 +42,57 @@
                 <div class="sheet-ligne">
                     <input type="text" name="attr_faiblessenom" class="sheet-inpnom" placeholder="Faiblesse" title="Faiblesse" />
                     <input type="text" name="attr_faiblessedesc" class="sheet-inpdesc" placeholder="Description" title="Description" />
-                    <button type="roll" name="InfoFaiblesse" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <button type="roll" name="InfoFaiblesse" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Faiblesses -->
     </div>  <!-- FIN HAUT -->
-    <div class="sheet-ligne"> <!-- MILIEU -->
-        <div class="sheet-milieu">
-            <div class="sheet-jauge">
-                Jauge d'état
-            </div>
-            <div class="sheet-centre">
-                <div class="sheet-ligne">
-                    <div class="sheet-bulle">
-                        <div class="sheet-carac">muscle</div>
-                        <input type="number" name="attr_muscle" class="sheet-carac" value="0" title="Muscle" />
-                    </div>
-                </div>
-                <div class="sheet-ligne">
-                    <img style="width:300px;" src="https://lh3.googleusercontent.com/-G6YUbdCT_oA/VpAOYlNt2JI/AAAAAAAAX9w/_Xgty_VnECE/s541-Ic42/Supersix_logo.png" />
-                </div>
-                <div class="sheet-ligne">
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="sheet-bulle">
-                                    <div class="sheet-carac">cervelle</div>
-                                    <input type="number" name="attr_cervelle" class="sheet-carac" value="0" title="Cervelle" />
-                                </div>
-                            </td>
-                            <td>
-                                <div class="sheet-bulle">
-                                    <div class="sheet-carac">coeur</div>
-                                    <input type="number" name="attr_coeur" class="sheet-carac" value="0" title="Coeur" />
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+    <div class="sheet-ligne" style="margin: 5px;" > <!-- MILIEU -->
+        <div class="sheet-jauge">
+            <span class="sheet-jaugetitre">Jauge d'état</span>
+            <input type="number" name="attr_jauge" value="4" min="0" max="4" title="Jauge courante" /> /  <input type="number" name="attr_jauge_max" value="4" title="Jauge maximum" readonly /><br/>
+            <input type="radio" name="attr_jauge" class="sheet-jauge" value="4" /><span></span><br/>
+            <input type="radio" name="attr_jauge" class="sheet-jauge"  value="3" /><span></span><br/>
+            <input type="radio" name="attr_jauge" class="sheet-jauge" value="2" /><span></span><br/>
+            <input type="radio" name="attr_jauge" class="sheet-jauge" value="1" /><span></span><br/>
+            <input type="radio" name="attr_jauge" class="sheet-jauge" value="0" /><span></span><br/>
         </div>
+        <div class="sheet-centre" style="padding:10px;">
+            <div class="sheet-ligne" style="height:160px;;vertical-align:top;">
+                <div class="sheet-bulle">
+                    <span class="sheet-carac">muscle</span><br/>
+                    <input type="number" name="attr_muscle" class="sheet-carac" value="2" min="2" max="4" title="Muscle" />
+                    <button type="roll" name="Muscle" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=Muscle}} {{subtags=Jet}} {{carac=[[@{muscle}]]}} {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                </div>
+            </div>
+            <div class="sheet-ligne">
+                <table>
+                    <tr>
+                        <td style="text-align:left;">
+                            <div class="sheet-bulle">
+                                <span class="sheet-carac">cervelle</span><br/>
+                                <input type="number" name="attr_cervelle" class="sheet-carac" value="2" min="2" max="4" title="Cervelle" />
+                                <button type="roll" name="Cervelle" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=Cervelle}} {{subtags=Jet}} {{carac=[[@{cervelle}]]}}  {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                            </div>
+                        </td>
+                        <td style="text-align:right;">
+                            <div class="sheet-bulle">
+                                <span class="sheet-carac">coeur</span><br/>
+                                <input type="number" name="attr_coeur" class="sheet-carac" value="2" min="2" max="4" title="Coeur" />
+                                <button type="roll" name="Coeur" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=Coeur}} {{subtags=Jet}} {{carac=[[@{coeur}]]}} {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>                
+        </div>            
     </div>  <!-- FIN MILIEU -->
     <div class="sheet-ligne"> <!-- BAS -->
         <div class="sheet-mycol"> <!-- Super pouvoir -->
             <div class="sheet-ligne">
                 <div class="sheet-lib2">super pouvoir : </div>
-                <input type="text" name="attr_superpouvoir" class="sheet-inpnom" style="width:230px;" placeholder="Super Pouvoir" title="Super Pouvoir" />
-            </div>
+                <input type="text" name="attr_superpouvoir" class="sheet-inpnom" style="width:230px;" placeholder="Super Pouvoir" title="Super Pouvoir" /> 
+            </div>            
             <div class="sheet-info">effet|puissance|contrôle|coût|restriction</div>
             <fieldset class="repeating_supereffets">
                 <div class="sheet-ligne">
@@ -96,11 +100,11 @@
                     <input type="number" name="attr_effetpuissance" value="0" title="Puissance" />
                     <input type="number" name="attr_effetcontrole" value="0" title="Contrôle" />
                     <input type="number" name="attr_effetcout" value="0" title="Coût" />
-                    <button type="roll" name="SuperPouvoir" class="sheet-macrobt" title="Jet" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}" />
+                    <button type="roll" name="SuperPouvoir" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=@{effetnom}}} {{subtags=Pouvoir}} {{carac=[[@{effetcontrole}]]}} {{jet1=[[1d6]]}} {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
                 </div>
                 <div class="sheet-ligne" style="border-bottom: 1px solid black;">
                     <input type="text" name="attr_effetrestriction" class="sheet-inpdesc" style="width:358px;" placeholder="Description, Restriction, Durée ..." title="Description, Restriction, Durée ..." />
-                    <button type="roll" name="InfoPouvoir" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <button type="roll" name="InfoPouvoir" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Super pouvoir -->
@@ -114,13 +118,33 @@
                         <OPTION>Amitié</OPTION>
                         <OPTION>Amour</OPTION>
                         <OPTION>Famille</OPTION>
-                        <OPTION>Travail</OPTION>
+                        <OPTION>Travail</OPTION>                        
                     </SELECT>
-                    <input type="number" name="attr_relationintensite" value="0" title="Intentisé" />
-                    <button type="roll" name="Relation" class="sheet-macrobt" title="Jet" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}" />
-                    <button type="roll" name="InfoRelation" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <input type="number" name="attr_relationintensite" value="0" title="Intensité" />
+                    <button type="roll" name="Relation" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=@{relationnom}}} {{subtags=Relation}} {{carac=[[@{relationintensite}]]}} {{jet1=[[1d6]]}} {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                    <button type="roll" name="InfoRelation" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Relations -->
     </div>  <!-- FIN BAS -->
 </div>
+<!-- TEMPLATES -->
+<rolltemplate class="sheet-rolltemplate-ssix">
+    <table>
+        <tr>
+            <th>{{name}}</th>
+            <th style="text-align: right;font-weight:normal;">{{#carac}}{{carac}}{{/carac}}</th>
+        </tr>
+        <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#carac}}
+            <tr><td>Dé n°1</td><td>{{jet1}}</td></tr>
+            <tr><td>Dé n°2</td><td>{{jet2}}</td></tr>
+            {{#rollGreater() carac 2}}
+                <tr><td>Dé n°3</td><td>{{jet3}}</td></tr>
+            {{/rollGreater() carac 2}}
+            {{#rollGreater() carac 3}}
+                <tr><td>Dé n°4</td><td>{{jet4}}</td></tr>
+            {{/rollGreater() carac 3}}
+        {{/carac}}
+    </table>
+</rolltemplate>
