@@ -8,9 +8,9 @@
 <input type="radio" name="attr_sheetRolls" value="0" class="sheet-actionRoll" checked="checked" title="Jet de Caractéristiques et Compétences en utilisant les paramètres de la section Action" /><span>section Action</span>
 <input type="radio" name="attr_sheetRolls" value="1" class="sheet-macroRoll" title="Jet de Caractéristiques et Compétences demandent les paramètres un par un" /><span>Questions</span>
 <div style="display:inline-block;font-size:11px;color: #888888;text-align:left;font-weight: bold;margin-left:0px;">- Utiliser :</div>
-<input type="checkbox" name="attr_sheetUseAsset" value="1" class="sheet-chkUseAsset" title="Ask for/Use assets in attributes, skills and attacks rolls"  /><span>Atouts</span>
-<input type="checkbox" name="attr_sheetUseBonus" value="1" class="sheet-chkUseBonus" title="Ask for/Use roll bonus in attributes, skills and attacks rolls"  /><span>Bonus</span>
-<input type="checkbox" name="attr_sheetUseCost" value="1" class="sheet-chkUseCost" title="Ask for/Use cost in attributes and skills rolls"  /><span>Coûts</span><div style="display:inline-block;font-size:11px;color: #888888;text-align:left;margin-left:0px;">- v1.5 (2015-12-22)</div>
+<input type="checkbox" name="attr_sheetUseAsset" value="1" class="sheet-chkUseAsset" title="Demander / Utiliser les Atouts dans les jets de Caractéristiques, Compétences et Attaques"  /><span>Atouts</span>
+<input type="checkbox" name="attr_sheetUseBonus" value="1" class="sheet-chkUseBonus" title="Demander / Utiliser les Bonus dans les jets de Caractéristiques, Compétences et Attaques"  /><span>Bonus</span>
+<input type="checkbox" name="attr_sheetUseCost" value="1" class="sheet-chkUseCost" title="Demander / Utiliser les Coûts dans les jets de Caractéristiques et Compétences"  /><span>Coûts</span><div style="display:inline-block;font-size:11px;color: #888888;text-align:left;margin-left:0px;">- v1.5 (2015-12-22)</div>
 <script type="text/worker">
     on("change:sheetusebonus", function() {
         getAttrs(["sheetUseBonus"], function(values) {

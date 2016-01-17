@@ -384,6 +384,8 @@ var TAS = TAS || (function(){
                 arrayLength = TabEq.length;
                 if (arrayLength > 0){
                     setAttrs({todoequip: ""});
+                    var poidsligne = 0.0;
+                    var totpoids = 0.0;
                     for (var i = 0; i < arrayLength; i++) {
                         obj=JSON.parse(TabEq[i]);
                         newrowid = generateRowID();
@@ -391,24 +393,13 @@ var TAS = TAS || (function(){
                         newrowattrs["repeating_equipement_" + newrowid + "_equipnom"] = obj.nom;
                         newrowattrs["repeating_equipement_" + newrowid + "_equipqte"] = obj.qte;
                         newrowattrs["repeating_equipement_" + newrowid + "_equippoids"] = obj.poids;
-                        newrowattrs["repeating_equipement_" + newrowid + "_equippoidstot"] = ((parseFloat(obj.qte) || 1.0) * (parseFloat(obj.poids) || 0.0)).toFixed(1);
+                        poidsligne = ((parseFloat(obj.qte) || 1.0) * (parseFloat(obj.poids) || 0.0)).toFixed(1);
+                        totpoids = (parseFloat(totpoids) || 0.0) + (parseFloat(poidsligne) || 0.0);
+                        newrowattrs["repeating_equipement_" + newrowid + "_equippoidstot"] = poidsligne;
                         setAttrs(newrowattrs);
                     }
-                    // TAS.repeatingSimpleSum('equipement','equippoidstot','encombrement');
-                    TAS.repeating('equipement')  /* declares the repeating set to work on */
-                                .fields('equippoidstot') /* declares the fields to be available for each row */
-                                .attrs('encombrement')   /* declares the attributes to be available */
-                                .reduce(function(m,r){   /* the reduce function executed for each row, */
-                                                         /*   m is the memo returned from each iteration */
-                                    m.total += r.F.equippoidstot;  /* adds the floating point value to the memo's total */
-                                    return m;            /* returns the memo for the next iteration */
-                                },
-                                { total: 0},             /* the initial value of the memo, an object with total= 0 */
-                                function(m,r,a){         /* the final function called with the results of the reduce */
-                                    a.D[1].encombrement = m.total;  /* set the total encombrement with 2 decimal places */
-                                    PMT.majEncombrement();  /* call the other function */
-                                })
-                                .execute();  /* causes all of the above to be run. */
+                    setAttrs({encombrement: totpoids});
+                    PMT.majEncombrement();
                 }            
             }
         });
@@ -635,9 +626,9 @@ var TAS = TAS || (function(){
 <div class="sheet-mainBg" style="width:832px;">
     <table style="width:100%;"> <!-- portrait, nom, classe etc... -->
         <tr>
-            <td style="width:300px;text-align:center;">
+            <td style="width:260px;text-align:center;vertical-align:top;">
                 <img style="width:100%" src="http://lh4.googleusercontent.com/-Lx2C7ZSAnYE/VHYzI6JcLWI/AAAAAAAATLw/agtXHfY_jPM/w976-h85-no/FdPLogo2.png"/>
-                <img style="width:180px;" src="http://lh5.googleusercontent.com/-RtdTN5mdBt8/VHCVJdiLETI/AAAAAAAATJQ/qH2mckC0xG0/w823-h646-no/dragon_noir.png"/>
+                <img style="width:200px;" src="http://lh5.googleusercontent.com/-RtdTN5mdBt8/VHCVJdiLETI/AAAAAAAATJQ/qH2mckC0xG0/w823-h646-no/dragon_noir.png"/>
             </td> <!-- FIN portrait -->
             <td style="width:530px;"> <!--titre, nom, classe ... -->
                 <table style="width:100%;">
@@ -672,7 +663,7 @@ var TAS = TAS || (function(){
                     </tr>
                     <tr>
                         <td><input class="sheet-inMainTxt" type="text" name="attr_titre" placeholder="Titre" /></td>
-                        <td colspan="2"><input class="sheet-inMainTxt" type="text" name="attr_langues" style="width:250px;" placeholder="Langues supplémentaires" /></td>
+                        <td colspan="2"><input class="sheet-inMainTxt" type="text" name="attr_langues" style="width:300px;" placeholder="Langues supplémentaires" /></td>
                     </tr>
                     <tr>
                         <td class="sheet-libel1">Titre</td>
