@@ -1,3 +1,81 @@
+/************** TEMPLATES ********************/
+.sheet-rolltemplate-ssix table.sheet-tab{
+    width: 189px;
+    padding: 2px;
+    border: 1px solid black;
+    background-color: white;
+    font-family: 'Bangers',cursive;
+    font-size: 1em;
+    color: black;
+}
+.sheet-rolltemplate-ssix tr{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.sheet-rolltemplate-ssix th{
+    padding: 3px;
+    font-size: 1.1em;
+    text-align: center;
+    font-variant: small-caps;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+}
+.sheet-rolltemplate-ssix td{
+    padding: 2px;
+    font-size: 1em;
+}
+.sheet-rolltemplate-ssix td.sheet-subheader{
+    font-style: italic;
+    text-align: right;
+    border-bottom: 1px dashed black;
+}
+.sheet-rolltemplate-ssix td.sheet-tcat{
+    font-color: #FF8080;
+    font-style: italic;
+    font-size: 0.9em;
+}
+.sheet-rolltemplate-ssix .inlinerollresult{
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-ssix .inlinerollresult.fullcrit{
+    color: #3FB315;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-ssix .inlinerollresult.fullfail{
+    color: #B31515;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-ssix .inlinerollresult.importantroll{
+    color: #4A57ED;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
 /******** DIVERS ***********************************************/
 @font-face {
   font-family: 'Bangers';
@@ -29,12 +107,16 @@ td{
 div{
     margin: none;
     padding: none;
+    background-color: transparent;
 }
 div.sheet-main{
-    width: 832px;
-    background: white;
+    width: 832px;    
     text-align:center;
     font-family: 'Bangers',cursive;
+    background-image: url('https://lh3.googleusercontent.com/-PEUr5SrYlkU/Vpt_kkrpDXI/AAAAAAAAYEE/0cfcTYxEEbI/s720-Ic42/Supersix_fond.png');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
 }
 div.sheet-lib1{
     display: inline-block;
@@ -77,13 +159,15 @@ div.sheet-mycol{
     vertical-align: top;
     width: 400px;
     min-height: 80px;
-    margin: 3px;
-    padding: 5px;
-    border: 1px solid black;
     text-align: left;
-    box-shadow: 5px 5px 3px #888888;
-    border-radius: 3px;
+    margin: 3px;
     background-color: #EEEEEE;
+    border: 10px solid transparent;
+    padding: 0px 0px 24px 0px;
+    border-image-source: url('https://lh3.googleusercontent.com/-fKPp8eLKtjQ/VptzCukizaI/AAAAAAAAYDo/p4cZllhW_gQ/s450-Ic42/boxcol.png');
+    border-image-repeat: round;    
+    border-image-slice: 60;
+    border-image-width: 45px;
 }
 div.sheet-jauge{
     width:250px;
@@ -94,24 +178,26 @@ div.sheet-jauge{
     /* border: 1px solid blue; */
 }
 div.sheet-centre{
-    width:540px;
+    width:550px;
     display: inline-block;
-    min-height: 250px;
+    min-height: 475px;
     /* border: 1px solid blue; */
-    background-image: url('https://lh3.googleusercontent.com/-G6YUbdCT_oA/VpAOYlNt2JI/AAAAAAAAX9w/_Xgty_VnECE/s541-Ic42/Supersix_logo.png');
+    background-image: url('https://lh3.googleusercontent.com/-cxnOoyx_NcI/Vpt7bXV06SI/AAAAAAAAYD4/AtQl6z3J6Uc/s550-Ic42/Supersix_logo2.png');
     background-repeat:no-repeat;
     background-position:center center;
-    background-size: cover; /* 270px 134px;    */
+    background-size: cover;
+    padding:10px;
+    position: relative;
 }
 div.sheet-bulle{
     width: 150px;
     height: 80px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     border-radius: 40px;
-    background-color: white;
+    background-color: transparent;
     text-align: center;
     display: inline-block;
-    box-shadow:  0px 0px 15px 8px #ffffff;
+    /* box-shadow:  0px 0px 15px 8px #ffffff; */
 }
 span.sheet-carac{
     text-align: center;
@@ -160,7 +246,7 @@ input[type="text"].sheet-inpnom{
 input[type="text"].sheet-inpdesc{
     font-size: 12px;
     font-weight: normal;
-    width: 255px;
+    width: 250px;
 }
 input[type="text"].sheet-inpeffet{
     font-size: 13px;
@@ -238,7 +324,6 @@ input[type="radio"].sheet-jauge
     cursor: pointer;
     z-index: 1;
 }
-
 /* Fake radio */
 input[type="radio"].sheet-jauge + span::before
 {
@@ -256,95 +341,14 @@ input[type="radio"].sheet-jauge + span::before
     border-color: black;
     box-shadow: 5px 5px 3px #888888;    
     vertical-align: middle;
-    color: red;
-    background-color: red;
+    color: #FF8080;
+    background-color: #FF8080;
 }
-
 /* Remove dot from all radios _after_ selected one */
 input[type="radio"].sheet-jauge:checked ~ input[type="radio"].sheet-jauge + span::before
 {    
     content: "";
     content: attr(value);
-    color:green;
-    background-color: green;
-}
-/************** TEMPLATES ********************/
-/* TEMPLATES */
-.sheet-rolltemplate-ssix hr{
-    padding: 0px;
-    margin: 2px;
-    border-style: dashed;
-    border-width: 1px;
-    border-color: black;
-}
-.sheet-rolltemplate-ssix table{
-    width: 189px;
-    padding: 2px;
-    border: 1px solid black;
-    background-color: white;
-    font-family: 'Bangers',cursive;
-    font-size: 1em;
-    color: black;
-}
-.sheet-rolltemplate-ssix tr{
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-right: 0px;
-    padding-left: 0px;
-}
-.sheet-rolltemplate-ssix th{
-    padding: 3px;
-    font-size: 1.2em;
-    text-align: left;
-    font-variant: small-caps;
-    font-weight: bold;
-    color: white;
-    background-color: black;
-}
-.sheet-rolltemplate-ssix .sheet-subheader{
-    font-style: italic;
-    text-align: right;
-}
-.sheet-rolltemplate-ssix td{
-    padding-left: 5px;
-    font-size: 14px;
- }
-.sheet-rolltemplate-ssix .inlinerollresult{
-    font-size: 1em;
-    background-color: transparent;
-    border-width: 0px 0px 0px 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: none;
-}
-.sheet-rolltemplate-ssix .inlinerollresult.fullcrit{
-    color: #3FB315;
-    font-size: 1em;
-    background-color: transparent;
-    border-width: 0px 0px 0px 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: none;
-}
-.sheet-rolltemplate-ssix .inlinerollresult.fullfail{
-    color: #B31515;
-    font-size: 1em;
-    background-color: transparent;
-    border-width: 0px 0px 0px 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: none;
-}
-.sheet-rolltemplate-ssix .inlinerollresult.importantroll{
-    color: #4A57ED;
-    font-size: 1em;
-    background-color: transparent;
-    border-width: 0px 0px 0px 0px;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
-    border-bottom-style: none;
+    color:#80D180;
+    background-color: #80D180;
 }

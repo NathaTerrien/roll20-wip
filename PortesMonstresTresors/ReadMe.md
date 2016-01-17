@@ -45,8 +45,11 @@ Par défaut, le personnage créé est attribué au joueur qui a cliqué dans le 
 # Notes de version
 ##v3.1 (14 Janvier 2016).
 * Ajout du nom du personnage sur tous les templates de jet dans le chat (utile lorsqu'un joueur contrôle plusieurs personnages)
+* Ajout de champs de saisie pour le titre et les langues supplémentaires du personnage
 * Agrandissement de la zone du modificateur de DEX pour le calcul de la CA (une valeur négative n'était pas visible)
 * Correction du calcul automatique des distances de mouvement en fonction de l'encombrement
+* Correction de l'indicateur de succès ou d'échec sur les jets de caractéristiques : un résultat égal est une réussite
+* Correction du jets de dégâts des attaques : le minimum affiché est désormais 1
 * Mise à jour du [script API](pmt.js) de création de personnage :
   * Correction des sorts de Clerc : désormais, tous les sorts de niveau 1 sont ajoutés à la feuille
   * La CA ascendante est désormais activée par défaut

@@ -671,6 +671,14 @@ var TAS = TAS || (function(){
                         <td class="sheet-libel1">Alignement</td>
                     </tr>
                     <tr>
+                        <td><input class="sheet-inMainTxt" type="text" name="attr_titre" placeholder="Titre" /></td>
+                        <td colspan="2"><input class="sheet-inMainTxt" type="text" name="attr_langues" style="width:250px;" placeholder="Langues supplémentaires" /></td>
+                    </tr>
+                    <tr>
+                        <td class="sheet-libel1">Titre</td>
+                        <td class="sheet-libel1" colspan="2">Langues supplémentaires</td>                        
+                    </tr>
+                    <tr>
                         <td>
                             <input class="sheet-inMainNum" type="number" name="attr_XP" style="width: 80px;text-align:right;" value="0" />
                             <b>/</b>
@@ -1536,7 +1544,7 @@ var TAS = TAS || (function(){
             <div style="display:table-cell;border-left: 1px solid black;padding:5px;"></div>
             <div style="display: table-cell;width:300px;"> <!-- CELL EQUIP DIVERS -->
                 <div class="sheet-libel1">Divers</div>
-                <textarea name="attr_equip-divers"  title="Équipement divers" placeholder="Équipement divers"></textarea>
+                <textarea name="attr_equip-divers"  title="Équipement divers" placeholder="Notes & Équipement divers"></textarea>
             </div> <!-- FIN CELL EQUIP DIVERS -->
         </div>
     </div> <!-- FIN EQUIPEMENT -->
@@ -1555,12 +1563,12 @@ var TAS = TAS || (function(){
             <tr><td><span class="tcat">PV gagnés : </span>{{DV}}</td></tr>
         {{/DV}}
         {{#carac}}
-            <tr><td><span class="tcat">Jet : </span>{{carac}} &lt; {{target}}</td></tr>
+            <tr><td><span class="tcat">Jet : </span>{{carac}} &lt;= {{target}}</td></tr>
             {{#rollGreater() carac target}}
                 <tr><td class="subheader" style="color:red;"><b>Échec !</b></td></tr>
             {{/rollGreater() carac target}}
             {{#rollTotal() carac target}}
-                <tr><td class="subheader" style="color:red;"><b>Échec !</b></td></tr>
+                <tr><td class="subheader" style="color:green;"><b>Réussite !</b></td></tr>
             {{/rollTotal() carac target}}
             {{#rollLess() carac target}}
                 <tr><td class="subheader" style="color:green;"><b>Réussite !</b></td></tr>
@@ -1617,7 +1625,12 @@ var TAS = TAS || (function(){
         {{#attaque}}
             <tr><td><span class="tcat">Jet : </span>{{attaque}} contre CA</td></tr>
             {{#degats}}
-                <tr><td><span class="tcat">Dégâts : </span>{{degats}}</td></tr>
+                {{#rollLess() degats 1}}
+                    <tr><td><span class="tcat">Dégâts : </span>1</td></tr>
+                {{/rollLess() degats 1}}
+                {{#rollGreater() degats 0}}
+                    <tr><td><span class="tcat">Dégâts : </span>{{degats}}</td></tr>
+                {{/rollGreater() degats 0}}
             {{/degats}}
             {{#rollWasCrit() attaque}}
                 <tr><td><span class="tcat">Dégâts maximum : </span>{{critique}}</td></tr>

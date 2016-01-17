@@ -1,0 +1,99 @@
+/* Références de couleur 
+Du plus foncé au plus clair
+
+Ligne Rouge : D1232A
+
+Noir texte : 231F20
+
+Marrons :
+---------
+Logo : 231F20
+Bordure : 331912
+Fond1 : 4F2A1B
+Fond2 : 4F2A1A
+Fond3 : 704D40
+Fond4 : 999185
+Fond5 : D3C7C1
+
+Bleus :
+-------
+Fond1 : 417280
+Fond2 : 427280
+Fond3 : 
+Fond4 : 7E9DA8
+Fond5 : D6E1E6
+
+*/
+div,
+button,
+textarea,
+span,
+input,
+select,
+table,
+tr,
+td,
+th{
+    box-sizing: border-box;
+}
+/********* INPUTS *************************************************/ sheet-styleArriere sheet-styleAvant
+input[type=radio].sheet-styleINS,
+input[type=radio].sheet-styleMV,
+input[type=radio].sheet-styleArriere,
+input[type=radio].sheet-styleAvant{
+    margin-left: 2px;
+    margin-right: 1px;
+    display: inline-block;
+}
+input[type=radio].sheet-styleINS + span,
+input[type=radio].sheet-styleMV + span,
+input[type=radio].sheet-styleArriere + span,
+input[type=radio].sheet-styleAvant + span{
+    font-size:11px;
+    color: #888888;
+    text-align:left;
+    display: inline-block;
+}
+span.sheet-smallspan{
+    font-size:11px;
+    color: #888888;
+    text-align:left;
+}
+/******* SELECTS *************************************************/
+
+
+/*** DIV *********************************************************/
+div.sheet-main{
+    width: 832px;
+    background: white;
+    text-align:center;
+}
+div.sheet-libel1{
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: right;
+}
+div.sheet-logoINS{
+    display: inline;
+}
+div.sheet-logoMV{
+    display: inline;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main div.sheet-logoINS,
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main div.sheet-logoMV{
+    display: inline;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main div.sheet-logoMV,
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main div.sheet-logoINS{
+    display: none;
+}
+/*** GENERIC *********************************************************/
+input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main .sheet-arriere,
+input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main div.sheet-avant{
+    display: inline-block;
+}
+input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main div.sheet-avant,
+input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main div.sheet-arriere{
+    display: none;
+}
