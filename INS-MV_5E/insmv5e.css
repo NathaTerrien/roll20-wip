@@ -1,4 +1,4 @@
-/* Références de couleur 
+/* Références de couleur
 Du plus foncé au plus clair
 
 Ligne Rouge : D1232A
@@ -19,7 +19,7 @@ Bleus :
 -------
 Fond1 : 417280
 Fond2 : 427280
-Fond3 : 
+Fond3 :
 Fond4 : 7E9DA8
 Fond5 : D6E1E6
 
@@ -36,7 +36,7 @@ td,
 th{
     box-sizing: border-box;
 }
-/********* INPUTS *************************************************/ sheet-styleArriere sheet-styleAvant
+/********* INPUTS *************************************************/ /* sheet-styleArriere sheet-styleAvant */
 input[type=radio].sheet-styleINS,
 input[type=radio].sheet-styleMV,
 input[type=radio].sheet-styleArriere,
@@ -59,20 +59,66 @@ span.sheet-smallspan{
     color: #888888;
     text-align:left;
 }
+input{
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    line-height: 0px;
+    color: black;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1em;
+    font-weight: normal;
+    border-radius: 0px;
+
+}
+input[type="text"]{
+    border-bottom: 1px dotted #231F20;
+}
+input[type="number"]{
+    text-align: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input[type="number"]{
+    -moz-appearance:textfield;
+}
 /******* SELECTS *************************************************/
-
-
+select{
+    border: none;
+    box-shadow: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0;
+    line-height: 0px;
+    color: black;
+    width: 100px;
+    height: 22px;
+}
 /*** DIV *********************************************************/
 div.sheet-main{
     width: 832px;
     background: white;
     text-align:center;
+    font-family: 'Verdana';
+}
+div.sheet-ligne{
+    display: block;
+    width: 100%;
+    vertical-align: top;
 }
 div.sheet-libel1{
+    color: #231F20;
     display: inline-block;
-    font-size: 1.3em;
+    font-size: 1.1em;
     font-weight: bold;
     text-align: right;
+    width: 100px;
+    border: 1px solid red;
 }
 div.sheet-logoINS{
     display: inline;
@@ -88,12 +134,25 @@ input[type="radio"].sheet-styleINS:checked ~ div.sheet-main div.sheet-logoMV,
 input[type="radio"].sheet-styleMV:checked ~ div.sheet-main div.sheet-logoINS{
     display: none;
 }
+/*** TABLES  *********************************************************/
+table{
+    width: 100%;
+}
+td{
+    vertical-align: top;
+}
+td.sheet-coltitre{
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+    color: #231F20;
+}
 /*** GENERIC *********************************************************/
 input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main .sheet-arriere,
-input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main div.sheet-avant{
+input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-avant{
     display: inline-block;
 }
-input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main div.sheet-avant,
-input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main div.sheet-arriere{
+input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main .sheet-avant,
+input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-arriere{
     display: none;
 }

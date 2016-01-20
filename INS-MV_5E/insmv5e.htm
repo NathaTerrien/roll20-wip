@@ -1,5 +1,5 @@
 <!-- ******** FDP ********************************* -->
-<!-- Logos 
+<!-- Logos
 INS ARRIERE : https://lh3.googleusercontent.com/-C3H43E3xSIc/VpoopFfcMgI/AAAAAAAAYCU/XFX4goZu6w8/s580-Ic42/logo_ins_arriere.jpg
 INS AVANT : https://lh3.googleusercontent.com/-PTxnHz_0jbI/VpoopOO4CbI/AAAAAAAAYCU/PxNgR_Bjps8/s580-Ic42/logo_ins_avant.jpg
 MV ARRIERE : https://lh3.googleusercontent.com/-WAOf5pZe4RU/VpoopDYhzRI/AAAAAAAAYCU/54Xj4-zqPHw/s580-Ic42/logo_mv_arriere.jpg
@@ -12,10 +12,10 @@ MV AVANT : https://lh3.googleusercontent.com/-kJQKVcNvUQ4/VpoopDQEh0I/AAAAAAAAYC
 <input type="radio" name="attr_avant" value="0" class="sheet-styleArriere" title="Avant Arrière" checked="checked" /><span>Arrière</span>
 <input type="radio" name="attr_avant" value="1" class="sheet-styleAvant" title="Plage Avant" /><span>Avant</span>
 <div class="sheet-main">
-    <div> <!-- En-tête -->
+    <div class="sheet-ligne"> <!-- En-tête -->
         <table>
             <tr>
-                <td style="width:150px;"> <!-- Logo PV PP -->
+                <td style="width:200px;"> <!-- Logo PV PP -->
                     <div class="sheet-logoINS">
                         <img class="sheet-arriere" src="https://lh3.googleusercontent.com/-C3H43E3xSIc/VpoopFfcMgI/AAAAAAAAYCU/XFX4goZu6w8/s580-Ic42/logo_ins_arriere.jpg" />
                         <img class="sheet-avant" src="https://lh3.googleusercontent.com/-PTxnHz_0jbI/VpoopOO4CbI/AAAAAAAAYCU/PxNgR_Bjps8/s580-Ic42/logo_ins_avant.jpg" />
@@ -38,12 +38,210 @@ MV AVANT : https://lh3.googleusercontent.com/-kJQKVcNvUQ4/VpoopDQEh0I/AAAAAAAAYC
                         <div class="sheet-libel1">APPARENCE</div>
                         <input type="text" name="attr_character_name" style="" />
                     </div>
+                    <div class="sheet-ligne">
+                        <table>
+                            <tr>
+                                <td><input type="number" class="sheet-pvppinpmax" name="attr_pv_max" value="0" min="0" max="0" title="Points de Vie de départ"/></td>
+                                <td><div class="sheet-pvppbiglib">PV</div></td>
+                                <td><input type="number" class="sheet-pvppinp" name="attr_pv" value="0" min="0" max="0" title="Points de Vie actuels"/></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-libpetit">DÉPART</td>
+                                <td><div class="sheet-pvpplib">POINTS DE VIE</div></td>
+                                <td class="sheet-libpetit">ACTUELS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="sheet-ligne">
+                        <table>
+                            <tr>
+                                <td><input type="number" class="sheet-pvppinpmax" name="attr_pp_max" value="0" min="0" max="0" title="Points de Pouvoir de départ"/></td>
+                                <td><div class="sheet-pvppbiglib">PP</div></td>
+                                <td><input type="number" class="sheet-pvppinp" name="attr_pp" value="0" min="0" max="0" title="Points de Pouvoir actuels"/></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-libpetit">DÉPART</td>
+                                <td><div class="sheet-pvpplib">POINTS DE POUVOIR</div></td>
+                                <td class="sheet-libpetit">ACTUELS</td>
+                            </tr>
+                        </table>
+                    </div>
                 </td> <!-- FIN Identité -->
                 <td> <!-- Caractéristiques -->
-                    <div class="" style="transform: rotate(90deg);">CARACTÉRISTIQUES</div>
+                    <div class="sheet-arriere">
+                        <table>
+                            <tr><th COLSPAN="3">CARACTÉRISTIQUES</th></tr>
+                            <tr>
+                                <td class="sheet-caraclib">FORCE</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_arriereforce" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet de FORCE" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">VOLONTÉ</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_arrierevolonte" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet de VOLONTÉ" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">AGILITÉ</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_arriereagilite" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet d'AGILITÉ" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">PERCEPTION</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_arriereperception" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet de PERCEPTION" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">APPARENCE</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_arriereapparence" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet d'APPARENCE" value="" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="sheet-avant">
+                        <table>
+                            <tr>
+                                <td class="sheet-caraclib">FORCE</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_avantforce" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet de FORCE" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">VOLONTÉ</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_avantvolonte" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet de VOLONTÉ" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">AGILITÉ</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_avantagilite" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet d'AGILITÉ" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">PERCEPTION</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_avantperception" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet de PERCEPTION" value="" /></td>
+                            </tr>
+                            <tr>
+                                <td class="sheet-caraclib">APPARENCE</td>
+                                <td class="sheet-caracinp"><input type="number" name="attr_avantapparence" class="sheet-caracinp" value="0" min="0" max="10" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btmac" title="Jet d'APPARENCE" value="" /></td>
+                            </tr>
+                        </table>
+                    </div>
                 </td> <!-- FIN CARACTÉRISTIQUES -->
             </tr>
         </table>
     </div> <!-- FIN En-tête -->
-</div>
+    <div class="sheet-ligne"> <!-- POUVOIRS -->
+        <div class="sheet-avant">
+            <table>
+                <tr><th COLSPAN="6">POUVOIRS (utilisable sous cette forme)</th></tr>
+                <tr>
+                    <td class="sheet-coltitre">&nbsp;</td>
+                    <td class="sheet-coltitre">NOM</td>
+                    <td class="sheet-coltitre">CARAC. ASSOCIÉE</td>
+                    <td class="sheet-coltitre">COÛT</td>
+                    <td class="sheet-coltitre">NB. D'ACTIONS</td>
+                    <td class="sheet-coltitre">DESCRIPTION</td>
+                </tr>
+            </table>
+            <fieldset class="repeating_avantpouvoirs">
+                <table>
+                    <tr>
+                        <td class="sheet-colinp">
+                            <button type="roll" class="sheet-btRoll" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="text" name="attr_avpouvnom" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <SELECT name="attr_avpouvcarac">
+                                <OPTION value="@{avantforce}">Force</OPTION>
+                                <OPTION value="@{avantvolonte}">Volonté</OPTION>
+                                <OPTION value="@{avantagilite}">Agilité</OPTION>
+                                <OPTION value="@{avantperception}">Perception</OPTION>
+                                <OPTION value="@{avantapparence}">Apparence</OPTION>
+                            </SELECT>
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="number" name="attr_avpouvcout" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="number" name="attr_avpouvactions" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="text" name="attr_avpouvdescription" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </div> <!-- FIN POUVOIRS -->
+    <div class="sheet-ligne"> <!-- COMBATS -->
+        <div class="sheet-avant">
+            <table>
+                <tr><th COLSPAN="5">COMBAT</th></tr>
+                <tr>
+                    <td class="sheet-coltitre">&nbsp;</td>
+                    <td class="sheet-coltitre">ATTAQUE</td>
+                    <td class="sheet-coltitre">CARAC. ASSOCIÉE</td>
+                    <td class="sheet-coltitre">DÉGÂTS</td>
+                    <td class="sheet-coltitre">EFFETS PARTICULIERS</td>
+                </tr>
+            </table>
+            <fieldset class="repeating_combat">
+                <table>
+                    <tr>
+                        <td class="sheet-colinp">
+                            <button type="roll" class="sheet-btRoll" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="text" name="attr_atknom" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <SELECT name="attr_atkcarac">
+                                <OPTION value="@{avantforce}">Force</OPTION>
+                                <OPTION value="@{avantvolonte}">Volonté</OPTION>
+                                <OPTION value="@{avantagilite}">Agilité</OPTION>
+                                <OPTION value="@{avantperception}">Perception</OPTION>
+                                <OPTION value="@{avantapparence}">Apparence</OPTION>
+                            </SELECT>
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="number" name="attr_atkdegats" />
+                        </td>
+                        <td class="sheet-colinp">
+                            <input type="number" name="attr_atkeffets" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </div> <!-- FIN COMBATS -->
+    <div class="sheet-ligne"> <!-- AVANTAGES / DEFAUTS -->
+        <table>
+            <tr><th>AVANTAGES</th><th>DÉFAUT</th></tr>
+            <tr>
+                <td>
+                    <textarea name="attr_materiel" class="sheet-grandtxt"></textarea>
+                </td>
+                <td>
+                    <textarea name="attr_materiel" class="sheet-grandtxt"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div> <!-- FIN AVANTAGES / DEFAUTS -->
+    <div class="sheet-ligne"> <!-- MATERIEL / NOTES -->
+        <table>
+            <tr><th>MATÉRIEL</th><th>NOTES</th></tr>
+            <tr>
+                <td>
+                    <textarea name="attr_materiel" class="sheet-grandtxt"></textarea>
+                </td>
+                <td>
+                    <textarea name="attr_materiel" class="sheet-grandtxt"></textarea>
+                </td>
+            </tr>
+        </table>
+    </div> <!-- FIN MATERIEL / NOTES -->
+</div> <!-- FIN FDP -->
 <!-- ******** TEMPLATES *************************** -->
