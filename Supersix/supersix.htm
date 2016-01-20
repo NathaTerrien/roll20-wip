@@ -1,58 +1,3 @@
-<!-- TEMPLATES -->
-<rolltemplate class="sheet-rolltemplate-ssix">
-    <table class="sheet-tab">
-        <tr><th colspan="2">{{name}}</th></tr>
-        <tr><td colspan="2" class="sheet-subheader">{{subtags}}</td></tr>
-        {{#jetpouvoir}}
-            <tr><td class="sheet-tcat" style="color: #80D180;">Dé de Pouvoir</td><td>{{jetpouvoir}}</td></tr>
-            {{#rollTotal() jetpouvoir 1}}
-                <tr><td colspan="2" style="color: red;font-weight: bold;text-align:center;">Le pouvoir ne fonctionne pas</td></tr>
-                {{#rollTotal() jetpuissance 2}}
-                    <tr><td colspan="2" style="color: red;font-weight: normal;text-align:left;">Fatigue : 1 case maximum par scène</td></tr>
-                {{/rollTotal() jetpuissance 2}}
-                {{#rollTotal() jetpuissance 3}}
-                    <tr><td colspan="2" style="color: red;font-weight: normal;text-align:left;">Fatigue : 2 cases maximum par scène</td></tr>
-                {{/rollTotal() jetpuissance 3}}
-                {{#rollTotal() jetpuissance 4}}
-                    <tr><td colspan="2" style="color: red;font-weight: normal;text-align:left;">Fatigue : 3 cases maximum par scène</td></tr>
-                {{/rollTotal() jetpuissance 4}}
-            {{/rollTotal() jetpouvoir 1}}
-        {{/jetpouvoir}}
-        {{#carac}}
-            <tr><td class="sheet-tcat">Dé n°1</td><td>{{jet1}}</td></tr>
-            {{#rollGreater() carac 1}}
-                <tr><td class="sheet-tcat">Dé n°2</td><td>{{jet2}}</td></tr>
-            {{/rollGreater() carac 1}}
-            {{#rollGreater() carac 2}}
-                <tr><td class="sheet-tcat">Dé n°3</td><td>{{jet3}}</td></tr>
-            {{/rollGreater() carac 2}}
-            {{#rollGreater() carac 3}}
-                <tr><td class="sheet-tcat">Dé n°4</td><td>{{jet4}}</td></tr>
-            {{/rollGreater() carac 3}}
-        {{/carac}}
-        {{#type}}
-            <tr><td class="sheet-tcat">Type</td><td>{{type}}</td></tr>
-        {{/type}}
-        {{#intensite}}
-            <tr><td class="sheet-tcat">Intensité</td><td>{{intensite}}</td></tr>
-        {{/intensite}}
-        {{#pouvoir}}
-            <tr><td class="sheet-tcat">Pouvoir</td><td>{{pouvoir}}</td></tr>
-        {{/pouvoir}}
-        {{#efficacite}}
-            <tr><td class="sheet-tcat">Efficacité</td><td>{{efficacite}}</td></tr>
-        {{/efficacite}}
-        {{#activation}}
-            <tr><td class="sheet-tcat">Activation</td><td>{{activation}}</td></tr>
-        {{/activation}}
-        {{#puissance}}
-            <tr><td class="sheet-tcat">Puissance</td><td>{{puissance}}</td></tr>
-        {{/puissance}}
-        {{#description}}
-            <tr><td colspan="2">{{description}}</td></tr>
-        {{/description}}
-    </table>
-</rolltemplate>
 <!-- FDP -->
 <div class="sheet-main">
     <div style="text-align:left;"><img style="width:300px;" src="https://lh3.googleusercontent.com/-rB6nBMObEzQ/VpAM5T9sflI/AAAAAAAAX9A/-7xEFkMw8VY/s614-Ic42/Supersix_fdp.png" /></div>
@@ -77,17 +22,17 @@
                 <input name="attr_gentillesse" type="number" value="0" />
                 <div class="sheet-lib1">vilenie : </div>
                 <input name="attr_vilenie" type="number" value="0" />
-            </div>        
+            </div>
         </div> <!-- FIN Identité -->
-    </div>  
-    <div class="sheet-ligne">        
+    </div>
+    <div class="sheet-ligne">
         <div class="sheet-mycol"> <!-- Forces  -->
             <div class="sheet-lib2">forces : </div>
             <fieldset class="repeating_forces">
                 <div class="sheet-ligne">
                     <input type="text" name="attr_forcenom" class="sheet-inpnom" placeholder="Force" title="Force" />
                     <input type="text" name="attr_forcedesc" class="sheet-inpdesc" placeholder="Description" title="Description" />
-                    <button type="roll" name="InfoForce" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{forcenom}}} {{subtags=Force}} {{description=@{forcedesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <button type="roll" name="InfoForce" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:supersix} {{name=@{forcenom}}} {{subtags=Force}} {{description=@{forcedesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 20px;height:20px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Forces  -->
@@ -97,7 +42,7 @@
                 <div class="sheet-ligne">
                     <input type="text" name="attr_faiblessenom" class="sheet-inpnom" placeholder="Faiblesse" title="Faiblesse" />
                     <input type="text" name="attr_faiblessedesc" class="sheet-inpdesc" placeholder="Description" title="Description" />
-                    <button type="roll" name="InfoFaiblesse" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{faiblessenom}}} {{subtags=Faiblesses}} {{description=@{faiblessedesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <button type="roll" name="InfoFaiblesse" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:supersix} {{name=@{faiblessenom}}} {{subtags=Faiblesses}} {{description=@{faiblessedesc}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 20px;height:20px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Faiblesses -->
@@ -121,36 +66,41 @@
         <div class="sheet-centre">
             <div class="sheet-bulle" style="position: absolute;left: 180px;top:50px;">
                 <input type="number" name="attr_muscle" class="sheet-carac" value="2" min="2" max="4" title="Muscle" />
-                <button type="roll" name="Muscle" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=Muscle}} {{subtags=Jet de Caractéristique}} {{carac=[[@{muscle}]]}} {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                <button type="roll" name="Muscle" class="sheet-macrobt" title="Jet" value="&{template:supersix} {{name=Muscle}} {{subtags=Jet de Caractéristique}} {{carac=[[@{muscle}]]}} {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
             </div>
             <div class="sheet-bulle" style="position: absolute;left:40px;top:380px;">
                 <input type="number" name="attr_cervelle" class="sheet-carac" value="2" min="2" max="4" title="Cervelle" />
-                <button type="roll" name="Cervelle" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=Cervelle}} {{subtags=Jet de Caractéristique}} {{carac=[[@{cervelle}]]}}  {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                <button type="roll" name="Cervelle" class="sheet-macrobt" title="Jet" value="&{template:supersix} {{name=Cervelle}} {{subtags=Jet de Caractéristique}} {{carac=[[@{cervelle}]]}}  {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
             </div>
             <div class="sheet-bulle" style="position: absolute;left:400px;top:380px;">
                 <input type="number" name="attr_coeur" class="sheet-carac" value="2" min="2" max="4" title="Coeur" />
-                <button type="roll" name="Coeur" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=Coeur}} {{subtags=Jet de Caractéristique}} {{carac=[[@{coeur}]]}} {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                <button type="roll" name="Coeur" class="sheet-macrobt" title="Jet" value="&{template:supersix} {{name=Coeur}} {{subtags=Jet de Caractéristique}} {{carac=[[@{coeur}]]}} {{jet1=[[1d6]]}}  {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
             </div>
-        </div>            
+        </div>
     </div>  <!-- FIN MILIEU -->
     <div class="sheet-ligne"> <!-- BAS -->
         <div class="sheet-mycol"> <!-- Super pouvoir -->
             <div class="sheet-ligne">
                 <div class="sheet-lib2">super pouvoir : </div>
-                <input type="text" name="attr_superpouvoir" class="sheet-inpnom" style="width:230px;" placeholder="Super Pouvoir" title="Super Pouvoir" /> 
-            </div>            
+                <input type="text" name="attr_superpouvoir" class="sheet-inpnom" style="width:230px;" placeholder="Super Pouvoir" title="Super Pouvoir" />
+            </div>
             <div class="sheet-info">efficacité|activation|puissance|description</div>
             <fieldset class="repeating_supereffets">
                 <div class="sheet-ligne" style="border-top: 2px dashed #DDDDDD;padding-top:2px;">
-                    <input type="text" name="attr_effetnom" class="sheet-inpeffet" placeholder="Effet" title="Effet" />                    
+                    <input type="text" name="attr_effetnom" class="sheet-inpeffet" placeholder="Effet" title="Effet" />
                     <input type="number" name="attr_effetefficacite"  value="1" min="1" max="4" title="Score d'Efficacité" />
                     <input type="number" name="attr_effetactivation"  value="1" min="1" max="4" title="Degré d'Activation" />
                     <input type="number" name="attr_effetpuissance"  value="1" min="1" max="4"  title="Score de Puissance" />
-                    <button type="roll" name="SuperPouvoir" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=@{effetnom}}} {{subtags=Jet de Pouvoir}} {{carac=[[@{effetefficacite}]]}} {{jetpouvoir=[[1d6]]}} {{jetpuissance=[[@{effetpuissance}]]}} {{jet1=[[1d6]]}} {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                    <button type="roll" name="InfoPouvoir" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:supersix} {{name=@{effetnom}}} {{subtags=Effet de Super Pouvoir}} {{pouvoir=@{superpouvoir}}} {{efficacite=@{effetefficacite}}} {{activation=@{effetactivation}}} {{puissance=@{effetpuissance}}} {{description=@{effetrestriction}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 20px;height:20px;"/></button>
                 </div>
                 <div class="sheet-ligne" style="margin-bottom:2px;">
-                    <input type="text" name="attr_effetrestriction" class="sheet-inpdesc" style="width:355px;" placeholder="Description, Restriction, Durée ..." title="Description, Restriction, Durée ..." />
-                    <button type="roll" name="InfoPouvoir" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{effetnom}}} {{subtags=Effet de Super Pouvoir}} {{pouvoir=@{superpouvoir}}} {{efficacite=@{effetefficacite}}} {{activation=@{effetactivation}}} {{puissance=@{effetpuissance}}} {{description=@{effetrestriction}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <input type="text" name="attr_effetrestriction" class="sheet-inpdesc" style="width:250px;" placeholder="Description, Restriction, Durée ..." title="Description, Restriction, Durée ..." />
+                    <SELECT name="attr_effetcarac" style="width: 90px;">
+                        <OPTION value="@{muscle}">Muscle</OPTION>
+                        <OPTION value="@{cervelle}">Cervelle</OPTION>
+                        <OPTION value="@{coeur}">Coeur</OPTION>
+                    </SELECT>
+                    <button type="roll" name="SuperPouvoir" class="sheet-macrobt" title="Jet" value="&{template:supersix} {{name=@{effetnom}}} {{subtags=Jet de Pouvoir}} {{carac=[[@{effetcarac}]]}} {{jetpouvoir=[[1d6]]}} {{jetpuissance=[[@{effetpuissance}]]}} {{jet1=[[1d6+@{effetefficacite}]]}} {{jet2=[[1d6+@{effetefficacite}]]}} {{jet3=[[1d6+@{effetefficacite}]]}} {{jet4=[[1d6+@{effetefficacite}]]}}" />
                 </div>
             </fieldset>
         </div>  <!-- FIN Super pouvoir -->
@@ -164,13 +114,68 @@
                         <OPTION>Amitié</OPTION>
                         <OPTION>Amour</OPTION>
                         <OPTION>Famille</OPTION>
-                        <OPTION>Travail</OPTION>                        
+                        <OPTION>Travail</OPTION>
                     </SELECT>
                     <input type="number" name="attr_relationintensite" value="1" min="1" max="4" title="Intensité" />
-                    <button type="roll" name="Relation" class="sheet-macrobt" title="Jet" value="&{template:ssix} {{name=@{relationnom}}} {{subtags=Jet de Relation}} {{carac=[[@{relationintensite}]]}} {{jet1=[[1d6]]}} {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
-                    <button type="roll" name="InfoRelation" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:ssix} {{name=@{relationnom}}} {{subtags=Relation}} {{type=@{relationtype}}} {{intensite=@{relationintensite}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
+                    <button type="roll" name="Relation" class="sheet-macrobt" title="Jet" value="&{template:supersix} {{name=@{relationnom}}} {{subtags=Jet de Relation}} {{carac=[[@{relationintensite}]]}} {{jet1=[[1d6]]}} {{jet2=[[1d6]]}} {{jet3=[[1d6]]}} {{jet4=[[1d6]]}}" />
+                    <button type="roll" name="InfoRelation" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:supersix} {{name=@{relationnom}}} {{subtags=Relation}} {{type=@{relationtype}}} {{intensite=@{relationintensite}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 20px;height:20px;"/></button>
                 </div>
             </fieldset>
         </div>  <!-- FIN Relations -->
     </div>  <!-- FIN BAS -->
 </div>
+<!-- TEMPLATES -->
+<rolltemplate class="sheet-rolltemplate-supersix">
+    <table>
+        <tr><th colspan="2">{{name}}</th></tr>
+        <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#jetpouvoir}}
+            <tr><td class="tcat" style="color: blue;">Dé de Pouvoir</td><td>{{jetpouvoir}}</td></tr>
+            {{#rollTotal() jetpouvoir 1}}
+                <tr><td colspan="2" style="color: red;font-weight: bold;text-align:center;">Le pouvoir ne fonctionne pas</td></tr>
+                {{#rollTotal() jetpuissance 2}}
+                    <tr><td colspan="2" style="color: red;font-weight: normal;text-align:left;">Fatigue : 1 case maximum par scène</td></tr>
+                {{/rollTotal() jetpuissance 2}}
+                {{#rollTotal() jetpuissance 3}}
+                    <tr><td colspan="2" style="color: red;font-weight: normal;text-align:left;">Fatigue : 2 cases maximum par scène</td></tr>
+                {{/rollTotal() jetpuissance 3}}
+                {{#rollTotal() jetpuissance 4}}
+                    <tr><td colspan="2" style="color: red;font-weight: normal;text-align:left;">Fatigue : 3 cases maximum par scène</td></tr>
+                {{/rollTotal() jetpuissance 4}}
+            {{/rollTotal() jetpouvoir 1}}
+        {{/jetpouvoir}}
+        {{#carac}}
+            <tr><td class="tcat">Action, dé n°1</td><td>{{jet1}}</td></tr>
+            {{#rollGreater() carac 1}}
+                <tr><td class="tcat">Action, dé n°2</td><td>{{jet2}}</td></tr>
+            {{/rollGreater() carac 1}}
+            {{#rollGreater() carac 2}}
+                <tr><td class="tcat">Action, dé n°3</td><td>{{jet3}}</td></tr>
+            {{/rollGreater() carac 2}}
+            {{#rollGreater() carac 3}}
+                <tr><td class="tcat">Action, dé n°4</td><td>{{jet4}}</td></tr>
+            {{/rollGreater() carac 3}}
+        {{/carac}}
+        {{#type}}
+            <tr><td class="tcat">Type</td><td>{{type}}</td></tr>
+        {{/type}}
+        {{#intensite}}
+            <tr><td class="tcat">Intensité</td><td>{{intensite}}</td></tr>
+        {{/intensite}}
+        {{#pouvoir}}
+            <tr><td class="tcat">Pouvoir</td><td>{{pouvoir}}</td></tr>
+        {{/pouvoir}}
+        {{#efficacite}}
+            <tr><td class="tcat">Efficacité</td><td>{{efficacite}}</td></tr>
+        {{/efficacite}}
+        {{#activation}}
+            <tr><td class="tcat">Activation</td><td>{{activation}}</td></tr>
+        {{/activation}}
+        {{#puissance}}
+            <tr><td class="tcat">Puissance</td><td>{{puissance}}</td></tr>
+        {{/puissance}}
+        {{#description}}
+            <tr><td colspan="2">{{description}}</td></tr>
+        {{/description}}
+    </table>
+</rolltemplate>
