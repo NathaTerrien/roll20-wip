@@ -1,12 +1,13 @@
 var PmT = PmT || (function () {
     'use strict';
-    var version = 1.1,
-    releasedate= "2016-01-14",
+    var version = 1.2,
+    releasedate= "2016-01-22",
     schemaversion = 1.0,
     author="Natha (roll20userid:75857)",
     warning = "This script is meant to be used with the Portes-Monstres-Trésors sheet",
     sortsDivins=["Détection de la Magie","Détection du Mal","Lumière","Protection contre le Mal","Purification","Regain d’Assurance","Résistance au Froid","Soins Légers"],
     sortsProfanes=["Bouclier","Charme-personne","Détection de la Magie","Disque Flottant","Lecture des Langages","Lecture de la Magie","Lumière","Projectile Magique","Protection contre le Mal","Sommeil","Ventriloquie","Verrouillage"],
+    sortsProfanes2=["Déblocage","Détection de Pensées","Détection du Mal","Détection de l’Invisibilité","Force Fantasmagorique","Image Miroir","Invisibilité","Lévitation","Localisation d’Objet","Lumière Continuelle","Toile d’Araignée","Verrou Arcane"],
     // Clerc 58 PO + Standard = 65
     packClerc='{"nom":"Brigandine","qte":"1","poids":"10"}|{"nom":"Bouclier","qte":"1","poids":"5"}|{"nom":"Casque","qte":"1","poids":"2.5"}|{"nom":"Fronde","qte":"1","poids":"0"}|{"nom":"Masse","qte":"1","poids":"1.5"}|{"nom":"Pierres de fronde","qte":"10","poids":"0.15"}|{"nom":"Symbole religieux en bois","qte":"1","poids":"0"}',
     // Guerrier 94 PO + Standard = 103
