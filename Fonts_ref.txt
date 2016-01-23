@@ -1,0 +1,15 @@
+ABCDEFGHIJIKLMNOPQRSTUVWXYZ
+abcdefghijiklmnopqrstuvwxyz
+123456789
+
+Pictos :
+éclair : e
+coeur : k
+Flèche simple : 4
+
+Dice & Pictos fonts : 
+https://app.roll20.net/forum/post/882997/css-wizardry/?pageforid=892198#post-892198
+
+Fonts :
+https://app.roll20.net/forum/post/2216977/available-fonts-slash-symbols/?pageforid=2217442#post-2217442
+
