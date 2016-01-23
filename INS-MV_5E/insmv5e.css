@@ -24,6 +24,12 @@ Fond4 : 7E9DA8
 Fond5 : D6E1E6
 
 */
+@font-face {
+    font-family: 'Fake Contrail One';
+    src: local('Arial Narrow');
+    font-style: italic;
+    font-weight: bold;
+}
 div,
 button,
 textarea,
@@ -36,23 +42,41 @@ td,
 th{
     box-sizing: border-box;
 }
-/********* INPUTS *************************************************/ /* sheet-styleArriere sheet-styleAvant */
+/********* INPUTS *************************************************/
 input[type=radio].sheet-styleINS,
 input[type=radio].sheet-styleMV,
 input[type=radio].sheet-styleArriere,
 input[type=radio].sheet-styleAvant{
+    margin: 0;
+    margin-bottom: -4px;
+    padding: 0;
     margin-left: 2px;
     margin-right: 1px;
     display: inline-block;
+    opacity: 0.5;
+    width: 150px;
+    height: 25px;
+    z-index: 999;
 }
 input[type=radio].sheet-styleINS + span,
 input[type=radio].sheet-styleMV + span,
 input[type=radio].sheet-styleArriere + span,
 input[type=radio].sheet-styleAvant + span{
-    font-size:11px;
-    color: #888888;
-    text-align:left;
+    font-size:15px;
+    color: #231F20;
+    text-align:center;
     display: inline-block;
+    width: 150px;
+    height: 28px;
+    margin: 0;
+    margin-bottom: -4px;
+    margin-left: -150px;
+    margin-right: 5px;
+    padding:0;
+    padding-top: 5px;
+    font-style: italic;
+    border-style: solid;
+    border-width: 1px;
 }
 span.sheet-smallspan{
     font-size:11px;
@@ -67,7 +91,7 @@ input{
     margin: 0;
     line-height: 0px;
     color: black;
-    font-family: 'Patrick Hand', cursive;
+    font-family: cursive;
     font-size: 1em;
     font-weight: normal;
     border-radius: 0px;
@@ -83,15 +107,22 @@ input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="text"]{
 input[type="radio"].sheet-styleMV:checked ~ div.sheet-main input[type="text"]{
     border-color: #417280;
 }
-input[type="text"].sheet-inpentete{
+input[type="text"].sheet-inpentetebig{
     width: 275px;
     text-transform: uppercase;
     font-size: 1.3em;
     height: 25px;
+    font-weight: bold;
+}
+input[type="text"].sheet-inpentete{
+    width: 275px;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    height: 25px;
 }
 input[type="text"].sheet-inpentetelight{
     width: 275px;
-    font-size: 1.1em;
+    font-size: 1em;
     height: 25px;
 }
 input[type="number"]{
@@ -137,7 +168,7 @@ input[type="number"].sheet-pvppinp{
     width: 50px;
     height: 50px;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="number"].sheet-pvppinpmax,
 input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="number"].sheet-pvppinp{
@@ -149,9 +180,9 @@ input[type="radio"].sheet-styleMV:checked ~ div.sheet-main input[type="number"].
     border-color: #417280;
     box-shadow: 0px 0px 15px #417280;
 }
-textarea{
+textarea.sheet-areagrand{
     color: black;
-    font-family: 'Patrick Hand', cursive;
+    font-family: cursive;
     font-size: 1em;
     font-weight: normal;
     box-shadow: none;
@@ -160,6 +191,20 @@ textarea{
     border-radius: 0;
     border-left: 1px dotted #231F20;
     border-bottom: 1px dotted #231F20;
+}
+textarea.sheet-areapetit{
+    padding: 0px 1px 2px 2px;
+    color: black;
+    font-family: cursive;
+    font-size: 1em;
+    font-weight: normal;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px dotted #231F20;
+    height: 35px;
+    line-height: 1.1em;
 }
 input[type="radio"].sheet-styleINS:checked ~ div.sheet-main textarea{
     border-color: #4F2A1B;
@@ -177,15 +222,32 @@ select{
     color: black;
     width: 100px;
     height: 22px;
-    font-family: 'Patrick Hand', cursive;
+    font-family:  cursive;
     font-size: 1em;
 }
 /*** DIV *********************************************************/
-div.sheet-main{
+div.sheet-fdp{
+    background-color: white;
     width: 800px;
+    text-align: center;
+    margin:0;
+    padding;0;
+}
+div.sheet-main{
+    margin:0;
+    padding;0;
+    width: 100%;
     background: white;
     text-align:center;
     font-family: 'Verdana';
+    border-width: 1px 0px 0px 0px;
+    border-style: solid;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main{
+    border-color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main{
+    border-color: #417280;
 }
 div.sheet-ligne{
     display: block;
@@ -205,7 +267,14 @@ div.sheet-libel1{
     font-weight: bold;
     text-align: right;
     width: 100px;
-    /* border: 1px solid red; */
+}
+div.sheet-libel1{
+    color: #231F20;
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
 }
 div.sheet-logoINS{
     display: inline;
@@ -242,7 +311,7 @@ th{
     padding-left: 20px;
     font-weight: normal;
     color: white;
-    font-family: 'Contrail One', cursive;
+    font-family: 'Contrail One', 'Fake Contrail One', cursive;
 }
 input[type="radio"].sheet-styleINS:checked ~ div.sheet-main th{
     background: #4F2A1B;
@@ -356,7 +425,7 @@ input[type="radio"].sheet-styleMV:checked ~ div.sheet-main button[type=roll].she
     color: #417280;
 }
 button[type=roll].sheet-btDesc:hover{
-   opacity: 0.7;
+   opacity: 1.0;
 }
 button[type=roll].sheet-btRoll {
     color: inherit;
@@ -372,7 +441,7 @@ button[type=roll].sheet-btRoll {
 button[type=roll].sheet-btRoll:before{
     font-family: "dicefontd6";
     font-size: 1.6em;
-    content: 'f';
+    content: 'e';
 }
 input[type="radio"].sheet-styleINS:checked ~ div.sheet-main button[type=roll].sheet-btRoll:before{
     color: #4F2A1B;
@@ -383,7 +452,37 @@ input[type="radio"].sheet-styleMV:checked ~ div.sheet-main button[type=roll].she
 button[type=roll].sheet-btRoll:hover{
     opacity: 1.0;
 }
-
+/* this sets the formatting for all repcontrol buttons */
+.charsheet .repcontrol_add,
+.charsheet .repcontrol_edit,
+.charsheet .repcontrol_del{
+    opacity: 0.5;
+    display: block;
+    background: white;
+    box-shadow: none;    
+    border: 2px solid black;
+    border-radius: 6px;
+    font-size:0.9em;
+    height:2.2em;
+    margin-bottom: 4px;
+}
+.charsheet .repcontrol_add:hover,
+.charsheet .repcontrol_edit:hover,
+.charsheet .repcontrol_del:hover{
+    opacity: 1.0;
+}
+.charsheet input[type="radio"].sheet-styleINS:checked ~ div.sheet-main .repcontrol_add,
+.charsheet input[type="radio"].sheet-styleINS:checked ~ div.sheet-main .repcontrol_edit,
+.charsheet input[type="radio"].sheet-styleINS:checked ~ div.sheet-main .repcontrol_del {
+    color: #4F2A1B;
+    border-color: #4F2A1B;
+}
+.charsheet input[type="radio"].sheet-styleMV:checked ~ div.sheet-main .repcontrol_add,
+.charsheet input[type="radio"].sheet-styleMV:checked ~ div.sheet-main .repcontrol_edit,
+.charsheet input[type="radio"].sheet-styleMV:checked ~ div.sheet-main .repcontrol_del {
+    color: #417280;
+    border-color: #417280;
+}
 /*** GENERIC *********************************************************/
 input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main .sheet-arriere,
 input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-avant{
