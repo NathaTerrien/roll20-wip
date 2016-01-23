@@ -61,22 +61,49 @@ span.sheet-smallspan{
 }
 input{
     border: none;
+    border-radius: 0;
     box-shadow: none;
     padding: 0;
     margin: 0;
     line-height: 0px;
     color: black;
     font-family: 'Patrick Hand', cursive;
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: normal;
     border-radius: 0px;
-
 }
 input[type="text"]{
-    border-bottom: 1px dotted #231F20;
+    line-height: 18px;
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="text"]{
+    border-color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main input[type="text"]{
+    border-color: #417280;
+}
+input[type="text"].sheet-inpentete{
+    width: 275px;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    height: 25px;
+}
+input[type="text"].sheet-inpentetelight{
+    width: 275px;
+    font-size: 1.1em;
+    height: 25px;
 }
 input[type="number"]{
     text-align: center;
+    border-width: 0px 0px 1px 0px;
+    border-style: dotted;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="number"]{
+    border-color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main input[type="number"]{
+    border-color: #417280;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -88,6 +115,58 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"]{
     -moz-appearance:textfield;
 }
+input[type="number"].sheet-caracinp{
+    border: 1px solid gray;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+input[type="number"].sheet-pvppinpmax{
+    border: 2px solid gray;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+input[type="number"].sheet-pvppinp{
+    border: 2px solid gray;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="number"].sheet-pvppinpmax,
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main input[type="number"].sheet-pvppinp{
+    border-color: #4F2A1B;
+    box-shadow: 0px 0px 15px #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main input[type="number"].sheet-pvppinpmax,
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main input[type="number"].sheet-pvppinp{
+    border-color: #417280;
+    box-shadow: 0px 0px 15px #417280;
+}
+textarea{
+    color: black;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1em;
+    font-weight: normal;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    border-radius: 0;
+    border-left: 1px dotted #231F20;
+    border-bottom: 1px dotted #231F20;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main textarea{
+    border-color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main textarea{
+    border-color: #417280;
+}
 /******* SELECTS *************************************************/
 select{
     border: none;
@@ -98,10 +177,12 @@ select{
     color: black;
     width: 100px;
     height: 22px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1em;
 }
 /*** DIV *********************************************************/
 div.sheet-main{
-    width: 832px;
+    width: 800px;
     background: white;
     text-align:center;
     font-family: 'Verdana';
@@ -111,6 +192,12 @@ div.sheet-ligne{
     width: 100%;
     vertical-align: top;
 }
+div.sheet-arriere{
+    width: 100%;
+}
+div.sheet-avant{
+    width: 100%;
+}
 div.sheet-libel1{
     color: #231F20;
     display: inline-block;
@@ -118,7 +205,7 @@ div.sheet-libel1{
     font-weight: bold;
     text-align: right;
     width: 100px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 div.sheet-logoINS{
     display: inline;
@@ -137,6 +224,33 @@ input[type="radio"].sheet-styleMV:checked ~ div.sheet-main div.sheet-logoINS{
 /*** TABLES  *********************************************************/
 table{
     width: 100%;
+    border-collapse: collapse;
+    margin:0;
+    padding:0;
+}
+
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main table.sheet-caractab{
+    border-color: #4F2A1B;
+    border-bottom-color: linear-gradient(to right, #4F2A1B 75%, rgba(255,0,0,0));
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main table.sheet-caractab{
+    border-color: #417280;
+    border-bottom-color: linear-gradient(to right, #417280 75%, rgba(255,0,0,0));
+}
+th{
+    text-align: left;
+    padding-left: 20px;
+    font-weight: normal;
+    color: white;
+    font-family: 'Contrail One', cursive;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main th{
+    background: #4F2A1B;
+    background: linear-gradient(to right, #4F2A1B 75%, rgba(255,0,0,0));
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main th{
+    background: #417280;
+    background: linear-gradient(to right, #417280 75%, rgba(255,0,0,0));
 }
 td{
     vertical-align: top;
@@ -144,9 +258,132 @@ td{
 td.sheet-coltitre{
     font-family: Verdana;
     font-size: 10px;
-    font-weight: bold;
+    font-weight: normal;
     color: #231F20;
 }
+table.sheet-caractab{
+    border-top: none;
+    border-style: solid;
+    border-width: 0px 0px 0px 2px;
+}
+td.sheet-carac{
+    vertical-align: middle;
+}
+td.sheet-caracinp{
+    vertical-align: middle;
+}
+td.sheet-caraclib{
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+td.sheet-caracsep{
+    text-align: center;
+    font-family: 'Pictos';
+    font-size:1.1em;
+    width: 20px;
+    vertical-align: middle;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main td.sheet-caracsep{
+    color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main td.sheet-caracsep{
+    color: #417280;
+}
+td.sheet-pvpp{
+    vertical-align: middle;
+    text-align: left;
+}
+td.sheet-pvppbiglib{
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+td.sheet-pvpplib{
+    text-align: left;
+    font-size: 0.9em;
+    vertical-align: middle;
+}
+td.sheet-pvppsymb{
+    text-align: left;
+    font-family: 'Pictos';
+    font-size:2em;
+    vertical-align: middle;
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main td.sheet-pvppsymb{
+    color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main td.sheet-pvppsymb{
+    color: #417280;
+}
+td.sheet-libpetit{
+    text-align: center;
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+td.sheet-colinp{
+    border-right: 1px solid #D1232A;
+}
+td.sheet-colinp:first-child{
+    border-right: none;
+}
+td.sheet-colinp:last-child{
+    border-right: none;
+}
+/*** BOUTONS *********************************************************/
+button[type=roll].sheet-btDesc{
+    color: inherit;
+    height:24px;
+    width:24px;
+    line-height: 16px;
+    padding:0;
+    margin: 0;
+    border:none;
+    background:none;
+    opacity: 0.4;
+}
+button[type=roll].sheet-btDesc:before{
+    font-family: "Pictos";
+    font-size: 1.3em;
+    content: 'i';
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main button[type=roll].sheet-btDesc:before{
+    color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main button[type=roll].sheet-btDesc:before{
+    color: #417280;
+}
+button[type=roll].sheet-btDesc:hover{
+   opacity: 0.7;
+}
+button[type=roll].sheet-btRoll {
+    color: inherit;
+    height:24px;
+    width:24px;
+    line-height: 16px;
+    padding:0;
+    margin: 0;
+    border:none;
+    background:none;
+    opacity: 0.5;
+}
+button[type=roll].sheet-btRoll:before{
+    font-family: "dicefontd6";
+    font-size: 1.6em;
+    content: 'f';
+}
+input[type="radio"].sheet-styleINS:checked ~ div.sheet-main button[type=roll].sheet-btRoll:before{
+    color: #4F2A1B;
+}
+input[type="radio"].sheet-styleMV:checked ~ div.sheet-main button[type=roll].sheet-btRoll:before{
+    color: #417280;
+}
+button[type=roll].sheet-btRoll:hover{
+    opacity: 1.0;
+}
+
 /*** GENERIC *********************************************************/
 input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main .sheet-arriere,
 input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-avant{
