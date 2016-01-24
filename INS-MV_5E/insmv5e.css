@@ -537,22 +537,30 @@ input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-arriere{
     font-size: 1.1em;
     text-align: center;
     font-family: 'Contrail One';
-    color: white;
-    background: #417280;
+    color: white;    
 }
 .sheet-rolltemplate-insmv td{
     padding: 2px;
     font-size: 1em;
+    text-align: left;
 }
 .sheet-rolltemplate-insmv .sheet-subheader{
     font-style: italic;
     text-align: right;
     border-bottom: 1px dashed #331912;
 }
+.sheet-rolltemplate-insmv .sheet-desctitre{
+    font-style: italic;
+    text-align: right;
+    border-bottom: 1px dashed #331912;
+    border-top: 1px solid #331912;
+}
 .sheet-rolltemplate-insmv td.sheet-tcat{
     font-color: #4F2A1B;
     font-style: italic;
     font-size: 0.9em;
+    text-align: right;
+    border-right:  1px dashed #331912;
 }
 .sheet-rolltemplate-insmv .inlinerollresult{
     font-size: 1em;

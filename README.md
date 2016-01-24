@@ -1,15 +1,32 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2015-01-04.
+Updated 2015-01-24.
 ## Planned sheets (creation or enhancements)
-* [Supersix](http://supersix.fr/telechargements/), french
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * [Dragon de Poche 2](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 * Castles & Crusades, english
 
 ## WIP
+
+### INS/MV 5E (french)
+[In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
+
+#### Sources
+* [WIP](./INS-MV_5E/) Version 1.0
+
+#### Todo
+Tests par les demandeurs
+
+### Supersix (french)
+[Supersix](http://supersix.fr/telechargements/)
+
+#### Sources
+* [WIP](./Supersix/) Version 1.0
+
+#### Todo
+Tests par l'auteur
 
 ## Existing sheets
 
@@ -62,9 +79,9 @@ Cf. english version
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 3.0 (2016-01-04)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.0 (2016-01-04)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.0 (2016-01-04)
+* [WIP](./PortesMonstresTresors/) Version 3.1 (2016-01-17)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.1 (2016-01-17)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.1 (2016-01-17)
 
 #### Todo
 * Calcul de la richesse totale
@@ -126,6 +143,7 @@ Cf. english version
 ###Portes Monstres Tresors
 * [WIP]()
 * [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
-* [Official]()
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
 
 #### Todo
+* Détermination aléatoire correcte des sorts d'elfes et magiciens

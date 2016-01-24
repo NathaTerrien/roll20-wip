@@ -109,31 +109,31 @@
                                 <td class="sheet-caraclib">FORCE</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_avantforce" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de FORCE" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de FORCE" name="ForceAvant" value="&{template:insmv} {{name=Force}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{avantforce}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">VOLONTÉ</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_avantvolonte" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de VOLONTÉ" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de VOLONTÉ" name="VolonteAvant" value="&{template:insmv} {{name=Volonté}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{avantvolonte}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">AGILITÉ</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_avantagilite" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'AGILITÉ" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'AGILITÉ" name="AgiliteAvant" value="&{template:insmv} {{name=Agilité}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{avantagilite}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">PERCEPTION</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_avantperception" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de PERCEPTION" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de PERCEPTION" name="PerceptionAvant" value="&{template:insmv} {{name=Perception}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{avantperception}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">APPARENCE</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_avantapparence" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'APPARENCE" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'APPARENCE" name="ApparenceAvant" value="&{template:insmv} {{name=Apparence}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{avantapparence}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                         </table>
                     </div>
@@ -144,9 +144,14 @@
     <div class="sheet-ligne"> <!-- POUVOIRS -->
         <div class="sheet-arriere">
             <table>
-                <tr><th>POUVOIRS (utilisables sous cette forme)</th></tr>
                 <tr>
-                    <td>
+                    <th>POUVOIRS (utilisables sous cette forme)</th>
+                    <td style="width:30px;text-align:center;">
+                        <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerPouvoirs" value="&{template:insmv} {{name=Pouvoirs (Plage Arrière)}} {{description=@{pouvoirarriere}}} " />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
                         <textarea name="attr_pouvoirarriere" class="sheet-grandtxt" placeholder="Pouvoirs, sur la plage arrière"></textarea>
                     </td>
                 </tr>
@@ -169,10 +174,10 @@
                 <table>
                     <tr>
                         <td class="sheet-colinp" style="width:30px;text-align:center;">
-                            <button type="roll" class="sheet-btRoll" />
+                            <button type="roll" class="sheet-btRoll" title="Jet de Pouvoir" name="JetPouvoir" value="&{template:insmv} {{name=@{avpouvnom}}} {{subtags=Jet de Pouvoir}} {{valcarac=[[@{avpouvcarac}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" />                            
                         </td>
                         <td class="sheet-colinp" style="width:30px;text-align:center;">
-                            <button type="roll" class="sheet-btDesc" />
+                            <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerPouvoir" value="&{template:insmv} {{name=@{avpouvnom}}} {{subtags=Pouvoir}} {{carac=[[@{avpouvcarac}]]}} {{cout=[[@{avpouvcout}]]}} {{actions=[[@{avpouvactions}]]}} {{description=@{avpouvdescription}}} " />
                         </td>
                         <td class="sheet-colinp" style="width:200px;text-align:center;">
                             <input type="text" name="attr_avpouvnom" style="width:190px;" placeholder="Nom du pouvoir" title="Nom du pouvoir" />
@@ -217,10 +222,10 @@
                 <table>
                     <tr>
                         <td class="sheet-colinp" style="width:30px;text-align:center;">
-                            <button type="roll" class="sheet-btRoll" />
+                            <button type="roll" class="sheet-btRoll" title="Jet de Combat" name="JetCombat" value="&{template:insmv} {{name=@{atknom}}} {{subtags=Jet de Combat}} {{valcarac=[[@{atkcarac}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}} {{degats=[[@{atkdegats}]]}}" />
                         </td>
                         <td class="sheet-colinp" style="width:30px;text-align:center;">
-                            <button type="roll" class="sheet-btDesc" />
+                            <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerCombat" value="&{template:insmv} {{name=@{atknom}}} {{subtags=Combat}} {{carac=[[@{atkcarac}]]}} {{degats=[[@{atkdegats}]]}} {{description=@{atkeffets}}} " />
                         </td>
                         <td class="sheet-colinp" style="width:200px;text-align:center;">
                             <input type="text" name="attr_atknom"  style="width:190px;" placeholder="Nom de l'Attaque" title="Nom de l'Attaque" />
@@ -247,12 +252,21 @@
     </div> <!-- FIN COMBATS -->
     <div class="sheet-ligne"> <!-- AVANTAGES / DEFAUTS -->
         <table>
-            <tr><th>AVANTAGES</th><th>DÉFAUTS</th></tr>
             <tr>
-                <td>
+                <th>AVANTAGES</th>
+                <td style="width:30px;text-align:center;">
+                    <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerAvantages" value="&{template:insmv} {{name=Avantages}} {{description=@{avantages}}} " />
+                </td>
+                <th>DÉFAUTS</th>
+                <td style="width:30px;text-align:center;">
+                    <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerPouvoirs" value="&{template:insmv} {{name=Défauts}} {{description=@{defauts}}} " />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <textarea name="attr_avantages" class="sheet-areagrand" placeholder="Avantages"></textarea>
                 </td>
-                <td>
+                <td colspan="2">
                     <textarea name="attr_defauts" class="sheet-areagrand" placeholder="Défauts"></textarea>
                 </td>
             </tr>
@@ -260,12 +274,21 @@
     </div> <!-- FIN AVANTAGES / DEFAUTS -->
     <div class="sheet-ligne"> <!-- MATERIEL / NOTES -->
         <table>
-            <tr><th>MATÉRIEL</th><th>NOTES</th></tr>
             <tr>
-                <td>
+                <th>MATÉRIEL</th>
+                <td style="width:30px;text-align:center;">
+                    <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerMateriel" value="&{template:insmv} {{name=Matériel}} {{description=@{materiel}}} " />
+                </td>
+                <th>NOTES</th>
+                <td style="width:30px;text-align:center;">
+                    <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontrerNotes" value="&{template:insmv} {{name=Notes}} {{description=@{notes}}} " />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <textarea name="attr_materiel" class="sheet-areagrand" placeholder="Matériel"></textarea>
                 </td>
-                <td>
+                <td colspan="2">
                     <textarea name="attr_notes" class="sheet-areagrand" placeholder="Notes"></textarea>
                 </td>
             </tr>
@@ -276,8 +299,18 @@
 <!-- ******** TEMPLATES *************************** -->
 <rolltemplate class="sheet-rolltemplate-insmv">
     <table>
-        <tr><th colspan="2">{{name}}</th></tr>
-        <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#jet1}}
+            <tr><th colspan="2" style="background: #4F2A1B;">{{name}}</th></tr>
+            {{#subtags}}
+                <tr><td colspan="2" class="subheader" style="color: #4F2A1B;">{{subtags}}</td></tr>
+            {{/subtags}}
+        {{/jet1}}
+        {{^jet1}}
+            <tr><th colspan="2" style="background: #417280;">{{name}}</th></tr>
+            {{#subtags}}
+                <tr><td colspan="2" class="subheader" style="color: #417280;">{{subtags}}</td></tr>
+            {{/subtags}}
+        {{/jet1}}
         {{#jet1}}
             <tr><td class="tcat">Cible</td><td>{{valcarac}}</td></tr>
             <tr>
@@ -285,7 +318,7 @@
                 <td>
                     {{jet1}}
                     {{#^rollGreater() jet1 valcarac}}
-                        <span style="color: green;">succès</span>
+                        <span style="color: green;font-weight:bold">(succès)</span>
                     {{/^rollGreater() jet1 valcarac}}
                 </td>
             </tr>
@@ -294,7 +327,7 @@
                 <td>
                     {{jet2}}
                     {{#^rollGreater() jet2 valcarac}}
-                        <span style="color: green;">succès</span>
+                        <span style="color: green;font-weight:bold">(succès)</span>
                     {{/^rollGreater() jet2 valcarac}}
                 </td>
             </tr>
@@ -303,7 +336,7 @@
                 <td>
                     {{jet3}}
                     {{#^rollGreater() jet3 valcarac}}
-                        <span style="color: green;">succès</span>
+                        <span style="color: green;font-weight:bold">(succès)</span>
                     {{/^rollGreater() jet3 valcarac}}
                 </td>
             </tr>
@@ -321,6 +354,7 @@
             <tr><td class="tcat">Dégâts</td><td>{{degats}}</td></tr>
         {{/degats}}
         {{#description}}
+            <tr><td colspan="2" class="desctitre">Description/Effets</td></tr>
             <tr><td colspan="2">{{description}}</td></tr>
         {{/description}}
     </table>
