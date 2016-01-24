@@ -48,35 +48,63 @@ input[type=radio].sheet-styleMV,
 input[type=radio].sheet-styleArriere,
 input[type=radio].sheet-styleAvant{
     margin: 0;
+    margin-top: -4px;
     margin-bottom: -4px;
     padding: 0;
-    margin-left: 2px;
-    margin-right: 1px;
     display: inline-block;
-    opacity: 0.5;
+    opacity: 0;
     width: 150px;
     height: 25px;
-    z-index: 999;
+    z-index: 30;
 }
 input[type=radio].sheet-styleINS + span,
 input[type=radio].sheet-styleMV + span,
 input[type=radio].sheet-styleArriere + span,
 input[type=radio].sheet-styleAvant + span{
+    color: #DDDDDD;
+    background-color: #AAAAAA;
     font-size:15px;
-    color: #231F20;
     text-align:center;
     display: inline-block;
     width: 150px;
     height: 28px;
     margin: 0;
-    margin-bottom: -4px;
     margin-left: -150px;
     margin-right: 5px;
     padding:0;
+    margin-bottom: -1px;
     padding-top: 5px;
     font-style: italic;
     border-style: solid;
     border-width: 1px;
+    border-color: #231F20;
+    border-top-left-radius:4px;
+    border-top-right-radius:4px;
+    z-index: 20;
+}
+input[type=radio].sheet-styleINS:checked + span{
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    background-color: white;
+    color: #4F2A1B;
+}
+input[type=radio].sheet-styleMV:checked + span{
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    background-color: white;
+    color: #417280;
+}
+input[type=radio].sheet-styleArriere:checked + span{
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    background-color: white;
+    color: #231F20;
+}
+input[type=radio].sheet-styleAvant:checked + span{
+    border-bottom: 1px solid white;
+    font-weight: bold;
+    background-color: white;
+    color: #231F20;
 }
 span.sheet-smallspan{
     font-size:11px;
@@ -227,27 +255,23 @@ select{
 }
 /*** DIV *********************************************************/
 div.sheet-fdp{
-    background-color: white;
-    width: 800px;
+    width: 804px;
     text-align: center;
     margin:0;
     padding;0;
+    background:transparent;
 }
 div.sheet-main{
+    z-index: -5;
     margin:0;
-    padding;0;
+    padding;4px;
     width: 100%;
     background: white;
     text-align:center;
     font-family: 'Verdana';
-    border-width: 1px 0px 0px 0px;
+    border-width: 1px;
     border-style: solid;
-}
-input[type="radio"].sheet-styleINS:checked ~ div.sheet-main{
-    border-color: #4F2A1B;
-}
-input[type="radio"].sheet-styleMV:checked ~ div.sheet-main{
-    border-color: #417280;
+    border-color: #231F20;
 }
 div.sheet-ligne{
     display: block;
@@ -311,6 +335,7 @@ th{
     padding-left: 20px;
     font-weight: normal;
     color: white;
+    font-size: 1.2em;
     font-family: 'Contrail One', 'Fake Contrail One', cursive;
 }
 input[type="radio"].sheet-styleINS:checked ~ div.sheet-main th{
@@ -459,7 +484,7 @@ button[type=roll].sheet-btRoll:hover{
     opacity: 0.5;
     display: block;
     background: white;
-    box-shadow: none;    
+    box-shadow: none;
     border: 2px solid black;
     border-radius: 6px;
     font-size:0.9em;
@@ -491,4 +516,80 @@ input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-avant{
 input[type="radio"].sheet-styleArriere:checked ~ div.sheet-main .sheet-avant,
 input[type="radio"].sheet-styleAvant:checked ~ div.sheet-main .sheet-arriere{
     display: none;
+}
+.sheet-rolltemplate-insmv table{
+    background: white;
+    border: 1px solid #331912;
+    width: 100%;
+    padding: 2px;
+    font-family: 'Verdana';;
+    color: #231F20;
+    font-size: 1em;
+}
+.sheet-rolltemplate-insmv tr{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.sheet-rolltemplate-insmv th{
+    padding: 3px;
+    font-size: 1.1em;
+    text-align: center;
+    font-family: 'Contrail One';
+    color: white;
+    background: #417280;
+}
+.sheet-rolltemplate-insmv td{
+    padding: 2px;
+    font-size: 1em;
+}
+.sheet-rolltemplate-insmv .sheet-subheader{
+    font-style: italic;
+    text-align: right;
+    border-bottom: 1px dashed #331912;
+}
+.sheet-rolltemplate-insmv td.sheet-tcat{
+    font-color: #4F2A1B;
+    font-style: italic;
+    font-size: 0.9em;
+}
+.sheet-rolltemplate-insmv .inlinerollresult{
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-insmv .inlinerollresult.fullcrit{
+    color: #3FB315;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-insmv .inlinerollresult.fullfail{
+    color: #B31515;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-insmv .inlinerollresult.importantroll{
+    color: #4A57ED;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
 }

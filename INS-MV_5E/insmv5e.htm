@@ -2,8 +2,8 @@
 <div class="sheet-fdp">
 <input type="radio" name="attr_styleinsmv" value="0" class="sheet-styleINS" checked="checked" title="Style INS" /><span>In Nomine Satanis</span>
 <input type="radio" name="attr_styleinsmv" value="1" class="sheet-styleMV" title="Style MV" /><span>Magna Veritas</span>
-<input type="radio" name="attr_avant" value="0" class="sheet-styleArriere" title="Avant Arrière" /><span>Sur la Plage Arrière</span>
-<input type="radio" name="attr_avant" value="1" class="sheet-styleAvant" title="Plage Avant" checked="checked" /><span>Au Volant</span>
+<input type="radio" name="attr_avant" value="0" class="sheet-styleArriere" title="Sur la Plage Arrière" /><span>Sur la Plage Arrière</span>
+<input type="radio" name="attr_avant" value="1" class="sheet-styleAvant" title="Au Volant" checked="checked" /><span>Au Volant</span>
 <div class="sheet-main">
     <div class="sheet-ligne"><!-- En-tête -->
         <table>
@@ -40,12 +40,12 @@
                             <tr>
                                 <td style="width: 30px;"></td>
                                 <td class="sheet-pvppbiglib">PV</td>
-                                <td class="sheet-pvpp"><input type="number" class="sheet-pvppinpmax" name="attr_pv_max" value="0" min="0" max="99" title="Points de Vie de départ"/></td>                                
+                                <td class="sheet-pvpp"><input type="number" class="sheet-pvppinpmax" name="attr_pv_max" value="0" min="0" max="99" title="Points de Vie de départ"/></td>
                                 <td class="sheet-pvppsymb">k</td>
                                 <td class="sheet-pvpp"><input type="number" class="sheet-pvppinp" name="attr_pv" value="0" min="0" max="99" title="Points de Vie actuels"/></td>
                                 <td style="width: 50px">&nbsp;</td>
                                 <td class="sheet-pvppbiglib">PP</td>
-                                <td class="sheet-pvpp"><input type="number" class="sheet-pvppinpmax" name="attr_pp_max" value="0" min="0" max="99" title="Points de Pouvoir de départ"/></td>                                
+                                <td class="sheet-pvpp"><input type="number" class="sheet-pvppinpmax" name="attr_pp_max" value="0" min="0" max="99" title="Points de Pouvoir de départ"/></td>
                                 <td class="sheet-pvppsymb">e</td>
                                 <td class="sheet-pvpp"><input type="number" class="sheet-pvppinp" name="attr_pp" value="0" min="0" max="99" title="Points de Pouvoir actuels"/></td>
                                 <td style="width: 40px;"></td>
@@ -74,31 +74,31 @@
                                 <td class="sheet-caraclib">FORCE</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_arriereforce" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de FORCE" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de FORCE" name="ForceArriere" value="&{template:insmv} {{name=Force}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{arriereforce}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">VOLONTÉ</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_arrierevolonte" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de VOLONTÉ" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de VOLONTÉ" name="VolonteArriere" value="&{template:insmv} {{name=Volonté}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{arrierevolonte}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">AGILITÉ</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_arriereagilite" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'AGILITÉ" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'AGILITÉ" name="AgiliteArriere" value="&{template:insmv} {{name=Agilité}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{arriereagilite}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">PERCEPTION</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_arriereperception" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de PERCEPTION" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet de PERCEPTION" name="PerceptionArriere" value="&{template:insmv} {{name=Perception}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{arriereperception}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                             <tr>
                                 <td class="sheet-caraclib">APPARENCE</td>
                                 <td class="sheet-caracsep">4</td>
                                 <td class="sheet-caracinp"><input type="number" name="attr_arriereapparence" class="sheet-caracinp" value="0" min="0" max="10" /></td>
-                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'APPARENCE" value="" /></td>
+                                <td class="sheet-carac"><button type="roll" class="sheet-btRoll" title="Jet d'APPARENCE" name="ApparenceArriere" value="&{template:insmv} {{name=Apparence}} {{subtags=Jet de Caractéristique}} {{valcarac=[[@{arriereapparence}]]}} {{jet1=[[1d6cs1cf6]]}}  {{jet2=[[1d6cs1cf6]]}} {{jet3=[[1d6cs1cf6]]}}" /></td>
                             </tr>
                         </table>
                     </div>
@@ -150,7 +150,7 @@
                         <textarea name="attr_pouvoirarriere" class="sheet-grandtxt" placeholder="Pouvoirs, sur la plage arrière"></textarea>
                     </td>
                 </tr>
-            </table>            
+            </table>
         </div>
         <div class="sheet-avant">
             <table>
@@ -256,7 +256,7 @@
                     <textarea name="attr_defauts" class="sheet-areagrand" placeholder="Défauts"></textarea>
                 </td>
             </tr>
-        </table>        
+        </table>
     </div> <!-- FIN AVANTAGES / DEFAUTS -->
     <div class="sheet-ligne"> <!-- MATERIEL / NOTES -->
         <table>
@@ -274,3 +274,54 @@
 </div> <!-- FIN FDP -->
 </div>
 <!-- ******** TEMPLATES *************************** -->
+<rolltemplate class="sheet-rolltemplate-insmv">
+    <table>
+        <tr><th colspan="2">{{name}}</th></tr>
+        <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#jet1}}
+            <tr><td class="tcat">Cible</td><td>{{valcarac}}</td></tr>
+            <tr>
+                <td class="tcat">Dé n°1</td>
+                <td>
+                    {{jet1}}
+                    {{#^rollGreater() jet1 valcarac}}
+                        <span style="color: green;">succès</span>
+                    {{/^rollGreater() jet1 valcarac}}
+                </td>
+            </tr>
+            <tr>
+                <td class="tcat">Dé n°2</td>
+                <td>
+                    {{jet2}}
+                    {{#^rollGreater() jet2 valcarac}}
+                        <span style="color: green;">succès</span>
+                    {{/^rollGreater() jet2 valcarac}}
+                </td>
+            </tr>
+            <tr>
+                <td class="tcat">Dé n°3</td>
+                <td>
+                    {{jet3}}
+                    {{#^rollGreater() jet3 valcarac}}
+                        <span style="color: green;">succès</span>
+                    {{/^rollGreater() jet3 valcarac}}
+                </td>
+            </tr>
+        {{/jet1}}
+        {{#carac}}
+            <tr><td class="tcat">Caractéristique</td><td>{{carac}}</td></tr>
+        {{/carac}}
+        {{#cout}}
+            <tr><td class="tcat">Coût</td><td>{{cout}}</td></tr>
+        {{/cout}}
+        {{#actions}}
+            <tr><td class="tcat">Actions</td><td>{{actions}}</td></tr>
+        {{/actions}}
+        {{#degats}}
+            <tr><td class="tcat">Dégâts</td><td>{{degats}}</td></tr>
+        {{/degats}}
+        {{#description}}
+            <tr><td colspan="2">{{description}}</td></tr>
+        {{/description}}
+    </table>
+</rolltemplate>
