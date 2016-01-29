@@ -408,16 +408,22 @@ var TAS = TAS || (function(){
             if(values.todosort.length > 0){
                 var newrowid ="";
                 var newrowattrs = {};
-                var TabEq = [];
+                var TabSort = [];
                 var arrayLength = 0;
-                TabEq = values.todosort.split("|");
-                arrayLength = TabEq.length;
+                var obj = {};
+                TabSort = values.todosort.split("|");
+                arrayLength = TabSort.length;
                 if (arrayLength > 0){
                     for (var i = 0; i < arrayLength; i++) {
+                        obj=JSON.parse(TabSort[i]);
                         newrowid = generateRowID();
                         newrowattrs = {};
-                        newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = TabEq[i];
-                        newrowattrs["repeating_sorts_" + newrowid + "_sort-niveau"] = "1";
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-nom"] = obj.nom;
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-reversible"] = obj.reversible;
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-niveau"] = obj.niveau;
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-duree"] = obj.duree;
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-portee"] = obj.portee;
+                        newrowattrs["repeating_sorts_" + newrowid + "_sort-desc"] = obj.desc;
                         setAttrs(newrowattrs);
                     }
                 }
@@ -1463,21 +1469,22 @@ var TAS = TAS || (function(){
                 <td><div class="sheet-titre1">SORTS</div></td>
                 <td>
                     <div style="text-align: right;">
-                        Niveau 
-                        1:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv1" value="0" title="Nombre de sorts de niveau 1" />
-                        2:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv2" value="0" title="Nombre de sorts de niveau 2" />
-                        3:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv3" value="0" title="Nombre de sorts de niveau 3" />
-                        4:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv4" value="0" title="Nombre de sorts de niveau 4" />
-                        5:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv5" value="0" title="Nombre de sorts de niveau 5" />
-                        6:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv6" value="0" title="Nombre de sorts de niveau 6" />
-                        7:<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv7" value="0" title="Nombre de sorts de niveau 7" />
+                        Sorts mémorisés par Niveau de sort :
+                        1|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv1" value="0" title="Nombre de sorts de niveau 1" />
+                        2|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv2" value="0" title="Nombre de sorts de niveau 2" />
+                        3|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv3" value="0" title="Nombre de sorts de niveau 3" />
+                        4|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv4" value="0" title="Nombre de sorts de niveau 4" />
+                        5|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv5" value="0" title="Nombre de sorts de niveau 5" />
+                        6|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv6" value="0" title="Nombre de sorts de niveau 6" />
+                        7|<input type= "number" class="sheet-carac-mod" name="attr_nbsortniv7" value="0" title="Nombre de sorts de niveau 7" />
                     </div>
                 </td>
             </tr>
         </table>
         <fieldset class="repeating_sorts">
             <div style="display: inline-block;white-space: nowrap;width:100%; text-align:left;">
-                <input type="text" name="attr_sort-nom" class="sheet-inMainTxt" style="width: 200px;" placeholder="Nom du sort" title="Nom du sort" />
+                <input type="text" name="attr_sort-nom" class="sheet-inMainTxt" style="width: 185px;" placeholder="Nom du sort" title="Nom du sort" />
+                R<input type="checkbox" name="attr_sort-reversible" title="Sort préparé une fois" value="1" style="margin-right: -7px;" title="Sort réversible" />
                 <input type="text" name="attr_sort-niveau" class="sheet-inMainNum"  style="width: 20px;" placeholder="1" title="Niveau du sort" />
                 <input type="text" name="attr_sort-duree" class="sheet-inPetitTxt"  style="width: 80px;" placeholder="Durée" title="Durée du sort" />
                 <input type="text" name="attr_sort-portee" class="sheet-inPetitTxt"  style="width: 50px;" placeholder="Portée" title="Portée du sort" />
@@ -1485,7 +1492,7 @@ var TAS = TAS || (function(){
                 P<input type="checkbox" name="attr_sort-prepare1" title="Sort préparé une fois" style="margin-right: -7px;" />
                 <input type="checkbox" name="attr_sort-prepare2" title="Sort préparé deux fois" style="margin-right: -7px;" />
                 <input type="checkbox" name="attr_sort-prepare3" title="Sort préparé trois fois" style="margin-right: -7px;" />
-                <button type="roll" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:pmt} {{perso=@{character_name}}} {{name=@{sort-nom}}} {{subtags=Sort}} {{sort=1}} {{sortniveau=@{sort-niveau}}} {{sortduree=@{sort-duree}}} {{sortportee=@{sort-portee}}} {{sortdesc=@{sort-desc}}} " />
+                <button type="roll" class="sheet-btDesc" title="Montrer dans le chat" value="&{template:pmt} {{perso=@{character_name}}} {{name=@{sort-nom}}} {{subtags=Sort}} {{sort=1}} {{reversible=[[@{sort-reversible}]]}} {{sortniveau=@{sort-niveau}}} {{sortduree=@{sort-duree}}} {{sortportee=@{sort-portee}}} {{sortdesc=@{sort-desc}}} " />
             </div>
         </fieldset>
     </div>  <!-- FIN SORTS -->
@@ -1581,7 +1588,14 @@ var TAS = TAS || (function(){
             <tr><td><hr/></td></tr>
         {{/perso}}
         <tr><td class="subheader">{{subtags}}</td></tr>
-        <tr><th>{{name}}</th></tr>
+        <tr>
+            <th>
+                {{name}}
+                {{#sort}}
+                    {{#rollTotal() reversible 1}}(réversible){{/rollTotal() reversible 1}}
+                {{/sort}}
+            </th>
+        </tr>
         <tr><td><hr/></td></tr>
         {{#sort}}
             <tr><td><span class="tcat">Niveau : </span>{{sortniveau}}</td></tr>
