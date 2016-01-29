@@ -6,6 +6,7 @@ Pictos :
 éclair : e
 coeur : k
 Flèche simple : 4
+info : i
 
 Dice & Pictos fonts : 
 https://app.roll20.net/forum/post/882997/css-wizardry/?pageforid=892198#post-892198
