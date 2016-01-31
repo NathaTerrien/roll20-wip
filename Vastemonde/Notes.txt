@@ -1,0 +1,26 @@
+Case points de magie : valeur max + (vers les points de vie)
+Case Grâce Divines : (idem)
+
+Inventaires :
+Section 
+1 item nom + desription + type "arme ou pas"
+Si arme : 1 liste déroulante dégâts + bonus + bouton
+
+Sorts/Pouvoirs de prêtres/Pactes démoniaques sous inventaires
+
+Sorts : Liste déroulante + possibilité de voir la description
+Pouvoir : Nom du dieu, + domaines (text)
+ + liste de phrases (add)
+Pactes : idem
+
+--------------------------------------------
+diamant : &diams;
+logo NB : https://lh3.googleusercontent.com/-idB0QWA6ibY/Vq4kiU8dEuI/AAAAAAAAYJ4/zLOPOCpKErI/s640-Ic42/Vastemonde_Logo1.png
+logo couleurs : https://lh3.googleusercontent.com/-DS63VqqmVkU/Vq4pZkpluyI/AAAAAAAAYKQ/llqs7V3dTps/s425-Ic42/LogoVastemonde.png
+
+font-family: "dicefontd8" h = 8
+---------------------------------------------------
+31/01/2016
+- Enlever les demandes de bonus/malus
+- Enlever les demandes de seuil de maîtrise (à confirmer?)
+- Ajouter l'initiative de combat ! 2d8+CA... Mais des fois c'est 4d8 si on a le talent...

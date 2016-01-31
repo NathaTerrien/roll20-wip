@@ -1,0 +1,234 @@
+<div class="sheet-main"> <!-- FDP -->
+    <div class="sheet-ligne"> <!-- LIGNE EN-TETE -->
+        <div class="sheet-mycol" style="width:140px;text-align:left"> <!-- COL JETS -->
+            <div class="sheet-ligne">
+                <div>
+                    <button type="roll" class="sheet-btRoll20big" title="Jet standard" name="JetD20"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet Standard}} {{subtags=Test}} {{jet=[[1d20cs1cf20]]}} {{seuil=[[0+(?{Seuil de maîtrise|0})]]}}"
+                    ></button>
+                    <div class="sheet-subtag">Jet</div>
+                </div>
+                <div>
+                    <button type="roll" class="sheet-btRoll20" title="Jet en danger" name="JetDanger"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet en Danger}} {{subtags=Test}} {{jet=[[1d20cs1cf20+1d8cs1cf8]]}} {{seuil=[[0+(?{Seuil de maîtrise|0})]]}}"
+                    ></button>
+                    <div class="sheet-subtag" style="font-size:9px;">En danger</div>
+                </div>
+            </div>
+        </div> <!-- FIN COL JETS -->    
+        <div class="sheet-mycol" style="width:400px;text-align:left;"> <!-- COL IDENTIFICATION -->
+            <div class="sheet-ligne">
+                <div class="sheet-libel1">Nom</div>
+                <input type="text" name="attr_character_name" class="sheet-biginp" style="text-align: center; width:280px;" placeholder="Nom du personnage" title="Nom du personnage" />
+            </div>
+            <div class="sheet-ligne">
+                <div class="sheet-libel1">Peuple</div>
+                <select name="attr_peuple" style="width:180px;" title="Peuple du personnage">
+                    <OPTION>Corvax</OPTION>
+                    <OPTION>Dracorims</OPTION>
+                    <OPTION>Elfes</OPTION>
+                    <OPTION>Elfes du regain</OPTION>
+                    <OPTION>Forgelins</OPTION>
+                    <OPTION>Gnoll</OPTION>
+                    <OPTION>Gnomes</OPTION>
+                    <OPTION>Gobelins</OPTION>
+                    <OPTION>Goblours</OPTION>
+                    <OPTION>Halfelins</OPTION>
+                    <OPTION>Hobgobelins</OPTION>
+                    <OPTION>Impériaux</OPTION>
+                    <OPTION>Kitsune</OPTION>
+                    <OPTION>Kobold</OPTION>
+                    <OPTION>Minotaures</OPTION>
+                    <OPTION>Nains de la Barbe</OPTION>
+                    <OPTION>Nains de la Cousinade</OPTION>
+                    <OPTION>Nains des Clansrim</OPTION>
+                    <OPTION>Nains des Combinats</OPTION>
+                    <OPTION>Ogres</OPTION>
+                    <OPTION>Orques</OPTION>
+                    <OPTION>Renégats</OPTION>
+                    <OPTION>Sauvageons</OPTION>
+                    <OPTION>Tinigents</OPTION>
+                    <OPTION>Vagabonds</OPTION>
+                    <OPTION>Wolfens</OPTION>
+                </select>
+            </div>
+            <div class="sheet-ligne">
+                <div class="sheet-libel1">Classe</div>
+                <select name="attr_classe" style="width:100px;" title="Classe du personnage">
+                    <OPTION>Guerrier</OPTION>
+                    <OPTION>Magicien</OPTION>
+                    <OPTION>Prêtre</OPTION>
+                    <OPTION>Voleur</OPTION>                    
+                </select>
+            </div>
+        </div> <!-- FIN COL IDENTIFICATION -->
+        <div class="sheet-mycol" style="width:340px;text-align:left"> <!-- COL DESTIN -->
+            <div class="sheet-ligne" style="text-align: center;"> 
+                <div class="sheet-libel2" style="vertical-align: middle;">Destin</div>
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Destin courant" value="0" min="0" />
+                    /
+                    <input type="number" name="attr_destin_max" class="sheet-inpnum2c" title="Points de Destin maximum" value="0" min="0" />
+                </div>
+            </div>            
+        </div> <!-- FIN COL DESTIN -->
+    </div> <!-- FIN LIGNE EN-TETE -->
+    <div class="sheet-ligne"> <!-- Ligne sauvegarde à repos court -->
+        <div class="sheet-mycol" style="width:110px;text-align:left">
+            <div class="sheet-ligne" style="text-align:center;">
+                    <button type="roll" class="sheet-btRoll8" title="Jet de Sauvegarde" name="JetSauvegarde"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{subtags=Jet}} {{sauvegarde=[[1d8]]}}"
+                    ></button>
+                    <div class="sheet-subtag">Sauvegarde</div>
+            </div>
+        </div>
+        <div class="sheet-mycol" style="width:130px;text-align: center;">
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_reputation" class="sheet-inpnum2c" title="Réputation courante" value="0" min="0" />
+                    /
+                    <input type="number" name="attr_reputation_max" class="sheet-inpnum2c" title="Réputation maximum" value="0" min="0" />
+                </div>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-libel2" style="vertical-align: middle;">Réputation</div>
+            </div>
+        </div>
+        <div class="sheet-mycol" style="width:80px;text-align: center;">
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_ca" class="sheet-inpnum2c" title="Classe d'Armure" value="0" min="0" />
+                </div>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-libel2" style="vertical-align: middle;">CA</div>
+            </div>
+        </div>
+        <div class="sheet-mycol" style="width:130px;text-align: center;">
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_pv" class="sheet-inpnum2c" title="Points de Vie courant" value="0" min="0" />
+                    /
+                    <input type="number" name="attr_pv_max" class="sheet-inpnum2c" title="Points de Vie maximum" value="0" min="0" />
+                </div>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-libel2" style="vertical-align: middle;">Points de Vie</div>
+            </div>
+        </div>
+        <div class="sheet-mycol" style="width:130px;text-align: center;">
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_magie" class="sheet-inpnum2c" title="Points de Magie courant" value="0" min="0" />
+                    /
+                    <input type="number" name="attr_magie_max" class="sheet-inpnum2c" title="Points de Magie maximum" value="0" min="0" />
+                </div>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-libel2" style="vertical-align: middle;">Points de Magie</div>
+            </div>
+        </div>
+        <div class="sheet-mycol" style="width:140px;text-align: center;">
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_graces" class="sheet-inpnum2c" title="Grâces Divines courantes" value="0" min="0" />
+                    /
+                    <input type="number" name="attr_graces_max" class="sheet-inpnum2c" title="Grâces Divines maximum" value="0" min="0" />
+                </div>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <div class="sheet-libel2" style="vertical-align: middle;">Grâces Divines</div>
+            </div>
+        </div>
+        <div class="sheet-mycol" style="width:130px;text-align: center;">
+            <div class="sheet-ligne">Repos court :</div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Spartiate"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Spartiate}} {{repos=[[1d8]]}}"
+                ></button>                    
+                Spartiate
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Correct"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Correct}} {{repos=[[2d8]]}}"
+                ></button>                    
+                Correct
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Confortable"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Confortable}} {{repos=[[3d8]]}}"
+                ></button>                    
+                Confortable
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Douillet"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Douillet}} {{repos=[[4d8]]}}"
+                ></button>                    
+                Douillet
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="GrandLuxe"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Grand luxe}} {{repos=[[5d8]]}}"
+                ></button>                    
+                Grand luxe
+            </div>
+        </div>
+    </div> <!-- FIN Ligne sauvegarde à repos court -->
+</div> <!-- FIN FDP -->
+<!-- ******** TEMPLATES *************************** -->
+<rolltemplate class="sheet-rolltemplate-jet">
+    <table>
+        {{#perso}}
+            <tr>
+                <td colspan="2" style="text-align:center;"><b>{{perso}}</b></td>
+            </tr>            
+        {{/perso}}
+        <tr><th colspan="2">{{name}}</th></tr>
+        <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#jet}}
+            {{#rollGreater() seuil 0}}
+                <tr><td class="tcat">Seuil</td><td>{{seuil}}</td></tr>
+            {{/rollGreater() seuil 0}}
+            <tr>
+                <td class="tcat">Jet</td>
+                <td>
+                    {{jet}}
+                    {{#^rollLess() jet 20}}
+                        <span style="color: red;font-weight:bold;">(échec)</span>
+                    {{/^rollLess() jet 20}}
+                    {{#rollLess() jet 20}}
+                        {{#rollGreater() seuil 0}}
+                            {{#rollGreater() jet seuil}}
+                                <span style="color: black;font-weight:bold;">(réussite mineure)</span>
+                            {{/rollGreater() jet seuil}}
+                            {{#^rollGreater() jet seuil}}
+                                <span style="color: green;font-weight:bold;">(réussite majeure)</span>
+                            {{/^rollGreater() jet seuil}}
+                        {{/rollGreater() seuil 0}}
+                    {{/rollLess() jet 20}}
+                </td>
+            </tr>
+        {{/jet}}
+        {{#repos}}
+            <tr><td class="tcat">Jet</td><td>{{repos}}</td></tr>
+        {{/repos}}
+        {{#sauvegarde}}
+            <tr>
+                <td class="tcat">Jet</td>
+                <td>
+                    {{sauvegarde}}
+                    {{#rollGreater() sauvegarde 4}}
+                        <span style="color: green;font-weight:bold;">(réussite)</span>
+                    {{/rollGreater() sauvegarde 4}}
+                    {{#rollLess() sauvegarde 5}}
+                        <span style="color: red;font-weight:bold;">(échec)</span>
+                    {{/rollLess() sauvegarde 5}}
+                </td>
+            </tr>
+        {{/sauvegarde}}
+        {{#description}}
+            <tr><td colspan="2" class="desctitre">Description/Effets</td></tr>
+            <tr><td colspan="2">{{description}}</td></tr>
+        {{/description}}
+    </table>
+</rolltemplate>
