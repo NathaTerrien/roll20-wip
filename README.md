@@ -1,7 +1,7 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2015-01-24.
+Updated 2015-01-31.
 ## Planned sheets (creation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * [Dragon de Poche 2](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
@@ -10,23 +10,11 @@ Updated 2015-01-24.
 
 ## WIP
 
-### INS/MV 5E (french)
-[In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
+### Les Cahiers du Vastemonde
+[Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
 
 #### Sources
-* [WIP](./INS-MV_5E/) Version 1.0
-
-#### Todo
-Tests par les demandeurs
-
-### Supersix (french)
-[Supersix](http://supersix.fr/telechargements/)
-
-#### Sources
-* [WIP](./Supersix/) Version 1.0
-
-#### Todo
-Tests par l'auteur
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde)
 
 ## Existing sheets
 
@@ -57,6 +45,15 @@ Tests par l'auteur
 
 #### Todo
 Cf. english version
+
+### INS/MV 5E (french)
+[In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
+
+#### Sources
+* [WIP](./INS-MV_5E/) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
+
+#### Todo
 
 ### Numenéra tabbed (english)
 
@@ -97,6 +94,16 @@ Cf. english version
 * Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
+
+### Supersix (french)
+[Supersix](http://supersix.fr/telechargements/)
+
+#### Sources
+* [WIP](./Supersix/) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Supersix) Version 1.0
+
+#### Todo
+Tests par l'auteur
 
 ### The One Ring french / L'Anneau Unique
 
