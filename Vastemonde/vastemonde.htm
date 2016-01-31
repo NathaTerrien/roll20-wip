@@ -4,14 +4,14 @@
             <div class="sheet-ligne">
                 <div>
                     <button type="roll" class="sheet-btRoll20big" title="Jet standard" name="JetD20"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet Standard}} {{subtags=Test}} {{jet=[[1d20cs1cf20]]}} {{seuil=[[0+(?{Seuil de maîtrise|0})]]}}"
-                    ></button>
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet Standard}} {{subtags=Test}} {{jet=[[1d20cs1cf20]]}}" 
+                    ></button> <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag">Jet</div>
                 </div>
                 <div>
                     <button type="roll" class="sheet-btRoll20" title="Jet en danger" name="JetDanger"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet en Danger}} {{subtags=Test}} {{jet=[[1d20cs1cf20+1d8cs1cf8]]}} {{seuil=[[0+(?{Seuil de maîtrise|0})]]}}"
-                    ></button>
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet en Danger}} {{subtags=Test}} {{jet=[[1d20cs1cf20+1d8cs1cf8]]}}"
+                    ></button>  <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag" style="font-size:9px;">En danger</div>
                 </div>
             </div>
@@ -77,7 +77,7 @@
         <div class="sheet-mycol" style="width:110px;text-align:left">
             <div class="sheet-ligne" style="text-align:center;">
                     <button type="roll" class="sheet-btRoll8" title="Jet de Sauvegarde" name="JetSauvegarde"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{subtags=Jet}} {{sauvegarde=[[1d8]]}}"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{subtags=Jet}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
                     ></button>
                     <div class="sheet-subtag">Sauvegarde</div>
             </div>
