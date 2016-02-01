@@ -10,7 +10,7 @@
                 </div>
                 <div>
                     <button type="roll" class="sheet-btRoll20" title="Jet en danger" name="JetDanger"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet en Danger}} {{subtags=Test}} {{jet=[[1d20cs1cf20+1d8cs1cf8]]}}"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet en Danger}} {{subtags=Test}} {{jetdanger=[[1d20cs1cf20+1d8cs1cf8]]}}"
                     ></button>  <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag" style="font-size:9px;">En danger</div>
                 </div>
@@ -25,31 +25,31 @@
                 <div class="sheet-libel1">Peuple</div>
                 <select name="attr_peuple" style="width:180px;" title="Peuple du personnage">
                     <OPTION>Corvax</OPTION>
-                    <OPTION>Dracorims</OPTION>
-                    <OPTION>Elfes</OPTION>
-                    <OPTION>Elfes du regain</OPTION>
-                    <OPTION>Forgelins</OPTION>
+                    <OPTION>Dracorim</OPTION>
+                    <OPTION>Elfe</OPTION>
+                    <OPTION>Elfe du regain</OPTION>
+                    <OPTION>Forgelin</OPTION>
                     <OPTION>Gnoll</OPTION>
-                    <OPTION>Gnomes</OPTION>
-                    <OPTION>Gobelins</OPTION>
-                    <OPTION>Goblours</OPTION>
-                    <OPTION>Halfelins</OPTION>
-                    <OPTION>Hobgobelins</OPTION>
-                    <OPTION>Impériaux</OPTION>
+                    <OPTION>Gnome</OPTION>
+                    <OPTION>Gobelin</OPTION>
+                    <OPTION>Goblour</OPTION>
+                    <OPTION>Halfelin</OPTION>
+                    <OPTION>Hobgobelin</OPTION>
+                    <OPTION>Impérial</OPTION>
                     <OPTION>Kitsune</OPTION>
                     <OPTION>Kobold</OPTION>
-                    <OPTION>Minotaures</OPTION>
-                    <OPTION>Nains de la Barbe</OPTION>
-                    <OPTION>Nains de la Cousinade</OPTION>
-                    <OPTION>Nains des Clansrim</OPTION>
-                    <OPTION>Nains des Combinats</OPTION>
-                    <OPTION>Ogres</OPTION>
-                    <OPTION>Orques</OPTION>
-                    <OPTION>Renégats</OPTION>
-                    <OPTION>Sauvageons</OPTION>
-                    <OPTION>Tinigents</OPTION>
-                    <OPTION>Vagabonds</OPTION>
-                    <OPTION>Wolfens</OPTION>
+                    <OPTION>Minotaure</OPTION>
+                    <OPTION>Nain de la Barbe</OPTION>
+                    <OPTION>Nain de la Cousinade</OPTION>
+                    <OPTION>Nain des Clansrim</OPTION>
+                    <OPTION>Nain des Combinats</OPTION>
+                    <OPTION>Ogre</OPTION>
+                    <OPTION>Orque</OPTION>
+                    <OPTION>Renégat</OPTION>
+                    <OPTION>Sauvageon</OPTION>
+                    <OPTION>Tinigent</OPTION>
+                    <OPTION>Vagabond</OPTION>
+                    <OPTION>Wolfen</OPTION>
                 </select>
             </div>
             <div class="sheet-ligne">
@@ -74,15 +74,15 @@
         </div> <!-- FIN COL DESTIN -->
     </div> <!-- FIN LIGNE EN-TETE -->
     <div class="sheet-ligne"> <!-- Ligne sauvegarde à repos court -->
-        <div class="sheet-mycol" style="width:110px;text-align:left">
+        <div class="sheet-mycol" style="width:110px;text-align:left"> <!-- SAUVEGARDE -->
             <div class="sheet-ligne" style="text-align:center;">
                     <button type="roll" class="sheet-btRoll8" title="Jet de Sauvegarde" name="JetSauvegarde"
                         value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{subtags=Jet}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
                     ></button>
                     <div class="sheet-subtag">Sauvegarde</div>
             </div>
-        </div>
-        <div class="sheet-mycol" style="width:130px;text-align: center;">
+        </div>  <!-- FIN SAUVEGARDE -->
+        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- RÉPUTATION -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_reputation" class="sheet-inpnum2c" title="Réputation courante" value="0" min="0" />
@@ -93,8 +93,8 @@
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">Réputation</div>
             </div>
-        </div>
-        <div class="sheet-mycol" style="width:80px;text-align: center;">
+        </div>  <!-- FIN RÉPUTATION -->
+        <div class="sheet-mycol" style="width:80px;text-align: center;"> <!-- CA -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_ca" class="sheet-inpnum2c" title="Classe d'Armure" value="0" min="0" />
@@ -103,8 +103,8 @@
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">CA</div>
             </div>
-        </div>
-        <div class="sheet-mycol" style="width:130px;text-align: center;">
+        </div> <!-- FIN CA -->
+        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- PV -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_pv" class="sheet-inpnum2c" title="Points de Vie courant" value="0" min="0" />
@@ -115,8 +115,8 @@
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">Points de Vie</div>
             </div>
-        </div>
-        <div class="sheet-mycol" style="width:130px;text-align: center;">
+        </div>  <!-- FIN PV -->
+        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- Points de Magie -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_magie" class="sheet-inpnum2c" title="Points de Magie courant" value="0" min="0" />
@@ -127,8 +127,8 @@
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">Points de Magie</div>
             </div>
-        </div>
-        <div class="sheet-mycol" style="width:140px;text-align: center;">
+        </div>  <!-- FIN Points de Magie -->
+        <div class="sheet-mycol" style="width:140px;text-align: center;"> <!-- Grâces Divines -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_graces" class="sheet-inpnum2c" title="Grâces Divines courantes" value="0" min="0" />
@@ -139,8 +139,8 @@
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">Grâces Divines</div>
             </div>
-        </div>
-        <div class="sheet-mycol" style="width:130px;text-align: center;">
+        </div>  <!-- FIN Grâces Divines -->
+        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- REPOS COURTS -->
             <div class="sheet-ligne">Repos court :</div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Spartiate"
@@ -172,8 +172,99 @@
                 ></button>                    
                 Grand luxe
             </div>
-        </div>
+        </div>  <!-- FIN REPOS COURTS -->
+        <div class="sheet-ligne"> <!-- Folie à Blessures -->
+            <div class="sheet-mycol" style="width:100px;text-align: center;" > <!-- FOLIE -->
+                <div class="sheet-libel2" style="vertical-align: middle;">Folie</div>
+                <div class="sheet-boxnum">
+                    <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Folie" value="0" min="0" />
+                </div>
+            </div> <!-- FIN FOLIE -->
+            <div class="sheet-mycol" style="width:180px;text-align: center;" > <!-- Témérité et Protection -->
+                <div class="sheet-mycol" style="text-align: left;" > <!-- Témérité -->
+                    <div style="vertical-align: middle; width: 80px; text-align: right;">Témérité</div>
+                    <input type="number" name="attr_temerite" class="sheet-inpnum2cboxed" title="Témérité" value="3" min="3" max="9" />
+                </div> <!-- FIN Témérité -->
+                <div class="sheet-mycol" style="text-align: left;" > <!-- Protection -->
+                    <div style="vertical-align: middle; width: 80px; text-align: right;">Protection</div>
+                    <input type="number" name="attr_protection" class="sheet-inpnum2cboxed" title="Protection" value="0" min="0" />
+                </div> <!-- FIN Protection -->
+            </div>  <!-- FIN Témérité et Protection -->
+            <div class="sheet-mycol" style="width: 300px;text-align: center;" > <!-- Récupérations -->
+                <div class="sheet-ligne"> 
+                    <div class="sheet-mycol">
+                        <div class="sheet-ligne">
+                            <div style="vertical-align: middle; width: 100px; text-align: right;">Récupérations</div>
+                            <input type="number" name="attr_recuperationsrestantes" class="sheet-inpnum2cboxed" title="Récupérations restantes" value="[[@{recuperations_max}-@{recuperations}]]"  disabled="disabled" />                            
+                        </div>
+                        <div class="sheet-ligne">
+                            <div style="vertical-align: middle; width: 100px; text-align: right;"></div>
+                            <input type="number" name="attr_recuperations_max" class="sheet-inpnum2cboxed" title="Récupérations maximales" value="0" min="0" />
+                        </div>
+                    </div>
+                    <div class="sheet-mycol">
+                        <div class="sheet-dots">
+                            <input type="radio" name="attr_recuperations" value="0" title="0" checked="checked" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="1" title="1" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="2" title="2" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="3" title="3" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="4" title="4" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="5" title="5" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="6" title="6" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="7" title="7" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="8" title="8" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="9" title="9" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="10" title="10" /><span></span><br/>
+                            <div style="display: inline-block; width:8px"></div>
+                            <input type="radio" name="attr_recuperations" value="11" title="11" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="12" title="12" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="13" title="13" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="14" title="14" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="15" title="15" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="16" title="16" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="17" title="17" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="18" title="18" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="19" title="19" /><span></span>
+                            <input type="radio" name="attr_recuperations" value="20" title="20" /><span></span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- FIN Récupérations -->
+            <div class="sheet-mycol"> <!-- Blessures -->
+                <div class="sheet-mycol">
+                    <div style="vertical-align: middle; width: 100px; text-align: right;">Blessures</div>
+                    <input type="number" name="attr_blessures" class="sheet-inpnum2cboxed" title="Blessures courantes" value="0" min="0" readonly />
+                </div>
+                <div class="sheet-mycol">
+                    <div class="sheet-dots">
+                        <input type="radio" name="attr_blessures" value="0" title="0" checked="checked" /><span></span>
+                        <input type="radio" name="attr_blessures" value="1" title="1" /><span></span>
+                        <input type="radio" name="attr_blessures" value="2" title="2" /><span></span>
+                        <input type="radio" name="attr_blessures" value="3" title="3" /><span></span>
+                        <input type="radio" name="attr_blessures" value="4" title="4" /><span></span>
+                        <input type="radio" name="attr_blessures" value="5" title="5" /><span></span>
+                        <input type="radio" name="attr_blessures" value="6" title="6" /><span></span>
+                        <input type="radio" name="attr_blessures" value="7" title="7" /><span></span>
+                        <input type="radio" name="attr_blessures" value="8" title="8" /><span></span>
+                        <input type="radio" name="attr_blessures" value="9" title="9" /><span></span>
+                        <input type="radio" name="attr_blessures" value="10" title="10" /><span></span><br/>
+                        <div style="display: inline-block; width:8px"></div>
+                        <input type="radio" name="attr_blessures" value="11" title="11" /><span></span>
+                        <input type="radio" name="attr_blessures" value="12" title="12" /><span></span>
+                        <input type="radio" name="attr_blessures" value="13" title="13" /><span></span>
+                        <input type="radio" name="attr_blessures" value="14" title="14" /><span></span>
+                        <input type="radio" name="attr_blessures" value="15" title="15" /><span></span>
+                        <input type="radio" name="attr_blessures" value="16" title="16" /><span></span>
+                        <input type="radio" name="attr_blessures" value="17" title="17" /><span></span>
+                        <input type="radio" name="attr_blessures" value="18" title="18" /><span></span>
+                        <input type="radio" name="attr_blessures" value="19" title="19" /><span></span>
+                        <input type="radio" name="attr_blessures" value="20" title="20" /><span></span>
+                    </div>
+                </div>                    
+            </div> <!-- FIN Blessures -->                            
+        </div>  <!-- FIN Folie à Blessures -->
     </div> <!-- FIN Ligne sauvegarde à repos court -->
+
 </div> <!-- FIN FDP -->
 <!-- ******** TEMPLATES *************************** -->
 <rolltemplate class="sheet-rolltemplate-jet">
@@ -185,10 +276,36 @@
         {{/perso}}
         <tr><th colspan="2">{{name}}</th></tr>
         <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#rollGreater() seuil 0}}
+            <tr><td class="tcat">Seuil</td><td>{{seuil}}</td></tr>
+        {{/rollGreater() seuil 0}}
+        {{#jetdanger}}
+            <tr>
+                <td class="tcat">Jet</td>
+                <td>
+                    {{jetdanger}}
+                    {{#^rollLess() jetdanger 20}}
+                        <span style="color: red;font-weight:bold;">(échec)</span>
+                    {{/^rollLess() jetdanger 20}}
+                    {{#rollTotal() jetdanger 2}}
+                        <span style="color: green;font-weight:bold;">(réussite critique)</span>
+                    {{/rollTotal() jetdanger 2}}
+                    {{#rollBetween() jetdanger 3 19}}
+                        {{#rollGreater() seuil 0}}
+                            {{#rollGreater() jetdanger 2}}
+                                {{#rollGreater() jetdanger seuil}}
+                                    <span style="color: black;font-weight:bold;">(réussite mineure)</span>
+                                {{/rollGreater() jetdanger seuil}}
+                                {{#^rollGreater() jetdanger seuil}}
+                                    <span style="color: green;font-weight:bold;">(réussite majeure)</span>
+                                {{/^rollGreater() jetdanger seuil}}
+                            {{/rollGreater() jetdanger 2}}
+                        {{/rollGreater() seuil 0}}
+                    {{/rollBetween() jetdanger 3 19}}
+                </td>
+            </tr>
+        {{/jetdanger}}
         {{#jet}}
-            {{#rollGreater() seuil 0}}
-                <tr><td class="tcat">Seuil</td><td>{{seuil}}</td></tr>
-            {{/rollGreater() seuil 0}}
             <tr>
                 <td class="tcat">Jet</td>
                 <td>
@@ -196,16 +313,21 @@
                     {{#^rollLess() jet 20}}
                         <span style="color: red;font-weight:bold;">(échec)</span>
                     {{/^rollLess() jet 20}}
-                    {{#rollLess() jet 20}}
+                    {{#rollTotal() jet 1}}
+                        <span style="color: green;font-weight:bold;">(réussite critique)</span>
+                    {{/rollTotal() jet 1}}
+                    {{#rollBetween() jet 2 19}}
                         {{#rollGreater() seuil 0}}
-                            {{#rollGreater() jet seuil}}
-                                <span style="color: black;font-weight:bold;">(réussite mineure)</span>
-                            {{/rollGreater() jet seuil}}
-                            {{#^rollGreater() jet seuil}}
-                                <span style="color: green;font-weight:bold;">(réussite majeure)</span>
-                            {{/^rollGreater() jet seuil}}
+                            {{#rollGreater() jet 1}}
+                                {{#rollGreater() jet seuil}}
+                                    <span style="color: black;font-weight:bold;">(réussite mineure)</span>
+                                {{/rollGreater() jet seuil}}
+                                {{#^rollGreater() jet seuil}}
+                                    <span style="color: green;font-weight:bold;">(réussite majeure)</span>
+                                {{/^rollGreater() jet seuil}}
+                            {{/rollGreater() jet 1}}
                         {{/rollGreater() seuil 0}}
-                    {{/rollLess() jet 20}}
+                    {{/rollBetween() jet 2 19}}
                 </td>
             </tr>
         {{/jet}}

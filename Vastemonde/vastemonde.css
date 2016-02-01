@@ -91,6 +91,10 @@ input[type="number"]{
 input[type="number"].sheet-inpnum2c{
     width: 35px;
 }
+input[type="number"].sheet-inpnum2cboxed{
+    border: 1px solid black;
+    width: 35px;
+}
 /******* SELECTS *************************************************/
 select{
     box-shadow: none;
@@ -196,6 +200,72 @@ button[type=roll].sheet-btDesc:before{
 .charsheet .repcontrol_del:hover{
     opacity: 1.0;
 }
+/******************** DOTS ******************/
+.sheet-dots {
+    display: inline-block;
+    position: absolute;
+    top: 6px;
+    right: 0;
+}
+
+.sheet-dots input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+}
+
+.sheet-dots input[type="radio"],
+.sheet-dots input[type="radio"] + span {
+    width: 10px;
+    height: 10px;
+    margin: 4px -1px;
+}
+
+.sheet-dots input[type="radio"] + span {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+/* fake circles */
+.sheet-dots input[type="radio"]:not([value="0"]) + span {
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.1);
+}
+
+/* fake dots */
+.sheet-dots input[type="radio"]:not([value="0"]) + span::before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 4px;
+    margin-left: -2px;
+    margin-top: -2px;
+    background: black;
+    border-radius: 50%;
+}
+
+/* hide fake dots after last checked radio button */
+.sheet-dots input[type="radio"]:checked ~ input[type="radio"] + span::before {
+    background: transparent;
+}
+
+/* X — Sets value to 0 */
+.sheet-dots input[type="radio"][value="0"] + span:before {
+    content: "x";
+    font-size: 11px;
+    position: relative;
+    top: -5px;
+    left: 1px;
+    opacity: 0;
+}
+
+.sheet-dots:hover input[type="radio"][value="0"] + span:before {
+    opacity: 1;
+}
+
 .sheet-rolltemplate-jet table{
     background: white;
     border: 1px solid #DD5633;
