@@ -16,25 +16,44 @@
             }
         });
     });
+    // Gestion CA (@{temerite})-(@{protection})
+    on("change:temerite change:protection", function() {
+        getAttrs(["temerite","protection"], function(values) {
+            var temerite=parseInt(values.temerite) || 0;
+            var protection = parseInt(values.protection) || 0;
+            setAttrs({
+                ca: temerite - protection
+            });
+        });
+    });
 </script>
 <div class="sheet-main"> <!-- FDP -->
     <div class="sheet-ligne"> <!-- LIGNE EN-TETE -->
-        <div class="sheet-mycol" style="width:140px;text-align:left"> <!-- COL JETS -->
+        <div class="sheet-mycol" style="width:220px;text-align:left;"> <!-- COL JETS -->
             <div class="sheet-ligne">
                 <div>
                     <button type="roll" class="sheet-btRoll20big" title="Jet standard" name="JetD20"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet Standard}} {{subtags=Test}} {{jet=[[1d20cs1cf20]]}}"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Test Standard}} {{jet=[[1d20cs1cf20]]}}"
                     ></button> <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag">Jet</div>
                 </div>
                 <div>
                     <button type="roll" class="sheet-btRoll20" title="Jet en danger" name="JetDanger"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet en Danger}} {{subtags=Test}} {{jetdanger=[[1d20cs1cf20+1d8cs1cf8]]}}"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Test en Danger}} {{jetdanger=[[1d20cs1cf20+1d8cs1cf8]]}}"
                     ></button>  <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag" style="font-size:9px;">En danger</div>
                 </div>
+                <div style="margin-left:5px;">  <!-- INITIATIVE -->
+                    <button type="roll" class="sheet-btRoll8" title="Jet d'Initiative" name="Initiative"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=[[@{initiativedes}d8+@{ca} &{tracker}]] }}"
+                    ></button>x<SELECT  name="attr_initiativedes" style="width: 35px;text-align:right;" title="Témérité">
+                        <OPTION>2</OPTION>
+                        <OPTION>4</OPTION>
+                    </SELECT>
+                    <div class="sheet-subtag" style="font-size:9px;">Initiative</div>
+                </div>  <!-- FIN INITIATIVE --> 
             </div>
-        </div> <!-- FIN COL JETS -->
+        </div> <!-- FIN COL JETS -->        
         <div class="sheet-mycol" style="width:400px;text-align:left;"> <!-- COL IDENTIFICATION -->
             <div class="sheet-ligne">
                 <div class="sheet-libel1">Nom</div>
@@ -81,7 +100,7 @@
                 </select>
             </div>
         </div> <!-- FIN COL IDENTIFICATION -->
-        <div class="sheet-mycol" style="width:340px;text-align:left"> <!-- COL DESTIN -->
+        <div class="sheet-mycol" style="width:240px;text-align:center;"> <!-- COL DESTIN -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">Destin</div>
                 <div class="sheet-boxnum">
@@ -96,7 +115,7 @@
         <div class="sheet-mycol" style="width:110px;text-align:left"> <!-- SAUVEGARDE -->
             <div class="sheet-ligne" style="text-align:center;">
                     <button type="roll" class="sheet-btRoll8" title="Jet de Sauvegarde" name="JetSauvegarde"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{subtags=Jet}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
                     ></button>
                     <div class="sheet-subtag">Sauvegarde</div>
             </div>
@@ -116,7 +135,7 @@
         <div class="sheet-mycol" style="width:80px;text-align: center;"> <!-- CA -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
-                    <input type="number" name="attr_ca" class="sheet-inpnum2c" title="Classe d'Armure" value="(@{temerite})-(@{protection})" disabled="true" />
+                    <input type="number" name="attr_ca" class="sheet-inpnum2c" title="Classe d'Armure" value="0" readonly />
                 </div>
             </div>
             <div class="sheet-ligne" style="text-align: center;">
@@ -165,31 +184,31 @@
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Spartiate"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Spartiate}} {{repos=[[1d8]]}}"
                 ></button>
-                Spartiate
+                <div class="sheet-libel3">Spartiate</div>
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Correct"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Correct}} {{repos=[[2d8]]}}"
                 ></button>
-                Correct
+                <div class="sheet-libel3">Correct</div>
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Confortable"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Confortable}} {{repos=[[3d8]]}}"
                 ></button>
-                Confortable
+                <div class="sheet-libel3">Confortable</div>
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Douillet"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Douillet}} {{repos=[[4d8]]}}"
                 ></button>
-                Douillet
+                <div class="sheet-libel3">Douillet</div>
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="GrandLuxe"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Grand luxe}} {{repos=[[5d8]]}}"
                 ></button>
-                Grand luxe
+                <div class="sheet-libel3">Grand luxe</div>
             </div>
         </div>  <!-- FIN REPOS COURTS -->
         <div class="sheet-ligne"> <!-- Folie à Blessures -->
@@ -296,7 +315,79 @@
             </div> <!-- FIN Blessures -->
         </div>  <!-- FIN Folie à Blessures -->
     </div> <!-- FIN Ligne sauvegarde à repos court -->
-
+    <div class="sheet-ligne"> <!-- Ligne de fin -->
+        <div class="sheet-mycol" style="width:450px;"> <!-- COL Lignes de vie + Talents + Inventaires -->
+            <div class="sheet-ligne"><div class="sheet-libel2">Ligne de vie</div></div>
+            <div class="sheet-ligne"><div class="sheet-libel2">Talents</div></div>
+            <div class="sheet-ligne"><div class="sheet-libel2">Inventaire</div></div>
+        </div>  <!-- FIN COL Lignes de vie + Talents + Inventaires -->
+        <div class="sheet-mycol" style="width:420px;"> <!-- COL Risques Blessures Critiques Logo Magie  -->
+            <div class="sheet-ligne"> <!-- LIGNE Risques Blessures Critiques Logo --> 
+                <div class="sheet-mycol" style="width:250px;"> <!-- COL Risques Critiques -->
+                    <div class="sheet-libel1">Risques</div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueCa"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Classe d’armure -2 (soi ou un allié)}} {{risquenum=[[1]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Classe d’armure -2 (soi ou un allié)</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDegat"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Dégâts +1d8 (Rmaj) ou +1 (Rmin)}} {{risquenum=[[2]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Dégâts +1d8 (Rmaj) ou +1 (Rmin)</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueManoeuvre"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Deuxième manoeuvre}} {{risquenum=[[3]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Deuxième manoeuvre</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDanger"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Ignorer en danger (soi ou un allié)}} {{risquenum=[[4]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Ignorer en danger (soi ou un allié)</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueInitiative"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Initiative +1d8}} {{risquenum=[[5]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Initiative +1d8</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueAttaque"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Seuil d’attaque +2 (soi ou un allié)}} {{risquenum=[[6]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Seuil d’attaque +2 (soi ou un allié)</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisquePhysique"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Prouesse physique +2 (soi ou un allié)}} {{risquenum=[[7]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Prouesse physique +2 (soi ou un allié)</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueVie"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Points de vie +2 (soi ou un allié)}} {{risquenum=[[8]]}} {{risquejet=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Points de vie +2 (soi ou un allié)</div>
+                    </div>
+                </div>  <!-- FIN COL Risques Critiques -->
+                <div class="sheet-mycol" style="width:150px;"> <!-- COL Blessure Logo -->
+                    <div class="sheet-ligne"> <!-- LIGNE Blessure -->
+                        <div class="sheet-libel2" style="vertical-align: middle;">Blessure</div>
+                        <button type="roll" class="sheet-btRoll8" style="vertical-align: middle;" title="Jet de Sauvegarde" name="JetSauvegarde"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{d4|1}d4]]}}"
+                        ></button>
+                    </div> <!-- FIN LIGNE Blessure -->
+                    <div style="text-align: center;">
+                        <img style="width: 150px;vertical-align: middle;" src="https://lh3.googleusercontent.com/-DS63VqqmVkU/Vq4pZkpluyI/AAAAAAAAYKQ/llqs7V3dTps/s425-Ic42/LogoVastemonde.png" />
+                    </div>
+                </div>  <!-- FIN COL Blessures Logo -->
+            </div> <!-- FIN LIGNE Risques Blessures Critiques Logo -->
+        </div> <!-- FIN COL Risques Blessures Critiques Magie  -->
+    </div> <!-- FIN Ligne de fin -->
 </div> <!-- FIN FDP -->
 <!-- ******** TEMPLATES *************************** -->
 <rolltemplate class="sheet-rolltemplate-jet">
@@ -307,7 +398,9 @@
             </tr>
         {{/perso}}
         <tr><th colspan="2">{{name}}</th></tr>
-        <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{#subtags}}
+            <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{/subtags}}
         {{#rollGreater() seuil 0}}
             <tr><td class="tcat">Seuil</td><td>{{seuil}}</td></tr>
         {{/rollGreater() seuil 0}}
@@ -363,6 +456,9 @@
                 </td>
             </tr>
         {{/jet}}
+        {{#initiative}}
+            <tr><td class="tcat">Jet</td><td>{{initiative}}</td></tr>
+        {{/initiative}}
         {{#repos}}
             <tr><td class="tcat">Jet</td><td>{{repos}}</td></tr>
         {{/repos}}
@@ -380,6 +476,13 @@
                 </td>
             </tr>
         {{/sauvegarde}}
+        {{#risquejet}}
+            <tr><td COLSPAN="2">{{risque}}</td></tr>
+            <tr><td class="tcat">Jet</td><td>{{risquejet}}</td></tr>
+        {{/risquejet}}
+        {{#blessure}}
+            <tr><td class="tcat">Jet</td><td>{{blessure}}</td></tr>
+        {{/blessure}}
         {{#description}}
             <tr><td colspan="2" class="desctitre">Description/Effets</td></tr>
             <tr><td colspan="2">{{description}}</td></tr>

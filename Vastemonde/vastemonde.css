@@ -56,6 +56,13 @@ div.sheet-libel2{
     font-size: 1.1em;
     font-weight: bold;
 }
+div.sheet-libel3{
+    color: black;
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: normal;
+    vertical-align: middle;
+}
 div.sheet-subtag{
     display: block;
     font-style: italic;
@@ -161,6 +168,7 @@ button[type=roll].sheet-btRoll8:before{
 button[type=roll].sheet-btRoll8small{
     height: 1em;
     width: 1em;
+    vertical-align: middle;
 }
 button[type=roll].sheet-btRoll8small:before{
     font-family: "dicefontd8";
