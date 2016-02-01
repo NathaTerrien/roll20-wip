@@ -1,7 +1,7 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2015-01-31.
+Updated 2015-02-01.
 ## Planned sheets (creation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * [Dragon de Poche 2](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
@@ -76,8 +76,8 @@ Cf. english version
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 3.1 (2016-01-17)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.1 (2016-01-17)
+* [WIP](./PortesMonstresTresors/) Version 4.0 (2016-01-29)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 4.0 (2016-01-29)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.1 (2016-01-17)
 
 #### Todo
@@ -149,8 +149,7 @@ Tests par l'auteur
 
 ###Portes Monstres Tresors
 * [WIP]()
-* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
+* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
 
 #### Todo
-* Détermination aléatoire correcte des sorts d'elfes et magiciens
