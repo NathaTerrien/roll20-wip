@@ -12,7 +12,7 @@ th{
     box-sizing: border-box;
 }
 /********* DIV *************************************************/
-div{    
+div{
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     vertical-align: top;
@@ -34,6 +34,7 @@ div.sheet-ligne{
     width: 100%;
     text-align: left;
     vertical-align: middle;
+    margin: 1px 0px 1px 0px;
     /*border: 1px solid red;*/
 }
 div.sheet-mycol{
@@ -70,7 +71,7 @@ input{
     box-shadow: none;
     text-shadow: none;
     padding: 0;
-    margin: 0;    
+    margin: 0;
     color: black;
     font-family: cursive;
     font-weight: normal;
@@ -79,7 +80,7 @@ input{
 input[type="text"]{
     padding: 0px 0px 1px 2px;
     border-width: 0px 0px 1px 0px;
-    border-style: dotted;        
+    border-style: dotted;
 }
 input[type="text"].sheet-biginp{
     font-size: 1.2em;
@@ -87,6 +88,8 @@ input[type="text"].sheet-biginp{
 }
 input[type="number"]{
     text-align: right;
+    border-width: 0px 1px 1px 0px;
+    border-style: dotted;
 }
 input[type="number"].sheet-inpnum2c{
     width: 35px;
@@ -202,12 +205,8 @@ button[type=roll].sheet-btDesc:before{
 }
 /******************** DOTS ******************/
 .sheet-dots {
-    display: inline-block;
-    position: absolute;
-    top: 6px;
-    right: 0;
+    display: block;
 }
-
 .sheet-dots input[type="radio"] {
     position: absolute;
     opacity: 0;
@@ -220,17 +219,18 @@ button[type=roll].sheet-btDesc:before{
     height: 10px;
     margin: 4px -1px;
 }
-
 .sheet-dots input[type="radio"] + span {
     display: inline-block;
     vertical-align: top;
     position: relative;
+    border: none;
 }
 
 /* fake circles */
 .sheet-dots input[type="radio"]:not([value="0"]) + span {
     border-radius: 50%;
     background-color: rgba(0,0,0,.1);
+    border: 1px solid black;
 }
 
 /* fake dots */
@@ -287,7 +287,7 @@ button[type=roll].sheet-btDesc:before{
     text-align: center;
     font-family: 'Contrail One';
     color: white;
-    background: #DD5633; 
+    background: #DD5633;
 }
 .sheet-rolltemplate-jet td{
     padding: 2px;

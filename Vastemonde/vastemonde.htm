@@ -1,10 +1,29 @@
+<!-- **** SCRIPTS / SHEET WORKERS -->
+<script type="text/worker">
+    // Gestion Bouclier
+    on("change:bouclier", function() {
+        getAttrs(["bouclier","protection"], function(values) {
+            var bouclier=parseInt(values.bouclier) || 0;
+            var protection = parseInt(values.protection) || 0;
+            if ( bouclier == 1 ) {
+                setAttrs({
+                    protection: protection + 1
+                });
+            } else {
+                setAttrs({
+                    protection: Math.max(protection - 1,0)
+                });
+            }
+        });
+    });
+</script>
 <div class="sheet-main"> <!-- FDP -->
     <div class="sheet-ligne"> <!-- LIGNE EN-TETE -->
         <div class="sheet-mycol" style="width:140px;text-align:left"> <!-- COL JETS -->
             <div class="sheet-ligne">
                 <div>
                     <button type="roll" class="sheet-btRoll20big" title="Jet standard" name="JetD20"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet Standard}} {{subtags=Test}} {{jet=[[1d20cs1cf20]]}}" 
+                        value="&{template:jet} {{perso=@{character_name}}} {{name=Jet Standard}} {{subtags=Test}} {{jet=[[1d20cs1cf20]]}}"
                     ></button> <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag">Jet</div>
                 </div>
@@ -15,7 +34,7 @@
                     <div class="sheet-subtag" style="font-size:9px;">En danger</div>
                 </div>
             </div>
-        </div> <!-- FIN COL JETS -->    
+        </div> <!-- FIN COL JETS -->
         <div class="sheet-mycol" style="width:400px;text-align:left;"> <!-- COL IDENTIFICATION -->
             <div class="sheet-ligne">
                 <div class="sheet-libel1">Nom</div>
@@ -58,19 +77,19 @@
                     <OPTION>Guerrier</OPTION>
                     <OPTION>Magicien</OPTION>
                     <OPTION>Prêtre</OPTION>
-                    <OPTION>Voleur</OPTION>                    
+                    <OPTION>Voleur</OPTION>
                 </select>
             </div>
         </div> <!-- FIN COL IDENTIFICATION -->
         <div class="sheet-mycol" style="width:340px;text-align:left"> <!-- COL DESTIN -->
-            <div class="sheet-ligne" style="text-align: center;"> 
+            <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-libel2" style="vertical-align: middle;">Destin</div>
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Destin courant" value="0" min="0" />
                     /
                     <input type="number" name="attr_destin_max" class="sheet-inpnum2c" title="Points de Destin maximum" value="0" min="0" />
                 </div>
-            </div>            
+            </div>
         </div> <!-- FIN COL DESTIN -->
     </div> <!-- FIN LIGNE EN-TETE -->
     <div class="sheet-ligne"> <!-- Ligne sauvegarde à repos court -->
@@ -97,7 +116,7 @@
         <div class="sheet-mycol" style="width:80px;text-align: center;"> <!-- CA -->
             <div class="sheet-ligne" style="text-align: center;">
                 <div class="sheet-boxnum">
-                    <input type="number" name="attr_ca" class="sheet-inpnum2c" title="Classe d'Armure" value="0" min="0" />
+                    <input type="number" name="attr_ca" class="sheet-inpnum2c" title="Classe d'Armure" value="(@{temerite})-(@{protection})" disabled="true" />
                 </div>
             </div>
             <div class="sheet-ligne" style="text-align: center;">
@@ -140,66 +159,79 @@
                 <div class="sheet-libel2" style="vertical-align: middle;">Grâces Divines</div>
             </div>
         </div>  <!-- FIN Grâces Divines -->
-        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- REPOS COURTS -->
+        <div class="sheet-mycol" style="width:130px;text-align: center;margin-top: -25px;"> <!-- REPOS COURTS -->
             <div class="sheet-ligne">Repos court :</div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Spartiate"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Spartiate}} {{repos=[[1d8]]}}"
-                ></button>                    
+                ></button>
                 Spartiate
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Correct"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Correct}} {{repos=[[2d8]]}}"
-                ></button>                    
+                ></button>
                 Correct
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Confortable"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Confortable}} {{repos=[[3d8]]}}"
-                ></button>                    
+                ></button>
                 Confortable
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Douillet"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Douillet}} {{repos=[[4d8]]}}"
-                ></button>                    
+                ></button>
                 Douillet
             </div>
             <div class="sheet-ligne">
                 <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="GrandLuxe"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Grand luxe}} {{repos=[[5d8]]}}"
-                ></button>                    
+                ></button>
                 Grand luxe
             </div>
         </div>  <!-- FIN REPOS COURTS -->
         <div class="sheet-ligne"> <!-- Folie à Blessures -->
-            <div class="sheet-mycol" style="width:100px;text-align: center;" > <!-- FOLIE -->
+            <div class="sheet-mycol" style="width:90px;text-align: center;" > <!-- FOLIE -->
                 <div class="sheet-libel2" style="vertical-align: middle;">Folie</div>
                 <div class="sheet-boxnum">
                     <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Folie" value="0" min="0" />
                 </div>
             </div> <!-- FIN FOLIE -->
-            <div class="sheet-mycol" style="width:180px;text-align: center;" > <!-- Témérité et Protection -->
+            <div class="sheet-mycol" style="width:160px;text-align: center;" > <!-- Témérité et Protection -->
                 <div class="sheet-mycol" style="text-align: left;" > <!-- Témérité -->
                     <div style="vertical-align: middle; width: 80px; text-align: right;">Témérité</div>
-                    <input type="number" name="attr_temerite" class="sheet-inpnum2cboxed" title="Témérité" value="3" min="3" max="9" />
+                    <div style="border: 1px solid black;width:70px;text-align:center;">
+                        <SELECT  name="attr_temerite" style="width: 45px;text-align:right;" title="Témérité">
+                            <OPTION>3</OPTION>
+                            <OPTION>4</OPTION>
+                            <OPTION>5</OPTION>
+                            <OPTION>6</OPTION>
+                            <OPTION>7</OPTION>
+                            <OPTION>8</OPTION>
+                            <OPTION>9</OPTION>
+                        </SELECT>
+                    </div>
                 </div> <!-- FIN Témérité -->
                 <div class="sheet-mycol" style="text-align: left;" > <!-- Protection -->
                     <div style="vertical-align: middle; width: 80px; text-align: right;">Protection</div>
-                    <input type="number" name="attr_protection" class="sheet-inpnum2cboxed" title="Protection" value="0" min="0" />
+                    <div style="border: 1px solid black;">
+                        <input type="number" name="attr_protection" class="sheet-inpnum2c" title="Protection" value="0" />
+                        B:<input type="checkbox" name="attr_bouclier" value="1" title="Bouclier (+1 Protection)" />
+                    </div>
                 </div> <!-- FIN Protection -->
             </div>  <!-- FIN Témérité et Protection -->
             <div class="sheet-mycol" style="width: 300px;text-align: center;" > <!-- Récupérations -->
-                <div class="sheet-ligne"> 
+                <div class="sheet-ligne">
                     <div class="sheet-mycol">
                         <div class="sheet-ligne">
                             <div style="vertical-align: middle; width: 100px; text-align: right;">Récupérations</div>
-                            <input type="number" name="attr_recuperationsrestantes" class="sheet-inpnum2cboxed" title="Récupérations restantes" value="[[@{recuperations_max}-@{recuperations}]]"  disabled="disabled" />                            
+                            <input type="number" name="attr_recuperationsrestantes" class="sheet-inpnum2cboxed" title="Récupérations restantes" value="(@{recuperationsmax})-(@{recuperations})"  disabled="true" />
                         </div>
                         <div class="sheet-ligne">
                             <div style="vertical-align: middle; width: 100px; text-align: right;"></div>
-                            <input type="number" name="attr_recuperations_max" class="sheet-inpnum2cboxed" title="Récupérations maximales" value="0" min="0" />
+                            <input type="number" name="attr_recuperationsmax" class="sheet-inpnum2cboxed" title="Récupérations maximales" value="0" min="0" />
                         </div>
                     </div>
                     <div class="sheet-mycol">
@@ -260,8 +292,8 @@
                         <input type="radio" name="attr_blessures" value="19" title="19" /><span></span>
                         <input type="radio" name="attr_blessures" value="20" title="20" /><span></span>
                     </div>
-                </div>                    
-            </div> <!-- FIN Blessures -->                            
+                </div>
+            </div> <!-- FIN Blessures -->
         </div>  <!-- FIN Folie à Blessures -->
     </div> <!-- FIN Ligne sauvegarde à repos court -->
 
@@ -272,7 +304,7 @@
         {{#perso}}
             <tr>
                 <td colspan="2" style="text-align:center;"><b>{{perso}}</b></td>
-            </tr>            
+            </tr>
         {{/perso}}
         <tr><th colspan="2">{{name}}</th></tr>
         <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
