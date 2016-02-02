@@ -48,7 +48,7 @@ div.sheet-libel1{
     font-size: 1.1em;
     font-weight: bold;
     text-align: right;
-    width: 100px;
+    width: 80px;
 }
 div.sheet-libel2{
     color: #888888;
@@ -191,7 +191,7 @@ button[type=roll].sheet-btDesc:before{
     font-size: 1.3em;
     content: 'i';
 }
-/* this sets the formatting for all repcontrol buttons */
+/* Formatage des boutons de fieldset */
 .charsheet .repcontrol_add,
 .charsheet .repcontrol_edit,
 .charsheet .repcontrol_del{
@@ -220,7 +220,6 @@ button[type=roll].sheet-btDesc:before{
     opacity: 0;
     z-index: 1;
 }
-
 .sheet-dots input[type="radio"],
 .sheet-dots input[type="radio"] + span {
     width: 10px;
@@ -233,15 +232,11 @@ button[type=roll].sheet-btDesc:before{
     position: relative;
     border: none;
 }
-
-/* fake circles */
 .sheet-dots input[type="radio"]:not([value="0"]) + span {
     border-radius: 50%;
     background-color: rgba(0,0,0,.1);
     border: 1px solid black;
 }
-
-/* fake dots */
 .sheet-dots input[type="radio"]:not([value="0"]) + span::before {
     content: " ";
     position: absolute;
@@ -254,13 +249,9 @@ button[type=roll].sheet-btDesc:before{
     background: black;
     border-radius: 50%;
 }
-
-/* hide fake dots after last checked radio button */
 .sheet-dots input[type="radio"]:checked ~ input[type="radio"] + span::before {
     background: transparent;
 }
-
-/* X — Sets value to 0 */
 .sheet-dots input[type="radio"][value="0"] + span:before {
     content: "x";
     font-size: 11px;
@@ -269,11 +260,9 @@ button[type=roll].sheet-btDesc:before{
     left: 1px;
     opacity: 0;
 }
-
 .sheet-dots:hover input[type="radio"][value="0"] + span:before {
     opacity: 1;
 }
-
 .sheet-rolltemplate-jet table{
     background: white;
     border: 1px solid #DD5633;
