@@ -14,3 +14,8 @@ https://app.roll20.net/forum/post/882997/css-wizardry/?pageforid=892198#post-892
 Fonts :
 https://app.roll20.net/forum/post/2216977/available-fonts-slash-symbols/?pageforid=2217442#post-2217442
 
+Arrows HTML : 
+http://www.w3schools.com/charsets/ref_utf_arrows.asp
+
+Symbols HTML : 
+http://www.w3schools.com/charsets/ref_utf_symbols.asp

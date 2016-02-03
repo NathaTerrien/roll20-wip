@@ -34,7 +34,9 @@ font-family: "dicefontd8" h = 8
 ---------------------------------------------------
 02/02/2016
 - Init : à tester :
-  * 2 fois le même pion avec 2 valeurs différentes
-  * Init sans pion (2 fois)
-  * si l'init est égal à 20 ou plus, tu as une deuxième action à init X-20 (donc à 3 si tu as 23 en init)
-  * Case saisissable pour 2ième init
+  * KO 2 fois le même pion avec 2 valeurs différentes
+  * KO Init sans pion (2 fois)
+  * KO si l'init est égal à 20 ou plus, tu as une deuxième action à init X-20 (donc à 3 si tu as 23 en init)
+  * KO Case saisissable pour 2ième init
+---------------------------------------------------
+03/02/2016

@@ -101,10 +101,56 @@ input[type="number"]{
 input[type="number"].sheet-inpnum2c{
     width: 35px;
 }
+input[type="number"].sheet-inpnum2cbig{
+    width: 50px;
+    font-size: 1.5em;
+}
 input[type="number"].sheet-inpnum2cboxed{
     border: 1px solid black;
     width: 35px;
 }
+input[type="checkbox"].sheet-dispcheck{
+    width: 18px;
+    opacity: 0;
+    z-index: 2;
+}
+input[type="checkbox"].sheet-dispcheck + span{
+    display: inline-block;
+    color: #888888;
+    text-align: center;
+    margin-left: -18px;
+    width: 18px;
+    height: 18px;
+    z-index: 1;    
+    font-family: pictos;
+}
+input[type="checkbox"].sheet-dispcheck + span{
+    font-weight: normal;
+}
+input[type="checkbox"].sheet-dispcheck:checked + span{
+    font-weight: bold;
+}
+/******* TEXTAREA *************************************************/
+textarea{
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+    font-family: cursive;
+    font-weight: normal;
+    border-radius: 0px;
+}
+textarea.sheet-textdesc{
+    font-family: 'Verdana', serif;
+    font-size: 0.9em;
+    height: 22px;
+    resize: none;
+}
+input[type="checkbox"]:checked ~ textarea.sheet-textdesc{
+    height: 140px;
+}
+
 /******* SELECTS *************************************************/
 select{
     box-shadow: none;
@@ -177,8 +223,8 @@ button[type=roll].sheet-btRoll8small:before{
 }
 button[type=roll].sheet-btDesc{
     color: black;
-    height:24px;
-    width:24px;
+    height: 18px;
+    width: 18px;
     line-height: 16px;
     padding:0;
     margin: 0;
@@ -188,8 +234,11 @@ button[type=roll].sheet-btDesc{
 }
 button[type=roll].sheet-btDesc:before{
     font-family: "Pictos";
-    font-size: 1.3em;
+    font-size: 1.0em;
     content: 'i';
+}
+button[type=roll].sheet-btDesc:hover{
+    opacity: 1.0;
 }
 /* Formatage des boutons de fieldset */
 .charsheet .repcontrol_add,
@@ -199,10 +248,10 @@ button[type=roll].sheet-btDesc:before{
     display: block;
     background: white;
     box-shadow: none;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 6px;
     font-size:0.9em;
-    height:2.2em;
+    height:2.0em;
     margin-bottom: 4px;
     color: black;
 }
