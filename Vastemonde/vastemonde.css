@@ -121,7 +121,7 @@ input[type="checkbox"].sheet-dispcheck + span{
     margin-left: -18px;
     width: 18px;
     height: 18px;
-    z-index: 1;    
+    z-index: 1;
     font-family: pictos;
 }
 input[type="checkbox"].sheet-dispcheck + span{
@@ -167,7 +167,12 @@ select{
     border-style: dotted;
 }
 /*** BOUTONS *********************************************************/
-button[type=roll]{
+button[type=roll].sheet-btRoll20,
+button[type=roll].sheet-btRoll20big,
+button[type=roll].sheet-btRoll6,
+button[type=roll].sheet-btRoll8,
+button[type=roll].sheet-btRoll8small,
+button[type=roll].sheet-btDesc {
     color: black;
     height: 2em;
     width: 2em;
@@ -226,10 +231,6 @@ button[type=roll].sheet-btDesc{
     height: 18px;
     width: 18px;
     line-height: 16px;
-    padding:0;
-    margin: 0;
-    border:none;
-    background:none;
     opacity: 0.4;
 }
 button[type=roll].sheet-btDesc:before{
@@ -245,7 +246,7 @@ button[type=roll].sheet-btDesc:hover{
 .charsheet .repcontrol_edit,
 .charsheet .repcontrol_del{
     opacity: 0.5;
-    display: block;
+    display: inline;
     background: white;
     box-shadow: none;
     border: 1px solid black;
