@@ -434,49 +434,49 @@
                     <div class="sheet-libel1">Risques</div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueCa"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Classe d’armure -2 (soi ou un allié)}} {{risquenum=[[1]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Classe d’armure -2 (soi ou un allié)}} {{risquenum=[[1]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Classe d’armure -2 (soi ou un allié)</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDegat"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Dégâts +1d8 (Rmaj) ou +1 (Rmin)}} {{risquenum=[[2]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Dégâts +1d8 (Rmaj) ou +1 (Rmin)}} {{risquenum=[[2]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Dégâts +1d8 (Rmaj) ou +1 (Rmin)</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueManoeuvre"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Deuxième manoeuvre}} {{risquenum=[[3]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Deuxième manoeuvre}} {{risquenum=[[3]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Deuxième manoeuvre</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDanger"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Ignorer en danger (soi ou un allié)}} {{risquenum=[[4]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Ignorer en danger (soi ou un allié)}} {{risquenum=[[4]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Ignorer en danger (soi ou un allié)</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueInitiative"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Initiative +1d8}} {{risquenum=[[5]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Initiative +1d8}} {{risquenum=[[5]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8 &{tracker:+}]]}}"
                         ></button>
                         <div class="sheet-libel3">Initiative +1d8</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueAttaque"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Seuil d’attaque +2 (soi ou un allié)}} {{risquenum=[[6]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Seuil d’attaque +2 (soi ou un allié)}} {{risquenum=[[6]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Seuil d’attaque +2 (soi ou un allié)</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisquePhysique"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Prouesse physique +2 (soi ou un allié)}} {{risquenum=[[7]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Prouesse physique +2 (soi ou un allié)}} {{risquenum=[[7]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Prouesse physique +2 (soi ou un allié)</div>
                     </div>
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueVie"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Points de vie +2 (soi ou un allié)}} {{risquenum=[[8]]}} {{risquejet=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Points de vie +2 (soi ou un allié)}} {{risquenum=[[8]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
                         ></button>
                         <div class="sheet-libel3">Points de vie +2 (soi ou un allié)</div>
                     </div>
@@ -567,7 +567,7 @@
             <tr><td class="tcat">Jet</td><td>{{initiative}}</td></tr>
         {{/initiative}}
         {{#repos}}
-            <tr><td class="tcat">Jet</td><td>{{repos}}</td></tr>
+            <tr><td class="tcat">Points de Vie</td><td>+{{repos}}</td></tr>
         {{/repos}}
         {{#sauvegarde}}
             <tr>
@@ -584,8 +584,57 @@
             </tr>
         {{/sauvegarde}}
         {{#risquejet}}
-            <tr><td COLSPAN="2">{{risque}}</td></tr>
-            <tr><td class="tcat">Jet</td><td>{{risquejet}}</td></tr>
+            <tr><td class="tcat">Avantage</td><td>
+                {{#rollTotal() risquenum 1}}
+                    Classe d’armure -2
+                {{/rollTotal() risquenum 1}}
+                {{#rollTotal() risquenum 2}}
+                    Dégâts +{{desavde}} (Rmaj) ou +1 (Rmin)
+                {{/rollTotal() risquenum 2}}
+                {{#rollTotal() risquenum 3}}
+                    Deuxième manœuvre
+                {{/rollTotal() risquenum 3}}
+                {{#rollTotal() risquenum 4}}
+                    Ignorer un état en danger (soi ou un allié)
+                {{/rollTotal() risquenum 4}}
+                {{#rollTotal() risquenum 5}}
+                    Initiative +{{desavde}}
+                {{/rollTotal() risquenum 5}}
+                {{#rollTotal() risquenum 6}}
+                    Seuil d’attaque +2 (soi ou un allié)
+                {{/rollTotal() risquenum 6}}
+                {{#rollTotal() risquenum 7}}
+                    Prouesse physique +2 (soi ou un allié)
+                {{/rollTotal() risquenum 7}}
+                {{#rollTotal() risquenum 8}}
+                    Points de vie +2 (soi ou un allié)
+                {{/rollTotal() risquenum 8}}
+            </td></tr>
+            {{#^rollTotal() risquejet risquenum}}
+                <tr><td class="tcat">Désavantage</td><td>
+                {{#rollTotal() risquejet 1}}
+                    Classe d’armure +2
+                {{/rollTotal() risquejet 1}}
+                {{#rollTotal() risquejet 2}}
+                    Dégâts -{{desavde}} ou 1 dégât reçu
+                {{/rollTotal() risquejet 2}}
+                {{#rollTotal() risquejet 3}}
+                    Perte de la prochaine manoeuvre
+                {{/rollTotal() risquejet 3}}
+                {{#rollTotal() risquejet 4}}
+                    En danger
+                {{/rollTotal() risquejet 4}}
+                {{#rollTotal() risquejet 5}}
+                    Initiative -{{desavde}}
+                {{/rollTotal() risquejet 5}}
+                {{#rollTotal() risquejet 6}}
+                    Seuil d’attaque -2
+                {{/rollTotal() risquejet 6}}
+                {{#rollGreater() risquejet 6}}
+                    Aucun
+                {{/rollGreater() risquejet 6}}
+                </td></tr>
+            {{/^rollTotal() risquejet risquenum}}
         {{/risquejet}}
         {{#blessure}}
             <tr><td class="tcat">Jet</td><td>{{blessure}}</td></tr>
