@@ -485,7 +485,7 @@
                     <div class="sheet-ligne"> <!-- LIGNE Blessure -->
                         <div class="sheet-libel2" style="vertical-align: middle;">Blessure</div>
                         <button type="roll" class="sheet-btRoll8" style="vertical-align: middle;" title="Jet de Sauvegarde" name="JetSauvegarde"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{d4|1}d4]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{Gravité (Xd4)|1|2|3}d4]]}} {{localisation=[[1d8]]}} {{d4tours=[[1d4]]}} {{d8tours=[[1d8]]}}"
                         ></button>
                     </div> <!-- FIN LIGNE Blessure -->
                     <div style="text-align: center;">
@@ -637,7 +637,79 @@
             {{/^rollTotal() risquejet risquenum}}
         {{/risquejet}}
         {{#blessure}}
-            <tr><td class="tcat">Jet</td><td>{{blessure}}</td></tr>
+            <tr><td class="tcat">Localisation</td><td>
+                {{#rollBetween() localisation 1 3}}
+                    Bras
+                {{/rollBetween() localisation 1 3}}
+                {{#rollTotal() localisation 4}}
+                    Tête
+                {{/rollTotal() localisation 4}}
+                {{#rollBetween() localisation 5 6}}
+                    Tronc
+                {{/rollBetween() localisation 5 6}}
+                {{#rollBetween() localisation 7 8}}
+                    Jambes
+                {{/rollBetween() localisation 7 8}}
+            </td></tr>
+            <tr><td class="tcat">Gravité</td><td>{{blessure}}</td></tr>
+            <tr><td colspan="2">
+                {{#rollBetween() localisation 1 3}}
+                    {{#rollTotal() blessure 1}}Égratignure{{/rollTotal() blessure 1}}
+                    {{#rollTotal() blessure 2}}Vous lâchez l’objet que vous tenez dans la main{{/rollTotal() blessure 2}}
+                    {{#rollTotal() blessure 3}}Vous perdez l’objet que vous tenez dans la main – vous ne le retrouverez qu’à la fin du combat{{/rollTotal() blessure 3}}
+                    {{#rollTotal() blessure 4}}Vous perdez l’usage de la main pendant {{d4tours}} tours{{/rollTotal() blessure 4}}
+                    {{#rollTotal() blessure 5}}Vous perdez l’usage du bras pendant {{d4tours}} tours{{/rollTotal() blessure 5}}
+                    {{#rollTotal() blessure 6}}Vous perdez l’usage de la main jusqu’à la fin du combat{{/rollTotal() blessure 6}}
+                    {{#rollTotal() blessure 7}}Vous perdez l’usage du bras jusqu’à la fin du combat{{/rollTotal() blessure 7}}
+                    {{#rollTotal() blessure 8}}Vous perdez définitivement l’usage de la main{{/rollTotal() blessure 8}}
+                    {{#rollTotal() blessure 9}}Vous perdez définitivement l’usage du bras{{/rollTotal() blessure 9}}
+                    {{#rollTotal() blessure 10}}Vous serez mort dans {{d8tours}} tours si personne ne vous aide{{/rollTotal() blessure 10}}
+                    {{#rollTotal() blessure 11}}Vous serez mort dans {{d4tours}} tours si personne ne vous aide{{/rollTotal() blessure 11}}
+                    {{#rollTotal() blessure 12}}Vous mourez sur le coup à cause du choc{{/rollTotal() blessure 12}}
+                {{/rollBetween() localisation 1 3}}
+                {{#rollTotal() localisation 4}}
+                    {{#rollTotal() blessure 1}}Estafilade{{/rollTotal() blessure 1}}
+                    {{#rollTotal() blessure 2}}Vous perdez votre prochaine action{{/rollTotal() blessure 2}}
+                    {{#rollTotal() blessure 3}}Vous ne pouvez rien faire durant tout le prochain tour{{/rollTotal() blessure 3}}
+                    {{#rollTotal() blessure 4}}Vous êtes inconscient pendant {{d4tours}} tours{{/rollTotal() blessure 4}}
+                    {{#rollTotal() blessure 5}}Vous êtes inconscient pendant {{d8tours}} tours{{/rollTotal() blessure 5}}
+                    {{#rollTotal() blessure 6}}Vous perdez quelques dents et vous êtes en danger jusqu’à ce que la blessure soit soignée{{/rollTotal() blessure 6}}
+                    {{#rollTotal() blessure 7}}Vous perdez un oeil ou une oreille – vous êtes désormais contraint pour tous vos jets de perception{{/rollTotal() blessure 7}}
+                    {{#rollTotal() blessure 8}}Vous êtes inconscient au sol jusqu’à la fin du combat{{/rollTotal() blessure 8}}
+                    {{#rollTotal() blessure 9}}Vous perdez un rang de Réputation{{/rollTotal() blessure 9}}
+                    {{#rollTotal() blessure 10}}Vous serez mort dans {{d8tours}} tours si personne ne vous aide{{/rollTotal() blessure 10}}
+                    {{#rollTotal() blessure 11}}Vous serez mort dans {{d4tours}} tours si personne ne vous aide{{/rollTotal() blessure 11}}
+                    {{#rollTotal() blessure 12}}Vous mourez sur le coup à cause du choc{{/rollTotal() blessure 12}}
+                {{/rollTotal() localisation 4}}
+                {{#rollBetween() localisation 5 6}}
+                    {{#rollTotal() blessure 1}}Contusion{{/rollTotal() blessure 1}}
+                    {{#rollTotal() blessure 2}}Vous perdez votre prochaine manoeuvre{{/rollTotal() blessure 2}}
+                    {{#rollTotal() blessure 3}}Vous perdez votre prochaine action{{/rollTotal() blessure 3}}
+                    {{#rollTotal() blessure 4}}Vous tombez à terre et vous perdez la moitié de votre initiative{{/rollTotal() blessure 4}}
+                    {{#rollTotal() blessure 5}}Vous ne pouvez rien faire durant tout le prochain tour{{/rollTotal() blessure 5}}
+                    {{#rollTotal() blessure 6}}Vous avez mal partout et vous êtes en danger jusqu’à ce que la blessure soit soignée{{/rollTotal() blessure 6}}
+                    {{#rollTotal() blessure 7}}Vous tombez au sol inconscient pendant {{d4tours}} tours{{/rollTotal() blessure 7}}
+                    {{#rollTotal() blessure 8}}Un poumon est percé. Vous encaissez une blessure pour chaque action que vous entreprenez{{/rollTotal() blessure 8}}
+                    {{#rollTotal() blessure 9}}Vous êtes inconscient au sol jusqu’à la fin du combat{{/rollTotal() blessure 9}}
+                    {{#rollTotal() blessure 10}}Vous serez mort dans {{d8tours}} tours si personne ne vous aide{{/rollTotal() blessure 10}}
+                    {{#rollTotal() blessure 11}}Vous serez mort dans {{d4tours}} tours si personne ne vous aide{{/rollTotal() blessure 11}}
+                    {{#rollTotal() blessure 12}}Vous mourez sur le coup à cause du choc{{/rollTotal() blessure 12}}
+                {{/rollBetween() localisation 5 6}}
+                {{#rollBetween() localisation 7 8}}
+                    {{#rollTotal() blessure 1}}Ecchymose{{/rollTotal() blessure 1}}
+                    {{#rollTotal() blessure 2}}Vous perdez votre prochaine manoeuvre{{/rollTotal() blessure 2}}
+                    {{#rollTotal() blessure 3}}Vous tombez à terre{{/rollTotal() blessure 3}}
+                    {{#rollTotal() blessure 4}}Vous perdez la moitié de votre initiative{{/rollTotal() blessure 4}}
+                    {{#rollTotal() blessure 5}}Chaque déplacement vous coûte deux manoeuvres{{/rollTotal() blessure 5}}
+                    {{#rollTotal() blessure 6}}Vous perdez l’usage de la jambe jusqu’à la fin du combat et vous tombez à terre{{/rollTotal() blessure 6}}
+                    {{#rollTotal() blessure 7}}Vous tombez à 0 point d’initiative et vous êtes en danger jusqu’à la fin du combat{{/rollTotal() blessure 7}}
+                    {{#rollTotal() blessure 8}}Vous perdez définitivement l’usage de la jambe à partir du genou{{/rollTotal() blessure 8}}
+                    {{#rollTotal() blessure 9}}Vous perdez définitivement l’usage de la jambe à partir du bassin{{/rollTotal() blessure 9}}
+                    {{#rollTotal() blessure 10}}Vous serez mort dans {{d8tours}} tours si personne ne vous aide{{/rollTotal() blessure 10}}
+                    {{#rollTotal() blessure 11}}Vous serez mort dans {{d4tours}} tours si personne ne vous aide{{/rollTotal() blessure 11}}
+                    {{#rollTotal() blessure 12}}Vous mourez sur le coup à cause du choc{{/rollTotal() blessure 12}}
+                {{/rollBetween() localisation 7 8}}
+            </td></tr>
         {{/blessure}}
         {{#description}}
             <tr><td colspan="2" class="desctitre">Description/Effets</td></tr>

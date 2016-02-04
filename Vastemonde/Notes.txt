@@ -39,4 +39,10 @@ font-family: "dicefontd8" h = 8
   * KO si l'init est égal à 20 ou plus, tu as une deuxième action à init X-20 (donc à 3 si tu as 23 en init)
   * KO Case saisissable pour 2ième init
 ---------------------------------------------------
-03/02/2016
+04/02/2016
+- X Blessures
+- Inventaires : Section, 1 item nom + desription + type "arme ou pas". Si arme : 1 liste déroulante dégâts + bonus + bouton
+- Sorts/Pouvoirs de prêtres/Pactes démoniaques sous inventaires
+- Sorts : Liste déroulante + possibilité de voir la description
+- Pouvoir : Nom du dieu, + domaines (text) + liste de phrases (add)
+- Pactes : idem
