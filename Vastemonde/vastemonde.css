@@ -73,6 +73,12 @@ div.sheet-boxnum{
     border: 1px solid black;
     vertical-align: middle;
 }
+div.sheet-arme{
+    display: none;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-arme{
+    display: inline;
+}
 /********* INPUTS *************************************************/
 input{
     box-shadow: none;
@@ -97,6 +103,9 @@ input[type="number"]{
     text-align: right;
     border-width: 0px 1px 1px 0px;
     border-style: dotted;
+}
+input[type="number"].sheet-inpnum1c{
+    width: 25px;
 }
 input[type="number"].sheet-inpnum2c{
     width: 35px;

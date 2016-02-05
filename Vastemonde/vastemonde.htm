@@ -1,5 +1,19 @@
 <!-- **** SCRIPTS / SHEET WORKERS -->
 <script type="text/worker">
+    // Gestion Classe
+    on("change:classe", function() {
+        getAttrs(["classe"], function(values) {
+            var degatsclasse = "0";
+            if (values.classe == "Guerrier") {
+                degatsclasse = "1d4";
+            } else {
+                degatsclasse = "0";
+            }
+            setAttrs({
+                degatsclasse: degatsclasse
+            });
+        });
+    });
     // Gestion Bouclier
     on("change:bouclier", function() {
         getAttrs(["bouclier","protection"], function(values) {
@@ -168,6 +182,7 @@
                     <OPTION>Prêtre</OPTION>
                     <OPTION>Voleur</OPTION>
                 </select>
+                <input type="hidden" name="attr_degatsclasse" value="1d4" />
             </div>
         </div> <!-- FIN COL IDENTIFICATION -->
         <div class="sheet-mycol" style="width:240px;text-align:center;"> <!-- COL DESTIN -->
@@ -424,9 +439,39 @@
                     </div>
                 </fieldset>
             </div>  <!-- FIN Talents -->
-            <div class="sheet-ligne">
-                <div class="sheet-libel2">Inventaire</div>
-            </div>
+            <div class="sheet-ligne"> <!-- Inventaire -->
+                <div class="sheet-ligne"><div class="sheet-libel2">Inventaire</div></div>
+                <fieldset class="repeating_equipements">
+                    <div class="sheet-ligne">
+                        <input type="text" name="attr_equipnom" style="width: 220px;" placeholder="Nom de l'équipement" title="Nom de l'équipement" />
+                        <input type="checkbox" name="attr_equiparme" class="sheet-dispcheck" title="Cet équipement est une arme ?" value="1" /><span style="font-size:1.8em;">&#10163;</span>
+                        <div class="sheet-arme">
+                            <SELECT name="attr_equipdegats" style="width:82px;" title="Dégâts / type de l'arme">
+                                <option value="0">-</option>
+                                <option value="1d4">1d4 : Arme légère à distance</option>
+                                <option value="1d4+1">1d4+1 : Arme légère de Corps-à-Corps</option>
+                                <option value="1d8">1d8 : Arme moyenne à distance</option>
+                                <option value="1d8+2">1d8+2 : Arme moyenne de Corps-à-Corps</option>
+                                <option value="2d8">2d8 : Arme lourde à distance</option>
+                                <option value="2d8+4">2d8+4 : Arme lourde de Corps-à-Corps</option>
+                                <option value="1d8!!+1d4!!">1d8+1d4 expl. : Arme à feu moyenne</option>
+                                <option value="3d8!!">3d8 expl. : Arme à feu lourde</option>
+                            </SELECT>
+                            +
+                            <input type="number" name="attr_equipdegbonus" class="sheet-inpnum1c" value="0" title="Nombre de dés de Bonus de dégâts de l'arme aux dégâts" />d<input type="number" name="attr_equipdegde" class="sheet-inpnum1c" value="0" title="Type de dé de Bonus de dégâts de l'arme aux dégâts" />
+                            <input type="checkbox" name="attr_equipdegbrutal" value="1" title="Brutal / Précis (dégâts +1d8)"/>
+                            <button type="roll" class="sheet-btRoll8small" title="Jet de dégâts" name="JetDegats"
+                                value="&{template:jet} {{perso=@{character_name}}} {{name=@{equipnom}}} {{subtags=Dégâts d'arme}} {{degats=[[(@{equipdegats})[Dégâts de base de l'arme]+(@{equipdegbonus}d@{equipdegde})[Dégâts bonus/magiques]+(@{equipdegbrutal}d8)[Dégâts supplémentaires Brutal/Précis]+(@{degatsclasse})[Dégâts supplémentaires de Guerrier]]]}}"
+                                ></button>
+                        </div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <input type="checkbox" name="attr_equipdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                        <textarea name="attr_equipdesc" class="sheet-textdesc" style="width: 400px;" placeholder="Description de l'équipement" title="Description de l'équipement"></textarea>
+                        <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreEquip" value="&{template:jet} {{name=@{equipnom}}} {{subtags=Equipement}} {{arme=[[@{equiparme}]]}} {{degatsdesc=@{equipdegats} +@{equipdegbonus}d@{equipdegde}}} {{brutal=[[@{equipdegbrutal}]]}} {{description=@{equipdesc}}} " />
+                    </div>
+                </fieldset>
+            </div> <!-- FIN Inventaire -->
         </div>  <!-- FIN COL Lignes de vie + Talents + Inventaires -->
         <div class="sheet-mycol" style="width:420px;"> <!-- COL Risques Blessures Critiques Logo Magie  -->
             <div class="sheet-ligne"> <!-- LIGNE Risques Blessures Critiques Logo -->
@@ -485,7 +530,7 @@
                     <div class="sheet-ligne"> <!-- LIGNE Blessure -->
                         <div class="sheet-libel2" style="vertical-align: middle;">Blessure</div>
                         <button type="roll" class="sheet-btRoll8" style="vertical-align: middle;" title="Jet de Sauvegarde" name="JetSauvegarde"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{Gravité (Xd4)|1|2|3}d4]]}} {{localisation=[[1d8]]}} {{d4tours=[[1d4]]}} {{d8tours=[[1d8]]}}"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{Gravité (Xd4)|1}d4]]}} {{localisation=[[1d8]]}} {{d4tours=[[1d4]]}} {{d8tours=[[1d8]]}}"
                         ></button>
                     </div> <!-- FIN LIGNE Blessure -->
                     <div style="text-align: center;">
@@ -583,6 +628,20 @@
                 </td>
             </tr>
         {{/sauvegarde}}
+        {{#degats}}
+            <tr><td class="tcat">Dégâts</td><td>{{degats}}</td></tr>
+        {{/degats}}
+        {{#rollTotal() arme 1}}
+            <tr>
+                <td class="tcat">Dégâts</td>
+                <td>
+                    {{degatsdesc}}
+                    {{#rollTotal() brutal 1}}
+                        Brutal/Précis
+                    {{/rollTotal() brutal 1}}
+                </td>
+            </tr>
+        {{/rollTotal() arme 1}}
         {{#risquejet}}
             <tr><td class="tcat">Avantage</td><td>
                 {{#rollTotal() risquenum 1}}
@@ -592,7 +651,7 @@
                     Dégâts +{{desavde}} (Rmaj) ou +1 (Rmin)
                 {{/rollTotal() risquenum 2}}
                 {{#rollTotal() risquenum 3}}
-                    Deuxième manœuvre
+                    Deuxième manoeuvre
                 {{/rollTotal() risquenum 3}}
                 {{#rollTotal() risquenum 4}}
                     Ignorer un état en danger (soi ou un allié)
