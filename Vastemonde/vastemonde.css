@@ -48,7 +48,7 @@ div.sheet-libel1{
     font-size: 1.1em;
     font-weight: bold;
     text-align: right;
-    width: 80px;
+    width: 60px;
 }
 div.sheet-libel2{
     color: #888888;
@@ -78,6 +78,25 @@ div.sheet-arme{
 }
 input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-arme{
     display: inline;
+}
+div.sheet-sortdesc{
+    display: none;
+    position: absolute;
+    padding: 2px;
+    width: 600px;
+    height: 550px;
+    border: 2px solid #DD5633;
+    border-radius: 6px;
+    background: #EEEEEE;
+    z-index: 10;
+    left: 167px;
+    top: -530px;
+    box-shadow: 5px 5px 30px black;
+    resize: both;
+    overflow: auto;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-sortdesc{
+    display: inline-block;
 }
 /********* INPUTS *************************************************/
 input{
@@ -120,24 +139,28 @@ input[type="number"].sheet-inpnum2cboxed{
 }
 input[type="checkbox"].sheet-dispcheck{
     width: 18px;
+    height: 18px;
+    max-width: 18px;
     opacity: 0;
     z-index: 2;
 }
 input[type="checkbox"].sheet-dispcheck + span{
-    display: inline-block;
-    color: #888888;
+    display: inline-block;    
     text-align: center;
     margin-left: -18px;
     width: 18px;
+    max-width: 18px;
     height: 18px;
     z-index: 1;
     font-family: pictos;
+    color: #888888;
 }
-input[type="checkbox"].sheet-dispcheck + span{
-    font-weight: normal;
+input[type="checkbox"].sheet-dispcheck:hover + span{
+    color: black;
 }
 input[type="checkbox"].sheet-dispcheck:checked + span{
     font-weight: bold;
+    color: black;
 }
 /******* TEXTAREA *************************************************/
 textarea{
@@ -159,7 +182,13 @@ textarea.sheet-textdesc{
 input[type="checkbox"]:checked ~ textarea.sheet-textdesc{
     height: 140px;
 }
-
+textarea.sheet-textsort{
+    font-family: 'Verdana', serif;
+    font-size: 0.9em;
+    resize: none;
+    height: calc(100% - 30px);
+    width: 100%;
+}
 /******* SELECTS *************************************************/
 select{
     box-shadow: none;
@@ -329,7 +358,7 @@ button[type=roll].sheet-btDesc:hover{
     padding: 2px;
     font-family: 'Verdana';
     color: black;
-    font-size: 1em;
+    font-size: 0.9em;
 }
 .sheet-rolltemplate-jet tr{
     padding-top: 2px;
@@ -347,24 +376,24 @@ button[type=roll].sheet-btDesc:hover{
 }
 .sheet-rolltemplate-jet td{
     padding: 2px;
-    font-size: 1em;
     text-align: left;
 }
 .sheet-rolltemplate-jet .sheet-subheader{
     font-style: italic;
     text-align: right;
     border-bottom: 1px dashed #DD5633;
+    color: #DD5633;
 }
 .sheet-rolltemplate-jet .sheet-desctitre{
     font-style: italic;
     text-align: right;
     border-bottom: 1px dashed #DD5633;
     border-top: 1px solid #DD5633;
+    color: #DD5633;
 }
 .sheet-rolltemplate-jet td.sheet-tcat{
-    font-color: #4F2A1B;
+    color: #DD5633;
     font-style: italic;
-    font-size: 0.9em;
     text-align: right;
     border-right:  1px dashed #DD5633;
 }

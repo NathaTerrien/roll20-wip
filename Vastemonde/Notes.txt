@@ -51,6 +51,9 @@ font-family: "dicefontd8" h = 8
   * X ajouter une saisie +[x]d[y]
 ---------------------------------------------------
 06/02/2016
+- X Correction des jets de blessures > à 12
+- X affichage des descriptions en superposé
+- Réussite / Échecs critiques
 - Sorts/Pouvoirs de prêtres/Pactes démoniaques sous inventaires
 - Sorts : Liste déroulante + possibilité de voir la description
 - Pouvoir : Nom du dieu, + domaines (text) + liste de phrases (add)
