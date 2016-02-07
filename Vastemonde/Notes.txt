@@ -53,8 +53,13 @@ font-family: "dicefontd8" h = 8
 06/02/2016
 - X Correction des jets de blessures > à 12
 - X affichage des descriptions en superposé
-- Réussite / Échecs critiques
-- Sorts/Pouvoirs de prêtres/Pactes démoniaques sous inventaires
-- Sorts : Liste déroulante + possibilité de voir la description
-- Pouvoir : Nom du dieu, + domaines (text) + liste de phrases (add)
-- Pactes : idem
+- X Réussite / Échecs critiques
+- X Sorts/Pouvoirs de prêtres/Pactes démoniaques sous inventaires
+- X Sorts : Liste déroulante + possibilité de voir la description
+- X Pouvoir : Nom du dieu, + domaines (text) + liste de phrases (add)
+- XPactes : idem
+---------------------------------------------------
+07/02/2016
+- X Pour les prêtres, tu peux éventuellement donner la liste des dieux et afficher automatiquement les domaines.
+- X pour les pactes, Eventuellement ouvrir un truc d'info pour afficher la liste des pouvoirs de pactes (elle est unique et marche pour tous les pactes)
+- Nouvelle MeP : "D:\Users\Nathanael\JdR\Med-Fan\Vastemonde\img237.jpg"

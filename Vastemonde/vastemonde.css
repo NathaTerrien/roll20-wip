@@ -98,6 +98,25 @@ div.sheet-sortdesc{
 input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-sortdesc{
     display: inline-block;
 }
+div.sheet-pactedesc{
+    display: none;
+    position: absolute;
+    padding: 2px;
+    width: 600px;
+    height: 400px;
+    border: 2px solid #DD5633;
+    border-radius: 6px;
+    background: #EEEEEE;
+    z-index: 10;
+    left: -470px;
+    top: -390px;
+    box-shadow: 5px 5px 30px black;
+    resize: both;
+    overflow: auto;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-pactedesc{
+    display: inline-block;
+}
 /********* INPUTS *************************************************/
 input{
     box-shadow: none;
