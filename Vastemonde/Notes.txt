@@ -62,4 +62,5 @@ font-family: "dicefontd8" h = 8
 07/02/2016
 - X Pour les prêtres, tu peux éventuellement donner la liste des dieux et afficher automatiquement les domaines.
 - X pour les pactes, Eventuellement ouvrir un truc d'info pour afficher la liste des pouvoirs de pactes (elle est unique et marche pour tous les pactes)
+- X affichage des règles (texte à changer)
 - Nouvelle MeP : "D:\Users\Nathanael\JdR\Med-Fan\Vastemonde\img237.jpg"
