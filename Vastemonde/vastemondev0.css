@@ -108,13 +108,32 @@ div.sheet-pactedesc{
     border-radius: 6px;
     background: #EEEEEE;
     z-index: 10;
-    left: -470px;
+    left: -490px;
     top: -390px;
     box-shadow: 5px 5px 30px black;
     resize: both;
     overflow: auto;
 }
 input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-pactedesc{
+    display: inline-block;
+}
+div.sheet-regledesc{
+    display: none;
+    position: absolute;
+    padding: 2px;
+    width: 650px;
+    height: 430px;
+    border: 2px solid #DD5633;
+    border-radius: 6px;
+    background: #EEEEEE;
+    z-index: 10;
+    left: -500px;
+    top: 20px;
+    box-shadow: 5px 5px 30px black;
+    resize: both;
+    overflow: auto;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-regledesc{
     display: inline-block;
 }
 /********* INPUTS *************************************************/
