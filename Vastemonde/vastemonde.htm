@@ -258,9 +258,9 @@
     });
 </script>
 <div class="sheet-main"> <!-- FDP -->
-    <div class="sheet-ligne"> <!-- LIGNE EN-TETE -->
-        <div class="sheet-mycol" style="width:220px;text-align:left;"> <!-- COL JETS -->
-            <div class="sheet-ligne">
+    <div class="sheet-ligne"> <!-- LIGNE EN-TETE : Jets à Grâces-->
+        <div class="sheet-mycolbrd" style="width:130px;text-align:left;"> <!-- COL JETS -->
+            <div class="sheet-ligne" style="text-align: center;">
                 <div>
                     <button type="roll" class="sheet-btRoll20big" title="Jet standard" name="JetD20"
                         value="&{template:jet} {{perso=@{character_name}}} {{name=Test Standard}} {{jet=[[1d20cs1cf20]]}}"
@@ -273,283 +273,414 @@
                     ></button>  <!-- {{seuil=[[0+(?{Seuil de maîtrise|0})]]}} -->
                     <div class="sheet-subtag" style="font-size:9px;">En danger</div>
                 </div>
-                <div style="margin-left:5px;">  <!-- INITIATIVE -->
-                    <button type="roll" class="sheet-btRoll8" title="Jet d'Initiative" name="Initiative"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=[[@{initiativedes}d8+@{ca} &{tracker}]] }}"
-                    ></button>x<SELECT  name="attr_initiativedes" style="width: 40px;text-align:right;" title="Témérité">
-                        <OPTION>2</OPTION>
-                        <OPTION>4</OPTION>
-                    </SELECT>
-                    <div class="sheet-subtag" style="font-size:9px;">Initiative</div>
-                </div>  <!-- FIN INITIATIVE -->
             </div>
+            <div class="sheet-ligne" style="text-align:center;"> <!-- SAUVEGARDE -->
+                <button type="roll" class="sheet-btRoll8" title="Jet de Sauvegarde" name="JetSauvegarde"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
+                ></button>
+                <div class="sheet-subtag">Sauvegarde</div>
+            </div> <!-- FIN SAUVEGARDE --> 
+            <div class="sheet-ligne" style="text-align:center;">  <!-- INITIATIVE -->
+                <button type="roll" class="sheet-btRoll8" title="Jet d'Initiative" name="Initiative"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=[[@{initiativedes}d8+@{ca} &{tracker}]] }}"
+                ></button>x<SELECT  name="attr_initiativedes" style="width: 40px;text-align:right;" title="Témérité">
+                    <OPTION>2</OPTION>
+                    <OPTION>4</OPTION>
+                </SELECT>
+                <div class="sheet-subtag">Initiative</div>
+            </div>  <!-- FIN INITIATIVE -->
         </div> <!-- FIN COL JETS -->
-        <div class="sheet-mycol" style="width:385px;text-align:left;"> <!-- COL IDENTIFICATION -->
-            <div class="sheet-ligne">
-                <div class="sheet-libel1">Nom</div>
-                <input type="text" name="attr_character_name" class="sheet-biginp" style="text-align: center; width:300px;" placeholder="Nom du personnage" title="Nom du personnage" />
-            </div>
-            <div class="sheet-ligne">
-                <div class="sheet-libel1">Peuple</div>
-                <select name="attr_peuple" style="width:180px;" title="Peuple du personnage">
-                    <OPTION>Corvax</OPTION>
-                    <OPTION>Dracorim</OPTION>
-                    <OPTION>Elfe</OPTION>
-                    <OPTION>Elfe du regain</OPTION>
-                    <OPTION>Forgelin</OPTION>
-                    <OPTION>Gnoll</OPTION>
-                    <OPTION>Gnome</OPTION>
-                    <OPTION>Gobelin</OPTION>
-                    <OPTION>Goblour</OPTION>
-                    <OPTION>Halfelin</OPTION>
-                    <OPTION>Hobgobelin</OPTION>
-                    <OPTION>Impérial</OPTION>
-                    <OPTION>Kitsune</OPTION>
-                    <OPTION>Kobold</OPTION>
-                    <OPTION>Minotaure</OPTION>
-                    <OPTION>Nain de la Barbe</OPTION>
-                    <OPTION>Nain de la Cousinade</OPTION>
-                    <OPTION>Nain des Clansrim</OPTION>
-                    <OPTION>Nain des Combinats</OPTION>
-                    <OPTION>Ogre</OPTION>
-                    <OPTION>Orque</OPTION>
-                    <OPTION>Renégat</OPTION>
-                    <OPTION>Sauvageon</OPTION>
-                    <OPTION>Tinigent</OPTION>
-                    <OPTION>Vagabond</OPTION>
-                    <OPTION>Wolfen</OPTION>
-                </select>
-            </div>
-            <div class="sheet-ligne">
-                <div class="sheet-libel1">Classe</div>
-                <select name="attr_classe" style="width:100px;" title="Classe du personnage">
-                    <OPTION>Guerrier</OPTION>
-                    <OPTION>Magicien</OPTION>
-                    <OPTION>Prêtre</OPTION>
-                    <OPTION>Voleur</OPTION>
-                </select>
-                <input type="hidden" name="attr_degatsclasse" value="1d4" />
-            </div>
-        </div> <!-- FIN COL IDENTIFICATION -->
-        <div class="sheet-mycol" style="width:100px;text-align:center;"> <!-- LOGO -->
-            <img style="width: 80px;vertical-align: middle;" src="https://lh3.googleusercontent.com/-DS63VqqmVkU/Vq4pZkpluyI/AAAAAAAAYKQ/llqs7V3dTps/s425-Ic42/LogoVastemonde.png" />
-        </div>  <!-- FIN LOGO -->
-        <div class="sheet-mycol" style="width:160px;text-align:center;"> <!-- COL DESTIN -->
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-libel2" style="vertical-align: middle;">Destin</div>
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Destin courant" value="0" min="0" />
-                    /
-                    <input type="number" name="attr_destin_max" class="sheet-inpnum2c" title="Points de Destin maximum" value="0" min="0" />
-                </div>
-            </div>
-        </div> <!-- FIN COL DESTIN -->
-    </div> <!-- FIN LIGNE EN-TETE -->
-    <div class="sheet-ligne"> <!-- Ligne sauvegarde à repos court -->
-        <div class="sheet-mycol" style="width:110px;text-align:left"> <!-- SAUVEGARDE -->
-            <div class="sheet-ligne" style="text-align:center;">
-                    <button type="roll" class="sheet-btRoll8" title="Jet de Sauvegarde" name="JetSauvegarde"
-                        value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
-                    ></button>
-                    <div class="sheet-subtag">Sauvegarde</div>
-            </div>
-        </div>  <!-- FIN SAUVEGARDE -->
-        <div class="sheet-mycol" style="width:100px;text-align: center;"> <!-- RÉPUTATION -->
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_reputation" class="sheet-inpnum2cbig" title="Réputation" value="0" min="0" />
-                </div>
-            </div>
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-libel2" style="vertical-align: middle;">Réputation</div>
-            </div>
-        </div>  <!-- FIN RÉPUTATION -->
-        <div class="sheet-mycol" style="width:100px;text-align: center;"> <!-- CA -->
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_ca" class="sheet-inpnum2cbig" title="Classe d'Armure" value="0" readonly />
-                </div>
-            </div>
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-libel2" style="vertical-align: middle;">CA</div>
-            </div>
-        </div> <!-- FIN CA -->
-        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- PV -->
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_pv" class="sheet-inpnum2c" title="Points de Vie courant" value="0" min="0" />
-                    /
-                    <input type="number" name="attr_pv_max" class="sheet-inpnum2c" title="Points de Vie maximum" value="0" min="0" />
-                </div>
-            </div>
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-libel2" style="vertical-align: middle;">Points de Vie</div>
-            </div>
-        </div>  <!-- FIN PV -->
-        <div class="sheet-mycol" style="width:130px;text-align: center;"> <!-- Points de Magie -->
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_magie" class="sheet-inpnum2c" title="Points de Magie courant" value="0" min="0" />
-                    /
-                    <input type="number" name="attr_magie_max" class="sheet-inpnum2c" title="Points de Magie maximum" value="0" min="0" />
-                </div>
-            </div>
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-libel2" style="vertical-align: middle;">Points de Magie</div>
-            </div>
-        </div>  <!-- FIN Points de Magie -->
-        <div class="sheet-mycol" style="width:140px;text-align: center;"> <!-- Grâces Divines -->
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_graces" class="sheet-inpnum2c" title="Grâces Divines courantes" value="0" min="0" />
-                    /
-                    <input type="number" name="attr_graces_max" class="sheet-inpnum2c" title="Grâces Divines maximum" value="0" min="0" />
-                </div>
-            </div>
-            <div class="sheet-ligne" style="text-align: center;">
-                <div class="sheet-libel2" style="vertical-align: middle;">Grâces Divines</div>
-            </div>
-        </div>  <!-- FIN Grâces Divines -->
-        <div class="sheet-mycol" style="width:150px;text-align: center;padding-left: 10px;margin-top: -25px;"> <!-- REPOS COURTS -->
-            <div class="sheet-ligne">Repos court :</div>
-            <div class="sheet-ligne">
-                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Spartiate"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Spartiate}} {{repos=[[1d8]]}}"
-                ></button>
-                <div class="sheet-libel3">Spartiate</div>
-            </div>
-            <div class="sheet-ligne">
-                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Correct"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Correct}} {{repos=[[2d8]]}}"
-                ></button>
-                <div class="sheet-libel3">Correct</div>
-            </div>
-            <div class="sheet-ligne">
-                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Confortable"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Confortable}} {{repos=[[3d8]]}}"
-                ></button>
-                <div class="sheet-libel3">Confortable</div>
-            </div>
-            <div class="sheet-ligne">
-                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Douillet"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Douillet}} {{repos=[[4d8]]}}"
-                ></button>
-                <div class="sheet-libel3">Douillet</div>
-            </div>
-            <div class="sheet-ligne">
-                <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="GrandLuxe"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Grand luxe}} {{repos=[[5d8]]}}"
-                ></button>
-                <div class="sheet-libel3">Grand luxe</div>
-            </div>
-        </div>  <!-- FIN REPOS COURTS -->
-        <div class="sheet-ligne"> <!-- Folie à Blessures -->
-            <div class="sheet-mycol" style="width:90px;text-align: center;" > <!-- FOLIE -->
-                <div class="sheet-libel2" style="vertical-align: middle;">Folie</div>
-                <div class="sheet-boxnum">
-                    <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Folie" value="0" min="0" />
-                </div>
-            </div> <!-- FIN FOLIE -->
-            <div class="sheet-mycol" style="width:160px;text-align: center;" > <!-- Témérité et Protection -->
-                <div class="sheet-mycol" style="text-align: left;" > <!-- Témérité -->
-                    <div style="vertical-align: middle; width: 80px; text-align: right;">Témérité</div>
-                    <div style="border: 1px solid black;width:70px;text-align:center;">
-                        <SELECT  name="attr_temerite" style="width: 45px;text-align:right;" title="Témérité">
-                            <OPTION>3</OPTION>
-                            <OPTION>4</OPTION>
-                            <OPTION>5</OPTION>
-                            <OPTION>6</OPTION>
-                            <OPTION>7</OPTION>
-                            <OPTION>8</OPTION>
-                            <OPTION>9</OPTION>
-                        </SELECT>
+        <div class="sheet-mycol" style="width: calc(100%-132px);"> <!-- COL Identification à Grâces -->
+            <div class="sheet-ligne" style="height:21px">
+                <button type="roll" value="http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde/Les-Cahiers-du-Vastemonde">Les Cahiers du Vastemonde</button>
+            </div> <!-- séparateur -->
+            <div class="sheet-ligne"> <!-- LIGNE ID DESTIN LOGO -->
+                <div class="sheet-mycolbrd" style="width:385px;text-align:left;"> <!-- COL IDENTIFICATION -->
+                    <div class="sheet-ligne">
+                        <div class="sheet-libel1">Nom</div>
+                        <input type="text" name="attr_character_name" class="sheet-biginp" style="width:300px;" placeholder="Nom du personnage" title="Nom du personnage" />
                     </div>
-                </div> <!-- FIN Témérité -->
-                <div class="sheet-mycol" style="text-align: left;" > <!-- Protection -->
-                    <div style="vertical-align: middle; width: 80px; text-align: right;">Protection</div>
-                    <div style="border: 1px solid black;">
-                        <input type="number" name="attr_protection" class="sheet-inpnum2c" title="Protection" value="0" />
-                        B:<input type="checkbox" name="attr_bouclier" value="1" title="Bouclier (+1 Protection)" />
+                    <div class="sheet-ligne">
+                        <div class="sheet-libel1">Peuple</div>
+                        <select name="attr_peuple" style="width:180px;" title="Peuple du personnage">
+                            <OPTION>Corvax</OPTION>
+                            <OPTION>Dracorim</OPTION>
+                            <OPTION>Elfe</OPTION>
+                            <OPTION>Elfe du regain</OPTION>
+                            <OPTION>Forgelin</OPTION>
+                            <OPTION>Gnoll</OPTION>
+                            <OPTION>Gnome</OPTION>
+                            <OPTION>Gobelin</OPTION>
+                            <OPTION>Goblour</OPTION>
+                            <OPTION>Halfelin</OPTION>
+                            <OPTION>Hobgobelin</OPTION>
+                            <OPTION>Impérial</OPTION>
+                            <OPTION>Kitsune</OPTION>
+                            <OPTION>Kobold</OPTION>
+                            <OPTION>Minotaure</OPTION>
+                            <OPTION>Nain de la Barbe</OPTION>
+                            <OPTION>Nain de la Cousinade</OPTION>
+                            <OPTION>Nain des Clansrim</OPTION>
+                            <OPTION>Nain des Combinats</OPTION>
+                            <OPTION>Ogre</OPTION>
+                            <OPTION>Orque</OPTION>
+                            <OPTION>Renégat</OPTION>
+                            <OPTION>Sauvageon</OPTION>
+                            <OPTION>Tinigent</OPTION>
+                            <OPTION>Vagabond</OPTION>
+                            <OPTION>Wolfen</OPTION>
+                        </select>
                     </div>
-                </div> <!-- FIN Protection -->
-            </div>  <!-- FIN Témérité et Protection -->
-            <div class="sheet-mycol" style="width: 320px;text-align: center;" > <!-- Récupérations -->
-                <div class="sheet-ligne" style="text-align: center;">
-                    <div class="sheet-mycol">
-                        <div class="sheet-ligne">
-                            <div style="vertical-align: middle; width: 100px; text-align: right;">Récupérations</div>
-                            <input type="number" name="attr_recuperationsrestantes" class="sheet-inpnum2cboxed" title="Récupérations restantes" value="(@{recuperationsmax})-(@{recuperations})"  disabled="true" />
-                        </div>
-                        <div class="sheet-ligne">
-                            <div style="vertical-align: middle; width: 100px; text-align: right;"></div>
-                            <input type="number" name="attr_recuperationsmax" class="sheet-inpnum2cboxed" title="Récupérations maximales" value="0" min="0" />
+                    <div class="sheet-ligne">
+                        <div class="sheet-libel1">Classe</div>
+                        <select name="attr_classe" style="width:100px;" title="Classe du personnage">
+                            <OPTION>Guerrier</OPTION>
+                            <OPTION>Magicien</OPTION>
+                            <OPTION>Prêtre</OPTION>
+                            <OPTION>Voleur</OPTION>
+                        </select>
+                        <input type="hidden" name="attr_degatsclasse" value="1d4" />
+                    </div>
+                </div> <!-- FIN COL IDENTIFICATION -->
+                <div class="sheet-mycolbrd" style="width:150px;height: 74px;text-align:center;"> <!-- COL DESTIN -->
+                    <div class="sheet-ligne" style="text-align: center;">
+                        <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Destin</div></div>
+                        <br/>
+                        <div  class="sheet-ligne" style="text-align: center;">
+                            <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Destin courant" value="0" min="0" />
+                            /
+                            <input type="number" name="attr_destin_max" class="sheet-inpnum2c" title="Points de Destin maximum" value="0" min="0" />
                         </div>
                     </div>
-                    <div class="sheet-mycol">
-                        <div class="sheet-dots">
-                            <input type="radio" name="attr_recuperations" value="0" title="0" checked="checked" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="1" title="1" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="2" title="2" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="3" title="3" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="4" title="4" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="5" title="5" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="6" title="6" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="7" title="7" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="8" title="8" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="9" title="9" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="10" title="10" /><span></span><br/>
-                            <div style="display: inline-block; width:8px"></div>
-                            <input type="radio" name="attr_recuperations" value="11" title="11" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="12" title="12" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="13" title="13" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="14" title="14" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="15" title="15" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="16" title="16" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="17" title="17" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="18" title="18" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="19" title="19" /><span></span>
-                            <input type="radio" name="attr_recuperations" value="20" title="20" /><span></span>
+                </div> <!-- FIN COL DESTIN -->
+                <div class="sheet-mycol" style="width: 100px;text-align: center;padding-top:25px;">  <!-- RÈGLES -->
+                    <div class="sheet-ligne" style="text-align: center;position: relative;">
+                        <div class="sheet-libel3">Règles</div>
+                        <input type="checkbox" name="attr_regledisplay" class="sheet-dispcheck" title="Afficher/Masquer le résumé des règles" /><span>s</span>
+                        <div class="sheet-regledesc"> <!-- REGLES -->
+                            <div style="text-align: left; height:100%;width:100%;">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                                <ul>
+                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                </ul>
+
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                                <ul>
+                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                </ul>
+
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                                <ul>
+                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                </ul>
+
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            </div>
+                        </div> <!-- FIN REGLES -->
+                    </div>
+                </div>  <!-- FIN RÈGLES -->
+                <div class="sheet-mycol" style="width:100px;text-align:center;"> <!-- LOGO  -->
+                    <img style="width: 75px;vertical-align: middle;" src="https://lh3.googleusercontent.com/-DS63VqqmVkU/Vq4pZkpluyI/AAAAAAAAYKQ/llqs7V3dTps/s425-Ic42/LogoVastemonde.png" />
+                </div>  <!-- FIN LOGO et RÈGLES -->
+            </div> <!-- FIN LIGNE ID DESTIN LOGO -->
+            <div class="sheet-ligne"> <!-- LIGNE Réputation à Grâces -->
+                <div class="sheet-mycolbrd" style="width:120px;height: 82px;text-align: center;"> <!-- RÉPUTATION -->
+                    <div class="sheet-ligne" style="text-align: center;">
+                        <div class="sheet-libel2" style="vertical-align: middle;">Réputation</div>
+                    </div>
+                    <div class="sheet-ligne" style="text-align: center;">
+                        <div class="sheet-boxnum">
+                            <input type="number" name="attr_reputation" class="sheet-inpnum2cbig" title="Réputation" value="0" min="0" />
                         </div>
                     </div>
-                </div>
-            </div><!-- FIN Récupérations -->
-            <div class="sheet-mycol"  style="width: 305px;text-align: center;"> <!-- Blessures -->
+                </div>  <!-- FIN RÉPUTATION -->
+                <div class="sheet-mycolbrd" style="width:240px;text-align: center;"> <!-- COL CA Témérité Protection -->
+                    <div class="sheet-ligne" style="text-align: center;">
+                        <div class="sheet-mycol" style="text-align: center;"> <!-- CA -->
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-libel2" style="vertical-align: middle;">CA</div>
+                            </div>
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-boxnum">
+                                    <input type="number" name="attr_ca" class="sheet-inpnum2cbig" title="Classe d'Armure" value="0" readonly />
+                                </div>
+                            </div>
+                        </div> <!-- FIN CA -->
+                        <div class="sheet-mycol" style="text-align: center;padding-top: 15px;" > <!-- Témérité et Protection -->
+                            <div class="sheet-ligne" > <!-- Témérité -->
+                                <div style="vertical-align: middle; width: 80px; text-align: right;">Témérité</div>
+                                <div style="width:70px;text-align:center;">
+                                    <SELECT  name="attr_temerite" style="width: 45px;text-align:right;" title="Témérité">
+                                        <OPTION>3</OPTION>
+                                        <OPTION>4</OPTION>
+                                        <OPTION>5</OPTION>
+                                        <OPTION>6</OPTION>
+                                        <OPTION>7</OPTION>
+                                        <OPTION>8</OPTION>
+                                        <OPTION>9</OPTION>
+                                    </SELECT>
+                                </div>
+                            </div> <!-- FIN Témérité -->
+                            <div class="sheet-ligne" > <!-- Protection -->
+                                <div style="vertical-align: middle; width: 80px; text-align: right;">Protection</div>
+                                <div>
+                                    <input type="number" name="attr_protection" class="sheet-inpnum2c" title="Protection" value="0" />
+                                    B:<input type="checkbox" name="attr_bouclier" value="1" title="Bouclier (+1 Protection)" />
+                                </div>
+                            </div> <!-- FIN Protection -->
+                        </div>  <!-- FIN Témérité et Protection -->
+                    </div>
+                </div> <!-- FIN COL CA Témérité Protection -->
+                <div class="sheet-mycolbrd" style="text-align: center;height: 82px;"> <!-- Folie Magie Grâces -->
+                    <div class="sheet-ligne">
+                        <div class="sheet-mycol" style="width:90px;text-align: center;" > <!-- FOLIE -->
+                            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2" style="vertical-align: middle;">Folie</div></div>
+                            <div class="sheet-boxnum">
+                                <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Folie" value="0" min="0" />
+                            </div>
+                        </div> <!-- FIN FOLIE -->
+                        <div class="sheet-mycol" style="width:132px;text-align: center;"> <!-- Points de Magie -->
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-libel2">Points de Magie</div>
+                            </div>
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-boxnum">
+                                    <input type="number" name="attr_magie" class="sheet-inpnum2c" title="Points de Magie courant" value="0" min="0" />
+                                    /
+                                    <input type="number" name="attr_magie_max" class="sheet-inpnum2c" title="Points de Magie maximum" value="0" min="0" />
+                                </div>
+                            </div>
+                        </div>  <!-- FIN Points de Magie -->
+                        <div class="sheet-mycol" style="width:145px;text-align: center;"> <!-- Grâces Divines -->
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-libel2">Grâces Divines</div>
+                            </div>
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-boxnum">
+                                    <input type="number" name="attr_graces" class="sheet-inpnum2c" title="Grâces Divines courantes" value="0" min="0" />
+                                    /
+                                    <input type="number" name="attr_graces_max" class="sheet-inpnum2c" title="Grâces Divines maximum" value="0" min="0" />
+                                </div>
+                            </div>
+                        </div>  <!-- FIN Grâces Divines -->
+                    </div>
+                </div> <!-- FIN Folie Magie Grâces -->
+            </div> <!-- FIN Réputation à Grâces -->
+        </div><!-- FIN COL Identification à Grâces -->
+    </div> <!-- FIN LIGNE EN-TETE : Jets à Grâces -->
+    <div class="sheet-ligne"> <!-- PV à Blessures -->
+        <div class="sheet-mycolbrd" style="width: 512px;"> <!-- PV Récup Blessures Repos courts -->
+            <div class="sheet-ligne" style="height: 177px;">
+                <div class="sheet-mycol" style="text-align: center;"> <!-- PV -->
+                    <div class="sheet-ligne" style="text-align: center;">
+                        <div class="sheet-libel2">Points de Vie</div>
+                    </div>
+                    <div class="sheet-ligne" style="text-align: center;padding-top: 45px;">
+                        <div class="sheet-boxnum">
+                            <input type="number" name="attr_pv" class="sheet-inpnum2c" title="Points de Vie courant" value="0" min="0" />
+                            /
+                            <input type="number" name="attr_pv_max" class="sheet-inpnum2c" title="Points de Vie maximum" value="0" min="0" />
+                        </div>
+                    </div>
+                </div>  <!-- FIN PV -->
                 <div class="sheet-mycol">
-                    <div style="vertical-align: middle; width: 100px; text-align: right;">Blessures</div>
-                    <input type="number" name="attr_blessures" class="sheet-inpnum2cboxed" title="Blessures courantes" value="0" min="0" readonly />
+                    <div class="sheet-ligne" style="margin-top: 35px;"> <!-- Récupérations -->
+                        <div class="sheet-ligne" style="text-align: center;">
+                            <div class="sheet-mycol">
+                                <div class="sheet-ligne">
+                                    <div style="vertical-align: middle; width: 100px; text-align: right;">Récupérations</div>
+                                    <input type="number" name="attr_recuperationsrestantes" class="sheet-inpnum2cboxed" title="Récupérations restantes" value="(@{recuperationsmax})-(@{recuperations})"  disabled="true" />
+                                </div>
+                                <div class="sheet-ligne">
+                                    <div style="vertical-align: middle; width: 100px; text-align: right;"></div>
+                                    <input type="number" name="attr_recuperationsmax" class="sheet-inpnum2cboxed" title="Récupérations maximales" value="0" min="0" />
+                                </div>
+                            </div>
+                            <div class="sheet-mycol">
+                                <div class="sheet-dots">
+                                    <input type="radio" name="attr_recuperations" value="0" title="0" checked="checked" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="1" title="1" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="2" title="2" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="3" title="3" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="4" title="4" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="5" title="5" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="6" title="6" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="7" title="7" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="8" title="8" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="9" title="9" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="10" title="10" /><span></span><br/>
+                                    <div style="display: inline-block; width:8px"></div>
+                                    <input type="radio" name="attr_recuperations" value="11" title="11" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="12" title="12" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="13" title="13" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="14" title="14" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="15" title="15" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="16" title="16" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="17" title="17" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="18" title="18" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="19" title="19" /><span></span>
+                                    <input type="radio" name="attr_recuperations" value="20" title="20" /><span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- FIN Récupérations -->
+                    <div class="sheet-ligne" style="margin-top: 30px;"> <!-- Blessures -->
+                        <div class="sheet-mycol">
+                            <div style="vertical-align: middle; width: 100px; text-align: right;">Blessures</div>
+                            <input type="number" name="attr_blessures" class="sheet-inpnum2cboxed" title="Blessures courantes" value="0" min="0" readonly />
+                        </div>
+                        <div class="sheet-mycol">
+                            <div class="sheet-dots">
+                                <input type="radio" name="attr_blessures" value="0" title="0" checked="checked" /><span></span>
+                                <input type="radio" name="attr_blessures" value="1" title="1" /><span></span>
+                                <input type="radio" name="attr_blessures" value="2" title="2" /><span></span>
+                                <input type="radio" name="attr_blessures" value="3" title="3" /><span></span>
+                                <input type="radio" name="attr_blessures" value="4" title="4" /><span></span>
+                                <input type="radio" name="attr_blessures" value="5" title="5" /><span></span>
+                                <input type="radio" name="attr_blessures" value="6" title="6" /><span></span>
+                                <input type="radio" name="attr_blessures" value="7" title="7" /><span></span>
+                                <input type="radio" name="attr_blessures" value="8" title="8" /><span></span>
+                                <input type="radio" name="attr_blessures" value="9" title="9" /><span></span>
+                                <input type="radio" name="attr_blessures" value="10" title="10" /><span></span><br/>
+                                <div style="display: inline-block; width:8px"></div>
+                                <input type="radio" name="attr_blessures" value="11" title="11" /><span></span>
+                                <input type="radio" name="attr_blessures" value="12" title="12" /><span></span>
+                                <input type="radio" name="attr_blessures" value="13" title="13" /><span></span>
+                                <input type="radio" name="attr_blessures" value="14" title="14" /><span></span>
+                                <input type="radio" name="attr_blessures" value="15" title="15" /><span></span>
+                                <input type="radio" name="attr_blessures" value="16" title="16" /><span></span>
+                                <input type="radio" name="attr_blessures" value="17" title="17" /><span></span>
+                                <input type="radio" name="attr_blessures" value="18" title="18" /><span></span>
+                                <input type="radio" name="attr_blessures" value="19" title="19" /><span></span>
+                                <input type="radio" name="attr_blessures" value="20" title="20" /><span></span>
+                            </div>
+                        </div>
+                    </div> <!-- FIN Blessures -->
                 </div>
-                <div class="sheet-mycol">
-                    <div class="sheet-dots">
-                        <input type="radio" name="attr_blessures" value="0" title="0" checked="checked" /><span></span>
-                        <input type="radio" name="attr_blessures" value="1" title="1" /><span></span>
-                        <input type="radio" name="attr_blessures" value="2" title="2" /><span></span>
-                        <input type="radio" name="attr_blessures" value="3" title="3" /><span></span>
-                        <input type="radio" name="attr_blessures" value="4" title="4" /><span></span>
-                        <input type="radio" name="attr_blessures" value="5" title="5" /><span></span>
-                        <input type="radio" name="attr_blessures" value="6" title="6" /><span></span>
-                        <input type="radio" name="attr_blessures" value="7" title="7" /><span></span>
-                        <input type="radio" name="attr_blessures" value="8" title="8" /><span></span>
-                        <input type="radio" name="attr_blessures" value="9" title="9" /><span></span>
-                        <input type="radio" name="attr_blessures" value="10" title="10" /><span></span><br/>
-                        <div style="display: inline-block; width:8px"></div>
-                        <input type="radio" name="attr_blessures" value="11" title="11" /><span></span>
-                        <input type="radio" name="attr_blessures" value="12" title="12" /><span></span>
-                        <input type="radio" name="attr_blessures" value="13" title="13" /><span></span>
-                        <input type="radio" name="attr_blessures" value="14" title="14" /><span></span>
-                        <input type="radio" name="attr_blessures" value="15" title="15" /><span></span>
-                        <input type="radio" name="attr_blessures" value="16" title="16" /><span></span>
-                        <input type="radio" name="attr_blessures" value="17" title="17" /><span></span>
-                        <input type="radio" name="attr_blessures" value="18" title="18" /><span></span>
-                        <input type="radio" name="attr_blessures" value="19" title="19" /><span></span>
-                        <input type="radio" name="attr_blessures" value="20" title="20" /><span></span>
+                <div class="sheet-mycol" style="text-align: center;padding-left: 10px;padding-top: 20px;"> <!-- REPOS COURTS -->
+                    <div class="sheet-ligne">Repos court</div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Spartiate"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Spartiate}} {{repos=[[1d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Spartiate</div>
                     </div>
-                </div>
-            </div> <!-- FIN Blessures -->
-        </div>  <!-- FIN Folie à Blessures -->
-    </div> <!-- FIN Ligne sauvegarde à repos court -->
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Correct"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Correct}} {{repos=[[2d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Correct</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Confortable"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Confortable}} {{repos=[[3d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Confortable</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="Douillet"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Douillet}} {{repos=[[4d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Douillet</div>
+                    </div>
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btRoll8small" title="Jet de Repos court" name="GrandLuxe"
+                            value="&{template:jet} {{perso=@{character_name}}} {{name=Report court}} {{subtags=Grand luxe}} {{repos=[[5d8]]}}"
+                        ></button>
+                        <div class="sheet-libel3">Grand luxe</div>
+                    </div>
+                </div>  <!-- FIN REPOS COURTS -->
+            </div>
+        </div> <!-- FIN PV Récup Blessures Repos courts -->
+        <div class="sheet-mycolbrd"> <!-- Risques -->
+            <div class="sheet-libel1">Risques</div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueCa"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Classe d’armure -2 (soi ou un allié)}} {{risquenum=[[1]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Classe d’armure -2 (soi ou un allié)</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDegat"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Dégâts +1d8 (Rmaj) ou +1 (Rmin)}} {{risquenum=[[2]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Dégâts +1d8 (Rmaj) ou +1 (Rmin)</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueManoeuvre"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Deuxième manoeuvre}} {{risquenum=[[3]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Deuxième manoeuvre</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDanger"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Ignorer en danger (soi ou un allié)}} {{risquenum=[[4]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Ignorer en danger (soi ou un allié)</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueInitiative"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Initiative +1d8}} {{risquenum=[[5]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8 &{tracker:+}]]}}"
+                ></button>
+                <div class="sheet-libel3">Initiative +1d8</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueAttaque"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Seuil d’attaque +2 (soi ou un allié)}} {{risquenum=[[6]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Seuil d’attaque +2 (soi ou un allié)</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisquePhysique"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Prouesse physique +2 (soi ou un allié)}} {{risquenum=[[7]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Prouesse physique +2 (soi ou un allié)</div>
+            </div>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueVie"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Points de vie +2 (soi ou un allié)}} {{risquenum=[[8]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
+                ></button>
+                <div class="sheet-libel3">Points de vie +2 (soi ou un allié)</div>
+            </div>
+        </div> <!-- FIN Risques -->
+        <div class="sheet-mycolbrd" style="height: 187px;width:118px;"> <!-- Jet Blessures -->
+            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2" style="vertical-align: middle;">Blessure</div></div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <button type="roll" class="sheet-btRoll8" style="vertical-align: middle;" title="Jet de Sauvegarde" name="JetSauvegarde"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{Gravité (Xd4)|1}d4]]}} {{localisation=[[1d8]]}} {{d4tours=[[1d4]]}} {{d8tours=[[1d8]]}}"
+                ></button>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Réussite crit.</div></div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <button type="roll" class="sheet-btRoll8" title="Jet de Réussite Critique" name="JetReussiteCritique"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Réussite critique}} {{reussite=[[1d16]]}} {{d8=[[1d8]]}}"
+                ></button>
+            </div>
+            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Échec crit.</div></div>
+            <div class="sheet-ligne" style="text-align: center;">
+                <button type="roll" class="sheet-btRoll8" title="Jet de Réussite Critique" name="JetReussiteCritique"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=Échec critique}} {{echec=[[1d16]]}} {{d4=[[1d4]]}} {{d8=[[1d8]]}}"
+                ></button>
+            </div>
+        </div> <!-- FIN Jet Blessures -->
+    </div> <!-- FIN PV à Blessures -->
     <div class="sheet-ligne"> <!-- Ligne de fin -->
-        <div class="sheet-mycol" style="width:450px;"> <!-- COL Lignes de vie + Talents + Inventaires -->
-            <div class="sheet-ligne"> <!-- Lignes de vie -->
+        <div class="sheet-mycolbrd" style="width:450px;"> <!-- COL Lignes de vie + Talents + Inventaires -->
+            <!-- <input type="radio" name="attr_chkvie" value="0" checked />
+            <input type="radio" name="attr_chkvie" value="1" />
+            <input type="radio" name="attr_chkvie" value="2" /> -->
+            <div class="sheet-ongletvie"> <!-- Lignes de vie -->
                 <div class="sheet-ligne"><div class="sheet-libel2">Lignes de vie</div></div>
                 <fieldset class="repeating_lignes">
                     <div class="sheet-ligne">
@@ -557,7 +688,7 @@
                     </div>
                 </fieldset>
             </div> <!-- FIN Lignes de vie -->
-            <div class="sheet-ligne">  <!-- Talents -->
+            <div class="sheet-onglettalent">  <!-- Talents -->
                 <div class="sheet-ligne"><div class="sheet-libel2">Talents</div></div>
                 <fieldset class="repeating_talents">
                     <div class="sheet-ligne">
@@ -584,15 +715,15 @@
                             <option>Vif</option>
                         </SELECT>
                         <input type="checkbox" name="attr_talentdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                        <textarea name="attr_talentdesc" class="sheet-textdesc" style="width: 276px;" placeholder="Description du talent" title="Description du talent"></textarea>
+                        <textarea name="attr_talentdesc" class="sheet-textdesc" style="width: 270px;" placeholder="Description du talent" title="Description du talent"></textarea>
                     </div>
                 </fieldset>
             </div>  <!-- FIN Talents -->
-            <div class="sheet-ligne"> <!-- Inventaire -->
+            <div class="sheet-ongletequip"> <!-- Inventaire -->
                 <div class="sheet-ligne"><div class="sheet-libel2">Inventaire</div></div>
                 <fieldset class="repeating_equipements">
                     <div class="sheet-ligne">
-                        <input type="text" name="attr_equipnom" style="font-weight:bold;width: 220px;" placeholder="Nom de l'équipement" title="Nom de l'équipement" />
+                        <input type="text" name="attr_equipnom" style="font-weight:bold;width: 210px;" placeholder="Nom de l'équipement" title="Nom de l'équipement" />
                         <input type="checkbox" name="attr_equiparme" class="sheet-dispcheck" title="Cet équipement est une arme ?" value="1" /><span style="font-size:1.8em;">&#10163;</span>
                         <div class="sheet-arme">
                             <SELECT name="attr_equipdegats" style="width:82px;" title="Dégâts / type de l'arme">
@@ -617,281 +748,210 @@
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreEquip" value="&{template:jet} {{name=@{equipnom}}} {{subtags=Equipement}} {{arme=[[@{equiparme}]]}} {{degatsdesc=@{equipdegats} +@{equipdegbonus}d@{equipdegde}}} {{brutal=[[@{equipdegbrutal}]]}} {{description=@{equipdesc}}} "></button>
                         <input type="checkbox" name="attr_equipdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                        <textarea name="attr_equipdesc" class="sheet-textdesc" style="width: 400px;" placeholder="Description de l'équipement" title="Description de l'équipement"></textarea>
+                        <textarea name="attr_equipdesc" class="sheet-textdesc" style="width: 390px;" placeholder="Description de l'équipement" title="Description de l'équipement"></textarea>
                     </div>
                 </fieldset>
             </div> <!-- FIN Inventaire -->
-        </div>  <!-- FIN COL Lignes de vie + Talents + Inventaires -->
-        <div class="sheet-mycol" style="width:435px;"> <!-- COL Risques Critiques Blessures Logo  -->
-            <div class="sheet-ligne"> <!-- LIGNE Risques Blessures Logo -->
-                <div class="sheet-mycol" style="width:250px;"> <!-- COL Risques Critiques -->
-                    <div class="sheet-libel1">Risques</div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueCa"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Classe d’armure -2 (soi ou un allié)}} {{risquenum=[[1]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Classe d’armure -2 (soi ou un allié)</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDegat"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Dégâts +1d8 (Rmaj) ou +1 (Rmin)}} {{risquenum=[[2]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Dégâts +1d8 (Rmaj) ou +1 (Rmin)</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueManoeuvre"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Deuxième manoeuvre}} {{risquenum=[[3]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Deuxième manoeuvre</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueDanger"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Ignorer en danger (soi ou un allié)}} {{risquenum=[[4]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Ignorer en danger (soi ou un allié)</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueInitiative"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Initiative +1d8}} {{risquenum=[[5]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8 &{tracker:+}]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Initiative +1d8</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueAttaque"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Seuil d’attaque +2 (soi ou un allié)}} {{risquenum=[[6]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Seuil d’attaque +2 (soi ou un allié)</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisquePhysique"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Prouesse physique +2 (soi ou un allié)}} {{risquenum=[[7]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Prouesse physique +2 (soi ou un allié)</div>
-                    </div>
-                    <div class="sheet-ligne">
-                        <button type="roll" class="sheet-btRoll8small" title="Jet de Risque" name="RisqueVie"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Risque}} {{risque=Points de vie +2 (soi ou un allié)}} {{risquenum=[[8]]}} {{risquejet=[[1d8]]}} {{desavde=[[1d8]]}}"
-                        ></button>
-                        <div class="sheet-libel3">Points de vie +2 (soi ou un allié)</div>
-                    </div>
-                </div>  <!-- FIN COL Risques Critiques -->
-                <div class="sheet-mycol" style="width:150px;"> <!-- COL Blessure Critiques Logo -->
-                    <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2" style="vertical-align: middle;">Blessure</div></div>
-                    <div class="sheet-ligne" style="text-align: center;">
-                        <button type="roll" class="sheet-btRoll8" style="vertical-align: middle;" title="Jet de Sauvegarde" name="JetSauvegarde"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Blessure}} {{blessure=[[?{Gravité (Xd4)|1}d4]]}} {{localisation=[[1d8]]}} {{d4tours=[[1d4]]}} {{d8tours=[[1d8]]}}"
-                        ></button>
-                    </div>
-                    <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Réussite critique</div></div>
-                    <div class="sheet-ligne" style="text-align: center;">
-                        <button type="roll" class="sheet-btRoll8" title="Jet de Réussite Critique" name="JetReussiteCritique"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Réussite critique}} {{reussite=[[1d16]]}} {{d8=[[1d8]]}}"
-                        ></button>
-                    </div>
-                    <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Échec critique</div></div>
-                    <div class="sheet-ligne" style="text-align: center;">
-                        <button type="roll" class="sheet-btRoll8" title="Jet de Réussite Critique" name="JetReussiteCritique"
-                            value="&{template:jet} {{perso=@{character_name}}} {{name=Échec critique}} {{echec=[[1d16]]}} {{d4=[[1d4]]}} {{d8=[[1d8]]}}"
-                        ></button>
-                    </div>
-                </div>  <!-- FIN COL Blessures Logo -->
-            </div> <!-- FIN LIGNE Risques Blessures Logo -->
-        </div> <!-- FIN COL Risques Blessures Critiques   -->
-    </div> <!-- FIN Ligne de fin -->
-    <div class="sheet-ligne"> <!-- MAGIES -->
-        <div class="sheet-mycol" style="width:20%;">
-            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Magie Profane</div></div>
-            <fieldset class="repeating_profane">
-                <div class="sheet-ligne" style="text-align:left;position: relative;" >
-                    <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreSort" value="&{template:jet} {{name=@{sort}}} {{subtags=Sort}} {{description=@{sortdesc}}} "></button>
-                    <select name="attr_sort" style="width:120px;font-weight: bold;">
-                        <option>-</option>
-                        <option>Attaque</option>
-                        <option>Confort</option>
-                        <option>Déplacements</option>
-                        <option>Détection</option>
-                        <option>Dissipation</option>
-                        <option>Domaine</option>
-                        <option>Élémentalisme</option>
-                        <option>Enchantement</option>
-                        <option>Envoûtements</option>
-                        <option>Illusions</option>
-                        <option>Invocations</option>
-                        <option>Métamorphose</option>
-                        <option>Nécromancie</option>
-                        <option>Préparation</option>
-                        <option>Protection</option>
-                        <option>Soins</option>
-                        <option>Tactique</option>
-                        <option>Télékinésie</option>
-                        <option>Télépathie</option>
-                        <option>Voyage</option>
-                    </select>
-                    <input type="checkbox" name="attr_sortdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                    <div class="sheet-sortdesc">
-                        Sort : <input type="text" name="attr_sort" style="font-weight: bold;width: 300px;" readonly />
-                        <textarea name="attr_sortdesc" class="sheet-textsort" placeholder="Description du sort" title="Description du sort"></textarea>
-                    </div>
+        </div>  <!-- FIN COL MAGIES -->
+        <div class="sheet-mycolbrd" style="width:435px;"> <!-- COL Lignes de vie + Talents + Inventaires -->
+            <div class="sheet-ligne"> <!-- MAGIE PROFANE -->
+                <div class="sheet-ligne"><div class="sheet-libel2">Magie Profane</div></div>
+                <fieldset class="repeating_profane">
+                        <div class="sheet-ligne" style="text-align:left;" >
+                            <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreSort" value="&{template:jet} {{name=@{sort}}} {{subtags=Sort}} {{description=@{sortdesc}}} "></button>
+                            <select name="attr_sort" style="width:120px;font-weight: bold;">
+                                <option>-</option>
+                                <option>Attaque</option>
+                                <option>Confort</option>
+                                <option>Déplacements</option>
+                                <option>Détection</option>
+                                <option>Dissipation</option>
+                                <option>Domaine</option>
+                                <option>Élémentalisme</option>
+                                <option>Enchantement</option>
+                                <option>Envoûtements</option>
+                                <option>Illusions</option>
+                                <option>Invocations</option>
+                                <option>Métamorphose</option>
+                                <option>Nécromancie</option>
+                                <option>Préparation</option>
+                                <option>Protection</option>
+                                <option>Soins</option>
+                                <option>Tactique</option>
+                                <option>Télékinésie</option>
+                                <option>Télépathie</option>
+                                <option>Voyage</option>
+                            </select>
+                            <div style="position: relative;">
+                                <input type="checkbox" name="attr_sortdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                                <div class="sheet-sortdesc">
+                                    Sort : <input type="text" name="attr_sort" style="font-weight: bold;width: 300px;" readonly />
+                                    <textarea name="attr_sortdesc" class="sheet-textsort" placeholder="Description du sort" title="Description du sort"></textarea>
+                                </div>
+                            </div>
+                            <input type="text" name="attr_sortdesc" style="width: 250px" placeholder="Description du sort" title="Description du sort" readonly/>
+                        </div> 
+                </fieldset>            
+            </div> <!-- FIN MAGIE PROFANE -->
+            <div class="sheet-ligne"> <!-- MAGIE DIVINE --> 
+                <div class="sheet-ligne"><div class="sheet-libel2">Magie Divine</div></div>
+                <div class="sheet-ligne" style="text-align: left;">
+                    <div class="sheet-libel3">Dieu</div>
+                    <SELECT name="attr_dieu" style="width: 150px"  title="Nom du Dieu" >
+                        <OPTION>-</OPTION>
+                        <OPTION>Astarté</OPTION>
+                        <OPTION>Deux faces</OPTION>
+                        <OPTION>L'Archiviste</OPTION>
+                        <OPTION>La Capuche</OPTION>
+                        <OPTION>La Reine Araignée</OPTION>
+                        <OPTION>La Reine bleue</OPTION>
+                        <OPTION>La Reine cachée</OPTION>
+                        <OPTION>La Reine Corneille</OPTION>
+                        <OPTION>La Reine du vent</OPTION>
+                        <OPTION>La Reine nue</OPTION>
+                        <OPTION>La Reine voilée</OPTION>
+                        <OPTION>Le Prince mort</OPTION>
+                        <OPTION>Le Roi ailé</OPTION>
+                        <OPTION>Le Roi cornu</OPTION>
+                        <OPTION>Le Roi de pierre</OPTION>
+                        <OPTION>Le Roi des elfes</OPTION>
+                        <OPTION>Le Roi Loup</OPTION>
+                        <OPTION>Le Roi Montagne</OPTION>
+                        <OPTION>Le Roi rouge</OPTION>
+                        <OPTION>Le Roi Zénith</OPTION>
+                    </SELECT>
                 </div>
-            </fieldset>            
-        </div>
-        <div class="sheet-mycol" style="width:39%;"> 
-            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Magie Divine</div></div>
-            <div class="sheet-ligne">
-                Dieu
-                <SELECT name="attr_dieu" style="width: 150px"  title="Nom du Dieu" >
-                    <OPTION>-</OPTION>
-                    <OPTION>Astarté</OPTION>
-                    <OPTION>Deux faces</OPTION>
-                    <OPTION>L'Archiviste</OPTION>
-                    <OPTION>La Capuche</OPTION>
-                    <OPTION>La Reine Araignée</OPTION>
-                    <OPTION>La Reine bleue</OPTION>
-                    <OPTION>La Reine cachée</OPTION>
-                    <OPTION>La Reine Corneille</OPTION>
-                    <OPTION>La Reine du vent</OPTION>
-                    <OPTION>La Reine nue</OPTION>
-                    <OPTION>La Reine voilée</OPTION>
-                    <OPTION>Le Prince mort</OPTION>
-                    <OPTION>Le Roi ailé</OPTION>
-                    <OPTION>Le Roi cornu</OPTION>
-                    <OPTION>Le Roi de pierre</OPTION>
-                    <OPTION>Le Roi des elfes</OPTION>
-                    <OPTION>Le Roi Loup</OPTION>
-                    <OPTION>Le Roi Montagne</OPTION>
-                    <OPTION>Le Roi rouge</OPTION>
-                    <OPTION>Le Roi Zénith</OPTION>
-                </SELECT>
-            </div>
-            <div class="sheet-ligne"> <!-- DIVINE -->
-                Domaines <input type="text" name="attr_domaines" style="width: 250px" placeholder="Domaines divins" title="Domaines divins" />
-            </div>
-            <div class="sheet-ligne">Capacités spéciales et Pouvoirs : </div>
-            <fieldset class="repeating_pouvoirs">
-                <div class="sheet-ligne">
-                    <input type="checkbox" name="attr_pouvoirdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                    <textarea name="attr_pouvoir" class="sheet-textdesc" style="width: 320px;" placeholder="Capacité spéciale ou Pouvoir" title="Description de la Capacité spéciale ou du Pouvoir"></textarea>
+                <div class="sheet-ligne" style="text-align: left;"> <!-- DIVINE -->
+                    <div class="sheet-libel3">Domaines</div> <input type="text" name="attr_domaines" style="width: 280px" placeholder="Domaines divins" title="Domaines divins" />
                 </div>
-            </fieldset>
-        </div> <!-- FIN DIVINE -->
-        <div class="sheet-mycol" style="width:39%;"> <!-- PACTES -->
-            <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Pactes Démoniaques</div></div>
-            <div class="sheet-ligne" style="position: relative;">
-                <i>Pouvoirs de pactes</i> <input type="checkbox" name="attr_pactedisplay" class="sheet-dispcheck" title="Afficher/Masquer la liste des pouvoirs d'un pacte" /><span>s</span>
-                <div class="sheet-pactedesc"> <!-- pouvoirs pactes -->
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est projetée dans le futur</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je tire une flèche, mais elle ne file le long de la trajectoire donnée que six heures plus tard<br/>
-                    &bull; je détruis un mur de pierre qui ne tombera que dans un mois<br/>
-                    &bull; j'écris un message sur un mur qui apparaîtra dans un an<br/>
-                    &bull; je vends la peau de l'ours</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est projetée dans l'espace</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je crochète une serrure à distance<br/>
-                    &bull; je tape sur l'épaule de quelqu'un en vue<br/>
-                    &bull; je chuchote et me fais entendre d'une cible à plusieurs mètres de là</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action n'est remarquée par personne</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je change de vêtements sans que personne ne s'en rende compte<br/>
-                    &bull; je pousse un hurlement sans qu'une foule sache qu'il provient de vous<br/>
-                    &bull; je peints une marque sur une porte sans se faire voir</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action a des capacités étranges ou décalées</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je joue d'un instrument et des papillons colorés volent partout dans les airs<br/>
-                    &bull; je porte des vêtements qui semblent s'animer de flammes<br/>
-                    &bull; je lance des coups d'épée accompagnés d'un rugissement terrifiant</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action émane d'une autre source</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je crie, mais le son émane de quelqu'un d'autre<br/>
-                    &bull; je tire une flèche, mais c'est d'un autre arc que part la flèche<br/>
-                    &bull; je vide ma bouteille de poison, mais il jaillit du pichet de la serveuse</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est plus rapide</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je crochète une serrure complexe en quelques secondes<br/>
-                    &bull; je cours à la vitesse d'un guépard<br/>
-                    &bull; je condamne solidement une porte en quelques instants</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action agit sur une plus grande distance</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je déclame un discours qui porte à des centaines de mètres<br/>
-                    &bull; je lance des objets en l'air qui s'étalent sur des dizaines de mètres<br/>
-                    &bull; je tire une flèche sur trois kilomètres</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action agit sur plus de cibles</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je soigne plusieurs blessés en même temps<br/>
-                    &bull; je toque brutalement à la porte d'une dizaine de maisons<br/>
-                    &bull; je désarme les dix soldats qui m'entourent d'une manoeuvre habile</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est multipliée</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je murmure une phrase qui est répétée cent fois au même instant à l'endroit où je me trouve<br/>
-                    &bull; je donne dix coups d'épée sur une corde alors que je ne viens d'en porter qu'un<br/>
-                    &bull; je fais des petits pains... plein</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est amplifiée</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je tape sur une porte avec mon poing comme si c'était le projectile d'une catapulte<br/>
-                    &bull; je tracte une charette comme si j'avais la force de dix hommes<br/>
-                    &bull; je hurle comme un millier de soldats</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action dure dans le temps</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; j'exerce une pression sur une porte qui continue de s'exercer bien après que je sois sorti de la pièce<br/>
-                    &bull; je retiens ma respiration pendant de longues minutes<br/>
-                    &bull; j'éclaire une zone qui le restera pendant des jours</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est simulée</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je file un coup de poing au chef des gardes sans qu'il n'impacte<br/>
-                    &bull; je me tranche la gorge sans me blesser réellement<br/>
-                    &bull; je saute dans une rivière alors que je suis resté au bord de l'eau</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action n'affecte qu'une cible précise</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je tire un carreau qui ne blessera que le Roi<br/>
-                    &bull; j'allume un feu qui ne blessera que des gobelins<br/>
-                    &bull; je transperce des sacs de blé mais seul celui ne contenant pas que du blé sera affecté</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action se passe d'accessoire matériel</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je crochète une porte sans outil<br/>
-                    &bull; je tire une flèche sans arc<br/>
-                    &bull; je joue d'un instrument sans l'avoir sur moi</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action affecte l'esprit</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je parle à quelqu'un... dans sa tête<br/>
-                    &bull; je raconte un souvenir qui s'incruste dans l'esprit de mon interlocuteur comme si il l'avait vécu<br/>
-                    &bull; je chante une chanson idiote que les gens se sentiront obligés de répéter</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est soumise à des conditions</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je me réveille debout et en armure si quelqu'un pénètre dans ma chambre<br/>
-                    &bull; j'appuie sur la clanche d'une porte qui ne s'ouvre que si personne n'est derrière<br/>
-                    &bull; je profère des insultes envers un soldat prononcées seulement s'il a le sang de mon frère sur les mains</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action ignore certains obstacles</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je tire une boulette de papier qui passe à travers les murs<br/>
-                    &bull; je passe ma main à travers le bois pour retirer le crochet d'une porte<br/>
-                    &bull; je donne des coups de lance qui passent au travers du métal</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action se réalise dans le passé (sans l'affecter)</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; j'écoute les délibérations du conseil qui s'est déroulé hier<br/>
-                    &bull; je regarde l'arrivée d'une lame mercenaire dans la ville, alors que l'évènement date d'un mois<br/>
-                    &bull; je copie un tableau qui a été détruit il y a cinquante ans</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action est répétée</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; je fabrique une grue en papier, cela se répète sur les cinq mille qui me restent à faire<br/>
-                    &bull; je façonne un lingot de fer, le reste de la fournée se fait tout seul<br/>
-                    &bull; je tape contre un mur au bélier, l'impact se répète des dizaines de fois par la suite</div>
-                    <div class="sheet-ligne" style="font-weight:bold;">Mon action se passe de ressources</div>
-                    <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
-                    &bull; j'allume un feu de camp qui ne consume pas le bois<br/>
-                    &bull; je tire des flèches sans que mon carquois ne se vide<br/>
-                    &bull; je bois, jusqu'à plus soif, car le liquide dans ma bouteille ne se tarit pas</div>
-                </div>  <!-- FIN pouvoirs pactes -->
-            </div>
-            <fieldset class="repeating_pactes">
-                <div class="sheet-ligne">
-                    Avec <input type="text" name="attr_demon" style="width: 200px" placeholder="Démon ou titan" title="Démon ou titan" />
+                <div class="sheet-ligne"><div class="sheet-libel3">Capacités spéciales et Pouvoirs : </div></div>
+                <fieldset class="repeating_pouvoirs">
+                    <div class="sheet-ligne" style="text-align: left;">
+                        <input type="checkbox" name="attr_pouvoirdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                        <textarea name="attr_pouvoir" class="sheet-textdesc" style="width: 400px;" placeholder="Capacité spéciale ou Pouvoir" title="Description de la Capacité spéciale ou du Pouvoir"></textarea>
+                    </div>
+                </fieldset>
+            </div> <!-- FIN DIVINE -->
+            <div class="sheet-ligne"> <!-- PACTES -->
+                <div class="sheet-ligne"><div class="sheet-libel2">Pactes Démoniaques</div></div>
+                <div class="sheet-ligne" style="position: relative;">
+                    <div class="sheet-libel3">Pouvoirs de pactes</div>
+                    <input type="checkbox" name="attr_pactedisplay" class="sheet-dispcheck" title="Afficher/Masquer la liste des pouvoirs d'un pacte" /><span>s</span>
+                    <div class="sheet-pactedesc"> <!-- pouvoirs pactes -->
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est projetée dans le futur</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je tire une flèche, mais elle ne file le long de la trajectoire donnée que six heures plus tard<br/>
+                        &bull; je détruis un mur de pierre qui ne tombera que dans un mois<br/>
+                        &bull; j'écris un message sur un mur qui apparaîtra dans un an<br/>
+                        &bull; je vends la peau de l'ours</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est projetée dans l'espace</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je crochète une serrure à distance<br/>
+                        &bull; je tape sur l'épaule de quelqu'un en vue<br/>
+                        &bull; je chuchote et me fais entendre d'une cible à plusieurs mètres de là</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action n'est remarquée par personne</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je change de vêtements sans que personne ne s'en rende compte<br/>
+                        &bull; je pousse un hurlement sans qu'une foule sache qu'il provient de vous<br/>
+                        &bull; je peints une marque sur une porte sans se faire voir</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action a des capacités étranges ou décalées</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je joue d'un instrument et des papillons colorés volent partout dans les airs<br/>
+                        &bull; je porte des vêtements qui semblent s'animer de flammes<br/>
+                        &bull; je lance des coups d'épée accompagnés d'un rugissement terrifiant</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action émane d'une autre source</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je crie, mais le son émane de quelqu'un d'autre<br/>
+                        &bull; je tire une flèche, mais c'est d'un autre arc que part la flèche<br/>
+                        &bull; je vide ma bouteille de poison, mais il jaillit du pichet de la serveuse</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est plus rapide</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je crochète une serrure complexe en quelques secondes<br/>
+                        &bull; je cours à la vitesse d'un guépard<br/>
+                        &bull; je condamne solidement une porte en quelques instants</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action agit sur une plus grande distance</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je déclame un discours qui porte à des centaines de mètres<br/>
+                        &bull; je lance des objets en l'air qui s'étalent sur des dizaines de mètres<br/>
+                        &bull; je tire une flèche sur trois kilomètres</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action agit sur plus de cibles</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je soigne plusieurs blessés en même temps<br/>
+                        &bull; je toque brutalement à la porte d'une dizaine de maisons<br/>
+                        &bull; je désarme les dix soldats qui m'entourent d'une manoeuvre habile</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est multipliée</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je murmure une phrase qui est répétée cent fois au même instant à l'endroit où je me trouve<br/>
+                        &bull; je donne dix coups d'épée sur une corde alors que je ne viens d'en porter qu'un<br/>
+                        &bull; je fais des petits pains... plein</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est amplifiée</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je tape sur une porte avec mon poing comme si c'était le projectile d'une catapulte<br/>
+                        &bull; je tracte une charette comme si j'avais la force de dix hommes<br/>
+                        &bull; je hurle comme un millier de soldats</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action dure dans le temps</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; j'exerce une pression sur une porte qui continue de s'exercer bien après que je sois sorti de la pièce<br/>
+                        &bull; je retiens ma respiration pendant de longues minutes<br/>
+                        &bull; j'éclaire une zone qui le restera pendant des jours</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est simulée</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je file un coup de poing au chef des gardes sans qu'il n'impacte<br/>
+                        &bull; je me tranche la gorge sans me blesser réellement<br/>
+                        &bull; je saute dans une rivière alors que je suis resté au bord de l'eau</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action n'affecte qu'une cible précise</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je tire un carreau qui ne blessera que le Roi<br/>
+                        &bull; j'allume un feu qui ne blessera que des gobelins<br/>
+                        &bull; je transperce des sacs de blé mais seul celui ne contenant pas que du blé sera affecté</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action se passe d'accessoire matériel</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je crochète une porte sans outil<br/>
+                        &bull; je tire une flèche sans arc<br/>
+                        &bull; je joue d'un instrument sans l'avoir sur moi</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action affecte l'esprit</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je parle à quelqu'un... dans sa tête<br/>
+                        &bull; je raconte un souvenir qui s'incruste dans l'esprit de mon interlocuteur comme si il l'avait vécu<br/>
+                        &bull; je chante une chanson idiote que les gens se sentiront obligés de répéter</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est soumise à des conditions</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je me réveille debout et en armure si quelqu'un pénètre dans ma chambre<br/>
+                        &bull; j'appuie sur la clanche d'une porte qui ne s'ouvre que si personne n'est derrière<br/>
+                        &bull; je profère des insultes envers un soldat prononcées seulement s'il a le sang de mon frère sur les mains</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action ignore certains obstacles</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je tire une boulette de papier qui passe à travers les murs<br/>
+                        &bull; je passe ma main à travers le bois pour retirer le crochet d'une porte<br/>
+                        &bull; je donne des coups de lance qui passent au travers du métal</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action se réalise dans le passé (sans l'affecter)</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; j'écoute les délibérations du conseil qui s'est déroulé hier<br/>
+                        &bull; je regarde l'arrivée d'une lame mercenaire dans la ville, alors que l'évènement date d'un mois<br/>
+                        &bull; je copie un tableau qui a été détruit il y a cinquante ans</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action est répétée</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; je fabrique une grue en papier, cela se répète sur les cinq mille qui me restent à faire<br/>
+                        &bull; je façonne un lingot de fer, le reste de la fournée se fait tout seul<br/>
+                        &bull; je tape contre un mur au bélier, l'impact se répète des dizaines de fois par la suite</div>
+                        <div class="sheet-ligne" style="font-weight:bold;">Mon action se passe de ressources</div>
+                        <div class="sheet-ligne" style="font-style: italic;padding-left: 40px;">
+                        &bull; j'allume un feu de camp qui ne consume pas le bois<br/>
+                        &bull; je tire des flèches sans que mon carquois ne se vide<br/>
+                        &bull; je bois, jusqu'à plus soif, car le liquide dans ma bouteille ne se tarit pas</div>
+                    </div>  <!-- FIN pouvoirs pactes -->
                 </div>
-                <div class="sheet-ligne">
-                    Pacte <input type="text" name="attr_pacte" style="width: 300px" placeholder="Pacte" title="Pacte" />
-                </div>
-            </fieldset>
-        </div> <!-- FIN PACTES -->
-    </div>  <!-- FIN MAGIES -->
+                <fieldset class="repeating_pactes">
+                    <div class="sheet-ligne" style="text-align: left;">
+                        <div class="sheet-libel3">Avec</div> <input type="text" name="attr_demon" style="width: 220px" placeholder="Démon ou titan" title="Démon ou titan" />
+                    </div>
+                    <div class="sheet-ligne" style="text-align: left;">
+                        <div class="sheet-libel3">Pacte</div><input type="text" name="attr_pacte" style="width: 380px" placeholder="Pacte" title="Pacte" />
+                    </div>
+                </fieldset>
+            </div> <!-- FIN PACTES -->
+        </div>  <!-- FIN COL MAGIES -->
+    </div> <!-- FIN Ligne de fin -->    
 </div> <!-- FIN FDP -->
 <!-- ******** TEMPLATES *************************** -->
 <rolltemplate class="sheet-rolltemplate-jet">

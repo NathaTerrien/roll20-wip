@@ -42,6 +42,14 @@ div.sheet-mycol{
     vertical-align: top;
     /*border: 1px solid blue;*/
 }
+div.sheet-mycolbrd{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #DD5633;
+    border-radius: 6px;
+    text-align: center;
+    padding: 3px;
+}
 div.sheet-libel1{
     color: #888888;
     display: inline-block;
@@ -70,7 +78,7 @@ div.sheet-subtag{
 }
 div.sheet-boxnum{
     padding: 10px 2px 10px 2px;
-    border: 1px solid black;
+    border: 1px dotted #888888;
     vertical-align: middle;
 }
 div.sheet-arme{
@@ -83,14 +91,14 @@ div.sheet-sortdesc{
     display: none;
     position: absolute;
     padding: 2px;
-    width: 600px;
-    height: 550px;
+    width: 480px;
+    height: 590px;
     border: 2px solid #DD5633;
     border-radius: 6px;
     background: #EEEEEE;
     z-index: 10;
-    left: 167px;
-    top: -530px;
+    left: -485px;
+    top: -380px;
     box-shadow: 5px 5px 30px black;
     resize: both;
     overflow: auto;
@@ -102,19 +110,38 @@ div.sheet-pactedesc{
     display: none;
     position: absolute;
     padding: 2px;
-    width: 600px;
-    height: 400px;
+    width: 500px;
+    height: 550px;
     border: 2px solid #DD5633;
     border-radius: 6px;
     background: #EEEEEE;
     z-index: 10;
-    left: -470px;
-    top: -390px;
+    left: -390px;
+    top: -540px;
     box-shadow: 5px 5px 30px black;
     resize: both;
     overflow: auto;
 }
 input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-pactedesc{
+    display: inline-block;
+}
+div.sheet-regledesc{
+    display: none;
+    position: absolute;
+    padding: 2px;
+    width: 700px;
+    height: 580px;
+    border: 2px solid #DD5633;
+    border-radius: 6px;
+    background: #EEEEEE;
+    z-index: 10;
+    left: -640px;
+    top: 0px;
+    box-shadow: 5px 5px 30px black;
+    resize: both;
+    overflow: auto;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-regledesc{
     display: inline-block;
 }
 /********* INPUTS *************************************************/
