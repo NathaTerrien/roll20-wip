@@ -35,6 +35,7 @@ Updated 2015-02-01.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2015-12-21)
 
 #### Todo
+* Add buttons to enlarge/reduce descriptions for special abilites, cyphers, artefacts etc.
 
 ### Cypher System (french)
 
@@ -81,6 +82,7 @@ Cf. english version
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.1 (2016-01-17)
 
 #### Todo
+* Ajouter un bouton d'agrandissement de la zone de description des sorts.
 * Calcul de la richesse totale
 
 ### Savage Worlds French
@@ -91,6 +93,12 @@ Cf. english version
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 
 #### Todo
+* Ajouter un bouton d'affichage dans le chat de la description des armes et pouvoirs.
+* Ajouter un bouton d'agrandissement de la zone de description des pouvoirs.
+* Styler l'état secoué, les blessures et la fatigue
+* pouvoir switcher entre cible et saisie de difficulté pour les attaques
+* pouvoir choisir entre template de résultats de jet, template de succès et "jets bruts" (pas de template)
+* affichage ou non les états (blessure, fatigue, secoué) du personnage dans le template de jet
 * Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
@@ -101,9 +109,9 @@ Cf. english version
 #### Sources
 * [WIP](./Supersix/) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Supersix) Version 1.0
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Supersix) Version 1.0
 
 #### Todo
-Tests par l'auteur
 
 ### The One Ring french / L'Anneau Unique
 
