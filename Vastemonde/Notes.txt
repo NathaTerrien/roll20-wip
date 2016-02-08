@@ -65,9 +65,11 @@ font-family: "dicefontd8" h = 8
 - X affichage des règles (texte à changer)
 - X Nouvelle MeP : "D:\Users\Nathanael\JdR\Med-Fan\Vastemonde\img237.jpg"
 ----------------------------------------------------
-XX/02/2016
-- Lien site LG + Règles : Ce serait mieux en plus petit au-dessus du nom en décalant le cadre vers le bas pour l'aligner
+08/02/2016
+- X Lien site LG + Règles : Ce serait mieux en plus petit au-dessus du nom en décalant le cadre vers le bas pour l'aligner
 Du coup, on pourrait aussi mettre le bouton de règles à cet endroit et je vais te fournir un logo qui irait bien en rectangle dans le coin
-- Onglet dans les règles
-- Onglets talents/ligne ... et magie
-- Déco
+- X Onglets talents/ligne ... et magie
+- X Déco
+----------------------------------------------------
+XX/02/2016
+- Règles + Onglet dans les règles
