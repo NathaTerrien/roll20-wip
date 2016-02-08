@@ -94,14 +94,14 @@ div.sheet-sortdesc{
     display: none;
     position: absolute;
     padding: 2px;
-    width: 480px;
-    height: 590px;
+    width: 590px;
+    height: 430px;
     border: 2px solid #DD5633;
     border-radius: 6px;
     background: #EEEEEE;
     z-index: 10;
-    left: -485px;
-    top: -380px;
+    left: -595px;
+    top: -410px;
     box-shadow: 5px 5px 30px black;
     resize: both;
     overflow: auto;
@@ -113,14 +113,14 @@ div.sheet-pactedesc{
     display: none;
     position: absolute;
     padding: 2px;
-    width: 500px;
-    height: 550px;
+    width: 560px;
+    height: 470px;
     border: 2px solid #DD5633;
     border-radius: 6px;
     background: #EEEEEE;
     z-index: 10;
-    left: -390px;
-    top: -540px;
+    left: -455px;
+    top: -400px;
     box-shadow: 5px 5px 30px black;
     resize: both;
     overflow: auto;
@@ -132,13 +132,13 @@ div.sheet-regledesc{
     display: none;
     position: absolute;
     padding: 2px;
-    width: 700px;
-    height: 580px;
+    width: 790px;
+    height: 450px;
     border: 2px solid #DD5633;
     border-radius: 6px;
     background: #EEEEEE;
     z-index: 10;
-    left: -640px;
+    left: -735px;
     top: 0px;
     box-shadow: 5px 5px 30px black;
     resize: both;
@@ -146,6 +146,102 @@ div.sheet-regledesc{
 }
 input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-regledesc{
     display: inline-block;
+}
+/********* ONGLETS ************************************************/
+div.sheet-onglvie,
+div.sheet-ongltalent,
+div.sheet-onglequip,
+div.sheet-onglprofane,
+div.sheet-ongldivine,
+div.sheet-onglpacte{
+    display: none;
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+    margin: 1px 0px 1px 0px;
+    border: 1px solid #DD5633;
+    border-radius: 0px 6px 6px 6px;
+    padding: 3px;
+    z-index: 0;
+}
+input[type="radio"].sheet-onglvie,
+input[type="radio"].sheet-ongltalent,
+input[type="radio"].sheet-onglequip,
+input[type="radio"].sheet-onglprofane,
+input[type="radio"].sheet-ongldivine,
+input[type="radio"].sheet-onglpacte{
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 140px;
+    height: 25px;
+    z-index: 2;
+}
+input[type="radio"].sheet-onglvie + span,
+input[type="radio"].sheet-ongltalent + span,
+input[type="radio"].sheet-onglequip + span,
+input[type="radio"].sheet-onglprofane + span,
+input[type="radio"].sheet-ongldivine + span,
+input[type="radio"].sheet-onglpacte + span {
+    color: #666666;
+    background-color: #BBBBBB;
+    font-size:15px;
+    text-align:center;
+    display: inline-block;
+    width: 140px;
+    height: 28px;
+    margin: 0;
+    margin-left: -140px;
+    margin-right: -5px;
+    padding:0;
+    margin-bottom: -2px;
+    padding-top: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border-style: solid;
+    border-width: 1px;
+    border-left-color: #DDBBBB;
+    border-top-color: #DDBBBB;
+    border-right-color: #DDBBBB;
+    border-bottom-color: #DD5633;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    z-index: 1;
+}
+input[type="radio"].sheet-onglvie:checked + span,
+input[type="radio"].sheet-ongltalent:checked + span,
+input[type="radio"].sheet-onglequip:checked + span,
+input[type="radio"].sheet-onglprofane:checked + span,
+input[type="radio"].sheet-ongldivine:checked + span,
+input[type="radio"].sheet-onglpacte:checked + span {
+    font-weight: bold;
+    color: #DD5633;
+    background-color: white;
+    border-left-color: #DD5633;
+    border-top-color: #DD5633;
+    border-right-color: #DD5633;
+    border-bottom-color: white;
+}
+input[type="radio"].sheet-onglvie:checked ~ div.sheet-onglvie{
+    display: block;
+}
+input[type="radio"].sheet-ongltalent:checked ~ div.sheet-ongltalent{
+    display: block;
+}
+input[type="radio"].sheet-onglequip:checked ~ div.sheet-onglequip{
+    display: block;
+}
+input[type="radio"].sheet-onglprofane:checked ~ div.sheet-onglprofane{
+    display: block;
+}
+input[type="radio"].sheet-ongldivine:checked ~ div.sheet-ongldivine{
+    display: block;
+}
+input[type="radio"].sheet-onglpacte:checked ~ div.sheet-onglpacte{
+    display: block;
 }
 /********* INPUTS *************************************************/
 input{

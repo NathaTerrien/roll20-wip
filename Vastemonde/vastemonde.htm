@@ -679,20 +679,20 @@
         </div> <!-- FIN Jet Blessures -->
     </div> <!-- FIN PV à Blessures -->
     <div class="sheet-ligne"> <!-- Ligne de fin -->
-        <div class="sheet-mycolbrd" style="width:450px;"> <!-- COL Lignes de vie + Talents + Inventaires -->
-            <!-- <input type="radio" name="attr_chkvie" value="0" checked />
-            <input type="radio" name="attr_chkvie" value="1" />
-            <input type="radio" name="attr_chkvie" value="2" /> -->
-            <div class="sheet-ongletvie"> <!-- Lignes de vie -->
-                <div class="sheet-ligne"><div class="sheet-libel2">Lignes de vie</div></div>
+        <div class="sheet-mycol" style="width:450px;text-align: left;"> <!-- COL Lignes de vie + Talents + Inventaires -->
+            <input type="radio" name="attr_chkvie" value="0" class="sheet-onglvie" title="Lignes de vie" checked /><span>Lignes de vie</span>
+            <input type="radio" name="attr_chkvie" value="1" class="sheet-ongltalent" title="Talents" /><span>Talents</span>
+            <input type="radio" name="attr_chkvie" value="2" class="sheet-onglequip" title="Inventaire" /><span>Inventaire</span>
+            <div class="sheet-onglvie"> <!-- Lignes de vie -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Lignes de vie</div></div> -->
                 <fieldset class="repeating_lignes">
                     <div class="sheet-ligne">
                         <input type="text" name="attr_ligne" style="width: 440px;" placeholder="Ligne de vie : trouble, particularité, besogne" title="Ligne de vie : trouble, particularité, besogne" />
                     </div>
                 </fieldset>
             </div> <!-- FIN Lignes de vie -->
-            <div class="sheet-onglettalent">  <!-- Talents -->
-                <div class="sheet-ligne"><div class="sheet-libel2">Talents</div></div>
+            <div class="sheet-ongltalent">  <!-- Talents -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Talents</div></div> -->
                 <fieldset class="repeating_talents">
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreTalent" value="&{template:jet} {{name=@{talent}}} {{subtags=Talent}} {{description=@{talentdesc}}} "></button>
@@ -722,8 +722,8 @@
                     </div>
                 </fieldset>
             </div>  <!-- FIN Talents -->
-            <div class="sheet-ongletequip"> <!-- Inventaire -->
-                <div class="sheet-ligne"><div class="sheet-libel2">Inventaire</div></div>
+            <div class="sheet-onglequip"> <!-- Inventaire -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Inventaire</div></div> -->
                 <fieldset class="repeating_equipements">
                     <div class="sheet-ligne">
                         <input type="text" name="attr_equipnom" style="font-weight:bold;width: 210px;" placeholder="Nom de l'équipement" title="Nom de l'équipement" />
@@ -756,9 +756,12 @@
                 </fieldset>
             </div> <!-- FIN Inventaire -->
         </div>  <!-- FIN COL MAGIES -->
-        <div class="sheet-mycolbrd" style="width:435px;"> <!-- COL Lignes de vie + Talents + Inventaires -->
-            <div class="sheet-ligne"> <!-- MAGIE PROFANE -->
-                <div class="sheet-ligne"><div class="sheet-libel2">Magie Profane</div></div>
+        <div class="sheet-mycol" style="width:435px;text-align: left;"> <!-- COL Lignes de vie + Talents + Inventaires -->
+            <input type="radio" name="attr_chkmagie" value="0" class="sheet-onglprofane" title="Magie Profane" checked /><span>Magie Profane</span>
+            <input type="radio" name="attr_chkmagie" value="1" class="sheet-ongldivine" title="Magie Divine" /><span>Magie Divine</span>
+            <input type="radio" name="attr_chkmagie" value="2" class="sheet-onglpacte" title="Pactes Démoniaques" /><span>Pactes Démon.</span>
+            <div class="sheet-onglprofane"> <!-- MAGIE PROFANE -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Magie Profane</div></div> -->
                 <fieldset class="repeating_profane">
                         <div class="sheet-ligne" style="text-align:left;" >
                             <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreSort" value="&{template:jet} {{name=@{sort}}} {{subtags=Sort}} {{description=@{sortdesc}}} "></button>
@@ -796,8 +799,8 @@
                         </div>
                 </fieldset>
             </div> <!-- FIN MAGIE PROFANE -->
-            <div class="sheet-ligne"> <!-- MAGIE DIVINE -->
-                <div class="sheet-ligne"><div class="sheet-libel2">Magie Divine</div></div>
+            <div class="sheet-ongldivine"> <!-- MAGIE DIVINE -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Magie Divine</div></div> -->
                 <div class="sheet-ligne" style="text-align: left;">
                     <div class="sheet-libel3">Dieu</div>
                     <SELECT name="attr_dieu" style="width: 150px"  title="Nom du Dieu" >
@@ -835,8 +838,8 @@
                     </div>
                 </fieldset>
             </div> <!-- FIN DIVINE -->
-            <div class="sheet-ligne"> <!-- PACTES -->
-                <div class="sheet-ligne"><div class="sheet-libel2">Pactes Démoniaques</div></div>
+            <div class="sheet-onglpacte"> <!-- PACTES -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Pactes Démoniaques</div></div> -->
                 <div class="sheet-ligne" style="position: relative;">
                     <div class="sheet-libel3">Pouvoirs de pactes</div>
                     <input type="checkbox" name="attr_pactedisplay" class="sheet-dispcheck" title="Afficher/Masquer la liste des pouvoirs d'un pacte" /><span>s</span>
