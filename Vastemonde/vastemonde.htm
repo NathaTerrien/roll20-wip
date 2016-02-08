@@ -279,7 +279,7 @@
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Sauvegarde}} {{sauvegarde=[[1d8+(?{Bonus/Maus|0})]]}}"
                 ></button>
                 <div class="sheet-subtag">Sauvegarde</div>
-            </div> <!-- FIN SAUVEGARDE --> 
+            </div> <!-- FIN SAUVEGARDE -->
             <div class="sheet-ligne" style="text-align:center;">  <!-- INITIATIVE -->
                 <button type="roll" class="sheet-btRoll8" title="Jet d'Initiative" name="Initiative"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=[[@{initiativedes}d8+@{ca} &{tracker}]] }}"
@@ -291,9 +291,49 @@
             </div>  <!-- FIN INITIATIVE -->
         </div> <!-- FIN COL JETS -->
         <div class="sheet-mycol" style="width: calc(100%-132px);"> <!-- COL Identification à Grâces -->
-            <div class="sheet-ligne" style="height:21px">
-                <button type="roll" value="http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde/Les-Cahiers-du-Vastemonde">Les Cahiers du Vastemonde</button>
-            </div> <!-- séparateur -->
+            <div class="sheet-ligne" style="height:18px;">  <!-- FIN séparateur -->
+                <div class="sheet-mycol" style="width: 600px;text-align: center;vertical-align:top;">
+                    <div class="sheet-libel3" style="vertical-align: top;">Les Cahiers du Vastemonde</div>
+                    <button type="roll" class="sheet-btLien" title="Afficher l'adresse du site dans le chat" value="http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde/Les-Cahiers-du-Vastemonde"></button>
+                </div>
+                <div class="sheet-mycol" style="width: 100px;text-align: center;">  <!-- RÈGLES -->
+                    <div class="sheet-ligne" style="text-align: center;position: relative;">
+                        <div class="sheet-libel3">Règles</div>
+                        <input type="checkbox" name="attr_regledisplay" class="sheet-dispcheck" title="Afficher/Masquer le résumé des règles" /><span>s</span>
+                        <div class="sheet-regledesc"> <!-- REGLES -->
+                            <div style="text-align: left; height:100%;width:100%;">
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                                <ul>
+                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                </ul>
+
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                                <ul>
+                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                </ul>
+
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+                                <ul>
+                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
+                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
+                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
+                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
+                                </ul>
+
+                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            </div>
+                        </div> <!-- FIN REGLES -->
+                    </div>
+                </div>  <!-- FIN RÈGLES -->
+            </div> <!-- FIN séparateur -->
             <div class="sheet-ligne"> <!-- LIGNE ID DESTIN LOGO -->
                 <div class="sheet-mycolbrd" style="width:385px;text-align:left;"> <!-- COL IDENTIFICATION -->
                     <div class="sheet-ligne">
@@ -342,7 +382,7 @@
                         <input type="hidden" name="attr_degatsclasse" value="1d4" />
                     </div>
                 </div> <!-- FIN COL IDENTIFICATION -->
-                <div class="sheet-mycolbrd" style="width:150px;height: 74px;text-align:center;"> <!-- COL DESTIN -->
+                <div class="sheet-mycolbrd" style="width:150px;height: 76px;text-align:center;"> <!-- COL DESTIN -->
                     <div class="sheet-ligne" style="text-align: center;">
                         <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2">Destin</div></div>
                         <br/>
@@ -353,45 +393,8 @@
                         </div>
                     </div>
                 </div> <!-- FIN COL DESTIN -->
-                <div class="sheet-mycol" style="width: 100px;text-align: center;padding-top:25px;">  <!-- RÈGLES -->
-                    <div class="sheet-ligne" style="text-align: center;position: relative;">
-                        <div class="sheet-libel3">Règles</div>
-                        <input type="checkbox" name="attr_regledisplay" class="sheet-dispcheck" title="Afficher/Masquer le résumé des règles" /><span>s</span>
-                        <div class="sheet-regledesc"> <!-- REGLES -->
-                            <div style="text-align: left; height:100%;width:100%;">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                                <ul>
-                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
-                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
-                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
-                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
-                                </ul>
-
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                                <ul>
-                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
-                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
-                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
-                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
-                                </ul>
-
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-                                <ul>
-                                   <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li>
-                                   <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li>
-                                   <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li>
-                                   <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li>
-                                </ul>
-
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                            </div>
-                        </div> <!-- FIN REGLES -->
-                    </div>
-                </div>  <!-- FIN RÈGLES -->
-                <div class="sheet-mycol" style="width:100px;text-align:center;"> <!-- LOGO  -->
-                    <img style="width: 75px;vertical-align: middle;" src="https://lh3.googleusercontent.com/-DS63VqqmVkU/Vq4pZkpluyI/AAAAAAAAYKQ/llqs7V3dTps/s425-Ic42/LogoVastemonde.png" />
+                <div class="sheet-mycol" style="width: 210px;text-align:center;"> <!-- LOGO  -->
+                    <img style="vertical-align: middle;" src="https://lh3.googleusercontent.com/-NjH6AX1TINo/VrebUTFJQAI/AAAAAAAAYLE/96I76MPILdQ/s149-Ic42/Vastemonde74PX.png" />
                 </div>  <!-- FIN LOGO et RÈGLES -->
             </div> <!-- FIN LIGNE ID DESTIN LOGO -->
             <div class="sheet-ligne"> <!-- LIGNE Réputation à Grâces -->
@@ -405,19 +408,19 @@
                         </div>
                     </div>
                 </div>  <!-- FIN RÉPUTATION -->
-                <div class="sheet-mycolbrd" style="width:240px;text-align: center;"> <!-- COL CA Témérité Protection -->
+                <div class="sheet-mycolbrd" style="width:240px;height: 82px;text-align: center;"> <!-- COL CA Témérité Protection -->
+                    <div class="sheet-ligne">
+                        <div class="sheet-libel2" style="vertical-align: middle;">Classe d'Armure</div>
+                    </div>
                     <div class="sheet-ligne" style="text-align: center;">
                         <div class="sheet-mycol" style="text-align: center;"> <!-- CA -->
-                            <div class="sheet-ligne" style="text-align: center;">
-                                <div class="sheet-libel2" style="vertical-align: middle;">CA</div>
-                            </div>
                             <div class="sheet-ligne" style="text-align: center;">
                                 <div class="sheet-boxnum">
                                     <input type="number" name="attr_ca" class="sheet-inpnum2cbig" title="Classe d'Armure" value="0" readonly />
                                 </div>
                             </div>
                         </div> <!-- FIN CA -->
-                        <div class="sheet-mycol" style="text-align: center;padding-top: 15px;" > <!-- Témérité et Protection -->
+                        <div class="sheet-mycol" style="text-align: center;padding-top: 5px;" > <!-- Témérité et Protection -->
                             <div class="sheet-ligne" > <!-- Témérité -->
                                 <div style="vertical-align: middle; width: 80px; text-align: right;">Témérité</div>
                                 <div style="width:70px;text-align:center;">
@@ -444,13 +447,13 @@
                 </div> <!-- FIN COL CA Témérité Protection -->
                 <div class="sheet-mycolbrd" style="text-align: center;height: 82px;"> <!-- Folie Magie Grâces -->
                     <div class="sheet-ligne">
-                        <div class="sheet-mycol" style="width:90px;text-align: center;" > <!-- FOLIE -->
+                        <div class="sheet-mycol" style="width:80px;text-align: center;" > <!-- FOLIE -->
                             <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2" style="vertical-align: middle;">Folie</div></div>
                             <div class="sheet-boxnum">
                                 <input type="number" name="attr_destin" class="sheet-inpnum2c" title="Points de Folie" value="0" min="0" />
                             </div>
                         </div> <!-- FIN FOLIE -->
-                        <div class="sheet-mycol" style="width:132px;text-align: center;"> <!-- Points de Magie -->
+                        <div class="sheet-mycol" style="width:140px;text-align: center;"> <!-- Points de Magie -->
                             <div class="sheet-ligne" style="text-align: center;">
                                 <div class="sheet-libel2">Points de Magie</div>
                             </div>
@@ -790,10 +793,10 @@
                                 </div>
                             </div>
                             <input type="text" name="attr_sortdesc" style="width: 250px" placeholder="Description du sort" title="Description du sort" readonly/>
-                        </div> 
-                </fieldset>            
+                        </div>
+                </fieldset>
             </div> <!-- FIN MAGIE PROFANE -->
-            <div class="sheet-ligne"> <!-- MAGIE DIVINE --> 
+            <div class="sheet-ligne"> <!-- MAGIE DIVINE -->
                 <div class="sheet-ligne"><div class="sheet-libel2">Magie Divine</div></div>
                 <div class="sheet-ligne" style="text-align: left;">
                     <div class="sheet-libel3">Dieu</div>
@@ -951,7 +954,7 @@
                 </fieldset>
             </div> <!-- FIN PACTES -->
         </div>  <!-- FIN COL MAGIES -->
-    </div> <!-- FIN Ligne de fin -->    
+    </div> <!-- FIN Ligne de fin -->
 </div> <!-- FIN FDP -->
 <!-- ******** TEMPLATES *************************** -->
 <rolltemplate class="sheet-rolltemplate-jet">
@@ -1224,7 +1227,7 @@
         {{/echec}}
         {{#description}}
             <tr><td colspan="2" class="desctitre">Description/Effets</td></tr>
-            <tr><td colspan="2">{{description}}</td></tr>
+            <tr><td colspan="2"><div class="jetdesc">{{description}}</div></td></tr>
         {{/description}}
     </table>
 </rolltemplate>

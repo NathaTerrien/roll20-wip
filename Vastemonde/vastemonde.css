@@ -49,20 +49,23 @@ div.sheet-mycolbrd{
     border-radius: 6px;
     text-align: center;
     padding: 3px;
+    margin-bottom: 3px;
 }
 div.sheet-libel1{
-    color: #888888;
+    color: #DD5633;
     display: inline-block;
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: bold;
     text-align: right;
     width: 60px;
+    text-transform: uppercase;
 }
 div.sheet-libel2{
-    color: #888888;
+    color: #DD5633;
     display: inline-block;
-    font-size: 1.1em;
+    font-size: 0.9em;
     font-weight: bold;
+    text-transform: uppercase;
 }
 div.sheet-libel3{
     color: black;
@@ -78,7 +81,7 @@ div.sheet-subtag{
 }
 div.sheet-boxnum{
     padding: 10px 2px 10px 2px;
-    border: 1px dotted #888888;
+    border: none;
     vertical-align: middle;
 }
 div.sheet-arme{
@@ -180,7 +183,7 @@ input[type="number"].sheet-inpnum2cbig{
     font-size: 1.5em;
 }
 input[type="number"].sheet-inpnum2cboxed{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 35px;
 }
 input[type="checkbox"].sheet-dispcheck{
@@ -191,7 +194,7 @@ input[type="checkbox"].sheet-dispcheck{
     z-index: 2;
 }
 input[type="checkbox"].sheet-dispcheck + span{
-    display: inline-block;    
+    display: inline-block;
     text-align: center;
     margin-left: -18px;
     width: 18px;
@@ -256,7 +259,8 @@ button[type=roll].sheet-btRoll20big,
 button[type=roll].sheet-btRoll6,
 button[type=roll].sheet-btRoll8,
 button[type=roll].sheet-btRoll8small,
-button[type=roll].sheet-btDesc {
+button[type=roll].sheet-btDesc,
+button[type=roll].sheet-btLien{
     color: black;
     height: 2em;
     width: 2em;
@@ -321,6 +325,18 @@ button[type=roll].sheet-btDesc:before{
     font-family: "Pictos";
     font-size: 1.0em;
     content: 'i';
+}
+button[type=roll].sheet-btDesc:hover{
+    opacity: 1.0;
+}
+button[type=roll].sheet-btLien:before{
+    font-family: "Pictos";
+    font-size: 0.9em;
+    content: 'G';
+    height: 1em;
+    width: 1em;
+    line-height: 0;
+    vertical-align: top;
 }
 button[type=roll].sheet-btDesc:hover{
     opacity: 1.0;
@@ -424,6 +440,12 @@ button[type=roll].sheet-btDesc:hover{
     padding: 2px;
     text-align: left;
 }
+.sheet-rolltemplate-jet td.sheet-tcat{
+    color: #DD5633;
+    font-style: italic;
+    text-align: right;
+    border-right:  1px dashed #DD5633;
+}
 .sheet-rolltemplate-jet .sheet-subheader{
     font-style: italic;
     text-align: right;
@@ -437,11 +459,11 @@ button[type=roll].sheet-btDesc:hover{
     border-top: 1px solid #DD5633;
     color: #DD5633;
 }
-.sheet-rolltemplate-jet td.sheet-tcat{
-    color: #DD5633;
-    font-style: italic;
-    text-align: right;
-    border-right:  1px dashed #DD5633;
+.sheet-rolltemplate-jet div.sheet-jetdesc{
+    font-family: 'Verdana', serif;
+    font-size: 0.9em;
+    max-height: 140px;
+    overflow-y: auto;
 }
 .sheet-rolltemplate-jet .inlinerollresult{
     font-size: 1em;
