@@ -183,7 +183,8 @@
                     <button type="roll"
                         name="BtBrut-Agilite"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollAGI}"
+                        value="/em @{character_name} fait un jet d'Agilité
+/roll @{RollAGI}"
                         >AGILITÉ</button>
                     <SELECT name="attr_agilite_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -208,7 +209,8 @@
                     <button type="roll"
                         name="BtBrut-Ame"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollAME}"
+                        value="/em @{character_name} fait un jet d'Âme
+/roll @{RollAME}"
                         >ÂME</button>
                     <SELECT name="attr_ame_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -233,7 +235,8 @@
                     <button type="roll"
                         name="BtBrut-Force"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollFOR}"
+                        value="/em @{character_name} fait un jet de Force
+/roll @{RollFOR}"
                         >FORCE</button>
                     <SELECT name="attr_force_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -258,7 +261,8 @@
                     <button type="roll"
                         name="BtBrut-Intellect"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollINT}"
+                        value="/em @{character_name} fait un jet d'Intelligence
+/roll @{RollINT}"
                         >INTELLECT</button>
                     <SELECT name="attr_intellect_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -283,7 +287,8 @@
                     <button type="roll"
                         name="BtBrut-Vigueur"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollVIG}"
+                        value="/em @{character_name} fait un jet de Vigueur
+/roll @{RollVIG}"
                         >VIGUEUR</button>
                     <SELECT name="attr_vigueur_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -311,7 +316,8 @@
                     <button type="roll"
                         name="BtBrut-Arcane"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollArcane}"
+                        value="/em @{character_name} fait un jet de @{arcane_nom}
+/roll @{RollArcane}"
                         >&nbsp;</button>
                     <input type="text" class="sheet-compspe" name="attr_arcane_nom" placeholder="ARCANES" value="ARCANES" title="Nom de la compétence d'Arcanes" />
                     <SELECT class="sheet-attcomptext"  name="attr_arcane_attr"  title="Attribut dont dépend la compétence d'Arcanes">
@@ -344,7 +350,8 @@
                     <button type="roll"
                         name="BtBrut-Combat"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollBastCombat}"
+                        value="/em @{character_name} fait un jet de Combat
+/roll @{RollBastCombat}"
                         >Combat</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_combat_de" class="sheet-selde">
@@ -370,7 +377,8 @@
                     <button type="roll"
                         name="BtBrut-Conduite"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollConduite}"
+                        value="/em @{character_name} fait un jet de Conduite
+/roll @{RollConduite}"
                         >Conduite</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_conduite_de" class="sheet-selde">
@@ -398,7 +406,8 @@
                     <button type="roll"
                         name="BtBrut-Connaissance"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollConnaissance}"
+                        value="/em @{character_name} fait un jet de @{connaissance_nom}
+/roll @{RollConnaissance}"
                         title="Connaissance"
                         >&nbsp;</button>
                     <input type="text" class="sheet-compspe" name="attr_connaissance_nom" placeholder="Connaissance" value="Connaissance" title="Nom de la compétence de Connaissances" />
@@ -426,7 +435,8 @@
                     <button type="roll"
                         name="BtBrut-Crochetage"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollCrochetage}"
+                        value="/em @{character_name} fait un jet de Crochetage
+/roll @{RollCrochetage}"
                         >Crochetage</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_crochetage_de" class="sheet-selde">
@@ -440,20 +450,21 @@
                 </div> <!-- FIN CROCHETAGE -->
                 <div class="sheet-input"> <!-- DISCRÉTION -->
                     <button type="roll"
-                        name="Btrel-Discrétion"
+                        name="Btrel-Discretion"
                         class="sheet-btRolrel"
                         value="@{relRollDiscretion}"
                         >Discrétion</button>
                     <button type="roll"
-                        name="Btjet-Discrétion"
+                        name="Btjet-Discretion"
                         class="sheet-btRoljet"
                         value="@{jetRollDiscretion}"
                         >Discrétion</button>
                     <button type="roll"
-                        name="BtBrut-Discrétion"
+                        name="BtBrut-Discretion"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollDiscretion}"
-                        >Crochetage</button>
+                        value="/em @{character_name} fait un jet de Discrétion
+/roll @{RollDiscretion}"
+                        >Discrétion</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_discretion_de" class="sheet-selde">
                         <OPTION value="4" SELECTED>&nbsp;d4</OPTION>
@@ -478,7 +489,8 @@
                     <button type="roll"
                         name="BtBrut-Equitation"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollEquitation}"
+                        value="/em @{character_name} fait un jet d'Équitation
+/roll @{RollEquitation}"
                         >Équitation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_equitation_de" class="sheet-selde">
@@ -504,7 +516,8 @@
                     <button type="roll"
                         name="BtBrut-Escalade"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollEscalade}"
+                        value="/em @{character_name} fait un jet d'Escalade
+/roll @{RollEscalade}"
                         >Escalade</button>
                     <div class="sheet-attcomptext">FOR</div>
                     <SELECT name="attr_escalade_de" class="sheet-selde">
@@ -530,7 +543,8 @@
                     <button type="roll"
                         name="BtBrut-Intimidation"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollIntimidation}"
+                        value="/em @{character_name} fait un jet d'Initmidation
+/roll @{RollIntimidation}"
                         >Intimidation</button>
                     <div class="sheet-attcomptext">ÂME</div>
                     <SELECT name="attr_intimidation_de" class="sheet-selde">
@@ -556,7 +570,8 @@
                     <button type="roll"
                         name="BtBrut-Jeu"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollJeu}"
+                        value="/em @{character_name} fait un jet de Jeu
+/roll @{RollJeu}"
                         >Jeu</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_jeu_de" class="sheet-selde">
@@ -582,7 +597,8 @@
                     <button type="roll"
                         name="BtBrut-Lancer"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollBastLancer}"
+                        value="/em @{character_name} fait un jet de Lancer
+/roll @{RollBastLancer}"
                         >Lancer</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_lancer_de" class="sheet-selde">
@@ -608,7 +624,8 @@
                     <button type="roll"
                         name="BtBrut-Natation"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollNatation}"
+                        value="/em @{character_name} fait un jet de Natation
+/roll @{RollNatation}"
                         >Natation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_natation_de" class="sheet-selde">
@@ -634,7 +651,8 @@
                     <button type="roll"
                         name="BtBrut-Navigation"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollNavigation}"
+                        value="/em @{character_name} fait un jet de Navigation
+/roll @{RollNavigation}"
                         >Navigation</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_navigation_de" class="sheet-selde">
@@ -660,7 +678,8 @@
                     <button type="roll"
                         name="BtBrut-Perception"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollPerception}"
+                        value="/em @{character_name} fait un jet de Perception
+/roll @{RollPerception}"
                         >Perception</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_perception_de" class="sheet-selde">
@@ -686,7 +705,8 @@
                     <button type="roll"
                         name="BtBrut-Persuasion"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollPersuasion}"
+                        value="/em @{character_name} fait un jet de Persuasion
+/roll @{RollPersuasion}"
                         >Persuasion</button>
                     <div class="sheet-attcomptext">ÂME</div>
                     <SELECT name="attr_persuasion_de" class="sheet-selde">
@@ -712,7 +732,8 @@
                     <button type="roll"
                         name="BtBrut-Pilotage"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollPilotage}"
+                        value="/em @{character_name} fait un jet de Pilotage
+/roll @{RollPilotage}"
                         >Pilotage</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_pilotage_de" class="sheet-selde">
@@ -738,7 +759,8 @@
                     <button type="roll"
                         name="BtBrut-Pistage"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollPistage}"
+                        value="/em @{character_name} fait un jet de Pistage
+/roll @{RollPistage}"
                         >Pistage</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_pistage_de" class="sheet-selde">
@@ -764,7 +786,8 @@
                     <button type="roll"
                         name="BtBrut-Recherche"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollRecherche}"
+                        value="/em @{character_name} fait un jet de Recherche
+/roll @{RollRecherche}"
                         >Recherche</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_recherche_de" class="sheet-selde">
@@ -790,7 +813,8 @@
                     <button type="roll"
                         name="BtBrut-Reparation"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollReparation}"
+                        value="/em @{character_name} fait un jet de Réparation
+/roll @{RollReparation}"
                         >Réparation</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_reparation_de" class="sheet-selde">
@@ -816,7 +840,8 @@
                     <button type="roll"
                         name="BtBrut-Reseaux"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollReseaux}"
+                        value="/em @{character_name} fait un jet de Réseaux
+/roll @{RollReseaux}"
                         >Réseaux</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_reseaux_de" class="sheet-selde">
@@ -842,7 +867,8 @@
                     <button type="roll"
                         name="BtBrut-Sarcasme"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollSarcasme}"
+                        value="/em @{character_name} fait un jet de Sarcasme
+/roll @{RollSarcasme}"
                         >Sarcasme</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_sarcasme_de" class="sheet-selde">
@@ -868,7 +894,8 @@
                     <button type="roll"
                         name="BtBrut-Soins"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollSoins}"
+                        value="/em @{character_name} fait un jet de Soins
+/roll @{RollSoins}"
                         >Soins</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_soins_de" class="sheet-selde">
@@ -894,7 +921,8 @@
                     <button type="roll"
                         name="BtBrut-Survie"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollSurvie}"
+                        value="/em @{character_name} fait un jet de Survie
+/roll @{RollSurvie}"
                         >Survie</button>
                     <div class="sheet-attcomptext">INT</div>
                     <SELECT name="attr_survie_de" class="sheet-selde">
@@ -920,7 +948,8 @@
                     <button type="roll"
                         name="BtBrut-Tir"
                         class="sheet-btRolbrut"
-                        value="/roll @{RollBastTir}"
+                        value="/em @{character_name} fait un jet de Tir
+/roll @{RollBastTir}"
                         >Tir</button>
                     <div class="sheet-attcomptext">AGI</div>
                     <SELECT name="attr_tir_de" class="sheet-selde">
@@ -947,7 +976,8 @@
                         <button type="roll"
                             name="BtBrut-Competence"
                             class="sheet-btRolbrut"
-                            value="/roll { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]"
+                            value="/em @{character_name} fait un jet de @{comp_nom}
+/roll { 1d@{comp_de}![@{comp_nom}],@{joker_de}![Joker]}kh1 + @{comp_bonus}[Bonus] - @{blessures}[Blessures] - @{fatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]"
                             >&nbsp;</button>
                         <input type="text" class="sheet-compspe" name="attr_comp_nom" placeholder="Compétence" title="Nom de la compétence" />
                         <SELECT class="sheet-attcomptext"  name="attr_comp_att"  title="Attribut dont dépend la compétence">
@@ -1141,7 +1171,10 @@
             <button type="roll"
                 name="BtBrut-Arme1"
                 class="sheet-btRolbrut"
-                value="/roll Attaque:@{arme1_comp_brut} Dégâts:@{jetRollArmeFixe1Dgt}"
+                value="/em @{character_name} Attaque avec @{arme1_nom}:
+/roll @{arme1_comp_brut}
+/em Dégâts :
+/roll @{jetRollArmeFixe1Dgt}"
                 title="Arme N°1"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
@@ -1151,9 +1184,9 @@
                 <OPTION value="Lancer">Lancer</OPTION>
                 <OPTION value="Tir">Tir</OPTION>
             </SELECT>
-            <input type="hidden" name="attr_arme1_comp_rel" value="" />
-            <input type="hidden" name="attr_arme1_comp_jet" value="" />
-            <input type="hidden" name="attr_arme1_comp_brut" value="" />
+            <input type="hidden" name="attr_arme1_comp_rel" value="0" />
+            <input type="hidden" name="attr_arme1_comp_jet" value="0" />
+            <input type="hidden" name="attr_arme1_comp_brut" value="0" />
             <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
@@ -1187,7 +1220,10 @@
             <button type="roll"
                 name="BtBrut-Arme2"
                 class="sheet-btRolbrut"
-                value="/roll @{RollArmeFixe2}"
+                value="/em @{character_name} Attaque avec @{arme2_nom}:
+/roll @{arme2_comp_brut}
+/em Dégâts :
+/roll @{jetRollArmeFixe2Dgt}"
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme2_nom" placeholder="Nom de l'arme n°2" title="Nom de l'arme n°2" />
@@ -1197,8 +1233,9 @@
                 <OPTION value="Lancer">Lancer</OPTION>
                 <OPTION value="Tir">Tir</OPTION>
             </SELECT>
-            <input type="hidden" name="attr_arme2_comp_rel" value="" />
-            <input type="hidden" name="attr_arme2_comp_jet" value="" />
+            <input type="hidden" name="attr_arme2_comp_rel" value="0" />
+            <input type="hidden" name="attr_arme2_comp_jet" value="0" />
+            <input type="hidden" name="attr_arme2_comp_brut" value="0" />
             <SELECT name="attr_arme2_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
@@ -1232,7 +1269,10 @@
             <button type="roll"
                 name="BtBrut-Arme3"
                 class="sheet-btRolbrut"
-                value="/roll @{RollArmeFixe3}"
+                value="/em @{character_name} Attaque avec @{arme3_nom}:
+/roll @{arme3_comp_brut}
+/em Dégâts :
+/roll @{jetRollArmeFixe3Dgt}"
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme3_nom" placeholder="Nom de l'arme n°3" title="Nom de l'arme n°3" />
@@ -1242,8 +1282,9 @@
                 <OPTION value="Lancer">Lancer</OPTION>
                 <OPTION value="Tir">Tir</OPTION>
             </SELECT>
-            <input type="hidden" name="attr_arme3_comp_rel" value="" />
-            <input type="hidden" name="attr_arme3_comp_jet" value="" />
+            <input type="hidden" name="attr_arme3_comp_rel" value="0" />
+            <input type="hidden" name="attr_arme3_comp_jet" value="0" />
+            <input type="hidden" name="attr_arme3_comp_brut" value="0" />
             <SELECT name="attr_arme3_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                 <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                 <OPTION value="0d4">_</OPTION>
@@ -1278,6 +1319,10 @@
                 <button type="roll"
                     name="BtBrut-ArmeD"
                     class="sheet-btRolbrut"
+                value="/em @{character_name} Attaque avec @{armeD_nom}:
+/roll @{armeD_comp_brut}
+/em Dégâts :
+/roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}"
                     value="/roll Attaque:@{armeD_comp_jet} Dégâts:@{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}"
                     title="Attaque"
                     >&nbsp;</button>
@@ -1288,8 +1333,9 @@
                     <OPTION value="Lancer">Lancer</OPTION>
                     <OPTION value="Tir">Tir</OPTION>
                 </SELECT>
-                <input type="hidden" name="attr_armeD_comp_rel" value="" />
-                <input type="hidden" name="attr_armeD_comp_jet" value="" />
+                <input type="hidden" name="attr_armeD_comp_rel" value="0" />
+                <input type="hidden" name="attr_armeD_comp_jet" value="0" />
+                <input type="hidden" name="attr_armeD_comp_brut" value="0" />
                 <SELECT name="attr_armeD_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
                     <OPTION value="@{RollBastForce}" SELECTED>FORCE</OPTION>
                     <OPTION value="0d4">_</OPTION>
@@ -1307,16 +1353,6 @@
                 <input name="attr_armeD_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
                 <input name="attr_armeD_notes" style="width: 190px;" type="text" placeholder="Notes" title="Notes sur l'arme" />
             </div> <!-- FIN ARME DYNAMIQUE -->
-            <script type="text/worker">
-                on("change:repeating_armes:armed_comp", function() {
-                    getAttrs(["repeating_armes_armeD_comp"], function(values) {
-                        setAttrs({
-                            repeating_armes_armeD_comp_rel: "@{relRollBast" + values.repeating_armes_armeD_comp + "}",
-                            repeating_armes_armeD_comp_jet: "@{jetRollBast" + values.repeating_armes_armeD_comp + "}"
-                        });
-                    });
-                });
-            </script>
         </fieldset>
     </div> <!-- ** FIN ARMES ** -->
     <div class="sheet-colblock"> <!-- ** POUVOIRS ** -->
@@ -1693,7 +1729,8 @@ on("change:arme2_comp", function() {
     getAttrs(["arme2_comp"], function(values) {
         setAttrs({
             arme2_comp_rel: "@{relRollBast" + values.arme2_comp + "}",
-            arme2_comp_jet: "@{jetRollBast" + values.arme2_comp + "}"
+            arme2_comp_jet: "@{jetRollBast" + values.arme2_comp + "}",
+            arme2_comp_brut: "@{RollBast" + values.arme2_comp + "}"
         });
     });
 });
@@ -1701,7 +1738,17 @@ on("change:arme3_comp", function() {
     getAttrs(["arme3_comp"], function(values) {
         setAttrs({
             arme3_comp_rel: "@{relRollBast" + values.arme3_comp + "}",
-            arme3_comp_jet: "@{jetRollBast" + values.arme3_comp + "}"
+            arme3_comp_jet: "@{jetRollBast" + values.arme3_comp + "}",
+            arme3_comp_brut: "@{RollBast" + values.arme3_comp + "}"
+        });
+    });
+});
+on("change:repeating_armes:armed_comp", function() {
+    getAttrs(["repeating_armes_armeD_comp"], function(values) {
+        setAttrs({
+            repeating_armes_armeD_comp_rel: "@{relRollBast" + values.repeating_armes_armeD_comp + "}",
+            repeating_armes_armeD_comp_jet: "@{jetRollBast" + values.repeating_armes_armeD_comp + "}",
+            repeating_armes_armeD_comp_brut: "@{RollBast" + values.repeating_armes_armeD_comp + "}"
         });
     });
 });

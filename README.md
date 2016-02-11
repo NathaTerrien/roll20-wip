@@ -95,9 +95,10 @@ Cf. english version
 #### Todo
 * Ajouter un bouton d'affichage dans le chat de la description des armes et pouvoirs.
 * Ajouter un bouton d'agrandissement de la zone de description des pouvoirs.
-* Styler l'état secoué, les blessures et la fatigue
+* ~~Styler l'état secoué, les blessures et la fatigue~~
 * pouvoir switcher entre cible et saisie de difficulté pour les attaques
-* pouvoir choisir entre template de résultats de jet, template de succès et "jets bruts" (pas de template)
+* ~~pouvoir choisir entre template de résultats de jet, template de succès et "jets bruts" (pas de template)~~
+* Initialiser sur 1ière ouverture les compétences d'arme pour jets bruts
 * affichage ou non les états (blessure, fatigue, secoué) du personnage dans le template de jet
 * Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
