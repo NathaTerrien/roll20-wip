@@ -72,9 +72,9 @@ Du coup, on pourrait aussi mettre le bouton de règles à cet endroit et je vais
 - X Déco
 ----------------------------------------------------
 11/02/2016
-- on a oublié une case pour les points de pacte (à côté des points de magie et de foi)
-- on a oublié de mettre les compagnons animaux et les montures quelque part. un onglet supplémentaire avec les magies ? On peut rester simple pour l'instant - le nom de l'animal et une case de description où noter tout ce qui s'y rapporte).
-- il y a un souci sur les points de destin et la folie. Quand tu modifies l'un, tu modifies l'autre aussi... C'est un peu embêtant ^^
+- X on a oublié une case pour les points de pacte (à côté des points de magie et de foi)
+- X on a oublié de mettre les compagnons animaux et les montures quelque part. un onglet supplémentaire avec les magies ? On peut rester simple pour l'instant - le nom de l'animal et une case de description où noter tout ce qui s'y rapporte).
+- X il y a un souci sur les points de destin et la folie. Quand tu modifies l'un, tu modifies l'autre aussi...
 ----------------------------------------------------
 XX/02/2016
 - Règles + Onglet dans les règles

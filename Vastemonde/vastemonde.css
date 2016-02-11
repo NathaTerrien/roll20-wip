@@ -151,6 +151,7 @@ input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-regledesc{
 div.sheet-onglvie,
 div.sheet-ongltalent,
 div.sheet-onglequip,
+div.sheet-onglcompa,
 div.sheet-onglprofane,
 div.sheet-ongldivine,
 div.sheet-onglpacte{
@@ -167,6 +168,46 @@ div.sheet-onglpacte{
 input[type="radio"].sheet-onglvie,
 input[type="radio"].sheet-ongltalent,
 input[type="radio"].sheet-onglequip,
+input[type="radio"].sheet-onglcompa{
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 110px;
+    height: 25px;
+    z-index: 2;
+}
+input[type="radio"].sheet-onglvie + span,
+input[type="radio"].sheet-ongltalent + span,
+input[type="radio"].sheet-onglequip + span,
+input[type="radio"].sheet-onglcompa + span{
+    color: #666666;
+    background-color: #BBBBBB;
+    font-size:15px;
+    text-align:center;
+    display: inline-block;
+    width: 110px;
+    height: 28px;
+    margin: 0;
+    margin-left: -110px;
+    margin-right: -5px;
+    padding:0;
+    margin-bottom: -2px;
+    padding-top: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border-style: solid;
+    border-width: 1px;
+    border-left-color: #DDBBBB;
+    border-top-color: #DDBBBB;
+    border-right-color: #DDBBBB;
+    border-bottom-color: #DD5633;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    z-index: 1;
+}
 input[type="radio"].sheet-onglprofane,
 input[type="radio"].sheet-ongldivine,
 input[type="radio"].sheet-onglpacte{
@@ -180,9 +221,6 @@ input[type="radio"].sheet-onglpacte{
     height: 25px;
     z-index: 2;
 }
-input[type="radio"].sheet-onglvie + span,
-input[type="radio"].sheet-ongltalent + span,
-input[type="radio"].sheet-onglequip + span,
 input[type="radio"].sheet-onglprofane + span,
 input[type="radio"].sheet-ongldivine + span,
 input[type="radio"].sheet-onglpacte + span {
@@ -216,7 +254,8 @@ input[type="radio"].sheet-ongltalent:checked + span,
 input[type="radio"].sheet-onglequip:checked + span,
 input[type="radio"].sheet-onglprofane:checked + span,
 input[type="radio"].sheet-ongldivine:checked + span,
-input[type="radio"].sheet-onglpacte:checked + span {
+input[type="radio"].sheet-onglpacte:checked + span,
+input[type="radio"].sheet-onglcompa:checked + span {
     font-weight: bold;
     color: #DD5633;
     background-color: white;
@@ -232,6 +271,9 @@ input[type="radio"].sheet-ongltalent:checked ~ div.sheet-ongltalent{
     display: block;
 }
 input[type="radio"].sheet-onglequip:checked ~ div.sheet-onglequip{
+    display: block;
+}
+input[type="radio"].sheet-onglcompa:checked ~ div.sheet-onglcompa{
     display: block;
 }
 input[type="radio"].sheet-onglprofane:checked ~ div.sheet-onglprofane{
@@ -358,8 +400,6 @@ button[type=roll].sheet-btRoll8small,
 button[type=roll].sheet-btDesc,
 button[type=roll].sheet-btLien{
     color: black;
-    height: 2em;
-    width: 2em;
     padding:0;
     margin: 0;
     border:none;
@@ -429,9 +469,7 @@ button[type=roll].sheet-btLien:before{
     font-family: "Pictos";
     font-size: 0.9em;
     content: 'G';
-    height: 1em;
     width: 1em;
-    line-height: 0;
     vertical-align: top;
 }
 button[type=roll].sheet-btDesc:hover{
@@ -512,6 +550,7 @@ button[type=roll].sheet-btDesc:hover{
 .sheet-rolltemplate-jet table{
     background: white;
     border: 1px solid #DD5633;
+    border-radius: 6px;
     width: 100%;
     padding: 2px;
     font-family: 'Verdana';

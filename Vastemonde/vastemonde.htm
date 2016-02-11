@@ -445,15 +445,15 @@
                         </div>  <!-- FIN Témérité et Protection -->
                     </div>
                 </div> <!-- FIN COL CA Témérité Protection -->
-                <div class="sheet-mycolbrd" style="text-align: center;height: 82px;"> <!-- Folie Magie Grâces -->
+                <div class="sheet-mycolbrd" style="text-align: center;width: 385px;height: 82px;"> <!-- Folie Magie Grâces Pactes -->
                     <div class="sheet-ligne">
-                        <div class="sheet-mycol" style="width:80px;text-align: center;" > <!-- FOLIE -->
+                        <div class="sheet-mycol" style="width:60px;text-align: center;" > <!-- FOLIE -->
                             <div class="sheet-ligne" style="text-align: center;"><div class="sheet-libel2" style="vertical-align: middle;">Folie</div></div>
                             <div class="sheet-boxnum">
                                 <input type="number" name="attr_folie" class="sheet-inpnum2c" title="Points de Folie" value="0" min="0" />
                             </div>
                         </div> <!-- FIN FOLIE -->
-                        <div class="sheet-mycol" style="width:140px;text-align: center;"> <!-- Points de Magie -->
+                        <div class="sheet-mycol" style="width:100px;text-align: center;"> <!-- Points de Magie -->
                             <div class="sheet-ligne" style="text-align: center;">
                                 <div class="sheet-libel2">Points de Magie</div>
                             </div>
@@ -465,7 +465,7 @@
                                 </div>
                             </div>
                         </div>  <!-- FIN Points de Magie -->
-                        <div class="sheet-mycol" style="width:145px;text-align: center;"> <!-- Grâces Divines -->
+                        <div class="sheet-mycol" style="width:100px;text-align: center;"> <!-- Grâces Divines -->
                             <div class="sheet-ligne" style="text-align: center;">
                                 <div class="sheet-libel2">Grâces Divines</div>
                             </div>
@@ -477,8 +477,20 @@
                                 </div>
                             </div>
                         </div>  <!-- FIN Grâces Divines -->
+                        <div class="sheet-mycol" style="width:100px;text-align: center;"> <!-- Points de Pacte Démoniaque -->
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-libel2">Points de Pacte</div>
+                            </div>
+                            <div class="sheet-ligne" style="text-align: center;">
+                                <div class="sheet-boxnum">
+                                    <input type="number" name="attr_pactes" class="sheet-inpnum2c" title="Points de Pacte Démoniaque courants" value="0" min="0" />
+                                    /
+                                    <input type="number" name="attr_pactes_max" class="sheet-inpnum2c" title="Points de Pacte Démoniaque maximum" value="0" min="0" />
+                                </div>
+                            </div>
+                        </div>  <!-- FIN Points de Pacte Démoniaque -->
                     </div>
-                </div> <!-- FIN Folie Magie Grâces -->
+                </div> <!-- FIN Folie Magie Grâces Pactes -->
             </div> <!-- FIN Réputation à Grâces -->
         </div><!-- FIN COL Identification à Grâces -->
     </div> <!-- FIN LIGNE EN-TETE : Jets à Grâces -->
@@ -683,6 +695,7 @@
             <input type="radio" name="attr_chkvie" value="0" class="sheet-onglvie" title="Lignes de vie" checked /><span>Lignes de vie</span>
             <input type="radio" name="attr_chkvie" value="1" class="sheet-ongltalent" title="Talents" /><span>Talents</span>
             <input type="radio" name="attr_chkvie" value="2" class="sheet-onglequip" title="Inventaire" /><span>Inventaire</span>
+            <input type="radio" name="attr_chkvie" value="3" class="sheet-onglcompa" title="Compagnons & Montures" /><span>Familiers</span>
             <div class="sheet-onglvie"> <!-- Lignes de vie -->
                 <!-- <div class="sheet-ligne"><div class="sheet-libel2">Lignes de vie</div></div> -->
                 <fieldset class="repeating_lignes">
@@ -755,8 +768,19 @@
                     </div>
                 </fieldset>
             </div> <!-- FIN Inventaire -->
-        </div>  <!-- FIN COL MAGIES -->
-        <div class="sheet-mycol" style="width:435px;text-align: left;"> <!-- COL Lignes de vie + Talents + Inventaires -->
+            <div class="sheet-onglcompa">  <!-- Compagnons & Montures -->
+                <!-- <div class="sheet-ligne"><div class="sheet-libel2">Compagnons / Montures</div></div> -->
+                <fieldset class="repeating_compagnons">
+                    <div class="sheet-ligne">
+                        <button type="roll" class="sheet-btDesc" title="Montrer dans le Chat" name="MontreCompagnon" value="&{template:jet} {{name=@{companom}}} {{subtags=Compagnon/Monture}} {{description=@{compadesc}}} "></button>
+                        <input type="text" name="attr_companom" style="width: 120px;font-weight: bold;" placeholder="Compagnon, Monture" title="Nom du compagnon / de la monture" />
+                        <input type="checkbox" name="attr_compadisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                        <textarea name="attr_compadesc" class="sheet-textdesc" style="width: 270px;" placeholder="Description du compagnon / de la monture" title="Description du compagnon / de la monture"></textarea>
+                    </div>
+                </fieldset>
+            </div>  <!-- FIN Compagnons & Montures -->
+        </div>  <!-- FIN COL Lignes de vie + Talents + Inventaires -->
+        <div class="sheet-mycol" style="width:435px;text-align: left;"> <!-- COL Magies -->
             <input type="radio" name="attr_chkmagie" value="0" class="sheet-onglprofane" title="Magie Profane" checked /><span>Magie Profane</span>
             <input type="radio" name="attr_chkmagie" value="1" class="sheet-ongldivine" title="Magie Divine" /><span>Magie Divine</span>
             <input type="radio" name="attr_chkmagie" value="2" class="sheet-onglpacte" title="Pactes Démoniaques" /><span>Pactes Démon.</span>
