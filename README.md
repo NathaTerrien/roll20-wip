@@ -88,7 +88,7 @@ Cf. english version
 ### Savage Worlds French
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.2 (2015-12-22)
+* [WIP](./SavageWorldsFrench/) Version 1.4 alpha (2016-02-11)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 
