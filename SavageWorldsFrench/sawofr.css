@@ -57,7 +57,7 @@ span.sheet-smallspan{
     color: #888888;
     text-align:left;
 }
-span.sheet-conftitre{
+div.sheet-conftitre{
     display: inline-block;
     color: #CD071E;
     font-weight: bold;
@@ -65,15 +65,47 @@ span.sheet-conftitre{
     width: 130px;
     text-align: center;
 }
-span.sheet-confcat{
+div.sheet-confcat,
+div.sheet-optionEtat,
+div.sheet-optionCible{
+    color: #555555;
     font-style: italic;
-    border-left : 1px solid black;
+    border-left : 2px dotted #CD071E;
     padding-left: 5px;
+    min-height: 25px;
 }
-    /************************************** RADIOS / CHECKBOX ***************************/
-input[type="radio"]{
-    margin-right: 2px;
-    margin-left: 1px;
+.sheet-confcat{
+    display: inline-block;
+}
+.sheet-optionEtat{
+    display: none;
+}
+.sheet-optionCible{
+    display: none;
+}
+input[type=radio].sheet-styleRolrel:checked ~ .sheet-optionCible{
+    display: inline-block;
+}
+input[type=radio].sheet-styleRolrel:checked ~ .sheet-optionEtat,
+input[type=radio].sheet-styleRoljet:checked ~ .sheet-optionEtat{
+    display: inline-block;
+}
+input[type=checkbox].sheet-optionEtat,
+input[type=checkbox].sheet-optionCible{
+    opacity: 0;
+    width: 50px;
+    height: 25px;
+    z-index: 10;
+}
+input[type=checkbox].sheet-optionEtat + span,
+input[type=checkbox].sheet-optionCible + span{
+    text-align: center;
+    width: 50px;
+    height: 25px;
+    margin-left: -52px;
+    vertical-align: bottom;
+    z-index: 1;
+    color: #777777;
 }
 input[type=radio].sheet-styleRolrel,
 input[type=radio].sheet-styleRoljet,
@@ -94,19 +126,42 @@ input[type=radio].sheet-styleRolbrut + span{
     margin-left: -122px;
     vertical-align: bottom;
     z-index: 1;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    margin-bottom: -1px;
-    border: 1px solid black;
+    color: #777777;
+}
+input[type=radio].sheet-styleRolrel + span:before,
+input[type=radio].sheet-styleRoljet + span:before,
+input[type=radio].sheet-styleRolbrut + span:before,
+input[type=checkbox].sheet-optionEtat + span:before,
+input[type=checkbox].sheet-optionCible + span:before{
+
+    font-family: 'pictos';
+    color: #777777;
+    content:'*';
 }
 input[type=radio].sheet-styleRolrel:checked + span,
 input[type=radio].sheet-styleRoljet:checked + span,
-input[type=radio].sheet-styleRolbrut:checked + span{
-    border: 1px solid #CD071E;
+input[type=radio].sheet-styleRolbrut:checked + span,
+input[type=checkbox].sheet-optionEtat:checked + span,
+input[type=checkbox].sheet-optionCible:checked + span{
+
     font-weight: bold;
     color: #CD071E;
 }
-
+input[type=radio].sheet-styleRolrel:checked + span:before,
+input[type=radio].sheet-styleRoljet:checked + span:before,
+input[type=radio].sheet-styleRolbrut:checked + span:before,
+input[type=checkbox].sheet-optionEtat:checked + span:before,
+input[type=checkbox].sheet-optionCible:checked + span:before{
+    font-family: 'pictos';
+    font-weight: bold;
+    color: #CD071E;
+    content:'3';
+}
+    /************************************** RADIOS / CHECKBOX ***************************/
+input[type="radio"]{
+    margin-right: 2px;
+    margin-left: 1px;
+}
 input[type=radio].sheet-blessure{
     display: inline-block;
     opacity : 0;
@@ -330,11 +385,31 @@ input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].s
 input[type=radio].sheet-styleRolbrut:checked ~ div.sheet-main button[type=roll].sheet-btRolbrut{
     display: inline-block;
 }
+/* Formatage des boutons de fieldset */
+.charsheet .repcontrol_add,
+.charsheet .repcontrol_edit,
+.charsheet .repcontrol_del{
+    opacity: 0.6;
+    display: inline;
+    background: white;
+    box-shadow: none;
+    border: 1px solid #CD071E;
+    border-radius: 6px;
+    font-size:0.9em;
+    height:2.0em;
+    margin-bottom: 4px;
+    color: #CD071E;
+    margin: 3px;
+}
+.charsheet .repcontrol_add:hover,
+.charsheet .repcontrol_edit:hover,
+.charsheet .repcontrol_del:hover{
+    opacity: 1.0;
+}
     /************************************** DIV ***************************/
 div.sheet-fdp{
     background: white;
     width:860px;
-    padding-top : 5px;
 }
 div.sheet-main{
     width:100%;
