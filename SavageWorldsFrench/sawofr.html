@@ -147,11 +147,17 @@
     <input type="text" disabled hidden name="attr_jetRollTir" value="&{template:sawo} {{name=Tir}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{jetRollBastTir}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
 </div> <!-- *** HIDDEN ROLLS ** -->
 <!-- PARAMETRAGES -->
-<span class="sheet-smallspan">v1.4 alpha - <b>Style des jets :</b></span><input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
+<div class="sheet-fdp"> <!-- FDP -->
+<span class="sheet-conftitre">CONFIGURATION</span>
+<span class="sheet-confcat">Jets :</span>
+<input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
 <input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet par template, montrant le total des jets" /><span>Total des Jets</span>
 <input type="radio" name="attr_sheetStyle" value="2" class="sheet-styleRolbrut" title="Style de jet 'macro', sans  template, montrant les jets bruts" /><span>Jets bruts</span>
-<!--- ***  FdP *** -->
-<div class="sheet-main">
+<span class="sheet-confcat">Templates :</span>
+<input type="checkbox" name="attr_templateetat" value="1" title="Afficher l'état du personnage dans les templates de jet" />Etats
+<span class="sheet-confcat">Attaques :</span>
+<input type="checkbox" name="attr_atkcible" value="1" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." />Cibles
+<div class="sheet-main"> <!--- ***  MAIN *** -->
     <div class="sheet-mycol"> <!-- ** COL1 ** -->
         <div class="sheet-colblock"> <!-- TRAITS -->
             <div> <!-- ATTRIBUTS -->
@@ -1381,7 +1387,8 @@
             </div> <!-- FIN POUVOIR DYNAMIQUE -->
         </fieldset>
    </div> <!-- ** FIN POUVOIRS ** -->
-</div>
+</div> <!-- FIN MAIN -->
+</div> <!-- FIN FDP -->
 <!-- **** SCRIPTS / SHEET WORKERS -->
 <script type="text/worker">
 /* ---- BEGIN: TheAaronSheet.js ---- */

@@ -51,10 +51,24 @@ td,
 th{
     box-sizing: border-box;
 }
+/***************************** CONFIGURATION *******************************************/
 span.sheet-smallspan{
-    font-size:11px;
+    display : inline-block;
     color: #888888;
     text-align:left;
+}
+span.sheet-conftitre{
+    display: inline-block;
+    color: #CD071E;
+    font-weight: bold;
+    height: 25px;
+    width: 130px;
+    text-align: center;
+}
+span.sheet-confcat{
+    font-style: italic;
+    border-left : 1px solid black;
+    padding-left: 5px;
 }
     /************************************** RADIOS / CHECKBOX ***************************/
 input[type="radio"]{
@@ -64,16 +78,35 @@ input[type="radio"]{
 input[type=radio].sheet-styleRolrel,
 input[type=radio].sheet-styleRoljet,
 input[type=radio].sheet-styleRolbrut{
-    margin-left: 10px;
-    margin-right: 2px;
+    display : inline-block;
+    opacity: 0;
+    width: 120px;
+    height: 25px;
+    z-index: 10;
 }
 input[type=radio].sheet-styleRolrel + span,
 input[type=radio].sheet-styleRoljet + span,
 input[type=radio].sheet-styleRolbrut + span{
-    font-size:11px;
-    color: #888888;
-    text-align:left;
+    display : inline-block;
+    text-align: center;
+    width: 120px;
+    height: 25px;
+    margin-left: -122px;
+    vertical-align: bottom;
+    z-index: 1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-bottom: -1px;
+    border: 1px solid black;
 }
+input[type=radio].sheet-styleRolrel:checked + span,
+input[type=radio].sheet-styleRoljet:checked + span,
+input[type=radio].sheet-styleRolbrut:checked + span{
+    border: 1px solid #CD071E;
+    font-weight: bold;
+    color: #CD071E;
+}
+
 input[type=radio].sheet-blessure{
     display: inline-block;
     opacity : 0;
@@ -255,11 +288,19 @@ button[type="roll"].sheet-btRolbrut{
     border-color: transparent;
     font-size:1em;
     font-weight: bold;
-    color: black;
     background-image:none;
     background: transparent;
     text-transform: uppercase;
     display: none;
+}
+button[type="roll"].sheet-btRolrel{
+    color: black;
+}
+button[type="roll"].sheet-btRoljet{
+    color: green;
+}
+button[type="roll"].sheet-btRolbrut{
+    color: blue;
 }
 button[type="roll"].sheet-btRolrel:before,
 button[type="roll"].sheet-btRoljet:before,
@@ -290,8 +331,13 @@ input[type=radio].sheet-styleRolbrut:checked ~ div.sheet-main button[type=roll].
     display: inline-block;
 }
     /************************************** DIV ***************************/
-div.sheet-main{
+div.sheet-fdp{
+    background: white;
     width:860px;
+    padding-top : 5px;
+}
+div.sheet-main{
+    width:100%;
     background: linear-gradient(#CD071E,#E6DBCF,#EFE7DD);
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding: 5px 5px 5px 5px;
