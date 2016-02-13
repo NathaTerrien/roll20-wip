@@ -472,7 +472,7 @@ button[type=roll].sheet-btLien:before{
     width: 1em;
     vertical-align: top;
 }
-button[type=roll].sheet-btDesc:hover{
+button[type=roll].sheet-btLien:hover{
     opacity: 1.0;
 }
 /* Formatage des boutons de fieldset */

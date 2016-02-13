@@ -1072,7 +1072,9 @@
         </div> <!-- FIN Carac dérivées -->
         <div class="sheet-colblock"> <!-- EQUIPEMENT -->
             <div class="sheet-redtitle1">POSSESSIONS</div>
-            <div class="sheet-redtitle2" style="display: inline-block;">ARGENT</div>&nbsp;<input type="text" style="width: 200px;" name="attr_argent" placeholder="Richesses" title="Argent & Richesses" />
+            <div class="sheet-redtitle2" style="display: inline-block;">ARGENT</div>
+            <input type="checkbox" name="attr_argentdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+            <textarea name="attr_argent" class="sheet-textdesc" style="width: 185px;" placeholder="Argent & Richesses" title="Argent & Richesses"></textarea>            
             <div class="sheet-input">
                 <div class="sheet-blacktext2">Encombrement maximum :&nbsp;</div>
                 <input type="number" name="attr_encombmax" value="10" readonly />
@@ -1114,20 +1116,25 @@
                 <div class="sheet-blacktext1" style="width:50px;">Sexe :&nbsp;</div><input type="text" name="attr_sexe" style="width:70px;" />
                 <div class="sheet-blacktext1" style="width:50px;">Âge :&nbsp;</div><input type="text" name="attr_age" style="width:70px;" />
             </div>
-            <div class="sheet-blacktext1">Signe particulier : </div>
-            <div class="sheet-input"><input type="text" name="attr_signe" style="width:100%;" /></div>
+            <div class="sheet-blacktext1">Signes particuliers : </div>
+            <div class="sheet-input">
+                <input type="checkbox" name="attr_signedisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                <textarea name="attr_signe" class="sheet-textdesc" style="width: 246px;" placeholder="Signes particuliers" title="Signes particuliers"></textarea>
+            </div>
         </div>
         <div class="sheet-colblock">
             <div class="sheet-redtitle1">ATOUTS</div>
             <fieldset class="repeating_atouts"> <!-- ATOUTS -->
                 <div class="sheet-input">
-                    <input type="text" name="attr_atout" style="width: 100%;" placeholder="Atout" />
+                    <input type="checkbox" name="attr_atoutdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                    <textarea name="attr_atout" class="sheet-textdesc" style="width: 246px;" placeholder="Atout" title="Atout"></textarea>
                 </div>
             </fieldset>
             <div class="sheet-redtitle2">HANDICAPS</div>
             <fieldset class="repeating_handicaps"> <!-- ATOUTS -->
                 <div class="sheet-input">
-                    <input type="text" name="attr_handicap" style="width: 100%;" placeholder="Handicap" />
+                    <input type="checkbox" name="attr_handicapdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                    <textarea name="attr_handicap" class="sheet-textdesc" style="width: 246px;" placeholder="Handicap" title="Handicap"></textarea>
                 </div>
             </fieldset>
         </div>
@@ -1362,13 +1369,14 @@
                 <input name="attr_armeD_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
                 <input name="attr_armeD_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_armeD_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
                 <input name="attr_armeD_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-                <input name="attr_armeD_notes" style="width: 190px;" type="text" placeholder="Notes" title="Notes sur l'arme" />
+                <input type="checkbox" name="attr_armeDdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                <textarea name="attr_armeD_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
             </div> <!-- FIN ARME DYNAMIQUE -->
         </fieldset>
     </div> <!-- ** FIN ARMES ** -->
     <div class="sheet-colblock"> <!-- ** POUVOIRS ** -->
         <div>
-            <div class="sheet-redtitle1" style="display: inline-block;width: 202px;">POUVOIRS</div>
+            <div class="sheet-redtitle1" style="display: inline-block;width: 220px;">POUVOIRS</div>
             <div class="sheet-redtitle3" style="width: 35px;">Rang</div>
             <div class="sheet-redtitle3" style="width: 26px;">PP</div>
             <div class="sheet-redtitle3" style="width: 100px;">Portée</div>
@@ -1377,7 +1385,8 @@
         </div>
          <fieldset class="repeating_pouvoirs">
             <div class="sheet-input"> <!-- POUVOIR DYNAMIQUE -->
-                <input type="text" name="attr_pouv_nom" style="width: 200px;font-weight:bold;" placeholder="Nom du pouvoir" title="Nom du pouvoir" />
+                <button type="roll" class="sheet-btDesc"></button>
+                <input type="text" name="attr_pouv_nom" style="width: 200px;font-weight:bold;" placeholder="Nom du pouvoir" title="Nom du pouvoir" />                
                 <SELECT name="attr_pouv_rang" style="width: 30px;margin-left:3px;margin-right:3px;" title="Rang d'accès à ce pouvoir">
                     <OPTION value="N" SELECTED>N - Novice</OPTION>
                     <OPTION value="A">A - Aguerri</OPTION>
@@ -1388,7 +1397,8 @@
                 <input name="attr_pouv_pp" type="number" style="width:30px;" value="0" min="0" title="Coût en Points de Pouvoir" />
                 <input name="attr_pouv_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
                 <input name="attr_pouv_duree" type="text" style="width:100px;margin-right:3px;" placeholder="Durée" title="Durée du pouvoir" />
-                <input name="attr_pouv_effets" type="text" style="width:340px;margin-right:3px;" placeholder="Effets du pouvoir" title="Effets du pouvoir" />
+                <input type="checkbox" name="attr_pouvoirdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                <textarea name="attr_pouv_effets" class="sheet-textdesc" style="width: 305px;" placeholder="Effets du pouvoir" title="Effets du pouvoir"></textarea>
             </div> <!-- FIN POUVOIR DYNAMIQUE -->
         </fieldset>
    </div> <!-- ** FIN POUVOIRS ** -->

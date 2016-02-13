@@ -143,7 +143,6 @@ input[type=radio].sheet-styleRoljet:checked + span,
 input[type=radio].sheet-styleRolbrut:checked + span,
 input[type=checkbox].sheet-optionEtat:checked + span,
 input[type=checkbox].sheet-optionCible:checked + span{
-
     font-weight: bold;
     color: #CD071E;
 }
@@ -226,6 +225,33 @@ input[type=checkbox].sheet-secoue:checked + span {
 input[type=checkbox].sheet-secoue:checked + span:before {
     content: '2';
 }
+input[type="checkbox"].sheet-dispcheck{
+    width: 15px;
+    height: 18px;
+    max-width: 18px;
+    opacity: 0;
+    z-index: 2;
+    margin: 0;
+}
+input[type="checkbox"].sheet-dispcheck + span{
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    margin-left: -15px;
+    width: 15px;
+    max-width: 18px;
+    height: 18px;
+    z-index: 1;    
+    font-family: pictos;
+    color: #888888;
+}
+input[type="checkbox"].sheet-dispcheck:hover + span{
+    color: #CD071E;
+}
+input[type="checkbox"].sheet-dispcheck:checked + span{
+    font-weight: bold;
+    color: #CD071E;
+}
     /************************************** INPUTS ***************************/
 input{
     display: inline-block;
@@ -273,6 +299,27 @@ input[type="text"]:read-only
 }
 input[type="number"].sheet-selde{
     width: 32px;
+}
+    /************************************** TEXTAREA ***************************/
+textarea{
+    box-shadow: none;
+    text-shadow: none;
+    background-color:#F6F1EC;
+    padding: 0;
+    margin: 0;
+    color: black;
+    font-family: cursive;
+    font-weight: normal;
+    border: none;
+}
+textarea.sheet-textdesc{
+    font-family: 'Verdana', serif;
+    font-size: 0.9em;
+    height: 22px;
+    resize: none;
+}
+input[type="checkbox"]:checked ~ textarea.sheet-textdesc{
+    height: 140px;
 }
     /************************************** SELECT ***************************/
 select{
@@ -385,6 +432,26 @@ input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].s
 input[type=radio].sheet-styleRolbrut:checked ~ div.sheet-main button[type=roll].sheet-btRolbrut{
     display: inline-block;
 }
+button[type="roll"].sheet-btDesc{
+    color: black;
+    height: 15px;
+    width: 15px;
+    opacity: 0.4;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+}
+button[type="roll"].sheet-btDesc:before{
+    font-family: "Pictos";
+    font-size: 0.9em;
+    content: 'i';
+}
+button[type="roll"].sheet-btDesc:hover{
+    opacity: 1.0;
+}
+
 /* Formatage des boutons de fieldset */
 .charsheet .repcontrol_add,
 .charsheet .repcontrol_edit,
