@@ -352,10 +352,10 @@ button[type="roll"].sheet-btRolrel{
     color: black;
 }
 button[type="roll"].sheet-btRoljet{
-    color: green;
+    color: black;
 }
 button[type="roll"].sheet-btRolbrut{
-    color: blue;
+    color: black;
 }
 button[type="roll"].sheet-btRolrel:before,
 button[type="roll"].sheet-btRoljet:before,

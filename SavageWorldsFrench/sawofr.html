@@ -39,7 +39,7 @@
     <input type="text" disabled hidden name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4), 0d0 }kh1" />
     <input type="text" disabled hidden name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
-    <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!+@{force_bonus}[Dégâts : Force]" />
+    <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!!+@{force_bonus}[Dégâts : Force]" />
 
     <!-- ARMES -->
     <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
@@ -1182,9 +1182,9 @@
             <button type="roll"
                 name="BtBrut-Arme1"
                 class="sheet-btRolbrut"
-                value="/em @{character_name} Attaque avec @{arme1_nom}:
+                value="/em @{character_name} attaque avec @{arme1_nom}:
 /roll @{arme1_comp_brut}
-/em Dégâts :
+/em Dégâts de @{character_name} avec @{arme1_nom} :
 /roll @{jetRollArmeFixe1Dgt}"
                 title="Arme N°1"
                 >&nbsp;</button>
@@ -1233,7 +1233,7 @@
                 class="sheet-btRolbrut"
                 value="/em @{character_name} Attaque avec @{arme2_nom}:
 /roll @{arme2_comp_brut}
-/em Dégâts :
+/em Dégâts de @{character_name} avec @{arme1_nom} :
 /roll @{jetRollArmeFixe2Dgt}"
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
@@ -1282,7 +1282,7 @@
                 class="sheet-btRolbrut"
                 value="/em @{character_name} Attaque avec @{arme3_nom}:
 /roll @{arme3_comp_brut}
-/em Dégâts :
+/em Dégâts de @{character_name} avec @{arme1_nom} :
 /roll @{jetRollArmeFixe3Dgt}"
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
@@ -1332,7 +1332,7 @@
                     class="sheet-btRolbrut"
                 value="/em @{character_name} Attaque avec @{armeD_nom}:
 /roll @{armeD_comp_brut}
-/em Dégâts :
+/em Dégâts de @{character_name} avec @{arme1_nom} :
 /roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}"
                     value="/roll Attaque:@{armeD_comp_jet} Dégâts:@{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}"
                     title="Attaque"
