@@ -1074,7 +1074,7 @@
             <div class="sheet-redtitle1">POSSESSIONS</div>
             <div class="sheet-redtitle2" style="display: inline-block;">ARGENT</div>
             <input type="checkbox" name="attr_argentdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-            <textarea name="attr_argent" class="sheet-textdesc" style="width: 185px;" placeholder="Argent & Richesses" title="Argent & Richesses"></textarea>            
+            <textarea name="attr_argent" class="sheet-textdesc" style="width: 185px;" placeholder="Argent & Richesses" title="Argent & Richesses"></textarea>
             <div class="sheet-input">
                 <div class="sheet-blacktext2">Encombrement maximum :&nbsp;</div>
                 <input type="number" name="attr_encombmax" value="10" readonly />
@@ -1220,7 +1220,8 @@
             <input name="attr_arme1_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
             <input name="attr_arme1_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme1_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
             <input name="attr_arme1_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-            <input name="attr_arme1_notes" style="width: 190px;" type="text" placeholder="Notes" title="Notes sur l'arme" />
+            <input type="checkbox" name="attr_arme1display" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+            <textarea name="attr_arme1_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
         </div> <!-- FIN ARME FIXE 1 -->
         <div class="sheet-input"> <!-- ARME FIXE 2 -->
             <button type="roll"
@@ -1269,7 +1270,8 @@
             <input name="attr_arme2_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
             <input name="attr_arme2_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme2_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
             <input name="attr_arme2_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-            <input name="attr_arme2_notes" style="width: 190px;" type="text" placeholder="Notes" title="Notes sur l'arme" />
+            <input type="checkbox" name="attr_arme2display" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+            <textarea name="attr_arme2_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
         </div> <!-- FIN ARME FIXE 2 -->
         <div class="sheet-input"> <!-- ARME FIXE 3 -->
             <button type="roll"
@@ -1318,7 +1320,8 @@
             <input name="attr_arme3_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
             <input name="attr_arme3_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme3_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
             <input name="attr_arme3_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-            <input name="attr_arme3_notes" style="width: 190px;" type="text" placeholder="Notes" title="Notes sur l'arme" />
+            <input type="checkbox" name="attr_arme3display" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+            <textarea name="attr_arme3_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
         </div> <!-- FIN ARME FIXE 3 -->
         <fieldset class="repeating_armes">
             <div class="sheet-input"> <!-- ARME DYNAMIQUE -->
@@ -1385,8 +1388,10 @@
         </div>
          <fieldset class="repeating_pouvoirs">
             <div class="sheet-input"> <!-- POUVOIR DYNAMIQUE -->
-                <button type="roll" class="sheet-btDesc"></button>
-                <input type="text" name="attr_pouv_nom" style="width: 200px;font-weight:bold;" placeholder="Nom du pouvoir" title="Nom du pouvoir" />                
+                <button type="roll" class="sheet-btDesc"
+                    value="&{template:sawo} {{name=@{pouv_nom}}} {{perso=@{character_name}}} {{pouvoir=1}} {{pp=@{pouv_pp}}} {{portee=@{pouv_portee}}} {{description=@{pouv_effets}}}"
+                ></button>
+                <input type="text" name="attr_pouv_nom" style="width: 200px;font-weight:bold;" placeholder="Nom du pouvoir" title="Nom du pouvoir" />
                 <SELECT name="attr_pouv_rang" style="width: 30px;margin-left:3px;margin-right:3px;" title="Rang d'accès à ce pouvoir">
                     <OPTION value="N" SELECTED>N - Novice</OPTION>
                     <OPTION value="A">A - Aguerri</OPTION>
@@ -1859,9 +1864,12 @@ on("change:atkcible", function () {
         <table>
            <tr>
                 <td style="text-align: center;">
+                    {{#pouvoir}}Pouvoir de{{/pouvoir}}
                     <b>{{perso}}</b>
                     {{#attaque}}attaque{{/attaque}}
-                    {{^attaque}}fait un jet{{/attaque}}
+                    {{^pouvoir}}
+                        {{^attaque}}fait un jet{{/attaque}}
+                    {{/pouvoir}}
                 </td>
             </tr>
             {{#cible}}
@@ -1907,6 +1915,21 @@ on("change:atkcible", function () {
                 <td>{{degats}}</td>
             </tr>
         {{/degats}}
+        {{#pouvoir}}
+            <tr>
+                <td style="text-align: right;">PP</td>
+                <td class="sheet-info" style="font-weight: bold;">{{pp}}</td>
+            </tr>
+            <tr>
+                <td style="text-align: right;">Portée</td>
+                <td class="sheet-info" style="font-weight: bold;">{{portee}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="jetdesc">{{description}}</div>
+                </td>
+            </tr>
+        {{/pouvoir}}
     </table>
     {{#rollTotal() etat 1}}
         <table style="border-top:none;">

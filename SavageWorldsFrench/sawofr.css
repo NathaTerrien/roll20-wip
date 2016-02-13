@@ -37,6 +37,12 @@
     font-style: italic;
     background-color:#F6F1EC;
 }
+.sheet-rolltemplate-sawo div.sheet-jetdesc{
+    font-family: 'Verdana', serif;
+    font-size: 0.9em;
+    max-height: 140px;
+    overflow-y: auto;
+}
 /************************************** FDP ********************************************/
     /************************************** GENERAL *********************************/
 div,
@@ -241,7 +247,7 @@ input[type="checkbox"].sheet-dispcheck + span{
     width: 15px;
     max-width: 18px;
     height: 18px;
-    z-index: 1;    
+    z-index: 1;
     font-family: pictos;
     color: #888888;
 }
@@ -450,6 +456,8 @@ button[type="roll"].sheet-btDesc:before{
 }
 button[type="roll"].sheet-btDesc:hover{
     opacity: 1.0;
+    color: #CD071E;
+    font-weight: normal;
 }
 
 /* Formatage des boutons de fieldset */

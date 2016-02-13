@@ -93,13 +93,13 @@ Cf. english version
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 
 #### Todo
-* Ajouter un bouton d'affichage dans le chat de la description des armes et pouvoirs.
-* Ajouter un bouton d'agrandissement de la zone de description des pouvoirs.
+* ~~Ajout d'un bouton d'affichage dans le chat de la description des pouvoirs.~~
+* ~~Ajout d'un bouton d'agrandissement/réduction des Atouts, Hadndicaps, Signes particuliers, Richesse, des notes d'Armes et Pouvoirs~~
 * ~~Styler l'état secoué, les blessures et la fatigue~~
-* ~~Pouvoir switcher entre cible et saisie de difficulté pour les attaques~~
-* ~~pouvoir choisir entre template de résultats de jet, template de succès et "jets bruts" (pas de template)~~
+* ~~Choix entre cible et saisie de difficulté pour les attaques en mode de jet Succès+Relances~~
+* ~~Choix d'affichage des jets entre template de succès+relances, template de résultats de jet et "jets bruts" (pas de template)~~
 * Initialiser sur 1ière ouverture les compétences d'arme pour jets bruts
-* ~~affichage ou non les états (blessure, fatigue, secoué) du personnage dans le template de jet~~
+* ~~Choix d'afficher ou non les états (blessure, fatigue, secoué) du personnage dans le template de jet~~
 * Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
