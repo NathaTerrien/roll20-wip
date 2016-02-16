@@ -113,6 +113,11 @@ input[type=checkbox].sheet-optionCible + span{
     z-index: 1;
     color: #777777;
 }
+input[type=checkbox].sheet-chkRolrel,
+input[type=checkbox].sheet-chkRoljet,
+input[type=checkbox].sheet-chkRolbrut {
+    display: none;
+}
 input[type=radio].sheet-styleRolrel,
 input[type=radio].sheet-styleRoljet,
 input[type=radio].sheet-styleRolbrut{
@@ -139,7 +144,6 @@ input[type=radio].sheet-styleRoljet + span:before,
 input[type=radio].sheet-styleRolbrut + span:before,
 input[type=checkbox].sheet-optionEtat + span:before,
 input[type=checkbox].sheet-optionCible + span:before{
-
     font-family: 'pictos';
     color: #777777;
     content:'*';
@@ -161,6 +165,55 @@ input[type=checkbox].sheet-optionCible:checked + span:before{
     font-weight: bold;
     color: #CD071E;
     content:'3';
+}
+input[type="radio"].sheet-onglmain,
+input[type="radio"].sheet-onglconfig{
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 110px;
+    height: 25px;
+    z-index: 2;
+}
+input[type="radio"].sheet-onglmain + span,
+input[type="radio"].sheet-onglconfig + span{
+    color: #666666;
+    background-color: #BBBBBB;
+    font-size:15px;
+    text-align:center;
+    display: inline-block;
+    width: 110px;
+    height: 28px;
+    margin: 0;
+    margin-left: -110px;
+    margin-right: -5px;
+    padding:0;
+    margin-bottom: -2px;
+    padding-top: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border-style: solid;
+    border-width: 1px;
+    border-left-color: #DDBBBB;
+    border-top-color: #DDBBBB;
+    border-right-color: #DDBBBB;
+    border-bottom-color: #DD5633;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    z-index: 1;
+}
+input[type="radio"].sheet-onglmain:checked + span,
+input[type="radio"].sheet-onglconfig:checked + span {
+    font-weight: bold;
+    color: #DD5633;
+    background-color: white;
+    border-left-color: #DD5633;
+    border-top-color: #DD5633;
+    border-right-color: #DD5633;
+    border-bottom-color: white;
 }
     /************************************** RADIOS / CHECKBOX ***************************/
 input[type="radio"]{
@@ -429,13 +482,13 @@ button[type="roll"].sheet-btRolbrut:hover{
     border-style: solid;
     border-color:#CD071E;
 }
-input[type=radio].sheet-styleRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
+input[type=checkbox].sheet-chkRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
     display: inline-block;
 }
-input[type=radio].sheet-styleRoljet:checked ~ div.sheet-main button[type=roll].sheet-btRoljet{
+input[type=checkbox].sheet-chkRoljet:checked ~ div.sheet-main button[type=roll].sheet-btRoljet{
     display: inline-block;
 }
-input[type=radio].sheet-styleRolbrut:checked ~ div.sheet-main button[type=roll].sheet-btRolbrut{
+input[type=checkbox].sheet-chkRolbrut:checked ~ div.sheet-main button[type=roll].sheet-btRolbrut{
     display: inline-block;
 }
 button[type="roll"].sheet-btDesc{
@@ -487,10 +540,24 @@ div.sheet-fdp{
     width:860px;
 }
 div.sheet-main{
+    display: none;
     width:100%;
     background: linear-gradient(#CD071E,#E6DBCF,#EFE7DD);
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding: 5px 5px 5px 5px;
+}
+div.sheet-configuration{
+    display: none;
+    width:100%;
+    background: white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding: 5px 5px 5px 5px;
+}
+input[type="radio"].sheet-onglmain:checked ~ div.sheet-main{
+    display: block;
+}
+input[type="radio"].sheet-onglconfig:checked ~ div.sheet-configuration{
+    display: block;
 }
 div.sheet-mycol{
     display: inline-block;

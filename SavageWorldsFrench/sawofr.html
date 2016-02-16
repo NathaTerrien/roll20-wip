@@ -179,11 +179,11 @@ var TAS = TAS || (function(){
                 '%c '+label+': %c '+message,
                 'background-color: '+lBGColor+';color: '+lTxtColor+'; font-weight:bold;',
                 'background-color: '+mBGColor+';color: '+mTxtColor+';'
-            ); 
+            );
         };
         return function(){
             if('TAS'===key || config.logging[key]){
-               dataLogger(coloredLoggerFunction,function(m){console.log(m);},_.toArray(arguments)); 
+               dataLogger(coloredLoggerFunction,function(m){console.log(m);},_.toArray(arguments));
             }
         };
     },
@@ -222,7 +222,7 @@ var TAS = TAS || (function(){
         );
         config=newconf;
     },
-    
+
     debugMode = function(){
         config.logging.debug=true;
         config.debugMode = true;
@@ -247,7 +247,7 @@ var TAS = TAS || (function(){
                logCSA( '===================='+(csa.label ? '> '+csa.label+' <' : '')+'====================');
                logCallstackSub(csa.stack);
                return true;
-            } 
+            }
             logCS(line);
             return false;
         });
@@ -278,10 +278,10 @@ var TAS = TAS || (function(){
                 };
             }(callback,context));
         }
-        
+
         callstack = getCallstack();
         callstack.shift();
-        
+
         return (function(cb,ctx,cs,lbl){
             var ctxref=registerCallstack(cs,lbl);
             return new Function('cb','ctx','TASlog',
@@ -367,7 +367,7 @@ var TAS = TAS || (function(){
                     return pvalue;
                 }
             });
-            
+
             // string value
             Object.defineProperty(obj.S, pname, {
                 enumerable: true,
@@ -422,7 +422,7 @@ var TAS = TAS || (function(){
 
         }());
     },
-    
+
     repeating = function( section ) {
         return (function(s){
             var sectionName = s,
@@ -430,7 +430,7 @@ var TAS = TAS || (function(){
                 fieldNames = [],
                 operations = [],
                 after = [],
-            
+
             repAttrs = function TAS_Repeating_Attrs(){
                 attrNames = namesFromArgs(arguments,attrNames);
                 return this;
@@ -439,7 +439,7 @@ var TAS = TAS || (function(){
                 fieldNames = namesFromArgs(arguments,fieldNames);
                 return this;
             },
-            repReduce = function TAS_Repeating_Reduce(func, initial, final, context) { 
+            repReduce = function TAS_Repeating_Reduce(func, initial, final, context) {
                 operations.push({
                     type: 'reduce',
                     func: (func && _.isFunction(func) && func) || _.noop,
@@ -496,7 +496,7 @@ var TAS = TAS || (function(){
                     fieldIds = ids;
                     fullFieldNames = _.reduce(fieldIds,function(memo,id){
                         return memo.concat(_.map(fieldNames,function(name){
-                            return 'repeating_'+sectionName+'_'+id+'_'+name;  
+                            return 'repeating_'+sectionName+'_'+id+'_'+name;
                         }));
                     },[]);
                     getAttrs( _.uniq(attrNames.concat(fullFieldNames)), function(values){
@@ -510,7 +510,7 @@ var TAS = TAS || (function(){
                             var r={};
                             addId(r,id);
                             _.each(fieldNames,function(name){
-                                var fn = 'repeating_'+sectionName+'_'+id+'_'+name;  
+                                var fn = 'repeating_'+sectionName+'_'+id+'_'+name;
                                 addProp(r,name,values[fn],fn);
                             });
 
@@ -558,7 +558,7 @@ var TAS = TAS || (function(){
                     });
                 });
             };
-                
+
             return {
                 attrs: repAttrs,
                 attr: repAttrs,
@@ -645,12 +645,12 @@ on('sheet:opened',function(){
                 arme3_comp_brut: "@{RollBast" + values.arme3_comp + "}"
             });
             TAS.repeating('armes')
-                .fields('armeD_comp','armeD_comp_brut') 
-                .reduce(function(m,r){                    
+                .fields('armeD_comp','armeD_comp_brut')
+                .reduce(function(m,r){
                     r.S.armeD_comp_brut="@{RollBast" + r.S.armeD_comp + "}";
                     return m;
                 })
-                .execute(); 
+                .execute();
         }
         setAttrs({sheetarmectrl: 1});
     });
@@ -929,15 +929,11 @@ on("change:atkcible", function () {
 </div> <!-- *** HIDDEN ROLLS ** -->
 <!-- PARAMETRAGES -->
 <div class="sheet-fdp"> <!-- FDP -->
-<div class="sheet-conftitre">CONFIGURATION</div>
-<div class="sheet-confcat">Jets :</div>
-<input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
-<input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet par template, montrant le total des jets" /><span>Total des Jets</span>
-<input type="radio" name="attr_sheetStyle" value="2" class="sheet-styleRolbrut" title="Style de jet 'macro', sans  template, montrant les jets bruts" /><span>Jets bruts</span>
-<div class="sheet-optionEtat">Templates :</div>
-<input type="checkbox" name="attr_templateetat" class="sheet-optionEtat" value="1" title="Afficher l'état du personnage dans les templates de jet" checked /><span class="sheet-optionEtat">Etats</span>
-<div class="sheet-optionCible">Attaques :</div>
-<input type="checkbox" name="attr_atkcible"  class="sheet-optionCible" value="1" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." checked /><span class="sheet-optionCible">Cible</span>
+    <input type="radio" name="attr_chkvie" value="0" class="sheet-onglmain" title="Feuille" checked /><span>Feuille</span>
+    <input type="radio" name="attr_chkvie" value="1" class="sheet-onglconfig" title="Configuration" /><span>Configuration</span>
+    <input type="checkbox" name="attr_sheetStyle" value="0" class="sheet-chkRolrel" checked="checked" />
+    <input type="checkbox" name="attr_sheetStyle" value="1" class="sheet-chkRoljet" />
+    <input type="checkbox" name="attr_sheetStyle" value="2" class="sheet-chkRolbrut" />
 <div class="sheet-main"> <!--- ***  MAIN *** -->
     <div class="sheet-mycol"> <!-- ** COL1 ** -->
         <div class="sheet-colblock"> <!-- TRAITS -->
@@ -2186,6 +2182,17 @@ on("change:atkcible", function () {
         </fieldset>
    </div> <!-- ** FIN POUVOIRS ** -->
 </div> <!-- FIN MAIN -->
+<div class="sheet-configuration">
+    <div class="sheet-conftitre">CONFIGURATION</div>
+    <div class="sheet-confcat">Jets :</div>
+    <input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
+    <input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet par template, montrant le total des jets" /><span>Total des Jets</span>
+    <input type="radio" name="attr_sheetStyle" value="2" class="sheet-styleRolbrut" title="Style de jet 'macro', sans  template, montrant les jets bruts" /><span>Jets bruts</span>
+    <div class="sheet-optionEtat">Templates :</div>
+    <input type="checkbox" name="attr_templateetat" class="sheet-optionEtat" value="1" title="Afficher l'état du personnage dans les templates de jet" checked /><span class="sheet-optionEtat">Etats</span>
+    <div class="sheet-optionCible">Attaques :</div>
+    <input type="checkbox" name="attr_atkcible"  class="sheet-optionCible" value="1" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." checked /><span class="sheet-optionCible">Cible</span>
+</div>
 </div> <!-- FIN FDP -->
 <!-- *** TEMPLATES ** -->
 <rolltemplate class="sheet-rolltemplate-sawo">
