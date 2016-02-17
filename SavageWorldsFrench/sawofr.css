@@ -36,6 +36,7 @@
 .sheet-rolltemplate-sawo td.sheet-info {
     font-style: italic;
     background-color:#F6F1EC;
+    text-align: right;
 }
 .sheet-rolltemplate-sawo div.sheet-jetdesc{
     font-family: 'Verdana', serif;
