@@ -636,9 +636,19 @@ var TAS = TAS || (function(){
 
 // Ouverture de la feuille : correction compétence d'arme.
 on('sheet:opened',function(){
-    // **** Gestion 1ière ouverture après création du personnage
+    // **** Gestion 1ière ouverture de la fiche pour transition 1.x -> 1.4
     getAttrs(["sheetarmectrl","arme1_comp","arme2_comp","arme3_comp"], function(values) {
         if(values.sheetarmectrl == 0) {
+            getAttrs(["joker_de"], function(values) {
+                var extra = 0;
+                if (values.joker_de == "0d4") {
+                    extra = 1;
+                }
+                setAttrs({
+                    extra: extra,
+                    pnj: extra
+                });
+            });
             setAttrs({
                 arme1_comp_brut: "@{RollBast" + values.arme1_comp + "}",
                 arme2_comp_brut: "@{RollBast" + values.arme2_comp + "}",
@@ -653,6 +663,24 @@ on('sheet:opened',function(){
                 .execute();
         }
         setAttrs({sheetarmectrl: 1});
+    });
+});
+// JOKER / PNJ / EXTRA
+on("change:joker_de", function() {
+    getAttrs(["joker_de","pnj"], function(values) {
+        var extra = 0;
+        var pnj = 0;
+        if (values.joker_de == "0d4") {
+            extra = 1;
+            pnj = 1;
+        } else {
+            extra = 0;
+            pnj = values.pnj;
+        }
+        setAttrs({
+            extra: extra,
+            pnj: pnj
+        });
     });
 });
 // ARMES FIXES
@@ -929,11 +957,41 @@ on("change:atkcible", function () {
 </div> <!-- *** HIDDEN ROLLS ** -->
 <!-- PARAMETRAGES -->
 <div class="sheet-fdp"> <!-- FDP -->
+    <!-- onglets -->
     <input type="radio" name="attr_chkvie" value="0" class="sheet-onglmain" title="Feuille" checked /><span>Feuille</span>
     <input type="radio" name="attr_chkvie" value="1" class="sheet-onglconfig" title="Configuration" /><span>Configuration</span>
+    <!-- paramètres cachés -->
     <input type="checkbox" name="attr_sheetStyle" value="0" class="sheet-chkRolrel" checked="checked" />
     <input type="checkbox" name="attr_sheetStyle" value="1" class="sheet-chkRoljet" />
     <input type="checkbox" name="attr_sheetStyle" value="2" class="sheet-chkRolbrut" />
+    <input type="checkbox" name="attr_extra" value="1" class="sheet-persoExtra" />
+    <input type="checkbox" name="attr_pnj" value="1" class="sheet-persoPnj" />
+    <!-- Checks pour affichage compétences -->
+    <input type="checkbox" name="attr_chkArcane" class="sheet-chkArcane" value="1" checked />
+    <input type="checkbox" name="attr_chkCombat" class="sheet-chkCombat" value="1" checked />
+    <input type="checkbox" name="attr_chkConduite" class="sheet-chkConduite" value="1" checked />
+    <input type="checkbox" name="attr_chkConnaissance" class="sheet-chkConnaissance" value="1" checked />
+    <input type="checkbox" name="attr_chkCrochetage" class="sheet-chkCrochetage" value="1" checked />
+    <input type="checkbox" name="attr_chkDiscretion" class="sheet-chkDiscretion" value="1" checked />
+    <input type="checkbox" name="attr_chkEquitation" class="sheet-chkEquitation" value="1" checked />
+    <input type="checkbox" name="attr_chkEscalade" class="sheet-chkEscalade" value="1" checked />
+    <input type="checkbox" name="attr_chkIntimidation" class="sheet-chkIntimidation" value="1" checked />
+    <input type="checkbox" name="attr_chkJeu" class="sheet-chkJeu" value="1" checked />
+    <input type="checkbox" name="attr_chkLancer" class="sheet-chkLancer" value="1" checked />
+    <input type="checkbox" name="attr_chkNatation" class="sheet-chkNatation" value="1" checked />
+    <input type="checkbox" name="attr_chkNavigation" class="sheet-chkNavigation" value="1" checked />
+    <input type="checkbox" name="attr_chkPerception" class="sheet-chkPerception" value="1" checked />
+    <input type="checkbox" name="attr_chkPersuasion" class="sheet-chkPersuasion" value="1" checked />
+    <input type="checkbox" name="attr_chkPilotage" class="sheet-chkPilotage" value="1" checked />
+    <input type="checkbox" name="attr_chkPistage" class="sheet-chkPistage" value="1" checked />
+    <input type="checkbox" name="attr_chkRecherche" class="sheet-chkRecherche" value="1" checked />
+    <input type="checkbox" name="attr_chkReparation" class="sheet-chkReparation" value="1" checked />
+    <input type="checkbox" name="attr_chkReseaux" class="sheet-chkReseaux" value="1" checked />
+    <input type="checkbox" name="attr_chkSarcasme" class="sheet-chkSarcasme" value="1" checked />
+    <input type="checkbox" name="attr_chkSoins" class="sheet-chkSoins" value="1" checked />
+    <input type="checkbox" name="attr_chkSurvie" class="sheet-chkSurvie" value="1" checked />
+    <input type="checkbox" name="attr_chkTir" class="sheet-chkTir" value="1" checked />
+    <!-- Début réel de la feuille -->
 <div class="sheet-main"> <!--- ***  MAIN *** -->
     <div class="sheet-mycol"> <!-- ** COL1 ** -->
         <div class="sheet-colblock"> <!-- TRAITS -->
@@ -942,8 +1000,8 @@ on("change:atkcible", function () {
                     <div class="sheet-redtitle1" style="display:inline-block;">TRAITS</div>
                     &nbsp;
                     <div class="sheet-blacktext2">Dé Joker</div>
-                    <SELECT name="attr_joker_de" class="sheet-selde">
-                        <OPTION value="0d4">&nbsp;-</OPTION>
+                    <SELECT name="attr_joker_de" class="sheet-selde sheet-joker">
+                        <OPTION value="0d4">&nbsp;- Extra (PNJ)</OPTION>
                         <OPTION value="1d4">&nbsp;d4</OPTION>
                         <OPTION value="1d6" SELECTED>&nbsp;d6</OPTION>
                         <OPTION value="1d8">&nbsp;d8</OPTION>
@@ -1085,7 +1143,7 @@ on("change:atkcible", function () {
             </div> <!-- FIN ATTRIBUTS -->
             <div> <!-- COMPETENCES -->
                 <div class="sheet-redtitle2">COMPÉTENCES</div>
-                <div class="sheet-input"> <!-- ARCANES -->
+                <div class="sheet-input sheet-chkArcane"> <!-- ARCANES -->
                     <button type="roll"
                         name="Btrel-Arcane"
                         class="sheet-btRolrel"
@@ -1119,7 +1177,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_arcane_bonus" value="-2" min="-2" />
                 </div> <!-- FIN ARCANES -->
-                <div class="sheet-input"> <!-- COMBAT -->
+                <div class="sheet-input sheet-chkCombat"> <!-- COMBAT -->
                     <button type="roll"
                         name="Btrel-Combat"
                         class="sheet-btRolrel"
@@ -1146,7 +1204,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_combat_bonus" value="-2" min="-2" />
                 </div> <!-- FIN COMBAT -->
-                <div class="sheet-input"> <!-- CONDUITE -->
+                <div class="sheet-input sheet-chkConduite"> <!-- CONDUITE -->
                     <button type="roll"
                         name="Btrel-Conduite"
                         class="sheet-btRolrel"
@@ -1173,7 +1231,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_conduite_bonus" value="-2" min="-2" />
                 </div> <!-- FIN CONDUITE -->
-                <div class="sheet-input"> <!-- CONNAISSANCE -->
+                <div class="sheet-input sheet-chkConnaissance"> <!-- CONNAISSANCE -->
                     <button type="roll"
                         name="Btrel-Connaissance"
                         class="sheet-btRolrel"
@@ -1204,7 +1262,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_connaissance_bonus" value="-2" min="-2" />
                 </div> <!-- FIN CONNAISSANCE -->
-                <div class="sheet-input"> <!-- CROCHETAGE -->
+                <div class="sheet-input sheet-chkCrochetage"> <!-- CROCHETAGE -->
                     <button type="roll"
                         name="Btrel-Crochetage"
                         class="sheet-btRolrel"
@@ -1231,7 +1289,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_crochetage_bonus" value="-2" min="-2" />
                 </div> <!-- FIN CROCHETAGE -->
-                <div class="sheet-input"> <!-- DISCRÉTION -->
+                <div class="sheet-input sheet-chkDiscretion"> <!-- DISCRÉTION -->
                     <button type="roll"
                         name="Btrel-Discretion"
                         class="sheet-btRolrel"
@@ -1258,7 +1316,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_discretion_bonus" value="-2" min="-2" />
                 </div> <!-- FIN DISCRÉTION -->
-                <div class="sheet-input"> <!-- ÉQUITATION -->
+                <div class="sheet-input sheet-chkEquitation"> <!-- ÉQUITATION -->
                     <button type="roll"
                         name="Btrel-Equitation"
                         class="sheet-btRolrel"
@@ -1285,7 +1343,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_equitation_bonus" value="-2" min="-2" />
                 </div> <!-- FIN ÉQUITATION -->
-                <div class="sheet-input"> <!-- ESCALADE -->
+                <div class="sheet-input sheet-chkEscalade"> <!-- ESCALADE -->
                     <button type="roll"
                         name="Btrel-Escalade"
                         class="sheet-btRolrel"
@@ -1312,7 +1370,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_escalade_bonus" value="-2" min="-2" />
                 </div> <!-- FIN ESCALADE -->
-                <div class="sheet-input"> <!-- INTIMIDATION -->
+                <div class="sheet-input sheet-chkIntimidation"> <!-- INTIMIDATION -->
                     <button type="roll"
                         name="Btrel-Intimidation"
                         class="sheet-btRolrel"
@@ -1339,7 +1397,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_intimidation_bonus" value="-2" min="-2" />
                 </div> <!-- FIN INTIMIDATION -->
-                <div class="sheet-input"> <!-- JEU -->
+                <div class="sheet-input sheet-chkJeu"> <!-- JEU -->
                     <button type="roll"
                         name="Btrel-Jeu"
                         class="sheet-btRolrel"
@@ -1366,7 +1424,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_jeu_bonus" value="-2" min="-2" />
                 </div> <!-- FIN JEU -->
-                <div class="sheet-input"> <!-- LANCER -->
+                <div class="sheet-input sheet-chkLancer"> <!-- LANCER -->
                     <button type="roll"
                         name="Btrel-Lancer"
                         class="sheet-btRolrel"
@@ -1393,7 +1451,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_lancer_bonus" value="-2" min="-2" />
                 </div> <!-- FIN LANCER -->
-                <div class="sheet-input"> <!-- NATATION -->
+                <div class="sheet-input sheet-chkNatation"> <!-- NATATION -->
                     <button type="roll"
                         name="Btrel-Natation"
                         class="sheet-btRolrel"
@@ -1420,7 +1478,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_natation_bonus" value="-2" min="-2" />
                 </div> <!-- FIN NATATION -->
-                <div class="sheet-input"> <!-- NAVIGATION -->
+                <div class="sheet-input sheet-chkNavigation"> <!-- NAVIGATION -->
                     <button type="roll"
                         name="Btrel-Navigation"
                         class="sheet-btRolrel"
@@ -1447,7 +1505,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_navigation_bonus" value="-2" min="-2" />
                 </div> <!-- FIN NAVIGATION -->
-                <div class="sheet-input"> <!-- PERCEPTION -->
+                <div class="sheet-input sheet-chkPerception"> <!-- PERCEPTION -->
                     <button type="roll"
                         name="Btrel-Perception"
                         class="sheet-btRolrel"
@@ -1474,7 +1532,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_perception_bonus" value="-2" min="-2" />
                 </div> <!-- FIN PERCEPTION -->
-                <div class="sheet-input"> <!-- PERSUASION -->
+                <div class="sheet-input sheet-chkPersuasion"> <!-- PERSUASION -->
                     <button type="roll"
                         name="Btrel-Persuasion"
                         class="sheet-btRolrel"
@@ -1501,7 +1559,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_persuasion_bonus" value="-2" min="-2" />
                 </div> <!-- FIN PERSUASION -->
-                <div class="sheet-input"> <!-- PILOTAGE -->
+                <div class="sheet-input sheet-chkPilotage"> <!-- PILOTAGE -->
                     <button type="roll"
                         name="Btrel-Pilotage"
                         class="sheet-btRolrel"
@@ -1528,7 +1586,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_pilotage_bonus" value="-2" min="-2" />
                 </div> <!-- FIN PILOTAGE -->
-                <div class="sheet-input"> <!-- PISTAGE -->
+                <div class="sheet-input sheet-chkPistage"> <!-- PISTAGE -->
                     <button type="roll"
                         name="Btrel-Pistage"
                         class="sheet-btRolrel"
@@ -1555,7 +1613,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_pistage_bonus" value="-2" min="-2" />
                 </div> <!-- FIN PISTAGE -->
-                <div class="sheet-input"> <!-- RECHERCHE -->
+                <div class="sheet-input sheet-chkRecherche"> <!-- RECHERCHE -->
                     <button type="roll"
                         name="Btrel-Recherche"
                         class="sheet-btRolrel"
@@ -1582,7 +1640,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_recherche_bonus" value="-2" min="-2" />
                 </div> <!-- FIN RECHERCHE -->
-                <div class="sheet-input"> <!-- RÉPARATION -->
+                <div class="sheet-input sheet-chkReparation"> <!-- RÉPARATION -->
                     <button type="roll"
                         name="Btrel-Reparation"
                         class="sheet-btRolrel"
@@ -1609,7 +1667,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_reparation_bonus" value="-2" min="-2" />
                 </div> <!-- FIN RÉPARATION -->
-                <div class="sheet-input"> <!-- RÉSEAUX -->
+                <div class="sheet-input sheet-chkReseaux"> <!-- RÉSEAUX -->
                     <button type="roll"
                         name="Btrel-Reseaux"
                         class="sheet-btRolrel"
@@ -1636,7 +1694,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_reseaux_bonus" value="-2" min="-2" />
                 </div> <!-- FIN RÉSEAUX -->
-                <div class="sheet-input"> <!-- SARCASME -->
+                <div class="sheet-input sheet-chkSarcasme"> <!-- SARCASME -->
                     <button type="roll"
                         name="Btrel-Sarcasme"
                         class="sheet-btRolrel"
@@ -1663,7 +1721,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_sarcasme_bonus" value="-2" min="-2" />
                 </div> <!-- FIN SARCASME -->
-                <div class="sheet-input"> <!-- SOINS -->
+                <div class="sheet-input sheet-chkSoins"> <!-- SOINS -->
                     <button type="roll"
                         name="Btrel-Soins"
                         class="sheet-btRolrel"
@@ -1690,7 +1748,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_soins_bonus" value="-2" min="-2" />
                 </div> <!-- FIN SOINS -->
-                <div class="sheet-input"> <!-- SURVIE -->
+                <div class="sheet-input sheet-chkSurvie"> <!-- SURVIE -->
                     <button type="roll"
                         name="Btrel-Survie"
                         class="sheet-btRolrel"
@@ -1717,7 +1775,7 @@ on("change:atkcible", function () {
                     </SELECT>
                     +<input type="number" class="sheet-selde" name="attr_survie_bonus" value="-2" min="-2" />
                 </div> <!-- FIN SURVIE -->
-                <div class="sheet-input"> <!-- TIR -->
+                <div class="sheet-input sheet-chkTir"> <!-- TIR -->
                     <button type="roll"
                         name="Btrel-Tir"
                         class="sheet-btRolrel"
@@ -1787,7 +1845,7 @@ on("change:atkcible", function () {
         <div style="text-align:center;width:100%;">
             <span style="display: inline-block;width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">v1.4</span>
             <img style="width: 200px; margin-left: -50px;" src="https://www.peginc.com/wp-content/uploads/2013/02/SW_LOGO_24bit.png" />
-            <span style="display: inline-block;margin-left:-50px; width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">15/02/2016</span>
+            <span style="display: inline-block;margin-left:-50px; width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">16/02/2016</span>
         </div>
         <div class="sheet-colblock"> <!-- DEGATS -->
             <div style="text-align: left;">
@@ -1799,9 +1857,9 @@ on("change:atkcible", function () {
                 <div class="redtitle3" style="width:80px;">BLESSURES</div>
                 <input type="radio" class="sheet-blessure" name="attr_blessures" value="0" title="Pas de blessure" checked /><span>0</span>
                 <input type="radio" class="sheet-blessure" name="attr_blessures" value="1" title="Une blessure" /><span>1</span>
-                <input type="radio" class="sheet-blessure" name="attr_blessures" value="2" title="Deux blessures" /><span>2</span>
-                <input type="radio" class="sheet-blessure" name="attr_blessures" value="3" title="Trois blessures" /><span>3</span>
-                <input type="radio" class="sheet-blessure" name="attr_blessures" value="4" title="État critique" /><span style="font-family: pictos;font-weight:bold;font-size:2em;">Y</span>
+                <input type="radio" class="sheet-blessure sheet-noextra" name="attr_blessures" value="2" title="Deux blessures" /><span class="sheet-noextra">2</span>
+                <input type="radio" class="sheet-blessure sheet-noextra" name="attr_blessures" value="3" title="Trois blessures" /><span class="sheet-noextra">3</span>
+                <input type="radio" class="sheet-blessure sheet-noextra" name="attr_blessures" value="4" title="État critique" /><span  class="sheet-noextra" style="font-family: pictos;font-weight:bold;font-size:2em;">Y</span>
             </div>
             <div style="height: 30px;">
                 <div class="sheet-redtitle3" style="width:80px;">FATIGUE</div>
@@ -1877,9 +1935,9 @@ on("change:atkcible", function () {
         </div><!-- FIN EQUIPEMENT -->
     </div> <!-- ** END COL2 ** -->
     <div class="sheet-mycol"> <!-- ** COL3 ** -->
-        <div class="sheet-colblock">
+        <div class="sheet-colblock sheet-nopnj">
             <div class="sheet-redtitle1">PERSONNAGE</div>
-            <div class="sheet-input"><input type="text" name="attr_character_name" class="sheet-charname" /></div>
+            <div class="sheet-input"><input type="text" name="attr_character_name" class="sheet-charname" placeholder="Nom" /></div>
             <div class="sheet-input"><div class="sheet-blacktext1" style="width:60px;">Pseudo :&nbsp;</div><input type="text" name="attr_pseudo" style="width:205px;" /></div>
             <div class="sheet-redtitle1">DESCRIPTION</div>
             <div class="sheet-input">
@@ -1896,15 +1954,25 @@ on("change:atkcible", function () {
                 <textarea name="attr_signe" class="sheet-textdesc" style="width: 246px;" placeholder="Signes particuliers" title="Signes particuliers"></textarea>
             </div>
         </div>
+        <div class="sheet-colblock sheet-pnj">
+            <div class="sheet-redtitle1 sheet-extra">EXTRA</div>
+            <div class="sheet-redtitle1 sheet-noextra">PNJ (Joker)</div>
+            <div class="sheet-input"><input type="text" name="attr_character_name" class="sheet-charname" placeholder="Nom" /></div>
+            <div class="sheet-input">
+                <div class="sheet-blacktext1" style="width:50px;">Taille :&nbsp;</div><input type="text" name="attr_taille" style="width:70px;" />
+            </div>
+        </div>
         <div class="sheet-colblock">
-            <div class="sheet-redtitle1">ATOUTS</div>
+            <div class="sheet-redtitle1 sheet-nopnj">ATOUTS</div>
+            <div class="sheet-redtitle1 sheet-pnj">ATOUTS / APTITUDES (+)</div>
             <fieldset class="repeating_atouts"> <!-- ATOUTS -->
                 <div class="sheet-input">
                     <input type="checkbox" name="attr_atoutdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
                     <textarea name="attr_atout" class="sheet-textdesc" style="width: 246px;" placeholder="Atout" title="Atout"></textarea>
                 </div>
             </fieldset>
-            <div class="sheet-redtitle2">HANDICAPS</div>
+            <div class="sheet-redtitle2 sheet-nopnj">HANDICAPS</div>
+            <div class="sheet-redtitle2 sheet-pnj">HANDICAPS / APTITUDES (-)</div>
             <fieldset class="repeating_handicaps"> <!-- ATOUTS -->
                 <div class="sheet-input">
                     <input type="checkbox" name="attr_handicapdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
@@ -1912,7 +1980,7 @@ on("change:atkcible", function () {
                 </div>
             </fieldset>
         </div>
-        <div class="sheet-colblock">
+        <div class="sheet-colblock sheet-nopnj">
             <div style="text-align: center;">
                 <div class="sheet-redtitle1" style="display: inline-block;">PROGRESSION</div>
                 <div class="sheet-blacktext2">XP</div>
@@ -1995,7 +2063,7 @@ on("change:atkcible", function () {
             <input name="attr_arme1_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme1_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
             <input name="attr_arme1_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
             <input type="checkbox" name="attr_arme1display" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-            <textarea name="attr_arme1_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+            <textarea name="attr_arme1_notes" class="sheet-textdesc" style="width: 173px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
         </div> <!-- FIN ARME FIXE 1 -->
         <div class="sheet-input"> <!-- ARME FIXE 2 -->
             <button type="roll"
@@ -2045,7 +2113,7 @@ on("change:atkcible", function () {
             <input name="attr_arme2_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme2_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
             <input name="attr_arme2_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
             <input type="checkbox" name="attr_arme2display" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-            <textarea name="attr_arme2_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+            <textarea name="attr_arme2_notes" class="sheet-textdesc" style="width: 173px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
         </div> <!-- FIN ARME FIXE 2 -->
         <div class="sheet-input"> <!-- ARME FIXE 3 -->
             <button type="roll"
@@ -2095,7 +2163,7 @@ on("change:atkcible", function () {
             <input name="attr_arme3_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme3_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
             <input name="attr_arme3_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
             <input type="checkbox" name="attr_arme3display" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-            <textarea name="attr_arme3_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+            <textarea name="attr_arme3_notes" class="sheet-textdesc" style="width: 173px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
         </div> <!-- FIN ARME FIXE 3 -->
         <fieldset class="repeating_armes">
             <div class="sheet-input"> <!-- ARME DYNAMIQUE -->
@@ -2147,7 +2215,7 @@ on("change:atkcible", function () {
                 <input name="attr_armeD_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_armeD_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
                 <input name="attr_armeD_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
                 <input type="checkbox" name="attr_armeDdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                <textarea name="attr_armeD_notes" class="sheet-textdesc" style="width: 175px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+                <textarea name="attr_armeD_notes" class="sheet-textdesc" style="width: 173px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
             </div> <!-- FIN ARME DYNAMIQUE -->
         </fieldset>
     </div> <!-- ** FIN ARMES ** -->
@@ -2177,21 +2245,62 @@ on("change:atkcible", function () {
                 <input name="attr_pouv_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
                 <input name="attr_pouv_duree" type="text" style="width:100px;margin-right:3px;" placeholder="Durée" title="Durée du pouvoir" />
                 <input type="checkbox" name="attr_pouvoirdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                <textarea name="attr_pouv_effets" class="sheet-textdesc" style="width: 305px;" placeholder="Effets du pouvoir" title="Effets du pouvoir"></textarea>
+                <textarea name="attr_pouv_effets" class="sheet-textdesc" style="width: 303px;" placeholder="Effets du pouvoir" title="Effets du pouvoir"></textarea>
             </div> <!-- FIN POUVOIR DYNAMIQUE -->
         </fieldset>
    </div> <!-- ** FIN POUVOIRS ** -->
 </div> <!-- FIN MAIN -->
+<!-- CONFIGURATION -->
 <div class="sheet-configuration">
-    <div class="sheet-conftitre">CONFIGURATION</div>
-    <div class="sheet-confcat">Jets :</div>
-    <input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
-    <input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet par template, montrant le total des jets" /><span>Total des Jets</span>
-    <input type="radio" name="attr_sheetStyle" value="2" class="sheet-styleRolbrut" title="Style de jet 'macro', sans  template, montrant les jets bruts" /><span>Jets bruts</span>
-    <div class="sheet-optionEtat">Templates :</div>
-    <input type="checkbox" name="attr_templateetat" class="sheet-optionEtat" value="1" title="Afficher l'état du personnage dans les templates de jet" checked /><span class="sheet-optionEtat">Etats</span>
-    <div class="sheet-optionCible">Attaques :</div>
-    <input type="checkbox" name="attr_atkcible"  class="sheet-optionCible" value="1" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." checked /><span class="sheet-optionCible">Cible</span>
+    <div class="sheet-2colrow">
+        <div class="sheet-col">
+            <div class="sheet-conftitre">STYLE VISUEL</div>
+            <input type="checkbox" name="attr_pnj" value="1" class="sheet-chkSkill" title="Ce personnage est un PNJ. Pour en faire un Extra (et donc automatiquement un PNJ, sélectionnez le dé Joker à '- Extra (PNJ)'" /><span>Personnage Non Joueur</span>
+        </div>
+        <div class="sheet-col">
+            <div class="sheet-conftitre">JETS</div>
+            <div class="sheet-confcat">Niveau de détail :</div>
+            <input type="radio" name="attr_sheetStyle" value="0" class="sheet-styleRolrel" checked="checked" title="Style de jet par template, montrant succès et relances" /><span>Succès+Relances</span>
+            <input type="radio" name="attr_sheetStyle" value="1" class="sheet-styleRoljet" title="Style de jet par template, montrant le total des jets" /><span>Total des Jets</span>
+            <input type="radio" name="attr_sheetStyle" value="2" class="sheet-styleRolbrut" title="Style de jet 'macro', sans  template, montrant les jets bruts" /><span>Jets bruts</span>
+            <div class="sheet-optionEtat">Templates :</div>
+            <input type="checkbox" name="attr_templateetat" class="sheet-optionEtat" value="1" title="Afficher l'état du personnage dans les templates de jet" checked /><span class="sheet-optionEtat">Etats</span>
+            <div class="sheet-optionCible">Attaques :</div>
+            <input type="checkbox" name="attr_atkcible"  class="sheet-optionCible" value="1" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." checked /><span class="sheet-optionCible">Cible</span>
+        </div>
+    </div>
+    <div class="sheet-2colrow">
+        <div class="sheet-col">
+            <div class="sheet-conftitre">AFFICHAGE DES COMPETENCES</div>
+            <input type="checkbox" name="attr_chkArcane" value="1" class="sheet-chkSkill" checked /><span>Arcane</span>
+            <input type="checkbox" name="attr_chkCombat" value="1" class="sheet-chkSkill" checked /><span>Combat</span>
+            <input type="checkbox" name="attr_chkConduite" value="1" class="sheet-chkSkill" checked /><span>Conduite</span>
+            <input type="checkbox" name="attr_chkConnaissance" value="1" class="sheet-chkSkill" checked /><span>Connaissance</span>
+            <input type="checkbox" name="attr_chkCrochetage" value="1" class="sheet-chkSkill" checked /><span>Crochetage</span>
+            <input type="checkbox" name="attr_chkDiscretion" value="1" class="sheet-chkSkill" checked /><span>Discrétion</span>
+            <input type="checkbox" name="attr_chkEquitation" value="1" class="sheet-chkSkill" checked /><span>Équitation</span>
+            <input type="checkbox" name="attr_chkEscalade" value="1" class="sheet-chkSkill" checked /><span>Escalade</span>
+            <input type="checkbox" name="attr_chkIntimidation" value="1" class="sheet-chkSkill" checked /><span>Intimidation</span>
+            <input type="checkbox" name="attr_chkJeu" value="1" class="sheet-chkSkill" checked /><span>Jeu</span>
+            <input type="checkbox" name="attr_chkLancer" value="1" class="sheet-chkSkill" checked /><span>Lancer</span>
+            <input type="checkbox" name="attr_chkNatation" value="1" class="sheet-chkSkill" checked /><span>Natation</span>
+            <input type="checkbox" name="attr_chkNavigation" value="1" class="sheet-chkSkill" checked /><span>Navigation</span>
+            <input type="checkbox" name="attr_chkPerception" value="1" class="sheet-chkSkill" checked /><span>Perception</span>
+            <input type="checkbox" name="attr_chkPersuasion" value="1" class="sheet-chkSkill" checked /><span>Persuasion</span>
+            <input type="checkbox" name="attr_chkPilotage" value="1" class="sheet-chkSkill" checked /><span>Pilotage</span>
+            <input type="checkbox" name="attr_chkPistage" value="1" class="sheet-chkSkill" checked /><span>Pistage</span>
+            <input type="checkbox" name="attr_chkRecherche" value="1" class="sheet-chkSkill" checked /><span>Recherche</span>
+            <input type="checkbox" name="attr_chkReparation" value="1" class="sheet-chkSkill" checked /><span>Réparation</span>
+            <input type="checkbox" name="attr_chkReseaux" value="1" class="sheet-chkSkill" checked /><span>Réseaux</span>
+            <input type="checkbox" name="attr_chkSarcasme" value="1" class="sheet-chkSkill" checked /><span>Sarcasme</span>
+            <input type="checkbox" name="attr_chkSoins" value="1" class="sheet-chkSkill" checked /><span>Soins</span>
+            <input type="checkbox" name="attr_chkSurvie" value="1" class="sheet-chkSkill" checked /><span>Survie</span>
+            <input type="checkbox" name="attr_chkTir" value="1" class="sheet-chkSkill" checked /><span>Tir</span>
+        </div>
+        <div class="sheet-col">
+
+        </div>
+    </div>
 </div>
 </div> <!-- FIN FDP -->
 <!-- *** TEMPLATES ** -->
