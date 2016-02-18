@@ -3,6 +3,6 @@
 - X Option pour afficher/masquer les possessions (masquée par défaut pour PNJ/Extra)
 - X Correction : Bonus de dégâts peuvent être négatifs
 - X Pouvoir afficher/masquer toutes les compétences en un clic
-- Bonus au jet de dégâts
+- X Bonus au jet de dégâts
 - +1d6!! dégâts si relance
 - Affichage état sur jet brut
