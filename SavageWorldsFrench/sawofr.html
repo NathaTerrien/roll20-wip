@@ -662,6 +662,7 @@ on('sheet:opened',function(){
                     arme3_comp_brut: "@{RollBast" + values.arme3_comp + "}",
                     extra: extra,
                     pnj: extra,
+                    chkPossessions: extra,
                     malusblessures: malusblessures,
                     malusfatigue: malusfatigue
                 });
@@ -679,20 +680,31 @@ on('sheet:opened',function(){
 });
 // JOKER / PNJ / EXTRA
 on("change:joker_de", function() {
-    getAttrs(["joker_de","pnj"], function(values) {
+    getAttrs(["joker_de","pnj","chkPossessions"], function(values) {
         var extra = 0;
         var pnj = 0;
+        var possessions = 1;
         if (values.joker_de == "0d4") {
             extra = 1;
             pnj = 1;
+            possessions = 0;
         } else {
             extra = 0;
             pnj = values.pnj;
+            possessions = values.chkPossessions;
         }
         setAttrs({
             extra: extra,
-            pnj: pnj
+            pnj: pnj,
+            chkPossessions: possessions
         });
+    });
+});
+on("change:pnj", function(){
+    getAttrs(["pnj"], function(values) {
+        if (values.pnj == 1) {
+            setAttrs({chkPossessions: 0});
+        }
     });
 });
 // BLESSURES et Malus blessure
@@ -785,6 +797,37 @@ on("change:vigueur_de change:vigueur_bonus change:resistance_bonus", function() 
         setAttrs({
             resistance_base: 2 + Math.floor( (parseInt(values.vigueur_de) + parseInt(values.vigueur_bonus)) / 2),
             resistance: parseInt(values.resistance_bonus) + 2 + Math.floor( (parseInt(values.vigueur_de) + parseInt(values.vigueur_bonus)) / 2)
+        });
+    });
+});
+// Affichage / Masquage toutes compétences
+on("change:chkAllComp", function() {
+    getAttrs(["chkAllComp"], function(values) {
+        setAttrs({
+            chkArcane: values.chkAllComp,
+            chkCombat: values.chkAllComp,
+            chkConduite: values.chkAllComp,
+            chkConnaissance: values.chkAllComp,
+            chkCrochetage: values.chkAllComp,
+            chkDiscretion: values.chkAllComp,
+            chkEquitation: values.chkAllComp,
+            chkEscalade: values.chkAllComp,
+            chkIntimidation: values.chkAllComp,
+            chkJeu: values.chkAllComp,
+            chkLancer: values.chkAllComp,
+            chkNatation: values.chkAllComp,
+            chkNavigation: values.chkAllComp,
+            chkPerception: values.chkAllComp,
+            chkPersuasion: values.chkAllComp,
+            chkPilotage: values.chkAllComp,
+            chkPistage: values.chkAllComp,
+            chkRecherche: values.chkAllComp,
+            chkReparation: values.chkAllComp,
+            chkReseaux: values.chkAllComp,
+            chkSarcasme: values.chkAllComp,
+            chkSoins: values.chkAllComp,
+            chkSurvie: values.chkAllComp,
+            chkTir: values.chkAllComp
         });
     });
 });
@@ -886,22 +929,22 @@ on("change:atkcible", function () {
     <input type="text" disabled hidden name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4), 0d0 }kh1" />
     <input type="text" disabled hidden name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
-    <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!!+@{force_bonus}[Dégâts : Force]" />
+    <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!!+(@{force_bonus})[Dégâts : Force]" />
 
     <!-- ARMES -->
     <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme1_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe1Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
-    <input type="text" disabled hidden name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + @{arme1_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + (@{arme1_dgt_bonus})[Dégâts : arme]" />
     <input type="text" disabled hidden name="attr_relRollArmeFixe1Dgt" value="{ floor( ( @{jetRollArmeFixe1Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
     <input type="text" disabled hidden name="attr_relRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme2_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe2Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme2_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe2Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
-    <input type="text" disabled hidden name="attr_jetRollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + @{arme2_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + (@{arme2_dgt_bonus})[Dégâts : arme]" />
     <input type="text" disabled hidden name="attr_relRollArmeFixe2Dgt" value="{ floor( ( @{jetRollArmeFixe2Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
     <input type="text" disabled hidden name="attr_relRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme3_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe3Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme3_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe3Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
-    <input type="text" disabled hidden name="attr_jetRollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + @{arme3_dgt_bonus}[Dégâts : arme]" />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + (@{arme3_dgt_bonus})[Dégâts : arme]" />
     <input type="text" disabled hidden name="attr_relRollArmeFixe3Dgt" value="{ floor( ( @{jetRollArmeFixe3Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
     <!-- COMPETENCES -->
@@ -1009,6 +1052,7 @@ on("change:atkcible", function () {
     <input type="checkbox" name="attr_sheetStyle" value="2" class="sheet-chkRolbrut" />
     <input type="checkbox" name="attr_extra" value="1" class="sheet-persoExtra" />
     <input type="checkbox" name="attr_pnj" value="1" class="sheet-persoPnj" />
+    <input type="checkbox" name="attr_chkPossessions" value="1" class="sheet-chkPossessions" checked />
     <!-- Checks pour affichage compétences -->
     <input type="checkbox" name="attr_chkArcane" class="sheet-chkArcane" value="1" checked />
     <input type="checkbox" name="attr_chkCombat" class="sheet-chkCombat" value="1" checked />
@@ -1945,7 +1989,7 @@ on("change:atkcible", function () {
                 <input type="number" name="attr_pointspouvoir_max" value="0" title="Points de Pouvoir maximum"/>
             </div>
         </div> <!-- FIN Carac dérivées -->
-        <div class="sheet-colblock"> <!-- EQUIPEMENT -->
+        <div class="sheet-colblock sheet-chkPossessions"> <!-- EQUIPEMENT -->
             <div class="sheet-redtitle1">POSSESSIONS</div>
             <div class="sheet-redtitle2" style="display: inline-block;">ARGENT</div>
             <input type="checkbox" name="attr_argentdisplay" class="sheet-dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
@@ -2100,7 +2144,7 @@ on("change:atkcible", function () {
                 <OPTION value="8">d8</OPTION>
                 <OPTION value="10">d10</OPTION>
                 <OPTION value="12">d12</OPTION>
-            </SELECT>+<input name="attr_arme1_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" min="0" title="Bonus aux dégâts" />
+            </SELECT>+<input name="attr_arme1_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
             <input name="attr_arme1_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
             <input name="attr_arme1_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
             <input name="attr_arme1_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme1_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
@@ -2150,7 +2194,7 @@ on("change:atkcible", function () {
                 <OPTION value="8">d8</OPTION>
                 <OPTION value="10">d10</OPTION>
                 <OPTION value="12">d12</OPTION>
-            </SELECT>+<input name="attr_arme2_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" min="0" title="Bonus aux dégâts" />
+            </SELECT>+<input name="attr_arme2_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
             <input name="attr_arme2_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
             <input name="attr_arme2_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
             <input name="attr_arme2_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme2_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
@@ -2200,7 +2244,7 @@ on("change:atkcible", function () {
                 <OPTION value="8">d8</OPTION>
                 <OPTION value="10">d10</OPTION>
                 <OPTION value="12">d12</OPTION>
-            </SELECT>+<input name="attr_arme3_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" min="0" title="Bonus aux dégâts" />
+            </SELECT>+<input name="attr_arme3_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
             <input name="attr_arme3_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
             <input name="attr_arme3_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
             <input name="attr_arme3_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme3_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
@@ -2228,7 +2272,7 @@ on("change:atkcible", function () {
                 value="/em @{character_name} Attaque avec @{armeD_nom}:
 /roll @{armeD_comp_brut}
 /em Dégâts de @{character_name} avec @{arme1_nom} :
-/roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}"
+/roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})"
                     value="/roll Attaque:@{armeD_comp_jet} Dégâts:@{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}"
                     title="Attaque"
                     >&nbsp;</button>
@@ -2252,7 +2296,7 @@ on("change:atkcible", function () {
                     <OPTION value="8">d8</OPTION>
                     <OPTION value="10">d10</OPTION>
                     <OPTION value="12">d12</OPTION>
-                </SELECT>+<input name="attr_armeD_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" min="0" title="Bonus aux dégâts" />
+                </SELECT>+<input name="attr_armeD_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
                 <input name="attr_armeD_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
                 <input name="attr_armeD_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
                 <input name="attr_armeD_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_armeD_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
@@ -2298,7 +2342,8 @@ on("change:atkcible", function () {
     <div class="sheet-2colrow">
         <div class="sheet-col">
             <div class="sheet-conftitre">STYLE VISUEL</div>
-            <input type="checkbox" name="attr_pnj" value="1" class="sheet-chkSkill" title="Ce personnage est un PNJ. Pour en faire un Extra (et donc automatiquement un PNJ, sélectionnez le dé Joker à '- Extra (PNJ)'" /><span>Personnage Non Joueur</span>
+            <input type="checkbox" name="attr_pnj" value="1" class="sheet-chkSkill" title="Ce personnage est un PNJ. Pour en faire un Extra (et donc automatiquement un PNJ), sélectionnez le dé Joker à '- Extra (PNJ)'" /><span>Personnage Non Joueur</span>
+            <input type="checkbox" name="attr_chkPossessions" value="1" class="sheet-chkSkill" title="Afficher ou masquer la section 'Possessions' : richesse, équipement etc." checked /><span>Afficher les possessions</span>
         </div>
         <div class="sheet-col">
             <div class="sheet-conftitre">JETS</div>
@@ -2315,6 +2360,7 @@ on("change:atkcible", function () {
     <div class="sheet-2colrow">
         <div class="sheet-col">
             <div class="sheet-conftitre">AFFICHAGE DES COMPETENCES</div>
+            <div class="sheet-row" style="text-align: center;"><input type="checkbox" name="attr_chkAllComp" value="1" class="sheet-chkSkill" title="Afficher/Masquer toutes les compétence" checked /><span>Toutes</span></div>
             <input type="checkbox" name="attr_chkArcane" value="1" class="sheet-chkSkill" checked /><span>Arcane</span>
             <input type="checkbox" name="attr_chkCombat" value="1" class="sheet-chkSkill" checked /><span>Combat</span>
             <input type="checkbox" name="attr_chkConduite" value="1" class="sheet-chkSkill" checked /><span>Conduite</span>

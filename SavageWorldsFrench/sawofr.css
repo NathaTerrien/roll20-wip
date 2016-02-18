@@ -63,24 +63,6 @@ input[type=checkbox],
 span {
     display : inline-block;
 }
-.sheet-extra{
-    display: none;
-}
-.sheet-pnj{
-    display: none;
-}
-input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-extra {
-    display: block;
-}
-input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-noextra {
-    display: none;
-}
-input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-pnj {
-    display: block;
-}
-input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-nopnj {
-    display: none;
-}
 /***************************** CONFIGURATION *******************************************/
 div.sheet-configuration div.sheet-col{
     border : 2px dotted #888888;
@@ -681,7 +663,25 @@ div.sheet-attcomptext:before{
 div.sheet-attcomptext:after{
     content: ")";
 }
-    /************************************** AFFICHAGE COMPETENCE ***************************/
+    /*********************** AFFICHAGE COMPETENCE et AUTRES OPTIONS ********************/
+.sheet-extra{
+    display: none;
+}
+.sheet-pnj{
+    display: none;
+}
+input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-extra {
+    display: block;
+}
+input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-noextra {
+    display: none;
+}
+input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-pnj {
+    display: block;
+}
+input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-nopnj {
+    display: none;
+}
 input[type=checkbox].sheet-chkArcane,
 input[type=checkbox].sheet-chkCombat,
 input[type=checkbox].sheet-chkConduite,
@@ -707,7 +707,8 @@ input[type=checkbox].sheet-chkSoins,
 input[type=checkbox].sheet-chkSurvie,
 input[type=checkbox].sheet-chkTir,
 input[type=checkbox].sheet-persoExtra,
-input[type=checkbox].sheet-persoPnj
+input[type=checkbox].sheet-persoPnj,
+input[type=checkbox].sheet-chkPossessions
 {
     display: none;
 }
@@ -734,9 +735,11 @@ div.sheet-chkReseaux,
 div.sheet-chkSarcasme,
 div.sheet-chkSoins,
 div.sheet-chkSurvie,
-div.sheet-chkTir {
+div.sheet-chkTir,
+div.sheet-chkPossessions {
     display: none;
 }
+
 input[type=checkbox].sheet-chkArcane:checked ~ div.sheet-main div.sheet-chkArcane {
     display: block;
 }
@@ -807,5 +810,8 @@ input[type=checkbox].sheet-chkSurvie:checked ~ div.sheet-main div.sheet-chkSurvi
     display: block;
 }
 input[type=checkbox].sheet-chkTir:checked ~ div.sheet-main div.sheet-chkTir {
+    display: block;
+}
+input[type=checkbox].sheet-chkPossessions:checked ~ div.sheet-main div.sheet-chkPossessions {
     display: block;
 }
