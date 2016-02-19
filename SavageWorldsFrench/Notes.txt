@@ -11,3 +11,13 @@
 ----------------------------------------------------------------------------------
 XX/02/16
 - Style visuel Deadlands
+Couleurs DR :
+Foncé : #85582A
+Moyen : #C39657
+Moyen clair : #EDCF98
+Clair : #F0DAAD
+Clair rosé : #FAE5B7
+
+input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main {
+    color: #85582A;
+}

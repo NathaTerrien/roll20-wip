@@ -1057,6 +1057,8 @@ on("change:atkcible", function () {
     <!-- onglets -->
     <input type="radio" name="attr_chkvie" value="0" class="sheet-onglmain" title="Feuille" checked /><span>Feuille</span>
     <input type="radio" name="attr_chkvie" value="1" class="sheet-onglconfig" title="Configuration" /><span>Configuration</span>
+    <!-- Style FdP -->
+    <input type="checkbox" name="attr_sheetDead" value="1" class="sheet-chkSheetDead" />
     <!-- paramètres cachés -->
     <input type="checkbox" name="attr_sheetStyle" value="0" class="sheet-chkRolrel" checked="checked" />
     <input type="checkbox" name="attr_sheetStyle" value="1" class="sheet-chkRoljet" />
@@ -1941,9 +1943,12 @@ on("change:atkcible", function () {
     </div> <!-- ** END COL1 ** -->
     <div class="sheet-mycol"> <!-- ** COL2 ** -->
         <div style="text-align:center;width:100%;">
-            <span style="display: inline-block;width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">v1.4</span>
-            <img style="width: 200px; margin-left: -50px;" src="https://www.peginc.com/wp-content/uploads/2013/02/SW_LOGO_24bit.png" />
-            <span style="display: inline-block;margin-left:-50px; width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">19/02/2016</span>
+            <div class="sheet-SheetSaWo" style="text-align:center;">
+                <img style="width: 200px;" src="https://www.peginc.com/wp-content/uploads/2013/02/SW_LOGO_24bit.png" />
+            </div>
+            <div class="sheet-SheetDead" style="text-align:center;">
+                <img style="width: 265px;" src="https://www.peginc.com/wp-content/uploads/2013/02/DL.png" />
+            </div>
         </div>
         <div class="sheet-colblock"> <!-- DEGATS -->
             <div style="text-align: left;">
