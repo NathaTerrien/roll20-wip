@@ -3,6 +3,11 @@
 - X Option pour afficher/masquer les possessions (masquée par défaut pour PNJ/Extra)
 - X Correction : Bonus de dégâts peuvent être négatifs
 - X Pouvoir afficher/masquer toutes les compétences en un clic
+----------------------------------------------------------------------------------
+19/02/16
 - X Bonus au jet de dégâts
-- +1d6!! dégâts si relance
-- Affichage état sur jet brut
+- X +1d6!! dégâts si relance
+- X Amélioration de l'affichage des résultats de jets en mode succès+relances (indicateur d'échec, succès sans relance et succès+relances)
+----------------------------------------------------------------------------------
+XX/02/16
+- Style visuel Deadlands

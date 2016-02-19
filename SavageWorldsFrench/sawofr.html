@@ -663,6 +663,7 @@ on('sheet:opened',function(){
                     extra: extra,
                     pnj: extra,
                     chkPossessions: extra,
+                    templateetat: extra,
                     malusblessures: malusblessures,
                     malusfatigue: malusfatigue
                 });
@@ -680,30 +681,37 @@ on('sheet:opened',function(){
 });
 // JOKER / PNJ / EXTRA
 on("change:joker_de", function() {
-    getAttrs(["joker_de","pnj","chkPossessions"], function(values) {
+    getAttrs(["joker_de","pnj","chkPossessions","templateetat"], function(values) {
         var extra = 0;
         var pnj = 0;
         var possessions = 1;
+        var templateetat = 1;
         if (values.joker_de == "0d4") {
             extra = 1;
             pnj = 1;
             possessions = 0;
+            templateetat = 0;
         } else {
             extra = 0;
             pnj = values.pnj;
             possessions = values.chkPossessions;
+            templateetat = values.templateetat;
         }
         setAttrs({
             extra: extra,
             pnj: pnj,
-            chkPossessions: possessions
+            chkPossessions: possessions,
+            templateetat: templateetat
         });
     });
 });
 on("change:pnj", function(){
     getAttrs(["pnj"], function(values) {
         if (values.pnj == 1) {
-            setAttrs({chkPossessions: 0});
+            setAttrs({
+                chkPossessions: 0,
+                templateetat: 0
+            });
         }
     });
 });
@@ -932,20 +940,23 @@ on("change:atkcible", function () {
     <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!!+(@{force_bonus})[Dégâts : Force]" />
 
     <!-- ARMES -->
-    <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
-    <input type="text" disabled hidden name="attr_jetRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme1_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe1Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{degatsrelplus=[[@{relRollArmeFixe1DgtPlus}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme1_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe1Dgt}]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + (@{arme1_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]" />
     <input type="text" disabled hidden name="attr_relRollArmeFixe1Dgt" value="{ floor( ( @{jetRollArmeFixe1Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe1DgtPlus" value="{ floor( ( @{jetRollArmeFixe1Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
-    <input type="text" disabled hidden name="attr_relRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme2_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe2Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
-    <input type="text" disabled hidden name="attr_jetRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme2_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe2Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme2_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe2Dgt}]]}} {{degatsrelplus=[[@{relRollArmeFixe2DgtPlus}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme2_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe2Dgt}]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + (@{arme2_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]" />
     <input type="text" disabled hidden name="attr_relRollArmeFixe2Dgt" value="{ floor( ( @{jetRollArmeFixe2Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe2DgtPlus" value="{ floor( ( @{jetRollArmeFixe2Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
-    <input type="text" disabled hidden name="attr_relRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme3_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe3Dgt}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
-    <input type="text" disabled hidden name="attr_jetRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme3_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe3Dgt}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme3_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe3Dgt}]]}} {{degatsrelplus=[[@{relRollArmeFixe3DgtPlus}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
+    <input type="text" disabled hidden name="attr_jetRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme3_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe3Dgt}]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
     <input type="text" disabled hidden name="attr_jetRollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + (@{arme3_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]" />
     <input type="text" disabled hidden name="attr_relRollArmeFixe3Dgt" value="{ floor( ( @{jetRollArmeFixe3Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_relRollArmeFixe3DgtPlus" value="{ floor( ( @{jetRollArmeFixe3Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
     <!-- COMPETENCES -->
     <input type="text" disabled hidden name="attr_RollArcane" value="{ 1d@{arcane_de}!![@{arcane_nom}],@{joker_de}!![Joker]}kh1 + @{arcane_bonus}[Bonus] - @{malusblessures}[Blessures] - @{malusfatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
@@ -1932,7 +1943,7 @@ on("change:atkcible", function () {
         <div style="text-align:center;width:100%;">
             <span style="display: inline-block;width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">v1.4</span>
             <img style="width: 200px; margin-left: -50px;" src="https://www.peginc.com/wp-content/uploads/2013/02/SW_LOGO_24bit.png" />
-            <span style="display: inline-block;margin-left:-50px; width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">16/02/2016</span>
+            <span style="display: inline-block;margin-left:-50px; width: 50px;text-align: left;color: #FFAAAA;font-size: 0.8em;">19/02/2016</span>
         </div>
         <div class="sheet-colblock"> <!-- DEGATS -->
             <div style="text-align: left;">
@@ -2042,7 +2053,7 @@ on("change:atkcible", function () {
             </div>
         </div>
         <div class="sheet-colblock sheet-pnj">
-            <div class="sheet-redtitle1 sheet-extra">EXTRA</div>
+            <div class="sheet-redtitle1 sheet-extra">PNJ (Extra)</div>
             <div class="sheet-redtitle1 sheet-noextra">PNJ (Joker)</div>
             <div class="sheet-input"><input type="text" name="attr_character_name" class="sheet-charname" placeholder="Nom" /></div>
             <div class="sheet-input">
@@ -2120,10 +2131,9 @@ on("change:atkcible", function () {
                 class="sheet-btRolbrut"
                 value="/em @{character_name} attaque avec @{arme1_nom}:
 /roll @{arme1_comp_brut}
-/em Dégâts de @{character_name} avec @{arme1_nom} :
+Dégâts :
 /roll @{jetRollArmeFixe1Dgt}
-/em Dégâts supplémentaires si relance :
-/roll 1d6!!"
+Dégâts supplémentaires si relance : [[1d6!!]]"
                 title="Arme N°1"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme1_nom" placeholder="Nom de l'arme n°1" title="Nom de l'arme n°1" />
@@ -2172,10 +2182,9 @@ on("change:atkcible", function () {
                 class="sheet-btRolbrut"
                 value="/em @{character_name} Attaque avec @{arme2_nom}:
 /roll @{arme2_comp_brut}
-/em Dégâts de @{character_name} avec @{arme1_nom} :
+Dégâts :
 /roll @{jetRollArmeFixe2Dgt}
-/em Dégâts supplémentaires si relance :
-/roll 1d6!!"
+Dégâts supplémentaires si relance : [[1d6!!]]"
                 title="Attaque Arme n°2"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme2_nom" placeholder="Nom de l'arme n°2" title="Nom de l'arme n°2" />
@@ -2224,10 +2233,9 @@ on("change:atkcible", function () {
                 class="sheet-btRolbrut"
                 value="/em @{character_name} Attaque avec @{arme3_nom}:
 /roll @{arme3_comp_brut}
-/em Dégâts de @{character_name} avec @{arme1_nom} :
+Dégâts :
 /roll @{jetRollArmeFixe3Dgt}
-/em Dégâts supplémentaires si relance :
-/roll 1d6!!"
+Dégâts supplémentaires si relance : [[1d6!!]]"
                 title="Attaque Arme n°3"
                 >&nbsp;</button>
             <input type="text" class="sheet-compspe"  name="attr_arme3_nom" placeholder="Nom de l'arme n°3" title="Nom de l'arme n°3" />
@@ -2263,13 +2271,13 @@ on("change:atkcible", function () {
                 <button type="roll"
                     name="Btrel-ArmeD"
                     class="sheet-btRolrel"
-                    value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{armeD_comp_rel} ]]}} {{degatsrel=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}[Dégâts : arme]  + (?{Mod. dégâts|0})[Modificateur aux dégâts] - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}}  {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
+                    value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{armeD_comp_rel} ]]}} {{degatsrel=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}[Dégâts : arme]  + (?{Mod. dégâts|0})[Modificateur aux dégâts] - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}} {{degatsrelplus=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}[Dégâts : arme] + 1d6!!  + (?{Mod. dégâts|0})[Modificateur aux dégâts] - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
                     title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="Btjet-ArmeD"
                     class="sheet-btRoljet"
-                    value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{armeD_comp_jet} ]]}} {{degats=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts] ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
+                    value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{armeD_comp_jet} ]]}} {{degats=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+@{armeD_dgt_bonus}[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts] ]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
                     title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
@@ -2277,10 +2285,9 @@ on("change:atkcible", function () {
                     class="sheet-btRolbrut"
                 value="/em @{character_name} Attaque avec @{armeD_nom}:
 /roll @{armeD_comp_brut}
-/em Dégâts de @{character_name} avec @{arme1_nom} :
+Dégâts :
 /roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]
-/em Dégâts supplémentaires si relance :
-/roll 1d6!!"
+Dégâts supplémentaires si relance : [[1d6!!]]"
                     title="Attaque"
                     >&nbsp;</button>
                 <input type="text" class="sheet-compspe"  name="attr_armeD_nom" placeholder="Nom de l'arme" title="Nom de l'arme" />
@@ -2433,29 +2440,81 @@ on("change:atkcible", function () {
             </th>
         </tr>
         {{#relances}}
-            <tr>
-                <td style="text-align: right;">{{relances}}</td>
-                <td class="sheet-info" style="font-weight: bold;">succès+relances{{#attaque}} (attaque){{/attaque}}</td>
-            </tr>
+            {{#rollLess() relances 1}}
+                <tr>
+                    <td class="sheet-info" style="text-align: left;font-weight: bold;color: red;">{{#attaque}}Attaque : {{/attaque}}Échec</td>
+                    <td style="text-align: center;">{{relances}}</td>
+                </tr>
+            {{/rollLess() relances 1}}
+            {{#rollTotal() relances 1}}
+                <tr>
+                    <td class="sheet-info" style="text-align: left;font-weight: bold;color: green;">{{#attaque}}Attaque : {{/attaque}}Succès sans relance</td>
+                    <td style="text-align: center;">{{relances}}</td>
+                </tr>
+                {{#attaque}}
+                    {{#rollLess() degatsrel 1}}
+                        <tr>
+                            <td class="sheet-info" style="text-align: left;font-weight: bold;color: red;">Pas de Dégât</td>
+                            <td style="text-align: center;">{{degatsrel}}</td>
+                        </tr>
+                    {{/rollLess() degatsrel 1}}
+                    {{#rollTotal() degatsrel 1}}
+                        <tr>
+                            <td class="sheet-info" style="text-align: left;font-weight: bold;color: green;">Dégâts : Succès sans relance</td>
+                            <td style="text-align: center;">{{degatsrel}}</td>
+                        </tr>
+                    {{/rollTotal() degatsrel 1}}
+                    {{#rollGreater() degatsrel 1}}
+                        <tr>
+                            <td class="sheet-info" style="text-align: left;font-weight: bold;color: green;">Dégâts : Succès+relance(s)</td>
+                            <td style="text-align: center;">{{degatsrel}}</td>
+                        </tr>
+                    {{/rollGreater() degatsrel 1}}
+                {{/attaque}}
+            {{/rollTotal() relances 1}}
+            {{#rollGreater() relances 1}}
+                <tr>
+                    <td class="sheet-info" style="text-align: left;font-weight: bold;color: green;">{{#attaque}}Attaque : {{/attaque}}Succès+Relance(s)</td>
+                    <td style="text-align: center;">{{relances}}</td>
+                </tr>
+                {{#attaque}}
+                    {{#rollLess() degatsrelplus 1}}
+                        <tr>
+                            <td class="sheet-info" style="text-align: left;font-weight: bold;color: red;">Pas de Dégât</td>
+                            <td style="text-align: center;">{{degatsrelplus}}</td>
+                        </tr>
+                    {{/rollLess() degatsrelplus 1}}
+                    {{#rollTotal() degatsrelplus 1}}
+                        <tr>
+                            <td class="sheet-info" style="text-align: left;font-weight: bold;color: green;">Dégâts(+1d6) : Succès sans relance</td>
+                            <td style="text-align: center;">{{degatsrelplus}}</td>
+                        </tr>
+                    {{/rollTotal() degatsrelplus 1}}
+                    {{#rollGreater() degatsrelplus 1}}
+                        <tr>
+                            <td class="sheet-info" style="text-align: left;font-weight: bold;color: green;">Dégâts(+1d6) : Succès+relance(s)</td>
+                            <td style="text-align: center;">{{degatsrelplus}}</td>
+                        </tr>
+                    {{/rollGreater() degatsrelplus 1}}
+                {{/attaque}}
+            {{/rollGreater() relances 1}}
         {{/relances}}
         {{#jet}}
             <tr>
-                <td class="sheet-info" style="text-align: right;font-weight: bold;">Jet : </td>
+                <td class="sheet-info" style="text-align: left;font-weight: bold;">Jet : </td>
                 <td>{{jet}}</td>
             </tr>
+            {{#degats}}
+                <tr>
+                    <td class="sheet-info" style="text-align: left;font-weight: bold">Dégâts : </td>
+                    <td>{{degats}}</td>
+                </tr>
+                <tr>
+                    <td class="sheet-info" style="text-align: right;font-weight: bold">+1d6 si relance : </td>
+                    <td>{{degatsplus}}</td>
+                </tr>
+            {{/degats}}
         {{/jet}}
-        {{#degatsrel}}
-            <tr>
-                <td style="text-align: right;">{{degatsrel}}</td>
-                <td class="sheet-info" style="font-weight: bold;">succès+relances (dégâts)</td>
-            </tr>
-        {{/degatsrel}}
-        {{#degats}}
-            <tr>
-                <td class="sheet-info" style="text-align: right;font-weight: bold">Dégâts : </td>
-                <td>{{degats}}</td>
-            </tr>
-        {{/degats}}
         {{#pouvoir}}
             <tr>
                 <td style="text-align: right;">PP</td>
