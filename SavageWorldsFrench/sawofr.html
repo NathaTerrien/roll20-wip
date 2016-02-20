@@ -643,8 +643,10 @@ on('sheet:opened',function(){
                 var extra = 0;
                 var malusblessures = 0;
                 var malusfatigue = 0;
+                var chkPossessions = 1;
                 if (values.joker_de == "0d4") {
                     extra = 1;
+                    chkPossessions = 0;
                 }
                 if (values.blessures > 3) {
                     malusblessures = 3;
@@ -662,7 +664,7 @@ on('sheet:opened',function(){
                     arme3_comp_brut: "@{RollBast" + values.arme3_comp + "}",
                     extra: extra,
                     pnj: extra,
-                    chkPossessions: extra,
+                    chkPossessions: chkPossessions,
                     templateetat: extra,
                     malusblessures: malusblessures,
                     malusfatigue: malusfatigue
@@ -924,7 +926,6 @@ on("change:atkcible", function () {
     <input type="text" hidden readonly name="attr_cibleresistance" value="@{Target|resistance}" />
     <input type="text" hidden readonly name="attr_atknom" value="@{target|character_name}" />
 
-
     <input type="text" disabled hidden name="attr_RollBastCombat" value="{ 1d@{combat_de}!![Combat],@{joker_de}!![Joker]}kh1 + @{combat_bonus}[Bonus] - @{malusblessures}[Blessures] - @{malusfatigue}[Fatigue] - @{encombrement}[Encombrement] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollBastCombat" value="{ floor( ( { @{RollBastCombat} } - (@{cibleparade}[Parade] - 4 ) ) /4), 0d0 }kh1 " />
     <input type="text" disabled hidden name="attr_jetRollBastCombat" value="@{RollBastCombat}" />
@@ -1057,6 +1058,7 @@ on("change:atkcible", function () {
     <!-- onglets -->
     <input type="radio" name="attr_chkvie" value="0" class="sheet-onglmain" title="Feuille" checked /><span>Feuille</span>
     <input type="radio" name="attr_chkvie" value="1" class="sheet-onglconfig" title="Configuration" /><span>Configuration</span>
+    <span style="display:inline-block;width:150px;text-align: center;color: #888888;font-size: 0.9em;">v1.4 (19/02/2016)</span>
     <!-- Style FdP -->
     <input type="checkbox" name="attr_sheetDead" value="1" class="sheet-chkSheetDead" />
     <!-- paramètres cachés -->
@@ -2361,8 +2363,13 @@ Dégâts supplémentaires si relance : [[1d6!!]]"
     <div class="sheet-2colrow">
         <div class="sheet-col">
             <div class="sheet-conftitre">STYLE VISUEL</div>
-            <input type="checkbox" name="attr_pnj" value="1" class="sheet-chkSkill" title="Ce personnage est un PNJ. Pour en faire un Extra (et donc automatiquement un PNJ), sélectionnez le dé Joker à '- Extra (PNJ)'" /><span>Personnage Non Joueur</span>
-            <input type="checkbox" name="attr_chkPossessions" value="1" class="sheet-chkSkill" title="Afficher ou masquer la section 'Possessions' : richesse, équipement etc." checked /><span>Afficher les possessions</span>
+            <div class="sheet-row">
+                <input type="checkbox" name="attr_pnj" value="1" class="sheet-chkSkill" title="Ce personnage est un PNJ. Pour en faire un Extra (et donc automatiquement un PNJ), sélectionnez le dé Joker à '- Extra (PNJ)'" /><span>Personnage Non Joueur</span>
+                <input type="checkbox" name="attr_chkPossessions" value="1" class="sheet-chkSkill" title="Afficher ou masquer la section 'Possessions' : richesse, équipement etc." checked /><span>Afficher les possessions</span>
+            </div>
+            <div class="sheet-row">
+                <input type="checkbox" name="attr_sheetDead" value="1" class="sheet-chkSkill" title="Couleurs et logo Deadlands Reloaded" /><span>Deadlands Reloaded</span>
+           </div>
         </div>
         <div class="sheet-col">
             <div class="sheet-conftitre">JETS</div>

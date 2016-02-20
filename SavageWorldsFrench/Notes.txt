@@ -9,15 +9,13 @@
 - X +1d6!! dégâts si relance
 - X Amélioration de l'affichage des résultats de jets en mode succès+relances (indicateur d'échec, succès sans relance et succès+relances)
 ----------------------------------------------------------------------------------
-XX/02/16
-- Style visuel Deadlands
+19/02/16 v1.4 finale
+- X Style visuel Deadlands
 Couleurs DR :
 Foncé : #85582A
+Texte : #8B6434
 Moyen : #C39657
 Moyen clair : #EDCF98
 Clair : #F0DAAD
 Clair rosé : #FAE5B7
-
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main {
-    color: #85582A;
-}
+----------------------------------------------------------------------------------
