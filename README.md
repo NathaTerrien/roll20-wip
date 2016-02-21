@@ -1,22 +1,27 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-02-01.
+Updated 2016-02-21.
 ## Planned sheets (creation or enhancements)
+* [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
+* [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
-* [Dragon de Poche 2](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
+* [Dragon de Poche²](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 * Castles & Crusades, english
 
 ## WIP
 
+## Existing sheets
+
 ### Les Cahiers du Vastemonde
 [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CahiersDuVastemonde) Version 1.0
 
-## Existing sheets
+### Todo
 
 ### Chroniques Oubliées (french)
 
@@ -30,18 +35,17 @@ Updated 2016-02-01.
 ### Cypher System (english)
 
 #### Sources
-* [WIP](./CypherSystem/) Version 1.5 (2015-12-21)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2015-12-21)
+* [WIP](./CypherSystem/) Version 1.6
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2015-12-21)
 
 #### Todo
-* Add buttons to enlarge/reduce descriptions for special abilites, cyphers, artefacts etc.
 
 ### Cypher System (french)
 
 #### Sources
-* [WIP](./CypherSystemFrench/) Version 1.5 (2015-12-21)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2015-12-21)
+* [WIP](./CypherSystemFrench/) Version 1.6
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.6 (2016-02-21)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2015-12-21)
 
 #### Todo
@@ -77,9 +81,9 @@ Cf. english version
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 4.0 (2016-01-29)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 4.0 (2016-01-29)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)  Version 3.1 (2016-01-17)
+* [WIP](./PortesMonstresTresors/) Version 4.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.0 (2016-01-29)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.0 (2016-01-29)
 
 #### Todo
 * Ajouter un bouton d'agrandissement de la zone de description des sorts.
@@ -88,19 +92,11 @@ Cf. english version
 ### Savage Worlds French
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.4 alpha (2016-02-11)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
+* [WIP](./SavageWorldsFrench/) Version 1.4
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
 
 #### Todo
-* ~~Ajout d'un bouton d'affichage dans le chat de la description des pouvoirs.~~
-* ~~Ajout d'un bouton d'agrandissement/réduction des Atouts, Hadndicaps, Signes particuliers, Richesse, des notes d'Armes et Pouvoirs~~
-* ~~Styler l'état secoué, les blessures et la fatigue~~
-* ~~Choix entre cible et saisie de difficulté pour les attaques en mode de jet Succès+Relances~~
-* ~~Choix d'affichage des jets entre template de succès+relances, template de résultats de jet et "jets bruts" (pas de template)~~
-* Initialiser sur 1ière ouverture les compétences d'arme pour jets bruts
-* ~~Choix d'afficher ou non les états (blessure, fatigue, secoué) du personnage dans le template de jet~~
-* Ajouter une option de style pour Deadlands Reloaded et les spécifités de règle (?)
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
 
