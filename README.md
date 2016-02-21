@@ -4,6 +4,7 @@ Personal developments and works in progress for the Roll20 character sheets and 
 Updated 2016-02-21.
 ## Planned sheets (creation or enhancements)
 * [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
+* [Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
 * [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * [Dragon de Poche²](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
