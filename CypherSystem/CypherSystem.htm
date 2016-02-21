@@ -11,7 +11,7 @@
 <input type="checkbox" name="attr_sheetUseAsset" value="1" class="sheet-chkUseAsset" title="Ask for/Use assets in attributes, skills and attacks rolls"  /><span>Assets</span>
 <input type="checkbox" name="attr_sheetUseBonus" value="1" class="sheet-chkUseBonus" title="Ask for/Use roll bonus in attributes, skills and attacks rolls"  /><span>bonus</span>
 <input type="checkbox" name="attr_sheetUseCost" value="1" class="sheet-chkUseCost" title="Ask for/Use cost in attributes and skills rolls"  /><span>Costs</span>
-<div style="display:inline-block;font-size:11px;color: #888888;text-align:left;margin-left:0px;">- v1.6 (2016-02-20)</div>
+<div style="display:inline-block;font-size:11px;color: #888888;text-align:left;margin-left:0px;">- v1.6 (2016-02-21)</div>
 <script type="text/worker">
     on("change:sheetusebonus", function() {
         getAttrs(["sheetUseBonus"], function(values) {
@@ -621,6 +621,7 @@
                                     value="&{template:cyphBasicRoll} {{charid=@{character_id}}} {{stat=intellect}} {{diceRoll=[[1d20cs>17cf1]]}} {{attribute=@{atkintelname}}} {{attrEdge=@{intellectedge}}} {{difficulty=[[@{rollQstDiff}]]}} {{effortRoll=[[@{rollQstRollEff}]]}} {{assets=[[@{rollQstAsset}]]}} {{bonusToRoll=[[@{rollQstBonus}]]}} {{statExpense=[[@{atkintelcost}]]}} {{effortDmg=[[@{rollQstRollDmg}]]}} {{targNum=[[@{targNumQst}]]}} {{finalDiff=[[@{rollQstDiff}-(1*@{rollQstAsset})-(1*@{rollQstRollEff})-(1*@{atkintellvl})-(1*@{atkintelmod})]]}} {{targNumRoll=[[(3*@{rollQstDiff})-(3*@{rollQstAsset})-(3*@{rollQstRollEff})-(3*@{atkintellvl})-(3*@{atkintelmod})-(1*@{rollQstBonus})]]}} {{totalCost=[[@{effortCostQst}+@{atkintelcost}-@{intellectedge}]]}} {{effortCost=[[@{effortCostQst}]]}} {{bonusDmg=[[@{atkinteldmg}+@{rollQstRollDmg}*3]]}} {{skilled=[[@{atkintellvl}]]}} {{atkmod=[[@{atkintelmod}]]}}"
                                     name="roll_macroIntelAttack"></button>
                                 <input type="text" style="width: 305px;font-weight: bold;" name="attr_atkintelname" title="Attack: weapon or power/ability name" placeholder="Attack" />
+                            </div>    
                             <div class="sheet-text2" style="text-align: right;margin-bottom: 2px;">
                                 <button type="roll" name="ShowIntelAttack" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{atkintelname}}} {{type=Attack}}  {{description=Mod:@{atkintelmod}, Damage:@{atkinteldmg}, Skilled:@{atkintellvl}, Cost:@{atkintelcost}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                                 Mod:
@@ -761,13 +762,13 @@
                             </tr>
                         </table>
                         <fieldset class="repeating_cypher-list">
-                            <div class="sheet-text2">
+                            <div class="sheet-text2" style="text-align: left;">
                                 <button type="roll" name="ShowCypher" class="sheet-btDesc" title="Show in chat" value="&{template:cyphDesc} {{name=@{cypher-name}}} {{type=Cypher}} {{level=@{cypher-level}}} {{description=@{cypher-description}}}"><img src="https://s3.amazonaws.com/files.d20.io/images/13924213/_SbpEpVjj9V7Dow_GKKYhQ/med.png?1448153028" style="width: 16px;height:16px;"/></button>
                                 <input type="text" style="width: 235px;font-weight: bold;" name="attr_cypher-name" title="Name of the cypher" placeholder="Cypher" />
                                 Lvl&nbsp;
                                 <input type="number" style="width: 40px;" name="attr_cypher-level" title="Level of the Cypher" min="0" value="1" />
                             </div>
-                            <div style="text-align: right;">
+                            <div class="sheet-text2" style="text-align: right;margin-left:2px;margin-top: 1px; margin-bottom: 2px;">
                                 <input type="checkbox" class="sheet-dispcheck" name="attr_cypher-chkdesc" value="1" title="Enlarge/reduce description" /><span>s</span>
                                 <textarea class="sheet-textdesc" name="attr_cypher-description" style="width: 295px;" title="Description of the Cypher" placeholder="Description"></textarea>
                             </div>
@@ -786,7 +787,7 @@
                                 Lvl&nbsp;
                                 <input type="number" style="width: 40px;" name="attr_artifact-level" title="Level" min="0" max="99" value="1" />
                             </div>
-                            <div class="sheet-text2" style="text-align: right;margin-top: 2px;">
+                            <div class="sheet-text2" style="text-align: right;margin-top: 1px;">
                                 <button type="roll" class="sheet-basicbt" name="roll_artifactDepletion" title="Depletion roll"
                                     value="&{template:cyphRecovery} {{depletionRoll=[[@{artdepdice}cf<@{artdepthreshold}]]}} {{dice=@{artdepdice}}} {{threshold=[[@{artdepthreshold}]]}} {{artifact=@{artifact-name}}}"></button>
                                  &nbsp;Depletion &nbsp;
@@ -801,7 +802,7 @@
                                     <option value="1d100">1d100</option>
                                 </select>
                             </div>
-                            <div style="text-align: right;">
+                            <div class="sheet-text2" style="text-align: right;margin-left:2px; margin-bottom: 2px;">
                                 <input type="checkbox" class="sheet-dispcheck" name="attr_artifactchkdesc" value="1" title="Enlarge/reduce description" /><span>s</span>
                                 <textarea name="attr_artifact-description" class="sheet-textdesc" style="width: 295px;" title="Description" placeholder="Description"></textarea>
                             </div>
@@ -1280,6 +1281,6 @@
         {{#use}}
             <tr><td><span>Use</span></td><td>{{use}}</td></tr>
         {{/use}}
-        <tr><td COLSPAN="2">{{description}}</th></tr>
+        <tr><td COLSPAN="2"><div class="jetdesc">{{description}}</div></th></tr>
     </table>
 </rolltemplate><!-- End template cyphDesc -->

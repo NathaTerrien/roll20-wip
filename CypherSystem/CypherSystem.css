@@ -645,20 +645,6 @@ input[type=radio].sheet-styleTheStrange:checked ~ div.sheet-main  img.sheet-game
     display: block;
 }
 /************ DESCRIPTION TAILLE VARIABLE **************************/
-textarea{
-    box-shadow: none;
-    text-shadow: none;
-    padding: 1px;
-    margin: 2px;
-}
-textarea.sheet-textdesc{
-    font-size: 0.9em;
-    height: 22px;
-    resize: none;
-}
-input[type="checkbox"].sheet-dispcheck:checked ~ textarea.sheet-textdesc{
-    height: 140px;
-}
 input[type="checkbox"].sheet-dispcheck{
     width: 18px;
     height: 18px;
@@ -676,7 +662,7 @@ input[type="checkbox"].sheet-dispcheck + span{
     z-index: 1;
     font-family: pictos;
     color: #888888;
-    font-size: 1.2em;
+    font-size: 15px;
 }
 input[type="checkbox"].sheet-dispcheck:hover + span{
     color: black;
@@ -684,6 +670,20 @@ input[type="checkbox"].sheet-dispcheck:hover + span{
 input[type="checkbox"].sheet-dispcheck:checked + span{
     font-weight: bold;
     color: black;
+}
+textarea{
+    box-shadow: none;
+    text-shadow: none;
+    padding: 1px;
+    margin: 2px;
+}
+textarea.sheet-textdesc{
+    height: 22px;
+    resize: none;
+    font-size: 12px;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ textarea.sheet-textdesc{
+    height: 140px;
 }
 /* Roll templates  */
 .sheet-rolltemplate-cyphMsg table {
