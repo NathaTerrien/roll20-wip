@@ -737,10 +737,10 @@ on("change:repeating_items:itemweight", function() {
 		<input type="number" name="attr_level" value="1">
 	</div>
 	<div class="sheet-header">
-		<div class="sheet-section-name">XP</div>
-		<input type="number" name="attr_xp_max" value="[[@{level}+7]]" disabled="true">
+		<div class="sheet-section-name">PX</div>
+		<input type="number" name="attr_xp_max" value="[[@{level}+7]]" title="Points d'Expérience pour atteindre le niveau suivant" disabled="true">
 		<span>/</span>	
-		<input type="number" name="attr_xp" value="0">
+		<input type="number" name="attr_xp" title="Points d'Expérience courants" value="0">
 	</div>
 	<div class="sheet-header">
 		<input type="checkbox" class="sheet-toggle sheet-left" title="Montrer/Cacher les PV de Base" name="attr_hp-show" />
