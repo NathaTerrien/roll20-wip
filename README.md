@@ -1,10 +1,10 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-02-21.
+Updated 2016-02-22.
+
 ## Planned sheets (creation or enhancements)
 * [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
-* [Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
 * [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * [Dragon de Poche²](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
@@ -13,9 +13,11 @@ Updated 2016-02-21.
 
 ## WIP
 
+None at the moment.
+
 ## Existing sheets
 
-### Les Cahiers du Vastemonde
+### Les Cahiers du Vastemonde (french)
 [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
 
 #### Sources
@@ -52,12 +54,48 @@ Updated 2016-02-21.
 #### Todo
 Cf. english version
 
+### Dungen World (french)
+[Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
+
+#### Sources
+* [WIP](./DungeonWorldFrench/) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.0
+* Official
+
+#### Todo
+* Mise en page :
+  * Rendre la fiche plus compacte
+  * Styliser les cases à cocher d'affichage des descriptions
+  * Afficher les valeurs de base sans (PV, Charge ...) sans avoir à cliquer sur une case à cocher
+  * Ajout du logo
+* Actions
+  * Réorganiser les Actions par onglet : Base/Spéciale/Classes
+  * Pour les actions de Base et Spéciales : les ajouter "en dur" (avec jets intégrés) et la possibilité d'en ajouter dynamiquement (pour les hacks)
+  * Jets paramétrables pour les actions dynamiques : choix de la carac, bonus/malus éventuel, "message" à afficher
+* Jets
+  * Gérer le malus d'armure aux jets
+  * Modificateur circonstantiel sur les jets ?
+  * Template pour les jets (perso, types de jet/action, valeur/réussite, description ... )
+* Equipements : 
+  * Ajouter une quantité / un nombre d'utilisations par équipemement
+  * Ajouter une zone de description différente des marqueurs
+* Informations manquantes : 
+  * divinité
+  * compagnon animal
+  * etc.
+* Automatismes : 
+  * choix de classes par liste (+ choix "libre" pour hacks)
+  * Prérenseignement (selon choix classe) : 
+    * des valeurs de base
+    * autres ?
+
 ### INS/MV 5E (french)
 [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
 
 #### Sources
 * [WIP](./INS-MV_5E/) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
 
 #### Todo
 
@@ -82,12 +120,12 @@ Cf. english version
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 4.0
+* [WIP](./PortesMonstresTresors/) Version 4.1
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.0 (2016-01-29)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.0 (2016-01-29)
 
 #### Todo
-* Ajouter un bouton d'agrandissement de la zone de description des sorts.
+* ~~Ajouter un bouton d'agrandissement de la zone de description des sorts.~~
 * Calcul de la richesse totale
 
 ### Savage Worlds French
