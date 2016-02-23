@@ -1,19 +1,16 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-02-22.
+Updated 2016-02-23.
 
-## Planned sheets (creation or enhancements)
+## Considered sheets (creation or enhancements)
 * [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
 * [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * [Dragon de Poche²](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
+* Stars Without Number (french)
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 * Castles & Crusades, english
-
-## WIP
-
-None at the moment.
 
 ## Existing sheets
 
@@ -23,6 +20,7 @@ None at the moment.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CahiersDuVastemonde) Version 1.0
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CahiersDuVastemonde) Version 1.0
 
 ### Todo
 
@@ -40,7 +38,7 @@ None at the moment.
 #### Sources
 * [WIP](./CypherSystem/) Version 1.6
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.5 (2015-12-21)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
 
 #### Todo
 
@@ -49,7 +47,7 @@ None at the moment.
 #### Sources
 * [WIP](./CypherSystemFrench/) Version 1.6
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.6 (2016-02-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.5 (2015-12-21)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.6 (2016-02-21)
 
 #### Todo
 Cf. english version
@@ -59,8 +57,8 @@ Cf. english version
 
 #### Sources
 * [WIP](./DungeonWorldFrench/) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.0
-* Official
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.0 (2016-02-22)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.0 (2016-02-22)
 
 #### Todo
 * Mise en page :
@@ -121,19 +119,18 @@ Cf. english version
 
 #### Sources
 * [WIP](./PortesMonstresTresors/) Version 4.1
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.0 (2016-01-29)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.0 (2016-01-29)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.1 (2016-02-22)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.1 (2016-02-22)
 
 #### Todo
-* ~~Ajouter un bouton d'agrandissement de la zone de description des sorts.~~
 * Calcul de la richesse totale
 
-### Savage Worlds French
+### Savage Worlds / Deadlands Reloaded (french)
 
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 1.4
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.2 (2015-12-22)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
@@ -158,6 +155,7 @@ Cf. english version
 
 #### Todo
 * Ajouter les descriptifs VF en infobulles (cf. fiche VO)
+* Script API pour template de jet
 
 ### Trail of Cthulhu (french)
 
@@ -174,8 +172,7 @@ Cf. english version
 ###Cypher System
 
 #### Sources
-* [WIP]()
-* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
 
 #### Todo
@@ -184,16 +181,14 @@ Cf. english version
 ### Numenéra
 
 #### Sources
-* [WIP]()
-* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
 
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
 ###Portes Monstres Tresors
-* [WIP]()
-* [Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
 
 #### Todo
