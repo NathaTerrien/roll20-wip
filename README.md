@@ -118,7 +118,7 @@ Cf. english version
 ### Portes, Monstres, Trésors (french)
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 4.1
+* [WIP](./PortesMonstresTresors/) Version 4.2
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.1 (2016-02-22)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.1 (2016-02-22)
 
@@ -128,11 +128,12 @@ Cf. english version
 ### Savage Worlds / Deadlands Reloaded (french)
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.4
+* [WIP](./SavageWorldsFrench/) Version 1.5
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
 
 #### Todo
+* Correction de l'affichage des zones de description sous Firefox
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
 
