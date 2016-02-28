@@ -939,23 +939,71 @@ on("change:repeating_items:itemweight", function() {
 </div>
 
 <div class="sheet-col-right">
-    <!-- ===== MOVES ===== -->
+    <!-- ===== ACTIONS ===== -->
     <div class="sheet-header" style="width: 100%;">
         <div class="sheet-section-name" style="width: 100%;">Actions</div>
     </div>
-    <div class="sheet-section-moves">
+    <input type="radio" name="attr_onglaction" value="0" class="sheet-onglbase" title="Actions de Base" checked /><span>Base</span>
+    <input type="radio" name="attr_onglaction" value="1" class="sheet-onglspecial" title="Actions Spéciales" /><span>Spéciales</span>
+    <input type="radio" name="attr_onglaction" value="2" class="sheet-onglclasse" title="Actions de Départ de Classe" /><span>Départ</span>
+    <input type="radio" name="attr_onglaction" value="3" class="sheet-onglavance" title="Actions Avancées de Classe" checked /><span>Avancées</span>
+    <input type="radio" name="attr_onglaction" value="4" class="sheet-onglsort" title="Sorts" /><span>Sorts</span>
+    
+    <!-- ===== BASE ===== -->
+    <div class="sheet-onglbase">
+        
+    </div>
+    
+    <!-- ===== SPECIALES ===== -->
+    <div class="sheet-onglspecial">
+        
+    </div>
+    
+    <!-- ===== CLASSE ===== -->
+    <div class="sheet-onglclasse">
+        
+    </div>
+    
+    <!-- ===== AVANCEES ===== -->
+    <div class="sheet-onglavance">
         <fieldset class="repeating_moves">
-            <input type="text" name="attr_movename" style="font-weight: bold;" placeholder="Nom de l'action">
-            <input type="checkbox" class="sheet-toggle" title="Afficher/Masquer la description" name="attr_move-show" value="1" />
-            <textarea name="attr_movebody" class="sheet-hide" placeholder="Description de l'Action"></textarea>
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" value="/em @{character_name} fait un jet de @{movename} : [[2d6+@{movemod}+(@{movebonus})]]"></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_move-show" value="1" /><span>y</span>
+                <input type="text" name="attr_movename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span>Desc : </span>
+                        <textarea name="attr_movebody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span>Jet : </span>
+                        <SELECT name="attr_movemod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_movebonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span>Sur 10+ : </span>
+                        <textarea name="attr_movesucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span>Sur 7-9 : </span>
+                        <textarea name="attr_movepartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel"></textarea>
+                    </div>
+                </div>                
+            </div>
         </fieldset>
     </div>
 
-    <!-- ===== SPELLS ===== -->
-    <div class="sheet-header" style="width: 100%;">
-        <div class="sheet-section-name" style="width: 100%;">Sorts</div>
-    </div>
-    <div class="sheet-section-spells">
+    <!-- ===== SORTS ===== -->
+    <div class="sheet-onglsort">
         <fieldset class="repeating_spells sheet-section-spells">
             <input type="text" name="attr_spellname" style="font-weight: bold;" placeholder="Nom du Sort">
             <input type="checkbox" class="sheet-toggle" title="Afficher/Masquer la description du sort" name="attr_spell-show" value="1" />

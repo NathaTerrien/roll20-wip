@@ -121,7 +121,7 @@ input[read-only] {
 .sheet-header input[type="number"]:read-only {
 	width: 2em;
 }
-.sheet-header button[type="roll"] {
+button[type="roll"] {
 	height: 28px;
 	width: 28px;
 	margin: 2px;
@@ -335,8 +335,166 @@ input[read-only] {
 .sheet-section-spells textarea {
 	resize: vertical;
 }
-.sheet-section-moves input[name="attr_movename"],
-.sheet-section-spells input[name="attr_spellname"] {
-	width: 95%;
-}
 
+/* ===== Check montrer/cacher ===== */
+input[type="checkbox"].sheet-dispcheck{
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+    opacity: 0;
+    z-index: 2;
+    margin: 0;
+}
+input[type="checkbox"].sheet-dispcheck + span{
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -20px;
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+    z-index: 1;
+    font-family: pictos;
+    color: #888888;
+    font-size: 20px;
+    line-height: 20px;
+}
+input[type="checkbox"].sheet-dispcheck:hover + span{
+    color: #CD071E;
+}
+input[type="checkbox"].sheet-dispcheck:checked + span{
+    font-weight: bold;
+    color: black;
+}
+div.sheet-dispcheck {
+	width: 100%;
+	display: none;
+}
+input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-dispcheck {
+	display: block;
+}
+/* ==== Action ==== */
+div.sheet-action {
+	width: 100%;
+    padding: 0;
+    margin: 0;
+    padding: 2px 0px 2px 0px; 
+    border-bottom : 1px dashed black;	
+}
+div.sheet-actionligne{
+	display: block;
+	width: 100%;
+}
+div.sheet-actionligne span{
+	width: 60px;
+	display: inline-block;
+	text-align: right;
+	color: gray;
+	font-style: italic;
+}
+select.sheet-action{
+    padding: 0;
+    height: 25px;
+}
+input[type="number"].sheet-action{
+	padding: 2px;
+	height: 25px;
+}
+input[type="text"].sheet-actionname {
+	font-weight: bold;
+	width: 450px;
+	height: 25px;
+}
+textarea.sheet-actiondesc {
+	resize: vertical;
+	width: 450px;
+	display: inline-block;
+}
+/* ===== Onglets ===== */
+div.sheet-onglbase,
+div.sheet-onglspecial,
+div.sheet-onglclasse,
+div.sheet-onglavance,
+div.sheet-onglsort{
+    display: none;
+    width: 100%;
+    text-align: left;
+    vertical-align: middle;
+    margin: 1px 0px 1px 0px;
+    border: 1px solid black;
+    padding: 3px;
+    z-index: 0;
+}
+input[type="radio"].sheet-onglbase,
+input[type="radio"].sheet-onglspecial,
+input[type="radio"].sheet-onglclasse,
+input[type="radio"].sheet-onglavance,
+input[type="radio"].sheet-onglsort{
+    margin: 0;
+    margin-top: -10px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 90px;
+    height: 20px;
+    z-index: 2;
+}
+input[type="radio"].sheet-onglbase + span,
+input[type="radio"].sheet-onglspecial + span,
+input[type="radio"].sheet-onglclasse + span,
+input[type="radio"].sheet-onglavance + span,
+input[type="radio"].sheet-onglsort + span{
+    color: #666666;
+    background-color: #BBBBBB;
+    font-size:15px;
+    text-align:center;
+    display: inline-block;
+    width: 90px;
+    height: 20px;
+    margin: 0;
+    margin-left: -90px;
+    margin-right: -4px;
+    padding:0;
+    margin-bottom: -2px;
+    padding-top: 5px;
+    font-size: 0.9em;
+    border-style: solid;
+    border-width: 1px;
+    border-left-color: #666666;
+    border-top-color: #666666;
+    border-right-color: #666666;
+    border-bottom-color: black;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 15px;
+    z-index: 1;
+}
+input[type="radio"].sheet-onglbase:checked + span,
+input[type="radio"].sheet-onglspecial:checked + span,
+input[type="radio"].sheet-onglclasse:checked + span,
+input[type="radio"].sheet-onglavance:checked + span,
+input[type="radio"].sheet-onglsort:checked + span {
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border-left-color: black;
+    border-top-color: black;
+    border-right-color: black;
+    border-bottom-color: white;
+}
+input[type="radio"].sheet-onglbase:checked ~ div.sheet-onglbase{
+    display: block;
+}
+input[type="radio"].sheet-onglspecial:checked ~ div.sheet-onglspecial{
+    display: block;
+}
+input[type="radio"].sheet-onglclasse:checked ~ div.sheet-onglclasse{
+    display: block;
+}
+input[type="radio"].sheet-onglavance:checked ~ div.sheet-onglavance{
+    display: block;
+}
+input[type="radio"].sheet-onglsort:checked ~ div.sheet-onglsort{
+    display: block;
+}

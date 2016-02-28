@@ -64,10 +64,7 @@ Cf. english version
 * Mise en page :
   * Rendre la fiche plus compacte
   * Styliser les cases à cocher d'affichage des descriptions
-  * Afficher les valeurs de base sans (PV, Charge ...) sans avoir à cliquer sur une case à cocher
-  * Ajout du logo
 * Actions
-  * Réorganiser les Actions par onglet : Base/Spéciale/Classes
   * Pour les actions de Base et Spéciales : les ajouter "en dur" (avec jets intégrés) et la possibilité d'en ajouter dynamiquement (pour les hacks)
   * Jets paramétrables pour les actions dynamiques : choix de la carac, bonus/malus éventuel, "message" à afficher
 * Jets
@@ -75,7 +72,6 @@ Cf. english version
   * Modificateur circonstantiel sur les jets ?
   * Template pour les jets (perso, types de jet/action, valeur/réussite, description ... )
 * Equipements : 
-  * Ajouter une quantité / un nombre d'utilisations par équipemement
   * Ajouter une zone de description différente des marqueurs
 * Informations manquantes : 
   * divinité
