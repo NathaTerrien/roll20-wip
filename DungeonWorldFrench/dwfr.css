@@ -166,23 +166,23 @@ input[read-only] {
 	vertical-align: middle;
 }
 .sheet-topbar input {
-	height: 60px;
-	padding: 4px;
+	height: 45px;
+	padding: 3px;
 	margin: 0;
-	font-size: 30px;
+	font-size: 24px;
 	font-weight: bold;
-	line-height: 50px;
+	line-height: 36px;
 }
 
 .sheet-topbar .sheet-field-name {
-	width: 350px;
+	width: 400px;
 	text-align: center;
 	background-color: white;
 	color: black;
 }
 
 .sheet-topbar .sheet-field-class {
-	width: 250px;
+	width: 200px;
 	text-align: center;
 	background-color: black;
 	color: white;
@@ -289,7 +289,36 @@ input[read-only] {
 	bottom: 2px;
 	z-index: 1;
 }
-
+/* ==== Matériel ==== */
+.sheet-gear {
+    width:100%;
+    padding: 0;
+    margin: 0;
+    padding: 2px 0px 2px 0px; 
+    border-bottom : 1px dashed black;
+}
+.sheet-section-gear input {
+    height: 25px;
+}
+.sheet-section-gear span {
+    color: gray;
+    font-size: 12px;
+}
+.sheet-section-gear input[name="attr_itemname"] {
+    width: 255px;    
+}
+.sheet-section-gear input[name="attr_itemweight"] {
+    width: 30px;
+    padding: 0;
+}
+.sheet-section-gear input[name="attr_itemuse"],
+.sheet-section-gear input[name="attr_itemuse_max"]{
+    width: 34px;
+    padding: 0;
+}
+.sheet-section-gear input[name="attr_itemtags"]{
+    width: 216px;
+}
 
 /* ===== UTILITY ===== */
 .sheet-right {
@@ -310,10 +339,3 @@ input[read-only] {
 	width: 95%;
 }
 
-.sheet-section-gear input[name="attr_itemtags"] {
-	width: 85%;
-}
-
-.sheet-section-gear input[name="attr_itemweight"] {
-	width: 15%;
-}

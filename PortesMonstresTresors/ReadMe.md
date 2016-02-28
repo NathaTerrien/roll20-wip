@@ -44,7 +44,7 @@ Par défaut, le personnage créé est attribué au joueur qui a cliqué dans le 
 
 # Notes de version
 
-##v4.2 (xx Février 2016).
+##v4.2 (28 Février 2016).
 * Correction de l'infobulle de la case à cocher "R" dans les sorts : il s'agissait de "Sort Réversible"
 * Correction de l'affichage des sorts avec Firefox
 

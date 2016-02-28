@@ -7,6 +7,12 @@ Feuille de Personnage en français pour [Dungeon World](http://dungeonworld-fr.b
 
 # Notes de version
 
+##v1.1 (2016-02-28)
+* Ajout du logo
+* Affichage légèrement plus compact
+* Ajout du nombre d'utilisations (courante et maximum) dans le matériel
+* Affichage direct de la base de PV et de la base de Charge 
+
 ##v1.0 (2016-02-21)
 Création de la fiche.
 
