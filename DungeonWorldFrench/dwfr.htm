@@ -950,16 +950,19 @@ on("change:repeating_items:itemweight", function() {
             <textarea name="attr_movebody" class="sheet-hide" placeholder="Description de l'Action"></textarea>
         </fieldset>
     </div>
+
+    <!-- ===== SPELLS ===== -->
+    <div class="sheet-header" style="width: 100%;">
+        <div class="sheet-section-name" style="width: 100%;">Sorts</div>
+    </div>
+    <div class="sheet-section-spells">
+        <fieldset class="repeating_spells sheet-section-spells">
+            <input type="text" name="attr_spellname" style="font-weight: bold;" placeholder="Nom du Sort">
+            <input type="checkbox" class="sheet-toggle" title="Afficher/Masquer la description du sort" name="attr_spell-show" value="1" />
+            <textarea name="attr_spellbody" class="sheet-hide" placeholder="Description du Sort"></textarea>
+        </fieldset>
+    </div>
+
 </div>
 
-<!-- ===== SPELLS ===== -->
-<div class="sheet-header" style="width: 100%;">
-    <div class="sheet-section-name" style="width: 100%;">Sorts</div>
-</div>
-<div class="sheet-section-spells">
-    <fieldset class="repeating_spells sheet-section-spells">
-        <input type="text" name="attr_spellname" style="font-weight: bold;" placeholder="Nom du Sort">
-        <input type="checkbox" class="sheet-toggle" title="Afficher/Masquer la description du sort" name="attr_spell-show" value="1" />
-        <textarea name="attr_spellbody" class="sheet-hide" placeholder="Description du Sort"></textarea>
-    </fieldset>
-</div>
+
