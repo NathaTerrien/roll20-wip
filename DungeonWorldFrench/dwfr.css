@@ -498,3 +498,96 @@ input[type="radio"].sheet-onglavance:checked ~ div.sheet-onglavance{
 input[type="radio"].sheet-onglsort:checked ~ div.sheet-onglsort{
     display: block;
 }
+/* ==== TEMPLATES ==== */
+.sheet-rolltemplate-jet table{
+    background: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    width: 100%;
+    padding: 2px;
+    font-family: 'Verdana';
+    color: black;
+    font-size: 0.9em;
+}
+.sheet-rolltemplate-jet tr{
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.sheet-rolltemplate-jet th{
+    padding: 3px;
+    font-size: 1.1em;
+    text-align: center;
+    font-family: 'Contrail One';
+    color: white;
+    background: black;
+}
+.sheet-rolltemplate-jet td{
+    padding: 2px;
+    text-align: left;
+}
+.sheet-rolltemplate-jet td.sheet-tcat{
+    color: black;
+    font-style: italic;
+    text-align: right;
+    border-right:  1px dashed black;
+}
+.sheet-rolltemplate-jet .sheet-subheader{
+    font-style: italic;
+    text-align: right;
+    border-bottom: 1px dashed black;
+    color: black;
+}
+.sheet-rolltemplate-jet .sheet-desctitre{
+    font-style: italic;
+    text-align: right;
+    border-bottom: 1px dashed black;
+    border-top: 1px solid black;
+    color: black;
+}
+.sheet-rolltemplate-jet div.sheet-jetdesc{
+    font-family: 'Verdana', serif;
+    font-size: 0.9em;
+    max-height: 140px;
+    overflow-y: auto;
+}
+.sheet-rolltemplate-jet .inlinerollresult{
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-jet .inlinerollresult.fullcrit{
+    color: #3FB315;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-jet .inlinerollresult.fullfail{
+    color: #B31515;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+.sheet-rolltemplate-jet .inlinerollresult.importantroll{
+    color: #4A57ED;
+    font-size: 1em;
+    background-color: transparent;
+    border-width: 0px 0px 0px 0px;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    border-bottom-style: none;
+}

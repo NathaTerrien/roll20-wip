@@ -727,7 +727,9 @@ on("change:repeating_items:itemweight", function() {
     <div class="sheet-header">
         <div class="sheet-section-name">Dégâts</div>
         <input type="text" style="font-size: 14px;width: 60px;" name="attr_dtype" placeholder="ex:d6+1" title="Saisissez le dégâts de votre classe (ex : d6), éventuellement avec un bonus (ex: d8+2)" />
-        <button type='roll' name='roll_RollDamage' title="Jet de dégâts" value='/me Jet de dégâts de @{character_name} : [[1@{dtype}]].'></button>
+        <button type='roll' name='roll_RollDamage' title="Jet de dégâts" 
+            value="&{template:jet} {{perso=@{character_name}}} {{name=Dégâts}} {{degats=[[1@{dtype}]]}}"
+        ></button>
     </div>
     <div class="sheet-header">
         <div class="sheet-section-name">Armure</div>
@@ -771,7 +773,9 @@ on("change:repeating_items:itemweight", function() {
 
         <div class="sheet-row-3">
             <input type="number" name="attr_strmod" value="0" title="Ajustement" readonly />
-            <button type="roll" name="roll_TestStrength" value="/me Jet de FOR de @{character_name} : [[2d6 + @{strmod}]]."></button>
+            <button type="roll" name="Force" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=Force}} {{subtags=Action}} {{jet=[[2d6 + @{strmod}]]}}"
+            ></button>
         </div>
 
         <label class="sheet-bottom" for="attr_strmod">FOR</label>
@@ -792,7 +796,9 @@ on("change:repeating_items:itemweight", function() {
 
         <div class="sheet-row-3">
             <input type="number" name="attr_dexmod" value="0" title="Ajustement" readonly />
-            <button type="roll" name="roll_TestDexterity" value="/me Jet de DEX de @{character_name} : [[2d6 + @{dexmod}]]."></button>
+            <button type="roll" name="Dexterite" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=Dextérité}} {{subtags=Action}} {{jet=[[2d6 + @{dexmod}]]}}"
+            ></button>
         </div>
 
         <label class="sheet-bottom" for="attr_dexmod">DEX</label>
@@ -813,7 +819,9 @@ on("change:repeating_items:itemweight", function() {
 
         <div class="sheet-row-3">
             <input type="number" name="attr_conmod" value="0" readonly title="Ajustement" />
-            <button type="roll" name="roll_TestConstitution" value="/me Jet de CON de @{character_name} : [[2d6 + @{conmod}]]."></button>
+            <button type="roll" name="Constitution" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=Constitution}} {{subtags=Action}} {{jet=[[2d6 + @{conmod}]]}}"
+            ></button>
         </div>
 
         <label class="sheet-bottom" for="attr_conmod">CON</label>
@@ -834,7 +842,9 @@ on("change:repeating_items:itemweight", function() {
 
         <div class="sheet-row-3">
             <input type="number" name="attr_intmod" value="0" readonly title="Ajustement" />
-            <button type="roll" name="roll_TestIntelligence" value="/me Jet de INT de @{character_name} : [[2d6 + @{intmod}]]."></button>
+            <button type="roll" name="Intelligence" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=Intelligence}} {{subtags=Action}} {{jet=[[2d6 + @{intmod}]]}}"
+            ></button>
         </div>
 
         <label class="sheet-bottom" for="attr_intmod">INT</label>
@@ -855,7 +865,9 @@ on("change:repeating_items:itemweight", function() {
 
         <div class="sheet-row-3">
             <input type="number" name="attr_wismod" value="0" readonly title="Ajustement" />
-            <button type="roll" name="roll_TestWisdom" value="/me Jet de SAG de @{character_name} : [[2d6 + @{wismod}]]."></button>
+            <button type="roll" name="Sagesse" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=Sagesse}} {{subtags=Action}} {{jet=[[2d6 + @{wismod}]]}}"
+            ></button>
         </div>
 
         <label class="sheet-bottom" for="attr_wismod">SAG</label>
@@ -876,7 +888,9 @@ on("change:repeating_items:itemweight", function() {
 
         <div class="sheet-row-3">
             <input type="number" name="attr_chamod" value="0" readonly title="Ajustement">
-            <button type="roll" name="roll_TestCharisma" value="/me Jet de CHA de @{character_name} : [[2d6 + @{chamod}]]."></button>
+            <button type="roll" name="Charisme" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=Charisme}} {{subtags=Action}} {{jet=[[2d6 + @{chamod}]]}}"
+            ></button>
         </div>
 
         <label class="sheet-bottom" for="attr_chamod">CHA</label>
@@ -951,7 +965,44 @@ on("change:repeating_items:itemweight", function() {
     
     <!-- ===== BASE ===== -->
     <div class="sheet-onglbase">
-        
+        <!-- ===== TAILLER EN PIECES ===== -->
+        <div class="sheet-action">
+            <button type="roll" class="sheet-btAction" name="TaillerEnPieces" 
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{taillename}}} {{subtags=Action de Base}} {{jet=[[2d6+@{taillemod}+(@{taillebonus})]]}} {{succes=@{taillesucces}}} {{partiel=@{taillepartiel}}} {{degatsaction=[[1@{dtype}]]}}"
+            ></button>
+            <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_taille-show" value="1" /><span>y</span>
+            <input type="text" name="attr_taillename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Tailler En Pièces" />
+            <div class="sheet-dispcheck">
+                <div class="sheet-actionligne">
+                    <span>Desc : </span>
+                    <textarea name="attr_taillebody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous attaquez un ennemi en mêlée, jetez 2d6+FOR.</textarea>
+                </div>
+                <div class="sheet-actionligne">
+                    <span>Jet : </span>
+                    2d6 + 
+                    <SELECT name="attr_taillemod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                        <OPTION value="0" selected>-</OPTION>
+                        <OPTION value="@{strmod}" selected>FOR</OPTION>
+                        <OPTION value="@{dexmod}">DEX</OPTION>
+                        <OPTION value="@{conmod}">CON</OPTION>
+                        <OPTION value="@{intmod}">INT</OPTION>
+                        <OPTION value="@{wismod}">SAG</OPTION>
+                        <OPTION value="@{chamod}">CHA</OPTION>
+                    </SELECT>
+                    +
+                    <input type="number" class="sheet-action" name="attr_taillebonus" value="0" title="Bonus/Malus au jet" />
+                </div>
+                <div class="sheet-actionligne">
+                    <span>Sur 10+ : </span>
+                    <textarea name="attr_taillesucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Vous infligez vos dégâts à l’ennemi et évitez son attaque. Vous pouvez choisir d’infliger +1d6 dégâts en vous exposant à l’attaque ennemie.</textarea>
+                </div>
+                <div class="sheet-actionligne">
+                    <span>Sur 7-9 : </span>
+                    <textarea name="attr_taillepartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Vous infligez vos dégâts à l’ennemi mais vous subissez une riposte.</textarea>
+                </div>
+            </div>                
+        </div>
+
     </div>
     
     <!-- ===== SPECIALES ===== -->
@@ -968,7 +1019,9 @@ on("change:repeating_items:itemweight", function() {
     <div class="sheet-onglavance">
         <fieldset class="repeating_moves">
             <div class="sheet-action">
-                <button type="roll" class="sheet-btAction" value="/em @{character_name} fait un jet de @{movename} : [[2d6+@{movemod}+(@{movebonus})]]"></button>
+                <button type="roll" class="sheet-btAction" name="Avancee" 
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{movename}}} {{subtags=Action Avancée}} {{jet=[[2d6+@{movemod}+(@{movebonus})]]}} {{succes=@{movesucces}}} {{partiel=@{movepartiel}}}"
+                ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_move-show" value="1" /><span>y</span>
                 <input type="text" name="attr_movename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
                 <div class="sheet-dispcheck">
@@ -978,7 +1031,9 @@ on("change:repeating_items:itemweight", function() {
                     </div>
                     <div class="sheet-actionligne">
                         <span>Jet : </span>
+                        2d6 + 
                         <SELECT name="attr_movemod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0" selected>-</OPTION>
                             <OPTION value="@{strmod}">FOR</OPTION>
                             <OPTION value="@{dexmod}">DEX</OPTION>
                             <OPTION value="@{conmod}">CON</OPTION>
@@ -1012,5 +1067,59 @@ on("change:repeating_items:itemweight", function() {
     </div>
 
 </div>
-
+<!-- ==== TEMPLATES ==== -->
+<rolltemplate class="sheet-rolltemplate-jet">
+    <table>
+        {{#perso}}
+            <tr>
+                <td colspan="2" style="text-align:center;"><b>{{perso}}</b></td>
+            </tr>
+        {{/perso}}
+        <tr><th colspan="2">{{name}}</th></tr>
+        {{#subtags}}
+            <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{/subtags}}
+        {{#jet}}
+            <tr>
+                <td class="tcat">Jet</td>
+                <td>
+                    {{jet}}
+                    {{#rollGreater() jet 9}}
+                        <span style="color: green;font-weight:bold;">(succès complet)</span>
+                    {{/rollGreater() jet 9}}
+                    {{#rollBetween() jet 7 9}}
+                        <span style="color: black;font-weight:bold;">(succès partiel)</span>
+                    {{/rollBetween() jet 7 9}}
+                    {{#rollLess() jet 7}}
+                        <span style="color: red;font-weight:bold;">(échec)</span>
+                    {{/rollLess() jet 7}}
+                </td>
+            </tr>
+            {{#degatsaction}}
+                {{#rollGreater() jet 6}}
+                    <tr>
+                        <td class="tcat">Dégâts</td>
+                        <td>{{degats}}</td>
+                    </tr>
+                {{/rollGreater() jet 6}}
+            {{/degatsaction}}
+        {{/jet}}
+        {{#degats}}
+            <tr>
+                <td class="tcat">Jet</td>
+                <td>{{degats}}</td>
+            </tr>
+        {{/degats}}
+        {{#succes}}
+            {{#rollGreater() jet 9}}
+                <tr><td colspan="2"><div class="jetdesc">{{succes}}</div></td></tr>
+            {{/rollGreater() jet 9}}
+        {{/succes}}
+        {{#partiel}}
+            {{#rollBetween() jet 7 9}}
+                <tr><td colspan="2"><div class="jetdesc">{{partiel}}</div></td></tr>
+            {{/rollBetween() jet 7 9}}
+        {{/partiel}}
+    </table>
+</rolltemplate>
 
