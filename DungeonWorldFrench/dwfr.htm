@@ -715,7 +715,21 @@ on("change:repeating_items:itemweight", function() {
             });
         });
     });
-
+    //Actions dynamique
+    on("change:repeating_actionsbase:actionbasejet"), function() {
+        gettAttr("[repeating_actionsbase_actionbasejet]", function(values){
+            var chkjet = parseInt(values.repeating_actionsbase_actionbasejet) || 0;
+            var jet="0";
+            if( chkjet == 1) {
+                jet="[[2d6+@{actionbasemod}+(@{actionbasebonus})]]";
+            } else {
+                jet="0";
+            }
+        });
+        setAttrs({
+            repeating_actionsbase_actionbaseroll: jet;
+        });
+    }
 </script>
 <div class="sheet-topbar">
     <img style="width: 200px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/DungeonWorldFrench/dwlogo.png" />    
@@ -1284,7 +1298,7 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
         <fieldset class="repeating_actionsbase">
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="ActionBase" title="Lancer le Jet d'Action"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionbasename}}} {{subtags=Action de Base}} {{jet=@{actionbasejet}}} {{descshow=[[@{actionbasebodydisp}]]}} {{desc=@{actionbasebody}}} {{succes=@{actionbasesucces}}} {{partiel=@{actionbasepartiel}}} {{echec=@{actionbaseechec}}} {{degatsaction=@{actionbasedegats}}}"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionbasename}}} {{subtags=Action de Base}} {{jetshow=[[@{actionbasejet}]]}} {{jet=@{actionbaseroll}}} {{descshow=[[@{actionbasebodydisp}]]}} {{desc=@{actionbasebody}}} {{succes=@{actionbasesucces}}} {{partiel=@{actionbasepartiel}}} {{echec=@{actionbaseechec}}} {{degatsaction=@{actionbasedegats}}}"
                 ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionbase-show" value="1" /><span>y</span>
                 <input type="text" name="attr_actionbasename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
@@ -1295,7 +1309,8 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                         <textarea name="attr_actionbasebody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
                     </div>
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionbasejet" value="[[2d6+@{actionbasemod}+(@{actionbasebonus})]]" title="Cette Action lance un jet" checked /><span>3</span>
+                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionbasejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
+                        <input type="hidden" name="attr_actionbaseroll" value="[[2d6+@{actionbasemod}+(@{actionbasebonus})]]" />
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
                         2d6 + 
                         <SELECT name="attr_actionbasemod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
@@ -1309,7 +1324,7 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                         </SELECT>
                         +
                         <input type="number" class="sheet-action" name="attr_actionbasebonus" value="0" title="Bonus/Malus au jet" />
-                        <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
+                        <span>&nbsp;Cette Action inflige des dégâts</span>
                         <input type="checkbox" name="attr_actionbasedegats" value="[[1@{dtype}]]" />
                     </div>
                     <div class="sheet-actionligne">
@@ -1803,44 +1818,46 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
             {{/rollTotal() descshow 1}}
         {{/desc}}
         {{#jet}}
-            <tr>
-                <td class="tcat">Jet</td>
-                <td>
-                    {{jet}}
+            {{#rollTotal() jetshow 1}}
+                <tr>
+                    <td class="tcat">Jet</td>
+                    <td>
+                        {{jet}}
+                        {{#rollGreater() jet 9}}
+                            <span style="color: green;font-weight:bold;">(succès complet)</span>
+                        {{/rollGreater() jet 9}}
+                        {{#rollBetween() jet 7 9}}
+                            <span style="color: black;font-weight:bold;">(succès partiel)</span>
+                        {{/rollBetween() jet 7 9}}
+                        {{#rollLess() jet 7}}
+                            <span style="color: red;font-weight:bold;">(échec)</span>
+                        {{/rollLess() jet 7}}
+                    </td>
+                </tr>
+                {{#rollGreater() degatsaction 0}}
+                    {{#rollGreater() jet 6}}
+                        <tr>
+                            <td class="tcat">Dégâts</td>
+                            <td>{{degatsaction}}</td>
+                        </tr>
+                    {{/rollGreater() jet 6}}
+                {{/rollGreater() degatsaction 0}}
+                {{#succes}}
                     {{#rollGreater() jet 9}}
-                        <span style="color: green;font-weight:bold;">(succès complet)</span>
+                        <tr><td colspan="2"><div class="jetdesc">{{succes}}</div></td></tr>
                     {{/rollGreater() jet 9}}
+                {{/succes}}
+                {{#partiel}}
                     {{#rollBetween() jet 7 9}}
-                        <span style="color: black;font-weight:bold;">(succès partiel)</span>
+                        <tr><td colspan="2"><div class="jetdesc">{{partiel}}</div></td></tr>
                     {{/rollBetween() jet 7 9}}
+                {{/partiel}}
+                {{#echec}}
                     {{#rollLess() jet 7}}
-                        <span style="color: red;font-weight:bold;">(échec)</span>
+                        <tr><td colspan="2"><div class="jetdesc">{{echec}}</div></td></tr>
                     {{/rollLess() jet 7}}
-                </td>
-            </tr>
-            {{#rollGreater() degatsaction 0}}
-                {{#rollGreater() jet 6}}
-                    <tr>
-                        <td class="tcat">Dégâts</td>
-                        <td>{{degatsaction}}</td>
-                    </tr>
-                {{/rollGreater() jet 6}}
-            {{/rollGreater() degatsaction 0}}
-            {{#succes}}
-                {{#rollGreater() jet 9}}
-                    <tr><td colspan="2"><div class="jetdesc">{{succes}}</div></td></tr>
-                {{/rollGreater() jet 9}}
-            {{/succes}}
-            {{#partiel}}
-                {{#rollBetween() jet 7 9}}
-                    <tr><td colspan="2"><div class="jetdesc">{{partiel}}</div></td></tr>
-                {{/rollBetween() jet 7 9}}
-            {{/partiel}}
-            {{#echec}}
-                {{#rollLess() jet 7}}
-                    <tr><td colspan="2"><div class="jetdesc">{{echec}}</div></td></tr>
-                {{/rollLess() jet 7}}
-            {{/echec}}
+                {{/echec}}
+            {{/rollTotal() jetshow 1}}
         {{/jet}}
         {{#degats}}
             <tr>
