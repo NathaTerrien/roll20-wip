@@ -1076,7 +1076,7 @@ on("change:repeating_items:itemweight", function() {
                     +
                     <input type="number" class="sheet-action" name="attr_taillebonus" value="0" title="Bonus/Malus au jet" />
                     <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
-                    <input type="checkbox" class="sheet-dispcheck" name="attr_tailledegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" checked /><span>3</span>
+                    <input type="checkbox" class="sheet-selcheck" name="attr_tailledegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" checked /><span>3</span>
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
@@ -1115,7 +1115,7 @@ on("change:repeating_items:itemweight", function() {
                     +
                     <input type="number" class="sheet-action" name="attr_salvebonus" value="0" title="Bonus/Malus au jet" />
                     <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
-                    <input type="checkbox" class="sheet-dispcheck" name="attr_salvedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" checked /><span>3</span>
+                    <input type="checkbox" class="sheet-selcheck" name="attr_salvedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" checked /><span>3</span>
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
@@ -1370,16 +1370,16 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                 <button type="roll" class="sheet-btAction" name="ActionBase" title="Lancer le Jet d'Action"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionbasename}}} {{subtags=Action de Base}} {{jetshow=[[@{actionbasejet}]]}} {{jet=@{actionbaseroll}}} {{descshow=[[@{actionbasebodydisp}]]}} {{desc=@{actionbasebody}}} {{succes=@{actionbasesucces}}} {{partiel=@{actionbasepartiel}}} {{echec=@{actionbaseechec}}} {{degatsaction=@{actionbasedegats}}}"
                 ></button>
-                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionbase-show" value="1" /><span>y</span>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionbase-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_actionbasename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
                 <div class="sheet-dispcheck">
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionbasebodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actionbasebodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Desc : </span>
                         <textarea name="attr_actionbasebody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
                     </div>
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionbasejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actionbasejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
                         <input type="hidden" name="attr_actionbaseroll" value="[[2d6+@{actionbasemod}+(@{actionbasebonus})]]" />
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
                         2d6 + 
@@ -1395,7 +1395,7 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                         +
                         <input type="number" class="sheet-action" name="attr_actionbasebonus" value="0" title="Bonus/Malus au jet" />
                         <span>&nbsp;Cette Action inflige des dégâts</span>
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionbasedegats" value="[[1@{dtype}]]"  title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actionbasedegats" value="[[1@{dtype}]]"  title="Cocher pour que l'action lance les dégâts" /><span>3</span>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -1719,16 +1719,16 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 <button type="roll" class="sheet-btAction" name="ActionBase" title="Lancer le Jet d'Action"
                     value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionspename}}} {{subtags=Action Spéciale}} {{jetshow=[[@{actionspejet}]]}} {{jet=@{actionsperoll}}} {{descshow=[[@{actionspebodydisp}]]}} {{desc=@{actionspebody}}} {{succes=@{actionspesucces}}} {{partiel=@{actionspepartiel}}} {{echec=@{actionspeechec}}} {{degatsaction=@{actionspedegats}}}"
                 ></button>
-                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionspe-show" value="1" /><span>y</span>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionspe-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_actionspename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
                 <div class="sheet-dispcheck">
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionspebodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actionspebodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Desc : </span>
                         <textarea name="attr_actionspebody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
                     </div>
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionspejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actionspejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
                         <input type="hidden" name="attr_actionsperoll" value="[[2d6+@{actionspemod}+(@{actionspebonus})]]" />
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
                         2d6 + 
@@ -1744,7 +1744,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                         +
                         <input type="number" class="sheet-action" name="attr_actionspebonus" value="0" title="Bonus/Malus au jet" />
                         <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actionspedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actionspedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -1771,16 +1771,16 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 <button type="roll" class="sheet-btAction" name="Depart" 
                     value="&{template:jet} {{perso=@{character_name}}} {{name=@{actiondepname}}} {{subtags=Action de Départ}} {{jetshow=[[@{actiondepjet}]]}} {{jet=@{actiondeproll}}} {{descshow=[[@{actiondepbodydisp}]]}} {{desc=@{actiondepbody}}} {{succes=@{actiondepsucces}}} {{partiel=@{actiondeppartiel}}} {{echec=@{actiondepechec}}} {{degatsaction=@{actiondepdegats}}}"
                 ></button>
-                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actiondep-show" value="1" /><span>y</span>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actiondep-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_actiondepname" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
                 <div class="sheet-dispcheck">
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actiondepbodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actiondepbodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Desc : </span>
                         <textarea name="attr_actiondepbody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
                     </div>
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actiondepjet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actiondepjet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
                         <input type="hidden" name="attr_actiondeproll" value="[[2d6+@{actiondepmod}+(@{actiondepbonus})]]" />
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
                         2d6 + 
@@ -1796,7 +1796,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                         +
                         <input type="number" class="sheet-action" name="attr_actiondepbonus" value="0" title="Bonus/Malus au jet" />
                         <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_actiondepdegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_actiondepdegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -1822,16 +1822,16 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 <button type="roll" class="sheet-btAction" name="Avancee" 
                     value="&{template:jet} {{perso=@{character_name}}} {{name=@{movename}}} {{subtags=Action Avancée}} {{jetshow=[[@{movejet}]]}} {{jet=@{moveroll}}} {{descshow=[[@{movebodydisp}]]}} {{desc=@{movebody}}} {{succes=@{movesucces}}} {{partiel=@{movepartiel}}} {{echec=@{moveechec}}} {{degatsaction=@{movedegats}}}"
                 ></button>
-                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_move-show" value="1" /><span>y</span>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_move-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_movename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
                 <div class="sheet-dispcheck">
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_movebodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_movebodydisp" value="1" title="Montrer la description de l'action dans le template de jet" /><span>E</span>
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Desc : </span>
                         <textarea name="attr_movebody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
                     </div>
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_movejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_movejet" value="1" title="Cette Action lance un jet" checked /><span>3</span>
                         <input type="hidden" name="attr_moveroll" value="[[2d6+@{movemod}+(@{movebonus})]]" />
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
                         2d6 + 
@@ -1847,7 +1847,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                         +
                         <input type="number" class="sheet-action" name="attr_movebonus" value="0" title="Bonus/Malus au jet" />
                         <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_movedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_movedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -1873,16 +1873,20 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 <button type="roll" class="sheet-btAction" name="JetSort" 
                     value="&{template:jet} {{perso=@{character_name}}} {{name=@{spellname}}} {{subtags=Sort}} {{jetshow=[[@{spelljet}]]}} {{jetsort=@{spellroll}}} {{descshow=[[@{spellbodydisp}]]}} {{desc=@{spellbody}}}"
                 ></button>
-                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_spell-show" value="1" /><span>y</span>
-                <input type="text" name="attr_spellname" class="sheet-actionname" placeholder="Nom du Sort" title="Nom du Sort" />
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_spell-show" value="1" checked /><span>y</span>
+                <input type="text" name="attr_spellname" class="sheet-actionname" style="width:270px;" placeholder="Nom du Sort" title="Nom du Sort" />
+                <span class="sheet-action">Niveau : </span>
+                <input type="number" class="sheet-action" name="attr_spellniveau" value="0" min="0" title="Niveau du sort" />
+                <span class="sheet-action">Préparé : </span>
+                <input type="checkbox" class="sheet-selcheck" name="attr_spellprep" value="1" title="Le sort a été préparé." /><span>3</span>
                 <div class="sheet-dispcheck">
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_spellbodydisp" value="1" title="Montrer la description du sort dans le template de jet" checked /><span>E</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_spellbodydisp" value="1" title="Montrer la description du sort dans le template de jet" checked /><span>E</span>
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Desc : </span>
                         <textarea name="attr_spellbody" class="sheet-actiondesc" placeholder="Description du Sort" title="Description du Sort"></textarea>
                     </div>
                     <div class="sheet-actionligne">
-                        <input type="checkbox" class="sheet-dispcheck" name="attr_spelljet" value="1" title="Ce sort lance un jet ou des dégâts" /><span>3</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_spelljet" value="1" title="Ce sort lance un jet ou des dégâts" /><span>3</span>
                         <input type="hidden" name="attr_spellroll" value="0" />
                         <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
                         <input type="text" name="attr_spelldice" style="width: 250px;" placeholder="Jet pour le sort, par exemple : '2d4+3'" title="Jet pour le sort, par exemple : '2d4+3'" />
@@ -1891,8 +1895,11 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
             </div>
         </fieldset>
     </div>
-
-</div>  <!-- ==== FIN FDP ==== -->
+</div>  <!-- ==== FIN COL DROITE ==== -->
+<div class="sheet-row" style="text-align: center;font-style: italic; vertical-align: middle;">
+    <div  style="display:inline-block;vertical-align: middle;"><img style="height: 20px;vertical-align: middle;" src="http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-nd.png" /></div>
+    <div  style="display:inline-block;vertical-align: middle;">Magimax / DUNGEON WORLD est un jeu créé par Adam Koebel & Sage LaTorra</div>
+</div>
 
 <!-- ==== TEMPLATES ==== -->
 <rolltemplate class="sheet-rolltemplate-jet">

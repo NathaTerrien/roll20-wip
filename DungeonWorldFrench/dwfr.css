@@ -7,35 +7,35 @@ div{
 }
 textarea {
     resize: none;
-	height: auto;
-	box-sizing: border-box;
-	width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 textarea, 
 input { 
-	outline: none;
-	box-shadow: none;
-	margin-bottom: 1px;
-	font-family: Arial;
+    outline: none;
+    box-shadow: none;
+    margin-bottom: 1px;
+    font-family: Arial;
     border-radius: 0px;
 }
 
 .sheet-header textarea, 
 .sheet-header input {
-	border: none;
+    border: none;
 }
 
 input[type="number"], 
 input[type="text"] {
-	width: 100%;
+    width: 100%;
 }
 input[type="number"]{
-	text-align: right;
+    text-align: right;
 }
 select {
-	width: auto;
-	margin: 0;
+    width: auto;
+    margin: 0;
 }
 
 input[type=number]:disabled::-webkit-inner-spin-button, 
@@ -48,7 +48,7 @@ input[type=number]:read-only::-webkit-outer-spin-button {
 
 input[disabled],
 input[read-only] {
-	-moz-appearance: textfield;
+    -moz-appearance: textfield;
 }
 
 .repcontainer .btn,
@@ -61,236 +61,236 @@ input[read-only] {
 
 /* ===== LAYOUT ===== */
 .sheet-col-left {
-	display: inline-block;
-	width: 320px;
-	vertical-align: top;
-	margin-right: 4px;
+    display: inline-block;
+    width: 320px;
+    vertical-align: top;
+    margin-right: 4px;
 }
 
 .sheet-col-right {
-	display: inline-block;
-	width: 520px;
-	vertical-align: top;
+    display: inline-block;
+    width: 520px;
+    vertical-align: top;
 }
 
 
 /* ===== TOGGLE ===== */
 .sheet-toggle:not(:checked) ~ .sheet-hide,
 .sheet-toggle:checked ~ .sheet-show {
-	display: none;
+    display: none;
 }
 
 
 /* ===== SECTION HEADERS ===== */
 .sheet-header {
-	display: inline-block;
-	background-color: black;
-	color: #fff;
-	padding: 2px 0px;
-	vertical-align: middle;
-	line-height: 100%;
-	height: 32px;
-	line-height: 32px;
-	font-size: 1.1em;
-	margin: 3px 0px;
-	box-align: center;
-	border-radius: 0px;
-	padding: 2px 2px 2px 8px;
+    display: inline-block;
+    background: linear-gradient(to right bottom, #3D2923, #700200, #DE6928);
+    color: #fff;
+    padding: 2px 0px;
+    vertical-align: middle;
+    line-height: 100%;
+    height: 32px;
+    line-height: 32px;
+    font-size: 1.1em;
+    margin: 3px 0px;
+    box-align: center;
+    border-radius: 0px;
+    padding: 2px 2px 2px 8px;
 }
 .sheet-header input {
-	height: 28px;
-	border: none;
-	vertical-align: middle;
-	font-weight: bold;
-	font-size: 18px;
-	line-height: 18px;
-	margin: 2px;
+    height: 28px;
+    border: none;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 2px;
 }
 .sheet-header input[type="text"].sheet-alipeu{
-	width:218px;
-	text-align: center;
-	font-size: 14px;
+    width:218px;
+    text-align: center;
+    font-size: 14px;
 }
 .sheet-header input[type="text"] {
-	width: 2.2em;
+    width: 2.2em;
 }
 .sheet-header input[type="number"] {
-	width: 2.7em;
+    width: 2.7em;
 }
 .sheet-header input[type="number"]:disabled,
 .sheet-header input[type="number"]:read-only {
-	width: 2em;
+    width: 2em;
 }
 button[type="roll"] {
-	height: 28px;
-	width: 28px;
-	margin: 2px;
-	padding: 4px;
-	padding-top: 5px;
+    height: 28px;
+    width: 28px;
+    margin: 2px;
+    padding: 4px;
+    padding-top: 5px;
 
-	font-size: 20px;
-	text-align: center;
+    font-size: 20px;
+    text-align: center;
 
-	background: white;
-	border: none;
-	border-radius: 0px;
+    background: white;
+    border: none;
+    border-radius: 0px;
 }
 button[type="roll"]:hover{
-    color: #CD071E;
+    color: #DE6928;  /* #700200; #CD071E; */
     font-weight: bold;
 }
 .sheet-header > * {
-	text-align: right;
-	height: 100%;
+    text-align: right;
+    height: 100%;
 }
 
 .sheet-header .sheet-section-name {
-	display: inline-block;
-	margin-right: 2px;
-	font-weight: bold;
-	text-align: left;
+    display: inline-block;
+    margin-right: 2px;
+    font-weight: bold;
+    text-align: left;
 }
 
 
 /* ===== MAIN HEADER ===== */
 .sheet-topbar {
-	display: block;
-	padding: 4px;
-	background: white;
-	width: 100%;
-	text-align: center;
+    display: block;
+    padding: 4px;
+    background: white;
+    width: 100%;
+    text-align: center;
 }
 .sheet-topbar div{
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 .sheet-topbar img{
-	display: inline-block;
-	vertical-align: middle;
+    display: inline-block;
+    vertical-align: middle;
 }
 .sheet-topbar input {
-	height: 45px;
-	padding: 3px;
-	margin: 0;
-	font-size: 24px;
-	font-weight: bold;
-	line-height: 36px;
+    height: 45px;
+    padding: 3px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 36px;
 }
 
 .sheet-topbar .sheet-field-name {
-	width: 400px;
-	text-align: center;
-	background-color: white;
-	color: black;
+    width: 400px;
+    text-align: center;
+    background-color: white;
+    color: black;
 }
 
 .sheet-topbar .sheet-field-class {
-	width: 200px;
-	text-align: center;
-	background-color: black;
-	color: white;
+    width: 200px;
+    text-align: center;
+    background-color: black;
+    color: white;
 }
 
 
 /* ===== STATISTICS ===== */
 .sheet-statistics {
-	display: block;
-	width: 100%;
-	text-align: center;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
 .sheet-statistics .sheet-header {
-	/* width: 18%;
-	margin-right: 0.6%; */
+    /* width: 18%;
+    margin-right: 0.6%; */
 }
 
 .sheet-statistics .sheet-header:last-child {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 
 /* ===== ATTRIBUTES ===== */
 .sheet-attributes {
-	display: block;
-	width:100%;
-	margin-bottom: 10px;
+    display: block;
+    width:100%;
+    margin-bottom: 10px;
 }
 
 .sheet-attributes .sheet-header {
-	height: auto;
-	width: 15%;
-	margin-right: 2px;
-	padding: 4px;
-	padding-bottom: 6px;
-	position: relative;
+    height: auto;
+    width: 15%;
+    margin-right: 2px;
+    padding: 4px;
+    padding-bottom: 6px;
+    position: relative;
 }
 
 .sheet-attributes .sheet-header > label {
-	height: 1em;
-	width: 100px;
-	margin: 0;
-	padding: 1px 2px;
-	margin: 0 12px;
+    height: 1em;
+    width: 100px;
+    margin: 0;
+    padding: 1px 2px;
+    margin: 0 12px;
 
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: normal;
-	font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+    font-size: 12px;
 
-	background: white;
-	transform: skew(-10deg); 
-	 -webkit-transform: skew(-10deg);
+    background: white;
+    transform: skew(-10deg); 
+     -webkit-transform: skew(-10deg);
 
-	position: absolute;
+    position: absolute;
 }
 
 .sheet-attributes .sheet-header > label.sheet-top {
-	top: -5px;
+    top: -5px;
 }
 
 .sheet-attributes .sheet-header > label.sheet-bottom {
-	bottom: -2px;
+    bottom: -2px;
 }
 
 .sheet-attributes .sheet-header input[type="number"] {
-	background: white;
-	width: 100%;
-	margin: 0;
-	text-align: center;
-	z-index: 1;
+    background: white;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    z-index: 1;
 }
 
 .sheet-attributes .sheet-row-1 input {
-	width: 100%;
+    width: 100%;
 }
 
 .sheet-attributes .sheet-row-2 {
-	width: 100%;
-	height: 16px;
-	padding: 1px;
-	overflow: hidden;
-	line-height: 14px;
-	font-size: 12px;
-	text-align: center;
-	text-transform: uppercase;
-	font-weight: bold;
+    width: 100%;
+    height: 16px;
+    padding: 1px;
+    overflow: hidden;
+    line-height: 14px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .sheet-attributes .sheet-row-2 label {
-	color: #DDD;
-	font-size: 80%;
+    color: #DDD;
+    font-size: 80%;
 }
 
 .sheet-attributes .sheet-row-2 input {
-	height: 14px;
-	margin: 0;
+    height: 14px;
+    margin: 0;
 }
 
 .sheet-attributes .sheet-row-3 button {
-	position: absolute;
-	right: 2px;
-	bottom: 2px;
-	z-index: 1;
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    z-index: 1;
 }
 /* ==== Matériel ==== */
 .sheet-gear {
@@ -334,7 +334,7 @@ button[type="roll"]:hover{
 /* ===== TWEAKS ===== */
 .sheet-section-alignment textarea,
 .sheet-section-race textarea{
-	resize: vertical;
+    resize: vertical;
 }
 
 /* ===== Check montrer/cacher ===== */
@@ -357,31 +357,62 @@ input[type="checkbox"].sheet-dispcheck + span{
     height: 20px;
     z-index: 1;
     font-family: pictos;
-    color: #888888;
+    color: #DDB29B; /* #EFBAC1; */
     font-size: 20px;
     line-height: 20px;
 }
 input[type="checkbox"].sheet-dispcheck:hover + span{
-    color: #CD071E;
+    color: #DE6928; /* #ADDDAD; */
 }
 input[type="checkbox"].sheet-dispcheck:checked + span{
     font-weight: bold;
-    color: black;
+    color: #700200; /* #557F55; */
 }
 div.sheet-dispcheck {
-	width: 100%;
-	display: none;
+    width: 100%;
+    display: none;
 }
 input[type="checkbox"].sheet-dispcheck:checked ~ div.sheet-dispcheck {
-	display: block;
+    display: block;
+}
+/* ===== Sélection Check ===== */
+input[type="checkbox"].sheet-selcheck{
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+    opacity: 0;
+    z-index: 2;
+    margin: 0;
+}
+input[type="checkbox"].sheet-selcheck + span{
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -20px;
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+    z-index: 1;
+    font-family: pictos;
+    color: #DDB29B; /* #EFBAC1; */
+    font-size: 20px;
+    line-height: 20px;
+}
+input[type="checkbox"].sheet-selcheck:hover + span{
+    color: #DE6928; /* #ADDDAD; */
+}
+input[type="checkbox"].sheet-selcheck:checked + span{
+    font-weight: bold;
+    color: #700200; /* #557F55; */
 }
 /* ==== Action ==== */
 div.sheet-action {
-	width: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
     padding: 2px 0px 2px 0px; 
-    border-bottom : 1px dashed black;	
+    border-bottom : 1px dashed black;   
 }
 button[type="roll"].sheet-btAction {
     width: 20px;
@@ -389,35 +420,36 @@ button[type="roll"].sheet-btAction {
     font-size: 20px;
 }
 div.sheet-actionligne{
-	display: block;
-	width: 100%;
+    display: block;
+    width: 100%;
 }
 span.sheet-action {
-	min-width: 60px;
+    min-width: 60px;
     white-space: nowrap;
-	display: inline-block;
-	text-align: right;
-	color: gray;
-	font-style: italic;
+    display: inline-block;
+    text-align: right;
+    color: gray;
+    font-style: italic;
 }
 select.sheet-action{
     padding: 0;
     height: 25px;
 }
 input[type="number"].sheet-action{
-	padding: 2px;
-	height: 25px;
+    padding: 2px;
+    height: 25px;
+    width: 35px;
 }
 input[type="text"].sheet-actionname {
-	font-weight: bold;
-	width: 460px;
-	height: 25px;
+    font-weight: bold;
+    width: 460px;
+    height: 25px;
     font-size: 14px;
 }
 textarea.sheet-actiondesc {
-	resize: vertical;
-	width: 450px;
-	display: inline-block;
+    resize: vertical;
+    width: 450px;
+    display: inline-block;
 }
 /* ===== Onglets ===== */
 div.sheet-onglbase,
@@ -484,12 +516,14 @@ input[type="radio"].sheet-onglclasse:checked + span,
 input[type="radio"].sheet-onglavance:checked + span,
 input[type="radio"].sheet-onglsort:checked + span {
     font-weight: bold;
-    color: black;
-    background-color: white;
+    /* color: black;
+    background-color: white; */
+    color: white;
+    background: linear-gradient(to top left, #3D2923, #700200, #DE6928);
     border-left-color: black;
     border-top-color: black;
     border-right-color: black;
-    border-bottom-color: white;
+    border-bottom-color: black;
 }
 input[type="radio"].sheet-onglbase:checked ~ div.sheet-onglbase{
     display: block;
@@ -529,7 +563,8 @@ input[type="radio"].sheet-onglsort:checked ~ div.sheet-onglsort{
     text-align: center;
     font-family: 'Contrail One';
     color: white;
-    background: black;
+    /* background: black; */
+    background: linear-gradient(to right, #3D2923, #700200, #DE6928);
 }
 .sheet-rolltemplate-jet td{
     padding: 2px;
