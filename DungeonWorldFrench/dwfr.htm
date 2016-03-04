@@ -633,6 +633,7 @@ var TAS = TAS || (function(){
     };
 }());
 /* ---- END: TheAaronSheet.js ---- */
+
 /* ---- DWVF ---------------------- */
     var DWVF = DWVF || (function(){
         'use strict';
@@ -653,6 +654,7 @@ var TAS = TAS || (function(){
             calcMod: calcMod
         };
     }());
+
 // Inventaire
 on("change:repeating_items:itemweight", function() {
     TAS.repeatingSimpleSum('items','itemweight','load');
@@ -660,6 +662,89 @@ on("change:repeating_items:itemweight", function() {
  on('remove:repeating_items',function(){
     TAS.repeatingSimpleSum('items','itemweight','load');
 });
+
+// ACTIONS
+    // Actions Base
+    on("change:repeating_actionsbase:actionbasejet", function() {
+        getAttrs(["repeating_actionsbase_actionbasejet"], function(values) {
+            var chkjet = parseInt(values.repeating_actionsbase_actionbasejet) || 0;
+            var jet="0";
+            if (chkjet == 1) {
+                jet= "[[2d6+@{actionbasemod}+(@{actionbasebonus})]]";
+            } else {
+                jet="0";
+            }
+            setAttrs({
+                repeating_actionsbase_actionbaseroll: jet
+            });
+        });
+    });
+    // Actions Spéciales
+    on("change:repeating_actionsspe:actionspejet", function() {
+        getAttrs(["repeating_actionsspe_actionspejet"], function(values){
+            var chkjet = parseInt(values.repeating_actionsspe_actionspejet) || 0;
+            var jet="0";
+            if( chkjet == 1) {
+                jet="[[2d6+@{actionspemod}+(@{actionspebonus})]]";
+            } else {
+                jet="0";
+            }
+            setAttrs({
+                repeating_actionsspe_actionsperoll: jet
+            });
+        });
+    });
+    // Départ
+    on("change:repeating_actionsdepart:actiondepjet", function() {
+        getAttrs(["repeating_actionsdepart_actiondepjet"], function(values){
+            var chkjet = parseInt(values.repeating_actionsdepart_actiondepjet) || 0;
+            var jet="0";
+            if( chkjet == 1) {
+                jet="[[2d6+@{actiondepmod}+(@{actiondepbonus})]]";
+            } else {
+                jet="0";
+            }
+            setAttrs({
+                repeating_actionsdepart_actiondeproll: jet
+            });
+        });
+    });
+    // Avancées
+    on("change:repeating_moves:movejet", function() {
+        getAttrs(["repeating_moves_movejet"], function(values){
+            var chkjet = parseInt(values.repeating_moves_movejet) || 0;
+            var jet="0";
+            if( chkjet == 1) {
+                jet="[[2d6+@{movemod}+(@{movebonus})]]";
+            } else {
+                jet="0";
+            }
+            setAttrs({
+                repeating_moves_moveroll: jet
+            });
+        });
+    });
+    // Sort
+    on("change:repeating_spells:spelljet change:repeating_spells:spelldice", function() {
+        getAttrs(["repeating_spells_spelljet","repeating_spells_spelldice"], function(values){
+            var chkjet = parseInt(values.repeating_spells_spelljet) || 0;
+            var strdice = "" + values.repeating_spells_spelldice;
+            var jet="0";
+            if( chkjet == 1) {
+                if (strdice.length > 0) {
+                    jet="[[@{spelldice}]]";
+                } else {
+                    jet="0";
+                }
+            } else {
+                jet="0";
+            }
+            setAttrs({
+                repeating_spells_spellroll: jet
+            });
+        });
+    });
+
 // Caractéristiques et modificateurs
     on("change:strength change:weak", function() {
         getAttrs(["strength","weak"], function(values) {
@@ -712,67 +797,6 @@ on("change:repeating_items:itemweight", function() {
             var mal=parseInt(values.scarred) || 0;
             setAttrs({
                 chamod:mod-mal
-            });
-        });
-    });
-//Actions dynamique
-    // Base
-    on("change:repeating_actionsbase:actionbasejet", function() {
-        gettAttr("[repeating_actionsbase_actionbasejet]", function(values){
-            var chkjet = parseInt(values.repeating_actionsbase_actionbasejet) || 0;
-            var jet="0";
-            if( chkjet == 1) {
-                jet="[[2d6+@{actionbasemod}+(@{actionbasebonus})]]";
-            } else {
-                jet="0";
-            }
-            setAttrs({
-                repeating_actionsbase_actionbaseroll: jet;
-            });
-        });
-    });
-    // Spéciales
-    on("change:repeating_actionsspe:actionspejet", function() {
-        gettAttr("[repeating_actionsspe_actionspejet]", function(values){
-            var chkjet = parseInt(values.repeating_actionsspe_actionspejet) || 0;
-            var jet="0";
-            if( chkjet == 1) {
-                jet="[[2d6+@{actionspemod}+(@{actionspebonus})]]";
-            } else {
-                jet="0";
-            }
-            setAttrs({
-                repeating_actionsspe_actionsperoll: jet;
-            });
-        });
-    });
-    // Départ
-    on("change:repeating_actionsdepart:actiondepjet", function() {
-        gettAttr("[repeating_actionsdepart_actiondepjet]", function(values){
-            var chkjet = parseInt(values.repeating_actionsdepart_actiondepjet) || 0;
-            var jet="0";
-            if( chkjet == 1) {
-                jet="[[2d6+@{actiondepmod}+(@{actiondepbonus})]]";
-            } else {
-                jet="0";
-            }
-            setAttrs({
-                repeating_actionsdepart_actiondeproll: jet;
-            });
-        });
-    });
-    // Avancées
-    on("change:repeating_moves:movejet", function() {
-        gettAttr("[repeating_moves_movejet]", function(values){
-            var chkjet = parseInt(values.repeating_moves_movejet) || 0;
-            var jet="0";
-            if( chkjet == 1) {
-                jet="[[2d6+@{movemod}+(@{movebonus})]]";
-            } else {
-                jet="0";
-            }
-            setAttrs({
-                repeating_moves_moveroll: jet;
             });
         });
     });
@@ -1395,7 +1419,7 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
         <!-- ===== MONTER UN CAMP ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="MonterUnCamp" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{campname}}} {{subtags=Action Spéciale}} {{showdesc=[[1]]}} {{desc=@{campbody}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{campname}}} {{subtags=Action Spéciale}} {{descshow=[[1]]}} {{desc=@{campbody}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_camp-show" value="1" /><span>y</span>
             <input type="text" name="attr_campname" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Monter un Camp" />
@@ -1450,7 +1474,7 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
         <!-- ===== RECUPERER ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="Recuperer" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{recuperername}}} {{subtags=Action Spéciale}} {{showdesc=[[1]]}} {{desc=@{recupererbody}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{recuperername}}} {{subtags=Action Spéciale}} {{descshow=[[1]]}} {{desc=@{recupererbody}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_recuperer-show" value="1" /><span>y</span>
             <input type="text" name="attr_recuperername" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Récupérer" />
@@ -1550,7 +1574,7 @@ Si vous n'attribuez pas l’un ou plusieurs de ces rôles, cela vaut comme si vo
         <!-- ===== FIN DE SESSION ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="FinDeSession" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{sessionname}}} {{subtags=Action Spéciale}} {{showdesc=[[1]]}} {{desc=@{sessionbody}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{sessionname}}} {{subtags=Action Spéciale}} {{descshow=[[1]]}} {{desc=@{sessionbody}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_session-show" value="1" /><span>y</span>
             <input type="text" name="attr_sessionname" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Fin de Session" />
@@ -1570,7 +1594,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
         <!-- ===== MONTER DE NIVEAU ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="MonterDeNiveau" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{niveauname}}} {{subtags=Action Spéciale}} {{showdesc=[[1]]}} {{desc=@{niveaubody}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{niveauname}}} {{subtags=Action Spéciale}} {{descshow=[[1]]}} {{desc=@{niveaubody}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_niveau-show" value="1" /><span>y</span>
             <input type="text" name="attr_niveauname" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Monter de Niveau" />
@@ -1642,7 +1666,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
         <!-- ===== ENCOMBREMENT ===== --> 
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="Encombrement" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{encombrementname}}} {{subtags=Action Spéciale}} {{showdesc=[[1]]}} {{desc=@{encombrementbody}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{encombrementname}}} {{subtags=Action Spéciale}} {{descshow=[[1]]}} {{desc=@{encombrementbody}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_encombrement-show" value="1" /><span>y</span>
             <input type="text" name="attr_encombrementname" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Encombrement" />
@@ -1659,7 +1683,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
         <!-- ===== RECRUTER ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="Recruter" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{recrutername}}} {{subtags=Action Spéciale}} {{jetshow=[[1]]}} {{jet=[[2d6+@{recrutermod}+(@{recruterbonus})+(?{Modificateurs|0})]]}} {{showdesc=[[1]]}} {{desc=@{recruterbody}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{recrutername}}} {{subtags=Action Spéciale}} {{jetshow=[[1]]}} {{jet=[[2d6+@{recrutermod}+(@{recruterbonus})+(?{Modificateurs|0})]]}} {{descshow=[[1]]}} {{desc=@{recruterbody}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_recruter-show" value="1" /><span>y</span>
             <input type="text" name="attr_recrutername" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Recruter" />
@@ -1844,14 +1868,32 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
 
     <!-- ===== SORTS ===== -->
     <div class="sheet-onglsort">
-        <fieldset class="repeating_spells sheet-section-spells">
-            <input type="text" name="attr_spellname" style="font-weight: bold;" placeholder="Nom du Sort">
-            <input type="checkbox" class="sheet-toggle" title="Afficher/Masquer la description du sort" name="attr_spell-show" value="1" />
-            <textarea name="attr_spellbody" class="sheet-hide" placeholder="Description du Sort"></textarea>
+        <fieldset class="repeating_spells">
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="JetSort" 
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{spellname}}} {{subtags=Sort}} {{jetshow=[[@{spelljet}]]}} {{jetsort=@{spellroll}}} {{descshow=[[@{spellbodydisp}]]}} {{desc=@{spellbody}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_spell-show" value="1" /><span>y</span>
+                <input type="text" name="attr_spellname" class="sheet-actionname" placeholder="Nom du Sort" title="Nom du Sort" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <input type="checkbox" class="sheet-dispcheck" name="attr_spellbodydisp" value="1" title="Montrer la description du sort dans le template de jet" checked /><span>E</span>
+                        <span class="sheet-action" style="min-width: 35px;width: 35px">Desc : </span>
+                        <textarea name="attr_spellbody" class="sheet-actiondesc" placeholder="Description du Sort" title="Description du Sort"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <input type="checkbox" class="sheet-dispcheck" name="attr_spelljet" value="1" title="Ce sort lance un jet ou des dégâts" /><span>3</span>
+                        <input type="hidden" name="attr_spellroll" value="0" />
+                        <span class="sheet-action" style="min-width: 35px;width: 35px">Jet : </span>
+                        <input type="text" name="attr_spelldice" style="width: 250px;" placeholder="Jet pour le sort, par exemple : '2d4+3'" title="Jet pour le sort, par exemple : '2d4+3'" />
+                    </div>
+                </div>            
+            </div>
         </fieldset>
     </div>
 
-</div>
+</div>  <!-- ==== FIN FDP ==== -->
+
 <!-- ==== TEMPLATES ==== -->
 <rolltemplate class="sheet-rolltemplate-jet">
     <table>
@@ -1925,5 +1967,13 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 <td>{{degats}}</td>
             </tr>
         {{/degats}}
+        {{#jetsort}}
+            {{#rollTotal() jetshow 1}}
+                <tr>
+                    <td class="tcat">Jet</td>
+                    <td>{{jetsort}}</td>
+                </tr>                    
+            {{/rollTotal() jetshow 1}}
+        {{/jetsort}}
     </table>
 </rolltemplate>

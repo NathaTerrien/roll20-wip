@@ -332,10 +332,8 @@ button[type="roll"]:hover{
 
 
 /* ===== TWEAKS ===== */
-.sheet-section-moves textarea,
 .sheet-section-alignment textarea,
-.sheet-section-race textarea,
-.sheet-section-spells textarea {
+.sheet-section-race textarea{
 	resize: vertical;
 }
 
