@@ -84,7 +84,7 @@ input[read-only] {
 /* ===== SECTION HEADERS ===== */
 .sheet-header {
     display: inline-block;
-    background: linear-gradient(to right bottom, #3D2923, #700200, #DE6928);
+    background: linear-gradient(to right bottom, #3D2923 40%, #700200, #DE6928);
     color: #fff;
     padding: 2px 0px;
     vertical-align: middle;
@@ -181,13 +181,14 @@ button[type="roll"]:hover{
     width: 400px;
     text-align: center;
     background-color: white;
-    color: black;
+    color: #3D2923;
 }
 
 .sheet-topbar .sheet-field-class {
     width: 200px;
     text-align: center;
-    background-color: black;
+    /* background-color: #3D2923; */
+    background: linear-gradient(to bottom right, #3D2923 40%, #700200, #DE6928);
     color: white;
 }
 
@@ -298,7 +299,7 @@ button[type="roll"]:hover{
     padding: 0;
     margin: 0;
     padding: 2px 0px 2px 0px; 
-    border-bottom : 1px dashed black;
+    border-bottom : 1px dashed #3D2923;
 }
 .sheet-section-gear input {
     height: 25px;
@@ -308,7 +309,7 @@ button[type="roll"]:hover{
     font-size: 12px;
 }
 .sheet-section-gear input[name="attr_itemname"] {
-    width: 255px;    
+    width: 250px;    
 }
 .sheet-section-gear input[name="attr_itemweight"] {
     width: 30px;
@@ -412,7 +413,7 @@ div.sheet-action {
     padding: 0;
     margin: 0;
     padding: 2px 0px 2px 0px; 
-    border-bottom : 1px dashed black;   
+    border-bottom : 1px dashed #3D2923;   
 }
 button[type="roll"].sheet-btAction {
     width: 20px;
@@ -462,7 +463,7 @@ div.sheet-onglsort{
     text-align: left;
     vertical-align: middle;
     margin: 1px 0px 1px 0px;
-    border: 1px solid black;
+    border: 1px solid #3D2923;
     padding: 3px;
     z-index: 0;
 }
@@ -505,7 +506,7 @@ input[type="radio"].sheet-onglsort + span{
     border-left-color: #666666;
     border-top-color: #666666;
     border-right-color: #666666;
-    border-bottom-color: black;
+    border-bottom-color: #3D2923;
     border-top-left-radius: 0px;
     border-top-right-radius: 15px;
     z-index: 1;
@@ -516,14 +517,14 @@ input[type="radio"].sheet-onglclasse:checked + span,
 input[type="radio"].sheet-onglavance:checked + span,
 input[type="radio"].sheet-onglsort:checked + span {
     font-weight: bold;
-    /* color: black;
+    /* color: #3D2923;
     background-color: white; */
     color: white;
-    background: linear-gradient(to top left, #3D2923, #700200, #DE6928);
-    border-left-color: black;
-    border-top-color: black;
-    border-right-color: black;
-    border-bottom-color: black;
+    background: linear-gradient(to top left, #3D2923 40%, #700200, #DE6928);
+    border-left-color: #3D2923;
+    border-top-color: #3D2923;
+    border-right-color: #3D2923;
+    border-bottom-color: #3D2923;
 }
 input[type="radio"].sheet-onglbase:checked ~ div.sheet-onglbase{
     display: block;
@@ -543,12 +544,12 @@ input[type="radio"].sheet-onglsort:checked ~ div.sheet-onglsort{
 /* ==== TEMPLATES ==== */
 .sheet-rolltemplate-jet table{
     background: white;
-    border: 1px solid black;
+    border: 1px solid #3D2923;
     border-radius: 6px;
     width: 100%;
     padding: 2px;
     font-family: 'Verdana';
-    color: black;
+    color: #3D2923;
     font-size: 0.9em;
 }
 .sheet-rolltemplate-jet tr{
@@ -563,31 +564,31 @@ input[type="radio"].sheet-onglsort:checked ~ div.sheet-onglsort{
     text-align: center;
     font-family: 'Contrail One';
     color: white;
-    /* background: black; */
-    background: linear-gradient(to right, #3D2923, #700200, #DE6928);
+    /* background: #3D2923; */
+    background: linear-gradient(to right, #3D2923 40%, #700200, #DE6928);
 }
 .sheet-rolltemplate-jet td{
     padding: 2px;
     text-align: left;
 }
 .sheet-rolltemplate-jet td.sheet-tcat{
-    color: black;
+    color: #3D2923;
     font-style: italic;
     text-align: right;
-    border-right:  1px dashed black;
+    border-right:  1px dashed #3D2923;
 }
 .sheet-rolltemplate-jet .sheet-subheader{
     font-style: italic;
     text-align: right;
-    border-bottom: 1px dashed black;
-    color: black;
+    border-bottom: 1px dashed #3D2923;
+    color: #3D2923;
 }
 .sheet-rolltemplate-jet .sheet-desctitre{
     font-style: italic;
     text-align: right;
-    border-bottom: 1px dashed black;
-    border-top: 1px solid black;
-    color: black;
+    border-bottom: 1px dashed #3D2923;
+    border-top: 1px solid #3D2923;
+    color: #3D2923;
 }
 .sheet-rolltemplate-jet div.sheet-jetdesc{
     font-family: 'Verdana', serif;
