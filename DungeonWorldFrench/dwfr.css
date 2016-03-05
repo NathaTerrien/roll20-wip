@@ -172,24 +172,33 @@ button[type="roll"]:hover{
     height: 45px;
     padding: 3px;
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     line-height: 36px;
 }
 
 .sheet-topbar .sheet-field-name {
-    width: 400px;
+    width: 370px;
     text-align: center;
     background-color: white;
     color: #3D2923;
 }
 
-.sheet-topbar .sheet-field-class {
+.sheet-topbar input.sheet-field-class {
     width: 200px;
     text-align: center;
     /* background-color: #3D2923; */
     background: linear-gradient(to bottom right, #3D2923 40%, #700200, #DE6928);
     color: white;
+}
+.sheet-topbar select.sheet-field-class {
+    width: 20px;
+    text-align: center;
+    background: linear-gradient(to bottom right, #3D2923 40%, #700200, #DE6928);
+    color: white;
+}
+.sheet-topbar select.sheet-field-class option {    
+    color: black;
 }
 
 
@@ -540,6 +549,40 @@ input[type="radio"].sheet-onglavance:checked ~ div.sheet-onglavance{
 }
 input[type="radio"].sheet-onglsort:checked ~ div.sheet-onglsort{
     display: block;
+}
+/* ==== CLASSES ==== */
+input[type="radio"].sheet-barde,
+input[type="radio"].sheet-clerc,
+input[type="radio"].sheet-druide,
+input[type="radio"].sheet-guerrier,
+input[type="radio"].sheet-magicien,
+input[type="radio"].sheet-paladin,
+input[type="radio"].sheet-ranger,
+input[type="radio"].sheet-voleur{
+    display: none;
+}
+div.sheet-barde,
+div.sheet-clerc,
+div.sheet-druide,
+div.sheet-guerrier,
+div.sheet-magicien,
+div.sheet-paladin,
+div.sheet-ranger,
+div.sheet-voleur {
+    display: none;
+}
+input[type="radio"].sheet-barde:checked ~ div.sheet-barde,
+input[type="radio"].sheet-clerc:checked ~ div.sheet-clerc,
+input[type="radio"].sheet-druide:checked ~ div.sheet-druide,
+input[type="radio"].sheet-guerrier:checked ~ div.sheet-guerrier,
+input[type="radio"].sheet-magicien:checked ~ div.sheet-magicien,
+input[type="radio"].sheet-paladin:checked ~ div.sheet-paladin,
+input[type="radio"].sheet-ranger:checked ~ div.sheet-ranger,
+input[type="radio"].sheet-voleur:checked ~ div.sheet-voleur {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 /* ==== TEMPLATES ==== */
 .sheet-rolltemplate-jet table{

@@ -662,7 +662,6 @@ on("change:repeating_items:itemweight", function() {
  on('remove:repeating_items',function(){
     TAS.repeatingSimpleSum('items','itemweight','load');
 });
-
 // ACTIONS
     // Actions Base
     on("change:repeating_actionsbase:actionbasejet", function() {
@@ -724,7 +723,7 @@ on("change:repeating_items:itemweight", function() {
             });
         });
     });
-    // Sort
+    // Sorts
     on("change:repeating_spells:spelljet change:repeating_spells:spelldice", function() {
         getAttrs(["repeating_spells_spelljet","repeating_spells_spelldice"], function(values){
             var chkjet = parseInt(values.repeating_spells_spelljet) || 0;
@@ -744,7 +743,17 @@ on("change:repeating_items:itemweight", function() {
             });
         });
     });
-
+    on("change:repeating_spells:spellprep change:repeating_spells:spellniveau", function() {
+        getAttrs(["repeating_spells_spellprep","repeating_spells_spellniveau"], function(values) {
+            var chk = parseInt(values.repeating_spells_spellprep) || 0;
+            var niv = parseInt(values.repeating_spells_spellniveau) || 0;            
+            tot = niv*chk;
+            setAttrs({
+                repeating_spells_spellvalue: tot
+            });
+            TAS.repeatingSimpleSum('spells','spellvalue','spellsnum');
+        });
+    });
 // Caractéristiques et modificateurs
     on("change:strength change:weak", function() {
         getAttrs(["strength","weak"], function(values) {
@@ -800,13 +809,108 @@ on("change:repeating_items:itemweight", function() {
             });
         });
     });
+// CLASSES
+    on("change:laclasse", function() {
+        getAttrs(["laclasse"], function(values) {
+            var classe = values.laclasse;
+            var nom = "";
+            var pv = 0;
+            var charge = 0;
+            var sorts = 0;
+            var degats = "";
+            switch(classe) {
+                case "barde":
+                    nom = "Le Barde";
+                    pv = 6;
+                    charge = 9;
+                    sorts = 0;
+                    degats = "d6";
+                    break;
+                case "clerc":
+                    nom = "Le Clerc";
+                    pv = 8;
+                    charge = 10;
+                    sorts = 1;
+                    degats = "d6";
+                    break;
+                case "druide":
+                    nom = "Le Druide";
+                    pv = 6;
+                    charge = 6;
+                    sorts = 0;
+                    degats = "d6";
+                    break;
+                case "guerrier":
+                    nom = "Le Guerrier";
+                    pv = 10;
+                    charge = 12;
+                    sorts = 0;
+                    degats = "d10";
+                    break;
+                case "magicien":
+                    nom = "Le Magicien";
+                    pv = 4;
+                    charge = 7;
+                    sorts = 1;
+                    degats = "d4";
+                    break;
+                case "paladin":
+                    nom = "Le Paladin";
+                    pv = 10;
+                    charge = 12;
+                    sorts = 0;
+                    degats = "d10";
+                    break;
+                case "ranger":
+                    nom = "Le Ranger";
+                    pv = 8;
+                    charge = 11;
+                    sorts = 0;
+                    degats = "d8";
+                    break;
+                case "voleur":
+                    nom = "Le Voleur";
+                    pv = 6;
+                    charge = 9;
+                    sorts = 0;
+                    degats = "d8";
+                    break;
+                default:
+                    nom = "";
+                    pv = 0;
+                    charge = 0;
+                    sorts = 0;
+                    degats = "";
+                    break;
+            }
+            setAttrs({
+                class: nom,
+                basehp: pv,
+                baseload : charge,
+                spellsmax : sorts,
+                dtype: degats
+            });
+        });
+    });
 </script>
 <div class="sheet-topbar">
     <img style="width: 200px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/DungeonWorldFrench/dwlogo.png" />    
     <div><input class="sheet-field-name" type="text" placeholder="Nom" name="attr_character_name" /></div>
-    <div><input class="sheet-field-class" type="text" placeholder="Classe" name="attr_class" /></div>
+    <div>        
+        <SELECT name="attr_laclasse" class="sheet-field-class" title="Sélectionner une classe existante pour pré-remplir certains champs et faire apparaître les Actions de Départ de la classe choisie">
+            <OPTION value="custom" selected>Personnalisée</OPTION>
+            <OPTION value="barde">Le Barde</OPTION>
+            <OPTION value="clerc">Le Clerc</OPTION>
+            <OPTION value="druide">Le Druide</OPTION>
+            <OPTION value="guerrier">Le Guerrier</OPTION>
+            <OPTION value="magicien">Le Magicien</OPTION>
+            <OPTION value="paladin">Le Paladin</OPTION>
+            <OPTION value="ranger">Le Ranger</OPTION>
+            <OPTION value="voleur">Le Voleur</OPTION>
+        </SELECT>
+        <input class="sheet-field-class" type="text" placeholder="Classe" name="attr_class" />
+    </div>
 </div>
-
 <div class="sheet-statistics">
     <div class="sheet-header">
         <div class="sheet-section-name">Dégâts</div>
@@ -1765,6 +1869,159 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
     
     <!-- ===== DEPART ===== -->
     <div class="sheet-onglclasse">
+        <input type="radio" name="attr_laclasse" class="sheet-barde" value="barde" />
+        <input type="radio" name="attr_laclasse" class="sheet-clerc" value="clerc" />
+        <input type="radio" name="attr_laclasse" class="sheet-druide" value="druide" />
+        <input type="radio" name="attr_laclasse" class="sheet-guerrier" value="guerrier" />
+        <input type="radio" name="attr_laclasse" class="sheet-magicien" value="magicien" />
+        <input type="radio" name="attr_laclasse" class="sheet-paladin" value="paladin" />
+        <input type="radio" name="attr_laclasse" class="sheet-ranger" value="ranger" />
+        <input type="radio" name="attr_laclasse" class="sheet-voleur" value="voleur" />
+        
+        <!-- ===== BARDE ===== -->
+        <div class="sheet-barde">
+            <!-- ===== ARTS ARCANIQUES ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ArtsArcaniques" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barde-art-name}}} {{subtags=Action de Départ de Barde}} {{jetshow=[[1]]}} {{jet=[[2d6+@{barde-art-mod}+(@{barde-art-bonus})]]}} {{succes=@{barde-art-succes}}} {{partiel=@{barde-art-partiel}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barde-art-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barde-art-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Arts Arcaniques" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barde-art-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand la magie de votre spectacle se matérialise, choissiez un allié et lancez 2d6 +CHA.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_barde-art-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}" >FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}" selected>CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_barde-art-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_barde-art-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">L’allié bénéficie de l’effet choisi parmi :
+- Soignez 1d8 dégâts.
+- Ajoutez 1d4 aux prochains dégâts qu’il inflige.
+- Son esprit est libéré d’un enchantement.
+- La prochaine fois qu’on l’aide, il reçoit +2 au lieu de +1.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_barde-art-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Votre magie fonctionne mais vous attirez une attention malvenue ou votre sort se propage à d’autres cibles (au choix du MJ) et les affecte également.
+L’allié bénéficie de l’effet choisi parmi :
+- Soignez 1d8 dégâts.
+- Ajoutez 1d4 aux prochains dégâts qu’il inflige.
+- Son esprit est libéré d’un enchantement.
+- La prochaine fois qu’on l’aide, il reçoit +2 au lieu de +1.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== UN HAVRE DANS LA TEMPÊTE ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="HavreTempete" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barde-havre-name}}} {{subtags=Action de Départ de Barde}} {{descshow=[[1]]}} {{desc=@{barde-havre-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barde-havre-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barde-havre-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Un Havre dans la Tempête" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barde-havre-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Lorsque vous revenez dans un lieu civilisé que vous avez déjà visité, indiquez au MJ à quand remonte votre dernier passage. Il vous dira en quoi ce lieu a changé depuis.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== SAVOIR BARDIQUE ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="SavoirBardique" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barde-savoir-name}}} {{subtags=Action de Départ de Barde}} {{descshow=[[1]]}} {{desc=@{barde-savoir-body}}} {{info=Domaine de connaissance}} {{infoval=@{barde-savoir-domaine}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barde-savoir-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barde-savoir-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Savoir Bardique" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barde-savoir-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Lorsque vous découvrez ou rencontrez pour la première fois un objet, un lieu ou une créature importants dans votre domaine de connaissance, vous pouvez poser une question à son sujet au MJ. Le MJ répondra sincèrement. Il peut alors vous demander dans quel  récit,  quelle  chanson  ou  légende,  vous  avez  trouvé  cette information</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span>Domaine de Connaissance : </span>
+                        <SELECT name="attr_barde-savoir-domaine">
+                            <OPTION>Sorts & magie</OPTION>
+                            <OPTION>Morts et morts-vivants</OPTION>
+                            <OPTION>Grands évènements du monde connu</OPTION>
+                            <OPTION>Bestiaire des créatures inhabituelles</OPTION>
+                            <OPTION>Sphères planaires</OPTION>
+                            <OPTION>Légendes des héros du passé</OPTION>
+                            <OPTION>Les dieux et leurs serviteurs</OPTION>
+                        </SELECT>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== CHARMANT ET SINCÈRE ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="CharmantEtSincere" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barde-charmant-name}}} {{subtags=Action de Départ de Barde}} {{descshow=[[1]]}} {{desc=@{barde-charmant-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barde-charmant-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barde-charmant-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Charmant et Sincère" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barde-charmant-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous discutez franchement avec quelqu’un, vous pouvez poser  une  question  de  la  liste  ci-dessous  à  son  joueur  (MJ compris). Il  doit répondre sincèrement et peut à  son  tour  vous poser  une  question  de  la  liste,  à  laquelle  vous  devez  répondre sincèrement.
+- Qui sers-tu ?
+- Que souhaiterais-tu que je fasse ?
+- Comment pourrais-je t’amener à (faire) _______ ?
+- Que ressens-tu vraiment en ce moment ?
+- Que désires-tu le plus ?</textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ===== FIN BARDE ===== -->
+        
+        <!-- ===== CLERC ===== -->
+        <div class="sheet-clerc">
+            CLERC
+        </div>
+        
+        <!-- ===== DRUIDE ===== -->
+        <div class="sheet-druide">
+            DRUIDE
+        </div>
+        
+        <!-- ===== GUERRIER ===== -->
+        <div class="sheet-guerrier">
+            GUERRIER
+        </div>
+        
+        <!-- ===== MAGICIEN ===== -->
+        <div class="sheet-magicien">
+            MAGICIEN
+        </div>
+        
+        <!-- ===== PALADIN ===== -->
+        <div class="sheet-paladin">
+            PALADIN
+        </div>
+        
+        <!-- ===== RANGER ===== -->
+        <div class="sheet-ranger">
+            RANGER
+        </div>
+        
+        <!-- ===== VOLEUR ===== -->
+        <div class="sheet-voleur">
+            VOLEUR
+        </div>
+
         <!-- ===== DEPART DYNAMIQUE ===== -->
         <fieldset class="repeating_actionsdepart">
             <div class="sheet-action">
@@ -1868,6 +2125,18 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
 
     <!-- ===== SORTS ===== -->
     <div class="sheet-onglsort">
+        <div class="sheet-actionligne">
+            <span class="sheet-action">Sorts préparés</span>
+            <input type="number" class="sheet-action" name="attr_spellsnum" value="0" readonly />
+            /
+            <span class="sheet-action">Maximum</span>
+            <input type="number" class="sheet-action" name="attr_spellsnum_max" value="[[@{level}+@{spellsmax}]]" title="Nombre maxium de sorts préparés" disabled />
+            <div style="display: inline-block;font-size: 10px; font-style: italic;">
+                ( = Niveau (<input type="number" class="sheet-action" name="attr_level" readonly />)
+                + <input type="number" class="sheet-action" name="attr_spellsmax" value="1" min="0" title="Valeur à ajouter au niveau pour calculer le nombre maxium de sorts préparés" />
+                )
+            </div>
+        </div>
         <fieldset class="repeating_spells">
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="JetSort" 
@@ -1879,6 +2148,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 <input type="number" class="sheet-action" name="attr_spellniveau" value="0" min="0" title="Niveau du sort" />
                 <span class="sheet-action">Préparé : </span>
                 <input type="checkbox" class="sheet-selcheck" name="attr_spellprep" value="1" title="Le sort a été préparé." /><span>3</span>
+                <input type="hidden" name="attr_spellvalue" value="0" /> 
                 <div class="sheet-dispcheck">
                     <div class="sheet-actionligne">
                         <input type="checkbox" class="sheet-selcheck" name="attr_spellbodydisp" value="1" title="Montrer la description du sort dans le template de jet" checked /><span>E</span>
@@ -1896,6 +2166,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
         </fieldset>
     </div>
 </div>  <!-- ==== FIN COL DROITE ==== -->
+
 <div class="sheet-row" style="text-align: center;font-style: italic; vertical-align: middle;">
     <div  style="display:inline-block;vertical-align: middle;"><img style="height: 20px;vertical-align: middle;" src="http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-nd.png" /></div>
     <div  style="display:inline-block;vertical-align: middle;">Magimax / DUNGEON WORLD est un jeu créé par Adam Koebel & Sage LaTorra</div>
@@ -1913,6 +2184,12 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
         {{#subtags}}
             <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
         {{/subtags}}
+        {{#info}}
+                <tr>
+                    <td class="tcat">{{info}}</td>
+                    <td>{{infoval}}</td>
+                </tr>
+        {{/info}}
         {{#desc}}
             {{#rollTotal() descshow 1}}
                 <tr><td colspan="2"><div class="jetdesc">{{desc}}</div></td></tr>
