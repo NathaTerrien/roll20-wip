@@ -17,7 +17,7 @@
                 <option value="0" selected> </option>    
 				<option value="Trained">Entrain&eacute;</option>
 				<option value="Transformed">Transform&eacute;</option>
-				<option value="Birthright">H&eacute;ritage</option>
+				<option value="Birthright">Destin&eacute;</option>
 				<option value="Gimmick">Am&eacute;lior&eacute;</option>
 				<option value="Artificial">Artificiel</option>
 				<option value="Unearthly">Etrange</option>
@@ -55,32 +55,32 @@
 				<tr>
 					<td>Vaillance</td>
 					<td><input type="number" name="attr_Prowess"></td>
-                    <td><button type='roll' value='/roll 1d6 - 1d6 + @{Prowess}' name='roll_ProwessCheck'/></td>
+                    <td><button type='roll' value='/e utilise Vaillance [[1d6 - 1d6 + @{Prowess}]]' name='roll_ProwessCheck'/></td>
 				</tr>
 				<tr>
 					<td>Coordination</td>
 					<td><input type="number" name="attr_Coordination"></td>
-                    <td><button type='roll' value='/roll 1d6 - 1d6 + @{Coordination}' name='roll_CoordinationCheck'/></td>
+                    <td><button type='roll' value='/e utilise Coordination [[1d6 - 1d6 + @{Coordination}]]' name='roll_CoordinationCheck'/></td>
 				</tr>
 				<tr>
 					<td>Force</td>
 					<td><input type="number" name="attr_Strength"></td>
-                    <td><button type='roll' value='/roll 1d6 - 1d6 + @{Strength}' name='roll_StrengthCheck'/></td>
+                    <td><button type='roll' value='/e utilise Force [[1d6 - 1d6 + @{Strength}]]' name='roll_StrengthCheck'/></td>
 				</tr>
 				<tr>
 					<td>Intellect</td>
 					<td><input type="number" name="attr_Intellect"></td>
-                    <td><button type='roll' value='/roll 1d6 - 1d6 + @{Intellect}' name='roll_IntellectCheck'/></td>
+                    <td><button type='roll' value='/e utilise Intellect [[1d6 - 1d6 + @{Intellect}]]' name='roll_IntellectCheck'/></td>
 				</tr>
 				<tr>
 					<td>Eveil</td>
 					<td><input type="number" name="attr_Awareness"></td>
-                    <td><button type='roll' value='/roll 1d6 - 1d6 + @{Awareness}' name='roll_AwarenessCheck'/></td>
+                    <td><button type='roll' value='/e utilise Eveil [[1d6 - 1d6 + @{Awareness}]]' name='roll_AwarenessCheck'/></td>
 				</tr>
 				<tr>
 					<td>Volont&eacute;</td>
 					<td><input type="number" name="attr_Willpower"></td>
-                    <td><button type='roll' value='/roll 1d6 - 1d6 + @{Willpower}' name='roll_WillpowerCheck'/></td>
+                    <td><button type='roll' value='/e utilise Volont&eacute; [[1d6 - 1d6 + @{Willpower}]]' name='roll_WillpowerCheck'/></td>
 				</tr>
 			</table>		 <!-- .section-Attributes -->
 	</div>
@@ -95,7 +95,8 @@
 			<fieldset class="repeating_Powers">  
 				<table>
 					<input style="width:5%" type="number" name="attr_power_rank" /> 
-					<input style="width:95%" type="text" name="attr_power_desc" />        
+					<input style="width:95%" type="text" name="attr_power_desc" />
+					<button type="roll" value='/e utilise @{power_desc} [[1d6 - 1d6 + @{power_rank}]]' />
 				</table>
 			</fieldset>
 		
