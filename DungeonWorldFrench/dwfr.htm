@@ -1865,7 +1865,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 </div>                
             </div>
         </fieldset>        
-    </div>
+    </div> <!-- FIN SPECIALES -->
     
     <!-- ===== DEPART ===== -->
     <div class="sheet-onglclasse">
@@ -1989,13 +1989,281 @@ L’allié bénéficie de l’effet choisi parmi :
         
         <!-- ===== CLERC ===== -->
         <div class="sheet-clerc">
-            CLERC
-        </div>
+            <!-- ===== DIVINITÉ ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="Divinite" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{clerc-dieu-name}}} {{subtags=Action de Départ de Clerc}} {{descshow=[[1]]}} {{desc=@{clerc-dieu-body}}} {{info=Domaine}} {{infoval=@{clerc-dieu-domaine}}} {{info2=Précepte}} {{info2val=Votre religion @{clerc-dieu-precepte}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_clerc-dieu-show" value="1" /><span>y</span>
+                <input type="text" name="attr_clerc-dieu-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Divinité" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_clerc-dieu-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Vous servez et adorez une divinité ou puissance qui vous accorde des sorts.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Domaine : </span>
+                        <SELECT name="attr_clerc-dieu-domaine">
+                            <OPTION>Soins et guérison</OPTION>
+                            <OPTION>Conquête sanglante</OPTION>
+                            <OPTION>Civilisation</OPTION>
+                            <OPTION>Savoir et mystères</OPTION>
+                            <OPTION>Les opprimés et les oubliés</OPTION>
+                            <OPTION>Ce qui est en dessous</OPTION>
+                        </SELECT>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Précepte : </span>
+                        Votre religion
+                        <SELECT name="attr_clerc-dieu-precepte">
+                            <OPTION>prêche la souffrance purificatrice (Souffrance).</OPTION>
+                            <OPTION>est sectaire et isolée (Accéder à des secrets).</OPTION>
+                            <OPTION>a d’importants rites sacrificiels (Offrande).</OPTION>
+                            <OPTION>croit à l’épreuve du combat (Victoire personnelle).</OPTION>
+                        </SELECT>                        
+                    </div>
+                </div>
+            </div>
+            <!-- ===== INSPIRATION DIVINE ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="InspirationDivine" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{clerc-inspiration-name}}} {{subtags=Action de Départ de Clerc}} {{descshow=[[1]]}} {{desc=@{clerc-inspiration-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_clerc-inspiration-show" value="1" /><span>y</span>
+                <input type="text" name="attr_clerc-inspiration-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Inspiration Divine" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_clerc-inspiration-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous formulez une supplique conformément au précepte de votre religion, vous recevez une inspiration utile ou une bénédiction en rapport avec le domaine de votre dieu. Le MJ vous dira de quoi il s’agit.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== REPOUSSER LES MORTS VIVANTS ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="RepousserLesMortsVivants" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{clerc-repousser-name}}} {{subtags=Action de Départ de Clerc}} {{jetshow=[[1]]}} {{jet=[[2d6+@{clerc-repousser-mod}+(@{clerc-repousser-bonus})]]}} {{succes=@{clerc-repousser-succes}}} {{partiel=@{clerc-repousser-partiel}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_clerc-repousser-show" value="1" /><span>y</span>
+                <input type="text" name="attr_clerc-repousser-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Repousser les Morts Vivants" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_clerc-repousser-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous brandissez votre symbole sacré et invoquez la protection de votre divinité, lancez 2d6+SAG.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_clerc-repousser-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}" selected>SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_clerc-repousser-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_clerc-repousser-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Vous étourdissez momentanément les morts vivants intelligents et provoquez la fuite des autres.
+    La moindre agression brise cet effet et ils peuvent alors agir normalement. Les morts vivants intelligents peuvent toujours trouver moyen de vous nuire à distance. Ils sont malins vous savez !</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_clerc-repousser-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Les morts-vivants demeurent hors de portée de vous tant que vous priez dans cette posture.
+    La moindre agression brise cet effet et ils peuvent alors agir normalement. Les morts vivants intelligents peuvent toujours trouver moyen de vous nuire à distance. Ils sont malins vous savez !</textarea>
+                    </div>
+                </div>                
+            </div>
+            <!-- ===== COMMUNIER ===== --> 
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="Communier" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{clerc-communier-name}}} {{subtags=Action de Départ de Clerc}} {{descshow=[[1]]}} {{desc=@{clerc-communier-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_clerc-communier-show" value="1" /><span>y</span>
+                <input type="text" name="attr_clerc-communier-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Communier" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_clerc-communier-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous consacrez un moment ininterrompu (environ 1 heure) en communion tranquille:
+- vous perdez tous les sorts qu’il vous reste
+- vous recevez de nouveaux sorts de votre choix dont le niveau ne dépasse pas le vôtre et dont les niveaux additionnés ne dépassent pas votre niveau+1.
+- vos prières sont à nouveau toutes disponibles, elles ne comptent pas dans la limite de niveau.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== LANCER UN SORT ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="LancerUnSort" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{clerc-sort-name}}} {{subtags=Action de Départ de Clerc}} {{jetshow=[[1]]}} {{jet=[[2d6+@{clerc-sort-mod}+(@{clerc-sort-bonus})]]}} {{succes=@{clerc-sort-succes}}} {{partiel=@{clerc-sort-partiel}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_clerc-sort-show" value="1" /><span>y</span>
+                <input type="text" name="attr_clerc-sort-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Lancer Un Sort" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_clerc-sort-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous lancez un sort que votre divinité vous a accordé (prières comprises), lancez 2d6+SAG.
+A noter que maintenir des sorts et leurs effets peut parfois entraîner une pénalité pour lancer un autre sort.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_clerc-sort-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}" selected>SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_clerc-sort-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_clerc-sort-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Le sort est lancé avec succès et votre divinité ne vous le retire pas. Vous pouvez le lancer à nouveau.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_clerc-sort-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Sur 7-9 le sort est lancé mais choisissez une option:
+- Vous attirez une attention malvenue ou vous vous exposez (le MJ vous décrira comment).
+- Vous vous éloignez de votre divinité : vous avez -1 continu pour lancer un sort jusqu’à ce que vous communiez de nouveau.
+- Une fois lancé, le sort est révoqué par votre divinité. Vous ne pouvez plus le lancer tant que vous n’avez pas communié et reçu ce sort à nouveau.</textarea>
+                    </div>
+                </div>                
+            </div>
+        </div> <!-- ===== FIN CLERC ===== -->
         
         <!-- ===== DRUIDE ===== -->
         <div class="sheet-druide">
-            DRUIDE
-        </div>
+            <!-- ===== CONTEMPLATION DE L’ESSENCE ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ContemplationEssence" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{druide-essence-name}}} {{subtags=Action de Départ de Druide}} {{descshow=[[1]]}} {{desc=@{druide-essence-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_druide-essence-show" value="1" /><span>y</span>
+                <input type="text" name="attr_druide-essence-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Contemplation de l’Essence" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_druide-essence-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous passez du temps en contemplation d’un esprit animal, vous pouvez en ajouter l’espèce à celles dont vous pouvez prendre la forme.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== CHANGEFORME ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="Changeforme" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{druide-changeforme-name}}} {{subtags=Action de Départ de Druide}} {{jetshow=[[1]]}} {{jet=[[2d6+@{druide-changeforme-mod}+(@{druide-changeforme-bonus})]]}} {{succes=@{druide-changeforme-succes}}} {{partiel=@{druide-changeforme-partiel}}} {{echec=@{druide-changeforme-echec}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_druide-changeforme-show" value="1" /><span>y</span>
+                <input type="text" name="attr_druide-changeforme-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Changeforme" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_druide-changeforme-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous faites appel aux esprits pour changer votre forme, lancez 2d6 +SAG.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_druide-changeforme-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}" selected>SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_druide-changeforme-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_druide-changeforme-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Retenez 3.
+Vous pouvez prendre la forme de toute espèce dont vous avez contemplé l’essence ou qui vit dans votre région; vous et vos possessions se fondent en une parfaite copie de la forme de cette espèce. Vous avez toutes les capacités et faiblesses innées de cette forme: griffes, ailes, branchies vous permettant de respirer sous l’eau. Vous utilisez vos caractéristiques normales, mais certaines actions peuvent être plus difficiles à mettre en œuvre (un chat aura plus de mal à se battre contre un ogre).
+Le MJ vous indiquera une ou plusieurs actions associées à votre nouvelle forme. Utilisez 1 pour accomplir cette action. Quand vous n’avez plus de retenue, vous revenez à votre forme normale. A tout moment, vous pouvez dépenser toutes vos retenues pour revenir à votre forme normale.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_druide-changeforme-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Retenez 2.
+Vous pouvez prendre la forme de toute espèce dont vous avez contemplé l’essence ou qui vit dans votre région; vous et vos possessions se fondent en une parfaite copie de la forme de cette espèce. Vous avez toutes les capacités et faiblesses innées de cette forme: griffes, ailes, branchies vous permettant de respirer sous l’eau. Vous utilisez vos caractéristiques normales, mais certaines actions peuvent être plus difficiles à mettre en œuvre (un chat aura plus de mal à se battre contre un ogre).
+Le MJ vous indiquera une ou plusieurs actions associées à votre nouvelle forme. Utilisez 1 pour accomplir cette action. Quand vous n’avez plus de retenue, vous revenez à votre forme normale. A tout moment, vous pouvez dépenser toutes vos retenues pour revenir à votre forme normale.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_druide-changeforme-echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec">Retenez 1 en plus de ce que dira le MJ.
+Vous pouvez prendre la forme de toute espèce dont vous avez contemplé l’essence ou qui vit dans votre région; vous et vos possessions se fondent en une parfaite copie de la forme de cette espèce. Vous avez toutes les capacités et faiblesses innées de cette forme: griffes, ailes, branchies vous permettant de respirer sous l’eau. Vous utilisez vos caractéristiques normales, mais certaines actions peuvent être plus difficiles à mettre en œuvre (un chat aura plus de mal à se battre contre un ogre).
+Le MJ vous indiquera une ou plusieurs actions associées à votre nouvelle forme. Utilisez 1 pour accomplir cette action. Quand vous n’avez plus de retenue, vous revenez à votre forme normale. A tout moment, vous pouvez dépenser toutes vos retenues pour revenir à votre forme normale.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== NOURRI PAR LA NATURE ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="NourriParLaNature" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{druide-nourri-name}}} {{subtags=Action de Départ de Druide}} {{descshow=[[1]]}} {{desc=@{druide-nourri-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_druide-nourri-show" value="1" /><span>y</span>
+                <input type="text" name="attr_druide-nourri-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Nourri par la Nature" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_druide-nourri-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Vous n’avez pas besoin de boire ou de manger. Si une action vous demande de consommer une ration, ignorez cette consigne.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== LANGUE DES ESPRITS ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="LangueDesEsprits" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{druide-langue-name}}} {{subtags=Action de Départ de Druide}} {{descshow=[[1]]}} {{desc=@{druide-langue-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_druide-langue-show" value="1" /><span>y</span>
+                <input type="text" name="attr_druide-langue-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Langue des Esprits" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_druide-langue-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Les grognements, aboiements, pépiements et appels des créatures de la nature sont un langage pour vous. Vous pouvez comprendre tout animal de votre région ou apparenté à une espèce dont vous avez contemplé l’essence.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== ENFANT DU PAYS ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="EnfantDuPays" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{druide-enfant-name}}} {{subtags=Action de Départ de Druide}} {{descshow=[[1]]}} {{desc=@{druide-enfant-body}}} {{info=Région}} {{infoval=@{druide-enfant-region}}} {{info2=Aspect}} {{info2val=@{druide-enfant-aspect}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_druide-enfant-show" value="1" /><span>y</span>
+                <input type="text" name="attr_druide-enfant-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Enfant du Pays" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_druide-enfant-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Vous avez appris votre magie dans un lieu où les esprits sont forts et anciens. Ils vous ont marqué(e) comme l’un des leurs. Où que vous alliez, ils vivent en vous et vous permettent de prendre leur forme. Choisissez une région ci-dessous; c’est celle avec laquelle vous êtes en harmonie. Lorsque vous changez de forme, vous pouvez prendre celle d’un animal qui pourrait vivre dans votre région.
+Choisissez un aspect – un attribut physique qui vous identifie comme enfant du pays – qui reflète l’esprit de votre région. Ce peut être une caractéristique animale comme des bois ou des taches de léopard ou quelque chose de plus général: une chevelure de feuilles, des yeux de cristal brillant. Votre aspect demeure quelle que soit votre forme.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Région : </span>
+                        <SELECT name="attr_druide-enfant-region">
+                            <OPTION>La Grande Forêt</OPTION>
+                            <OPTION>Les Plaines Murmurantes</OPTION>
+                            <OPTION>Le Vaste Désert</OPTION>
+                            <OPTION>Le Marais Puant</OPTION>
+                            <OPTION>Le Delta de la Rivière</OPTION>
+                            <OPTION>Les Profondeurs de la Terre</OPTION>
+                            <OPTION>Les Iles de Saphir</OPTION>
+                            <OPTION>La Pleine Mer</OPTION>
+                            <OPTION>Les Hautes Montagnes</OPTION>
+                            <OPTION>Le Nord Gelé</OPTION>
+                            <OPTION>Les Terres Flétries</OPTION>
+                        </SELECT>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Aspect : </span>
+                        <input type="text" name="attr_druide-enfant-aspect" title="Aspect" placeholder="Aspect" value="" />
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ===== FIN DRUIDE ===== -->
         
         <!-- ===== GUERRIER ===== -->
         <div class="sheet-guerrier">
@@ -2190,6 +2458,12 @@ L’allié bénéficie de l’effet choisi parmi :
                     <td>{{infoval}}</td>
                 </tr>
         {{/info}}
+        {{#info2}}
+                <tr>
+                    <td class="tcat">{{info2}}</td>
+                    <td>{{info2val}}</td>
+                </tr>
+        {{/info2}}
         {{#desc}}
             {{#rollTotal() descshow 1}}
                 <tr><td colspan="2"><div class="jetdesc">{{desc}}</div></td></tr>
