@@ -61,6 +61,7 @@ Cf. english version
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.1 (2016-02-28)
 
 #### Todo
+* Tests sur v2.0
 * Jets
   * Gérer le malus d'armure aux jets
   * Modificateur circonstantiel sur les jets ?
@@ -71,7 +72,7 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Icons%20French) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Icons%20French) Version 1.0
-* [Official]() en attente de merge
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Icons%20French) Version 1.0
 
 #### Todo
 
