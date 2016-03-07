@@ -1,12 +1,12 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-03-03.
+Updated 2016-03-06.
 
 ## Considered sheets (creation or enhancements)
 * [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
-* [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
+* [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
 * [Dragon de Poche²](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
 * Stars Without Number (french)
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
@@ -56,35 +56,24 @@ Cf. english version
 [Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 2.0 alpha
+* [WIP](./DungeonWorldFrench/) Version 2.0 (2016-03-06)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.1 (2016-02-28)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.1 (2016-02-28)
 
 #### Todo
-* Mise en page :
-  * ~~Rendre la fiche plus compacte~~
-  * Styliser les cases à cocher d'affichage des descriptions
-* Actions
-  * ~~Pour les actions de Base et Spéciales : les ajouter "en dur" (avec jets intégrés) et la possibilité d'en ajouter dynamiquement (pour les hacks)~~
-  * ~~Jets paramétrables pour les actions dynamiques : choix de la carac, bonus/malus éventuel, "message" à afficher~~
-  * Actions paramétrables : 
-    * Option d'affichage de la description
-    * Zone "macro" pour jet supplémentaire
 * Jets
   * Gérer le malus d'armure aux jets
   * Modificateur circonstantiel sur les jets ?
-  * ~~Template pour les jets (perso, types de jet/action, valeur/réussite, description ... )~~
-* Equipements : 
-  * Ajouter une zone de description différente des marqueurs
-* Informations manquantes : 
-  * divinité
-  * compagnon animal
-  * etc.
-* Automatismes : 
-  * choix de classes par liste (+ choix "libre" pour hacks)
-  * Prérenseignement (selon choix classe) : 
-    * des valeurs de base
-    * autres ?
+
+### Icons (french)
+Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS](http://johndoe-rpg.com/catalogue/icons/), édité par John Doe.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Icons%20French) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Icons%20French) Version 1.0
+* [Official]() en attente de merge
+
+#### Todo
 
 ### INS/MV 5E (french)
 [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)

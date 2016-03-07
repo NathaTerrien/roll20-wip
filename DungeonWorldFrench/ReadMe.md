@@ -1,11 +1,34 @@
 # Dungeon World VF
 
-Feuille de Personnage en français pour [Dungeon World](http://dungeonworld-fr.blogspot.fr/), adaptée de la feuille VO de Willem den Besten (Morenim) et Devindra Payment (@Ardnived).
+Feuille de Personnage en français pour [Dungeon World](http://dungeonworld-fr.blogspot.fr/), adaptée de la feuille VO de Willem den Besten (Morenim) et Devindra Payment (@Ardnived) ... et considérablement modifiée.
 
 # Version courante
-1.1 [Capture d'écran](dwfr.png)
+2.0 [Capture d'écran](dwfr.png)
 
 # Notes de version
+
+##v2.0 (2016-03-06)
+* Ajout d'un peu de couleur sur la feuille et le template de jet ...
+* Ajout d'une liste déroulante de sélection d'une classe. Si autre chose que "Personnalisée" est choisie, les informations suivantes sont automatiquement affichées/renseignées (tout en restant modifiables) : base de PV, base de Charge, Dégâts de base, nombre de sorts, Actions de départ
+* Actions :
+  * onglets séparés pour les actions de Base,Spéciales, de Départ, Avancées et les Sorts
+  * Actions de Bases et Spéciales pré renseignées, modifiables dans une certaine mesure
+  * Actions de Départ pré renseignées, si une classe est choisie, et modifiables dans une certaine mesure
+  * Possibilité d'ajouter des actions "customs" pour tous les types d'Actions / onglets.
+* Actions custom et Avancées : 
+  * coche "oeil" pour afficher/masquer la  description de l'action dans le template de jet de l'action
+  * coche pour faire un jet  2d6+choix carac (ou aucune/0) dans le template de jet de l'action
+  * coche pour faire un jet de dégâts dans le template de jet de l'action
+  * ajout de 3 zones de texte pour afficher le résultat du jet (si jet il y a) sur 10+, 7-9 et 6-.
+* Sorts : 
+  * Ajout d'une zone de saisie pour le niveau du sort
+  * Ajout d'une coche "préparé" (si cochée/décochée, met à jour le total de niveaux de sorts préparés, cf. ci-dessous)
+  * Ajout d'une zone de saisie du nombre à ajouter au niveau pour calculer le maximum de niveaux de sort "préparables" (et affichage de ce maximum, donc)
+  * Ajout d'une zone non saisissable affichant le total des niveaux des sorts cochés "préparés"
+  * Ajout d'un bouton de jet de sort (affiche un template dans le chat, contenant à minima le nom du personange, le nom du sort et plus, selon les options choisies, voir ci-dessous)
+  * Ajout d'une coche "oeil" pour  pour afficher/masquer la  description du sort dans le template de jet du sort
+  * Ajout d'une coche et d'une zone de saisie pour un jet associé au sort (dégâts, soins etc.). Si cochée, jet effectué et résultat affiché dans le template de jet du sort
+* Ajout du copyright
 
 ##v1.1 (2016-02-28)
 * Ajout du logo

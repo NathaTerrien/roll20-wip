@@ -893,6 +893,8 @@ on("change:repeating_items:itemweight", function() {
         });
     });
 </script>
+
+<!-- ==== IDENTITÉ ==== -->
 <div class="sheet-topbar">
     <img style="width: 200px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/DungeonWorldFrench/dwlogo.png" />    
     <div><input class="sheet-field-name" type="text" placeholder="Nom" name="attr_character_name" /></div>
@@ -910,7 +912,9 @@ on("change:repeating_items:itemweight", function() {
         </SELECT>
         <input class="sheet-field-class" type="text" placeholder="Classe" name="attr_class" />
     </div>
-</div>
+</div> <!-- FIN IDENTITÉ -->
+
+<!-- ==== STATS (dégâts, armure, PX, PV etc.) ==== -->
 <div class="sheet-statistics">
     <div class="sheet-header">
         <div class="sheet-section-name">Dégâts</div>
@@ -942,8 +946,9 @@ on("change:repeating_items:itemweight", function() {
         <input type="number" value="0" name="attr_basehp" title="PV de Base de votre classe, avant l'ajout de la Constitution" />
         <span>)</span>  
     </div>
-</div>
+</div> <!-- FIN STATS -->
 
+ <!-- ==== CARACTÉRISTIQUES ==== -->
 <div class="sheet-attributes">
     <div class="sheet-header">
         <label class="sheet-top" for="attr_strength">Force</label>
@@ -1083,28 +1088,29 @@ on("change:repeating_items:itemweight", function() {
 
         <label class="sheet-bottom" for="attr_chamod">CHA</label>
     </div>
-</div>
+</div> <!-- CARACTÉRISTIQUES -->
 
+<!-- ===== COLONNE GAUCHE (alignement, peuple etc.) ===== -->
 <div class="sheet-col-left">
-    <!-- ===== ALIGNMENT ===== -->
+    <!-- ===== ALIGNEMENT ===== -->
     <div class="sheet-header" style="width: 315px;">
         <div class="sheet-section-name" style="width: 85px;">Alignement</div>
         <input type="text" name="attr_alignment" class="sheet-alipeu" placeholder="Alignement" />
     </div>
     <div class="sheet-section-alignment">
         <textarea name="attr_alignment_goal" placeholder="Action"></textarea>
-    </div>
+    </div> <!-- FIN ALIGNEMENT -->
 
-    <!-- ===== RACE ===== -->
+    <!-- ===== PEUPLE ===== -->
     <div class="sheet-header" style="width: 315px;">
         <div class="sheet-section-name" style="width: 85px;">Peuple</div>
         <input type="text" name="attr_race"   class="sheet-alipeu" placeholder="Peuple">
     </div>
     <div class="sheet-section-race">
         <textarea name="attr_race_bonus" placeholder="Action"></textarea>
-    </div>
+    </div> <!-- FIN PEUPLE -->
 
-    <!-- ===== BONDS ===== -->
+    <!-- ===== LIENS ===== -->
     <div class="sheet-header" style="width: 315px;">
         <div class="sheet-section-name">Liens</div>
     </div>
@@ -1112,9 +1118,9 @@ on("change:repeating_items:itemweight", function() {
         <fieldset class="repeating_bonds">
             <textarea placeholder="Lien vide" name="attr_bond"></textarea>
         </fieldset>
-    </div>
+    </div> <!-- FIN LIENS -->
     
-    <!-- ===== GEAR ===== -->
+    <!-- ===== EQUIPEMENT ===== -->
     <div class="sheet-header" style="width: 315px;">
         <div class="sheet-section-name">Matériel</div>
         <span>Charge</span>
@@ -1124,7 +1130,6 @@ on("change:repeating_items:itemweight", function() {
         <span>(Base</span>
         <input type="number" name="attr_baseload" title="Charge de base" value="0" />
         <span>)</span>
-        
     </div>
     <div class="sheet-section-gear">
         <fieldset class="repeating_items">
@@ -1137,9 +1142,10 @@ on("change:repeating_items:itemweight", function() {
                 <input name="attr_itemtags" type="text" placeholder="Marqueurs">
             </div>
         </fieldset>
-    </div>
-</div>
+    </div> <!-- FIN EQUIPEMENT -->
+</div> <!-- FIN COLONNE GAUCHE -->
 
+<!-- ===== COLONNE DROITE (actions et sorts) ===== -->
 <div class="sheet-col-right">
     <!-- ===== ACTIONS ===== -->
     <div class="sheet-header" style="width: 100%;">
@@ -1985,7 +1991,7 @@ L’allié bénéficie de l’effet choisi parmi :
                     </div>
                 </div>
             </div>
-        </div> <!-- ===== FIN BARDE ===== -->
+        </div> <!-- FIN BARDE -->
         
         <!-- ===== CLERC ===== -->
         <div class="sheet-clerc">
@@ -2135,7 +2141,7 @@ A noter que maintenir des sorts et leurs effets peut parfois entraîner une pén
                     </div>
                 </div>                
             </div>
-        </div> <!-- ===== FIN CLERC ===== -->
+        </div> <!-- FIN CLERC -->
         
         <!-- ===== DRUIDE ===== -->
         <div class="sheet-druide">
@@ -2263,7 +2269,7 @@ Choisissez un aspect – un attribut physique qui vous identifie comme enfant du
                     </div>
                 </div>
             </div>
-        </div> <!-- ===== FIN DRUIDE ===== -->
+        </div> <!-- FIN DRUIDE -->
         
         <!-- ===== GUERRIER ===== -->
         <div class="sheet-guerrier">
@@ -3006,7 +3012,7 @@ vous vous déplacez dans cette zone :
                 </div>            
             </div>
         </fieldset>
-    </div>
+    </div> <!-- FIN DEPART -->
     
     <!-- ===== AVANCEES DYNAMIQUE ===== -->
     <div class="sheet-onglavance">
@@ -3057,7 +3063,7 @@ vous vous déplacez dans cette zone :
                 </div>            
             </div>
         </fieldset>
-    </div>
+    </div> <!-- FIN AVANCEES -->
 
     <!-- ===== SORTS ===== -->
     <div class="sheet-onglsort">
@@ -3100,15 +3106,17 @@ vous vous déplacez dans cette zone :
                 </div>            
             </div>
         </fieldset>
-    </div>
-</div>  <!-- ==== FIN COL DROITE ==== -->
+    </div> <!-- FIN SORTS -->
 
+</div>  <!-- ==== FIN COLONNE DROITE ==== -->
+
+<!-- ==== COPYRIGHT ==== -->
 <div class="sheet-row" style="text-align: center;font-style: italic; vertical-align: middle;">
     <div  style="display:inline-block;vertical-align: middle;"><img style="height: 20px;vertical-align: middle;" src="http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-nd.png" /></div>
     <div  style="display:inline-block;vertical-align: middle;">Magimax / DUNGEON WORLD est un jeu créé par Adam Koebel & Sage LaTorra</div>
 </div>
 
-<!-- ==== TEMPLATES ==== -->
+<!-- ==== TEMPLATE ==== -->
 <rolltemplate class="sheet-rolltemplate-jet">
     <table>
         {{#perso}}
