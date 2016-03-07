@@ -8,6 +8,7 @@ Feuille de Personnage en français pour [Dungeon World](http://dungeonworld-fr.b
 # Notes de version
 
 ##v2.0 (2016-03-06)
+* Tous les jets effectués depuis les boutons de la feuille s'affichent désormais dans le chat via un template, indiquant le nom du personnage, le nom du jet/de l'Action/du Sort ..., le type de jet/d'Action..., et éventuellement (selon le jet/la configuration) : le jet de caractéristique, le jet de dégâts, la description, 0 à 3 informations complémentaires, indicateur de réussite / le résultat du jet (10+ ou 7-9 ou 6-)
 * Ajout d'un peu de couleur sur la feuille et le template de jet ...
 * Ajout d'une liste déroulante de sélection d'une classe. Si autre chose que "Personnalisée" est choisie, les informations suivantes sont automatiquement affichées/renseignées (tout en restant modifiables) : base de PV, base de Charge, Dégâts de base, nombre de sorts, Actions de départ
 * Actions :
