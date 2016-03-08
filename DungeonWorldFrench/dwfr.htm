@@ -1474,6 +1474,32 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                 </div>
             </div>                
         </div>
+        <!-- ===== COMMANDER ===== -->
+        <div class="sheet-action">
+            <button type="roll" class="sheet-btAction" name="Commander" title="Lancer le Jet d'Action"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{commandername}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+?{LOYAUTÉ|0}]]}} {{succes=@{commandersucces}}} {{partiel=@{commanderpartiel}}}"
+            ></button>
+            <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_commander-show" value="1" /><span>y</span>
+            <input type="text" name="attr_commandername" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Commander" />
+            <div class="sheet-dispcheck">
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Desc : </span>
+                    <textarea name="attr_commanderbody" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Lorsque vos ordres placent une recrue dans une situation dangereuse, dégradante ou franchement dingue, lancez 2d6+Loyauté. </textarea>
+                </div>
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Jet : </span>
+                    2d6 + LOYAUTÉ (valeur demandée au moment du jet)
+                </div>
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 10+ : </span>
+                    <textarea name="attr_commandersucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">La Recrue tient bon et exécute l’ordre.</textarea>
+                </div>
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 7-9 : </span>
+                    <textarea name="attr_commanderpartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">La Recrue s’exécute sur le moment, mais manifeste, plus tard, certaines revendications. Donnez-y satisfaction ou la recrue démissionne dans les pires termes.</textarea>
+                </div>
+            </div>                
+        </div>
         <!-- ===== BASE DYNAMIQUE ===== -->
         <fieldset class="repeating_actionsbase">
             <div class="sheet-action">
