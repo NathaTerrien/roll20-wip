@@ -38,18 +38,17 @@ select {
     margin: 0;
 }
 
+input[disabled],
+input[readonly] {
+    -moz-appearance: textfield;
+}
 input[type=number]:disabled::-webkit-inner-spin-button, 
 input[type=number]:disabled::-webkit-outer-spin-button,
 input[type=number]:read-only::-webkit-inner-spin-button, 
 input[type=number]:read-only::-webkit-outer-spin-button { 
     -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     margin: 0;
-}
-input[type=number]:disabled,
-input[type=number]:read-only{
-    -moz-appearance:textfield;
 }
 
 .repcontainer .btn,
