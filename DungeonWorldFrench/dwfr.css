@@ -26,11 +26,11 @@ input {
     border: none;
 }
 
-input[type="number"], 
+input[type=number], 
 input[type="text"] {
     width: 100%;
 }
-input[type="number"]{
+input[type=number]{
     text-align: right;
 }
 select {
@@ -42,13 +42,14 @@ input[type=number]:disabled::-webkit-inner-spin-button,
 input[type=number]:disabled::-webkit-outer-spin-button,
 input[type=number]:read-only::-webkit-inner-spin-button, 
 input[type=number]:read-only::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
-
-input[disabled],
-input[read-only] {
-    -moz-appearance: textfield;
+input[type=number]:disabled,
+input[type=number]:read-only{
+    -moz-appearance:textfield;
 }
 
 .repcontainer .btn,
@@ -114,11 +115,11 @@ input[read-only] {
 .sheet-header input[type="text"] {
     width: 2.2em;
 }
-.sheet-header input[type="number"] {
+.sheet-header input[type=number] {
     width: 2.7em;
 }
-.sheet-header input[type="number"]:disabled,
-.sheet-header input[type="number"]:read-only {
+.sheet-header input[type=number]:disabled,
+.sheet-header input[type=number]:read-only {
     width: 2em;
 }
 button[type="roll"] {
@@ -192,8 +193,8 @@ button[type="roll"]:hover{
     color: white;
 }
 .sheet-topbar select.sheet-field-class {
-    width: 20px;
-    text-align: center;
+    width: 26px;
+    text-align: left;
     background: linear-gradient(to bottom right, #3D2923 40%, #700200, #DE6928);
     color: white;
 }
@@ -262,7 +263,7 @@ button[type="roll"]:hover{
     bottom: -2px;
 }
 
-.sheet-attributes .sheet-header input[type="number"] {
+.sheet-attributes .sheet-header input[type=number] {
     background: white;
     width: 100%;
     margin: 0;
@@ -343,7 +344,8 @@ button[type="roll"]:hover{
 
 /* ===== TWEAKS ===== */
 .sheet-section-alignment textarea,
-.sheet-section-race textarea{
+.sheet-section-race textarea,
+.sheet-section-bonds textarea{
     resize: vertical;
 }
 
@@ -445,7 +447,7 @@ select.sheet-action{
     padding: 0;
     height: 25px;
 }
-input[type="number"].sheet-action{
+input[type=number].sheet-action{
     padding: 2px;
     height: 25px;
     width: 35px;

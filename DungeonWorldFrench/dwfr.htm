@@ -935,16 +935,15 @@ on("change:repeating_items:itemweight", function() {
         <div class="sheet-section-name">PX</div>
         <input type="number" name="attr_xp" title="Points d'Expérience courants" value="0">
         <span>/</span>  
-        <input type="number" name="attr_xp_max" value="[[@{level}+7]]" title="Points d'Expérience pour atteindre le niveau suivant" disabled="true">
+        <input type="number" name="attr_xp_max" value="[[@{level}+7]]" title="Points d'Expérience pour atteindre le niveau suivant" disabled>
     </div>
     <div class="sheet-header">
         <div class="sheet-section-name">PV</div>
         <input type="number" name="attr_hp" value="0" title="Points de Vie courants" />
         <span>/</span>  
-        <input type="number" name="attr_hp_max" value="[[@{basehp} + @{constitution}]]" disabled="true" title="Points de Vie maximum" />        
-        <span>(Base</span>        
-        <input type="number" value="0" name="attr_basehp" title="PV de Base de votre classe, avant l'ajout de la Constitution" />
-        <span>)</span>  
+        <input type="number" name="attr_hp_max" value="[[@{basehp} + @{constitution}]]" disabled title="Points de Vie maximum" />
+        <span style="font-size:12px;">(Base</span>
+        <input type="number" name="attr_basehp" style="padding:0;font-size:14px;margin:0;width:35px;height: 20px;"  title="PV de Base de votre classe, avant l'ajout de la Constitution" value="0" /><span style="font-size:12px;">)</span>
     </div>
 </div> <!-- FIN STATS -->
 
@@ -1122,14 +1121,13 @@ on("change:repeating_items:itemweight", function() {
     
     <!-- ===== EQUIPEMENT ===== -->
     <div class="sheet-header" style="width: 315px;">
-        <div class="sheet-section-name">Matériel</div>
+        <div class="sheet-section-name">Équipement</div>
         <span>Charge</span>
-        <input type="number" name="attr_load" title="Charge courante" value="0" readonly />
+        <input type="number" style="width: 2em;" name="attr_load" title="Charge courante" value="0" readonly />
         <span>/</span>
-        <input type="number" name="attr_load_max" value="[[@{baseload} + @{strmod}]]" title="Charge maximum" disabled="true" />     
-        <span>(Base</span>
-        <input type="number" name="attr_baseload" title="Charge de base" value="0" />
-        <span>)</span>
+        <input type="number" style="width: 2em;" name="attr_load_max" value="[[@{baseload} + @{strmod}]]" title="Charge maximum" disabled />     
+        <span style="font-size:12px;">(Base</span>
+        <input type="number" name="attr_baseload" style="padding:0;font-size:14px;margin:0;width:35px;height: 20px;" title="Charge de base" value="0" /><span style="font-size:12px;">)</span>
     </div>
     <div class="sheet-section-gear">
         <fieldset class="repeating_items">
@@ -2500,7 +2498,7 @@ Choisissez un aspect – un attribut physique qui vous identifie comme enfant du
             <!-- ===== LANCER UN SORT ===== -->
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="MagicienLancerUnSort" title="Lancer le Jet d'Action"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{magicien-sort-name}}} {{subtags=Action de Départ de Clerc}} {{jetshow=[[1]]}} {{jet=[[2d6+@{magicien-sort-mod}+(@{magicien-sort-bonus})]]}} {{succes=@{magicien-sort-succes}}} {{partiel=@{magicien-sort-partiel}}}"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{magicien-sort-name}}} {{subtags=Action de Départ de Magicien}} {{jetshow=[[1]]}} {{jet=[[2d6+@{magicien-sort-mod}+(@{magicien-sort-bonus})]]}} {{succes=@{magicien-sort-succes}}} {{partiel=@{magicien-sort-partiel}}}"
                 ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_magicien-sort-show" value="1" /><span>y</span>
                 <input type="text" name="attr_magicien-sort-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Lancer un Sort" />
@@ -3099,9 +3097,9 @@ vous vous déplacez dans cette zone :
             /
             <span class="sheet-action">Maximum</span>
             <input type="number" class="sheet-action" name="attr_spellsnum_max" value="[[@{level}+@{spellsmax}]]" title="Nombre maxium de sorts préparés" disabled />
-            <div style="display: inline-block;font-size: 10px; font-style: italic;">
-                ( = Niveau (<input type="number" class="sheet-action" name="attr_level" readonly />)
-                + <input type="number" class="sheet-action" name="attr_spellsmax" value="1" min="0" title="Valeur à ajouter au niveau pour calculer le nombre maxium de sorts préparés" />
+            <div style="display: inline-block;font-size: 12px; font-style: italic;">
+                ( = Niveau
+                + <input type="number" class="sheet-action" name="attr_spellsmax" value="0" min="0" title="Valeur à ajouter au niveau pour calculer le nombre maxium de sorts préparés" />
                 )
             </div>
         </div>
@@ -3139,7 +3137,7 @@ vous vous déplacez dans cette zone :
 <!-- ==== COPYRIGHT ==== -->
 <div class="sheet-row" style="text-align: center;font-style: italic; vertical-align: middle;">
     <div  style="display:inline-block;vertical-align: middle;"><img style="height: 20px;vertical-align: middle;" src="http://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-nd.png" /></div>
-    <div  style="display:inline-block;vertical-align: middle;">Magimax / DUNGEON WORLD est un jeu créé par Adam Koebel & Sage LaTorra</div>
+    <div  style="display:inline-block;vertical-align: middle;">DUNGEON WORLD est un jeu créé par Adam Koebel & Sage LaTorra / Textes VF par Magimax</div>
 </div>
 
 <!-- ==== TEMPLATE ==== -->
