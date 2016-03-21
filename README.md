@@ -1,7 +1,7 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-03-06.
+Updated 2016-03-21.
 
 ## Considered sheets (creation or enhancements)
 * [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
@@ -57,11 +57,10 @@ Cf. english version
 
 #### Sources
 * [WIP](./DungeonWorldFrench/) Version 2.0 (2016-03-06)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.1 (2016-02-28)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 1.1 (2016-02-28)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 2.0 (2016-03-06)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 2.0 (2016-03-06)
 
 #### Todo
-* Tests sur v2.0
 * Jets
   * Gérer le malus d'armure aux jets
   * Modificateur circonstantiel sur les jets ?
@@ -108,8 +107,8 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 #### Sources
 * [WIP](./PortesMonstresTresors/) Version 4.2
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.1 (2016-02-22)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.1 (2016-02-22)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.2
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.2
 
 #### Todo
 * Calcul de la richesse totale
@@ -118,11 +117,10 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 1.5
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.4 (2016-02-21)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.5
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.5
 
 #### Todo
-* Correction de l'affichage des zones de description sous Firefox
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
 
@@ -171,14 +169,14 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 ### Numenéra
 
 #### Sources
-* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
-* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha) Version 1.1
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 4.8
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha) Version 4.8
 
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
 ###Portes Monstres Tresors
 * [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
-* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.0
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
 
 #### Todo
