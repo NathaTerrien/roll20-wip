@@ -960,7 +960,11 @@ on("change:atkcible", function () {
     <input type="text" disabled hidden name="attr_relRollArmeFixe3DgtPlus" value="{ floor( ( @{jetRollArmeFixe3Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
 
     <!-- COMPETENCES -->
-    <input type="text" disabled hidden name="attr_RollArcane" value="{ 1d@{arcane_de}!![@{arcane_nom}],@{joker_de}!![Joker]}kh1 + (@{arcane_bonus})[Bonus] - @{malusblessures}[Blessures] - @{malusfatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_RollIncomp" value="{ 1d4!![Non entraîné],@{joker_de}!![Joker]}kh1 + (-2)[Bonus] - @{malusblessures}[Blessures] - @{malusfatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
+    <input type="text" disabled hidden name="attr_relRollIncomp" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=Non entraîné}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollIncomp} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+    <input type="text" disabled hidden name="attr_jetRollIncomp" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=Non entraîné}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollIncomp}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
+
+<input type="text" disabled hidden name="attr_RollArcane" value="{ 1d@{arcane_de}!![@{arcane_nom}],@{joker_de}!![Joker]}kh1 + (@{arcane_bonus})[Bonus] - @{malusblessures}[Blessures] - @{malusfatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
     <input type="text" disabled hidden name="attr_relRollArcane" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arcane_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{RollArcane} } ) /(?{Difficulté|4})[Difficulté]), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
     <input type="text" disabled hidden name="attr_jetRollArcane" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arcane_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{RollArcane}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
@@ -1063,7 +1067,7 @@ on("change:atkcible", function () {
     <!-- onglets -->
     <input type="radio" name="attr_chkvie" value="0" class="sheet-onglmain" title="Feuille" checked /><span>Feuille</span>
     <input type="radio" name="attr_chkvie" value="1" class="sheet-onglconfig" title="Configuration" /><span>Configuration</span>
-    <span style="display:inline-block;width:150px;text-align: center;color: #888888;font-size: 0.9em;">v1.5 (28/02/2016)</span>
+    <span style="display:inline-block;width:150px;text-align: center;color: #888888;font-size: 0.9em;">v1.6 (xx/05/2016)</span>
     <!-- Style FdP -->
     <input type="checkbox" name="attr_sheetDead" value="1" class="sheet-chkSheetDead" />
     <!-- paramètres cachés -->
@@ -1250,6 +1254,24 @@ on("change:atkcible", function () {
             </div> <!-- FIN ATTRIBUTS -->
             <div> <!-- COMPETENCES -->
                 <div class="sheet-redtitle2">COMPÉTENCES</div>
+                <div class="sheet-input">
+                    <button type="roll"
+                            name="Btrel-Incomp"
+                            class="sheet-btRolrel"
+                            value="@{relRollIncomp}"
+                            >Non entraîné</button>
+                    <button type="roll"
+                        name="Btjet-Incomp"
+                        class="sheet-btRoljet"
+                        value="@{jetRollIncomp}"
+                        >Non entraîné</button>
+                    <button type="roll"
+                        name="BtBrut-Incomp"
+                        class="sheet-btRolbrut"
+                        value="/em @{character_name} fait un jet non entraîné
+/roll @{RollIncomp}"
+                        >Non entraîné</button>
+                </div>
                 <div class="sheet-input sheet-chkArcane"> <!-- ARCANES -->
                     <button type="roll"
                         name="Btrel-Arcane"
