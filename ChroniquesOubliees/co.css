@@ -184,8 +184,7 @@ input[type="text"]{
     text-align: left;
     padding-left: 4px;
 }
-input[disabled],
-input:read-only{
+input[disabled]{
     background-color: white;
     font-style: italic;
 }
