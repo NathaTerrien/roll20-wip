@@ -1,6 +1,7 @@
 /* Couleurs
-    Base marron = #5C2E05
-    Marron light = #BEAAA0
+    Base bleu = #2F5860
+    Bleu light = #7F989D
+    Dégradé fond : 575D51 9B9E99 CECBC4 DDDAD2 ECEDE8 FDFEFD
 */
 div,
 button,
@@ -19,9 +20,11 @@ th{
 }
 div.sheet-mainBg{
     width: 832px;
-    background-color: white;
+    background: linear-gradient(#9B9E99, #CECBC4, #DDDAD2, #ECEDE8, #FDFEFD);
     text-align: center;
-    /* border:1px solid #5C2E05; */
+    border: 2px solid #2F5860;
+    border-radius: 10px;
+    padding: 6px 0px 6px 0px;
 }
 table{
     width:100%;
@@ -38,7 +41,7 @@ table.sheet-tabsep{
     /* box-shadow: 1px 1px 8px #555; */
 }
 .sheet-boxtitre{
-    background-color: #5C2E05;
+    background-color: #2F5860;
     text-align: center;
     font-style: normal;
     font-weight: bold;
@@ -49,7 +52,7 @@ table.sheet-tabsep{
     padding: 2px 4px 2px 4px;
 }
 .sheet-boxtitresmall{
-    background-color: #5C2E05;
+    background-color: #2F5860;
     text-align: center;
     font-style: normal;
     font-size: 12px;
@@ -66,7 +69,7 @@ table.sheet-tabsep{
     font-style: normal;
     font-weight: normal;
     color: black;
-    border: 1px solid #5C2E05;
+    border: 1px solid #2F5860;
     white-space: nowrap;
 }
 .sheet-boxinputleft{
@@ -75,7 +78,7 @@ table.sheet-tabsep{
     font-style: normal;
     font-weight: normal;
     color: black;
-    border: 1px solid #5C2E05;
+    border: 1px solid #2F5860;
     white-space: nowrap;
 }
 .sheet-boxinputlight{
@@ -84,7 +87,7 @@ table.sheet-tabsep{
     font-style: normal;
     font-weight: normal;
     color: black;
-    border: 1px solid #BEAAA0;
+    border: 1px solid #7F989D;
     white-space: nowrap;
 }
 .sheet-boxvoie{
@@ -94,32 +97,32 @@ table.sheet-tabsep{
     font-weight: normal;
     color: black;
     border-top: none;
-    border-bottom: 1px dotted #5C2E05;
-    border-left: 1px solid #5C2E05;
-    border-right: 1px solid #5C2E05;
+    border-bottom: 1px dotted #2F5860;
+    border-left: 1px solid #2F5860;
+    border-right: 1px solid #2F5860;
     white-space: nowrap;
 }
 .sheet-textfat{
     font-weight: bold;
-    color: #5C2E05;
+    color: #2F5860;
     border: none;
     text-align: center;
 }
 .sheet-textfatleft{
     font-weight: bold;
-    color: #5C2E05;
+    color: #2F5860;
     border: none;
     text-align: left;
     padding-left: 4px;
     padding-right: 4px;
 }
 .sheet-textbase{
-    color: #5C2E05;
+    color: #2F5860;
     border: none;
     text-align: center;
 }
 .sheet-textbasesmall{
-    color: #5C2E05;
+    color: #2F5860;
     border: none;
     font-size:11px;
 }
@@ -141,11 +144,11 @@ button[type="roll"].sheet-boxtitre{
     text-shadow: none;
 }
 button[type="roll"].sheet-boxtitre:hover{
-    background-color:#BEAAA0;
+    background-color:#7F989D;
     border: 1px solide white;
 }
 button[type="roll"].sheet-neutre{
-    color: #5C2E05;
+    color: #2F5860;
     font-weight: normal;
     font-size: 20px;
     text-decoration:none;
@@ -190,13 +193,13 @@ input[disabled]{
     font-style: italic;
 }
 input:not([disabled]):hover{
-    background-color: #BEAAA0;
+    background-color: #7F989D;
 }
 select:not([disabled]):hover{
-    background-color: #BEAAA0;
+    background-color: #7F989D;
 }
 input.sheet-nobox{
-    border-bottom: 2px dotted #5C2E05;
+    border-bottom: 2px dotted #2F5860;
 }
 textarea{
     border: none;
@@ -222,12 +225,12 @@ textarea.sheet-voixdesc{
 .sheet-rolltemplate-co1 table {
     width: 189px;
     padding: 2px;
-    border: 1px solid #5C2E05;
+    border: 1px solid #2F5860;
     border-radius: 6px;
     background-color: #ffffff;
 }
 .sheet-rolltemplate-co1 th {
-    color: #5C2E05;
+    color: #2F5860;
     margin: 0px;
     padding: 0px 5px 0px 5px;
     font-size: 13px;
@@ -264,7 +267,7 @@ textarea.sheet-voixdesc{
 .sheet-rolltemplate-co1 .inlinerollresult  {
     background-color: rgba(255,255,255,0.9);
     border-width: 1px;
-    border-color: #BEAAA0;
+    border-color: #7F989D;
     border-style: solid;
     border-radius: 50%;
 }
@@ -283,9 +286,9 @@ textarea.sheet-voixdesc{
     border-radius: 50%;
 }
 .sheet-rolltemplate-co1 .inlinerollresult.importantroll {
-    color: #5C2E05;
+    color: #2F5860;
     border-width: 2px;
-    border-color: #5C2E05;
+    border-color: #2F5860;
     border-style: solid;
     border-radius: 50%;
 }
