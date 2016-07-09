@@ -16,7 +16,8 @@ Le jeu complet, des suppl&eacute;ments et des t&eacute;l&eacute;chargements grat
 ##v1.4 (2016-07-09)
 
 * Niveau renseigné par défaut à 1 sur un nouveau personnage, pour éviter les erreurs de jet de dés
-* 
+* Quelques austements visuels
+* Hébergement des images sur Github plutôt que G+
 
 ##v1.3 (2015-11-06)
 
