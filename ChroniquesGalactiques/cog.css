@@ -19,7 +19,7 @@ th{
     /* vertical-align:top; */
 }
 div.sheet-mainBg{
-    width: 832px;
+    width: 850px;
     background: linear-gradient(#9B9E99, #CECBC4, #DDDAD2, #ECEDE8, #FDFEFD);
     text-align: center;
     border: 2px solid #2F5860;
@@ -41,10 +41,12 @@ table.sheet-tabsep{
     /* box-shadow: 1px 1px 8px #555; */
 }
 .sheet-boxtitre{
+    font-family: 'Contrail One';
+    font-size: 15px;
     background-color: #2F5860;
     text-align: center;
     font-style: normal;
-    font-weight: bold;
+    /* font-weight: bold; */
     text-transform: capitalize;
     color: white;
     border:none;
@@ -52,10 +54,11 @@ table.sheet-tabsep{
     padding: 2px 4px 2px 4px;
 }
 .sheet-boxtitresmall{
+    font-family: 'Contrail One';
+    font-size: 13px;
     background-color: #2F5860;
     text-align: center;
     font-style: normal;
-    font-size: 12px;
     font-weight: normal;
     color: white;
     border:none;
@@ -103,12 +106,16 @@ table.sheet-tabsep{
     white-space: nowrap;
 }
 .sheet-textfat{
+    font-family: 'Contrail One';
+    font-size: 15px;
     font-weight: bold;
     color: #2F5860;
     border: none;
     text-align: center;
 }
 .sheet-textfatleft{
+    font-family: 'Contrail One';
+    font-size: 15px;
     font-weight: bold;
     color: #2F5860;
     border: none;
@@ -117,6 +124,8 @@ table.sheet-tabsep{
     padding-right: 4px;
 }
 .sheet-textbase{
+    font-family: 'Contrail One';
+    font-size: 14px;
     color: #2F5860;
     border: none;
     text-align: center;
@@ -133,9 +142,9 @@ table.sheet-tabsep{
 }
 button[type="roll"].sheet-boxtitre{
     height:20px;
-    font-size:11px;
-    font-family: Verdana;
-    font-weight: bold;
+    font-family: 'Contrail One';
+    font-size: 15px;
+    font-weight: normal;
     text-decoration:none;
     background:none;
     background-image:none;
@@ -144,6 +153,7 @@ button[type="roll"].sheet-boxtitre{
     text-shadow: none;
 }
 button[type="roll"].sheet-boxtitre:hover{
+    font-weight: bold;
     background-color:#7F989D;
     border: 1px solide white;
 }

@@ -48,7 +48,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_FORCE" title="Force" value="10" min="0" max="30"/></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_FOR" value="floor((@{FORCE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_FOR_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_FOR_BONUS" title="Bonus au Test" value="0" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_FOR_TEST" value="@{FOR}+@{FOR_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -61,7 +61,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_DEXTERITE" title="Dext&eacute;rit&eacute;" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_DEX" value="floor((@{DEXTERITE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_DEX_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_DEX_BONUS" title="Bonus au Test" value="0" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_DEX_TEST" value="@{DEX}+@{DEX_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -74,7 +74,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_CONSTITUTION" title="Constitution" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CON" value="floor((@{CONSTITUTION}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_CON_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_CON_BONUS" title="Bonus au Test" value="0" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CON_TEST" value="@{CON}+@{CON_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -87,7 +87,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_INTELLIGENCE" title="Intelligence" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_INT" value="floor((@{INTELLIGENCE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_INT_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_INT_BONUS" title="Bonus au Test" value="0" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_INT_TEST" value="@{INT}+@{INT_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -100,7 +100,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_PERCEPTION" title="Perception" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_PER" value="floor((@{PERCEPTION}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_PER_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_PER_BONUS" title="Bonus au Test" value="0" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_PER_TEST" value="@{PER}+@{PER_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -113,11 +113,11 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_CHARISME" title="Charisme" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CHA" value="floor((@{CHARISME}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_CHA_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_CHA_BONUS" title="Bonus au Test" value="0" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CHA_TEST" value="@{CHA}+@{CHA_BONUS}" disabled /></td>
                         </tr>
                     </table> <!-- FIN Caracs -->
-                    <table class="sheet-tabsep"> <!-- Chance -->
+                    <table class="sheet-tabsep" style="margin-top: 6px;"> <!-- Chance -->
                         <tr>
                             <td class="sheet-boxtitre" title="Points de Chance">PC</td>
                             <td class="sheet-boxinput"><input type="number" name="attr_PC" value="0" title="Points de Chance utilisés ou courants" /></td>
@@ -193,7 +193,7 @@
                                         <td class="sheet-boxinputlight"><input type="number" name="attr_ATKPSYINFLU" value="@{ATKPSY_BASE}+@{ATKPSYINFLU_CARAC}+@{ATKPSYINFLU_DIV}" disabled /></td>
                                     </tr>
                                     <tr>
-                                        <td class="sheet-boxtitre"><button class="sheet-boxtitre" type="roll" name="JET_PSYINTUI" title="Jet d'attaque psychique : Intuition" value="&{template:co1} {{name=Psychique (Intuition)}} {{subtags=Attaque}} {{attaque=[[1d20cs20cf1+[[@{ATKPSY}]]]]}}"> PSY Intuition</button></td>
+                                        <td class="sheet-boxtitre"><button class="sheet-boxtitre" type="roll" name="JET_PSYINTUI" title="Jet d'attaque psychique : Intuition" value="&{template:co1} {{name=Psychique (Intuition)}} {{subtags=Attaque}} {{attaque=[[1d20cs20cf1+[[@{ATKPSYINTUI}]]]]}}"> PSY Intuition</button></td>
                                         <td class="sheet-boxinputlight"><span name="attr_ATKPSY_BASE" title="Score de base"></span></td>
                                         <td class="sheet-boxinput">
                                             <select class="sheet-carac" name="attr_ATKPSYINTUI_CARAC" size="1">
@@ -220,8 +220,7 @@
                             <td style="vertical-align: top;"> <!-- PV -->
                                 <table class="sheet-tabsep">
                                     <tr>
-                                        <td class="sheet-textfat">VITALIT&Eacute;</td>
-                                        <td class="sheet-textfat">&nbsp;</td>
+                                        <td class="sheet-textfat" colspan="2">VITALIT&Eacute;</td>
                                     </tr>
                                     <tr>
                                         <td class="sheet-boxtitre"><button class="sheet-boxtitre" type="roll" name="JET_DV" title="Jet de D&eacute; de Vie" value="&{template:co1} {{name=Dé de Vie}} {{subtags=Vitalit&eacute;}} {{DV=[[1d@{DV}+[[@{CON}]]]]}}"> DV</button></td>
@@ -295,14 +294,8 @@
                     <table class="sheet-tabsep">
                         <tr>
                             <td class="sheet-boxinputleft">
-                                <span class="sheet-textbasesmall">Capacit&eacute; raciale</span><br/>
-                                <textarea name="attr_CAPA_RACE" style="height:3em;"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="sheet-boxinputleft">
-                                <textarea name="attr_LANGUES"></textarea>
-                                <br/><span class="sheet-textbasesmall">Langues Connues</span>
+                                <span class="sheet-textbasesmall">Mod. de traits et d'origine</span><br/>
+                                <textarea name="attr_TRAITS" style="height:10em;"></textarea>
                             </td>
                         </tr>
                     </table>
@@ -419,13 +412,13 @@
                 <td class="sheet-boxtitresmall" style="width: 20px;">&nbsp;</td>
                 <td class="sheet-boxtitresmall">Voie 4</td>
                 <td class="sheet-boxtitresmall">Voie 5</td>
-                <td class="sheet-boxtitresmall">Voie de prestige</td>
+                <td class="sheet-boxtitresmall">Voie 6</td>
             </tr>
             <tr>
                 <td class="sheet-boxtitresmall">R</td>
                 <td class="sheet-boxinputleft"><input type="text" style="font-weight: bold;text-align: center;" name="attr_voie4nom" placeholder="Nom de la Voie n°4" /></td>
                 <td class="sheet-boxinput"><input type="text" style="font-weight: bold;text-align: center;" name="attr_voie5nom" placeholder="Nom de la Voie n°5" /></td>
-                <td class="sheet-boxinput"><input type="text" style="font-weight: bold;text-align: center;" name="attr_voie6nom" placeholder="Nom de la Voie de Prestige" /></td>
+                <td class="sheet-boxinput"><input type="text" style="font-weight: bold;text-align: center;" name="attr_voie6nom" placeholder="Nom de la Voie n°6" /></td>
             </tr>
             <tr>
                 <td class="sheet-boxtitresmall">1</td>
@@ -466,7 +459,7 @@
                 <div class="sheet-boxtitre">&Eacute;QUIPEMENT : Consommables</div>
                 <div class="sheet-boxinputleft">
                     <span class="textbase">Richesses&nbsp;:</span>&nbsp;
-                    <input type="text" style="width:320px;" name="attr_BOURSE" placeholder="Rien ? C'est la pauvret&eacute; !" />
+                    <input type="text" style="width:320px;" name="attr_RICHESSE" placeholder="Rien ? C'est la pauvret&eacute; !" />
                 </div>
                 </table>
                 <fieldset class="repeating_equipement">
@@ -478,21 +471,17 @@
                 </fieldset>
             </div>
             <div class="sheet-col">
-            </div>
-        </div>
-        <div class="sheet-2colrow">
-            <div class="sheet-col">
                 <table>
                     <tr><td class="sheet-boxtitre">&Eacute;QUIPEMENT : Divers</td></tr>
-                    <tr><td class="sheet-boxinputleft"><textarea name="attr_equip-div" style="height:6em;" title="&Eacute;QUIPEMENT DIVERS"></textarea></td></tr>
-                </table>
-            </div>
-            <div class="sheet-col">
-                <table>
-                    <tr><td class="sheet-boxtitre">Notes</td></tr>
-                    <tr><td class="sheet-boxinputleft"><textarea name="attr_notes" style="height:6em;" title="Notes"></textarea></td></tr>
-                </table>
-            </div>
+                    <tr><td class="sheet-boxinputleft"><textarea name="attr_equip-div" style="height:10em;" title="&Eacute;QUIPEMENT DIVERS"></textarea></td></tr>
+                </table>            </div>
+        </div>
+        <img class="sheet-imghr" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/ChroniquesGalactiques/cog_hr.png" />
+        <div class="sheet-row">
+            <table>
+                <tr><td class="sheet-boxtitre">Notes</td></tr>
+                <tr><td class="sheet-boxinputleft"><textarea name="attr_notes" style="height:6em;" title="Notes"></textarea></td></tr>
+            </table>
         </div>
     </div> <!-- FIN Equipement et règles optionnelles -->
 </div> <!-- FIN FDP -->
@@ -533,7 +522,7 @@
             {{/rollWasFumble() attaque}}
                 <tr>
                     <td class="tcat">Jet </td>
-                    <td>{{attaque}} contre DEF</td>
+                    <td>{{attaque}}</td>
                 </tr>
             {{#degats}}
                 <tr>
