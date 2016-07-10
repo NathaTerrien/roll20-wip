@@ -243,9 +243,9 @@ textarea.sheet-voixdesc{
     color: #2F5860;
     margin: 0px;
     padding: 0px 5px 0px 5px;
-    font-size: 13px;
+    font-size: 16px;
     text-align: left;
-    font-family: 'Verdana';
+    font-family: 'Contrail One';
     font-variant: small-caps;
     font-weight: bold;
     white-space: nowrap;
@@ -279,26 +279,34 @@ textarea.sheet-voixdesc{
     border-width: 1px;
     border-color: #7F989D;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 25%;
+    font-family: 'Contrail One';
+    font-size: 18px;
 }
 .sheet-rolltemplate-co1 .inlinerollresult.fullcrit {
     color: #3FB315;
     border-width: 2px;
     border-color: #3FB315;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 25%;
+    font-family: 'Contrail One';
+    font-size: 18px;
 }
 .sheet-rolltemplate-co1 .inlinerollresult.fullfail {
     color: #B31515;
     border-width: 2px;
     border-color: #B31515;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 25%;
+    font-family: 'Contrail One';
+    font-size: 18px;
 }
 .sheet-rolltemplate-co1 .inlinerollresult.importantroll {
     color: #2F5860;
     border-width: 2px;
     border-color: #2F5860;
     border-style: solid;
-    border-radius: 50%;
+    border-radius: 25%;
+    font-family: 'Contrail One';
+    font-size: 18px;
 }

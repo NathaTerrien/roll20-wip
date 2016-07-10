@@ -19,7 +19,7 @@
                 </table>
             </td>
             <td style="vertical-align: middle;text-align: center;">
-                <img style="width:70%;"  title="Version 1.0 - 09/07/2016" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/ChroniquesGalactiques/cog_logo.png"/>
+                <img style="width:70%;"  title="Version 1.0 - 11/07/2016" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/ChroniquesGalactiques/cog_logo.png"/>
             </td>
             </tr>
         </table>
@@ -117,7 +117,7 @@
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CHA_TEST" value="@{CHA}+@{CHA_BONUS}" disabled /></td>
                         </tr>
                     </table> <!-- FIN Caracs -->
-                    <table class="sheet-tabsep" style="margin-top: 6px;"> <!-- Chance -->
+                    <table class="sheet-tabsep" style="margin-top: 20px;"> <!-- Chance -->
                         <tr>
                             <td class="sheet-boxtitre" title="Points de Chance">PC</td>
                             <td class="sheet-boxinput"><input type="number" name="attr_PC" value="0" title="Points de Chance utilisés ou courants" /></td>
@@ -236,7 +236,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="sheet-boxtitre">PV</td>
+                                        <td class="sheet-boxtitre"><button class="sheet-boxtitre" type="roll" name="JET_RECUP" title="Jet de Récupération" value="&{template:co1} {{name=Récupération}} {{subtags=Vitalit&eacute;}} {{RECUP=[[1d@{DV}+@{NIVEAU}+[[@{CON}]]]]}}"> PV</button></td>
                                         <td class="sheet-boxinput"><input type="number" name="attr_PV_max" title="Points de Vie maximum"  value="0" /></td>
                                     </tr>
                                     <tr>
@@ -250,6 +250,16 @@
                                             <span class="textbase">DM temp.</span>&nbsp;
                                             <input type="number" name="attr_DMTEMP" title="Dommages Temporaires"  value="0" />
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td  class="sheet-boxinput" COLSPAN="2">
+                                            <span class="textbase">Blessure grave</span>&nbsp;
+                                            <input type="checkbox" name="attr_BLESSURE" title="Gravement blessé" value="0" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="sheet-boxtitre" title="Réduction de dégâts">RD</td>
+                                        <td class="sheet-boxinput"><input type="number" name="attr_RD" title="Réduction de dégâts" value="0" /></td>
                                     </tr>
                                 </table>
                             </td> <!-- FIN PV -->
@@ -294,7 +304,7 @@
                     <table class="sheet-tabsep">
                         <tr>
                             <td class="sheet-boxinputleft">
-                                <span class="sheet-textbasesmall">Mod. de traits et d'origine</span><br/>
+                                <span class="sheet-textbasesmall">TRAITS</span><br/>
                                 <textarea name="attr_TRAITS" style="height:10em;"></textarea>
                             </td>
                         </tr>
@@ -458,7 +468,7 @@
             <div class="sheet-col">
                 <div class="sheet-boxtitre">&Eacute;QUIPEMENT : Consommables</div>
                 <div class="sheet-boxinputleft">
-                    <span class="textbase">Richesses&nbsp;:</span>&nbsp;
+                    <span class="textbase">Crédits&nbsp;:</span>&nbsp;
                     <input type="text" style="width:320px;" name="attr_RICHESSE" placeholder="Rien ? C'est la pauvret&eacute; !" />
                 </div>
                 </table>
@@ -503,6 +513,12 @@
                 <td>{{DV}}</td>
             </tr>
         {{/DV}}
+        {{#RECUP}}
+            <tr>
+                <td class="tcat">PV récupérés</td>
+                <td>{{RECUP}}</td>
+            </tr>
+        {{/RECUP}}
         {{#carac}}
             <tr>
                 <td class="tcat">Jet </td>
@@ -525,6 +541,7 @@
                     <td>{{attaque}}</td>
                 </tr>
             {{#degats}}
+                <tr><td colspan="2">&nbsp;</td></tr>
                 <tr>
                     <td class="tcat">Dégâts </td>
                     <td>
