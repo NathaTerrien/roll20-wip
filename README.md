@@ -1,13 +1,11 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-03-21.
+Updated 2016-07-11.
 
 ## Considered sheets (creation or enhancements)
-* [La Lune et les 12 Lotus](http://legrumph.org/Terrier/?Chibi/La-Lune-et-Douze-Lotus)
+* Macchiato Monsters
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
-* [nanoChrome²](http://legrumph.org/Terrier/?Chibi/nanoChrome%C2%B2)
-* [Dragon de Poche²](http://legrumph.org/Terrier/?Chibi/Dragon-de-poche%C2%B2), french
 * Stars Without Number (french)
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 * Castles & Crusades, english
@@ -23,6 +21,15 @@ Updated 2016-03-21.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CahiersDuVastemonde) Version 1.0
 
 ### Todo
+
+### Chroniques Galactiques (french)
+
+#### Sources
+* [WIP](./ChroniquesGalactiques/) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.0
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.0
+
+#### Todo
 
 ### Chroniques Oubliées (french)
 
