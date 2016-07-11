@@ -34,9 +34,9 @@ Updated 2016-07-11.
 ### Chroniques Oubliées (french)
 
 #### Sources
-* [WIP](./ChroniquesOubliees/) Version 1.3
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.3
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.3
+* [WIP](./ChroniquesOubliees/) Version 1.4
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.4
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.4
 
 #### Todo
 
