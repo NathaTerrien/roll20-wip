@@ -9,9 +9,14 @@ Cette feuilles de personnage inclue quelques jets et r&egrave;gles optionnelles.
 Le jeu complet, des suppl&eacute;ments et des t&eacute;l&eacute;chargements gratuits sont disponibles sur le site de l&apos;&eacute;diteur [Black Book Editions](http://www.black-book-editions.fr/catalogue.php?id=13).
 
 # Version courante
-1.4 [Screenshot](co_v1.png)
+1.5 [Screenshot](co_v1.png)
 
 # Notes de version
+
+##v1.5 (2016-07-13)
+
+* Ajout d'une zone texte de saisie des RD (Réductions de dégâts) à titre indicatif (pas d'effet mécanique)
+* Ajout d'une section répétable de jets paramétrables (+description) dans la section Capacités (Voies)
 
 ##v1.4 (2016-07-09)
 
