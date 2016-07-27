@@ -861,7 +861,7 @@ on("change:repeating_items:itemweight", function() {
                     sorts = 0;
                     degats = "d6";
                     break;
-                case "eclaireur":
+                case "ranger":
                     nom = "L'Éclaireur";
                     pv = 8;
                     charge = 11;
@@ -896,13 +896,6 @@ on("change:repeating_items:itemweight", function() {
                     sorts = 0;
                     degats = "d10";
                     break;
-                case "ranger":
-                    nom = "Le Ranger";
-                    pv = 8;
-                    charge = 11;
-                    sorts = 0;
-                    degats = "d8";
-                    break;
                 case "voleur":
                     nom = "Le Voleur";
                     pv = 6;
@@ -936,13 +929,17 @@ on("change:repeating_items:itemweight", function() {
     <div>        
         <SELECT name="attr_laclasse" class="sheet-field-class" title="Sélectionner une classe existante pour pré-remplir certains champs et faire apparaître les Actions de Départ de la classe choisie">
             <OPTION value="custom" selected>Personnalisée</OPTION>
+            <OPTION value="barbare">Le Barbare</OPTION>
             <OPTION value="barde">Le Barde</OPTION>
+            <OPTION value="cambrioleur">Le Cambrioleur</OPTION>
+            <OPTION value="chaman">Le Chaman</OPTION>
             <OPTION value="clerc">Le Clerc</OPTION>
             <OPTION value="druide">Le Druide</OPTION>
+            <OPTION value="ranger">L'Éclaireur</OPTION>
             <OPTION value="guerrier">Le Guerrier</OPTION>
+            <OPTION value="immolateur">L'Immolateur</OPTION>
             <OPTION value="magicien">Le Magicien</OPTION>
             <OPTION value="paladin">Le Paladin</OPTION>
-            <OPTION value="ranger">Le Ranger</OPTION>
             <OPTION value="voleur">Le Voleur</OPTION>
         </SELECT>
         <input class="sheet-field-class" type="text" placeholder="Classe" name="attr_class" />
@@ -1350,11 +1347,21 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
-                    <textarea name="attr_defendresucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Retenez 3.</textarea>
+                    <textarea name="attr_defendresucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Retenez 3 parmi :
+- redirigez vers vous l'attaque ennemie
+- diminuer de moitié l'effet ou les dégâts de l'attaque
+- offrir à un allié un avantage de +1 sur sa prochaine action envers l'attaquant
+- infliger autant de dégâts que votre niveau à l'adversaire
+                    </textarea>
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 7-9 : </span>
-                    <textarea name="attr_defendrepartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Retenez 1.</textarea>
+                    <textarea name="attr_defendrepartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Retenez 1 parmi : 
+- redirigez vers vous l'attaque ennemie
+- diminuer de moitié l'effet ou les dégâts de l'attaque
+- offrir à un allié un avantage de +1 sur sa prochaine action envers l'attaquant
+- infliger autant de dégâts que votre niveau à l'adversaire
+                    </textarea>
                 </div>
             </div>                
         </div>
@@ -1925,11 +1932,11 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
-                    <textarea name="attr_avisrechsucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Le récit de vos « exploits s'est répandu et tout le monde vous reconnaît.</textarea>
+                    <textarea name="attr_avisrechsucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Le récit de vos « exploits » s'est répandu et tout le monde vous reconnaît.</textarea>
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 7-9 : </span>
-                    <textarea name="attr_avisrechpartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Le récit de vos « exploits s'est répandu et tout le monde vous reconnaît, et le MJ choisit une complication :
+                    <textarea name="attr_avisrechpartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Le récit de vos « exploits » s'est répandu et tout le monde vous reconnaît, et le MJ choisit une complication :
 - La police locale a lancé un avis de recherche à votre encontre.
 - Quelqu’un a mis votre tête à prix.
 - Quelqu’un qui compte pour vous a été inquiété à la suite de vos actions.
