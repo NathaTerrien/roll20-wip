@@ -1511,7 +1511,7 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
         <fieldset class="repeating_actionsbase">
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="ActionBase" title="Lancer le Jet d'Action"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionbasename}}} {{subtags=Action de Base}} {{jetshow=[[@{actionbasejet}]]}} {{jet=@{actionbaseroll}}} {{descshow=[[@{actionbasebodydisp}]]}} {{desc=@{actionbasebody}}} {{succes=@{actionbasesucces}}} {{partiel=@{actionbasepartiel}}} {{echec=@{actionbaseechec}}} {{degatsaction=@{actionbasedegats}}}"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionbasename}}} {{subtags=Action de Base}} {{jetshow=[[@{actionbasejet}]]}} {{jet=@{actionbaseroll}}} {{descshow=[[@{actionbasebodydisp}]]}} {{desc=@{actionbasebody}}} {{sucsup=@{actionbasesucsup}}} {{succes=@{actionbasesucces}}} {{partiel=@{actionbasepartiel}}} {{echec=@{actionbaseechec}}} {{degatsaction=@{actionbasedegats}}}"
                 ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionbase-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_actionbasename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
@@ -1539,6 +1539,10 @@ Aussi longtemps que vous défendez, dès lors que vous (ou ce que vous protégez
                         <input type="number" class="sheet-action" name="attr_actionbasebonus" value="0" title="Bonus/Malus au jet" />
                         <span>&nbsp;Cette Action inflige des dégâts</span>
                         <input type="checkbox" class="sheet-selcheck" name="attr_actionbasedegats" value="[[1@{dtype}]]"  title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_actionbasesucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -1951,7 +1955,7 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
         <fieldset class="repeating_actionsspe">
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="ActionBase" title="Lancer le Jet d'Action"
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionspename}}} {{subtags=Action Spéciale}} {{jetshow=[[@{actionspejet}]]}} {{jet=@{actionsperoll}}} {{descshow=[[@{actionspebodydisp}]]}} {{desc=@{actionspebody}}} {{succes=@{actionspesucces}}} {{partiel=@{actionspepartiel}}} {{echec=@{actionspeechec}}} {{degatsaction=@{actionspedegats}}}"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actionspename}}} {{subtags=Action Spéciale}} {{jetshow=[[@{actionspejet}]]}} {{jet=@{actionsperoll}}} {{descshow=[[@{actionspebodydisp}]]}} {{desc=@{actionspebody}}} {{sucsup=@{actionspesucsup}}} {{succes=@{actionspesucces}}} {{partiel=@{actionspepartiel}}} {{echec=@{actionspeechec}}} {{degatsaction=@{actionspedegats}}}"
                 ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actionspe-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_actionspename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
@@ -1979,6 +1983,10 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
                         <input type="number" class="sheet-action" name="attr_actionspebonus" value="0" title="Bonus/Malus au jet" />
                         <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
                         <input type="checkbox" class="sheet-selcheck" name="attr_actionspedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_actionspesucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -3092,7 +3100,7 @@ vous vous déplacez dans cette zone :
         <fieldset class="repeating_actionsdepart">
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="Depart" 
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actiondepname}}} {{subtags=Action de Départ}} {{jetshow=[[@{actiondepjet}]]}} {{jet=@{actiondeproll}}} {{descshow=[[@{actiondepbodydisp}]]}} {{desc=@{actiondepbody}}} {{succes=@{actiondepsucces}}} {{partiel=@{actiondeppartiel}}} {{echec=@{actiondepechec}}} {{degatsaction=@{actiondepdegats}}}"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{actiondepname}}} {{subtags=Action de Départ}} {{jetshow=[[@{actiondepjet}]]}} {{jet=@{actiondeproll}}} {{descshow=[[@{actiondepbodydisp}]]}} {{desc=@{actiondepbody}}}{{sucsup=@{actiondepsucsup}}}  {{succes=@{actiondepsucces}}} {{partiel=@{actiondeppartiel}}} {{echec=@{actiondepechec}}} {{degatsaction=@{actiondepdegats}}}"
                 ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_actiondep-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_actiondepname" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
@@ -3122,6 +3130,10 @@ vous vous déplacez dans cette zone :
                         <input type="checkbox" class="sheet-selcheck" name="attr_actiondepdegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
                     </div>
                     <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_actiondepsucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
                         <textarea name="attr_actiondepsucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet"></textarea>
                     </div>
@@ -3143,7 +3155,7 @@ vous vous déplacez dans cette zone :
         <fieldset class="repeating_moves">
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="Avancee" 
-                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{movename}}} {{subtags=Action Avancée}} {{jetshow=[[@{movejet}]]}} {{jet=@{moveroll}}} {{descshow=[[@{movebodydisp}]]}} {{desc=@{movebody}}} {{succes=@{movesucces}}} {{partiel=@{movepartiel}}} {{echec=@{moveechec}}} {{degatsaction=@{movedegats}}}"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{movename}}} {{subtags=Action Avancée}} {{jetshow=[[@{movejet}]]}} {{jet=@{moveroll}}} {{descshow=[[@{movebodydisp}]]}} {{desc=@{movebody}}} {{sucsup=@{movesucsup}}} {{succes=@{movesucces}}} {{partiel=@{movepartiel}}} {{echec=@{moveechec}}} {{degatsaction=@{movedegats}}}"
                 ></button>
                 <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_move-show" value="1" checked /><span>y</span>
                 <input type="text" name="attr_movename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" />
@@ -3171,6 +3183,10 @@ vous vous déplacez dans cette zone :
                         <input type="number" class="sheet-action" name="attr_movebonus" value="0" title="Bonus/Malus au jet" />
                         <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
                         <input type="checkbox" class="sheet-selcheck" name="attr_movedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" /><span>3</span>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_movesucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
                     </div>
                     <div class="sheet-actionligne">
                         <span class="sheet-action">Sur 10+ : </span>
@@ -3281,9 +3297,19 @@ vous vous déplacez dans cette zone :
                     <td class="tcat">Jet</td>
                     <td>
                         {{jet}}
-                        {{#rollGreater() jet 9}}
-                            <span style="color: green;font-weight:bold;">(succès complet)</span>
-                        {{/rollGreater() jet 9}}
+                        {{#sucsup}}
+                            {{#rollGreater() jet 11}}
+                                <span style="color: green;font-weight:bold;">(succès exceptionnel)</span>
+                            {{/rollGreater() jet 11}}
+                            {{#rollBetween() jet 10 11}}
+                                <span style="color: green;font-weight:bold;">(succès complet)</span>
+                            {{/rollBetween() jet 10 11}}
+                        {{/sucsup}}
+                        {{^sucsup}}
+                            {{#rollGreater() jet 9}}
+                                <span style="color: green;font-weight:bold;">(succès complet)</span>
+                            {{/rollGreater() jet 9}}
+                        {{/sucsup}}
                         {{#rollBetween() jet 7 9}}
                             <span style="color: black;font-weight:bold;">(succès partiel)</span>
                         {{/rollBetween() jet 7 9}}
@@ -3300,11 +3326,23 @@ vous vous déplacez dans cette zone :
                         </tr>
                     {{/rollGreater() jet 6}}
                 {{/rollGreater() degatsaction 0}}
-                {{#succes}}
-                    {{#rollGreater() jet 9}}
-                        <tr><td colspan="2"><div class="jetdesc">{{succes}}</div></td></tr>
-                    {{/rollGreater() jet 9}}
-                {{/succes}}
+                {{#sucsup}}
+                    {{#rollGreater() jet 11}}
+                        <tr><td colspan="2"><div class="jetdesc">{{sucsup}}</div></td></tr>
+                    {{/rollGreater() jet 11}}
+                    {{#rollBetween() jet 10 11}}
+                        {{#succes}}
+                            <tr><td colspan="2"><div class="jetdesc">{{succes}}</div></td></tr>
+                        {{/succes}}
+                    {{/rollBetween() jet 10 11}}                    
+                {{/sucsup}}
+                {{^sucsup}}
+                    {{#succes}}
+                        {{#rollGreater() jet 9}}
+                            <tr><td colspan="2"><div class="jetdesc">{{succes}}</div></td></tr>
+                        {{/rollGreater() jet 9}}
+                    {{/succes}}
+                {{/sucsup}}
                 {{#partiel}}
                     {{#rollBetween() jet 7 9}}
                         <tr><td colspan="2"><div class="jetdesc">{{partiel}}</div></td></tr>
