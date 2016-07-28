@@ -1,7 +1,7 @@
-<div class="sheet-actionligne">
-    <span class="sheet-action">Sur 12+ : </span>
-    <textarea name="attr_sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
-</div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
 <div class="sheet-actionligne">
     <span class="sheet-action">Sur 10+ : </span>
     <textarea name="attr_succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet"></textarea>
@@ -10,9 +10,60 @@
     <span class="sheet-action">Sur 7-9 : </span>
     <textarea name="attr_partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel"></textarea>
 </div>
-<div class="sheet-actionligne">
-    <span class="sheet-action">Sur 6- : </span>
-    <textarea name="attr_echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
-</div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                    </div>
 
- {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}}
+ {{sucsup=@{sucsup}}} {{echec=@{echec}}}
+
+        <!-- ===== CLASSE ===== -->
+        <div class="sheet-CLASSE">
+             <!-- ===== ACTION AVEC JET ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ACTION" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{classe-action-name}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{classe-action-mod}+(@{classe-action-bonus})]]}} {{sucsup=@{classe-action-sucsup}}} {{succes=@{classe-action-succes}}} {{partiel=@{classe-action-partiel}}} {{echec=@{classe-action-echec}}} {{degatsaction=@{classe-action-degats}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_classe-action-show" value="1" /><span>y</span>
+                <input type="text" name="attr_classe-action-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_classe-action-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_classe-action-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0" selected>-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_classe-action-bonus" value="0" title="Bonus/Malus au jet" />
+                        <span class="sheet-action">&nbsp;Cette Action inflige des dégâts</span>
+                        <input type="checkbox" class="sheet-selcheck" name="attr_classe-action-degats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" checked /><span>3</span>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_classe-action-sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_classe-action-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_classe-action-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_classe-action-echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
