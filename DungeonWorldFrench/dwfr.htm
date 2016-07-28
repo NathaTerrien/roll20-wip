@@ -1192,7 +1192,7 @@ on("change:repeating_items:itemweight", function() {
         <!-- ===== TAILLER EN PIECES ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="TaillerEnPieces" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{taillename}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{taillemod}+(@{taillebonus})]]}} {{succes=@{taillesucces}}} {{partiel=@{taillepartiel}}} {{degatsaction=@{tailledegats}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{taillename}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{taillemod}+(@{taillebonus})]]}} {{sucsup=@{taillesucsup}}} {{succes=@{taillesucces}}} {{partiel=@{taillepartiel}}} {{echec=@{tailleechec}}} {{degatsaction=@{tailledegats}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_taille-show" value="1" /><span>y</span>
             <input type="text" name="attr_taillename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Tailler En Pièces" />
@@ -1220,7 +1220,7 @@ on("change:repeating_items:itemweight", function() {
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 12+ : </span>
-                    <textarea name="attr_actionbasesucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    <textarea name="attr_taillesucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
                 </div>
                 <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
@@ -1230,12 +1230,16 @@ on("change:repeating_items:itemweight", function() {
                     <span class="sheet-action">Sur 7-9 : </span>
                     <textarea name="attr_taillepartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Vous infligez vos dégâts à l'ennemi mais vous subissez une riposte.</textarea>
                 </div>
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 6- : </span>
+                    <textarea name="attr_tailleechec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                </div>
             </div>                
         </div>
         <!-- ===== SALVE ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="Salve" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{salvename}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{salvemod}+(@{salvebonus})]]}} {{succes=@{salvesucces}}} {{partiel=@{salvepartiel}}} {{degatsaction=@{salvedegats}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{salvename}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{salvemod}+(@{salvebonus})]]}} {{succes=@{salvesucces}}} {{partiel=@{salvepartiel}}} {{sucsup=@{salvesucsup}}} {{echec=@{salveechec}}} {{degatsaction=@{salvedegats}}}"
             ></button>
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_salve-show" value="1" /><span>y</span>
             <input type="text" name="attr_salvename" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Salve" />
@@ -1262,6 +1266,10 @@ on("change:repeating_items:itemweight", function() {
                     <input type="checkbox" class="sheet-selcheck" name="attr_salvedegats" value="[[1@{dtype}]]" title="Cocher pour que l'action lance les dégâts" checked /><span>3</span>
                 </div>
                 <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 12+ : </span>
+                    <textarea name="attr_salvesucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                </div>
+                <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
                     <textarea name="attr_salvesucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">C'est un coup au but, infligez vos dégâts.</textarea>
                 </div>
@@ -1272,27 +1280,31 @@ on("change:repeating_items:itemweight", function() {
 - vous tirez au jugé : -1d6 dégâts
 - vous devez vous y reprendre à plusieurs fois : épuisez 1 munition</textarea>
                 </div>
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 6- : </span>
+                    <textarea name="attr_salveechec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                </div>
             </div>                
         </div>
         <!-- ===== DÉFIER LE DANGER ===== -->
         <div class="sheet-action">
             <button type="roll" class="sheet-btAction" name="DefierLeDangerFOR" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (FOR)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{strmod}]]}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (FOR)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{strmod}]]}} {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
             ></button>FOR
             <button type="roll" class="sheet-btAction" name="DefierLeDangerDEX" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (DEX)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{dexmod}]]}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (DEX)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{dexmod}]]}} {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
             ></button>DEX
             <button type="roll" class="sheet-btAction" name="DefierLeDangerCON" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (CON)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{conmod}]]}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (CON)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{conmod}]]}} {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
             ></button>CON
             <button type="roll" class="sheet-btAction" name="DefierLeDangerINT" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (INT)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{intmod}]]}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (INT)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{intmod}]]}} {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
             ></button>INT
             <button type="roll" class="sheet-btAction" name="DefierLeDangerSAG" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (SAG)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{wismod}]]}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (SAG)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{wismod}]]}} {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
             ></button>SAG
             <button type="roll" class="sheet-btAction" name="DefierLeDangerCHA" title="Lancer le Jet d'Action"
-                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (CHA)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{chamod}]]}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
+                value="&{template:jet} {{perso=@{character_name}}} {{name=@{defiername} (CHA)}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{chamod}]]}} {{sucsup=@{defiersucsup}}} {{echec=@{defierechec}}} {{succes=@{defiersucces}}} {{partiel=@{defierpartiel}}}"
             ></button>CHA
             <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_defier-show" value="1" /><span>y</span>
             <input type="text" name="attr_defiername" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Défier le Danger" style="width:172px;" />
@@ -1308,6 +1320,10 @@ on("change:repeating_items:itemweight", function() {
 +CHA si vous usez de vos charmes ou d'un talent de société</textarea>
                 </div>
                 <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 12+ : </span>
+                    <textarea name="attr_defiersucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                </div>
+                <div class="sheet-actionligne">
                     <span class="sheet-action">Sur 10+ : </span>
                     <textarea name="attr_defiersucces" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Vous parvenez à vos fins sans subir le danger.</textarea>
                 </div>
@@ -1315,7 +1331,11 @@ on("change:repeating_items:itemweight", function() {
                     <span class="sheet-action">Sur 7-9 : </span>
                     <textarea name="attr_defierpartiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Vous trébuchez, hésitez ou flanchez: le MJ vous présente une situation qui empire, un marché pénible ou un choix désagréable.</textarea>
                 </div>
-            </div>                
+                <div class="sheet-actionligne">
+                    <span class="sheet-action">Sur 6- : </span>
+                    <textarea name="attr_defierechec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                </div>
+            </div>
         </div>
         <!-- ===== DEFENDRE ===== -->
         <div class="sheet-action">
