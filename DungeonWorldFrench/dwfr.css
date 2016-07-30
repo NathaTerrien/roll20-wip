@@ -566,7 +566,6 @@ input[type="radio"].sheet-ranger,
 input[type="radio"].sheet-voleur{
     display: none;
 }
-
 div.sheet-barbare,
 div.sheet-barde,
 div.sheet-cambrioleur,
@@ -578,11 +577,9 @@ div.sheet-immolateur,
 div.sheet-magicien,
 div.sheet-paladin,
 div.sheet-ranger,
-div.sheet-voleur {
+div.sheet-voleur{
     display: none;
 }
-
-input[type="radio"].sheet-barde:checked ~ div.sheet-barde
 input[type="radio"].sheet-barbare:checked ~ div.sheet-barbare,
 input[type="radio"].sheet-barde:checked ~ div.sheet-barde,
 input[type="radio"].sheet-cambrioleur:checked ~ div.sheet-cambrioleur,

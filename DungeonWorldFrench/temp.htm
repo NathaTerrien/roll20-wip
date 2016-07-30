@@ -17,8 +17,24 @@
 
  {{sucsup=@{sucsup}}} {{echec=@{echec}}}
 
+ {{info=}} {{infoval=}} {{info2=}} {{info2val=}} {{info3=}} {{info3val=}}
+
         <!-- ===== CLASSE ===== -->
         <div class="sheet-CLASSE">
+            <!-- ===== ACTION SANS JET ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ACTION" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{classe-action-name}}} {{subtags=Action de Base}} {{descshow=[[1]]}} {{desc=@{classe-action-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_classe-action-show" value="1" /><span>y</span>
+                <input type="text" name="attr_classe-action-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_classe-action-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action"></textarea>
+                    </div>
+                </div>
+            </div>
              <!-- ===== ACTION AVEC JET ===== -->
             <div class="sheet-action">
                 <button type="roll" class="sheet-btAction" name="ACTION" title="Lancer le Jet d'Action"
@@ -66,4 +82,4 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- FIN CLASSE -->

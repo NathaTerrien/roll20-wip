@@ -1,14 +1,14 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-07-11.
+Updated 2016-07-30.
 
 ## Considered sheets (creation or enhancements)
 * Macchiato Monsters
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * Stars Without Number (french)
-* [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 * Castles & Crusades, english
+* [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## Existing sheets
 
@@ -25,18 +25,18 @@ Updated 2016-07-11.
 ### Chroniques Galactiques (french)
 
 #### Sources
-* [WIP](./ChroniquesGalactiques/) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.0
+* [WIP](./ChroniquesGalactiques/) Version 1.1
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.1
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.1
 
 #### Todo
 
 ### Chroniques Oubliées (french)
 
 #### Sources
-* [WIP](./ChroniquesOubliees/) Version 1.4
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.4
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.4
+* [WIP](./ChroniquesOubliees/) Version 1.5
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
 
 #### Todo
 
@@ -123,8 +123,8 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 ### Savage Worlds / Deadlands Reloaded (french)
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.5
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.5
+* [WIP](./SavageWorldsFrench/) Version 1.6
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.6
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.5
 
 #### Todo

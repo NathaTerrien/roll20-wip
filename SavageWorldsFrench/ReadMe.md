@@ -89,7 +89,6 @@ NB : décrémenter les PP automatiquement au lancement d'un pouvoir nécessitera
 * Correction des compétences personnalisées : il est désormais possible de saisir un malus (<0)
 * Ajout de la portée et légère remise en page sur l'affichage des pouvoirs dans le chat
 
-
 ##v1.5 (2016-02-28)
 Correction d'affichage sous Firefox.
 

@@ -2110,15 +2110,172 @@ Pour chaque oui, chaque PJ marque 1 PX.</textarea>
     
     <!-- ===== DEPART ===== -->
     <div class="sheet-onglclasse">
+        <input type="radio" name="attr_laclasse" class="sheet-barbare" value="barbare" />
         <input type="radio" name="attr_laclasse" class="sheet-barde" value="barde" />
+        <input type="radio" name="attr_laclasse" class="sheet-cambrioleur" value="cambrioleur" />
+        <input type="radio" name="attr_laclasse" class="sheet-chaman" value="chaman" />
         <input type="radio" name="attr_laclasse" class="sheet-clerc" value="clerc" />
         <input type="radio" name="attr_laclasse" class="sheet-druide" value="druide" />
         <input type="radio" name="attr_laclasse" class="sheet-guerrier" value="guerrier" />
+        <input type="radio" name="attr_laclasse" class="sheet-immolateur" value="immolateur" />
         <input type="radio" name="attr_laclasse" class="sheet-magicien" value="magicien" />
         <input type="radio" name="attr_laclasse" class="sheet-paladin" value="paladin" />
         <input type="radio" name="attr_laclasse" class="sheet-ranger" value="ranger" />
         <input type="radio" name="attr_laclasse" class="sheet-voleur" value="voleur" />
         
+        <!-- ===== BARBARE ===== -->
+        <div class="sheet-barbare">
+            <!-- ===== Bardé d’acier ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="BarbareEtranger" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barbare-acier-name}}} {{subtags=Action de Base}} {{descshow=[[1]]}} {{desc=@{barbare-acier-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barbare-acier-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barbare-acier-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Bardé d’acier" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barbare-acier-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Ignorez le marqueur encombrantde l’armure que vous portez.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== A poil et indemne ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="BarbarePoil" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barbare-poil-name}}} {{subtags=Action de Base}} {{descshow=[[1]]}} {{desc=@{barbare-poil-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barbare-poil-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barbare-poil-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="A poil et indemne" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barbare-poil-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Tant que vous transportez moins que votre poids maximum et que vous ne portez ni armure ni bouclier, gagnez +1 armure.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== Appétits herculéens ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="BarbarePoil" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barbare-appetit-name}}} {{subtags=Action de Base}} {{descshow=[[0]]}} {{desc=@{barbare-appetit-body}}} {{info=Ambition n°1}} {{infoval=@{barbare-appetit-ambition1}}} {{info2=Ambition n°2}} {{info2val=@{barbare-appetit-ambition2}}} {{info3=Ambition n°3}} {{info3val=@{barbare-appetit-ambition3}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barbare-appetit-show" value="0" /><span>y</span>
+                <input type="text" name="attr_barbare-appetit-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Appétits herculéens" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barbare-appetit-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Les autres peuvent se contenter d’une gorgée de vin ou d’un ou deux esclaves à leur service, mais il vous en faut plus ! Choisissez deux ambitions ci-dessous. Lorsque vous poursuivez l’une de vos ambitions, si vous deviez lancer deux d6 pour une action, lancez un d6 et un d8 à la place. Si le résultat du d6 est</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Ambition n°1 : </span>
+                        <SELECT name="attr_barbare-appetit-ambition1">
+                            <OPTION selected>Destruction pure</OPTION>
+                            <OPTION>Pouvoir sur autrui</OPTION>
+                            <OPTION>Plaisirs terrestres</OPTION>
+                            <OPTION>Conquête</OPTION>
+                            <OPTION>Richesses et possessions</OPTION>
+                            <OPTION>Gloire et renommée</OPTION>
+                        </SELECT>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Ambition n°2 : </span>
+                        <SELECT name="attr_barbare-appetit-ambition2">
+                            <OPTION>Destruction pure</OPTION>
+                            <OPTION selected>Pouvoir sur autrui</OPTION>
+                            <OPTION>Plaisirs terrestres</OPTION>
+                            <OPTION>Conquête</OPTION>
+                            <OPTION>Richesses et possessions</OPTION>
+                            <OPTION>Gloire et renommée</OPTION>
+                        </SELECT>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Ambition n°3 : </span>
+                        <SELECT name="attr_barbare-appetit-ambition3">
+                            <OPTION selected>-</OPTION>
+                            <OPTION>Destruction pure</OPTION>
+                            <OPTION>Pouvoir sur autrui</OPTION>
+                            <OPTION>Plaisirs terrestres</OPTION>
+                            <OPTION>Conquête</OPTION>
+                            <OPTION>Richesses et possessions</OPTION>
+                            <OPTION>Gloire et renommée</OPTION>
+                        </SELECT>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== Garder la main ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="BarbareGarder" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barbare-garder-name}}} {{subtags=Action de Base}} {{descshow=[[1]]}} {{desc=@{barbare-garder-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barbare-garder-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barbare-garder-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Garder la main" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barbare-garder-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Vous avez +1 continu sur votre dernier soupir. Lorsque vous rendez votre dernier soupir, sur un 7-9 faites une offre à la Mort en échange de votre vie. Si la Mort accepte, elle vous rend la vie, sinon vous trépassez.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== Costaud ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="BarbareCostaud" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barbare-costaud-name}}} {{subtags=Action de Base}} {{descshow=[[1]]}} {{desc=@{barbare-costaud-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barbare-costaud-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barbare-costaud-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Costaud" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barbare-costaud-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Lorsque vous portez une arme, celle-ci gagne les marqueurs "puissant" et "dévastateur".</textarea>
+                    </div>
+                </div>
+            </div>
+             <!-- ===== Qu’est-ce que t’attends ? ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ACTION" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{barbare-attend-name}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{barbare-attend-mod}+(@{barbare-attend-bonus})]]}} {{sucsup=@{barbare-attend-sucsup}}} {{succes=@{barbare-attend-succes}}} {{partiel=@{barbare-attend-partiel}}} {{echec=@{barbare-attend-echec}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_barbare-attend-show" value="1" /><span>y</span>
+                <input type="text" name="attr_barbare-attend-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Qu’est-ce que t’attends ?" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_barbare-attend-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous hurlez un défi à vos ennemis, lancez 2d6+CON.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_barbare-attend-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}">DEX</OPTION>
+                            <OPTION value="@{conmod}" selected>CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_barbare-attend-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_barbare-attend-sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_barbare-attend-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Vos ennemis vous considèrent comme la menace la plus importante à affronter et ignorent vos compagnons. Gagnez +2 dégâts continu contre eux.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_barbare-attend-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Seuls quelques-uns de vos ennemis (les plus faibles ou les plus téméraires) succombent à vos provocations.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_barbare-attend-echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- FIN BARBARE -->
+
         <!-- ===== BARDE ===== -->
         <div class="sheet-barde">
             <!-- ===== ARTS ARCANIQUES ===== -->
@@ -2235,6 +2392,168 @@ L'allié bénéficie de l'effet choisi parmi :
                 </div>
             </div>
         </div> <!-- FIN BARDE -->
+
+        <!-- ===== CAMBRIOLEUR ===== -->
+        <div class="sheet-CLASSE">
+            <!-- ===== Expertise des pièges ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ExpertiseDesPieges" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{cambrioleur-piege-name}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{cambrioleur-piege-mod}+(@{cambrioleur-piege-bonus})]]}} {{sucsup=@{cambrioleur-piege-sucsup}}} {{succes=@{cambrioleur-piege-succes}}} {{partiel=@{cambrioleur-piege-partiel}}} {{echec=@{cambrioleur-piege-echec}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_cambrioleur-piege-show" value="1" /><span>y</span>
+                <input type="text" name="attr_cambrioleur-piege-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Expertise des pièges" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_cambrioleur-piege-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous prenez le temps d’étudier une zone dangereuse, lancez 2d6+DEX.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_cambrioleur-piege-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}" selected>DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_cambrioleur-piege-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_cambrioleur-piege-sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_cambrioleur-piege-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Prenez 3 et dépensez 1 pour poser une des questions suivantes pendant que vous vous déplacez dans cette zone :
+- Y a-t-il un piège ici et si oui, comment se déclenche-t-il ?
+- Que fait ce piège quand il se déclenche ? 
+- Qu’y a-t-il d’autre caché ici ?
+                        </textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_cambrioleur-piege-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Posez une des questions suivantes pendant que vous vous déplacez dans cette zone :
+- Y a-t-il un piège ici et si oui, comment se déclenche-t-il ?
+- Que fait ce piège quand il se déclenche ? 
+- Qu’y a-t-il d’autre caché ici ?</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_cambrioleur-piege-echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== Ficelles du métier ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="ExpertiseDesPieges" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{cambrioleur-ficelle-name}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{cambrioleur-ficelle-mod}+(@{cambrioleur-ficelle-bonus})]]}} {{sucsup=@{cambrioleur-ficelle-sucsup}}} {{succes=@{cambrioleur-ficelle-succes}}} {{partiel=@{cambrioleur-ficelle-partiel}}} {{echec=@{cambrioleur-ficelle-echec}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_cambrioleur-ficelle-show" value="1" /><span>y</span>
+                <input type="text" name="attr_cambrioleur-ficelle-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Ficelles du métier" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_cambrioleur-ficelle-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous crochetez une serrure, faites les poches de quelqu’un ou désactivez un piège, lancez 2d6+DEX.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_cambrioleur-ficelle-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}" selected>DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_cambrioleur-ficelle-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_cambrioleur-ficelle-sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_cambrioleur-ficelle-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Vous y parvenez sans problème.
+                        </textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_cambrioleur-ficelle-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Vous y parvenez mais le MJ vous laisse choisir deux options parmi suspicion, danger ou coût.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_cambrioleur-ficelle-echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== Morale souple ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="MoraleSouple" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{cambrioleur-morale-name}}} {{subtags=Action de Base}} {{descshow=[[1]]}} {{desc=@{cambrioleur-morale-body}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_cambrioleur-morale-show" value="1" /><span>y</span>
+                <input type="text" name="attr_cambrioleur-morale-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Morale souple" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_cambrioleur-morale-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand quelqu’un essaie de déterminer votre alignement, vous pouvez répondre par l’alignement qui vous chante.</textarea>
+                    </div>
+                </div>
+            </div>
+            <!-- ===== Attaque sournoise ===== -->
+            <div class="sheet-action">
+                <button type="roll" class="sheet-btAction" name="AttaqueSournoise" title="Lancer le Jet d'Action"
+                    value="&{template:jet} {{perso=@{character_name}}} {{name=@{cambrioleur-ficelle-name}}} {{subtags=Action de Base}} {{jetshow=[[1]]}} {{jet=[[2d6+@{cambrioleur-ficelle-mod}+(@{cambrioleur-ficelle-bonus})]]}} {{sucsup=@{cambrioleur-ficelle-sucsup}}} {{succes=@{cambrioleur-ficelle-succes}}} {{partiel=@{cambrioleur-ficelle-partiel}}} {{echec=@{cambrioleur-ficelle-echec}}}"
+                ></button>
+                <input type="checkbox" class="sheet-dispcheck" title="Afficher/Masquer la description" name="attr_cambrioleur-ficelle-show" value="1" /><span>y</span>
+                <input type="text" name="attr_cambrioleur-ficelle-name" class="sheet-actionname" placeholder="Nom de l'action" title="Nom de l'action" value="Ficelles du métier" />
+                <div class="sheet-dispcheck">
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Desc : </span>
+                        <textarea name="attr_cambrioleur-ficelle-body" class="sheet-actiondesc" placeholder="Description de l'Action" title="Description de l'Action">Quand vous crochetez une serrure, faites les poches de quelqu’un ou désactivez un piège, lancez 2d6+DEX.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Jet : </span>
+                        2d6 + 
+                        <SELECT name="attr_cambrioleur-ficelle-mod" class="sheet-action" title="Caractéristique utilisée pour le jet d'Action">
+                            <OPTION value="0">-</OPTION>
+                            <OPTION value="@{strmod}">FOR</OPTION>
+                            <OPTION value="@{dexmod}" selected>DEX</OPTION>
+                            <OPTION value="@{conmod}">CON</OPTION>
+                            <OPTION value="@{intmod}">INT</OPTION>
+                            <OPTION value="@{wismod}">SAG</OPTION>
+                            <OPTION value="@{chamod}">CHA</OPTION>
+                        </SELECT>
+                        +
+                        <input type="number" class="sheet-action" name="attr_cambrioleur-ficelle-bonus" value="0" title="Bonus/Malus au jet" />
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 12+ : </span>
+                        <textarea name="attr_cambrioleur-ficelle-sucsup" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès exceptionnel" title="Résultat de l'Action sur un succès exceptionnel"></textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 10+ : </span>
+                        <textarea name="attr_cambrioleur-ficelle-succes" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès complet" title="Résultat de l'Action sur un succès complet">Vous y parvenez sans problème.
+                        </textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 7-9 : </span>
+                        <textarea name="attr_cambrioleur-ficelle-partiel" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un succès partiel" title="Résultat de l'Action sur un succès partiel">Vous y parvenez mais le MJ vous laisse choisir deux options parmi suspicion, danger ou coût.</textarea>
+                    </div>
+                    <div class="sheet-actionligne">
+                        <span class="sheet-action">Sur 6- : </span>
+                        <textarea name="attr_cambrioleur-ficelle-echec" class="sheet-actiondesc" placeholder="Résultat de l'Action sur un échec" title="Résultat de l'Action sur un échec"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- FIN CAMBRIOLEUR -->
         
         <!-- ===== CLERC ===== -->
         <div class="sheet-clerc">
