@@ -1,13 +1,13 @@
 # Dungeon World VF
 
-Feuille de Personnage en français pour [Dungeon World](http://dungeonworld-fr.blogspot.fr/), adaptée de la feuille VO de Willem den Besten (Morenim) et Devindra Payment (@Ardnived) ... et considérablement modifiée.
+Feuille de Personnage en français pour [Dungeon World V1 et V2](http://dungeonworld-fr.blogspot.fr/), adaptée de la feuille VO de Willem den Besten (Morenim) et Devindra Payment (@Ardnived) ... et considérablement modifiée.
 
 # Version courante
-2.0 [Capture d'écran](dwfr.png)
+3.0 [Capture d'écran](dwfr.png)
 
 # Notes de version
 
-##v3.0 (2016-03-12)
+##v3.0 (2016-08-12)
 
 Adaptation pour [Dungeon World VF V2](http://www.500nuancesdegeek.fr/dungeon-world-v2/) :
 
