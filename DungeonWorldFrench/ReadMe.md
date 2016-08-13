@@ -7,6 +7,14 @@ Feuille de Personnage en français pour [Dungeon World](http://dungeonworld-fr.b
 
 # Notes de version
 
+##v3.0 (2016-03-12)
+
+Adaptation pour [Dungeon World VF V2](http://www.500nuancesdegeek.fr/dungeon-world-v2/) :
+
+* Ajout des nouvelles classes : (+ Ranger devient Eclaireur)
+* Ajout des nouvelles actions de base, spéciales et de départ
+* Toutes les actions avec jets gèrent désormais les résultats 12+, 10+, 7 à 9, 6-
+
 ##v2.0 (2016-03-06)
 
 Merci à Acritarche, Antoine P., MaxiMax, Eric Nieudan et les autres pour leur aide, tests et retours.

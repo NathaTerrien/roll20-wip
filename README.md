@@ -1,7 +1,7 @@
 # roll20-wip
 Personal developments and works in progress for the Roll20 character sheets and API scripts.
 
-Updated 2016-07-30.
+Updated 2016-08-13.
 
 ## Considered sheets (creation or enhancements)
 * Macchiato Monsters
@@ -63,9 +63,9 @@ Cf. english version
 [Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 2.0 (2016-03-06)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 2.0 (2016-03-06)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 2.0 (2016-03-06)
+* [WIP](./DungeonWorldFrench/) Version 3.0 (2016-08-12)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12)
 
 #### Todo
 * Jets
