@@ -37,6 +37,28 @@ div.sheet-absinp{
     position: absolute;
     
 }
-input{
-    background: transparent;
+input, textarea{
+    background-color: rgba(255,235,160,0.3); /* FFEBA0 */
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-family: 'Patrick Hand',cursive;
+    color: #4A3428;
+    border: solid 1px red;
+    box-shadow: none;
+    border-radius:0;
+}
+input.sheet-inptxt{
+    line-height: 14px;
+    font-size: 16px;    
+}
+input.sheet-inptxtbig{
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: bold;
+}
+input.sheet-inpnum{
+    line-height: 14px;
+    font-size: 16px;
+    text-align: right;
 }
