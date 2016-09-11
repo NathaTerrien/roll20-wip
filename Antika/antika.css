@@ -1,0 +1,42 @@
+div,
+button,
+textarea,
+span,
+input,
+select,
+table,
+tr,
+td,
+th{
+    box-sizing: border-box;
+}
+table{
+    width: 100%;
+}
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+div{
+    margin: none;
+    padding: none;
+    background-color: transparent;
+}
+div.sheet-bgmain{
+    position: relative;
+    width: 832px;
+    min-height: 1040px;
+    text-align:center;
+    font-family: cursive;
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg2_850px.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;    
+}
+div.sheet-absinp{
+    position: absolute;
+    
+}
+input{
+    background: transparent;
+}
