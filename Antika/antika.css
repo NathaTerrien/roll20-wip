@@ -44,8 +44,8 @@ input, textarea{
     margin: 0;
     font-family: 'Patrick Hand',cursive;
     color: #4A3428;
-    /* border: solid 1px red;*/
-    border: none;
+    border: solid 1px red;
+    /* border: none; */
     box-shadow: none;
     border-radius:0;
 }
@@ -58,11 +58,33 @@ input.sheet-inptxtbig{
     font-size: 18px;
     font-weight: bold;
 }
+input.sheet-inptxtsmall{
+    line-height: 12px;
+    font-size: 12px;    
+}
 input.sheet-inpnum{
     line-height: 14px;
     font-size: 16px;
     text-align: right;
     max-width: 40px;
+}
+input.sheet-inpnumcomp{
+    line-height: 14px;
+    font-size: 14px;
+    text-align: center;
+    max-width: 27px;
+}
+input.sheet-inpnumcomp {
+    -moz-appearance: textfield;
+}
+input.sheet-inpnumcomp::-webkit-inner-spin-button, 
+input.sheet-inpnumcomp::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    appearance: none;
+}
+input[disabled],
+input[readonly] {
+    -moz-appearance: textfield;
 }
 input.sheet-inpnumrond{
     line-height: 30px;
