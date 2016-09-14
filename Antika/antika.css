@@ -34,8 +34,7 @@ div.sheet-bgmain{
     background-size: cover;    
 }
 div.sheet-absinp{
-    position: absolute;
-    
+    position: absolute;  
 }
 input, textarea{
     background-color: rgba(255,235,160,0.3); /* FFEBA0 */
@@ -44,12 +43,13 @@ input, textarea{
     margin: 0;
     font-family: 'Patrick Hand',cursive;
     color: #4A3428;
-    border: solid 1px red;
-    /* border: none; */
+    /* border: solid 1px red; */
+    border: none;
     box-shadow: none;
     border-radius:0;
 }
 input.sheet-inptxt{
+    padding-left: 2px;
     line-height: 14px;
     font-size: 16px;    
 }
@@ -57,6 +57,7 @@ input.sheet-inptxtbig{
     line-height: 18px;
     font-size: 18px;
     font-weight: bold;
+    text-align: center;
 }
 input.sheet-inptxtsmall{
     line-height: 12px;
@@ -116,4 +117,37 @@ input[type=number]:read-only::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
+}
+/* BOUTONS */
+button[type=roll].sheet-rolld10{
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 8px;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    text-align:center;
+    font-weight: normal;
+    line-height: 24px;
+    max-height:24px;
+    background: transparent !important;
+    border: none;
+    z-index: 10; 
+}
+button[type=roll].sheet-rolld10:before{
+  background-color: transparent !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+  font-family: "dicefontd10";
+  font-size: 30px;
+  font-weight:bold;
+  content: "k" !important;
+  vertical-align: top !important;
+}
+button[type=roll].sheet-rolld10:hover{
+    background-color: rgba(255,255,255,0.5);
+    color:red;
+    z-index: 99;
+    border-bottom: 2px solid red;
+}
+button[type=roll].sheet-rolld10:hover:before{
+font-weight:bold;
 }

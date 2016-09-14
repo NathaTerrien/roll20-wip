@@ -1,7 +1,7 @@
 <div class="sheet-bgmain">
     <!-- NOMS -->
     <div class="sheet-absinp" style="left: 110px;top:76px"><input name="attr_character_name" class="sheet-inptxtbig" style="width:180px" type="text" placeholder="Nom du personnage"/></div>
-    <div class="sheet-absinp" style="left: 612px;top:80px"><input name="attr_joueur" class="sheet-inptxt" style="width:180px" type="text" placeholder="Nom du joueur" /></div>
+    <div class="sheet-absinp" style="left: 612px;top:80px"><input name="attr_joueur" class="sheet-inptxtbig" style="width:180px" type="text" placeholder="Nom du joueur" /></div>
     <!-- PHYSIQUE -->
     <div class="sheet-absinp" style="left: 80px;top:132px"><input name="attr_age" class="sheet-inptxt" style="width:90px" type="text" placeholder="Âge" /></div>
     <div class="sheet-absinp" style="left: 80px;top:155px"><input name="attr_sexe" class="sheet-inptxt" style="width:90px" type="text" placeholder="Sexe" /></div>
@@ -43,64 +43,66 @@
     </div>
     <!-- COMPETENCES COLONNE 1 -->
     <div class="sheet-absinp" style="left: 185px;top:402px">
-        <input name="attr_COMPArmeTranchante" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeTranchante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="Arme tranchante" />
+        <button type="roll" class="sheet-rolld10" value="/roll 1d10" title=""></button>
     </div>
     <div class="sheet-absinp" style="left: 185px;top:426px">
-        <input name="attr_COMPArmePerforante" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmePerforante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
+        <button type="roll" class="sheet-rolld10" value="/roll 1d10" title=""></button>
     </div>
     <div class="sheet-absinp" style="left: 185px;top:450px">
-        <input name="attr_COMPArmeContondante" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeContondante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 80px;top:474px">
-        <input name="attr_COMPArmeAutreLib" class="sheet-inptxtsmall" style="width:95px;" type="text" placeholder="Autre arme" />
+        <input name="attr_COMPArmeAutreLib" class="sheet-inptxtsmall" style="width:95px;" type="text" placeholder="Autre arme" title="" />
     </div>    
     <div class="sheet-absinp" style="left: 185px;top:474px">
-        <input name="attr_COMPArmeAutre" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeAutre" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>    
     <div class="sheet-absinp" style="left: 185px;top:474px">
-        <input name="attr_COMPArmeAutre" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeAutre" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:498px">
-        <input name="attr_COMPArmeArc" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeArc" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:522px">
-        <input name="attr_COMPArmeFronde" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeFronde" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:546px">
-        <input name="attr_COMPArmeJet" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPArmeJet" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:570px">
-        <input name="attr_COMPAthletisme" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPAthletisme" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:594px">
-        <input name="attr_COMPBouclier" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPBouclier" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:618px">
-        <input name="attr_COMPAttelage" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPAttelage" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:642px">
-        <input name="attr_COMPEndurance" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPEndurance" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:666px">
-        <input name="attr_COMPEquitation" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPEquitation" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:690px">
-        <input name="attr_COMPEsquive" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPEsquive" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:714px">
-        <input name="attr_COMPGrimper" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPGrimper" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:738px">
-        <input name="attr_COMPNatation" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPNatation" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:762px">
-        <input name="attr_COMPPugilat" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPPugilat" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:786px">
-        <input name="attr_COMPSouplesse" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPSouplesse" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <div class="sheet-absinp" style="left: 185px;top:810px">
-        <input name="attr_COMPVol" class="sheet-inpnumcomp" type="number" min="0" value="0" />
+        <input name="attr_COMPVol" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
     </div>
     <!-- COMPETENCES COLONNE 2 -->
     <div class="sheet-absinp" style="left: 453px;top:402px">
