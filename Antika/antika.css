@@ -83,6 +83,11 @@ input.sheet-inpnumcomp::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
+input.sheet-inpnumsmall{
+    line-height: 13px;
+    font-size: 13px;
+    text-align: right;
+}
 input[disabled],
 input[readonly] {
     -moz-appearance: textfield;
@@ -149,5 +154,5 @@ button[type=roll].sheet-rolld10:hover{
     border-bottom: 2px solid red;
 }
 button[type=roll].sheet-rolld10:hover:before{
-font-weight:bold;
+    font-weight:bold;
 }
