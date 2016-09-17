@@ -1,6 +1,13 @@
 Rapport :
 1,864705882352941
 Div équipement : 416 px * 109 px 
+
+left
+185px -> 190px
+
+top
+402px -> 390px
+
 Pixels top compétences : 
 474px
 498px

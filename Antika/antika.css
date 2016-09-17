@@ -21,14 +21,15 @@ div{
     margin: none;
     padding: none;
     background-color: transparent;
+    border: solid 1px red;
 }
 div.sheet-bgmain{
     position: relative;
     width: 832px;
-    min-height: 1040px;
+    min-height: 1177px;
     text-align:center;
     font-family: cursive;
-    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg2_850px.jpg');
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_832px.jpg');
     background-repeat:no-repeat;
     background-position:center center;
     background-size: cover;    
@@ -42,8 +43,7 @@ input, textarea{
     padding: 0;
     margin: 0;
     font-family: 'Patrick Hand',cursive;
-    color: #4A3428;
-    /* border: solid 1px red; */
+    color: #4A3428;    
     border: none;
     box-shadow: none;
     border-radius:0;
@@ -123,6 +123,36 @@ input[type=number]:read-only::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+div.sheet-lignequip{
+    display: block;
+    white-space: nowrap;
+    text-align: left;
+    padding: 0px 0px 0px 0px;
+    border: 1px solid red;
+}
+/* EQUIPEMENT */
+div.sheet-colvide{
+    display: inline-block;
+    width:355px;
+    margin: 0px 0px 0px 0px !important;
+    padding: none !important;
+    border: 1px solid red;
+}
+div.sheet-colequip{
+    display: inline-block;
+    vertical-align: top;
+    width: 473px;
+    min-height: 100px;
+    text-align: left;
+    margin: 0px 0px 0px 0px !important;
+    padding: 0px 20px 0px 2px;
+    background-color: #EEEEEE;
+    border: 10px solid transparent;
+    border-image-source: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_equipement2_850px.png');
+    border-image-repeat: round;
+    border-image-slice: 60;
+    border-image-width: 45px;
+}
 /* BOUTONS */
 button[type=roll].sheet-rolld10{
     padding: 0px 0px 0px 0px;
@@ -154,5 +184,5 @@ button[type=roll].sheet-rolld10:hover{
     border-bottom: 2px solid red;
 }
 button[type=roll].sheet-rolld10:hover:before{
-    font-weight:bold;
+font-weight:bold;
 }
