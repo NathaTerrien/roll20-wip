@@ -44,8 +44,7 @@
     <!-- COMPETENCES COLONNE 1   -->
     <div class="sheet-absinp" style="left: 190px;top:392px;">
         <input name="attr_COMPArmeTranchante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="Arme tranchante" />
-        <button type="roll" class="sheet-rolld10" value="/roll 1d10" title=""></button>
-    </div>
+        <button type="roll" class="sheet-rolld10" title="Cliquer pour lancer un jet d'Arme Tranchante" value="&{template:jet} {{perso=@{character_name}}} {{name=Arme Tranchante}} {{subtags=Compétence de SOMA}} {{jets=[[@{COMPArmeTranchante}]]}} {{jet1=[[1d10 + @{SOMA}]]}} {{jet2=[[1d10 + @{SOMA}]]}}"></button>    </div>
     <div class="sheet-absinp" style="left: 190px;top:416px;">
         <input name="attr_COMPArmePerforante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
         <button type="roll" class="sheet-rolld10" value="/roll 1d10" title=""></button>
@@ -262,3 +261,30 @@
         <textarea name="attr_Pouvoirs" style="width:293px;text-indent:72px;height:127px;" title="Pouvoirs"></textarea>
     </div>
 </div>
+<!-- TEMPLATES -->
+<rolltemplate class="sheet-rolltemplate-jet">
+    <table>
+        {{#perso}}
+            <tr>
+                <td colspan="2" style="text-align:center;"><b>{{perso}}</b></td>
+            </tr>
+        {{/perso}}
+        <tr><th colspan="2">{{name}}</th></tr>
+        {{#subtags}}
+            <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+        {{/subtags}}
+        {{#jets}}
+            <tr>
+                <td class="tcat">Jet 1</td>
+                <td>{{jet1}}</td>
+            </tr>            
+            {{#rollGreater() jets 2}}
+                <tr>
+                    <td class="tcat">Jet 2</td>
+                    <td>{{jet2}}</td>
+                </tr>            
+            {{/rollGreater() jets 2}}
+        {{/jets}}
+    </table>
+</rolltemplate>
+<!-- FIN TEMPLATES -->
