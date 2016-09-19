@@ -44,13 +44,14 @@
     <!-- COMPETENCES COLONNE 1   -->
     <div class="sheet-absinp" style="left: 190px;top:392px;">
         <input name="attr_COMPArmeTranchante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="Arme tranchante" />
-        <button type="roll" class="sheet-rolld10" title="Cliquer pour lancer un jet d'Arme Tranchante" value="&{template:jet} {{perso=@{character_name}}} {{name=Arme Tranchante}} {{subtags=Compétence de SOMA}} {{jets=[[@{COMPArmeTranchante}]]}} {{jet1=[[1d10 + @{SOMA}]]}} {{jet2=[[1d10 + @{SOMA}]]}}"></button>    </div>
+        <button type="roll" class="sheet-rolld10" name="tranchante" title="Cliquer pour lancer un jet d'Arme Tranchante" value="&{template:jet} {{perso=@{character_name}}} {{name=Arme tranchante (@{COMPArmeTranchante})}} {{subtags=Compétence de SOMA (@{SOMA})}} {{jets=[[?{Nombre de dés|@{COMPArmeTranchante}}]]}} {{jet1=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet2=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet3=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet3=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet4=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet5=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet6=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet6=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet7=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet7=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet8=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet9=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet10=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}}"></button>
+    </div>
     <div class="sheet-absinp" style="left: 190px;top:416px;">
-        <input name="attr_COMPArmePerforante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
-        <button type="roll" class="sheet-rolld10" value="/roll 1d10" title=""></button>
+        <input name="attr_COMPArmePerforante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="Arme perforante" />
+        <button type="roll" class="sheet-rolld10" name="perforante" title="Cliquer pour lancer un jet d'Arme perforante" value="&{template:jet} {{perso=@{character_name}}} {{name=Arme perforante (@{COMPArmePerforante})}} {{subtags=Compétence de SOMA (@{SOMA})}} {{jets=[[?{Nombre de dés|@{COMPArmePerforante}}]]}} {{jet1=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet2=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet3=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet3=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet4=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet5=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet6=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet6=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet7=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet7=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet8=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet9=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}} {{jet10=[[1d10+@{SOMA}+(?{Bonus/Malus|0})]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 190px;top:439px;">
-        <input name="attr_COMPArmeContondante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="" />
+        <input name="attr_COMPArmeContondante" class="sheet-inpnumcomp" type="number" min="0" value="0" title="Arme perforante" />
     </div>
     <div class="sheet-absinp" style="left: 85px;top:463px;">
         <input name="attr_COMPArmeAutreLib" class="sheet-inptxtsmall" style="width:95px;" type="text" placeholder="Autre arme" title="" />
@@ -278,12 +279,60 @@
                 <td class="tcat">Jet 1</td>
                 <td>{{jet1}}</td>
             </tr>            
-            {{#rollGreater() jets 2}}
+            {{#rollGreater() jets 1}}
                 <tr>
                     <td class="tcat">Jet 2</td>
                     <td>{{jet2}}</td>
                 </tr>            
+            {{/rollGreater() jets 1}}
+            {{#rollGreater() jets 2}}
+                <tr>
+                    <td class="tcat">Jet 3</td>
+                    <td>{{jet3}}</td>
+                </tr>            
             {{/rollGreater() jets 2}}
+            {{#rollGreater() jets 3}}
+                <tr>
+                    <td class="tcat">Jet 4</td>
+                    <td>{{jet4}}</td>
+                </tr>            
+            {{/rollGreater() jets 3}}
+            {{#rollGreater() jets 4}}
+                <tr>
+                    <td class="tcat">Jet 5</td>
+                    <td>{{jet5}}</td>
+                </tr>            
+            {{/rollGreater() jets 4}}
+            {{#rollGreater() jets 5}}
+                <tr>
+                    <td class="tcat">Jet 6</td>
+                    <td>{{jet6}}</td>
+                </tr>            
+            {{/rollGreater() jets 5}}
+            {{#rollGreater() jets 6}}
+                <tr>
+                    <td class="tcat">Jet 7</td>
+                    <td>{{jet7}}</td>
+                </tr>            
+            {{/rollGreater() jets 6}}
+            {{#rollGreater() jets 7}}
+                <tr>
+                    <td class="tcat">Jet 8</td>
+                    <td>{{jet8}}</td>
+                </tr>            
+            {{/rollGreater() jets 7}}
+            {{#rollGreater() jets 8}}
+                <tr>
+                    <td class="tcat">Jet 9</td>
+                    <td>{{jet9}}</td>
+                </tr>            
+            {{/rollGreater() jets 8}}
+            {{#rollGreater() jets 9}}
+                <tr>
+                    <td class="tcat">Jet 10</td>
+                    <td>{{jet10}}</td>
+                </tr>            
+            {{/rollGreater() jets 9}}
         {{/jets}}
     </table>
 </rolltemplate>
