@@ -339,79 +339,79 @@
     <table>
         {{#perso}}
             <tr>
-                <td colspan="2" style="text-align:center;"><b>{{perso}}</b></td>
+                <td colspan="2" class="sheet-perso">{{perso}}</td>
             </tr>
         {{/perso}}
         <tr><th colspan="2">{{name}}</th></tr>
         {{#subtags}}
-            <tr><td colspan="2" class="subheader">{{subtags}}</td></tr>
+            <tr><td colspan="2" class="sheet-subheader">{{subtags}}</td></tr>
         {{/subtags}}
         {{#jets}}
             {{#rollTotal() jets 0}}
                 {{#D5}}
                     <tr>
-                        <td class="tcat">Action 1D5</td>
+                        <td class="sheet-tcat">Action 1D5</td>
                         <td>{{jet0}}</td>
                     </tr>
                 {{/D5}}
             {{/rollTotal() jets 0}}
             {{#rollGreater() jets 0}}
                 <tr>
-                    <td class="tcat">Action 1</td>
+                    <td class="sheet-tcat">Action 1</td>
                     <td>{{jet1}}</td>
                 </tr>
             {{/rollGreater() jets 0}}
             {{#rollGreater() jets 1}}
                 <tr>
-                    <td class="tcat">Action 2</td>
+                    <td class="sheet-tcat">Action 2</td>
                     <td>{{jet2}}</td>
                 </tr>
             {{/rollGreater() jets 1}}
             {{#rollGreater() jets 2}}
                 <tr>
-                    <td class="tcat">Action 3</td>
+                    <td class="sheet-tcat">Action 3</td>
                     <td>{{jet3}}</td>
                 </tr>
             {{/rollGreater() jets 2}}
             {{#rollGreater() jets 3}}
                 <tr>
-                    <td class="tcat">Action 4</td>
+                    <td class="sheet-tcat">Action 4</td>
                     <td>{{jet4}}</td>
                 </tr>
             {{/rollGreater() jets 3}}
             {{#rollGreater() jets 4}}
                 <tr>
-                    <td class="tcat">Action 5</td>
+                    <td class="sheet-tcat">Action 5</td>
                     <td>{{jet5}}</td>
                 </tr>
             {{/rollGreater() jets 4}}
             {{#rollGreater() jets 5}}
                 <tr>
-                    <td class="tcat">Action 6</td>
+                    <td class="sheet-tcat">Action 6</td>
                     <td>{{jet6}}</td>
                 </tr>
             {{/rollGreater() jets 5}}
             {{#rollGreater() jets 6}}
                 <tr>
-                    <td class="tcat">Action 7</td>
+                    <td class="sheet-tcat">Action 7</td>
                     <td>{{jet7}}</td>
                 </tr>
             {{/rollGreater() jets 6}}
             {{#rollGreater() jets 7}}
                 <tr>
-                    <td class="tcat">Action 8</td>
+                    <td class="sheet-tcat">Action 8</td>
                     <td>{{jet8}}</td>
                 </tr>
             {{/rollGreater() jets 7}}
             {{#rollGreater() jets 8}}
                 <tr>
-                    <td class="tcat">Action 9</td>
+                    <td class="sheet-tcat">Action 9</td>
                     <td>{{jet9}}</td>
                 </tr>
             {{/rollGreater() jets 8}}
             {{#rollGreater() jets 9}}
                 <tr>
-                    <td class="tcat">Action 10</td>
+                    <td class="sheet-tcat">Action 10</td>
                     <td>{{jet10}}</td>
                 </tr>
             {{/rollGreater() jets 9}}

@@ -32,10 +32,10 @@ div.sheet-bgmain{
     background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_832px.jpg');
     background-repeat:no-repeat;
     background-position:center center;
-    background-size: cover;    
+    background-size: cover;
 }
 div.sheet-absinp{
-    position: absolute;  
+    position: absolute;
 }
 input, textarea{
     background-color: rgba(255,235,160,0.3); /* FFEBA0 */
@@ -43,19 +43,19 @@ input, textarea{
     padding: 0;
     margin: 0;
     font-family: 'Patrick Hand',cursive;
-    color: #4A3428;    
+    color: #4A3428;
     border: none;
     box-shadow: none;
     border-radius:0;
     resize:none;
 }
 textarea{
-    font-size: 16px; 
+    font-size: 16px;
 }
 input.sheet-inptxt{
     padding-left: 2px;
     line-height: 14px;
-    font-size: 16px;    
+    font-size: 16px;
 }
 input.sheet-inptxtbig{
     line-height: 18px;
@@ -65,7 +65,7 @@ input.sheet-inptxtbig{
 }
 input.sheet-inptxtsmall{
     line-height: 14px;
-    font-size: 14px;    
+    font-size: 14px;
 }
 input.sheet-inpnum{
     line-height: 14px;
@@ -82,8 +82,8 @@ input.sheet-inpnumcomp{
 input.sheet-inpnumcomp {
     -moz-appearance: textfield;
 }
-input.sheet-inpnumcomp::-webkit-inner-spin-button, 
-input.sheet-inpnumcomp::-webkit-outer-spin-button { 
+input.sheet-inpnumcomp::-webkit-inner-spin-button,
+input.sheet-inpnumcomp::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
@@ -110,8 +110,8 @@ input.sheet-inpnumrond{
 input.sheet-inpnumrond {
     -moz-appearance: textfield;
 }
-input.sheet-inpnumrond::-webkit-inner-spin-button, 
-input.sheet-inpnumrond::-webkit-outer-spin-button { 
+input.sheet-inpnumrond::-webkit-inner-spin-button,
+input.sheet-inpnumrond::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
@@ -119,10 +119,10 @@ input[disabled],
 input[readonly] {
     -moz-appearance: textfield;
 }
-input[type=number]:disabled::-webkit-inner-spin-button, 
+input[type=number]:disabled::-webkit-inner-spin-button,
 input[type=number]:disabled::-webkit-outer-spin-button,
-input[type=number]:read-only::-webkit-inner-spin-button, 
-input[type=number]:read-only::-webkit-outer-spin-button { 
+input[type=number]:read-only::-webkit-inner-spin-button,
+input[type=number]:read-only::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
     margin: 0;
@@ -139,7 +139,7 @@ button[type=roll].sheet-rolld10{
     max-height:24px;
     background: transparent !important;
     border: none;
-    z-index: 10; 
+    z-index: 10;
 }
 button[type=roll].sheet-rolld10:before{
   background-color: transparent !important;
@@ -168,5 +168,46 @@ font-weight:bold;
     border: 20px solid transparent;
     border-image: url(https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_table_280px.png);
     border-image-slice: 20;
-    border-image-repeat: round;    
+    border-image-repeat: round;
+    background-color: transparent;
+}
+.sheet-rolltemplate-jet table{
+    margin: 0px !important;
+    padding: 0px !important;
+    border: none;
+    width:100%;
+    background-image:url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_table.jpg');
+    background-size:cover;
+    background-origin: border-box;
+}
+.sheet-rolltemplate-jet th{
+    padding: 2px 0px 0px 0px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Contrail One';
+    color: black;
+    font-size: 16px;
+}
+.sheet-rolltemplate-jet td{
+    padding: 2px 40px 0px 0px;
+    text-align: right;
+}
+.sheet-rolltemplate-jet td.sheet-perso{
+    padding: 2px 0px 0px 0px;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Contrail One';
+    color: #4A3428;
+    font-size: 16px;
+    font-style: italic;
+}
+.sheet-rolltemplate-jet td.sheet-subheader{
+    padding: 2px 0px 0px 0px;
+    font-style: italic;
+    text-align: center;
+    font-size: 12px;
+}
+.sheet-rolltemplate-jet td.sheet-tcat{
+    padding: 2px 0px 0px 40px;
+    text-align: left;
 }
