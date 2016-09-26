@@ -1,3 +1,57 @@
+<script type="text/worker">
+    on("change:SOPHOS", function(){
+        getAttrs(["SOPHOS","ARISTEIA_max"], function(values) {
+            var newval=0;
+            var carac=parseInt(values.SOPHOS) || 0;
+            var curval=parseInt(values.ARISTEIA_max) || 0;
+            if (carac > 0) {
+                newval=Math.ceil(carac/2);
+            } else {
+                newval=1;
+            }
+            setAttrs({
+                ARISTEIA: newval,
+                ARISTEIA_max: newval
+            });
+        });
+    });
+    on("change:SOMA", function(){
+        getAttrs(["SOMA","UBRIS_max","PV_max"], function(values) {
+            var newval=0;
+            var carac=parseInt(values.SOMA) || 0;
+            var curval=parseInt(values.UBRIS_max) || 0;
+            var newpv=carac*10;
+            var curpv=parseInt(values.PV_max) || 0;
+            if (carac > 0) {
+                newval=Math.ceil(carac/2);
+            } else {
+                newval=1;
+            }
+            setAttrs({
+                UBRIS: newval,
+                UBRIS_max: newval
+            });
+            setAttrs({
+                PV: newpv,
+                PV_max: newpv
+            });
+        });
+    });
+    on("change:UBRIS", function(){
+        getAttrs(["UBRIS"], function(values) {
+            var newval=0;
+            var carac=parseInt(values.UBRIS) || 0;
+            if (carac > 9) {
+                newval=9;
+            } else {
+                newval=carac;
+            }
+            setAttrs({
+                UBRISJET: newval
+            });
+        });
+    });
+</script>
 <div class="sheet-bgmain">
     <!-- NOMS -->
     <div class="sheet-absinp" style="left: 114px;top:74px;"><input name="attr_character_name" class="sheet-inptxtbig" style="width:180px;" type="text" placeholder="Nom du personnage"/></div>
@@ -29,9 +83,10 @@
         <input name="attr_UBRIS" class="sheet-inpnum" type="number" title="UBRIS courante" min="0" value="0" />
         /
         <input name="attr_UBRIS_max" class="sheet-inpnum" type="number" title="UBRIS maximale" min="0" value="0" />
+        <input name="attr_UBRISJET" type="number" value="0" style="display:none;" />
     </div>
     <div class="sheet-absinp" style="left: 368px;top:294px;">
-        <button type="roll" class="sheet-rolld10" name="JetUbris" title="Cliquer pour faire un jet d'Ubris" value="&{template:jet} {{perso=@{character_name}}} {{name=Ubris (@{UBRIS})}} {{jets=[[1]]}} {{jet1=[[1d10r<[[@{UBRIS}-1]]]]}}"></button>
+        <button type="roll" class="sheet-rolld10" name="JetUbris" title="Cliquer pour faire un jet d'Ubris" value="&{template:jet} {{perso=@{character_name}}} {{name=Ubris (@{UBRIS})}} {{jets=[[1]]}} {{jet1=[[1d10r<[[@{UBRISJET}]]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 444px;top:312px;"> <!-- SOPHOS -->
         <input name="attr_SOPHOS" class="sheet-inpnumrond" type="number" title="Valeur de SOPHOS" min="0" value="0" />
@@ -319,6 +374,9 @@
     <div class="sheet-absinp" style="left: 655px;top:970px;">
         <input name="attr_EquipOF" class="sheet-inpnum" style="min-width:70px;" type="number" min="0" value="0" title="Obelos de Fer" />
     </div>
+    <div class="sheet-absinp" style="left: 750px;top:970px;">
+        <button type="roll" class="sheet-rolld10" name="JetPecule" title="Cliquer pour faire un jet de calcul de pécule de départ" value="&{template:jet} {{perso=@{character_name}}} {{name=Pécule de départ}} {{pecule=[[1d100+@{SYMBIOSE}[SYMBIOSE]+@{SOPHOS}[SOPHOS]+@{COMPPatrimoine}[Gestion de Patrimoine]]]}}"></button>
+    </div>
     <div class="sheet-absinp" style="left: 390px;top:998px;">
         <textarea name="attr_Equipement" class="sheet-areadecal" style="width:400px;text-indent:90px;height:140px;" title="Equipement"></textarea>
     </div>
@@ -346,6 +404,9 @@
         {{#subtags}}
             <tr><td colspan="2" class="sheet-subheader">{{subtags}}</td></tr>
         {{/subtags}}
+        {{#pecule}}
+            <tr><td colspan="2" style="text-align: center;padding:0px;">{{pecule}} Obelos de Fer (OF)</td></tr>
+        {{/pecule}}
         {{#jets}}
             {{#rollTotal() jets 0}}
                 {{#D5}}
