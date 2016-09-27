@@ -127,6 +127,31 @@ input[type=number]:read-only::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
+input[type=radio].sheet-falseradio{
+    min-width: 24px;
+    opacity: 0;
+    min-height: 24px;
+    z-index: 10;
+}
+input[type=radio].sheet-falseradio + span{
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -24px;
+    width: 24px;
+    max-width: 24px;
+    min-height: 24px;
+    z-index: 1;
+    border: none;
+    border-radius: 50%;
+}
+input[type=radio].sheet-falseradio:hover + span{
+    border: 2px solid red;
+}
+input[type=radio].sheet-falseradio:checked + span{
+    border: 3px solid #4A3428;
+}
 /* BOUTONS */
 button[type=roll].sheet-rolld10{
     padding: 0px 0px 0px 0px;
