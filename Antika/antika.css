@@ -150,7 +150,8 @@ input[type=radio].sheet-falseradio:hover + span{
     border: 2px solid red;
 }
 input[type=radio].sheet-falseradio:checked + span{
-    border: 3px solid #4A3428;
+    border-bottom: 3px solid #4A3428;
+    border-top: 3px solid #4A3428;
 }
 /* BOUTONS */
 button[type=roll].sheet-rolld10{
