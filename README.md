@@ -26,7 +26,7 @@ Creation.
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies)
 
 ### Todo
-* Tests en jeu
+* Almost everything
 
 ## Existing sheets
 
