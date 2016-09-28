@@ -8,13 +8,25 @@ Updated 2016-09-28.
 ## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * Macchiato Monsters, french and english
-* [White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
 * [Terra-X](http://legrumph.org/Terrier/?Chibi/Terra-X), french
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
 * Stars Without Number, french
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
+
+## WIP
+
+### White Lies
+[White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
+
+Creation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies)
+
+### Todo
+* Tests en jeu
 
 ## Existing sheets
 
