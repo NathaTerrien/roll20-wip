@@ -1,19 +1,40 @@
 # roll20-wip
-Personal developments and works in progress for the Roll20 character sheets and API scripts.
+Personal developments and works in progress for the [Roll20](http://roll20.net) character sheets and API scripts.
 
-Updated 2016-08-13.
+_You like my work? Wanna help? [Make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription_
 
-## Considered sheets (creation or enhancements)
-* Macchiato Monsters
+Updated 2016-09-28.
+
+## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
-* Stars Without Number (french)
+* Macchiato Monsters, french and english
+* [White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
+* [Terra-X](http://legrumph.org/Terrier/?Chibi/Terra-X), french
+* [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
+* [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
+* Stars Without Number, french
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## Existing sheets
 
+### Antika (french)
+[Antika](http://www.legrog.org/jeux/antika)
+
+Création.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Antika) Version 1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Antika) Version 1.0
+* [Official]() en attente de validation
+
+### Todo
+* Tests en jeu
+
 ### Les Cahiers du Vastemonde (french)
 [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
+
+Création, en collaboration avec l'auteur.
 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde) Version 1.0
@@ -24,14 +45,19 @@ Updated 2016-08-13.
 
 ### Chroniques Galactiques (french)
 
+Création.
+
 #### Sources
 * [WIP](./ChroniquesGalactiques/) Version 1.1
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.1
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.1
 
 #### Todo
+* Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
 
 ### Chroniques Oubliées (french)
+
+Création.
 
 #### Sources
 * [WIP](./ChroniquesOubliees/) Version 1.5
@@ -39,8 +65,11 @@ Updated 2016-08-13.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
 
 #### Todo
+* Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
 
 ### Cypher System (english)
+
+Creation.
 
 #### Sources
 * [WIP](./CypherSystem/) Version 1.6
@@ -50,6 +79,8 @@ Updated 2016-08-13.
 #### Todo
 
 ### Cypher System (french)
+
+Création.
 
 #### Sources
 * [WIP](./CypherSystemFrench/) Version 1.6
@@ -61,6 +92,8 @@ Cf. english version
 
 ### Dungen World (french)
 [Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
+
+Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Sources
 * [WIP](./DungeonWorldFrench/) Version 3.0 (2016-08-12)
@@ -85,6 +118,8 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 ### INS/MV 5E (french)
 [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
 
+Création.
+
 #### Sources
 * [WIP](./INS-MV_5E/) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
@@ -93,6 +128,9 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 #### Todo
 
 ### Numenéra tabbed (english)
+Deprecated though usable. See the Cypher System Sheet.
+
+Creation.
 
 #### Sources
 * [WIP](./Numenera_NathasNumenera_English/) Version 4.8
@@ -102,6 +140,9 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 #### Todo
 
 ### Numenéra tabbed (french)
+Obsolète bien qu'utilisable. Voir la fiche pour le Cypher System.
+
+Création.
 
 #### Sources
 * [WIP](./Numenera_NathasNumenera_French/) Version 4.8
@@ -112,6 +153,8 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 ### Portes, Monstres, Trésors (french)
 
+Création.
+
 #### Sources
 * [WIP](./PortesMonstresTresors/) Version 4.2
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.2
@@ -119,13 +162,16 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 #### Todo
 * Calcul de la richesse totale
+* Inventaire "non porté" (hors encombrement)
 
 ### Savage Worlds / Deadlands Reloaded (french)
+
+Création.
 
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 1.6
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.6
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.5
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.6
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
@@ -133,6 +179,8 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 ### Supersix (french)
 [Supersix](http://supersix.fr/telechargements/)
+
+Création en collbaoration avec l'auteur.
 
 #### Sources
 * [WIP](./Supersix/) Version 1.0
@@ -143,6 +191,8 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 ### The One Ring french / L'Anneau Unique
 
+Traduction et adaptation.
+
 #### Sources
 * [WIP](./Anneau%20Unique/)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Anneau%20Unique) Version 1.1
@@ -150,9 +200,13 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 #### Todo
 * Ajouter les descriptifs VF en infobulles (cf. fiche VO)
+* Virer la cible des jets qui ne sert à rien
+* Ajouter une demande de dé de maîtrise
 * Script API pour template de jet
 
 ### Trail of Cthulhu (french)
+
+Traduction.
 
 #### Sources
 * [WIP](./Trail of Cthulhu_french/) Version 1.0 (2015-12-26)
