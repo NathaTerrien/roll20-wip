@@ -3,7 +3,7 @@ Personal developments and works in progress for the [Roll20](http://roll20.net) 
 
 _You like my work? Wanna help? [Make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription_
 
-Updated 2016-09-28.
+Updated 2016-10-01.
 
 ## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
@@ -17,10 +17,21 @@ Updated 2016-09-28.
 
 ## WIP
 
+### Terra X
+[Terra X](http://legrumph.org/Terrier/?Chibi/Terra-X)
+
+Création.
+
+### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX)
+
+### Todo
+* Almost everything
+
 ### White Lies
 [White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
 
-Creation.
+Création.
 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies)
