@@ -10,18 +10,10 @@ td,
 th{
     box-sizing: border-box;
 }
-table{
-    width: 100%;
-}
-td{
-    text-align: center;
-    vertical-align: middle;
-}
 div{
     margin: none;
     padding: none;
     background-color: transparent;
-    /* border: solid 1px red; */
 }
 div.sheet-bgmain{
     position: relative;
@@ -38,7 +30,7 @@ div.sheet-absinp{
     position: absolute;
 }
 input, textarea{
-    background-color: rgba(40,174,105,0.1); /* #F4FFF9 */
+    background-color: rgba(40,174,105,0.1);
     display: inline-block;
     padding: 0;
     margin: 0;
@@ -156,8 +148,6 @@ select{
 select:hover{
     border: 1px solid #939598;
 }
-/*****************************************************************************/
-/*********** BUTTONS *********************************************************/
 button[type="roll"] {
     box-sizing: border-box;
     padding: 1px 0px 0px 0px!important;
@@ -185,4 +175,10 @@ button[type="roll"].sheet-boutdes {
     border: 1px solid red;
     background:#C10000;
 }
-
+.sheet-rolltemplate-jet table{
+    width: 100%;
+    padding: 2px;
+    border: 2px solid #939598;
+    border-radius: 5px;
+    background-color: white;
+}
