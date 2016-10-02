@@ -157,23 +157,38 @@ button[type="roll"] {
     text-align: center;
     vertical-align: middle;
     color:black;
-    border: 1px solid #939598;
+    border-width: 0px;
+    border-style: solid;
+    border-color: #939598;
     border-radius: 5px;
     font-size:10px;
     background:transparent;
 }
 button[type="roll"]:hover{
     font-weight: bolder;
+    border-width: 2px;
 }
 button[type="roll"].sheet-boutav {
-    color:white;
-    border: 1px solid green;
-    background:#28AE69;
+    color:black;
+    border-style: solid;
+    border-color: #28AE69;
+    background: rgba(40,174,105,0.1); /* #28AE69 */
 }
 button[type="roll"].sheet-boutdes {
-    color:white;
-    border: 1px solid red;
-    background:#C10000;
+    color:black;
+    border-style: solid;
+    border-color: #C10000;
+    background: rgba(193,0,0,0.1); /* #C10000 */
+}
+button[type=roll].sheet-boutd6:before{
+    font-family: "dicefontd6";
+    font-size: 22px;
+    content: 'f';
+}
+button[type="roll"].sheet-boutd6:hover{
+    font-weight: normal;
+    color: #28AE69;
+    border-width: 0px;
 }
 .sheet-rolltemplate-jet table{
     width: 100%;

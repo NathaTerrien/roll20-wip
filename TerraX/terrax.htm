@@ -346,7 +346,7 @@
     <!-- ========================================================= -->
     <div class="sheet-absinp" style="left: 600px;top:365px;border:2px solid #939598;border-radius:5px;text-align:left;padding:2px;">
         <span style="color:black;font-family:'Candal',Helvetica;font-weight:bold;font-size:14px;">INITIATIVE</span>
-        <button type="roll" name="Initiative" title="Jet d'Initiative" value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=1}} {{jet=[[1d6+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus] &{tracker}]]}}"></button>
+        <button type="roll" name="Initiative" class="sheet-boutd6" title="Jet d'Initiative" value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=1}} {{jet=[[1d6+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus] &{tracker}]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 600px;top:397px;border:2px solid #939598;border-radius:5px;width:499px;text-align:left;padding:2px;">
         <span style="color:black;font-family:'Candal',Helvetica;font-weight:bold;font-size:14px;">ATTAQUES</span>
@@ -379,7 +379,7 @@
     </div>
 </div>
 <!-- ========================================================= -->
-<!-- ============ ATTAQUES   ================================= -->
+<!-- ============ TEMPLATE   ================================= -->
 <!-- ========================================================= -->
 <rolltemplate class="sheet-rolltemplate-jet">
     <div>
