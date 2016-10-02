@@ -192,7 +192,7 @@ font-weight:bold;
     padding: 0px !important;
     width: 195px;
     border: 20px solid transparent;
-    border-image: url(https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_table_280px.png);
+    border-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Antika/antika_bg_table_280px.png');
     border-image-slice: 20;
     border-image-repeat: round;
     background-color: transparent;

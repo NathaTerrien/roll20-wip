@@ -1,0 +1,188 @@
+div,
+button,
+textarea,
+span,
+input,
+select,
+table,
+tr,
+td,
+th{
+    box-sizing: border-box;
+}
+table{
+    width: 100%;
+}
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+div{
+    margin: none;
+    padding: none;
+    background-color: transparent;
+    /* border: solid 1px red; */
+}
+div.sheet-bgmain{
+    position: relative;
+    width: 1130px;
+    min-height: 550px;
+    text-align:center;
+    font-family: Arial;
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/TerraX/terrax_bg_1130x550.jpg');
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+div.sheet-absinp{
+    position: absolute;
+}
+input, textarea{
+    background-color: rgba(40,174,105,0.1); /* #F4FFF9 */
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+    border: none;
+    /* box-shadow: none;*/
+    border-radius: 5px;
+    resize:none;
+}
+textarea{
+    font-size: 12px;
+}
+input[type="number"]{
+    text-align: right;
+}
+input.sheet-iptbig1{
+    font-size:20px;
+    width:280px;
+    text-align:center;
+    font-weight:bold;
+    min-height:40px;
+    text-transform: capitalize;
+}
+input.sheet-iptbig2{
+    font-size:18px;
+    width:230px;
+    text-align:center;
+    font-weight:bold;
+    min-height:40px;
+    text-transform: capitalize;
+}
+input.sheet-iptnumsm {
+    -moz-appearance: textfield;
+    max-width: 40px;
+}
+input.sheet-iptnumsm::-webkit-inner-spin-button,
+input.sheet-iptnumsm::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+input.sheet-iptnummod{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+input.sheet-iptnumbig {
+    min-height: 40px;
+    max-width: 60px;
+    font-size: 22px;
+    font-weight:bold;
+}
+input.sheet-iptnumrond{
+    line-height: 30px;
+    font-size: 30px;
+    text-align: center;
+    min-width: 56px;
+    min-height: 56px;
+    max-width: 56px;
+    max-height: 56px;
+    border-radius: 30px;
+    border:none;
+    font-weight: bold;
+}
+input.sheet-iptnumrond {
+    -moz-appearance: textfield;
+}
+input.sheet-iptnumrond::-webkit-inner-spin-button,
+input.sheet-iptnumrond::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+input.sheet-iptnumrondsm{
+    line-height: 20px;
+    font-size: 25px;
+    text-align: center;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 20px;
+    border:none;
+    font-weight: bold;
+}
+input.sheet-iptnumrondsm {
+    -moz-appearance: textfield;
+}
+input.sheet-iptnumrondsm::-webkit-inner-spin-button,
+input.sheet-iptnumrondsm::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+input[disabled],
+input[readonly] {
+    -moz-appearance: textfield;
+    background-color: transparent;
+}
+input[type=number]:disabled::-webkit-inner-spin-button,
+input[type=number]:disabled::-webkit-outer-spin-button,
+input[type=number]:read-only::-webkit-inner-spin-button,
+input[type=number]:read-only::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+select{
+    background-color:rgba(255,255,255,0.5);
+    padding: 0px;
+    margin: 0px;
+    height: 1.6em;
+    line-height: 1.6em;
+    max-height 1.6em;
+    font-weight:normal;
+    border: none;
+}
+select:hover{
+    border: 1px solid #939598;
+}
+/*****************************************************************************/
+/*********** BUTTONS *********************************************************/
+button[type="roll"] {
+    box-sizing: border-box;
+    padding: 1px 0px 0px 0px!important;
+    margin: 0px !important;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    vertical-align: middle;
+    color:black;
+    border: 1px solid #939598;
+    border-radius: 5px;
+    font-size:10px;
+    background:transparent;
+}
+button[type="roll"]:hover{
+    font-weight: bolder;
+}
+button[type="roll"].sheet-boutav {
+    color:white;
+    border: 1px solid green;
+    background:#28AE69;
+}
+button[type="roll"].sheet-boutdes {
+    color:white;
+    border: 1px solid red;
+    background:#C10000;
+}
+
