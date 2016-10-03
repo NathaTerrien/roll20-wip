@@ -212,69 +212,69 @@
     </div>
     <!-- ===================== FORCE ===== -->
     <div class="sheet-absinp" style="left: 544px;top:130px;padding-right:3px;border-right:2px dotted #939598;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JetForAv" title="Jet de Force avec Avantage"></button>
-            <button type="roll" name="JetFor" style="display:block" title="Jet de Force normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JetForDes" title="Jet de Force avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JetForAv" title="Jet de Force avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{CAR=1}} {{avantage=1}} {{jet=[[2d20k1+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JetFor" style="display:block" title="Jet de Force normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{CAR=1}} {{jet=[[1d20+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JetForDes" title="Jet de Force avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{CAR=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 574px;top:130px;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JsForAv" title="Jet de Sauvegarde de Force avec Avantage"></button>
-            <button type="roll" name="JsFor" style="display:block" title="Jet de Sauvegarde de Force normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JsForDes" title="Jet de Sauvegarde de Force avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JsForAv" title="Jet de Sauvegarde de Force avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{JS=[[@{JS}]]}} {{avantage=1}} {{jet=[[2d20k1+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JsFor" style="display:block" title="Jet de Sauvegarde de Force normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{JS=[[@{JS}]]}} {{jet=[[1d20+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JsForDes" title="Jet de Sauvegarde de Force avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{JS=[[@{JS}]]}} {{desavantage=1}} {{jet=[[2d20kl1+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <!-- ===================== INTELLIGENCE ===== -->
     <div class="sheet-absinp" style="left: 544px;top:199px;padding-right:3px;border-right:2px dotted #939598;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JetIntAv" title="Jet d'Intelligence avec Avantage"></button>
-            <button type="roll" name="JetInt" style="display:block" title="Jet d'Intelligence normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JetIntDes" title="Jet d'Intelligence avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JetIntAv" title="Jet d'Intelligence avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{CAR=1}} {{avantage=1}} {{jet=[[2d20k1+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JetInt" style="display:block" title="Jet d'Intelligence normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{CAR=1}} {{jet=[[1d20+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JetIntDes" title="Jet d'Intelligence avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{CAR=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 574px;top:199px;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JsIntAv" title="Jet de Sauvegarde d'Intelligence avec Avantage"></button>
-            <button type="roll" name="JsInt" style="display:block" title="Jet de Sauvegarde d'Intelligence normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JsIntDes" title="Jet de Sauvegarde d'Intelligence avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JsIntAv" title="Jet de Sauvegarde d'Intelligence avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{JS=[[@{JS}]]}} {{avantage=1}} {{jet=[[2d20k1+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JsInt" style="display:block" title="Jet de Sauvegarde d'Intelligence normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{JS=[[@{JS}]]}} {{jet=[[1d20+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JsIntDes" title="Jet de Sauvegarde d'Intelligence avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{JS=[[@{JS}]]}} {{desavantage=1}} {{jet=[[2d20kl1+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <!-- ===================== SAGESSE ===== -->
     <div class="sheet-absinp" style="left: 544px;top:269px;padding-right:3px;border-right:2px dotted #939598;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JetSagAv" title="Jet de Sagesse avec Avantage"></button>
-            <button type="roll" name="JetSag" style="display:block" title="Jet d'Intelligence normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JetSagDes" title="Jet d'Intelligence avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JetSagAv" title="Jet de Sagesse avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{CAR=1}} {{avantage=1}} {{jet=[[2d20k1+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JetSag" style="display:block" title="Jet d'Intelligence normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{CAR=1}} {{jet=[[1d20+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JetSagDes" title="Jet d'Intelligence avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{CAR=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 574px;top:269px;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JsSagAv" title="Jet de Sauvegarde d'Intelligence avec Avantage"></button>
-            <button type="roll" name="JsSag" style="display:block" title="Jet de Sauvegarde d'Intelligence normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JsSagDes" title="Jet de Sauvegarde d'Intelligence avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JsSagAv" title="Jet de Sauvegarde d'Intelligence avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{JS=[[@{JS}]]}} {{avantage=1}} {{jet=[[2d20k1+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JsSag" style="display:block" title="Jet de Sauvegarde d'Intelligence normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{JS=[[@{JS}]]}} {{jet=[[1d20+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JsSagDes" title="Jet de Sauvegarde d'Intelligence avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{JS=[[@{JS}]]}} {{desavantage=1}} {{jet=[[2d20kl1+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <!-- ===================== DEXTERITE ===== -->
     <div class="sheet-absinp" style="left: 544px;top:338px;padding-right:3px;border-right:2px dotted #939598;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JetDexAv" title="Jet de Dextérité avec Avantage"></button>
-            <button type="roll" name="JetDex" style="display:block" title="Jet de Dextérité normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JetDexDes" title="Jet de Dextérité avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JetDexAv" title="Jet de Dextérité avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{CAR=1}} {{avantage=1}} {{jet=[[2d20k1+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JetDex" style="display:block" title="Jet de Dextérité normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{CAR=1}} {{jet=[[1d20+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JetDexDes" title="Jet de Dextérité avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{CAR=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 574px;top:338px;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JsDexAv" title="Jet de Sauvegarde de Dextérité avec Avantage"></button>
-            <button type="roll" name="JsDex" style="display:block" title="Jet de Sauvegarde de Dextérité normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JsDexDes" title="Jet de Sauvegarde de Dextérité avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JsDexAv" title="Jet de Sauvegarde de Dextérité avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{JS=[[@{JS}]]}} {{avantage=1}} {{jet=[[2d20k1+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JsDex" style="display:block" title="Jet de Sauvegarde de Dextérité normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{JS=[[@{JS}]]}} {{jet=[[1d20+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JsDexDes" title="Jet de Sauvegarde de Dextérité avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{JS=[[@{JS}]]}} {{desavantage=1}} {{jet=[[2d20kl1+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <!-- ===================== CONSTITUTION ===== -->
     <div class="sheet-absinp" style="left: 544px;top:407px;padding-right:3px;border-right:2px dotted #939598;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JetConAv" title="Jet de Constitution avec Avantage"></button>
-            <button type="roll" name="JetCon" style="display:block" title="Jet de Constitution normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JetConDes" title="Jet de Constitution avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JetConAv" title="Jet de Constitution avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{CAR=1}} {{avantage=1}} {{jet=[[2d20k1+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JetCon" style="display:block" title="Jet de Constitution normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{CAR=1}} {{jet=[[1d20+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JetConDes" title="Jet de Constitution avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{CAR=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 574px;top:407px;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JsConAv" title="Jet de Sauvegarde de Constitution avec Avantage"></button>
-            <button type="roll" name="JsCon" style="display:block" title="Jet de Sauvegarde de Constitution normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JsConDes" title="Jet de Sauvegarde de Constitution avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JsConAv" title="Jet de Sauvegarde de Constitution avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{JS=[[@{JS}]]}} {{avantage=1}} {{jet=[[2d20k1+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JsCon" style="display:block" title="Jet de Sauvegarde de Constitution normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{JS=[[@{JS}]]}} {{jet=[[1d20+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JsConDes" title="Jet de Sauvegarde de Constitution avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{JS=[[@{JS}]]}} {{desavantage=1}} {{jet=[[2d20kl1+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <!-- ===================== CHARISME ===== -->
     <div class="sheet-absinp" style="left: 544px;top:476px;padding-right:3px;border-right:2px dotted #939598;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JetChaAv" title="Jet de Charisme avec Avantage"></button>
-            <button type="roll" name="JetCha" style="display:block" title="Jet de Charisme normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JetChaDes" title="Jet de Charisme avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JetChaAv" title="Jet de Charisme avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{CAR=1}} {{avantage=1}} {{jet=[[2d20k1+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JetCha" style="display:block" title="Jet de Charisme normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{CAR=1}} {{jet=[[1d20+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JetChaDes" title="Jet de Charisme avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{CAR=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 574px;top:476px;border-bottom:2px dotted #939598;">
-            <button type="roll" class="sheet-boutav" style="display:block" name="JsChaAv" title="Jet de Sauvegarde de Charisme avec Avantage"></button>
-            <button type="roll" name="JsCha" style="display:block" title="Jet de Sauvegarde de Charisme normal"></button>
-            <button type="roll" class="sheet-boutdes" style="display:block" name="JsChaDes" title="Jet de Sauvegarde de Charisme avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" style="display:block" name="JsChaAv" title="Jet de Sauvegarde de Charisme avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{JS=[[@{JS}]]}} {{avantage=1}} {{jet=[[2d20k1+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" name="JsCha" style="display:block" title="Jet de Sauvegarde de Charisme normal" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{JS=[[@{JS}]]}} {{jet=[[1d20+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" style="display:block" name="JsChaDes" title="Jet de Sauvegarde de Charisme avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{JS=[[@{JS}]]}} {{desavantage=1}} {{jet=[[2d20kl1+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
     </div>
     <!-- ========================================================= -->
     <!-- ===================== CAPA COMBAT COMPETENCES ===== -->
@@ -346,14 +346,14 @@
     <!-- ========================================================= -->
     <div class="sheet-absinp" style="left: 600px;top:365px;border:2px solid #939598;border-radius:5px;text-align:left;padding:2px;">
         <span style="color:black;font-family:'Candal',Helvetica;font-weight:bold;font-size:14px;">INITIATIVE</span>
-        <button type="roll" name="Initiative" class="sheet-boutd6" title="Jet d'Initiative" value="&{template:jet} {{perso=@{character_name}}} {{name=Initiative}} {{initiative=1}} {{jet=[[1d6+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus] &{tracker}]]}}"></button>
+        <button type="roll" name="Initiative" class="sheet-boutd6" title="Jet d'Initiative" value="&{template:jet} {{perso=@{character_name}}} {{nom=Initiative}} {{initiative=1}} {{jet=[[1d6+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus] &{tracker}]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 600px;top:397px;border:2px solid #939598;border-radius:5px;width:499px;text-align:left;padding:2px;">
         <span style="color:black;font-family:'Candal',Helvetica;font-weight:bold;font-size:14px;">ATTAQUES</span>
         <fieldset class="repeating_attaques">
-            <button type="roll" class="sheet-boutav" name="AttaqueAv" title="Attaque avec Avantage"></button>
-            <button type="roll" name="Attaque" title="Attaque normale"></button>
-            <button type="roll" class="sheet-boutdes" name="AttaqueDes" title="Attaque avec Désavantage"></button>
+            <button type="roll" class="sheet-boutav" name="AttaqueAv" title="Attaque avec Avantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=@{atknom}}} {{attaque=1}} {{avantage=1}} {{jet=[[2d20k1+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{degats=[[@{atkdegats}+(@{atkdegcarac})[Modificateur]]]}}"></button>
+            <button type="roll" name="Attaque" title="Attaque normale" value="&{template:jet} {{perso=@{character_name}}} {{nom=@{atknom}}} {{attaque=1}} {{jet=[[1d20+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{degats=[[@{atkdegats}+(@{atkdegcarac})[Modificateur]]]}}"></button>
+            <button type="roll" class="sheet-boutdes" name="AttaqueDes" title="Attaque avec Désavantage" value="&{template:jet} {{perso=@{character_name}}} {{nom=@{atknom}}} {{attaque=1}} {{desavantage=1}} {{jet=[[2d20kl1+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{degats=[[@{atkdegats}+(@{atkdegcarac})[Modificateur]]]}}"></button>
             <input type="text" name="attr_atknom" style="width:144px;height:22px;" placeholder="Nom de l'arme/attaque"/>
             <select name="attr_atkcarac" size="1"  style="text-align: left; width: 50px;" title="Bonus de caractéristique à l'attaque">
                         <option value="0">-</option>
@@ -382,32 +382,29 @@
 <!-- ============ TEMPLATE   ================================= -->
 <!-- ========================================================= -->
 <rolltemplate class="sheet-rolltemplate-jet">
-    <div>
         <table>
             {{#perso}}
                 <tr>
-                    <td colspan="2" class="sheet-perso">{{perso}}</td>
+                    <td class="sheet-perso">{{perso}}</td>
+                    <td>&nbsp;
+                        {{#avantage}}
+                            Avantage
+                        {{/avantage}}
+                        {{#desavantage}}
+                            Désavantage
+                        {{/desavantage}}
+                    </td>
                 </tr>
             {{/perso}}
-            <tr><th colspan="2">{{name}}</th></tr>
-            {{#subtags}}
-                <tr><td colspan="2" class="sheet-subheader">{{subtags}}</td></tr>
-            {{/subtags}}
-            {{#avantage}}
-                <tr><th colspan="2">avec Avantage</th></tr>
-            {{/avantage}}
-            {{#desavantage}}
-                <tr><th colspan="2">avec Désavantage</th></tr>
-            {{/desavantage}}
             {{#CAR}}
                 <tr>
-                    <td class="sheet-tcat">Jet</td>
+                    <td class="sheet-tcat">{{nom}}</td>
                     <td>{{jet}}</td>
                 </tr>
             {{/CAR}}
             {{#JS}}
                 <tr>
-                    <td class="sheet-tcat">Jet</td>
+                    <td class="sheet-tcat">JS {{nom}}</td>
                     <td>{{jet}}</td>
                 </tr>
                 {{#rollLess() jet JS}}
@@ -422,13 +419,14 @@
             {{/JS}}
             {{#initiative}}
                 <tr>
-                    <td class="sheet-tcat">Jet</td>
+                    <td class="sheet-tcat">Initiative</td>
                     <td>{{jet}}</td>
                 </tr>
             {{/initiative}}
             {{#attaque}}
+                <tr><th colspan="2">{{nom}}</th></tr>
                 <tr>
-                    <td class="sheet-tcat">Jet</td>
+                    <td class="sheet-tcat">Attaque</td>
                     <td>{{jet}} contre CA</td>
                 </tr>
                 {{#degats}}
@@ -439,16 +437,12 @@
                         <tr><td class="sheet-tcat">Dégâts</td><td>{{degats}}</td></tr>
                     {{/rollGreater() degats 0}}
                 {{/degats}}
-                {{#rollWasCrit() attaque}}
-                    <tr><td class="sheet-tcat">Dégâts maximum</td><td>{{critique}}</td></tr>
-                    <tr><td><hr/></td></tr>
-                    <tr><td class="subheader" colspan="2" style="color:green;"><b>Réussite Critique</b></td></tr>
-                {{/rollWasCrit() attaque}}
-                {{#rollWasFumble() attaque}}
-                    <tr><td><hr/></td></tr>
-                    <tr><td class="subheader" colspan="2" style="color:red;"><b>Catastrophe</b></td></tr>
-                {{/rollWasFumble() attaque}}
+                {{#rollWasCrit() jet}}
+                    <tr><td colspan="2" style="color:green;"><b>Réussite Critique</b></td></tr>
+                {{/rollWasCrit() jet}}
+                {{#rollWasFumble() jet}}
+                    <tr><td colspan="2" style="color:red;"><b>Catastrophe</b></td></tr>
+                {{/rollWasFumble() jet}}
             {{/attaque}}
         </table>
-    </div>
 </rolltemplate>

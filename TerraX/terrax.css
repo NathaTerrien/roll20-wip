@@ -193,7 +193,8 @@ button[type="roll"].sheet-boutd6:hover{
 .sheet-rolltemplate-jet table{
     width: 100%;
     padding: 2px;
-    border: 2px solid #939598;
-    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #939598;
     background-color: white;
 }
