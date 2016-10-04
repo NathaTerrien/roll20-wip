@@ -185,10 +185,12 @@ select:hover{
 }
 button[type="roll"] {
     box-sizing: border-box;
-    padding: 0px 0px !important;
-    margin: 0px 0px 0px 0px !important;
-    text-align: center !important;
-    vertical-align: middle !important;
+    padding: 1px 0px 0px 0px!important;
+    margin: 0px !important;
+    height: 22px;
+    width: 22px;
+    text-align: center;
+    vertical-align: middle;
     color:black;
     border-width: 0px;
     border-style: solid;
@@ -196,47 +198,22 @@ button[type="roll"] {
     border-radius: 5px;
     font-size:10px;
     background:transparent;
-    box-shadow: none;
-    text-shadow: none;
-    -webkit-box-shadow: none;
 }
 button[type="roll"]:hover{
     font-weight: bolder;
     border-width: 2px;
 }
-button[type="roll"].sheet-boutcar {
+button[type="roll"].sheet-boutav {
     color:black;
-    border-width: 2px;
-    border-color: transparent;
-    font-size: 28px;
-    width: 70px;
-    height: 30px;
-    line-height: 28px;
-    padding-left: 40px !important;
-}
-button[type="roll"].sheet-boutcar:hover {
+    border-style: solid;
     border-color: #28AE69;
+    background: rgba(40,174,105,0.1); /* #28AE69 */
 }
-button[type="roll"].sheet-boutjs {
+button[type="roll"].sheet-boutdes {
     color:black;
-    border-width: 2px;
-    border-color: transparent;
-    font-size: 28px;
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    border-color: transparent;
-}
-button[type="roll"].sheet-boutjs:hover{
+    border-style: solid;
     border-color: #C10000;
-}
-button[type=roll].sheet-boutd6{
-    color:black;
-    font-family:'Candal',Helvetica;
-    font-weight:bold;
-    font-size:14px;
-    display: inline-block;
-    vertical-align: middle;
+    background: rgba(193,0,0,0.1); /* #C10000 */
 }
 button[type=roll].sheet-boutd6:before{
     font-family: "dicefontd6";
@@ -244,17 +221,15 @@ button[type=roll].sheet-boutd6:before{
     content: 'f';
 }
 button[type="roll"].sheet-boutd6:hover{
+    font-weight: normal;
     color: #28AE69;
     border-width: 0px;
 }
 .sheet-rolltemplate-jet table{
-    min-width: 180px;
+    width: 100%;
+    padding: 2px;
     border-width: 2px;
     border-style: solid;
     border-color: #939598;
     background-color: white;
-    text-align: center;
-}
-.sheet-rolltemplate-jet td{
-    padding: 2px 2px;
 }
