@@ -1,8 +1,14 @@
 <script type="text/worker">
     on("change:FORCE", function(){
-            getAttrs(["FORCE"], function(values) {
+            getAttrs(["FORCE","FORCE_max"], function(values) {
                 var carac=parseInt(values.FORCE) || 0;
+                var max=parseInt(values.FORCE_max) || 0;
                 var modcar=0;
+                if (max==0 && carac>0 ) {
+                    setAttrs({
+                        FORCE_max: carac
+                    });
+                }
                 if (carac <3) {modcar=-3;}
                     else if (carac>2 && carac<5) {modcar=-2;}
                     else if (carac>4 && carac<8) {modcar=-1;}
@@ -16,9 +22,15 @@
             });
         });
     on("change:INTELLIGENCE", function(){
-            getAttrs(["INTELLIGENCE"], function(values) {
+            getAttrs(["INTELLIGENCE","INTELLIGENCE_max"], function(values) {
                 var carac=parseInt(values.INTELLIGENCE) || 0;
+                var max=parseInt(values.INTELLIGENCE_max) || 0;
                 var modcar=0;
+                if (max==0 && carac>0 ) {
+                    setAttrs({
+                        INTELLIGENCE_max: carac
+                    });
+                }
                 if (carac <3) {modcar=-3;}
                     else if (carac>2 && carac<5) {modcar=-2;}
                     else if (carac>4 && carac<8) {modcar=-1;}
@@ -32,9 +44,15 @@
             });
         });
     on("change:SAGESSE", function(){
-            getAttrs(["SAGESSE"], function(values) {
+            getAttrs(["SAGESSE","SAGESSE_max"], function(values) {
                 var carac=parseInt(values.SAGESSE) || 0;
+                var max=parseInt(values.SAGESSE_max) || 0;
                 var modcar=0;
+                if (max==0 && carac>0 ) {
+                    setAttrs({
+                        SAGESSE_max: carac
+                    });
+                }
                 if (carac <3) {modcar=-3;}
                     else if (carac>2 && carac<5) {modcar=-2;}
                     else if (carac>4 && carac<8) {modcar=-1;}
@@ -48,9 +66,15 @@
             });
         });
     on("change:DEXTERITE", function(){
-            getAttrs(["DEXTERITE"], function(values) {
+            getAttrs(["DEXTERITE","DEXTERITE_max"], function(values) {
                 var carac=parseInt(values.DEXTERITE) || 0;
+                var max=parseInt(values.DEXTERITE_max) || 0;
                 var modcar=0;
+                if (max==0 && carac>0 ) {
+                    setAttrs({
+                        DEXTERITE_max: carac
+                    });
+                }
                 if (carac <3) {modcar=-3;}
                     else if (carac>2 && carac<5) {modcar=-2;}
                     else if (carac>4 && carac<8) {modcar=-1;}
@@ -64,9 +88,15 @@
             });
         });
     on("change:CONSTITUTION", function(){
-            getAttrs(["CONSTITUTION"], function(values) {
+            getAttrs(["CONSTITUTION","CONSTITUTION_max"], function(values) {
                 var carac=parseInt(values.CONSTITUTION) || 0;
+                var max=parseInt(values.CONSTITUTION_max) || 0;
                 var modcar=0;
+                if (max==0 && carac>0 ) {
+                    setAttrs({
+                        CONSTITUTION_max: carac
+                    });
+                }
                 if (carac <3) {modcar=-3;}
                     else if (carac>2 && carac<5) {modcar=-2;}
                     else if (carac>4 && carac<8) {modcar=-1;}
@@ -80,9 +110,15 @@
             });
         });
     on("change:CHARISME", function(){
-            getAttrs(["CHARISME"], function(values) {
+            getAttrs(["CHARISME","CHARISME_max"], function(values) {
                 var carac=parseInt(values.CHARISME) || 0;
+                var max=parseInt(values.CHARISME_max) || 0;
                 var modcar=0;
+                if (max==0 && carac>0 ) {
+                    setAttrs({
+                        CHARISME_max: carac
+                    });
+                }
                 if (carac <3) {modcar=-3;}
                     else if (carac>2 && carac<5) {modcar=-2;}
                     else if (carac>4 && carac<8) {modcar=-1;}
@@ -138,7 +174,7 @@
     <div class="sheet-absinp" style="left: 425px;top:9px;background-color:white;font-weight:bold;">
         <input name="attr_XP" class="sheet-iptnumsm" type="number" title="Points d'expérience courants" value="0" min="0" />
         <b>/</b>
-        <input name="attr_XP_max" class="sheet-iptnumsm" type="number" title="Points d'expérience nécessaires pour le prochain niveau" value="0" min="0" />
+        <input name="attr_XP_max" class="sheet-iptnumsm sheet-max" type="number" title="Points d'expérience nécessaires pour le prochain niveau" value="0" min="0" />
     </div>
     <div class="sheet-absinp" style="left: 455px;top:40px;">
         <input name="attr_NIVEAU" class="sheet-iptnumbig" type="number" title="Niveau" value="0" min="0" />
@@ -149,8 +185,10 @@
     <!-- ========================================================= -->
     <!-- ===================== CARACS ===== -->
     <!-- ========================================================= -->
-    <div class="sheet-absinp" style="left: 445px;top:135px;">
-        <input name="attr_FORCE" class="sheet-iptnumrond"  type="number" title="Force" value="0" />
+    <!-- ===================== FORCE ===== -->
+    <div class="sheet-absinp" style="left: 443px;top:133px;">
+        <input name="attr_FORCE" class="sheet-iptnumrondtop"  type="number" title="Force courante" value="0" />
+        <input name="attr_FORCE_max" class="sheet-iptnumrondbott sheet-max"  type="number" title="Force maximale" value="0" />
     </div>
     <div class="sheet-absinp" style="left:505px;top:166px;">
         <input readonly name="attr_FOR" class="sheet-iptnummod" style="width:25px;" type="number" title="Modificateur de Force" value="0" />
@@ -158,8 +196,10 @@
     <div class="sheet-absinp" style="left:428px;top:127px;">
         <input name="attr_FORXP" class="sheet-iptnumsm" style="width:20px;" type="number" title="Bonus d'XP de Force" value="0" />
     </div>
-    <div class="sheet-absinp" style="left: 445px;top:204px;">
-        <input name="attr_INTELLIGENCE" class="sheet-iptnumrond"  type="number" title="Intelligence" value="0" />
+    <!-- ===================== INTELLIGENCE ===== -->
+    <div class="sheet-absinp" style="left: 443px;top:202px;">
+        <input name="attr_INTELLIGENCE" class="sheet-iptnumrondtop"  type="number" title="Intelligence courante" value="0" />
+        <input name="attr_INTELLIGENCE_max" class="sheet-iptnumrondbott sheet-max"  type="number" title="Intelligence maximale" value="0" />
     </div>
     <div class="sheet-absinp" style="left:505px;top:235px;">
         <input readonly name="attr_INT" class="sheet-iptnummod" style="width:25px;" type="number" title="Modificateur d'Intelligence" value="0" />
@@ -167,8 +207,10 @@
     <div class="sheet-absinp" style="left:428px;top:196px;">
         <input name="attr_INTXP" class="sheet-iptnumsm" style="width:20px;" type="number" title="Bonus d'XP de Force" value="0" />
     </div>
-    <div class="sheet-absinp" style="left: 445px;top:273px;">
-        <input name="attr_SAGESSE" class="sheet-iptnumrond"  type="number" title="Sagesse" value="0" />
+    <!-- ===================== SAGESSE ===== -->
+    <div class="sheet-absinp" style="left: 443px;top:271px;">
+        <input name="attr_SAGESSE" class="sheet-iptnumrondtop"  type="number" title="Sagesse courante" value="0" />
+        <input name="attr_SAGESSE_max" class="sheet-iptnumrondbott sheet-max"  type="number" title="Sagesse maximale" value="0" />
     </div>
     <div class="sheet-absinp" style="left:505px;top:304px;">
         <input readonly name="attr_SAG" class="sheet-iptnummod" style="width:25px;" type="number" title="Modificateur de Sagesse" value="0" />
@@ -176,8 +218,10 @@
     <div class="sheet-absinp" style="left:428px;top:265px;">
         <input name="attr_SAGXP" class="sheet-iptnumsm" style="width:20px;" type="number" title="Bonus d'XP de Sagesse" value="0" />
     </div>
-    <div class="sheet-absinp" style="left: 445px;top:341px;">
-        <input name="attr_DEXTERITE" class="sheet-iptnumrond"  type="number" title="Dextérité" value="0" />
+    <!-- ===================== DEXTERITE ===== -->
+    <div class="sheet-absinp" style="left: 443px;top:339px;">
+        <input name="attr_DEXTERITE" class="sheet-iptnumrondtop"  type="number" title="Dextérité courante" value="0" />
+        <input name="attr_DEXTERITE_max" class="sheet-iptnumrondbott sheet-max"  type="number" title="Dextérité maximale" value="0" />
     </div>
     <div class="sheet-absinp" style="left:505px;top:372px;">
         <input readonly name="attr_DEX" class="sheet-iptnummod" style="width:25px;" type="number" title="Modificateur de Dextérité" value="0" />
@@ -185,8 +229,10 @@
     <div class="sheet-absinp" style="left:428px;top:333px;">
         <input name="attr_DEXXP" class="sheet-iptnumsm" style="width:20px;" type="number" title="Bonus d'XP de Dextérité" value="0" />
     </div>
-    <div class="sheet-absinp" style="left: 445px;top:410px;">
-        <input name="attr_CONSTITUTION" class="sheet-iptnumrond"  type="number" title="Constitution" value="0" />
+    <!-- ===================== CONSTITUTION ===== -->
+    <div class="sheet-absinp" style="left: 443px;top:408px;">
+        <input name="attr_CONSTITUTION" class="sheet-iptnumrondtop"  type="number" title="Constitution courante" value="0" />
+        <input name="attr_CONSTITUTION_max" class="sheet-iptnumrondbott sheet-max"  type="number" title="Constitution maximale" value="0" />
     </div>
     <div class="sheet-absinp" style="left:505px;top:441px;">
         <input readonly name="attr_CON" class="sheet-iptnummod" style="width:25px;" type="number" title="Modificateur de Constitution" value="0" />
@@ -194,8 +240,10 @@
     <div class="sheet-absinp" style="left:428px;top:402px;">
         <input name="attr_CONXP" class="sheet-iptnumsm" style="width:20px;" type="number" title="Bonus d'XP de Constitution" value="0" />
     </div>
-    <div class="sheet-absinp" style="left: 445px;top:479px;">
-        <input name="attr_CHARISME" class="sheet-iptnumrond"  type="number" title="Charisme" value="0" />
+    <!-- ===================== CHARISME ===== -->
+    <div class="sheet-absinp" style="left: 443px;top:477px;">
+        <input name="attr_CHARISME" class="sheet-iptnumrondtop"  type="number" title="Charisme courant" value="0" />
+        <input name="attr_CHARISME_max" class="sheet-iptnumrondbott sheet-max"  type="number" title="Charisme maximale" value="0" />
     </div>
     <div class="sheet-absinp" style="left:505px;top:510px;">
         <input readonly name="attr_CHA" class="sheet-iptnummod" style="width:25px;" type="number" title="Modificateur de Charisme" value="0" />
@@ -315,7 +363,7 @@
     <div class="sheet-absinp" style="left: 305px;top:445px;">
         <input name="attr_PV" class="sheet-iptnumbig" style="width:50px;" type="number" title="Points de Vie courants" value="0" />
         <span style="vertical-align:middle;line-height: 30px;min-height: 40px;font-weight:bold;font-size:26px;">/</span>
-        <input name="attr_PV_max" class="sheet-iptnumbig" style="width:50px;" type="number" title="Points de Vie maximums" value="0" />
+        <input name="attr_PV_max" class="sheet-iptnumbig sheet-max" style="width:50px;" type="number" title="Points de Vie maximums" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 302px;top:508px;">
         (<input name="attr_DVDES" class="sheet-iptnumsm" style="width:20px;" type="number" title="Nombre de Dés de Vie" value="1" />d6
@@ -339,7 +387,7 @@
     </div>
     <div class="sheet-absinp" style="left: 646px;top:316px;">
         <span style="vertical-align:middle;line-height: 30px;min-height: 40px;font-weight:bold;font-size:26px;">/</span>
-        <input disabled name="attr_ENCOMBREMENT_max" class="sheet-iptnumrondsm" style="border:2px solid #939598;" type="number" title="Encombrement maximum" value="5+@{FOR}" />
+        <input disabled name="attr_ENCOMBREMENT_max" class="sheet-iptnumrondsm sheet-max" style="border:2px solid #939598;" type="number" title="Encombrement maximum" value="5+@{FOR}" />
     </div>
     <!-- ========================================================= -->
     <!-- ============ ATTAQUES   ================================= -->

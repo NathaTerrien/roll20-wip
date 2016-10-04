@@ -94,11 +94,46 @@ input.sheet-iptnumrond{
     border:none;
     font-weight: bold;
 }
-input.sheet-iptnumrond {
+input.sheet-iptnumrondtop{
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    max-width: 60px;
+    min-width: 60px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 30px 30px 0px 0px;
+    border-width: 0px 0px 2px 0px;
+    border-style: dotted;
+    border-color: #939598;
+    font-weight: bold;
+    display: block;
+}
+input.sheet-iptnumrondbott{
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    max-width: 60px;
+    min-width: 60px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 0px 0px 30px 30px;
+    border: none;
+    font-weight: bold;
+    display: block;
+}
+.sheet-max{
+    background-color: rgba(40,174,105,0.3);
+}
+input.sheet-iptnumrond, input.sheet-iptnumrondtop, input.sheet-iptnumrondbott {
     -moz-appearance: textfield;
 }
 input.sheet-iptnumrond::-webkit-inner-spin-button,
-input.sheet-iptnumrond::-webkit-outer-spin-button {
+input.sheet-iptnumrond::-webkit-outer-spin-button,
+input.sheet-iptnumrondtop::-webkit-inner-spin-button,
+input.sheet-iptnumrondtop::-webkit-outer-spin-button,
+input.sheet-iptnumrondbott::-webkit-inner-spin-button,
+input.sheet-iptnumrondbott::-webkit-outer-spin-button{
     -webkit-appearance: none;
     appearance: none;
 }
