@@ -4,7 +4,8 @@ Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Tab
 Updated 2016-10-04.
 
 # You like my work? Wanna help?
-[Make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription_
+You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
+Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
