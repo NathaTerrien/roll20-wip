@@ -8,7 +8,6 @@ Updated 2016-10-04.
 ## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
 * Macchiato Monsters, french and english
-* [Terra-X](http://legrumph.org/Terrier/?Chibi/Terra-X), french
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
 * Stars Without Number, french
