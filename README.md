@@ -116,14 +116,14 @@ Création.
 Cf. english version
 
 ### Dungen World (french)
-[Dungeon World VF](http://dungeonworld-fr.blogspot.fr/)
+[Dungeon World VF] V1 et V2 (http://dungeonworld-fr.blogspot.fr/)
 
 Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 3.0 (2016-08-12)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12)
+* [WIP](./DungeonWorldFrench/) Version 3.0 (2016-08-12) Version 3.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12) Version 3.0
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12) Version 3.0
 
 #### Todo
 * Jets
