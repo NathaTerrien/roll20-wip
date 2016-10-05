@@ -3,7 +3,7 @@ Personal developments and works in progress for the [Roll20](http://roll20.net) 
 
 _You like my work? Wanna help? [Make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription_
 
-Updated 2016-10-01.
+Updated 2016-10-04.
 
 ## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
@@ -23,10 +23,10 @@ Updated 2016-10-01.
 Création.
 
 ### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX) v0.6
 
 ### Todo
-* Almost everything
+* Styler les roll templates
 
 ### White Lies
 [White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
@@ -49,9 +49,10 @@ Création.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Antika) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Antika) Version 1.0
-* [Official]() en attente de validation
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Antika) Version 1.1
 
 ### Todo
+* Nettoyage du code
 * Tests en jeu
 
 ### Les Cahiers du Vastemonde (french)
