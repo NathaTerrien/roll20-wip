@@ -247,6 +247,20 @@ button[type="roll"].sheet-boutd6:hover{
     color: #28AE69;
     border-width: 0px;
 }
+button[type=roll].sheet-btLien{
+    color: #939598;
+}
+button[type=roll].sheet-btLien:before{
+    font-family: "Pictos";
+    font-size: 1.6em;
+    content: 'G';
+    vertical-align: top;
+}
+button[type=roll].sheet-btLien:hover{
+    font-weight:normal;
+    border: none;
+    color: #28AE69;
+}
 /* TEMPLATES */
 .sheet-rolltemplate-jet div{
     text-align: center;
@@ -288,12 +302,12 @@ button[type="roll"].sheet-boutd6:hover{
     border-radius: 6px;
     background-color: white;
     display: inline-block;
-    height: 50px;
+    height: 40px;
 }
 .sheet-rolltemplate-jet div.sheet-jet{
     display: inline-block;
-    height: 40px;
-    padding-top: 14px;
+    height: 34px;
+    padding-top: 10px;
     width: 80px;
     font-family: 'Candal';
 }
@@ -306,7 +320,7 @@ button[type="roll"].sheet-boutd6:hover{
     padding: 0px 0px;
     font-weight: bold;
     cursor: help;
-    font-size: 26px;
+    font-size: 22px;
     font-family: 'Candal';
 }
 .sheet-rolltemplate-jet .inlinerollresult.fullcrit{

@@ -256,27 +256,27 @@
     <!-- ========================================================= -->
     <!-- ===================== FORCE ===== -->
     <div class="sheet-absinp" style="left: 504px;top:131px;">
-            <button type="roll" class="sheet-boutcar" style="display:block" name="JetFor" title="Jet de Force" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{CAR=1}} {{jet=[[1d20+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}} {{jet2=[[1d20+(@{FOR})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutcar" style="display:block" name="JetFor" title="Jet de Force" value="&{template:jet} {{perso=@{character_name}}} {{nom=FOR}} {{CAR=1}} {{jet=[[1d20+(@{FOR})[Modificateur]]]}} {{jet2=[[1d20+(@{FOR})[Modificateur]]]}}"></button>
     </div>
     <!-- ===================== INTELLIGENCE ===== -->
     <div class="sheet-absinp" style="left: 504px;top:199px;">
-            <button type="roll" class="sheet-boutcar" style="display:block" name="JetIntAv" title="Jet d'Intelligence" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{CAR=1}} {{jet=[[1d20+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}} {{jet2=[[1d20+(@{INT})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutcar" style="display:block" name="JetIntAv" title="Jet d'Intelligence" value="&{template:jet} {{perso=@{character_name}}} {{nom=INT}} {{CAR=1}} {{jet=[[1d20+(@{INT})[Modificateur]]]}} {{jet2=[[1d20+(@{INT})[Modificateur]]]}}"></button>
     </div>
     <!-- ===================== SAGESSE ===== -->
     <div class="sheet-absinp" style="left: 504px;top:269px;">
-            <button type="roll" class="sheet-boutcar" style="display:block" name="JetSagAv" title="Jet de Sagesse" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{CAR=1}} {{jet=[[1d20+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}} {{jet2=[[1d20+(@{SAG})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutcar" style="display:block" name="JetSagAv" title="Jet de Sagesse" value="&{template:jet} {{perso=@{character_name}}} {{nom=SAG}} {{CAR=1}} {{jet=[[1d20+(@{SAG})[Modificateur]]]}} {{jet2=[[1d20+(@{SAG})[Modificateur]]]}}"></button>
     </div>
     <!-- ===================== DEXTERITE ===== -->
     <div class="sheet-absinp" style="left: 504px;top:338px;">
-            <button type="roll" class="sheet-boutcar" style="display:block" name="JetDexAv" title="Jet de Dextérité" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{CAR=1}} {{jet=[[1d20+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}} {{jet2=[[1d20+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutcar" style="display:block" name="JetDexAv" title="Jet de Dextérité" value="&{template:jet} {{perso=@{character_name}}} {{nom=DEX}} {{CAR=1}} {{jet=[[1d20+(@{DEX})[Modificateur]]]}} {{jet2=[[1d20+(@{DEX})[Modificateur]]]}}"></button>
     </div>
     <!-- ===================== CONSTITUTION ===== -->
     <div class="sheet-absinp" style="left: 504px;top:407px;">
-            <button type="roll" class="sheet-boutcar" style="display:block" name="JetConAv" title="Jet de Constitution" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{CAR=1}} {{jet=[[1d20+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}} {{jet2=[[1d20+(@{CON})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutcar" style="display:block" name="JetConAv" title="Jet de Constitution" value="&{template:jet} {{perso=@{character_name}}} {{nom=CON}} {{CAR=1}} {{jet=[[1d20+(@{CON})[Modificateur]]]}} {{jet2=[[1d20+(@{CON})[Modificateur]]]}}"></button>
     </div>
     <!-- ===================== CHARISME ===== -->
     <div class="sheet-absinp" style="left: 504px;top:476px;">
-            <button type="roll" class="sheet-boutcar" style="display:block" name="JetChaAv" title="Jet de Charisme" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{CAR=1}} {{jet=[[1d20+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}} {{jet2=[[1d20+(@{CHA})[Modificateur]+(?{Bonus/Malus|0})[Bonus]]]}}"></button>
+            <button type="roll" class="sheet-boutcar" style="display:block" name="JetChaAv" title="Jet de Charisme" value="&{template:jet} {{perso=@{character_name}}} {{nom=CHA}} {{CAR=1}} {{jet=[[1d20+(@{CHA})[Modificateur]]]}} {{jet2=[[1d20+(@{CHA})[Modificateur]]]}}"></button>
     </div>
     <!-- ========================================================= -->
     <!-- ===================== CAPA COMBAT COMPETENCES ===== -->
@@ -347,9 +347,12 @@
     <!-- ============ ATTAQUES   ================================= -->
     <!-- ========================================================= -->
     <div class="sheet-absinp" style="left: 600px;top:365px;border:2px solid #939598;border-radius:5px;text-align:left;padding:2px;">
-        <button type="roll" name="Initiative" class="sheet-boutd6" title="Jet d'Initiative" value="&{template:jet} {{perso=@{character_name}}} {{nom=Initiative}} {{initiative=1}} {{jet=[[1d6+(@{DEX})[Modificateur]+(?{Bonus/Malus|0})[Bonus] &{tracker}]]}}">
+        <button type="roll" name="Initiative" class="sheet-boutd6" title="Jet d'Initiative" value="&{template:jet} {{perso=@{character_name}}} {{nom=Initiative}} {{initiative=1}} {{jet=[[1d6+(@{DEX})[Modificateur] &{tracker}]]}}">
             INITIATIVE
         </button>
+    </div>
+    <div class="sheet-absinp" style="left: 990px;top:30px;text-align:left;padding:2px;">
+        <button type="roll" class="sheet-btLien" title="Afficher l'adresse du site dans le chat" value="http://legrumph.org/Terrier/?Chibi/Terra-X"></button>
     </div>
     <div class="sheet-absinp" style="left: 600px;top:397px;border:2px solid #939598;border-radius:5px;width:499px;text-align:left;padding:2px;">
         <span style="color:black;font-family:'Candal',Helvetica;font-weight:bold;font-size:14px;">ATTAQUES</span>
