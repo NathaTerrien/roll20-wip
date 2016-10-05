@@ -1,9 +1,10 @@
-# roll20-wip
-Personal developments and works in progress for the [Roll20](http://roll20.net) character sheets and API scripts.
-
-_You like my work? Wanna help? [Make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription_
+# Natha's Roll20 Wok In Progress
+Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
 Updated 2016-10-04.
+
+# You like my work? Wanna help?
+[Make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription_
 
 ## Considered sheets (creation, translation or enhancements)
 * [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
