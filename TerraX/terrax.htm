@@ -383,39 +383,39 @@
 <!-- ============ TEMPLATE   ================================= -->
 <!-- ========================================================= -->
 <rolltemplate class="sheet-rolltemplate-jet">
-        <table>
-            {{#perso}}
-                <tr>
-                    <td colspan="2" class="sheet-perso">{{perso}}</td>
-                </tr>
-            {{/perso}}
-            {{#CAR}}
-                <tr>
-                    <td>{{jet}}</td><td>{{jet2}}</td>
-                </tr>
-                <tr>
-                    <th colspan="2" class="sheet-tcat">{{nom}}</th>
-                </tr>
-            {{/CAR}}
-            {{#initiative}}
-                <tr>
-                    <td class="sheet-tcat">Initiative</td>
-                    <td>{{jet}}</td>
-                </tr>
-            {{/initiative}}
-            {{#attaque}}
-                <tr>
-                    <td>{{jet}}</td><td>{{jet2}}</td>
-                </tr>
-                <tr><th colspan="2">{{nom}}</th></tr>
-                {{#degats}}
-                    {{#rollLess() degats 1}}
-                        <tr><td class="sheet-tcat">Dégâts</td><td>1</td></tr>
-                    {{/rollLess() degats 1}}
-                    {{#rollGreater() degats 0}}
-                        <tr><td class="sheet-tcat">Dégâts</td><td>{{degats}}</td></tr>
-                    {{/rollGreater() degats 0}}
-                {{/degats}}
-            {{/attaque}}
-        </table>
+    <div class="sheet-tplmain">
+        <div class="sheet-perso">{{perso}}</div>
+        {{#CAR}}
+            <div class="sheet-jets">
+                <div class="sheet-jet sheet-borderd">{{jet}}</div>
+                <div class="sheet-jet">{{jet2}}</div>
+            </div>
+            <div class="sheet-jetnom">{{nom}}</div>
+        {{/CAR}}
+        {{#initiative}}
+            <div class="sheet-jets">
+                <div class="sheet-jet">{{jet}}</div>
+            </div>
+            <div class="sheet-jetnom">Initiative</div>
+        {{/initiative}}
+        {{#attaque}}
+            <div class="sheet-jets">
+                <div class="sheet-jet sheet-borderd">{{jet}}</div>
+                <div class="sheet-jet">{{jet2}}</div>
+            </div>
+            {{#degats}}
+                <div class="sheet-jets">
+                {{#rollLess() degats 1}}
+                    <div class="sheet-jet">Dégâts</div>
+                    <div class="sheet-jet">1</div>
+                {{/rollLess() degats 1}}
+                {{#rollGreater() degats 0}}
+                    <div class="sheet-jet">Dégâts</div>
+                    <div class="sheet-jet">{{degats}}</div>
+                {{/rollGreater() degats 0}}
+                </div>
+            {{/degats}}
+            <div class="sheet-jetnom">{{nom}}</div>
+        {{/attaque}}
+    </div>
 </rolltemplate>

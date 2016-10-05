@@ -247,14 +247,77 @@ button[type="roll"].sheet-boutd6:hover{
     color: #28AE69;
     border-width: 0px;
 }
-.sheet-rolltemplate-jet table{
-    min-width: 180px;
+/* TEMPLATES */
+.sheet-rolltemplate-jet div{
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 0px;
+    border: none;
+    display: block;
+}
+.sheet-rolltemplate-jet div.sheet-tplmain{
+    width: 180px;
+    background-color: transparent;
+}
+.sheet-rolltemplate-jet div.sheet-perso{
+    background-color: #939598;
+    padding: 2px 2px 0px 2px;
+    border-radius: 5px 5px 0px 0px;
+    width: 160px;
+    font-size: 12px;
+    font-family: 'Candal';
+    color: white;
+    display: inline-block;
+
+}
+.sheet-rolltemplate-jet div.sheet-jetnom{
+    background-color: #939598;
+    padding: 0px 2px 2px 2px;
+    border-radius: 0px 0px 5px 5px;
+    width: 160px;
+    font-size: 12px;
+    font-family: 'Candal';
+    color: white;
+    display: inline-block;
+}
+.sheet-rolltemplate-jet div.sheet-jets{
+    width: 180px;
     border-width: 2px;
     border-style: solid;
     border-color: #939598;
+    border-radius: 6px;
     background-color: white;
-    text-align: center;
+    display: inline-block;
+    height: 50px;
 }
-.sheet-rolltemplate-jet td{
-    padding: 2px 2px;
+.sheet-rolltemplate-jet div.sheet-jet{
+    display: inline-block;
+    height: 40px;
+    padding-top: 14px;
+    width: 80px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-jet div.sheet-borderd{
+    border-right: 2px solid #939598;
+}
+.sheet-rolltemplate-jet .inlinerollresult {
+    background-color: transparent;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 26px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-jet .inlinerollresult.fullcrit{
+    border: none;
+    color: #3FB315;
+}
+.sheet-rolltemplate-jet .inlinerollresult.importantroll{
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-jet .inlinerollresult.fullfail{
+    border: none;
+    color: #B31515;
 }
