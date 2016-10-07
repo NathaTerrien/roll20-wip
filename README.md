@@ -18,21 +18,10 @@ Thank you :)
 
 ## WIP
 
-### Terra X
-[Terra X](http://legrumph.org/Terrier/?Chibi/Terra-X)
+### White Lies (french and english)
+Websites for the game : [White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
 
-Création.
-
-### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX) v0.6
-
-### Todo
-* Styler les roll templates
-
-### White Lies
-[White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
-
-Création.
+Creation.
 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies)
@@ -43,7 +32,7 @@ Création.
 ## Existing sheets
 
 ### Antika (french)
-[Antika](http://www.legrog.org/jeux/antika)
+Site officiel : [Antika](http://www.legrog.org/jeux/antika)
 
 Création.
 
@@ -57,7 +46,7 @@ Création.
 * Tests en jeu
 
 ### Les Cahiers du Vastemonde (french)
-[Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
+Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
 
 Création, en collaboration avec l'auteur.
 
@@ -116,7 +105,7 @@ Création.
 Cf. english version
 
 ### Dungen World (french)
-[Dungeon World VF] V1 et V2 (http://dungeonworld-fr.blogspot.fr/)
+Wiki [Dungeon World VF V1 et V2](https://sites.google.com/site/dungeonworldfr/)
 
 Traduction puis refonte et amélioration quasi complète (~création).
 
@@ -141,7 +130,7 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 #### Todo
 
 ### INS/MV 5E (french)
-[In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
+Site officiel : [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
 
 Création.
 
@@ -203,7 +192,7 @@ Création.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
 
 ### Supersix (french)
-[Supersix](http://supersix.fr/telechargements/)
+Site officiel : [Supersix](http://supersix.fr/telechargements/)
 
 Création en collbaoration avec l'auteur.
 
@@ -214,7 +203,20 @@ Création en collbaoration avec l'auteur.
 
 #### Todo
 
-### The One Ring french / L'Anneau Unique
+### Terra X (french)
+Site officiel : [Terra X](http://legrumph.org/Terrier/?Chibi/Terra-X)
+
+Création.
+
+### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX) v1.0
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Terra-X) Version 1.0
+* [Official]() en attente de validation
+
+### Todo
+* Tests en jeu
+
+### The One Ring french / L'Anneau Unique (french)
 
 Traduction et adaptation.
 
