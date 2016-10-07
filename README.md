@@ -1,4 +1,4 @@
-# Natha's Roll20 Wok In Progress
+# Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
 Updated 2016-10-07.
