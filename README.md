@@ -19,7 +19,7 @@ Thank you :)
 ## WIP
 
 ### White Lies (french and english)
-Websites for the game : [White Lies](http://www.drivethrurpg.com/product/164226/White-Lies), [french](http://legrumph.org/Terrier/?Chibi/White-Lies) and english
+Websites for the game : [White Lies](http://dwdstudios.com/whitelies) (english), [White Lies](http://legrumph.org/Terrier/?Chibi/White-Lies) (french)
 
 Creation.
 
