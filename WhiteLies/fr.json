@@ -1,0 +1,17 @@
+{
+    "agentdetails-u": "détails de l'agent",
+    "name-u": "nom",
+    "ph-character-name": "Nom du Personnage",
+    "languages-u": "langues",
+    "class-u": "classe",
+    "ph-class": "Classe",
+    "xp-u": "xp",
+    "title-xp": "Points d'expérience courants",
+    "title-xp-max": "Points d'expérience nécessaires pour le prochain niveau",
+    "level-u": "niveau",
+    "title-level": "Niveau",
+    "xp-bonus-u": "bonus xp",
+    "title-xp-bonus": "bonus xp",
+    "supp-training-u": "entraînements",
+    "strength-u": "FOR"
+}
