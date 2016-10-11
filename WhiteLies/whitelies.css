@@ -102,11 +102,15 @@ input, textarea{
     margin: 0;
     font-family: Arial;
     border: none;
-    box-shadow: inset 0px 1px 1px rgba(126,0,0,0.01),0 0 6px rgba(126,0,0,0.5);
+    box-shadow: none;
     border-radius: 12px;
     resize:none;
     color: #7E0000;
     z-index: 2;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(126,0,0,0.01),0 0 6px rgba(126,0,0,0.5);
+    background-color: rgba(126,0,0,0.02);
 }
 textarea{
     font-size: 12px;
