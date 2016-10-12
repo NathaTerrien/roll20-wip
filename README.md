@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-Updated 2016-10-07.
+Updated 2016-10-12.
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -211,7 +211,7 @@ Création.
 ### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX) v1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Terra-X) Version 1.0
-* [Official]() en attente de validation
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Terra-X) Version 1.0
 
 ### Todo
 * Tests en jeu
