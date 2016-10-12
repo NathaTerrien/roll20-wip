@@ -41,6 +41,11 @@ div.sheet-bgmain{
 div.sheet-absinp{
     position: absolute;
 }
+div.sheet-ligne{
+    display: block;
+    text-align: left;
+    width: 100%;
+}
 .sheet-libBlanc0{
     background-color: transparent;
     color: white;
@@ -104,7 +109,6 @@ input, textarea{
     font-size: 14px;
     border: none;
     box-shadow: none;
-    border-radius: 12px;
     resize:none;
     color: #7E0000;
     z-index: 2;
@@ -161,6 +165,12 @@ input.sheet-iptnumbig {
     font-size: 22px;
     font-weight:bold;
 }
+input.sheet-iptnumbig2 {
+    min-height: 36px;
+    max-width: 60px;
+    font-size: 18px;
+    font-weight:bold;
+}
 input.sheet-iptnumrond{
     line-height: 30px;
     font-size: 30px;
@@ -170,7 +180,7 @@ input.sheet-iptnumrond{
     min-height: 56px;
     max-width: 56px;
     max-height: 56px;
-    border-radius: 28px;
+    border-radius: 50%;
     border:none;
     font-weight: bold;
 }
@@ -227,7 +237,7 @@ input.sheet-iptnumrondsm{
     min-height: 40px;
     max-width: 40px;
     max-height: 40px;
-    border-radius: 20px;
+    border-radius: 20%;
     border:none;
     font-weight: bold;
 }

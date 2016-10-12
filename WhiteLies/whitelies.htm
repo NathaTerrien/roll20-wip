@@ -118,7 +118,7 @@
 </script>
 <div class="sheet-bgmain">
     <!-- ========================================================= -->
-    <!-- ===================== NAME LANGUAGES CLASS ===== -->
+    <!-- ===================== NAME LANGUAGES CLASS ABILITES ===== -->
     <!-- ========================================================= -->
     <div class="sheet-absinp" style="left: 50px;top:25px;">
         <span class="sheet-libBlanc1" data-i18n="agentdetails-u">agent details</span>
@@ -126,20 +126,26 @@
     <div class="sheet-absinp" style="left: 27px;top:67px;">
         <span class="sheet-libGris1" data-i18n="name-u">name</span>
     </div>
-    <div class="sheet-absinp" style="left: 90px;top:58px;">
-        <input name="attr_character_name" class="sheet-iptbig1" style="width:240px;" type="text" data-i18n-placeholder="character-name-ph" placeholder="Character name"/>
+    <div class="sheet-absinp" style="left: 90px;top:57px;">
+        <input name="attr_character_name" class="sheet-iptbig1" style="width:246px;height:36px;border-radius: 0 0 20px 0;" type="text" data-i18n-placeholder="character-name-ph" placeholder="Character name"/>
     </div>
     <div class="sheet-absinp" style="left: 18px;top:102px;">
         <span class="sheet-libGris2" data-i18n="languages-u">languages</span>
     </div>
-    <div class="sheet-absinp" style="left: 14px;top:102px;">
-        <textarea name="attr_languages" class="sheet-inptxt" style="border-radius:10px 0px 0px 10px;width:308px;height:62px;text-indent:85px;"></textarea>
+    <div class="sheet-absinp" style="left: 10px;top:102px;">
+        <textarea name="attr_languages" class="sheet-inptxt" style="border-radius:15px 0 0 20px;width:312px;height:62px;text-indent:85px;"></textarea>
     </div>
     <div class="sheet-absinp" style="left: 27px;top:182px;">
         <span class="sheet-libGris1" data-i18n="class-u">class</span>
     </div>
-    <div class="sheet-absinp" style="left: 110px;top:178px;">
-        <input name="attr_class" class="sheet-iptbig2" style="width:220px;" type="text" data-i18n-placeholder="class-ph" placeholder="Class"/>
+    <div class="sheet-absinp" style="left: 110px;top:174px;">
+        <input name="attr_class" class="sheet-iptbig2" style="border-radius:0 12px 0 0;width:224px;height:36px;" type="text" data-i18n-placeholder="class-ph" placeholder="Class"/>
+    </div>
+    <div class="sheet-absinp" style="left: 34px;top:220px;">
+        <span class="sheet-libGris2" data-i18n="abilities-u">abilities / notes</span>
+    </div>
+    <div class="sheet-absinp" style="left: 32px;top:219px;">
+        <textarea name="attr_abilities" class="sheet-inptxt" style="width:302px;height:356px;text-indent:150px;"></textarea>
     </div>
     <!-- ========================================================= -->
     <!-- ===================== XP LELVE BONUS SUPP-TRAINING ===== -->
@@ -150,13 +156,13 @@
     <div class="sheet-absinp" style="left: 357px;top:89px;background-color:white;font-weight:bold;">
         <input name="attr_XP" class="sheet-iptnumsm" type="number" data-i18n-title="title-xp" title="Current experience points" value="0" min="0" />
         <b>/</b>
-        <input name="attr_XP_max" class="sheet-iptnumsm sheet-max" type="number" data-i18n-title="title-xp-max" title="Experience points required for next level" value="0" min="0" />
+        <input name="attr_XP_max" class="sheet-iptnumsm sheet-max" style="border-radius:0 10px 0 0;" type="number" data-i18n-title="title-xp-max" title="Experience points required for next level" value="0" min="0" />
     </div>
     <div class="sheet-absinp" style="left: 332px;top:128px;">
         <span class="sheet-libGris1" data-i18n="level-u">level</span>
     </div>
     <div class="sheet-absinp" style="left: 392px;top:119px;">
-        <input name="attr_NIVEAU" class="sheet-iptnumbig" type="number" data-i18n-title="title-level" title="Level" value="0" min="0" />
+        <input name="attr_NIVEAU" class="sheet-iptnumbig" type="number" style="border-radius:0 12px 12px 0;min-width:62px;" data-i18n-title="title-level" title="Level" value="0" min="0" />
     </div>
     <div class="sheet-absinp" style="left: 338px;top:162px;">
         <span class="sheet-libGris3" data-i18n="xp-bonus-u">xp bonus</span>
@@ -168,7 +174,7 @@
         <span class="sheet-libBlanc2" data-i18n="supp-training-u">supplemental training</span>
     </div>
     <div class="sheet-absinp" style="left: 464px;top:128px;">
-        <textarea name="attr_training" class="sheet-inptxt" style="border-radius:0px 10px 0px 0px;width:346px;height:118px;"></textarea>
+        <textarea name="attr_training" class="sheet-inptxt" style="border-radius:0px 20px 0px 0px;width:346px;height:118px;"></textarea>
     </div>
     <!-- ========================================================= -->
     <!-- ===================== CHARACTERISTICS ===== -->
@@ -232,5 +238,22 @@
     </div>
     <div class="sheet-absinp" style="left:411px;top:535px;">
         <input readonly name="attr_CHA" class="sheet-iptnummod" style="width:25px;" type="number" data-i18n-title="con-ph" title="Charisma modifier" value="0" />
+    </div>
+    <!-- ========================================================= -->
+    <!-- ===================== EQUIPMENTS ===== -->
+    <!-- ========================================================= -->
+    <div class="sheet-absinp" style="left: 470px;top:272px;">
+        <span class="sheet-libBlanc1" data-i18n="equipment-u">equipment</span>
+    </div>
+    <div class="sheet-absinp" style="left: 721px;top:261px;">
+        <input name="attr_wealth" class="sheet-iptnumbig2" style="border-radius: 0 12px 12px 0;min-width:100px;height:41px;" type="number" value="0" />
+    </div>
+    <div class="sheet-absinp" style="overflow-y:scroll;left:462px;top:310px;width:350px;height:490px;">
+        <fieldset class="repeating_equipments">
+            <div class="sheet-ligne">
+                <input type="text" name="attr_equipname" style="width:284px;" data-i18n-placeholder="item-name-ph" placeholder="Item name and description" />
+                <input type="number" name="attr_equipqty" style="width:40px;" data-i18n-title="item-quantity-ph" title="Quantity" value="1" />
+            </div>
+        </fieldset>
     </div>
 </div>
