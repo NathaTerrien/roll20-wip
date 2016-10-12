@@ -15,14 +15,20 @@
     "supp-training-u": "entraînements",
     "str-u": "FOR",
     "ph-strength": "Force",
+    "ph-str": "Modificateur de Force",
     "int-u": "INT",
     "ph-intelligence": "Intelligence",
+    "ph-int": "Modificateur d'Intelligence",
     "wis-u": "SAG",
     "ph-wisdom": "Sagesse",
+    "ph-wis": "Modificateur de Sagesse",
     "dex-u": "DEX",
-    "ph-dexterity": "Dexterity",
+    "ph-dexterity": "Dextérité",
+    "ph-dex": "Modificateur de Dextérité",
     "con-u": "CON",
     "ph-constitution": "Constitution",
+    "ph-con": "Modificateur de Constitution",
     "cha-u": "CHA",
-    "ph-charisma": "Charisme"
+    "ph-charisma": "Charisme",
+    "ph-cha": "Modificateur de Charisme"
 }

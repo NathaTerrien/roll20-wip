@@ -98,9 +98,10 @@ div.sheet-absinp{
 input, textarea{
     background-color: transparent;
     display: inline-block;
-    padding: 0;
-    margin: 0;
+    padding: none;
+    margin: none;
     font-family: Arial;
+    font-size: 14px;
     border: none;
     box-shadow: none;
     border-radius: 12px;
@@ -113,7 +114,6 @@ input:focus, input:hover, textarea:focus, textarea:hover{
     background-color: rgba(126,0,0,0.02);
 }
 textarea{
-    font-size: 12px;
     padding: 1px 2px 0px 2px;
 }
 input[type="text"]{
@@ -121,6 +121,7 @@ input[type="text"]{
 }
 input[type="number"]{
     text-align: right;
+    padding: 0px 2px 0px 0px;
 }
 input.sheet-iptbig1{
     font-size:20px;
@@ -149,8 +150,10 @@ input.sheet-iptnumsm::-webkit-outer-spin-button {
 }
 input.sheet-iptnummod{
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
+    padding: 0;
+    border-radius: 8px 0px 8px 0px;
 }
 input.sheet-iptnumbig {
     min-height: 36px;
@@ -162,6 +165,7 @@ input.sheet-iptnumrond{
     line-height: 30px;
     font-size: 30px;
     text-align: center;
+    padding: 0;
     min-width: 56px;
     min-height: 56px;
     max-width: 56px;
@@ -174,6 +178,7 @@ input.sheet-iptnumrondtop{
     line-height: 30px;
     font-size: 24px;
     text-align: center;
+    padding: none;
     max-width: 60px;
     min-width: 60px;
     min-height: 30px;
@@ -189,6 +194,7 @@ input.sheet-iptnumrondbott{
     line-height: 30px;
     font-size: 24px;
     text-align: center;
+    padding: 0;
     max-width: 60px;
     min-width: 60px;
     min-height: 30px;
