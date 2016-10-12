@@ -11,7 +11,18 @@
     "level-u": "niveau",
     "title-level": "Niveau",
     "xp-bonus-u": "bonus xp",
-    "title-xp-bonus": "bonus xp",
+    "title-xp-bonus": "Bonus d'expérience",
     "supp-training-u": "entraînements",
-    "strength-u": "FOR"
+    "str-u": "FOR",
+    "ph-strength": "Force",
+    "int-u": "INT",
+    "ph-intelligence": "Intelligence",
+    "wis-u": "SAG",
+    "ph-wisdom": "Sagesse",
+    "dex-u": "DEX",
+    "ph-dexterity": "Dexterity",
+    "con-u": "CON",
+    "ph-constitution": "Constitution",
+    "cha-u": "CHA",
+    "ph-charisma": "Charisme"
 }
