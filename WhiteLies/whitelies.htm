@@ -180,8 +180,11 @@
     <!-- ===================== CHARACTERISTICS ===== -->
     <!-- ========================================================= -->
     <!-- ===================== STRENGTH ===== -->
-    <div class="sheet-absinp" style="left: 348px;top:192px;">
-        <input name="attr_strength" class="sheet-iptnumrond"  type="number" data-i18n-title="strength-ph" title="Strength" value="0" />
+    <div class="sheet-absinp" style="left: 345px;top:191px;">
+        <input name="attr_strength" class="sheet-iptnumrondtop"  type="number" data-i18n-title="strength-ph" title="Strength" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 360px;top:220px;">
+        <button type="roll" class="sheet-boutcar" style="display:block" name="StrRoll" data-i18n-title="str-roll-ph" title="Strength check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{str-u}}} {{CAR=1}} {{roll=[[1d20+(@{STR})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:192px;">
         <span class="sheet-libBlanc0" data-i18n="str-u">STR</span>
@@ -257,3 +260,41 @@
         </fieldset>
     </div>
 </div>
+<!-- ========================================================= -->
+<!-- ============ TEMPLATE   ================================= -->
+<!-- ========================================================= -->
+<rolltemplate class="sheet-rolltemplate-roll">
+    <div class="sheet-tplmain">
+        <div class="sheet-perso">{{character}}</div>
+        {{#CAR}}
+            <div class="sheet-jets">
+                <div class="sheet-jet sheet-borderd">{{roll}}</div>
+            </div>
+            <div class="sheet-jetnom">{{lib}}</div>
+        {{/CAR}}
+        {{#initiative}}
+            <div class="sheet-jets">
+                <div class="sheet-jet">{{roll}}</div>
+            </div>
+            <div class="sheet-jetnom">Initiative</div>
+        {{/initiative}}
+        {{#atk}}
+            <div class="sheet-jets">
+                <div class="sheet-jet sheet-borderd">{{roll}}</div>
+            </div>
+            {{#dmg}}
+                <div class="sheet-jets">
+                {{#rollLess() dmg 1}}
+                    <div class="sheet-jet">Dégâts</div>
+                    <div class="sheet-jet">1</div>
+                {{/rollLess() dmg 1}}
+                {{#rollGreater() dmg 0}}
+                    <div class="sheet-jet">Dégâts</div>
+                    <div class="sheet-jet">{{dmg}}</div>
+                {{/rollGreater() dmg 0}}
+                </div>
+            {{/dmg}}
+            <div class="sheet-jetnom">{{lib}}</div>
+        {{/atk}}
+    </div>
+</rolltemplate>

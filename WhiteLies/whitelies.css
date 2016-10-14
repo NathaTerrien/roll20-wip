@@ -196,7 +196,7 @@ input.sheet-iptnumrondtop{
     border-radius: 30px 30px 0px 0px;
     border-width: 0px 0px 2px 0px;
     border-style: dotted;
-    border-color: #939598;
+    border-color: #7F7F7F;
     font-weight: bold;
     display: block;
 }
@@ -301,13 +301,12 @@ button[type="roll"].sheet-boutcar {
     border-width: 2px;
     border-color: transparent;
     font-size: 28px;
-    width: 70px;
+    width: 30px;
     height: 30px;
     line-height: 28px;
-    padding-left: 40px !important;
 }
 button[type="roll"].sheet-boutcar:hover {
-    border-color: #28AE69;
+    border-color: #7E0000;
 }
 button[type="roll"].sheet-boutjs {
     color:black;
@@ -354,21 +353,21 @@ button[type=roll].sheet-btLien:hover{
     color: #28AE69;
 }
 /* TEMPLATES */
-.sheet-rolltemplate-jet div{
-    text-align: center;
+.sheet-rolltemplate-roll div{
+    text-align: right;
     vertical-align: middle;
     padding: 0px 0px;
     border: none;
     display: block;
 }
-.sheet-rolltemplate-jet div.sheet-tplmain{
+.sheet-rolltemplate-roll div.sheet-tplmain{
     width: 180px;
     background-color: transparent;
 }
-.sheet-rolltemplate-jet div.sheet-perso{
-    background-color: #939598;
+.sheet-rolltemplate-roll div.sheet-perso{
+    background-color: #7F7F7F;
     padding: 2px 2px 0px 2px;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 0px 0px 0px;
     width: 160px;
     font-size: 12px;
     font-family: 'Candal';
@@ -376,37 +375,37 @@ button[type=roll].sheet-btLien:hover{
     display: inline-block;
 
 }
-.sheet-rolltemplate-jet div.sheet-jetnom{
-    background-color: #939598;
+.sheet-rolltemplate-roll div.sheet-jetnom{
+    background-color: white;
     padding: 0px 2px 2px 2px;
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 0px;
     width: 160px;
     font-size: 12px;
     font-family: 'Candal';
-    color: white;
+    color: #7E0000;
     display: inline-block;
 }
-.sheet-rolltemplate-jet div.sheet-jets{
+.sheet-rolltemplate-roll div.sheet-jets{
     width: 180px;
     border-width: 2px;
     border-style: solid;
-    border-color: #939598;
-    border-radius: 6px;
+    border-color: #7F7F7F;
+    border-radius: 6px 0px 6px 0px;
     background-color: white;
     display: inline-block;
     height: 40px;
 }
-.sheet-rolltemplate-jet div.sheet-jet{
+.sheet-rolltemplate-roll div.sheet-jet{
     display: inline-block;
     height: 34px;
     padding-top: 10px;
     width: 80px;
     font-family: 'Candal';
 }
-.sheet-rolltemplate-jet div.sheet-borderd{
-    border-right: 2px solid #939598;
+.sheet-rolltemplate-roll div.sheet-borderd{
+    border-right: 2px solid #7F7F7F;
 }
-.sheet-rolltemplate-jet .inlinerollresult {
+.sheet-rolltemplate-roll .inlinerollresult {
     background-color: transparent;
     border: none;
     padding: 0px 0px;
@@ -415,15 +414,15 @@ button[type=roll].sheet-btLien:hover{
     font-size: 22px;
     font-family: 'Candal';
 }
-.sheet-rolltemplate-jet .inlinerollresult.fullcrit{
+.sheet-rolltemplate-roll .inlinerollresult.fullcrit{
     border: none;
     color: #3FB315;
 }
-.sheet-rolltemplate-jet .inlinerollresult.importantroll{
+.sheet-rolltemplate-roll .inlinerollresult.importantroll{
     border: none;
     color: #4A57ED;
 }
-.sheet-rolltemplate-jet .inlinerollresult.fullfail{
+.sheet-rolltemplate-roll .inlinerollresult.fullfail{
     border: none;
-    color: #B31515;
+    color: #7E0000;
 }
