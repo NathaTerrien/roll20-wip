@@ -32,7 +32,7 @@ div.sheet-bgmain{
     width: 830px;
     min-height: 1065px;
     text-align:center;
-    font-family: Arial;
+    font-family: 'Candal';
     background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/WhiteLies/whitelies_bg_vo_830x1065.png');
     background-repeat:no-repeat;
     background-position:top left;
@@ -312,14 +312,15 @@ button[type="roll"].sheet-boutjs {
     color:black;
     border-width: 2px;
     border-color: transparent;
-    font-size: 28px;
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
+    font-size: 22px;
+    width: 24px;
+    height: 24px;
+    line-height: 20px;
     border-color: transparent;
+    display: inline-block !important;
 }
 button[type="roll"].sheet-boutjs:hover{
-    border-color: #C10000;
+    border-color: #7E0000;
 }
 button[type=roll].sheet-boutd6{
     color:black;
@@ -356,54 +357,55 @@ button[type=roll].sheet-btLien:hover{
 .sheet-rolltemplate-roll div{
     text-align: right;
     vertical-align: middle;
-    padding: 0px 0px;
+    padding: none !important;
     border: none;
     display: block;
+    box-sizing: border-box;
 }
 .sheet-rolltemplate-roll div.sheet-tplmain{
-    width: 180px;
+    width: 200px;
     background-color: transparent;
 }
 .sheet-rolltemplate-roll div.sheet-perso{
     background-color: #7F7F7F;
     padding: 2px 2px 0px 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #7F7F7F;
     border-radius: 5px 0px 0px 0px;
-    width: 160px;
+    width: 180px;
     font-size: 12px;
     font-family: 'Candal';
     color: white;
     display: inline-block;
-
-}
-.sheet-rolltemplate-roll div.sheet-jetnom{
-    background-color: white;
-    padding: 0px 2px 2px 2px;
-    border-radius: 0px 0px 5px 0px;
-    width: 160px;
-    font-size: 12px;
-    font-family: 'Candal';
-    color: #7E0000;
-    display: inline-block;
 }
 .sheet-rolltemplate-roll div.sheet-jets{
-    width: 180px;
+    width: 200px;
     border-width: 2px;
     border-style: solid;
     border-color: #7F7F7F;
-    border-radius: 6px 0px 6px 0px;
+    border-radius: 6px 0px 0px 6px;
     background-color: white;
     display: inline-block;
     height: 40px;
 }
 .sheet-rolltemplate-roll div.sheet-jet{
     display: inline-block;
-    height: 34px;
-    padding-top: 10px;
-    width: 80px;
+    height: 36px;
+    padding-top: 6px;
+    width: 42px;
     font-family: 'Candal';
+    text-align: center;
 }
 .sheet-rolltemplate-roll div.sheet-borderd{
-    border-right: 2px solid #7F7F7F;
+    display: inline-block;
+    height: 36px;
+    padding-top: 8px;
+    padding-right: 4px;
+    width: 140px;
+    font-family: 'Candal';
+    color: #7E0000;
+    border-right: 2px dotted #7F7F7F;
 }
 .sheet-rolltemplate-roll .inlinerollresult {
     background-color: transparent;
