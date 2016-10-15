@@ -188,7 +188,7 @@ input.sheet-iptnumrondtop{
     line-height: 30px;
     font-size: 24px;
     text-align: center;
-    padding: none;
+    padding: 0;
     max-width: 60px;
     min-width: 60px;
     min-height: 30px;
@@ -405,6 +405,7 @@ button[type=roll].sheet-btLien:hover{
     width: 140px;
     font-family: 'Candal';
     color: #7E0000;
+    text-transform: uppercase;
     border-right: 2px dotted #7F7F7F;
 }
 .sheet-rolltemplate-roll .inlinerollresult {
