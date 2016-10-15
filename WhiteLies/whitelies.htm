@@ -151,7 +151,7 @@
     <div class="sheet-absinp" style="left: 392px;top:119px;">
         <input name="attr_NIVEAU" class="sheet-iptnumbig" type="number" style="border-radius:0 12px 12px 0;min-width:62px;" data-i18n-title="title-level" title="Level" value="0" min="0" />
     </div>
-    <div class="sheet-absinp" style="left: 338px;top:162px;">
+    <div class="sheet-absinp" style="left: 338px;top:160px;">
         <span class="sheet-libGris3" data-i18n="xp-bonus-u">xp bonus</span>
     </div>
     <div class="sheet-absinp" style="left: 396px;top:162px;">
@@ -262,7 +262,7 @@
         </fieldset>
     </div>
     <!-- ========================================================= -->
-    <!-- ===================== HIT POINTS SAVING THROWS ARMOR ===== -->
+    <!-- ===================== HIT POINTS ===== -->
     <!-- ========================================================= -->
     <div class="sheet-absinp" style="left: 40px;top:603px;">
         <span class="sheet-libBlanc1" data-i18n="hit-points-u">hit points</span>
@@ -279,7 +279,46 @@
         <input name="attr_HD" class="sheet-iptnumsm" style="width:20px;" type="number" data-i18n-title="hitdice-nb-ph" title="Number of Hit Dice" value="1" />
         <span class="sheet-libGris2">d6 + </span>
         <input name="attr_HDBONUS" class="sheet-iptnumsm" style="width:20px;" type="number" data-i18n-title="hitdice-bonus-ph" title="Hit Dice Bonus" value="0" />
-        <button type="roll" class="sheet-boutjs" name="HdRoll" data-i18n-title="hitdice-roll-ph" title="Hit Dice roll" value="&{template:roll} {{character=@{character_name}}} {{lib=^{hitdice-ph}}} {{rol=1}} {{roll=[[@{HD}d6+@{HDBONUS}]]}}"></button>
+        <button type="roll" class="sheet-boutjs" name="HdRoll" data-i18n-title="hitdice-roll-ph" title="Hit Dice roll" value="&{template:roll} {{character=@{character_name}}} {{lib=^{hitdice-u}}} {{rol=1}} {{roll=[[@{HD}d6+@{HDBONUS}]]}}"></button>
+    </div>
+    <div class="sheet-absinp" style="left: 29px;top:688px;">
+        <textarea name="attr_HPnotes" class="sheet-inptxt" style="width:186px;height:112px;" data-i18n-placeholder="hitpoints-notes-ph" placeholder="Conditions, health notes..."></textarea>
+    </div>
+    <!-- ========================================================= -->
+    <!-- ===================== SAVING THROWS  ===== -->
+    <!-- ========================================================= -->
+    <div class="sheet-absinp" style="left: 240px;top:614px;">
+        <span class="sheet-libBlanc1" data-i18n="saving-throws-u">saving throws</span>
+    </div>
+    <div class="sheet-absinp" style="left: 393px;top:604px;">
+        <input name="attr_SAVINGTHROW" class="sheet-iptnumrondtop" type="number" value="0" data-i18n-title="saving-throws-ph" title="Saving Throw number" />
+    </div>
+    <div class="sheet-absinp" style="left: 414px;top:639px;">
+        <span class="sheet-libGris2" data-i18n="saving-throw-u">ST</span>
+    </div>
+    <div class="sheet-absinp" style="left: 233px;top:644px;">
+        <textarea name="attr_saves" class="sheet-inptxt" style="width:208px;height:60px;" data-i18n-placeholder="saving-throws-saves-ph" placeholder="Saving throws bonuses"></textarea>
+    </div>
+    <!-- ========================================================= -->
+    <!-- ===================== ARMOR  ===== -->
+    <!-- ========================================================= -->
+    <div class="sheet-absinp" style="left: 240px;top:727px;">
+        <span class="sheet-libBlanc1" data-i18n="armor-u">armor</span>
+    </div>
+    <div class="sheet-absinp" style="left: 393px;top:717px;">
+        <input disabled name="attr_AC" class="sheet-iptnumrondtop" type="number" value="@{ACTYPE}" data-i18n-title="armor-class-ph" title="Armor Class" />
+    </div>
+    <div class="sheet-absinp" style="left: 398px;top:748px;">
+        <input type="radio" name="attr_ACTYPE" value="[[9-(@{DEX})-(@{ACBONUS})]]" data-i18n-title="armor-class-desc-ph" title="Standard descending Armor Class" checked />
+        <span class="sheet-libGris2" data-i18n="armor-class-u">AC</span>
+        <input type="radio" name="attr_ACTYPE" value="[[10+(@{DEX})+(@{ACBONUS})]]" data-i18n-title="armor-class-asc-ph" title="Ascending Armor Class"  />
+    </div>
+    <div class="sheet-absinp" style="left: 233px;top:757px;">
+        <textarea name="attr_armors" class="sheet-inptxt" style="width:160px;height:44px;" data-i18n-placeholder="armors-ph" placeholder="Armors, protections..."></textarea>
+    </div>
+    <div class="sheet-absinp" style="left: 396px;top:780px;">
+        <span class="sheet-libGris2">=</span>
+        <input name="attr_ACBONUS" class="sheet-iptnumsm" style="max-width:30px;" type="number" value="0" data-i18n-title="armor-class-bonus-ph" title="Total AC improvements from armors and protections" />
     </div>
     <!-- ========================================================= -->
     <!-- ===================== WEAPONS ATTACKS ===== -->
