@@ -7,25 +7,13 @@ button,
 textarea,
 span,
 input,
-select,
-table,
-tr,
-td,
-th{
+select{
     box-sizing: border-box;
-}
-table{
-    width: 100%;
-}
-td{
-    text-align: left;
-    vertical-align: middle;
 }
 div{
     margin: none;
     padding: none;
     background-color: transparent;
-    /* border: solid 1px red; */
 }
 div.sheet-bgmain{
     position: relative;
@@ -45,6 +33,7 @@ div.sheet-ligne{
     display: block;
     text-align: left;
     width: 100%;
+    margin-bottom: 2px;
 }
 .sheet-libBlanc0{
     background-color: transparent;
@@ -112,6 +101,7 @@ input, textarea{
     resize:none;
     color: #7E0000;
     z-index: 2;
+    border-radius: 0;
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
     box-shadow: inset 0px 1px 1px rgba(126,0,0,0.01),0 0 6px rgba(126,0,0,0.5);
@@ -363,7 +353,7 @@ button[type=roll].sheet-btLien:hover{
     box-sizing: border-box;
 }
 .sheet-rolltemplate-roll div.sheet-tplmain{
-    width: 200px;
+    width: 100%;
     background-color: transparent;
 }
 .sheet-rolltemplate-roll div.sheet-perso{
@@ -373,14 +363,14 @@ button[type=roll].sheet-btLien:hover{
     border-style: solid;
     border-color: #7F7F7F;
     border-radius: 5px 0px 0px 0px;
-    width: 180px;
-    font-size: 12px;
+    width: 200px;
+    font-size: 13px;
     font-family: 'Candal';
     color: white;
     display: inline-block;
 }
 .sheet-rolltemplate-roll div.sheet-jets{
-    width: 200px;
+    width: 100%;
     border-width: 2px;
     border-style: solid;
     border-color: #7F7F7F;
@@ -392,8 +382,8 @@ button[type=roll].sheet-btLien:hover{
 .sheet-rolltemplate-roll div.sheet-jet{
     display: inline-block;
     height: 36px;
-    padding-top: 6px;
-    width: 42px;
+    padding-top: 7px;
+    width: 36px;
     font-family: 'Candal';
     text-align: center;
 }
@@ -402,8 +392,31 @@ button[type=roll].sheet-btLien:hover{
     height: 36px;
     padding-top: 8px;
     padding-right: 4px;
-    width: 140px;
+    width: 188px;
     font-family: 'Candal';
+    font-size: 13px;
+    color: #7E0000;
+    text-transform: uppercase;
+    border-right: 2px dotted #7F7F7F;
+}
+.sheet-rolltemplate-roll div.sheet-damage{
+    width: 150px;
+    border-width: 0px 2px 2px 2px;
+    border-style: solid;
+    border-color: #7F7F7F;
+    border-radius: 0px 0px 0px 6px;
+    background-color: white;
+    display: inline-block;
+    height: 40px;
+}
+.sheet-rolltemplate-roll div.sheet-borderdmg{
+    display: inline-block;
+    height: 36px;
+    padding-top: 8px;
+    padding-right: 4px;
+    width: 100px;
+    font-family: 'Candal';
+    font-size: 13px;
     color: #7E0000;
     text-transform: uppercase;
     border-right: 2px dotted #7F7F7F;

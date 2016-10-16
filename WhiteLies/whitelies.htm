@@ -89,19 +89,6 @@
                 });
             });
         });
-    on("change:STRXP change:INTXP change:WISXP change:DEXXP change:CONXP change:CHAXP", function(){
-            getAttrs(["STRXP","INTXP","WISXP","DEXXP","CONXP","CHAXP"], function(values) {
-                var total=(parseInt(values.STRXP) || 0)
-                + (parseInt(values.INTXP) || 0)
-                + (parseInt(values.WISXP) || 0)
-                + (parseInt(values.DEXXP) || 0)
-                + (parseInt(values.CONXP) || 0)
-                + (parseInt(values.CHAXP) || 0);
-                setAttrs({
-                    XPBONUS: total
-                });
-            });
-        });
 </script>
 <div class="sheet-bgmain">
     <!-- ========================================================= -->
@@ -141,9 +128,7 @@
         <span class="sheet-libGris2" data-i18n="xp-u">xp</span>
     </div>
     <div class="sheet-absinp" style="left: 357px;top:89px;background-color:white;font-weight:bold;">
-        <input name="attr_XP" class="sheet-iptnumsm" type="number" data-i18n-title="title-xp" title="Current experience points" value="0" min="0" />
-        <b>/</b>
-        <input name="attr_XP_max" class="sheet-iptnumsm sheet-max" style="border-radius:0 10px 0 0;" type="number" data-i18n-title="title-xp-max" title="Experience points required for next level" value="0" min="0" />
+        <input name="attr_XP" class="sheet-iptnumsm" style="min-width: 80px;" type="number" data-i18n-title="title-xp" title="Current experience points" value="0" min="0" />
     </div>
     <div class="sheet-absinp" style="left: 332px;top:128px;">
         <span class="sheet-libGris1" data-i18n="level-u">level</span>
@@ -155,7 +140,7 @@
         <span class="sheet-libGris3" data-i18n="xp-bonus-u">xp bonus</span>
     </div>
     <div class="sheet-absinp" style="left: 396px;top:162px;">
-        <input readonly name="attr_XPBONUS" class="sheet-iptnumsm" type="number" data-i18n-title="title-xp-bonus" title="XP Bonus" value="0" min="0" /><span style="font-family:arial;">&nbsp;%</span>
+        <input name="attr_XPBONUS" class="sheet-iptnumsm" type="number" data-i18n-title="title-xp-bonus" title="XP Bonus" value="0" min="0" /><span style="font-family:arial;">&nbsp;%</span>
     </div>
     <div class="sheet-absinp" style="left: 586px;top:104px;">
         <span class="sheet-libBlanc2" data-i18n="supp-training-u">supplemental training</span>
@@ -171,7 +156,7 @@
         <input name="attr_strength" class="sheet-iptnumrondtop"  type="number" data-i18n-title="strength-ph" title="Strength" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 360px;top:220px;">
-        <button type="roll" class="sheet-boutcar" style="display:block" name="StrRoll" data-i18n-title="str-roll-ph" title="Strength check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{strength-ph}}} {{rol=1}} {{roll=[[1d20+(@{STR})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
+        <button type="roll" class="sheet-boutcar" style="display:block" name="StrRoll" data-i18n-title="str-roll-ph" title="Strength check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{strength-ph}}} {{roll=[[1d20+(@{STR})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:192px;">
         <span class="sheet-libBlanc0" data-i18n="str-u">STR</span>
@@ -184,7 +169,7 @@
         <input name="attr_intelligence" class="sheet-iptnumrondtop"  type="number" data-i18n-title="intelligence-ph" title="Intelligence" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 360px;top:282px;">
-        <button type="roll" class="sheet-boutcar" style="display:block" name="IntRoll" data-i18n-title="int-roll-ph" title="Intelligence check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{intelligence-ph}}} {{rol=1}} {{roll=[[1d20+(@{INT})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
+        <button type="roll" class="sheet-boutcar" style="display:block" name="IntRoll" data-i18n-title="int-roll-ph" title="Intelligence check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{intelligence-ph}}} {{roll=[[1d20+(@{INT})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:254px;">
         <span class="sheet-libBlanc0" data-i18n="int-u">INT</span>
@@ -197,7 +182,7 @@
         <input name="attr_wisdom" class="sheet-iptnumrondtop"  type="number" data-i18n-title="wisdom-ph" title="Wisdom" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 360px;top:344px;">
-        <button type="roll" class="sheet-boutcar" style="display:block" name="WisRoll" data-i18n-title="wis-roll-ph" title="Wisdom check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{wisdom-ph}}} {{rol=1}} {{roll=[[1d20+(@{WIS})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
+        <button type="roll" class="sheet-boutcar" style="display:block" name="WisRoll" data-i18n-title="wis-roll-ph" title="Wisdom check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{wisdom-ph}}} {{roll=[[1d20+(@{WIS})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:316px;">
         <span class="sheet-libBlanc0" data-i18n="wis-u">WIS</span>
@@ -210,7 +195,7 @@
         <input name="attr_dexterity" class="sheet-iptnumrondtop"  type="number" data-i18n-title="dexterity-ph" title="Dexterity" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 360px;top:406px;">
-        <button type="roll" class="sheet-boutcar" style="display:block" name="DexRoll" data-i18n-title="dex-roll-ph" title="Dexterity check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{dexterity-ph}}} {{rol=1}} {{roll=[[1d20+(@{DEX})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
+        <button type="roll" class="sheet-boutcar" style="display:block" name="DexRoll" data-i18n-title="dex-roll-ph" title="Dexterity check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{dexterity-ph}}} {{roll=[[1d20+(@{DEX})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:378px;">
         <span class="sheet-libBlanc0" data-i18n="dex-u">DEX</span>
@@ -223,7 +208,7 @@
         <input name="attr_constitution" class="sheet-iptnumrondtop"  type="number" data-i18n-title="constitution-ph" title="Constitution" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 360px;top:468px;">
-        <button type="roll" class="sheet-boutcar" style="display:block" name="ConRoll" data-i18n-title="con-roll-ph" title="Constitution check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{constitution-ph}}} {{rol=1}} {{roll=[[1d20+(@{CON})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
+        <button type="roll" class="sheet-boutcar" style="display:block" name="ConRoll" data-i18n-title="con-roll-ph" title="Constitution check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{constitution-ph}}} {{roll=[[1d20+(@{CON})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:440px;">
         <span class="sheet-libBlanc0" data-i18n="con-u">CON</span>
@@ -236,7 +221,7 @@
         <input name="attr_charisma" class="sheet-iptnumrondtop"  type="number" data-i18n-title="charisma-ph" title="Charisma" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 360px;top:530px;">
-        <button type="roll" class="sheet-boutcar" style="display:block" name="ChaRoll" data-i18n-title="cha-roll-ph" title="Charisma check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{charisma-ph}}} {{rol=1}} {{roll=[[1d20+(@{CHA})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
+        <button type="roll" class="sheet-boutcar" style="display:block" name="ChaRoll" data-i18n-title="cha-roll-ph" title="Charisma check" value="&{template:roll} {{character=@{character_name}}} {{lib=^{charisma-ph}}} {{roll=[[1d20+(@{CHA})[Mod]+(?{Bonus|0})[Bonus]]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 404px;top:502px;">
         <span class="sheet-libBlanc0" data-i18n="cha-u">CHA</span>
@@ -245,7 +230,7 @@
         <input readonly name="attr_CHA" class="sheet-iptnummod" style="width:25px;" type="number" data-i18n-title="con-ph" title="Charisma modifier" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 345px;top:567px;">
-        <button type="roll" name="RollInit" class="sheet-boutd6"  data-i18n-title="initiative-ph" title="Roll Initiative" value="&{template:roll} {{character=@{character_name}}} {{lib=^{initiative-u}}} {{rol=1}} {{roll=[[1d6+(@{DEX})[Mod] &{tracker}]]}}">
+        <button type="roll" name="RollInit" class="sheet-boutd6"  data-i18n-title="initiative-ph" title="Roll Initiative" value="&{template:roll} {{character=@{character_name}}} {{lib=^{initiative-u}}} {{roll=[[1d6+(@{DEX})[Mod] &{tracker}]]}}">
             <span data-i18n="initiative-u">INITIATIVE</span>
         </button>
     </div>
@@ -258,10 +243,10 @@
     <div class="sheet-absinp" style="left: 721px;top:261px;">
         <input name="attr_wealth" class="sheet-iptnumbig2" style="border-radius: 0 12px 12px 0;min-width:100px;height:41px;" type="number" value="0" />
     </div>
-    <div class="sheet-absinp" style="overflow-y:scroll;left:462px;top:310px;width:350px;height:490px;">
+    <div class="sheet-absinp" style="left:456px;top:310px;width:354px;height:490px;overflow-y:scroll;">
         <fieldset class="repeating_equipments">
-            <div class="sheet-ligne">
-                <input type="text" name="attr_equipname" style="width:284px;" data-i18n-placeholder="item-name-ph" placeholder="Item name and description" />
+            <div class="sheet-ligne" style="padding-left: 2px">
+                <input type="text" name="attr_equipname" style="width:288px;" data-i18n-placeholder="item-name-ph" placeholder="Item name and description" />
                 <input type="number" name="attr_equipqty" style="width:40px;" data-i18n-title="item-quantity-ph" title="Quantity" value="1" />
             </div>
         </fieldset>
@@ -284,7 +269,7 @@
         <input name="attr_HD" class="sheet-iptnumsm" style="width:20px;" type="number" data-i18n-title="hitdice-nb-ph" title="Number of Hit Dice" value="1" />
         <span class="sheet-libGris2">d6 + </span>
         <input name="attr_HDBONUS" class="sheet-iptnumsm" style="width:20px;" type="number" data-i18n-title="hitdice-bonus-ph" title="Hit Dice Bonus" value="0" />
-        <button type="roll" class="sheet-boutjs" name="HdRoll" data-i18n-title="hitdice-roll-ph" title="Hit Dice roll" value="&{template:roll} {{character=@{character_name}}} {{lib=^{hitdice-u}}} {{rol=1}} {{roll=[[@{HD}d6+@{HDBONUS}]]}}"></button>
+        <button type="roll" class="sheet-boutjs" name="HdRoll" data-i18n-title="hitdice-roll-ph" title="Hit Dice roll" value="&{template:roll} {{character=@{character_name}}} {{lib=^{hitdice-u}}} {{roll=[[@{HD}d6+@{HDBONUS}]]}}"></button>
     </div>
     <div class="sheet-absinp" style="left: 29px;top:688px;">
         <textarea name="attr_HPnotes" class="sheet-inptxt" style="width:186px;height:112px;" data-i18n-placeholder="hitpoints-notes-ph" placeholder="Conditions, health notes..."></textarea>
@@ -337,24 +322,38 @@
     <div class="sheet-absinp" style="left: 774px;top:850px;">
         <span class="sheet-libGris2" data-i18n="bhb-u">BHB</span>
     </div>
-    <div class="sheet-absinp" style="left: 27px;top:877px;width:784px;height:182px;text-align:left;overflow-y:scroll;">
+    <div class="sheet-absinp" style="left: 27px;top:877px;width:784px;height:182px;text-align:left;overflow-y:scroll;padding:2px;">
         <fieldset class="repeating_attaques">
-            <button type="roll" class="sheet-boutjs" name="RollAttack" data-i18n-title="weapon-roll-ph" title="Roll attack" value="&{template:roll} {{character=@{character_name}}} {{lib=@{atkname}}} {{roll=[[1d20+@{BHB}[BHB]+(@{atkmod})[Mod]+(@{atkbonus})[Bonus]]]}}  {{dmg=[[@{atkdmg}+(@{atkdmgmod})[Mod]]]}}"></button>
-            <input type="text" name="attr_atkname" style="width:185px;height:22px;" data-i18n-placeholder="weapon-ph" placeholder="Weapon"/>
-            <select name="attr_atkmod" size="1"  style="text-align: left; width: 50px;" data-i18n-title="weapon-tohitmod-ph" title="To Hit Mod">
-                        <option value="@{DEX}" selected>DEX</option>
-                        <option value="@{FOR}">FOR</option>
-            </select>
-            <span class="sheet-libGris2">+</span>
-            <input type="number" name="attr_atkbonus" style="width:35px;height:22px;" data-i18n-title="weapon-tohitbonus-ph" title="To Hit bonus" value="0" />
-            <span class="sheet-libGris2">| DMG</span>
-            <input type="text" name="attr_atkdmg" style="width:70px;height:22px;" placeholder="ex:1d6+1" title="Dégâts" />
-            <span class="sheet-libGris2">+</span>
-            <select name="attr_atkdmgmod" size="1"  style="text-align: left; width: 50px;" title="Bonus de caractéristique aux dégâts">
-                        <option value="0" selected>-</option>
-                        <option value="@{FOR}">FOR</option>
-            </select>
-            <input type="text" name="attr_atkprops" style="margin-left:34px;width:450px;height:22px;" placeholder="Type, Qualités, Propriétés etc ... "/>
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-boutjs" name="RollAttack" data-i18n-title="weapon-roll-ph" title="Roll attack" value="&{template:roll} {{character=@{character_name}}} {{lib=@{atkname}}} {{roll=[[1d20+@{BHB}[BHB]+(@{atkmod})[Mod]+(@{atkbonus})[Bonus]]]}}  {{dmg=[[@{atkdmg}+(@{atkdmgmod})[Mod]]]}}"></button>
+                <input type="text" name="attr_atkname" style="width:180px;height:22px;" data-i18n-placeholder="weapon-ph" placeholder="Weapon"/>
+                <span class="sheet-libGris2">| </span>
+                <span class="sheet-libGris2" data-i18n="to-hit-u">TO-HIT</span>
+                <select name="attr_atkmod" size="1"  style="text-align: left; width: 50px;" data-i18n-title="weapon-tohitmod-ph" title="Attack Mod">
+                            <option value="@{DEX}" data-i18n="dex-u" selected>DEX</option>
+                            <option value="@{STR}" data-i18n="str-u">STR</option>
+                </select>
+                <span class="sheet-libGris2">+</span>
+                <input type="number" name="attr_atkbonus" style="width:35px;height:22px;" data-i18n-title="weapon-tohitbonus-ph" title="To-Hit bonus (except BHB)" value="0" />
+                <span class="sheet-libGris2">| </span>
+                <span class="sheet-libGris2" data-i18n="dmg-u">DMG</span>
+                <input type="text" name="attr_atkdmg" style="width:65px;height:22px;" placeholder="ex:1d6+1" data-i18n-title="weapon-damage-ph" title="Weapon damage" />
+                <span class="sheet-libGris2">+</span>
+                <select name="attr_atkdmgmod" size="1"  style="text-align: left; width: 50px;" data-i18n-title="weapon-damagemod-ph" title="Attribute mod to damage">
+                            <option value="0" selected>-</option>
+                            <option value="@{STR}" data-i18n="str-u">STR</option>
+                </select>
+                <span class="sheet-libGris2">| </span>
+                <span class="sheet-libGris2" data-i18n="rof-u">ROF</span>
+                <input type="text" name="attr_atkrof" style="width:50px;height:22px;" data-i18n-placeholder="weapon-rof-ph" placeholder="Rate Of Fire" data-i18n-title="weapon-rof-ph" title="Rate Of Fire" />
+                <span class="sheet-libGris2">| </span>
+                <span class="sheet-libGris2" data-i18n="range-u">RANGE</span>
+                <input type="text" name="attr_atkrange" style="width:50px;height:22px;" data-i18n-placeholder="weapon-range-ph" placeholder="Range" data-i18n-title="weapon-range-ph" title="Range" />
+            </div>
+            <div class="sheet-ligne" style="border-bottom: 1px dotted #7F7F7F;text-align: right;">
+                <span class="sheet-libGris2" data-i18n="notes-u">NOTES</span>
+                <input type="text" name="attr_atkprops" style="width:650px;height:22px;" data-i18n-placeholder="weapon-props-ph" placeholder="Properties, notes, upgrades..."/>
+            </div>
         </fieldset>
     </div>
 </div> <!-- END OF SHEET -->
@@ -364,15 +363,15 @@
 <rolltemplate class="sheet-rolltemplate-roll">
     <div class="sheet-tplmain">
         <div class="sheet-perso">{{character}}</div>
-        {{#rol}}
+        {{#roll}}
             <div class="sheet-jets">
                 <div class="sheet-borderd">{{lib}}</div>
                 <div class="sheet-jet">{{roll}}</div>
             </div>
-        {{/rol}}
+        {{/roll}}
         {{#dmg}}
-            <div class="sheet-jets">
-                <div class="sheet-borderd">
+            <div class="sheet-damage">
+                <div class="sheet-borderdmg">
                     <span data-i18n="damage-u">damage</span>
                 </div>
             {{#rollLess() dmg 1}}
