@@ -339,7 +339,7 @@
     </div>
     <div class="sheet-absinp" style="left: 27px;top:877px;width:784px;height:182px;text-align:left;overflow-y:scroll;">
         <fieldset class="repeating_attaques">
-            <button type="roll" class="sheet-boutjs" name="RollAttack" data-i18n-title="weapon-roll-ph" title="Roll attack" value="&{template:roll} {{perso=@{character_name}}} {{nom=@{atknom}}} {{attaque=1}} {{jet=[[1d20+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{jet2=[[1d20+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{degats=[[@{atkdegats}+(@{atkdegcarac})[Modificateur]]]}}"></button>
+            <button type="roll" class="sheet-boutjs" name="RollAttack" data-i18n-title="weapon-roll-ph" title="Roll attack" value="&{template:roll} {{character=@{character_name}}} {{lib=@{atkname}}} {{roll=[[1d20+@{BHB}[BHB]+(@{atkmod})[Mod]+(@{atkbonus})[Bonus]]]}}  {{dmg=[[@{atkdmg}+(@{atkdmgmod})[Mod]]]}}"></button>
             <input type="text" name="attr_atkname" style="width:185px;height:22px;" data-i18n-placeholder="weapon-ph" placeholder="Weapon"/>
             <select name="attr_atkmod" size="1"  style="text-align: left; width: 50px;" data-i18n-title="weapon-tohitmod-ph" title="To Hit Mod">
                         <option value="@{DEX}" selected>DEX</option>
@@ -348,9 +348,9 @@
             <span class="sheet-libGris2">+</span>
             <input type="number" name="attr_atkbonus" style="width:35px;height:22px;" data-i18n-title="weapon-tohitbonus-ph" title="To Hit bonus" value="0" />
             <span class="sheet-libGris2">| DMG</span>
-            <input type="text" name="attr_atkdegats" style="width:70px;height:22px;" placeholder="ex:1d6+1" title="Dégâts" />
+            <input type="text" name="attr_atkdmg" style="width:70px;height:22px;" placeholder="ex:1d6+1" title="Dégâts" />
             <span class="sheet-libGris2">+</span>
-            <select name="attr_atkdegcarac" size="1"  style="text-align: left; width: 50px;" title="Bonus de caractéristique aux dégâts">
+            <select name="attr_atkdmgmod" size="1"  style="text-align: left; width: 50px;" title="Bonus de caractéristique aux dégâts">
                         <option value="0" selected>-</option>
                         <option value="@{FOR}">FOR</option>
             </select>
