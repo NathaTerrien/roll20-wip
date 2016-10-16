@@ -244,6 +244,11 @@
     <div class="sheet-absinp" style="left:411px;top:535px;">
         <input readonly name="attr_CHA" class="sheet-iptnummod" style="width:25px;" type="number" data-i18n-title="con-ph" title="Charisma modifier" value="0" />
     </div>
+    <div class="sheet-absinp" style="left: 345px;top:567px;">
+        <button type="roll" name="RollInit" class="sheet-boutd6"  data-i18n-title="initiative-ph" title="Roll Initiative" value="&{template:roll} {{character=@{character_name}}} {{lib=^{initiative-u}}} {{rol=1}} {{roll=[[1d6+(@{DEX})[Mod] &{tracker}]]}}">
+            <span data-i18n="initiative-u">INITIATIVE</span>
+        </button>
+    </div>
     <!-- ========================================================= -->
     <!-- ===================== EQUIPMENTS ===== -->
     <!-- ========================================================= -->
@@ -323,7 +328,36 @@
     <!-- ========================================================= -->
     <!-- ===================== WEAPONS ATTACKS ===== -->
     <!-- ========================================================= -->
-</div>
+    <div class="sheet-absinp" style="left: 40px;top:825px;">
+        <span class="sheet-libBlanc1" data-i18n="weapons-u">weapons</span>
+    </div>
+    <div class="sheet-absinp" style="left: 756px;top:816px;">
+        <input name="attr_BHB" class="sheet-iptnumrondtop" type="number" value="0" data-i18n-title="bhb-ph" title="Base Hit Bonus" />
+    </div>
+    <div class="sheet-absinp" style="left: 774px;top:850px;">
+        <span class="sheet-libGris2" data-i18n="bhb-u">BHB</span>
+    </div>
+    <div class="sheet-absinp" style="left: 27px;top:877px;width:784px;height:182px;text-align:left;overflow-y:scroll;">
+        <fieldset class="repeating_attaques">
+            <button type="roll" class="sheet-boutjs" name="RollAttack" data-i18n-title="weapon-roll-ph" title="Roll attack" value="&{template:roll} {{perso=@{character_name}}} {{nom=@{atknom}}} {{attaque=1}} {{jet=[[1d20+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{jet2=[[1d20+(@{atkcarac})[Modificateur]+(@{atkbonus})[Bonus]]]}} {{degats=[[@{atkdegats}+(@{atkdegcarac})[Modificateur]]]}}"></button>
+            <input type="text" name="attr_atkname" style="width:185px;height:22px;" data-i18n-placeholder="weapon-ph" placeholder="Weapon"/>
+            <select name="attr_atkmod" size="1"  style="text-align: left; width: 50px;" data-i18n-title="weapon-tohitmod-ph" title="To Hit Mod">
+                        <option value="@{DEX}" selected>DEX</option>
+                        <option value="@{FOR}">FOR</option>
+            </select>
+            <span class="sheet-libGris2">+</span>
+            <input type="number" name="attr_atkbonus" style="width:35px;height:22px;" data-i18n-title="weapon-tohitbonus-ph" title="To Hit bonus" value="0" />
+            <span class="sheet-libGris2">| DMG</span>
+            <input type="text" name="attr_atkdegats" style="width:70px;height:22px;" placeholder="ex:1d6+1" title="Dégâts" />
+            <span class="sheet-libGris2">+</span>
+            <select name="attr_atkdegcarac" size="1"  style="text-align: left; width: 50px;" title="Bonus de caractéristique aux dégâts">
+                        <option value="0" selected>-</option>
+                        <option value="@{FOR}">FOR</option>
+            </select>
+            <input type="text" name="attr_atkprops" style="margin-left:34px;width:450px;height:22px;" placeholder="Type, Qualités, Propriétés etc ... "/>
+        </fieldset>
+    </div>
+</div> <!-- END OF SHEET -->
 <!-- ========================================================= -->
 <!-- ============ TEMPLATE   ================================= -->
 <!-- ========================================================= -->

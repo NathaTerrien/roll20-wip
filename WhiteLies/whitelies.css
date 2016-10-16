@@ -323,8 +323,8 @@ button[type="roll"].sheet-boutjs:hover{
     border-color: #7E0000;
 }
 button[type=roll].sheet-boutd6{
-    color:black;
-    font-family:'Candal',Helvetica;
+    color:white;
+    font-family:'Candal';
     font-weight:bold;
     font-size:14px;
     display: inline-block;
@@ -336,8 +336,8 @@ button[type=roll].sheet-boutd6:before{
     content: 'f';
 }
 button[type="roll"].sheet-boutd6:hover{
-    color: #28AE69;
-    border-width: 0px;
+    color: #7E0000;
+    border:0;
 }
 button[type=roll].sheet-btLien{
     color: #939598;
