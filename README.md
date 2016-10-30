@@ -1,14 +1,14 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-10-16 (Terra X v1.1)._
+_Updated 2016-10-30 (While Lies v1.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), french and english
+* [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), english and french
 * Macchiato Monsters, french and english
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
@@ -17,17 +17,6 @@ Thank you :)
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## WIP
-
-### White Lies (french and english)
-Websites for the game : [White Lies](http://dwdstudios.com/whitelies) (english), [White Lies](http://legrumph.org/Terrier/?Chibi/White-Lies) (french)
-
-Creation.
-
-#### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies)
-
-### Todo
-* Almost everything
 
 ## Existing sheets
 
@@ -242,6 +231,19 @@ Traduction.
 
 #### Todo
 * Ajouter des jets ?
+
+### White Lies (english and french)
+Websites for the game : [White Lies](http://dwdstudios.com/whitelies) (english), [White Lies](http://legrumph.org/Terrier/?Chibi/White-Lies) (french)
+
+Creation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies) Version 1.0 (2016-10-30)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
+* [Official]() Waiting for merge
+
+### Todo
+* In game testing
 
 ## API Scripts
 
