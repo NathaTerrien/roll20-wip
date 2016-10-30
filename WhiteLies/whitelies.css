@@ -47,7 +47,7 @@ div.sheet-ligne{
 .sheet-libBlanc1{
     background-color: transparent;
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     text-align: left;
     text-transform: uppercase;
@@ -65,7 +65,7 @@ div.sheet-ligne{
 .sheet-libGris1{
     background-color: white;
     color: #7F7F7F;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     text-align: left;
     text-transform: uppercase;
@@ -407,7 +407,7 @@ button[type=roll].sheet-btLien:hover{
     border-radius: 0px 0px 0px 6px;
     background-color: white;
     display: inline-block;
-    height: 40px;
+    height: 36px;
 }
 .sheet-rolltemplate-roll div.sheet-borderdmg{
     display: inline-block;
