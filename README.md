@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-10-30 (While Lies v1.0)._
+_Updated 2016-11-01 (While Lies merged)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -240,7 +240,7 @@ Creation.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies) Version 1.0 (2016-10-30)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
-* [Official]() Waiting for merge
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
 
 ### Todo
 * In game testing
