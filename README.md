@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-11-01 (While Lies merged)._
+_Updated 2016-11-01 (While Lies merged + Chroniques Oubliées Fantasy v1.6)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -58,17 +58,18 @@ Création.
 #### Todo
 * Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
 
-### Chroniques Oubliées (french)
+### Chroniques Oubliées Fantasy (french)
 
 Création.
 
 #### Sources
-* [WIP](./ChroniquesOubliees/) Version 1.5
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
+* [WIP](./ChroniquesOubliees/) Version 1.6 (2016-11-01)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.6 (2016-11-01)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
 
 #### Todo
-* Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
+* Fiche compagnon simplifiée
+* En réflexion : amélioration de la saisie et diffusion dans le chat des Capacités des Voies
 
 ### Cypher System (english)
 
