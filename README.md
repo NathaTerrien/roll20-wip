@@ -18,9 +18,9 @@ Thank you :)
 ## WIP
 
 ### WÜRM (english and french)
-Würm is an Ice Age RPG originally published in [french](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), and recently translated to english
+Würm is an Ice Age RPG originally published in [french](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
 
-Création.
+Creation.
 
 #### Sources
 * [WIP]()
