@@ -8,7 +8,6 @@ You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my P
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* [Würm](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), english and french
 * Macchiato Monsters, french and english
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
@@ -17,6 +16,19 @@ Thank you :)
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## WIP
+
+### WÜRM (english and french)
+Würm is an Ice Age RPG originally published in [french](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), and recently translated to english
+
+Création.
+
+#### Sources
+* [WIP]()
+* [Fork]()
+* [Official]()
+
+### Todo
+Getting started...
 
 ## Existing sheets
 
