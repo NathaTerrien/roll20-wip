@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-11-01 (While Lies merged + Chroniques Oubliées Fantasy v1.6)._
+_Updated 2016-11-11 (Dungeon World French v3.1)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -107,14 +107,14 @@ Création.
 Cf. english version
 
 ### Dungen World (french)
-Wiki [Dungeon World VF V1 et V2](https://sites.google.com/site/dungeonworldfr/)
+Wiki [Dungeon World VF V1 et V2](dungeonworld.pbta.fr)
 
 Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 3.0 (2016-08-12) Version 3.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12) Version 3.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12) Version 3.0
+* [WIP](./DungeonWorldFrench/) Version 3.1 (2016-11-11)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.1 (2016-11-11)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12)
 
 #### Todo
 * Jets
