@@ -1,0 +1,79 @@
+div,
+button,
+textarea,
+span,
+input,
+select{
+    box-sizing: border-box;
+}
+div{
+    margin: 0px 0px;
+    padding: 0px 0px;
+    background-color: transparent;
+}
+textarea{
+    resize:none;
+    overflow-y: auto;
+    height: 40px;
+}
+div.sheet-main{
+    position: relative;
+    width: 840px;
+    max-width: 840px;
+    text-align:center;
+    font-family: 'Arial';
+    background-color: white;
+}
+div.sheet-absinp{
+    position: absolute;
+}
+div.sheet-ligne{
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 2px;
+}
+div.sheet-mycol1{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin: 0;
+    width: 276px;
+    max-width: 276px;
+}
+div.sheet-mycol2{
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin: 0;
+    width: 560px;
+    max-width: 560px;
+}
+div.sheet-blacklib{
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+div.sheet-graylib{
+    background-color: #C0C0C0;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+div.sheet-libsmall{
+    display: inline-block;
+    font-style: italic;
+    font-size: 11px;
+}
+.sheet-italic{
+    font-style: italic;
+}
+.sheet-bold{
+    font-weight: bold;
+}
