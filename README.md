@@ -23,7 +23,7 @@ Würm is an Ice Age RPG originally published in [french](http://www.editions-ica
 Creation.
 
 #### Sources
-* [WIP]()
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Wurm)
 * [Fork]()
 * [Official]()
 
