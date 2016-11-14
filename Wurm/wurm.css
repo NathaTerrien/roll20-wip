@@ -11,11 +11,6 @@ div{
     padding: 0px 0px;
     background-color: transparent;
 }
-textarea{
-    resize:none;
-    overflow-y: auto;
-    height: 40px;
-}
 div.sheet-main{
     position: relative;
     width: 840px;
@@ -39,7 +34,6 @@ div.sheet-mycol1{
     text-align: left;
     margin: 0;
     width: 276px;
-    max-width: 276px;
 }
 div.sheet-mycol2{
     display: inline-block;
@@ -47,7 +41,6 @@ div.sheet-mycol2{
     text-align: left;
     margin: 0;
     width: 560px;
-    max-width: 560px;
 }
 div.sheet-blacklib{
     background-color: black;
@@ -71,9 +64,59 @@ div.sheet-libsmall{
     font-style: italic;
     font-size: 11px;
 }
+div.sheet-lib1{
+    display: inline-block;
+    width: 85px;
+    text-align: left;
+}
 .sheet-italic{
     font-style: italic;
 }
 .sheet-bold{
     font-weight: bold;
+}
+input, textarea{
+    background-color: transparent;
+    display: inline-block;
+    padding: none;
+    margin: none;
+    font-family: 'Light';
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    color: #69392E;
+    border-radius: 0;
+}
+textarea{
+    resize:none;
+    overflow-y: auto;
+    height: 40px;
+}
+input[type="text"]{
+    height: 21px;
+}
+input[type="number"]{
+    height: 21px;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(170,198,212,0.1),0 0 6px rgba(170,198,212,0.9);
+    background-color: rgba(170,198,212,0.2);
+}
+input[type="text"].sheet-inpundl{
+    border-bottom: 1px solid black;
+    width: 250px;
+}
+input[type="number"].sheet-inpundl{
+    border-bottom: 1px solid black;
+    width: 60px;
+    text-align: right;
+}
+input.sheet-inpuncen{
+    text-align: center;
+    font-weight: bold;
+    width: 274px;
+}
+input.sheet-inpuncensm{
+    text-align: center;
+    width: 120px;
 }

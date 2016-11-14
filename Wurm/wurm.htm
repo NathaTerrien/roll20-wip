@@ -12,36 +12,36 @@
             <div class="sheet-blacklib">
                 <span data-i18n="prestige-and-status">Prestige & Status</span>
             </div>
-            <div class="sheet-mycol1">
+            <div class="sheet-mycol1" style="width:382px;">
                 <div class="sheet-ligne">
-                    <span data-i18n="tribe">Tribe</span>
-                    <input type="text" name="attr_tribe" />
+                    <div class="sheet-lib1 sheet-bold"><span data-i18n="tribe">Tribe</span></div>
+                    <input class="sheet-inpundl" type="text" name="attr_tribe" data-i18n-placeholder="tribe" placeholder="Tribe" />
                 </div>
                 <div class="sheet-ligne">
-                    <span data-i18n="clan">Clan</span>
-                    <input type="text" name="attr_clan" />
+                    <div class="sheet-lib1 sheet-bold"><span data-i18n="clan">Clan</span></div>
+                    <input class="sheet-inpundl" type="text" name="attr_clan" data-i18n-placeholder="clan" placeholder="Clan" />
                 </div>
                 <div class="sheet-ligne">
-                    <span data-i18n="status">Status</span>
-                    <input type="text" name="attr_status" />
+                    <div class="sheet-lib1 sheet-italic"><span data-i18n="status">Status</span></div>
+                    <input class="sheet-inpundl" type="text" name="attr_status" data-i18n-placeholder="status" placeholder="Status" />
                 </div>
             </div>
-            <div class="sheet-mycol1">
+            <div class="sheet-mycol1" style="width:170px;">
                 <div class="sheet-ligne">
-                    <span data-i18n="prestige">Prestige</span>
-                    <input type="text" name="attr_prestige" />
+                    <div class="sheet-lib1 sheet-bold"><span data-i18n="prestige">Prestige</span></div>
+                    <input class="sheet-inpundl" type="number" disabled value="[[@{bravery}+@{generosity}+@{wisdom}]]" name="attr_prestige" data-i18n-title="prestige" title="Tribe" />
                 </div>
                 <div class="sheet-ligne">
-                    <span data-i18n="bravery">Bravery</span>
-                    <input type="text" name="attr_bravery" />
+                    <div class="sheet-lib1 sheet-italic"><span data-i18n="bravery">Bravery</span></div>
+                    <input class="sheet-inpundl" type="number" value="0" name="attr_bravery" data-i18n-title="bravery" title="Bravery" />
                 </div>
                 <div class="sheet-ligne">
-                    <span data-i18n="generosity">Generosity</span>
-                    <input type="text" name="attr_generosity" />
+                    <div class="sheet-lib1 sheet-italic"><span data-i18n="generosity">Generosity</span></div>
+                    <input class="sheet-inpundl" type="number" value="0" name="attr_generosity" data-i18n-title="generosity" title="Generosity" />
                 </div>
                 <div class="sheet-ligne">
-                    <span data-i18n="wisdom">Wisdom</span>
-                    <input type="text" name="attr_wisdom" />
+                    <div class="sheet-lib1 sheet-italic"><span data-i18n="wisdom">Wisdom</span></div>
+                    <input class="sheet-inpundl" type="number" value="0" name="attr_wisdom" data-i18n-title="wisdom" title="Wisdom" />
                 </div>
             </div>
             <div class="sheet-blacklib">
@@ -52,20 +52,20 @@
     </div>
     <!-- ==================== NAME & STAMINA ==================== -->
     <div class="sheet-ligne">
-        <div class="sheet-mycol1">
+        <div class="sheet-mycol1" style="text-align:center;">
             <div class="sheet-graylib sheet-italic sheet-bold">
                 <span data-i18n="character-name">Character's Name</span>
             </div>
-            <input type="text" name="attr_character_name" />
+            <input class="sheet-inpuncen" type="text" name="attr_character_name" />
             <div class="sheet-graylib sheet-bold">
                 <span data-i18n="people">People</span>
             </div>
-            <input type="text" name="attr_people" />
+            <input class="sheet-inpuncen" type="text" name="attr_people" data-i18n-placeholder="people" placeholder="People" />
             <div class="sheet-graylib sheet-italic sheet-bold">
                 <span data-i18n="age-and-sex">Age & Sex</span>
             </div>
-            <input type="text" name="attr_age" />
-            <input type="text" name="attr_sex" />
+            <input  class="sheet-inpuncensm" type="text" name="attr_age" data-i18n-placeholder="age-ph" placeholder="Age" />
+            <input  class="sheet-inpuncensm" type="text" name="attr_sex" data-i18n-placeholder="sex-ph" placeholder="Sex" />
         </div>
         <div class="sheet-mycol2" style="border-left: 2px solid black;">
             <div class="sheet-blacklib">
