@@ -44,10 +44,26 @@
                     <input class="sheet-inpundl" type="number" value="0" name="attr_wisdom" data-i18n-title="wisdom" title="Wisdom" />
                 </div>
             </div>
-            <div class="sheet-blacklib">
-                <span data-i18n="experience">Experience</span>
+            <div class="sheet-mycol1" style="width:382px;">
+                <div class="sheet-blacklib">
+                    <span data-i18n="experience">Rolls</span>
+                </div>
+                <div class="sheet-ligne" style="text-align: center;">
+                    <button type="roll" class="sheet-butd6 sheet-butd6-2" value="2d6-3">2d6-3</button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-2" value="2d6">2d6</button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-3" value="3d6">3d6</button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-4" value="4d6">4d6</button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-5" value="5d6">5d6</button>
+                </div>
             </div>
-            <textarea name="attr_experience"></textarea>
+            <div class="sheet-mycol1" style="width:170px;text-align: center;">
+                <div class="sheet-blacklib">
+                    <span data-i18n="experience">Experience</span>
+                </div>
+                <input name="attr_experience" type="number" value="3" data-i18n-title="experience-current" title="Current experience points" />
+                /
+                <input name="attr_experience_max" type="number" value="3" data-i18n-title="experience-max" title="Maximum experience points" />
+            </div>
         </div>
     </div>
     <!-- ==================== NAME & STAMINA ==================== -->

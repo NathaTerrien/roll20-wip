@@ -50,6 +50,7 @@ div.sheet-blacklib{
     text-align: center;
     padding-top: 3px;
     padding-bottom: 4px;
+    margin-bottom: 4px;
 }
 div.sheet-graylib{
     background-color: #C0C0C0;
@@ -97,6 +98,7 @@ input[type="text"]{
 }
 input[type="number"]{
     height: 21px;
+    text-align: right;
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
     box-shadow: inset 0px 1px 1px rgba(170,198,212,0.1),0 0 6px rgba(170,198,212,0.9);
@@ -109,7 +111,6 @@ input[type="text"].sheet-inpundl{
 input[type="number"].sheet-inpundl{
     border-bottom: 1px solid black;
     width: 60px;
-    text-align: right;
 }
 input.sheet-inpuncen{
     text-align: center;
@@ -119,4 +120,48 @@ input.sheet-inpuncen{
 input.sheet-inpuncensm{
     text-align: center;
     width: 120px;
+}
+button[type="roll"] {
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center !important;
+    vertical-align: middle !important;
+    color: black;
+    border-width: 0px 0px 2px 0px;
+    border-style: solid;
+    border-color: transparent;
+    background:transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+}
+button[type="roll"]:hover{
+    color: #69392E;
+    border-color: #69392E;
+}
+button[type="roll"].sheet-butd6{
+    font-size:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+button[type="roll"].sheet-butd6:before{
+    font-family: "dicefontd6";
+    font-size: 30px;
+    content: 'f';
+    padding-right: 3px;
+}
+button[type="roll"].sheet-butd6-1:before{
+    content: 'a';
+}
+button[type="roll"].sheet-butd6-2:before{
+    content: 'b';
+}
+button[type="roll"].sheet-butd6-3:before{
+    content: 'c';
+}
+button[type="roll"].sheet-butd6-4:before{
+    content: 'd';
+}
+button[type="roll"].sheet-butd6-5:before{
+    content: 'e';
 }
