@@ -3,6 +3,7 @@
 #CD4509 : orange/rouge
 #EDD3BA : beige
 #C0C0C0 : gris
+#AAC6D4 : bleu moyen
 */
 div,
 button,
@@ -89,19 +90,14 @@ div.sheet-lib1{
 input, textarea{
     background-color: rgba(255,255,255,0.5);
     display: inline-block;
-    padding: none;
-    margin: none;
+    padding: 0;
+    margin: 0;
     font-family: 'Light';
     font-size: 14px;
     border: none;
     box-shadow: none;
     color: #69392E;
     border-radius: 0;
-}
-textarea{
-    resize:none;
-    overflow-y: auto;
-    height: 40px;
 }
 input[type="text"]{
     height: 21px;
@@ -131,6 +127,59 @@ input.sheet-inpuncensm{
     text-align: center;
     width: 120px;
 }
+input[type="checkbox"].sheet-deschide{
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+    opacity: 0;
+    z-index: 2;
+    margin: 0;
+}
+input[type="checkbox"].sheet-deschide + span{
+    display: inline-block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-left: -20px;
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+    z-index: 1;
+    font-family: 'pictos';
+    font-size: 18px;
+    color: black;
+    line-height: 20px;
+    border: 1px solid transparent;
+}
+input[type="checkbox"].sheet-deschide:checked + span{
+    color: #69392E;
+}
+input[type="checkbox"].sheet-deschide:hover + span{
+    color: #EDD3BA;
+    color: #69392E;
+    border-color: #69392E;
+    box-shadow: 1px 1px 4px 2px rgba(105,57,46,0.8);
+}
+input[type="text"].sheet-inptfeat{
+    font-weight: bold;
+    width: 220px;
+}
+div.sheet-deschide{
+    display: none;
+}
+input[type="checkbox"].sheet-deschide:checked ~ div.sheet-deschide{
+    display: inline-block;
+    width: 100%;
+    border-bottom : 1px dashed #69392E;
+}
+textarea{
+    resize:none;
+    overflow-y: auto;
+    height: 40px;
+}
+textarea.sheet-areadesc{
+   height: 120px;
+}
 button[type="roll"] {
     display: inline-block;
     box-sizing: border-box;
@@ -151,12 +200,16 @@ button[type="roll"]:hover{
     border-color: #69392E;
     box-shadow: 1px 1px 4px 2px rgba(105,57,46,0.8);
 }
+button[type="roll"].sheet-butshow:before{
+    font-family: 'pictos';
+    font-size: 22px;
+    content: 'E';
+}
 button[type="roll"].sheet-butd6{
     margin: 0 8px !important;
 }
 button[type="roll"].sheet-butd6:before{
     font-family: "dicefontd6";
-    /* content: 'f'; */
     content: '';
 }
 div.sheet-butd6{

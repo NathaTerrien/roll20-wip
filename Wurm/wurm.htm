@@ -47,7 +47,7 @@
             </div>
             <div class="sheet-mycol1" style="width:382px;">
                 <div class="sheet-blacklib">
-                    <span data-i18n="experience">Rolls</span>
+                    <span data-i18n="rolls">Rolls</span>
                 </div>
                 <div class="sheet-ligne" style="text-align: center;">
                     <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6-3" title="2d6-3" value="&{template:default} {{name=2d6-3}} {{character=@{character_name}}}  {{roll=[[ 2d6 - 3 + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6-3</div></button>
@@ -101,6 +101,32 @@
                 <div class="sheet-mycol1">
                     <div class="sheet-blacklib">
                         <span data-i18n="strengths-weaknesses">Strengths & Weaknesses</span>
+                    </div>
+                    <div class="sheet-graylib sheet-italic">
+                        <span data-i18n="strengths">Strengths</span>
+                    </div>
+                    <div class="sheet-scrollblock">
+                        <fieldset class="repeating_strengths">
+                            <input type="text" name="attr_strengthname" class="sheet-inptfeat" data-i18n-placeholder="strengthname-ph" placeholder="Strength" />
+                            <button type="roll" class="sheet-butshow" name="RollShowStrength" value="&{template:default} {{name= @{strengthname} }} {{character=@{character_name}}} {{type=^{strengthname-ph}}}  {{desc= @{strengthdesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <input type="checkbox" class="sheet-deschide" name="attr_strengthdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                            <div class="sheet-deschide">
+                                <textarea name="attr_strengthdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sheet-graylib sheet-italic">
+                        <span data-i18n="weaknesses">Weaknesses</span>
+                    </div>
+                    <div class="sheet-scrollblock">
+                        <fieldset class="repeating_weaknesses">
+                            <input type="text" name="attr_weaknessname" class="sheet-inptfeat" data-i18n-placeholder="weaknessname-ph" placeholder="Name" />
+                            <button type="roll" class="sheet-butshow" name="RollShowWeakness" value="&{template:default} {{name= @{weaknessname} }} {{character=@{character_name}}} {{type=^{weaknessname-ph}}}  {{desc= @{weaknessdesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <input type="checkbox" class="sheet-deschide" name="attr_weaknessdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                            <div class="sheet-deschide">
+                                <textarea name="attr_weaknessdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
                 <div class="sheet-mycol1" style="border-left: 2px solid black;">
