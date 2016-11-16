@@ -1,3 +1,9 @@
+/* COULEURS
+#69392E : marron
+#CD4509 : orange/rouge
+#EDD3BA : beige
+#C0C0C0 : gris
+*/
 div,
 button,
 textarea,
@@ -43,7 +49,7 @@ div.sheet-mycol2{
     width: 560px;
 }
 div.sheet-blacklib{
-    background-color: black;
+    background-color: #69392E;
     color: white;
     font-size: 17px;
     font-weight: bold;
@@ -53,7 +59,7 @@ div.sheet-blacklib{
     margin-bottom: 4px;
 }
 div.sheet-graylib{
-    background-color: #C0C0C0;
+    background-color: #EDD3BA;
     color: black;
     font-size: 14px;
     text-align: center;
