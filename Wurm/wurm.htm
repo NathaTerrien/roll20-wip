@@ -5,8 +5,9 @@
     -->
     <!-- ==================== LOGO & BASICS ==================== -->
     <div class="sheet-ligne">
-        <div class="sheet-mycol1">
-            <img style="width: 250px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Wurm/wurm_cslogo.jpg" />
+        <div class="sheet-mycol1" style="text-align:center;">
+            <img style="width: 250px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Wurm/wurm_logo_img.jpg" />
+            <img style="width: 250px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Wurm/wurm_logo_texte.png" />
         </div>
         <div class="sheet-mycol2" style="margin-top:10px;">
             <div class="sheet-blacklib">
@@ -29,7 +30,7 @@
             <div class="sheet-mycol1" style="width:170px;">
                 <div class="sheet-ligne">
                     <div class="sheet-lib1 sheet-bold"><span data-i18n="prestige">Prestige</span></div>
-                    <input class="sheet-inpundl" type="number" disabled value="[[@{bravery}+@{generosity}+@{wisdom}]]" name="attr_prestige" data-i18n-title="prestige" title="Tribe" />
+                    <input class="sheet-inpundl" type="number" disabled value="[[@{bravery}+@{generosity}+@{wisdom}]]" name="attr_prestige" data-i18n-title="prestige" title="Prestige" />
                 </div>
                 <div class="sheet-ligne">
                     <div class="sheet-lib1 sheet-italic"><span data-i18n="bravery">Bravery</span></div>
@@ -49,11 +50,11 @@
                     <span data-i18n="experience">Rolls</span>
                 </div>
                 <div class="sheet-ligne" style="text-align: center;">
-                    <button type="roll" class="sheet-butd6 sheet-butd6-2" title="2d6-3" value="2d6-3"><div class="sheet-butd6 sheet-butd6-2" >2d6-3</div></button>
-                    <button type="roll" class="sheet-butd6 sheet-butd6-2" title="2d6" value="2d6"><div class="sheet-butd6 sheet-butd6-2" >2d6</div></button>
-                    <button type="roll" class="sheet-butd6 sheet-butd6-3" title="3d6" value="3d6"><div class="sheet-butd6 sheet-butd6-3" >3d6</div></button>
-                    <button type="roll" class="sheet-butd6 sheet-butd6-4" title="4d6" value="4d6"><div class="sheet-butd6 sheet-butd6-4" >4d6</div></button>
-                    <button type="roll" class="sheet-butd6 sheet-butd6-5" title="4d6" value="5d6"><div class="sheet-butd6 sheet-butd6-5" >5d6</div></button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6-3" title="2d6-3" value="&{template:default} {{name=2d6-3}} {{character=@{character_name}}}  {{roll=[[ 2d6 - 3 + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6-3</div></button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6" title="2d6" value="&{template:default} {{name=2d6}} {{character=@{character_name}}}  {{roll=[[ 2d6 + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6</div></button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-3" name="Roll3d6" title="3d6" value="&{template:default} {{name=3d6}} {{character=@{character_name}}}  {{roll=[[ 3d6 + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-3" >3d6</div></button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-4" name="Roll4d6" title="4d6" value="&{template:default} {{name=4d6}} {{character=@{character_name}}}  {{roll=[[ 4d6 + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-4" >4d6</div></button>
+                    <button type="roll" class="sheet-butd6 sheet-butd6-5" name="Roll5d6" title="5d6" value="&{template:default} {{name=5d6}} {{character=@{character_name}}}  {{roll=[[ 5d6 + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-5" >5d6</div></button>
                 </div>
             </div>
             <div class="sheet-mycol1" style="width:170px;text-align: center;">

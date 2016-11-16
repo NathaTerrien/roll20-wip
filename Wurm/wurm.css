@@ -21,9 +21,13 @@ div.sheet-main{
     position: relative;
     width: 840px;
     max-width: 840px;
+    min-height: 1077px;
     text-align:center;
     font-family: 'Arial';
-    background-color: white;
+    /* background-color: white; */
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Wurm/wurm_fond_fdp_nb.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 div.sheet-absinp{
     position: absolute;
@@ -83,7 +87,7 @@ div.sheet-lib1{
     font-weight: bold;
 }
 input, textarea{
-    background-color: transparent;
+    background-color: rgba(255,255,255,0.5);
     display: inline-block;
     padding: none;
     margin: none;
