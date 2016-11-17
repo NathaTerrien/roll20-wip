@@ -8,6 +8,7 @@ You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my P
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
+* Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria)
 * Macchiato Monsters, french and english
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
