@@ -60,5 +60,7 @@
     "charmname3-ph": "3rd Charm",
     "consumables": "Consumables",
     "equipment-ph": "Equipment",
-    "quantity": "Quantity"
+    "quantity": "Quantity",
+    "roll": "Roll",
+    "charm": "Charm"
 }

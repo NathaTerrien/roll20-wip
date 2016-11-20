@@ -253,3 +253,73 @@ button[type="roll"].sheet-butd6small:before{
     content: 'F';
     font-size: 22px;
 }
+/* =====  TEMPLATE ===== */
+.sheet-rolltemplate-wurm div{
+    text-align: center;
+    vertical-align: middle;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    display: block;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-size: 13px;
+}
+.sheet-rolltemplate-wurm div.sheet-main{
+    background-color: #EDD3BA;
+    border: 2px solid #69392E;
+}
+.sheet-rolltemplate-wurm div.sheet-char{
+    background-color: #69392E;
+    color: white;
+    text-transform: uppercase;
+    padding: 2px 2px 2px 2px;
+}
+.sheet-rolltemplate-wurm div.sheet-name{
+    background-color: #EDD3BA;
+    color: #69392E;
+    font-weight: bold;
+    padding: 2px 2px 2px 2px;
+    border-top: 1px dashed #69392E;
+    border-bottom: 1px dashed #69392E;
+
+}
+.sheet-rolltemplate-wurm div.sheet-type{
+    font-style: italic;
+    color: #69392E;
+    background-color: #AAC6D4;
+    padding: 2px 2px 2px 2px;
+}
+.sheet-rolltemplate-wurm div.sheet-roll{
+    padding: 2px 2px 2px 2px;
+    background-color: #C0C0C0;
+}
+.sheet-rolltemplate-wurm div.sheet-desc{
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #C0C0C0;
+    text-align: left;
+    padding: 2px 2px 2px 2px;
+    font-size: 12px;
+    font-family: cursive;
+}
+.sheet-rolltemplate-wurm .inlinerollresult {
+    background-color: transparent;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 20px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-wurm .inlinerollresult.fullcrit{
+    border: none;
+    color: #3F9315;
+}
+.sheet-rolltemplate-wurm .inlinerollresult.importantroll{
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-wurm .inlinerollresult.fullfail{
+    border: none;
+    color: #7E0000;
+}

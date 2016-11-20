@@ -98,11 +98,11 @@
                         <span data-i18n="rolls">Rolls</span>
                     </div>
                     <div class="sheet-ligne" style="text-align: center;">
-                        <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6-3" title="2d6-3" value="&{template:default} {{name=2d6-3}} {{character=@{character_name}}}  {{roll=[[ 2d6 - 3 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6-3</div></button>
-                        <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6" title="2d6" value="&{template:default} {{name=2d6}} {{character=@{character_name}}}  {{roll=[[ 2d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6</div></button>
-                        <button type="roll" class="sheet-butd6 sheet-butd6-3" name="Roll3d6" title="3d6" value="&{template:default} {{name=3d6}} {{character=@{character_name}}}  {{roll=[[ 3d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-3" >3d6</div></button>
-                        <button type="roll" class="sheet-butd6 sheet-butd6-4" name="Roll4d6" title="4d6" value="&{template:default} {{name=4d6}} {{character=@{character_name}}}  {{roll=[[ 4d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-4" >4d6</div></button>
-                        <button type="roll" class="sheet-butd6 sheet-butd6-5" name="Roll5d6" title="5d6" value="&{template:default} {{name=5d6}} {{character=@{character_name}}}  {{roll=[[ 5d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-5" >5d6</div></button>
+                        <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6-3" title="2d6-3" value="&{template:wurm} {{name=2d6-3}} {{character=@{character_name}}} {{type=^{roll}}} {{roll=[[ 2d6 - 3 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6-3</div></button>
+                        <button type="roll" class="sheet-butd6 sheet-butd6-2" name="Roll2d6" title="2d6" value="&{template:wurm} {{name=2d6}} {{character=@{character_name}}} {{type=^{roll}}} {{roll=[[ 2d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-2" >2d6</div></button>
+                        <button type="roll" class="sheet-butd6 sheet-butd6-3" name="Roll3d6" title="3d6" value="&{template:wurm} {{name=3d6}} {{character=@{character_name}}} {{type=^{roll}}} {{roll=[[ 3d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-3" >3d6</div></button>
+                        <button type="roll" class="sheet-butd6 sheet-butd6-4" name="Roll4d6" title="4d6" value="&{template:wurm} {{name=4d6}} {{character=@{character_name}}} {{type=^{roll}}} {{roll=[[ 4d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-4" >4d6</div></button>
+                        <button type="roll" class="sheet-butd6 sheet-butd6-5" name="Roll5d6" title="5d6" value="&{template:wurm} {{name=5d6}} {{character=@{character_name}}} {{type=^{roll}}} {{roll=[[ 5d6 - @{stunned}[Stunned] + (?{Bonus|0}[Bonus]) ]] }}"><div class="sheet-butd6 sheet-butd6-5" >5d6</div></button>
                     </div>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                         </div>
                         <fieldset class="repeating_strengths">
                             <input type="text" name="attr_strengthname" class="sheet-inptfeat" data-i18n-placeholder="strengthname-ph" placeholder="Strength" />
-                            <button type="roll" class="sheet-butshow" name="RollShowStrength" value="&{template:default} {{name= @{strengthname} }} {{character=@{character_name}}} {{type=^{strengthname-ph}}}  {{desc= @{strengthdesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <button type="roll" class="sheet-butshow" name="RollShowStrength" value="&{template:wurm} {{name= @{strengthname} }} {{character=@{character_name}}} {{type=^{strengthname-ph}}} {{desc=@{strengthdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                             <input type="checkbox" class="sheet-deschide" name="attr_strengthdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                             <div class="sheet-deschide">
                                 <textarea name="attr_strengthdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -145,7 +145,7 @@
                         </div>
                         <fieldset class="repeating_weaknesses">
                             <input type="text" name="attr_weaknessname" class="sheet-inptfeat" data-i18n-placeholder="weaknessname-ph" placeholder="Weakness" />
-                            <button type="roll" class="sheet-butshow" name="RollShowWeakness" value="&{template:default} {{name= @{weaknessname} }} {{character=@{character_name}}} {{type=^{weaknessname-ph}}}  {{desc= @{weaknessdesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <button type="roll" class="sheet-butshow" name="RollShowWeakness" value="&{template:wurm} {{name=@{weaknessname}}} {{character=@{character_name}}} {{type=^{weaknessname-ph}}} {{desc=@{weaknessdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                             <input type="checkbox" class="sheet-deschide" name="attr_weaknessdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                             <div class="sheet-deschide">
                                 <textarea name="attr_weaknessdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <!-- ==================== Talents & Secrets Skills ==================== -->
-                <div class="sheet-mycol1" style="border-left: 2px solid black;">
+                <div class="sheet-mycol1" style="border-left: 2px solid #69392E;">
                     <div class="sheet-blacklib">
                         <span data-i18n="talents-secrets-skills">Talents & Secrets Skills</span>
                     </div>
@@ -164,7 +164,7 @@
                         </div>
                         <fieldset class="repeating_talents">
                             <input type="text" name="attr_talentname" class="sheet-inptfeat" data-i18n-placeholder="talentname-ph" placeholder="Talent" />
-                            <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:default} {{name= @{talentname} }} {{character=@{character_name}}} {{type=^{talentname-ph}}}  {{desc= @{talentdesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:wurm} {{name=@{talentname}}} {{character=@{character_name}}} {{type=^{talentname-ph}}} {{desc=@{talentdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                             <input type="checkbox" class="sheet-deschide" name="attr_talentdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                             <div class="sheet-deschide">
                                 <textarea name="attr_talentdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -175,7 +175,7 @@
                         </div>
                         <fieldset class="repeating_skills">
                             <input type="text" name="attr_skillname" class="sheet-inptfeat" data-i18n-placeholder="skillname-ph" placeholder="Secret skill" />
-                            <button type="roll" class="sheet-butshow" name="RollShowSkill" value="&{template:default} {{name= @{skillname} }} {{character=@{character_name}}} {{type=^{skillname-ph}}}  {{desc= @{skilldesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <button type="roll" class="sheet-butshow" name="RollShowSkill" value="&{template:wurm} {{name=@{skillname}}} {{character=@{character_name}}} {{type=^{skillname-ph}}} {{desc=@{skilldesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                             <input type="checkbox" class="sheet-deschide" name="attr_skilldeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                             <div class="sheet-deschide">
                                 <textarea name="attr_skilldesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -194,7 +194,7 @@
                         <fieldset class="repeating_favors">
                             <input type="text" name="attr_favorname" class="sheet-inptfeat" style="width:350px;" data-i18n-placeholder="favorname-ph" placeholder="Favor or Curse name" />
                             <input type="number" name="attr_favordt" value="0" class="sheet-inpundl" data-i18n-title="difficulty-threshold" title="Difficulty Threshold" />
-                            <button type="roll" class="sheet-butshow" name="RollShowFavor" value="&{template:default} {{name= @{favorname} }} {{character=@{character_name}}} {{type=^{favorname-ph}}}  {{diff=[[@{favordt}]]}} {{desc= @{favordesc} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                            <button type="roll" class="sheet-butshow" name="RollShowFavor" value="&{template:wurm} {{name=@{favorname}}} {{character=@{character_name}}} {{type=^{favors-spirits-curses}}} {{diff=[[@{favordt}]]}} {{desc=@{favordesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                             <input type="checkbox" class="sheet-deschide" name="attr_favordeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                             <div class="sheet-deschide">
                                 <textarea name="attr_favordesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -228,7 +228,7 @@
                             <div class="sheet-ligne" style="text-align: left;">
                                 <input type="text" name="attr_weaponname" class="sheet-inptfeat" style="width:230px;" data-i18n-placeholder="type" placeholder="Type" />
                                 <input type="text" name="attr_weapondmg" style="width:100px;" data-i18n-placeholder="damage-example" placeholder="Ex: 1d6+1" />
-                                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" placeholder="Roll damage" value="&{template:default} {{name= @{weaponname} }} {{character=@{character_name}}} {{damage=[[ @{weapondmg}[Damage] + ?{Bonus|0}[Bonus] ]] }}"></button>
+                                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" placeholder="Roll damage" value="&{template:wurm} {{name=@{weaponname}}} {{character=@{character_name}}} {{type=^{damage}}} {{damage=[[ @{weapondmg}[Damage] + ?{Bonus|0}[Bonus] ]]}}"></button>
                                 <input type="text" name="attr_weaponrange" style="width:80px;" data-i18n-placeholder="range" placeholder="Range" />
                                 <select name="attr_weaponresistance" class="sheet-inptfeat" style="width:90px;">
                                     <option value="-">-</option>
@@ -248,7 +248,7 @@
             </div>
         </div>
         <!-- ==================== Equipment & Charms ==================== -->
-        <div class="sheet-mycol1" style="border-left: 2px solid black;">
+        <div class="sheet-mycol1" style="border-left: 2px solid #69392E;">
             <div class="sheet-blacklib">
                 <span data-i18n="equipment-and-charms">Equipment & Charms</span>
             </div>
@@ -274,7 +274,7 @@
             </div>
             <div class="sheet-ligne">
                 <input type="text" name="attr_charmname1" class="sheet-inptfeat" data-i18n-placeholder="charmname1-ph" placeholder="1st Charm" />
-                <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:default} {{name= @{charmname1} }} {{character=@{character_name}}} {{type=^{charms}}}  {{desc= @{charmdesc1} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:wurm} {{name=@{charmname1}}} {{character=@{character_name}}} {{type=^{charm}}} {{desc=@{charmdesc1}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                 <input type="checkbox" class="sheet-deschide" name="attr_charmdeschide1" value="1" data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                 <div class="sheet-deschide">
                     <textarea name="attr_charmdesc1" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -282,7 +282,7 @@
             </div>
             <div class="sheet-ligne">
                 <input type="text" name="attr_charmname2" class="sheet-inptfeat" data-i18n-placeholder="charmname2-ph" placeholder="2nd Charm" />
-                <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:default} {{name= @{charmname2} }} {{character=@{character_name}}} {{type=^{charms}}}  {{desc= @{charmdesc2} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:wurm} {{name=@{charmname2}}} {{character=@{character_name}}} {{type=^{charm}}} {{desc=@{charmdesc2}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                 <input type="checkbox" class="sheet-deschide" name="attr_charmdeschide2" value="1" data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                 <div class="sheet-deschide">
                     <textarea name="attr_charmdesc2" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -290,7 +290,7 @@
             </div>
             <div class="sheet-ligne">
                 <input type="text" name="attr_charmname3" class="sheet-inptfeat" data-i18n-placeholder="charmname3-ph" placeholder="3rd Charm" />
-                <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:default} {{name= @{charmname3} }} {{character=@{character_name}}} {{type=^{charms}}}  {{desc= @{charmdesc3} }}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:wurm} {{name=@{charmname3}}} {{character=@{character_name}}} {{type=^{charm}}} {{desc=@{charmdesc3}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
                 <input type="checkbox" class="sheet-deschide" name="attr_charmdeschide3" value="1" data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
                 <div class="sheet-deschide">
                     <textarea name="attr_charmdesc3" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
@@ -306,3 +306,34 @@
         </div>
     </div>
 </div>
+<!-- ========================================================= -->
+<!-- ============ TEMPLATE   ================================= -->
+<!-- ========================================================= -->
+<rolltemplate class="sheet-rolltemplate-wurm">
+    <div class="sheet-main">
+        <div class="sheet-char">{{character}}</div>
+        {{#type}}
+            <div class="sheet-type">{{type}}</div>
+        {{/type}}
+        {{#name}}
+            <div class="sheet-name">{{name}}</div>
+        {{/name}}
+        {{#diff}}
+            <div class="sheet-type"><span data-i18n="difficulty-threshold">Difficulty Threshold</span> {{diff}}</div>
+        {{/diff}}
+        {{#roll}}
+            <div class="sheet-roll">{{roll}}</div>
+        {{/roll}}
+        {{#damage}}
+            {{#rollLess() damage 1}}
+                <div class="sheet-roll">1</div>
+            {{/rollLess() damage 1}}
+            {{#rollGreater() damage 0}}
+                <div class="sheet-roll">{{damage}}</div>
+            {{/rollGreater() damage 0}}
+        {{/damage}}
+        {{#desc}}
+            <div class="sheet-desc">{{desc}}</div>
+        {{/desc}}
+    </div>
+</rolltemplate>
