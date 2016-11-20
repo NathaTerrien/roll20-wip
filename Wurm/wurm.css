@@ -78,7 +78,8 @@ div.sheet-graylib{
 div.sheet-libsmall{
     display: inline-block;
     font-style: italic;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: bold;
 }
 div.sheet-lib1{
     display: inline-block;
@@ -118,7 +119,7 @@ div.sheet-butd6-5{
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Wurm/wurm_de_5.png");
 }
 /* =====  INPUT ===== */
-input, textarea{
+input, textarea,select{
     background-color: rgba(255,255,255,0.3);
     display: inline-block;
     padding: 0;
@@ -137,12 +138,12 @@ input[type="number"]{
     height: 21px;
     text-align: right;
 }
-input:focus, input:hover, textarea:focus, textarea:hover{
+input:focus, input:hover, textarea:focus, textarea:hover, select:focus, select:hover{
     box-shadow: inset 0px 1px 1px rgba(170,198,212,0.1),0 0 6px rgba(170,198,212,0.9);
     background-color: rgba(170,198,212,0.2);
 }
 input[type="text"].sheet-inpundl{
-    border-bottom: 1px solid black;
+
     width: 250px;
 }
 input[type="number"].sheet-inpundl{
@@ -200,6 +201,11 @@ input[type="checkbox"].sheet-deschide:checked ~ div.sheet-deschide{
     width: 100%;
     border-bottom : 1px dashed #69392E;
 }
+/* =====  SELECT ===== */
+select{
+    line-height: 20px;
+    height: 20px;
+}
 /* =====  TEXTAREA ===== */
 textarea{
     resize:none;
@@ -240,7 +246,10 @@ button[type="roll"].sheet-butd6{
     margin: 0 8px !important;
 }
 button[type="roll"].sheet-butd6:before{
-    font-family: "dicefontd6";
     content: '';
 }
-
+button[type="roll"].sheet-butd6small:before{
+    font-family: "dicefontd6";
+    content: 'F';
+    font-size: 22px;
+}

@@ -209,19 +209,40 @@
                     <div class="sheet-blacklib">
                         <span data-i18n="weapons">Weapons</span>
                     </div>
-                    <div class="sheet-ligne">
-                        <div class="sheet-libsmall">
+                    <div class="sheet-ligne" style="text-align: left;border-bottom: 1px dashed #69392E;">
+                        <div class="sheet-libsmall" style="width:230px;">
                             <span data-i18n="type">Type</span>
                         </div>
-                        <div class="sheet-libsmall">
+                        <div class="sheet-libsmall" style="width:130px;">
                             <span data-i18n="damage">Damage</span>
                         </div>
-                        <div class="sheet-libsmall">
+                        <div class="sheet-libsmall" style="width:80px;">
                             <span data-i18n="range">Range</span>
                         </div>
-                        <div class="sheet-libsmall">
+                        <div class="sheet-libsmall" style="width:90px;">
                             <span data-i18n="resistance">Resistance</span>
                         </div>
+                    </div>
+                    <div class="sheet-scrollblock" style="max-height: 250px;text-align: left;">
+                        <fieldset class="repeating_weapons">
+                            <div class="sheet-ligne" style="text-align: left;">
+                                <input type="text" name="attr_weaponname" class="sheet-inptfeat" style="width:230px;" data-i18n-placeholder="type" placeholder="Type" />
+                                <input type="text" name="attr_weapondmg" style="width:100px;" data-i18n-placeholder="damage-example" placeholder="Ex: 1d6+1" />
+                                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" placeholder="Roll damage" value="&{template:default} {{name= @{weaponname} }} {{character=@{character_name}}} {{damage=[[ @{weapondmg}[Damage] + ?{Bonus|0}[Bonus] ]] }}"></button>
+                                <input type="text" name="attr_weaponrange" style="width:80px;" data-i18n-placeholder="range" placeholder="Range" />
+                                <select name="attr_weaponresistance" class="sheet-inptfeat" style="width:90px;">
+                                    <option value="-">-</option>
+                                    <option value="Lesser" data-i18n="lesser">Lesser</option>
+                                    <option value="Normal" data-i18n="normal">Normal</option>
+                                    <option value="Greater" data-i18n="greater">Greater</option>
+                                    <option value="Magical" data-i18n="magical">Magical</option>
+                                </select>
+                            </div>
+                            <div class="sheet-ligne" style="text-align: left;border-bottom: 1px dashed #69392E;">
+                                <div class="sheet-lib1 sheet-italic"><span data-i18n="special-rules">Special rules</span></div>
+                                <input type="text" name="attr_weaponspecial" style="width:450px;font-style:italic;" data-i18n-placeholder="special-rules" placeholder="Special rules" />
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
             </div>
