@@ -124,88 +124,82 @@
         <div class="sheet-mycol2">
             <div class="sheet-ligne">
                 <!-- ==================== Strengths & Weaknesses ==================== -->
-                <div class="sheet-mycol1">
+                <div class="sheet-mycol1 sheet-mycolborder">
                     <div class="sheet-blacklib">
                         <span data-i18n="strengths-weaknesses">Strengths & Weaknesses</span>
                     </div>
-                    <div class="sheet-scrollblock" style="max-height: 300px;">
-                        <div class="sheet-graylib sheet-italic">
-                            <span data-i18n="strengths">Strengths</span>
-                        </div>
-                        <fieldset class="repeating_strengths">
-                            <input type="text" name="attr_strengthname" class="sheet-inptfeat" data-i18n-placeholder="strengthname-ph" placeholder="Strength" />
-                            <button type="roll" class="sheet-butshow" name="RollShowStrength" value="&{template:wurm} {{name= @{strengthname} }} {{character=@{character_name}}} {{type=^{strengthname-ph}}} {{desc=@{strengthdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
-                            <input type="checkbox" class="sheet-deschide" name="attr_strengthdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
-                            <div class="sheet-deschide">
-                                <textarea name="attr_strengthdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
-                            </div>
-                        </fieldset>
-                        <div class="sheet-graylib sheet-italic">
-                            <span data-i18n="weaknesses">Weaknesses</span>
-                        </div>
-                        <fieldset class="repeating_weaknesses">
-                            <input type="text" name="attr_weaknessname" class="sheet-inptfeat" data-i18n-placeholder="weaknessname-ph" placeholder="Weakness" />
-                            <button type="roll" class="sheet-butshow" name="RollShowWeakness" value="&{template:wurm} {{name=@{weaknessname}}} {{character=@{character_name}}} {{type=^{weaknessname-ph}}} {{desc=@{weaknessdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
-                            <input type="checkbox" class="sheet-deschide" name="attr_weaknessdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
-                            <div class="sheet-deschide">
-                                <textarea name="attr_weaknessdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
-                            </div>
-                        </fieldset>
+                    <div class="sheet-graylib sheet-italic">
+                        <span data-i18n="strengths">Strengths</span>
                     </div>
+                    <fieldset class="repeating_strengths">
+                        <button type="roll" class="sheet-butshow" name="RollShowStrength" value="&{template:wurm} {{name= @{strengthname} }} {{character=@{character_name}}} {{type=^{strengthname-ph}}} {{desc=@{strengthdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                        <input type="checkbox" class="sheet-deschide" name="attr_strengthdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                        <input type="text" name="attr_strengthname" class="sheet-inptfeat" data-i18n-placeholder="strengthname-ph" placeholder="Strength" />
+                        <div class="sheet-deschide">
+                            <textarea name="attr_strengthdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                        </div>
+                    </fieldset>
+                    <div class="sheet-graylib sheet-italic">
+                        <span data-i18n="weaknesses">Weaknesses</span>
+                    </div>
+                    <fieldset class="repeating_weaknesses">
+                        <button type="roll" class="sheet-butshow" name="RollShowWeakness" value="&{template:wurm} {{name=@{weaknessname}}} {{character=@{character_name}}} {{type=^{weaknessname-ph}}} {{desc=@{weaknessdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                        <input type="checkbox" class="sheet-deschide" name="attr_weaknessdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                        <input type="text" name="attr_weaknessname" class="sheet-inptfeat" data-i18n-placeholder="weaknessname-ph" placeholder="Weakness" />
+                        <div class="sheet-deschide">
+                            <textarea name="attr_weaknessdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                        </div>
+                    </fieldset>
                 </div>
                 <!-- ==================== Talents & Secrets Skills ==================== -->
-                <div class="sheet-mycol1" style="border-left: 2px solid #69392E;">
+                <div class="sheet-mycol1 sheet-mycolborder" >
                     <div class="sheet-blacklib">
                         <span data-i18n="talents-secrets-skills">Talents & Secrets Skills</span>
                     </div>
-                    <div class="sheet-scrollblock" style="max-height: 300px;">
-                        <div class="sheet-graylib sheet-italic">
-                            <span data-i18n="talents">Talents</span>
-                        </div>
-                        <fieldset class="repeating_talents">
-                            <input type="text" name="attr_talentname" class="sheet-inptfeat" data-i18n-placeholder="talentname-ph" placeholder="Talent" />
-                            <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:wurm} {{name=@{talentname}}} {{character=@{character_name}}} {{type=^{talentname-ph}}} {{desc=@{talentdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
-                            <input type="checkbox" class="sheet-deschide" name="attr_talentdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
-                            <div class="sheet-deschide">
-                                <textarea name="attr_talentdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
-                            </div>
-                        </fieldset>
-                        <div class="sheet-graylib sheet-italic">
-                            <span data-i18n="secrets-skills">Secrets Skills</span>
-                        </div>
-                        <fieldset class="repeating_skills">
-                            <input type="text" name="attr_skillname" class="sheet-inptfeat" data-i18n-placeholder="skillname-ph" placeholder="Secret skill" />
-                            <button type="roll" class="sheet-butshow" name="RollShowSkill" value="&{template:wurm} {{name=@{skillname}}} {{character=@{character_name}}} {{type=^{skillname-ph}}} {{desc=@{skilldesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
-                            <input type="checkbox" class="sheet-deschide" name="attr_skilldeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
-                            <div class="sheet-deschide">
-                                <textarea name="attr_skilldesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
-                            </div>
-                        </fieldset>
+                    <div class="sheet-graylib sheet-italic">
+                        <span data-i18n="talents">Talents</span>
                     </div>
+                    <fieldset class="repeating_talents">
+                        <button type="roll" class="sheet-butshow" name="RollShowTalent" value="&{template:wurm} {{name=@{talentname}}} {{character=@{character_name}}} {{type=^{talentname-ph}}} {{desc=@{talentdesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                        <input type="checkbox" class="sheet-deschide" name="attr_talentdeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                        <input type="text" name="attr_talentname" class="sheet-inptfeat" data-i18n-placeholder="talentname-ph" placeholder="Talent" />
+                        <div class="sheet-deschide">
+                            <textarea name="attr_talentdesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                        </div>
+                    </fieldset>
+                    <div class="sheet-graylib sheet-italic">
+                        <span data-i18n="secrets-skills">Secrets Skills</span>
+                    </div>
+                    <fieldset class="repeating_skills">
+                        <button type="roll" class="sheet-butshow" name="RollShowSkill" value="&{template:wurm} {{name=@{skillname}}} {{character=@{character_name}}} {{type=^{skillname-ph}}} {{desc=@{skilldesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                        <input type="checkbox" class="sheet-deschide" name="attr_skilldeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                        <input type="text" name="attr_skillname" class="sheet-inptfeat" data-i18n-placeholder="skillname-ph" placeholder="Secret skill" />
+                        <div class="sheet-deschide">
+                            <textarea name="attr_skilldesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
             <!-- ==================== Favors of the Spirits & Curses ==================== -->
             <div class="sheet-ligne">
-                <div class="sheet-mycol2">
+                <div class="sheet-mycol2 sheet-mycolborder">
                     <div class="sheet-blacklib">
                         <span data-i18n="favors-spirits-curses">Favors of the Spirits & Curses</span>
                     </div>
-                    <div class="sheet-scrollblock" style="max-height: 300px;text-align: left;">
-                        <fieldset class="repeating_favors">
-                            <input type="text" name="attr_favorname" class="sheet-inptfeat" style="width:350px;" data-i18n-placeholder="favorname-ph" placeholder="Favor or Curse name" />
-                            <input type="number" name="attr_favordt" value="0" class="sheet-inpundl" data-i18n-title="difficulty-threshold" title="Difficulty Threshold" />
-                            <button type="roll" class="sheet-butshow" name="RollShowFavor" value="&{template:wurm} {{name=@{favorname}}} {{character=@{character_name}}} {{type=^{favors-spirits-curses}}} {{diff=[[@{favordt}]]}} {{desc=@{favordesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
-                            <input type="checkbox" class="sheet-deschide" name="attr_favordeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
-                            <div class="sheet-deschide">
-                                <textarea name="attr_favordesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
-                            </div>
-                        </fieldset>
-                    </div>
+                    <fieldset class="repeating_favors">
+                        <button type="roll" class="sheet-butshow" name="RollShowFavor" value="&{template:wurm} {{name=@{favorname}}} {{character=@{character_name}}} {{type=^{favors-spirits-curses}}} {{diff=[[@{favordt}]]}} {{desc=@{favordesc}}}" data-i18n-title="showinchat-button-title" title="Show in chat"></button>
+                        <input type="checkbox" class="sheet-deschide" name="attr_favordeschide" value="1" checked data-i18n-title="showhide-desc-title" title="Show/Hide description" /><span>s</span>
+                        <input type="text" name="attr_favorname" class="sheet-inptfeat" style="width:350px;" data-i18n-placeholder="favorname-ph" placeholder="Favor or Curse name" />
+                        <input type="number" name="attr_favordt" value="0" class="sheet-inpundl" data-i18n-title="difficulty-threshold" title="Difficulty Threshold" />
+                        <div class="sheet-deschide">
+                            <textarea name="attr_favordesc" class="sheet-areadesc" data-i18n-placeholder="description" placeholder="Description" ></textarea>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
             <!-- ==================== Weapons ==================== -->
             <div class="sheet-ligne">
-                <div class="sheet-mycol2">
+                <div class="sheet-mycol2 sheet-mycolborder">
                     <div class="sheet-blacklib">
                         <span data-i18n="weapons">Weapons</span>
                     </div>
@@ -223,32 +217,30 @@
                             <span data-i18n="resistance">Resistance</span>
                         </div>
                     </div>
-                    <div class="sheet-scrollblock" style="max-height: 250px;text-align: left;">
-                        <fieldset class="repeating_weapons">
-                            <div class="sheet-ligne" style="text-align: left;">
-                                <input type="text" name="attr_weaponname" class="sheet-inptfeat" style="width:230px;" data-i18n-placeholder="type" placeholder="Type" />
-                                <input type="text" name="attr_weapondmg" style="width:100px;" data-i18n-placeholder="damage-example" placeholder="Ex: 1d6+1" />
-                                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" placeholder="Roll damage" value="&{template:wurm} {{name=@{weaponname}}} {{character=@{character_name}}} {{type=^{damage}}} {{damage=[[ @{weapondmg}[Damage] + ?{Bonus|0}[Bonus] ]]}}"></button>
-                                <input type="text" name="attr_weaponrange" style="width:80px;" data-i18n-placeholder="range" placeholder="Range" />
-                                <select name="attr_weaponresistance" class="sheet-inptfeat" style="width:90px;">
-                                    <option value="-">-</option>
-                                    <option value="Lesser" data-i18n="lesser">Lesser</option>
-                                    <option value="Normal" data-i18n="normal">Normal</option>
-                                    <option value="Greater" data-i18n="greater">Greater</option>
-                                    <option value="Magical" data-i18n="magical">Magical</option>
-                                </select>
-                            </div>
-                            <div class="sheet-ligne" style="text-align: left;border-bottom: 1px dashed #69392E;">
-                                <div class="sheet-lib1 sheet-italic"><span data-i18n="special-rules">Special rules</span></div>
-                                <input type="text" name="attr_weaponspecial" style="width:450px;font-style:italic;" data-i18n-placeholder="special-rules" placeholder="Special rules" />
-                            </div>
-                        </fieldset>
-                    </div>
+                    <fieldset class="repeating_weapons">
+                        <div class="sheet-ligne" style="text-align: left;">
+                            <input type="text" name="attr_weaponname" class="sheet-inptfeat" style="width:230px;" data-i18n-placeholder="type" placeholder="Type" />
+                            <input type="text" name="attr_weapondmg" style="width:100px;" data-i18n-placeholder="damage-example" placeholder="Ex: 1d6+1" />
+                            <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" placeholder="Roll damage" value="&{template:wurm} {{name=@{weaponname}}} {{character=@{character_name}}} {{type=^{damage}}} {{damage=[[ @{weapondmg}[Damage] + ?{Bonus|0}[Bonus] ]]}}"></button>
+                            <input type="text" name="attr_weaponrange" style="width:80px;" data-i18n-placeholder="range" placeholder="Range" />
+                            <select name="attr_weaponresistance" class="sheet-inptfeat" style="width:90px;">
+                                <option value="-">-</option>
+                                <option value="Lesser" data-i18n="lesser">Lesser</option>
+                                <option value="Normal" data-i18n="normal">Normal</option>
+                                <option value="Greater" data-i18n="greater">Greater</option>
+                                <option value="Magical" data-i18n="magical">Magical</option>
+                            </select>
+                        </div>
+                        <div class="sheet-ligne" style="text-align: right;border-bottom: 1px dashed #69392E;">
+                            <div class="sheet-lib1 sheet-italic" style="width:120px;text-align: right;"><span data-i18n="special-rules">Special rules</span></div>
+                            <input type="text" name="attr_weaponspecial" style="width:415px;font-style:italic;" data-i18n-placeholder="special-rules" placeholder="Special rules" />
+                        </div>
+                    </fieldset>
                 </div>
             </div>
         </div>
         <!-- ==================== Equipment & Charms ==================== -->
-        <div class="sheet-mycol1" style="border-left: 2px solid #69392E;">
+        <div class="sheet-mycol1 sheet-mycolborder" >
             <div class="sheet-blacklib">
                 <span data-i18n="equipment-and-charms">Equipment & Charms</span>
             </div>
