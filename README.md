@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-11-11 (Dungeon World French v3.1)._
+_Updated 2016-11-22._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -29,7 +29,7 @@ Creation.
 * [Official]()
 
 ### Todo
-Getting started...
+* Tests and screencaptures for the pull request
 
 ## Existing sheets
 
@@ -81,6 +81,10 @@ Création.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
 
 #### Todo
+* Ajout de la saisie du malus d'armure/bouclier
+* Gestion de l'armure/bouclier portés/non portés : impact sur la DEF et sur les malus de Test DEX
+* Gestion de l'affaiblissement (D12 au lieu de D20)
+* (?) Gestion de l'option Héroïque (D20/12 < 10 = 10)
 * Fiche compagnon simplifiée
 * En réflexion : amélioration de la saisie et diffusion dans le chat des Capacités des Voies
 
