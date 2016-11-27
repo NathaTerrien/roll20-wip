@@ -3,8 +3,8 @@
     on('sheet:opened',function(){
         // **** Gestion transition de version
         getAttrs(["VERSION"], function(values) {
-            var version = parseInt(values.VERSION) || 0;
-            if (version == 0) {
+            var verfdp = parseInt(values.VERSION) || 0;
+            if (verfdp == 0) {
                 // Version 1.6 vers 1.7
                 getAttrs(["FOR_SUP","DEX_SUP","CON_SUP","INT_SUP","SAG_SUP","CHA_SUP"], function(jets) {
                     var sfor, sdex, scon, sint, ssag, scha = "";
@@ -38,7 +38,7 @@
                     } else {
                         scha = "@{JETNORMAL}";
                     }
-                    setAttrs(
+                    setAttrs({
                         FOR_SUP: sfor,
                         DEX_SUP: sdex,
                         CON_SUP: scon,
@@ -46,7 +46,7 @@
                         SAG_SUP: ssag,
                         CHA_SUP: scha,
                         VERSION: "1.7"
-                    );
+                    });
                 });
             }
         });
@@ -109,7 +109,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_FORCE" title="Force" value="10" min="0" max="30"/></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_FOR" value="floor((@{FORCE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_FOR_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_FOR_BONUS" value="0" title="Bonus au Test" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_FOR_TEST" value="@{FOR}+@{FOR_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -123,7 +123,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_DEXTERITE" title="Dextérité" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_DEX" value="floor((@{DEXTERITE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_DEX_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_DEX_BONUS" value="0" title="Bonus au Test" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_DEX_TEST" value="@{DEX}+@{DEX_BONUS}-((@{DEFARMUREON}*@{DEFARMUREMALUS})+(@{DEFBOUCLIERON}*@{DEFBOUCLIERMALUS}))" disabled /></td>
                         </tr>
                         <tr>
@@ -137,7 +137,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_CONSTITUTION" title="Constitution" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CON" value="floor((@{CONSTITUTION}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_CON_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_CON_BONUS" value="0" title="Bonus au Test" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CON_TEST" value="@{CON}+@{CON_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -151,7 +151,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_INTELLIGENCE" title="Intelligence" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_INT" value="floor((@{INTELLIGENCE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_INT_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_INT_BONUS" value="0" title="Bonus au Test" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_INT_TEST" value="@{INT}+@{INT_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -165,7 +165,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_SAGESSE" title="Sagesse" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_SAG" value="floor((@{SAGESSE}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_SAG_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_SAG_BONUS" value="0" title="Bonus au Test" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_SAG_TEST" value="@{SAG}+@{SAG_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -179,7 +179,7 @@
                             </td>
                             <td class="sheet-boxinput"><input type="number" name="attr_CHARISME" title="Charisme" value="10" min="0" max="30" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CHA" value="floor((@{CHARISME}-10)/2)" disabled /></td>
-                            <td class="sheet-boxinput"><input type="number" name="attr_CHA_BONUS" title="Bonus au Test" /></td>
+                            <td class="sheet-boxinput"><input type="number" name="attr_CHA_BONUS" value="0" title="Bonus au Test" /></td>
                             <td class="sheet-boxinputlight"><input type="number" name="attr_CHA_TEST" value="@{CHA}+@{CHA_BONUS}" disabled /></td>
                         </tr>
                         <tr>
@@ -542,7 +542,7 @@
                             <option value="8">d8</option>
                             <option value="10">d10</option>
                             <option value="12">d12</option>
-                            <option value="20" selected>d20</option>
+                            <option value="@{ETATDE}" selected>d20 (ou d12 si Affaibli)</option>
                         </select>
                         (<select class="sheet-carac" style="width:30px;" name="attr_jetcapatypjet" size="1" title="Option du jet : normal, garder le plus bas, garder le plus haut">
                             <option value="">N - Normal / additionner tous les dés</option>
