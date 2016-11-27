@@ -1,14 +1,13 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-11-22._
+_Updated 2016-11-27 (Wüm v1.0 + Chroniques Oubliées Fantasy v1.7)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria)
 * Macchiato Monsters, french and english
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
@@ -18,18 +17,19 @@ Thank you :)
 
 ## WIP
 
-### WÜRM (english and french)
-Würm is an Ice Age RPG originally published in [french](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
+### Barbarians of Lemuria : mythic edition (english and french)
+Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria).
 
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Wurm)
+* [WIP]()
 * [Fork]()
 * [Official]()
 
 ### Todo
-* Tests and screencaptures for the pull request
+
+Getting started ...
 
 ## Existing sheets
 
@@ -76,15 +76,11 @@ Création.
 Création.
 
 #### Sources
-* [WIP](./ChroniquesOubliees/) Version 1.6 (2016-11-01)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.6 (2016-11-01)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.5
+* [WIP](./ChroniquesOubliees/) Version 1.7 (2016-11-27)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.7 (2016-11-27)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.6
 
 #### Todo
-* Ajout de la saisie du malus d'armure/bouclier
-* Gestion de l'armure/bouclier portés/non portés : impact sur la DEF et sur les malus de Test DEX
-* Gestion de l'affaiblissement (D12 au lieu de D20)
-* (?) Gestion de l'option Héroïque (D20/12 < 10 = 10)
 * Fiche compagnon simplifiée
 * En réflexion : amélioration de la saisie et diffusion dans le chat des Capacités des Voies
 
@@ -259,6 +255,19 @@ Creation.
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies) Version 1.0 (2016-10-30)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
+
+### Todo
+* In game testing
+
+### WÜRM (english and french)
+Würm is an Ice Age RPG originally published in [french](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
+
+Creation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Wurm) Version 1.0 (2016-11-23)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Wurm) Version 1.0 (2016-11-23)
+* [Official]()
 
 ### Todo
 * In game testing
