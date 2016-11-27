@@ -23,7 +23,7 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP]()
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic)
 * [Fork]()
 * [Official]()
 
