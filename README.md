@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-11-27 (Wüm v1.0 + Chroniques Oubliées Fantasy v1.7)._
+_Updated 2016-11-29 (Wüm v1.0 + Chroniques Oubliées Fantasy v1.7)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -29,7 +29,7 @@ Creation.
 
 ### Todo
 
-Getting started ...
+Styling in progress.
 
 ## Existing sheets
 
@@ -78,7 +78,7 @@ Création.
 #### Sources
 * [WIP](./ChroniquesOubliees/) Version 1.7 (2016-11-27)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.7 (2016-11-27)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.6
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.7 (2016-11-29)
 
 #### Todo
 * Fiche compagnon simplifiée
@@ -267,7 +267,7 @@ Creation.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Wurm) Version 1.0 (2016-11-23)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Wurm) Version 1.0 (2016-11-23)
-* [Official]()
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Wurm) Version 1.0 (2016-11-29)
 
 ### Todo
 * In game testing
