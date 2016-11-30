@@ -115,12 +115,9 @@ Traduction puis refonte et amélioration quasi complète (~création).
 #### Sources
 * [WIP](./DungeonWorldFrench/) Version 3.1 (2016-11-11)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.1 (2016-11-11)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.0 (2016-08-12)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.1 (2016-11-11)
 
 #### Todo
-* Jets
-  * Gérer le malus d'armure aux jets
-  * Modificateur circonstantiel sur les jets ?
 
 ### Icons (french)
 Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS](http://johndoe-rpg.com/catalogue/icons/), édité par John Doe.
@@ -214,7 +211,7 @@ Création.
 ### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX) Version 1.1 (BAB pris en compte dans les attaques)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Terra-X) Version 1.1 (BAB pris en compte dans les attaques)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Terra-X) Version 1.0
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Terra-X) Version 1.1 (BAB pris en compte dans les attaques)
 
 ### Todo
 * Tests en jeu
@@ -260,7 +257,7 @@ Creation.
 * In game testing
 
 ### WÜRM (english and french)
-Würm is an Ice Age RPG originally published in [french](http://www.editions-icare.com/index.php/nos-jeux-de-roles/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
+Würm is an Ice Age RPG originally published in [french](http://www.legrog.org/jeux/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
 
 Creation.
 
