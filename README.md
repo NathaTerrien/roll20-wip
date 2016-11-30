@@ -108,7 +108,7 @@ Création.
 Cf. english version
 
 ### Dungen World (french)
-Wiki [Dungeon World VF V1 et V2](dungeonworld.pbta.fr)
+Wiki [Dungeon World VF V1 et V2](http://dungeonworld.pbta.fr)
 
 Traduction puis refonte et amélioration quasi complète (~création).
 
