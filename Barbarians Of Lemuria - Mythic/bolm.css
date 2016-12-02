@@ -1,3 +1,7 @@
+/* COLORS
+ #932315 / 147,35,21 : redish brown
+ #6FB387 / 111,179,135 : green
+*/
 div,
 button,
 textarea,
@@ -71,4 +75,40 @@ div.sheet-ligne{
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 12% 0%;
+}
+input, textarea{
+    background-color: transparent;
+    display: inline-block;
+    padding: none;
+    margin: none;
+    font-family: Arial;
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    resize:none;
+    color: #932315;
+    z-index: 2;
+    border-radius: 0;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(147,35,21,0.01),0 0 6px rgba(147,35,21,0.5);
+    background-color: rgba(147,35,21,0.05);
+}
+textarea{
+    padding: 1px 2px 0px 2px;
+}
+input[type="text"]{
+    padding: 0px 0px 0px 0px;
+}
+input[type="number"]{
+    text-align: right;
+    padding: 0px 2px 0px 0px;
+}
+input.sheet-iptbig1{
+    font-size:20px;
+    width:280px;
+    text-align:center;
+    font-weight:bold;
+    min-height:30px;
+    text-transform: capitalize;
 }
