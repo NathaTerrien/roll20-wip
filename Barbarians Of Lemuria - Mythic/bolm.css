@@ -10,6 +10,9 @@ input,
 select{
     box-sizing: border-box;
 }
+.sheet-debugred{
+     border: 1px solid red;
+}
 div{
     margin: none;
     padding: none;
@@ -21,19 +24,24 @@ div.sheet-bgmain{
     min-height: 700px;
     text-align:center;
     font-family: 'Candal';
-    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_bg.jpg');
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_bg.png');
     background-repeat:no-repeat;
     background-position:top left;
     background-size: cover;
 }
 div.sheet-absinp{
     position: absolute;
+    /* border: 1px solid red; */
 }
 div.sheet-ligne{
     display: block;
     text-align: left;
     width: 100%;
     margin-bottom: 2px;
+}
+div.sheet-whitelab1{
+    width:100px;
+    background-color: white;
 }
 .sheet-libBlack1{
     background-color: transparent;
@@ -57,7 +65,7 @@ div.sheet-ligne{
     background-color: transparent;
     color: white;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: normal;
     text-align: left;
     text-transform: uppercase;
     font-family: 'Contrail One';
@@ -77,12 +85,11 @@ div.sheet-ligne{
     transform-origin: 12% 0%;
 }
 input, textarea{
-    background-color: transparent;
     display: inline-block;
     padding: none;
     margin: none;
-    font-family: Arial;
-    font-size: 14px;
+    /* font-family: Arial;
+    font-size: 13px; */
     border: none;
     box-shadow: none;
     resize:none;
@@ -90,15 +97,23 @@ input, textarea{
     z-index: 2;
     border-radius: 0;
 }
+input{
+    background-color: transparent;
+}
+textarea{
+    background-color: transparent;
+    padding: 1px 2px 0px 2px;
+    overflow-y: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
 input:focus, input:hover, textarea:focus, textarea:hover{
     box-shadow: inset 0px 1px 1px rgba(147,35,21,0.01),0 0 6px rgba(147,35,21,0.5);
     background-color: rgba(147,35,21,0.05);
 }
-textarea{
-    padding: 1px 2px 0px 2px;
-}
 input[type="text"]{
-    padding: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 2px;
 }
 input[type="number"]{
     text-align: right;
@@ -111,4 +126,95 @@ input.sheet-iptbig1{
     font-weight:bold;
     min-height:30px;
     text-transform: capitalize;
+}
+input[disabled],
+input[readonly] {
+    -moz-appearance: textfield;
+    background-color: transparent;
+}
+input[type=number]:disabled::-webkit-inner-spin-button,
+input[type=number]:disabled::-webkit-outer-spin-button,
+input[type=number]:read-only::-webkit-inner-spin-button,
+input[type=number]:read-only::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+input.sheet-iptnumrond{
+    line-height: 30px;
+    font-size: 30px;
+    text-align: center;
+    padding: 0;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    border:none;
+    font-weight: bold;
+}
+input.sheet-iptnumrondtop{
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    padding: 0;
+    max-width: 60px;
+    min-width: 60px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 30px 30px 0px 0px;
+    border-width: 0px 0px 2px 0px;
+    border-style: dotted;
+    border-color: #7F7F7F;
+    font-weight: bold;
+    display: block;
+}
+input.sheet-iptnumrondbott{
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    padding: 0;
+    max-width: 60px;
+    min-width: 60px;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 0px 0px 30px 30px;
+    border: none;
+    font-weight: bold;
+    display: block;
+}
+.sheet-max{
+    background-color: rgba(147,35,21,0.1);
+}
+input.sheet-iptnumrond, input.sheet-iptnumrondtop, input.sheet-iptnumrondbott {
+    -moz-appearance: textfield;
+}
+input.sheet-iptnumrond::-webkit-inner-spin-button,
+input.sheet-iptnumrond::-webkit-outer-spin-button,
+input.sheet-iptnumrondtop::-webkit-inner-spin-button,
+input.sheet-iptnumrondtop::-webkit-outer-spin-button,
+input.sheet-iptnumrondbott::-webkit-inner-spin-button,
+input.sheet-iptnumrondbott::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    appearance: none;
+}
+input.sheet-iptnumrondsm{
+    line-height: 20px;
+    font-size: 20px;
+    text-align: center;
+    min-width: 31px;
+    min-height: 31px;
+    max-width: 31px;
+    max-height: 31px;
+    border-radius: 50%;
+    border:none;
+    font-weight: bold;
+}
+input.sheet-iptnumrondsm {
+    -moz-appearance: textfield;
+}
+input.sheet-iptnumrondsm::-webkit-inner-spin-button,
+input.sheet-iptnumrondsm::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
 }

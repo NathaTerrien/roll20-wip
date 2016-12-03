@@ -1,73 +1,165 @@
 <div class="sheet-bgmain">
-    <div class="sheet-absinp" style="left: 230px;top:35px;">
+    <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:35px;text-align: right;">
         <span class="sheet-libBlack1" data-i18n="name">Name</span>
     </div>
-    <div class="sheet-absinp" style="left: 316px;top:20px;">
+    <div class="sheet-absinp" style="left: 330px;top:20px;">
         <input type="text" name="attr_character_name" class="sheet-iptbig1" />
     </div>
-    <div class="sheet-absinp" style="left: 230px;top:68px;">
+    <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:69px;text-align: right;">
         <span class="sheet-libBlack2" data-i18n="background">Background</span>
     </div>
-    <div class="sheet-absinp" style="left: 316px;top:63px;">
-        <input type="text" name="attr_background" style="width: 380px;" data-i18n-placeholder="background" placeholder="Background" />
+    <div class="sheet-absinp" style="left: 330px;top:63px;">
+        <input type="text" name="attr_background" style="width: 400px;" data-i18n-placeholder="background" placeholder="Background" />
     </div>
-    <div class="sheet-absinp" style="left: 230px;top:100px;">
+    <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:101px;text-align: right;">
         <span class="sheet-libBlack2" data-i18n="languages">Languages</span>
     </div>
-    <div class="sheet-absinp" style="left: 316px;top:95px;">
-        <input type="text" name="attr_languages" style="width: 380px;" data-i18n-placeholder="languages" placeholder="Languages" />
+    <div class="sheet-absinp" style="left: 330px;top:95px;">
+        <input type="text" name="attr_languages" style="width: 415px;" data-i18n-placeholder="languages" placeholder="Languages" />
     </div>
-    <div class="sheet-absinp" style="left: 700px;top:75px;background: white;width:150px;text-align:center;">
+    <div class="sheet-absinp" style="left: 545px;top:125px;width:200px;text-align:right;">
         <span class="sheet-libBlack2" data-i18n="advance">Advance</span>
     </div>
+    <div class="sheet-absinp" style="left: 750px;top:102px;">
+        <input type="number" name="attr_advance" class="sheet-iptnumrond" data-i18n-title="advance" title="Advance" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left:805px;top:58px;">
+        <textarea name="attr_notes" style="width:180px;height:270px;" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+    </div>
+
     <!-- ========= ATTRIBUTES ========= -->
-    <div class="sheet-absinp" style="left: 100px;top:152px;text-align: center;width:425px;">
+    <div class="sheet-absinp" style="left: 100px;top:154px;text-align: center;width:425px;">
         <span class="sheet-libWhite1" data-i18n="attributes">Attributes</span>
     </div>
     <!-- STRENGTH -->
-    <div class="sheet-absinp" style="left: 85px;top:262px;text-align: center;width: 110px;">
+    <div class="sheet-absinp" style="left: 85px;top:264px;text-align: center;width: 110px;">
         <span class="sheet-libBlack2" data-i18n="strength">Strength</span>
     </div>
+    <div class="sheet-absinp" style="left: 114px;top:184px;">
+        <input type="number" name="attr_strength" class="sheet-iptnumrond" data-i18n-title="strength" title="Strength" value="0" />
+    </div>
     <!-- AGILITY -->
-    <div class="sheet-absinp" style="left: 195px;top:262px;text-align: center;width: 114px;">
+    <div class="sheet-absinp" style="left: 195px;top:264px;text-align: center;width: 114px;">
         <span class="sheet-libBlack2" data-i18n="agility">Agility</span>
     </div>
+    <div class="sheet-absinp" style="left: 228px;top:184px;">
+        <input type="number" name="attr_agility" class="sheet-iptnumrond" data-i18n-title="agility" title="Agility" value="0" />
+    </div>
     <!-- MIND -->
-    <div class="sheet-absinp" style="left: 309px;top:262px;text-align: center;width: 118px;">
+    <div class="sheet-absinp" style="left: 309px;top:264px;text-align: center;width: 118px;">
         <span class="sheet-libBlack2" data-i18n="mind">Mind</span>
     </div>
+    <div class="sheet-absinp" style="left: 343px;top:184px;">
+        <input type="number" name="attr_mind" class="sheet-iptnumrond" data-i18n-title="mind" title="Mind" value="0" />
+    </div>
     <!-- APPEAL -->
-    <div class="sheet-absinp" style="left: 426px;top:262px;text-align: center;width: 113px;">
+    <div class="sheet-absinp" style="left: 426px;top:264px;text-align: center;width: 113px;">
         <span class="sheet-libBlack2" data-i18n="appeal">Appeal</span>
+    </div>
+    <div class="sheet-absinp" style="left: 459px;top:184px;">
+        <input type="number" name="attr_appeal" class="sheet-iptnumrond" data-i18n-title="appeal" title="Appeal" value="0" />
     </div>
 
     <!-- ========= COMBAT ABILITIES ========= -->
     <div class="sheet-absinp" style="left: 5px;top:520px;white-space: nowrap;text-align: center;">
         <span class="sheet-libWhite1 sheet-vertical" style data-i18n="combat-abilities">Combat Abilities</span>
     </div>
+    <!-- INITIATIVE -->
+    <div class="sheet-absinp" style="left: 73px;top:343px;">
+        <span class="sheet-libBlack2" data-i18n="initiative">Initiative</span>
+    </div>
+    <div class="sheet-absinp" style="left: 50px;top:287px;">
+        <input type="number" name="attr_initiative" class="sheet-iptnumrond" data-i18n-title="initiative" title="Initiative" value="0" />
+    </div>
+    <!-- MELEE -->
+    <div class="sheet-absinp" style="left: 73px;top:434px;">
+        <span class="sheet-libBlack2" data-i18n="melee">Melee</span>
+    </div>
+    <div class="sheet-absinp" style="left: 50px;top:378px;">
+        <input type="number" name="attr_melee" class="sheet-iptnumrond" data-i18n-title="initiative" title="Melee" value="0" />
+    </div>
+    <!-- RANGE -->
+    <div class="sheet-absinp" style="left: 73px;top:521px;">
+        <span class="sheet-libBlack2" data-i18n="range">Range</span>
+    </div>
+    <div class="sheet-absinp" style="left: 50px;top:465px;">
+        <input type="number" name="attr_range" class="sheet-iptnumrond" data-i18n-title="initiative" title="Range" value="0" />
+    </div>
+    <!-- DEFENSE -->
+    <div class="sheet-absinp" style="left: 73px;top:605px;">
+        <span class="sheet-libBlack2" data-i18n="defense">Defense</span>
+    </div>
+    <div class="sheet-absinp" style="left: 50px;top:549px;">
+        <input type="number" name="attr_defense" class="sheet-iptnumrond" data-i18n-title="initiative" title="Defense" value="0" />
+    </div>
+
     <!-- ========= WEAPONS ========= -->
-    <div class="sheet-absinp" style="left: 568px;top:152px;text-align: center;width:155px;">
+    <div class="sheet-absinp" style="left: 568px;top:158px;text-align: center;width:155px;">
         <span class="sheet-libWhite1" data-i18n="weapons">Weapons</span>
     </div>
-    <div class="sheet-absinp" style="left: 723px;top:152px;text-align: center;width:72px;">
+    <div class="sheet-absinp" style="left: 724px;top:162px;text-align: center;width:72px;">
         <span class="sheet-libWhite2" data-i18n="dmg">Dmg</span>
     </div>
+
     <!-- ========= CAREERS ========= -->
-    <div class="sheet-absinp" style="left: 170px;top:304px;text-align: center;width:200px;">
+    <div class="sheet-absinp" style="left: 170px;top:306px;text-align: center;width:200px;">
         <span class="sheet-libWhite1" data-i18n="careers">Careers</span>
     </div>
+    <!-- CAREER 1 -->
+    <div class="sheet-absinp" style="left: 171px;top:346px;">
+        <input type="number" name="attr_career1rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 205px;top:340px;">
+        <textarea name="attr_career1" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+    </div>
+    <!-- CAREER 2 -->
+    <div class="sheet-absinp" style="left: 171px;top:386px;">
+        <input type="number" name="attr_career2rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 205px;top:380px;">
+        <textarea name="attr_career2" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+    </div>
+    <!-- CAREER 3 -->
+    <div class="sheet-absinp" style="left: 171px;top:426px;">
+        <input type="number" name="attr_career3rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 205px;top:420px;">
+        <textarea name="attr_career3" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+    </div>
+    <!-- CAREER 4 -->
+    <div class="sheet-absinp" style="left: 171px;top:466px;">
+        <input type="number" name="attr_career4rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 205px;top:460px;">
+        <textarea name="attr_career4" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+    </div>
+    <!-- CAREER 5 -->
+    <div class="sheet-absinp" style="left: 171px;top:506px;">
+        <input type="number" name="attr_career5rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 205px;top:500px;">
+        <textarea name="attr_career5" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+    </div>
+
     <!-- ========= MISC. POINTS ========= -->
 
     <!-- ========= ARMOUR & EQUIPMENT ========= -->
     <div class="sheet-absinp" style="left: 570px;top:344px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="armour-and-equipment">Armour & Equipment</span>
     </div>
+
     <!-- ========= BOONS & FLAWS ========= -->
-    <div class="sheet-absinp" style="left: 175px;top:561px;text-align: center;width:390px;">
+    <div class="sheet-absinp" style="left: 175px;top:562px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="boons">Boons</span>
     </div>
-    <div class="sheet-absinp" style="left: 570px;top:561px;text-align: center;width:390px;">
+    <div class="sheet-absinp" style="left:172px;top:584px;">
+        <textarea name="attr_boons" style="width:393px;height:90px;" data-i18n-placeholder="boons" placeholder="Boons"></textarea>
+    </div>
+    <div class="sheet-absinp" style="left: 570px;top:562px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="flaws">Flaws</span>
+    </div>
+    <div class="sheet-absinp" style="left:568px;top:584px;">
+        <textarea name="attr_flaws" style="width:396px;height:90px;" data-i18n-placeholder="flaws" placeholder="Flaws"></textarea>
     </div>
 </div>
 
