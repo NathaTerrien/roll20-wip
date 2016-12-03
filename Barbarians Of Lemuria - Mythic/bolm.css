@@ -61,6 +61,16 @@ div.sheet-whitelab1{
     text-transform: uppercase;
     font-family: 'Contrail One';
 }
+.sheet-libBlack3{
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+    font-family: 'Contrail One';
+    display: inline-block;
+    height:20px;
+}
 .sheet-libWhite1{
     background-color: transparent;
     color: white;
@@ -217,4 +227,17 @@ input.sheet-iptnumrondsm::-webkit-inner-spin-button,
 input.sheet-iptnumrondsm::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
+}
+select{
+    background-color:rgba(255,255,255,0.5);
+    padding: 0px;
+    margin: 0px;
+    height: 1.6em;
+    line-height: 1.6em;
+    max-height 1.6em;
+    font-weight:normal;
+    border: none;
+}
+select:hover{
+    border: 1px solid #932315;
 }

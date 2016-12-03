@@ -1,6 +1,6 @@
 {
     "name": "Name",
-    "background": "Background",
+    "origin": "Origin",
     "languages": "Languages",
     "advance": "Advance",
     "notes": "Notes",
@@ -20,6 +20,12 @@
     "career-rank": "Career rank",
     "career": "Career",
     "armour-and-equipment": "Armour &amp; Equipment",
+    "armour": "Armour",
+    "none": "None",
+    "light": "Small",
+    "medium": "Large",
+    "heavy": "Heavy",
+    "shield": "Shield",
     "boons": "Boons",
     "flaws": "Flaws"
 }

@@ -6,10 +6,10 @@
         <input type="text" name="attr_character_name" class="sheet-iptbig1" />
     </div>
     <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:69px;text-align: right;">
-        <span class="sheet-libBlack2" data-i18n="background">Background</span>
+        <span class="sheet-libBlack2" data-i18n="origin">Origin</span>
     </div>
     <div class="sheet-absinp" style="left: 330px;top:63px;">
-        <input type="text" name="attr_background" style="width: 400px;" data-i18n-placeholder="background" placeholder="Background" />
+        <input type="text" name="attr_background" style="width: 400px;" data-i18n-placeholder="origin" placeholder="Origin" />
     </div>
     <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:101px;text-align: right;">
         <span class="sheet-libBlack2" data-i18n="languages">Languages</span>
@@ -147,7 +147,25 @@
     <div class="sheet-absinp" style="left: 570px;top:344px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="armour-and-equipment">Armour & Equipment</span>
     </div>
-
+    <div class="sheet-absinp debugred" style="left: 570px;top:370px;text-align: center;width:100px;height:44px;">
+        <span class="sheet-libBlack2" data-i18n="armour">Armour</span>
+        <SELECT name="attr_armour" style="width: 95px;vertical-align:bottom;">
+            <OPTION value="none" data-i18n="none">None</OPTION>
+            <OPTION value="light" data-i18n="light">Light</OPTION>
+            <OPTION value="medium" data-i18n="medium">Medium</OPTION>
+            <OPTION value="heavy" data-i18n="heavy">Heavy</OPTION>
+        </SELECT>
+    </div>
+    <div class="sheet-absinp debugred" style="left: 670px;top:370px;text-align: center;width:75px;height:44px;">
+        <span class="sheet-libBlack3" data-i18n="shield">Shield</span>
+        <SELECT name="attr_shield" style="width: 70px;">
+            <OPTION value="none" data-i18n="none">None</OPTION>
+            <OPTION value="light" data-i18n="light">Small</OPTION>
+            <OPTION value="large" data-i18n="medium">Large</OPTION>
+        </SELECT>
+    </div>
+        <input type="text" name="attr_armourroll" value="0" />
+        <input type="hidden" name="attr_armourpenalty" value="0" />
     <!-- ========= BOONS & FLAWS ========= -->
     <div class="sheet-absinp" style="left: 175px;top:562px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="boons">Boons</span>
