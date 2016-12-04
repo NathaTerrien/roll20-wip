@@ -37,6 +37,12 @@
     </div>
     <div class="sheet-absinp" style="left: 114px;top:184px;">
         <input type="number" name="attr_strength" class="sheet-iptnumrond" data-i18n-title="strength" title="Strength" value="0" />
+        <input type="hidden" name="attr_strengthhalf" value="[[floor(@{strength}/2)]]" disabled />
+    </div>
+    <div class="sheet-absinp" style="left: 70px;top:188px;">
+        <button type="roll" class="sheet-butd6small block" name="RollStrength" data-i18n-title="strength-roll" title="Strength roll" value="" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="RollStrengthBoon" data-i18n-title="strength-roll-boon" title="Strength roll with Boon" value="" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="RollStrengthFlaw" data-i18n-title="strength-roll-flaw" title="Strength roll with Flaw" value="" ></button>
     </div>
     <!-- AGILITY -->
     <div class="sheet-absinp" style="left: 195px;top:264px;text-align: center;width: 114px;">
@@ -45,6 +51,11 @@
     <div class="sheet-absinp" style="left: 228px;top:184px;">
         <input type="number" name="attr_agility" class="sheet-iptnumrond" data-i18n-title="agility" title="Agility" value="0" />
     </div>
+    <div class="sheet-absinp" style="left: 184px;top:188px;">
+        <button type="roll" class="sheet-butd6small block" name="RollAgility" data-i18n-title="agility-roll" title="Agility roll" value="" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="RollAgilityBoon" data-i18n-title="agility-roll-boon" title="Agility roll with Boon" value="" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="RollAgilityFlaw" data-i18n-title="agility-roll-flaw" title="Agility roll with Flaw" value="" ></button>
+    </div>
     <!-- MIND -->
     <div class="sheet-absinp" style="left: 309px;top:264px;text-align: center;width: 118px;">
         <span class="sheet-libBlack2" data-i18n="mind">Mind</span>
@@ -52,12 +63,22 @@
     <div class="sheet-absinp" style="left: 343px;top:184px;">
         <input type="number" name="attr_mind" class="sheet-iptnumrond" data-i18n-title="mind" title="Mind" value="0" />
     </div>
+    <div class="sheet-absinp" style="left: 297px;top:188px;">
+        <button type="roll" class="sheet-butd6small block" name="RollMind" data-i18n-title="mind-roll" title="Mind roll" value="" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="RollMindBoon" data-i18n-title="mind-roll-boon" title="Mind roll with Boon" value="" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="RollMindFlaw" data-i18n-title="mind-roll-flaw" title="Mind roll with Flaw" value="" ></button>
+    </div>
     <!-- APPEAL -->
     <div class="sheet-absinp" style="left: 426px;top:264px;text-align: center;width: 113px;">
         <span class="sheet-libBlack2" data-i18n="appeal">Appeal</span>
     </div>
     <div class="sheet-absinp" style="left: 459px;top:184px;">
         <input type="number" name="attr_appeal" class="sheet-iptnumrond" data-i18n-title="appeal" title="Appeal" value="0" />
+    </div>
+    <div class="sheet-absinp" style="left: 415px;top:188px;">
+        <button type="roll" class="sheet-butd6small block" name="RollAppeal" data-i18n-title="appeal-roll" title="Appeal roll" value="" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="RollAppealBoon" data-i18n-title="appeal-roll-boon" title="Appeal roll with Boon" value="" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="RollAppealFlaw" data-i18n-title="appeal-roll-flaw" title="Appeal roll with Flaw" value="" ></button>
     </div>
 
     <!-- ========= COMBAT ABILITIES ========= -->
@@ -94,11 +115,29 @@
     </div>
 
     <!-- ========= WEAPONS ========= -->
-    <div class="sheet-absinp" style="left: 568px;top:158px;text-align: center;width:155px;">
+    <div class="sheet-absinp" style="left: 540px;top:158px;text-align: center;width:155px;">
         <span class="sheet-libWhite1" data-i18n="weapons">Weapons</span>
     </div>
-    <div class="sheet-absinp" style="left: 724px;top:162px;text-align: center;width:72px;">
+    <div class="sheet-absinp" style="left: 695px;top:162px;text-align: center;width:72px;">
         <span class="sheet-libWhite2" data-i18n="dmg">Dmg</span>
+    </div>
+    <div class="sheet-absinp" style="left: 535px;top:183px;text-align: center;width:257px;height:152px;background-color:white;border-left:2px solid #8D8D8D;overflow-y: scroll;">
+        <fieldset class="repeating_weapons">
+            <div class="sheet-ligne">
+                <button type="roll" class="sheet-butd6small" value="[[@{weapondamage}]]"></button>
+                <input type="text" name="attr_weapon" style="width:130px" data-i18n-placeholder="weapon" placeholder="Weapon" />
+                <SELECT name="attr_weapondamage" style="width:65px;">
+                    <OPTION value="1d3+@{strengthhalf}" data-i18n="d3-half">d3+Half-Strengh</OPTION>
+                    <OPTION value="1d3+@{strength}" data-i18n="d3-strength">d3+Strengh</OPTION>
+                    <OPTION value="2d6kl1+@{strengthhalf}" data-i18n="d6l-half">d6L+Half-Strengh</OPTION>
+                    <OPTION value="2d6kl1+@{strength}" data-i18n="d6l-strength">d6L+Strengh</OPTION>
+                    <OPTION value="1d6+@{strengthhalf}" data-i18n="d6-half">d6+Half-Strengh</OPTION>
+                    <OPTION value="1d6+@{strength}" data-i18n="d6-strength">d6+Strengh</OPTION>
+                    <OPTION value="2d6kh1+@{strengthhalf}" data-i18n="d6h-half">d6H+Half-Strengh</OPTION>
+                    <OPTION value="2d6kh1+@{strength}" data-i18n="d6h-strength">d6H+Strengh</OPTION>
+                </SELECT>
+            </div>
+        </fieldset>
     </div>
 
     <!-- ========= CAREERS ========= -->
@@ -110,35 +149,35 @@
         <input type="number" name="attr_career1rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 205px;top:340px;">
-        <textarea name="attr_career1" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+        <textarea name="attr_career1" style="width: 126px;height: 40px;" data-i18n-placeholder="1st" placeholder="1st"></textarea>
     </div>
     <!-- CAREER 2 -->
     <div class="sheet-absinp" style="left: 171px;top:386px;">
         <input type="number" name="attr_career2rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 205px;top:380px;">
-        <textarea name="attr_career2" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+        <textarea name="attr_career2" style="width: 126px;height: 40px;" data-i18n-placeholder="2nd" placeholder="2nd"></textarea>
     </div>
     <!-- CAREER 3 -->
     <div class="sheet-absinp" style="left: 171px;top:426px;">
         <input type="number" name="attr_career3rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 205px;top:420px;">
-        <textarea name="attr_career3" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+        <textarea name="attr_career3" style="width: 126px;height: 40px;" data-i18n-placeholder="3rd" placeholder="3rd"></textarea>
     </div>
     <!-- CAREER 4 -->
     <div class="sheet-absinp" style="left: 171px;top:466px;">
         <input type="number" name="attr_career4rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 205px;top:460px;">
-        <textarea name="attr_career4" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+        <textarea name="attr_career4" style="width: 126px;height: 40px;" data-i18n-placeholder="4th" placeholder="4th"></textarea>
     </div>
     <!-- CAREER 5 -->
     <div class="sheet-absinp" style="left: 171px;top:506px;">
         <input type="number" name="attr_career5rank" class="sheet-iptnumrondsm" data-i18n-title="career-rank" title="Career rank" value="0" />
     </div>
     <div class="sheet-absinp" style="left: 205px;top:500px;">
-        <textarea name="attr_career5" style="width: 126px;height: 40px;" data-i18n-placeholder="career" placeholder="Career"></textarea>
+        <textarea name="attr_career5" style="width: 126px;height: 40px;" data-i18n-placeholder="5th" placeholder="5th"></textarea>
     </div>
 
     <!-- ========= MISC. POINTS ========= -->
@@ -161,8 +200,8 @@
         <span class="sheet-libBlack3" data-i18n="shield">Shield</span>
         <SELECT name="attr_shield" style="width: 75px;">
             <OPTION value="none" data-i18n="none">None</OPTION>
-            <OPTION value="light" data-i18n="light">Small</OPTION>
-            <OPTION value="large" data-i18n="medium">Large</OPTION>
+            <OPTION value="light" data-i18n="small">Small</OPTION>
+            <OPTION value="large" data-i18n="large">Large</OPTION>
         </SELECT>
     </div>
     <div class="sheet-absinp" style="left: 750px;top:370px;text-align: center;width:50px;height:44px;">
@@ -182,7 +221,7 @@
         <input type="number" name="attr_armourinit" value="0" style="width:45px;text-align:center;" data-i18n-title="initiative-penalty" title="Initiative Penalty" />
     </div>
     <!-- EQUIPMENT -->
-    <div class="sheet-absinp" style="left: 568px;top:415px;text-align: center;width:399px;height:140px;border-top: 2px solid black;">
+    <div class="sheet-absinp" style="left: 568px;top:415px;text-align: center;width:399px;height:140px;border-top: 2px solid #8D8D8D;">
         <textarea name="attr_equipment" style="width:100%;height:100%;" data-i18n-placeholder="equipment" placeholder="Equipment" ></textarea>
     </div>
     <!-- ========= BOONS & FLAWS ========= -->

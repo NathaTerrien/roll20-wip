@@ -1,6 +1,8 @@
 /* COLORS
  #932315 / 147,35,21 : redish brown
  #6FB387 / 111,179,135 : green
+ #8D8D8D : grey
+ #C6C6C6 : light grey
 */
 div,
 button,
@@ -42,6 +44,16 @@ div.sheet-ligne{
 div.sheet-whitelab1{
     width:100px;
     background-color: white;
+}
+div.sheet-ligne{
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #8D8D8D;
+}
+.sheet-block{
+    display: block;
 }
 .sheet-libBlack1{
     background-color: transparent;
@@ -240,4 +252,125 @@ select{
 }
 select:hover{
     border: 1px solid #932315;
+}
+/* =====  BUTTONS ===== */
+button[type="roll"] {
+    box-sizing: border-box;
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 0 0 !important;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    background:transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+}
+button[type="roll"].sheet-butd6small:hover{
+    color: black;
+    border-color: black;
+    box-shadow: 1px 1px 4px 2px rgba(141,141,141,0.8);
+}
+button[type="roll"].sheet-butd6small:before{
+    font-family: "dicefontd6";
+    content: 'F';
+    font-size: 26px;
+    color: #8D8D8D;
+}
+button[type="roll"].sheet-butd6small:hover:before{
+    color: black;
+}
+button[type="roll"].sheet-butd6smallred:hover{
+    color: #932315;
+    border-color: #932315;
+    box-shadow: 1px 1px 4px 2px rgba(147,35,21,0.8);
+}
+button[type="roll"].sheet-butd6smallred:before{
+    font-family: "dicefontd6";
+    content: 'F';
+    font-size: 26px;
+    color: rgba(147,35,21,0.7);
+}
+button[type="roll"].sheet-butd6smallred:hover:before{
+    color: #932315;
+}
+button[type="roll"].sheet-butd6smallgreen:hover{
+    color: #6FB387;
+    border-color: #6FB387;
+    box-shadow: 1px 1px 4px 2px rgba(111,179,135,0.8);
+}
+button[type="roll"].sheet-butd6smallgreen:before{
+    font-family: "dicefontd6";
+    content: 'F';
+    font-size: 26px;
+    color: rgba(111,179,135,0.7);
+}
+button[type="roll"].sheet-butd6smallgreen:hover:before{
+    color: #6FB387;
+}
+/* fieldset button */
+div.repcontrol{
+    display: inline-block;
+    width: 100%;
+}
+.repcontrol_move{
+    height: 11px;
+    line-height: 11px;
+    margin-top: 4px;
+}
+.repcontrol_del {
+    height: 22px;
+    line-height: 12px;
+    margin-top: 4px;
+    width: 30px;
+}
+.repcontrol_add, .repcontrol_edit {
+    color: transparent;
+    box-shadow: none;
+    background: transparent;
+    border-color: transparent;
+    text-shadow:none;
+    width: 100px;
+}
+.repcontrol_add:focus, .repcontrol_edit:focus {
+    outline: none;
+}
+.repcontrol .repcontrol_edit:after {
+    content: 'y';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: rgba(147,35,21,0.7);
+}
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: '2';
+}
+.repcontrol .repcontrol_add:before {
+    content: '+';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: rgba(147,35,21,0.7);
+}
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    box-shadow: 1px 1px 4px 2px rgba(147,35,21,0.8);
+    border-color: #932315;
+    color: #932315;
+}
+.repcontrol_add:focus:before, .repcontrol_edit:focus:after {
+    color: #932315;
 }
