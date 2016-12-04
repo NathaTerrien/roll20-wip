@@ -147,8 +147,9 @@
     <div class="sheet-absinp" style="left: 570px;top:344px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="armour-and-equipment">Armour & Equipment</span>
     </div>
-    <div class="sheet-absinp debugred" style="left: 570px;top:370px;text-align: center;width:100px;height:44px;">
-        <span class="sheet-libBlack2" data-i18n="armour">Armour</span>
+    <!-- ARMOUR -->
+    <div class="sheet-absinp" style="left: 570px;top:370px;text-align: center;width:100px;height:44px;">
+        <span class="sheet-libBlack3" data-i18n="armour">Armour</span>
         <SELECT name="attr_armour" style="width: 95px;vertical-align:bottom;">
             <OPTION value="none" data-i18n="none">None</OPTION>
             <OPTION value="light" data-i18n="light">Light</OPTION>
@@ -156,16 +157,34 @@
             <OPTION value="heavy" data-i18n="heavy">Heavy</OPTION>
         </SELECT>
     </div>
-    <div class="sheet-absinp debugred" style="left: 670px;top:370px;text-align: center;width:75px;height:44px;">
+    <div class="sheet-absinp" style="left: 670px;top:370px;text-align: center;width:80px;height:44px;">
         <span class="sheet-libBlack3" data-i18n="shield">Shield</span>
-        <SELECT name="attr_shield" style="width: 70px;">
+        <SELECT name="attr_shield" style="width: 75px;">
             <OPTION value="none" data-i18n="none">None</OPTION>
             <OPTION value="light" data-i18n="light">Small</OPTION>
             <OPTION value="large" data-i18n="medium">Large</OPTION>
         </SELECT>
     </div>
-        <input type="text" name="attr_armourroll" value="0" />
-        <input type="hidden" name="attr_armourpenalty" value="0" />
+    <div class="sheet-absinp" style="left: 750px;top:370px;text-align: center;width:50px;height:44px;">
+        <span class="sheet-libBlack3" data-i18n="roll">Roll</span>
+        <input type="text" name="attr_armourroll" value="0" style="width:45px;text-align:center;" data-i18n-title="armour-roll" title="Armour roll" />
+    </div>
+    <div class="sheet-absinp" style="left: 800px;top:370px;text-align: center;width:50px;height:44px;">
+        <span class="sheet-libBlack3" data-i18n="ag-pen">Ag.Pen.</span>
+        <input type="number" name="attr_armourpenalty" value="0" style="width:45px;text-align:center;" data-i18n-title="agility-penalty" title="Agility Penalty" />
+    </div>
+    <div class="sheet-absinp" style="left: 850px;top:370px;text-align: center;width:50px;height:44px;">
+        <span class="sheet-libBlack3" data-i18n="helmet">Helmet</span>
+        <input type="checkbox" name="attr_armourhelmet" value="1" style="" data-i18n-title="helmet-worn" title="Helmet worn" />
+    </div>
+    <div class="sheet-absinp" style="left: 900px;top:370px;text-align: center;width:50px;height:44px;">
+        <span class="sheet-libBlack3" data-i18n="init-pen">Init.Pen.</span>
+        <input type="number" name="attr_armourinit" value="0" style="width:45px;text-align:center;" data-i18n-title="initiative-penalty" title="Initiative Penalty" />
+    </div>
+    <!-- EQUIPMENT -->
+    <div class="sheet-absinp" style="left: 568px;top:415px;text-align: center;width:399px;height:140px;border-top: 2px solid black;">
+        <textarea name="attr_equipment" style="width:100%;height:100%;" data-i18n-placeholder="equipment" placeholder="Equipment" ></textarea>
+    </div>
     <!-- ========= BOONS & FLAWS ========= -->
     <div class="sheet-absinp" style="left: 175px;top:562px;text-align: center;width:390px;">
         <span class="sheet-libWhite2" data-i18n="boons">Boons</span>
@@ -180,4 +199,3 @@
         <textarea name="attr_flaws" style="width:396px;height:90px;" data-i18n-placeholder="flaws" placeholder="Flaws"></textarea>
     </div>
 </div>
-
