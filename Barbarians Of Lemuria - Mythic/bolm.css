@@ -391,10 +391,11 @@ div.repcontrol{
 .repcontrol_add:focus:before, .repcontrol_edit:focus:after {
     color: #932315;
 }
-/* TEMPLATES */
+/* ======================================= */
+/* ============== TEMPLATES ============== */
+/* ======================================= */
 .sheet-rolltemplate-tmplt div{
     text-align: center;
-    vertical-align: middle;
     padding: 0px 0px 0px 0px;
     border: 0px 0px 0px 0px;
     display: block;
@@ -404,7 +405,6 @@ div.repcontrol{
     width: 100%;
     background-color: transparent;
 }
-
 .sheet-rolltemplate-tmplt div.sheet-head{
     background: transparent;
     background-image:url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_template_bg.png');
@@ -412,7 +412,7 @@ div.repcontrol{
     padding: 2px 2px 0px 2px;
     border: none;
     width: 220px;
-    height: 90px;
+    height: 70px;
     font-family: 'Contrail One';
     display: block;
 }
@@ -421,29 +421,39 @@ div.repcontrol{
     text-shadow: 0px 0px 8px white;
     font-size: 20px;
     padding-top: 12px;
-    height: 45px;
+    height: 43px;
     width: 218px;
 }
 .sheet-rolltemplate-tmplt div.sheet-title{
     color: white;
-    font-size: 22px;
-    padding-top: 10px;
-    height: 44px;
+    font-size: 20px;
+    padding-top: 4px;
+    height: 27px;
     width: 218px;
 }
 .sheet-rolltemplate-tmplt div.sheet-subtitle{
+    color: white;
+    font-weight: bold;
     background-color: #8D8D8D;
     text-decoration: italic;
-    /* border-bottom: 2px dashed #8D8D8D; */
+    padding: 2px 1px 2px 1px;
 }
 .sheet-rolltemplate-tmplt div.sheet-body{
     width: 220px;
+    min-height: 70px;
     max-height: 300px;
     overflow-y: auto;
+    padding: 0px 0px 2px 0px;
     background-color: white;
     border-width : 0px 2px 2px 2px;
     border-style: solid;
     border-color: black;
+}
+.sheet-rolltemplate-tmplt div.sheet-bodycontent{
+    padding: 10px 5px 5px 10px;
+}
+.sheet-rolltemplate-tmplt div.sheet-roll{
+
 }
 .sheet-rolltemplate-tmplt .inlinerollresult {
     background-color: transparent;
@@ -451,12 +461,12 @@ div.repcontrol{
     padding: 0px 0px;
     font-weight: bold;
     cursor: help;
-    font-size: 22px;
+    font-size: 24px;
     font-family: 'Candal';
 }
 .sheet-rolltemplate-tmplt .inlinerollresult.fullcrit{
     border: none;
-    color: #3FB315;
+    color: #6FB387;
 }
 .sheet-rolltemplate-tmplt .inlinerollresult.importantroll{
     border: none;
@@ -464,5 +474,5 @@ div.repcontrol{
 }
 .sheet-rolltemplate-tmplt .inlinerollresult.fullfail{
     border: none;
-    color: #7E0000;
+    color: #932315;
 }

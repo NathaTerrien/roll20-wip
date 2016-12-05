@@ -41,9 +41,9 @@
         <input type="hidden" name="attr_strengthhalf" value="[[floor(@{strength}/2)]]" disabled />
     </div>
     <div class="sheet-absinp" style="left: 70px;top:188px;">
-        <button type="roll" class="sheet-butd6small block" name="RollStrength" data-i18n-title="strength-roll" title="Strength roll" value="" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="RollStrengthBoon" data-i18n-title="strength-roll-boon" title="Strength roll with Boon" value="" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="RollStrengthFlaw" data-i18n-title="strength-roll-flaw" title="Strength roll with Flaw" value="" ></button>
+        <button type="roll" class="sheet-butd6small block" name="RollStrength" data-i18n-title="strength-roll" title="Strength roll" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{strength}}} {{task=1}} {{roll=[[2d6cf2cs12+@{strength}+?{Bonus|0}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="RollStrengthBoon" data-i18n-title="strength-roll-boon" title="Strength roll with Boon" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{strength}}} {{task=1}} {{subtitle=^{boon}}} {{roll=[[3d6kh2cf2cs12+@{strength}+?{Bonus|0}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="RollStrengthFlaw" data-i18n-title="strength-roll-flaw" title="Strength roll with Flaw" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{strength}}} {{task=1}} {{subtitle=^{flaw}}} {{roll=[[3d6kl2cf2cs12+@{strength}+?{Bonus|0}]]}}" ></button>
     </div>
     <!-- AGILITY -->
     <div class="sheet-absinp" style="left: 195px;top:264px;text-align: center;width: 114px;">
@@ -254,9 +254,16 @@
                 </div>
             {{/subtitle}}
             {{#roll}}
-                <div class="sheet-roll">
-                    {{roll}}
+                <div class="sheet-bodycontent">
+                    <div class="sheet-roll">
+                        {{roll}}
+                    </div>
                 </div>
+                {{#task}}
+                    {{#rollGreater() roll 8}}
+                        Success!
+                    {{/rollGreater() roll 8}}
+                {{/task}}
             {{/roll}}
         </div>
     </div>
