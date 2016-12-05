@@ -1,3 +1,4 @@
+<!-- ========= SHEET ========= -->
 <div class="sheet-bgmain">
     <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:35px;text-align: right;">
         <span class="sheet-libBlack1" data-i18n="name">Name</span>
@@ -97,21 +98,21 @@
         <span class="sheet-libBlack2" data-i18n="melee">Melee</span>
     </div>
     <div class="sheet-absinp" style="left: 50px;top:378px;">
-        <input type="number" name="attr_melee" class="sheet-iptnumrond" data-i18n-title="initiative" title="Melee" value="0" />
+        <input type="number" name="attr_melee" class="sheet-iptnumrond" data-i18n-title="melee" title="Melee" value="0" />
     </div>
     <!-- RANGE -->
     <div class="sheet-absinp" style="left: 73px;top:521px;">
         <span class="sheet-libBlack2" data-i18n="range">Range</span>
     </div>
     <div class="sheet-absinp" style="left: 50px;top:465px;">
-        <input type="number" name="attr_range" class="sheet-iptnumrond" data-i18n-title="initiative" title="Range" value="0" />
+        <input type="number" name="attr_range" class="sheet-iptnumrond" data-i18n-title="range" title="Range" value="0" />
     </div>
     <!-- DEFENSE -->
     <div class="sheet-absinp" style="left: 73px;top:605px;">
         <span class="sheet-libBlack2" data-i18n="defense">Defense</span>
     </div>
     <div class="sheet-absinp" style="left: 50px;top:549px;">
-        <input type="number" name="attr_defense" class="sheet-iptnumrond" data-i18n-title="initiative" title="Defense" value="0" />
+        <input type="number" name="attr_defense" class="sheet-iptnumrond" data-i18n-title="defense" title="Defense" value="0" />
     </div>
 
     <!-- ========= WEAPONS ========= -->
@@ -124,9 +125,9 @@
     <div class="sheet-absinp" style="left: 535px;top:183px;text-align: center;width:257px;height:152px;background-color:white;border-left:2px solid #8D8D8D;overflow-y: scroll;">
         <fieldset class="repeating_weapons">
             <div class="sheet-ligne">
-                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" title="Roll Damage" value="[[@{weapondamage}]]"></button>
+                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" title="Roll Damage" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{damage}}} {{subtitle=@{weapon}}} {{roll=[[@{weapondamage}]]}}"></button>
                 <input type="text" name="attr_weapon" style="width:130px" data-i18n-placeholder="weapon" placeholder="Weapon" />
-                <SELECT name="attr_weapondamage" style="width:65px;">
+                <SELECT name="attr_weapondamage" style="width:65px;" data-i18n-title="damage" title="Damage">
                     <OPTION value="1d3+@{strengthhalf}" data-i18n="d3-half">d3+Half-Strengh</OPTION>
                     <OPTION value="1d3+@{strength}" data-i18n="d3-strength">d3+Strengh</OPTION>
                     <OPTION value="2d6kl1+@{strengthhalf}" data-i18n="d6l-half">d6L+Half-Strengh</OPTION>
@@ -239,3 +240,24 @@
         <textarea name="attr_flaws" style="width:396px;height:90px;" data-i18n-placeholder="flaws" placeholder="Flaws"></textarea>
     </div>
 </div>
+<!-- ========= TEMPLATE ========= -->
+<rolltemplate class="sheet-rolltemplate-tmplt">
+    <div class="sheet-tplmain">
+        <div class="sheet-head">
+            <div class="sheet-char">{{character}}</div>
+            <div class="sheet-title">{{title}}</div>
+        </div>
+        <div class="sheet-body">
+            {{#subtitle}}
+                <div class="sheet-subtitle">
+                    {{subtitle}}
+                </div>
+            {{/subtitle}}
+            {{#roll}}
+                <div class="sheet-roll">
+                    {{roll}}
+                </div>
+            {{/roll}}
+        </div>
+    </div>
+</rolltemplate>

@@ -391,3 +391,74 @@ div.repcontrol{
 .repcontrol_add:focus:before, .repcontrol_edit:focus:after {
     color: #932315;
 }
+/* TEMPLATES */
+.sheet-rolltemplate-tmplt div{
+    text-align: center;
+    vertical-align: middle;
+    padding: none !important;
+    border: none;
+    display: block;
+    box-sizing: border-box;
+}
+.sheet-rolltemplate-tmplt div.sheet-tplmain{
+    width: 100%;
+    background-color: transparent;
+}
+
+.sheet-rolltemplate-tmplt div.sheet-head{
+    background: transparent;
+    background-image:url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_template_bg.png');
+    padding: 2px 2px 0px 2px;
+    border: none;
+    width: 220px;
+    height: 90px;
+    font-size: 13px;
+    font-family: 'Contrail One';
+    color: white;
+    display: block;
+}
+.sheet-rolltemplate-tmplt div.sheet-char{
+    color: black;
+    height: 45px;
+    width: 218px;
+}
+.sheet-rolltemplate-tmplt div.sheet-title{
+    color: white;
+    height: 44px;
+    width: 218px;
+}
+.sheet-rolltemplate-tmplt div.sheet-subtitle{
+    color: #8D8D8D;
+    text-decoration: italic;
+    border-bottom: 2px dashed #8D8D8D;
+}
+.sheet-rolltemplate-tmplt div.sheet-body{
+    width: 220px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    border-width : 0px 2px 2px 2px;
+    border-style: solid;
+    border-color: black;
+}
+.sheet-rolltemplate-tmplt .inlinerollresult {
+    background-color: transparent;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 22px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmplt .inlinerollresult.fullcrit{
+    border: none;
+    color: #3FB315;
+}
+.sheet-rolltemplate-tmplt .inlinerollresult.importantroll{
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-tmplt .inlinerollresult.fullfail{
+    border: none;
+    color: #7E0000;
+}
