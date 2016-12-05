@@ -395,8 +395,8 @@ div.repcontrol{
 .sheet-rolltemplate-tmplt div{
     text-align: center;
     vertical-align: middle;
-    padding: none !important;
-    border: none;
+    padding: 0px 0px 0px 0px;
+    border: 0px 0px 0px 0px;
     display: block;
     box-sizing: border-box;
 }
@@ -408,29 +408,33 @@ div.repcontrol{
 .sheet-rolltemplate-tmplt div.sheet-head{
     background: transparent;
     background-image:url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_template_bg.png');
+    background-repeat: no-repeat;
     padding: 2px 2px 0px 2px;
     border: none;
     width: 220px;
     height: 90px;
-    font-size: 13px;
     font-family: 'Contrail One';
-    color: white;
     display: block;
 }
 .sheet-rolltemplate-tmplt div.sheet-char{
     color: black;
+    text-shadow: 0px 0px 8px white;
+    font-size: 20px;
+    padding-top: 12px;
     height: 45px;
     width: 218px;
 }
 .sheet-rolltemplate-tmplt div.sheet-title{
     color: white;
+    font-size: 22px;
+    padding-top: 10px;
     height: 44px;
     width: 218px;
 }
 .sheet-rolltemplate-tmplt div.sheet-subtitle{
-    color: #8D8D8D;
+    background-color: #8D8D8D;
     text-decoration: italic;
-    border-bottom: 2px dashed #8D8D8D;
+    /* border-bottom: 2px dashed #8D8D8D; */
 }
 .sheet-rolltemplate-tmplt div.sheet-body{
     width: 220px;
