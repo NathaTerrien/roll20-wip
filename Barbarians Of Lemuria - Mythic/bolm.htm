@@ -124,7 +124,7 @@
     <div class="sheet-absinp" style="left: 535px;top:183px;text-align: center;width:257px;height:152px;background-color:white;border-left:2px solid #8D8D8D;overflow-y: scroll;">
         <fieldset class="repeating_weapons">
             <div class="sheet-ligne">
-                <button type="roll" class="sheet-butd6small" value="[[@{weapondamage}]]"></button>
+                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" title="Roll Damage" value="[[@{weapondamage}]]"></button>
                 <input type="text" name="attr_weapon" style="width:130px" data-i18n-placeholder="weapon" placeholder="Weapon" />
                 <SELECT name="attr_weapondamage" style="width:65px;">
                     <OPTION value="1d3+@{strengthhalf}" data-i18n="d3-half">d3+Half-Strengh</OPTION>
@@ -184,6 +184,7 @@
 
     <!-- ========= ARMOUR & EQUIPMENT ========= -->
     <div class="sheet-absinp" style="left: 570px;top:344px;text-align: center;width:390px;">
+        <button type="roll" class="sheet-butd6smallwhite" name="RollArmour" data-i18n-title="roll-armour" title="Roll Armour" value="[[{1d0+@{armourroll},1d0}kh1+@{armourhelmet}]]"></button>
         <span class="sheet-libWhite2" data-i18n="armour-and-equipment">Armour & Equipment</span>
     </div>
     <!-- ARMOUR -->

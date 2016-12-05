@@ -56,6 +56,8 @@
     "origin": "Origin",
     "range": "Range",
     "roll": "Roll",
+    "roll-armour": "Roll Armour",
+    "roll-damage": "Roll Damage",
     "shield": "Shield",
     "small": "Small",
     "strength": "Strength",
