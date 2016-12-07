@@ -176,32 +176,36 @@ input.sheet-iptnumrond{
     font-weight: bold;
 }
 input.sheet-iptnumrondtop{
-    line-height: 30px;
-    font-size: 24px;
+    line-height: 25px;
+    font-size: 22px;
     text-align: center;
     padding: 0;
-    max-width: 60px;
-    min-width: 60px;
-    min-height: 30px;
-    max-height: 30px;
-    border-radius: 30px 30px 0px 0px;
-    border-width: 0px 0px 2px 0px;
+    max-width: 50px;
+    min-width: 50px;
+    min-height: 25px;
+    max-height: 25px;
+    border-radius: 25px 25px 0px 0px;
+    border-width: 1px;
     border-style: dotted;
-    border-color: #7F7F7F;
+    border-bottom-style: none;
+    border-color: black;
     font-weight: bold;
     display: block;
 }
 input.sheet-iptnumrondbott{
-    line-height: 30px;
-    font-size: 24px;
+    line-height: 25px;
+    font-size: 22px;
     text-align: center;
     padding: 0;
-    max-width: 60px;
-    min-width: 60px;
-    min-height: 30px;
-    max-height: 30px;
-    border-radius: 0px 0px 30px 30px;
-    border: none;
+    max-width: 50px;
+    min-width: 50px;
+    min-height: 25px;
+    max-height: 25px;
+    border-radius: 0px 0px 25px 25px;
+    border-width: 1px;
+    border-style: dotted;
+    border-top-style: dashed;
+    border-color: black;
     font-weight: bold;
     display: block;
 }
@@ -316,7 +320,7 @@ button[type="roll"].sheet-butd6smallgreen:hover:before{
 button[type="roll"].sheet-butd6smallwhite:hover{
     color: white;
     border-color: white;
-    box-shadow: 1px 1px 4px 2px rgba(111,179,135,0.8);
+    box-shadow: 1px 1px 4px 2px rgba(255,255,255,0.8);
 }
 button[type="roll"].sheet-butd6smallwhite:before{
     font-family: "dicefontd6";
@@ -418,9 +422,9 @@ div.repcontrol{
 }
 .sheet-rolltemplate-tmplt div.sheet-char{
     color: black;
-    text-shadow: 0px 0px 8px white;
+    text-shadow: 0px 0px 10px white;
     font-size: 20px;
-    padding-top: 12px;
+    padding-top: 9px;
     height: 43px;
     width: 218px;
 }
