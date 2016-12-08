@@ -1,14 +1,13 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-11-29 (Wüm v1.0 + Chroniques Oubliées Fantasy v1.7)._
+_Updated 2016-12-08 (Barbarians of Lemuria v1.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* Macchiato Monsters, french and english
 * [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
 * Stars Without Number, french
@@ -17,19 +16,18 @@ Thank you :)
 
 ## WIP
 
-### Barbarians of Lemuria : mythic edition (english and french)
-Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria).
+### Macchiato Monsters (french and english)
+[Website](http://quenouille.com/macchiato-monsters-dungeonverse-build-together/)
 
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic)
+* [WIP]()
 * [Fork]()
 * [Official]()
 
 ### Todo
-
-Styling in progress.
+Getting started...
 
 ## Existing sheets
 
@@ -46,6 +44,20 @@ Création.
 ### Todo
 * Nettoyage du code
 * Tests en jeu
+
+### Barbarians of Lemuria : mythic edition (english and french)
+Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria).
+
+Creation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
+* [Official]() waiting for merge
+
+### Todo
+
+Translate macro variables when this feature is available on Roll20.
 
 ### Les Cahiers du Vastemonde (french)
 Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
