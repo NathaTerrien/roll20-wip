@@ -1,0 +1,17 @@
+/* Colors
+ Beige clair : #E9D1A5
+ Beige : #D89D5B
+ Rouge marron : #6A0B0F
+ Gris clair  : #BCBCBC
+ Gris moyen : #919191
+ Gris foncé : #3C3C3C
+ */
+div,
+button,
+textarea,
+span,
+input,
+select{
+    box-sizing: border-box;
+}
+
