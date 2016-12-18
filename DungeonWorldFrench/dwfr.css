@@ -448,7 +448,7 @@ div.sheet-onglrecrue{
     border: 1px solid #3D2923;
     padding: 3px;
     z-index: 0;
-    min-height: 300px;
+    min-height: 250px;
 }
 input[type="radio"].sheet-onglbase,
 input[type="radio"].sheet-onglspecial,
