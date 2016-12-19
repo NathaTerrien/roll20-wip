@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-12-08 (Barbarians of Lemuria v1.0)._
+_Updated 2016-12-18 (Dungeon Word v3.2, PMT v4.3, Savage Worlds v1.7)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -53,7 +53,7 @@ Creation.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
-* [Official]() waiting for merge
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
 
 ### Todo
 
@@ -125,8 +125,8 @@ Wiki [Dungeon World VF V1 et V2](http://dungeonworld.pbta.fr)
 Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 3.1 (2016-11-11)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.1 (2016-11-11)
+* [WIP](./DungeonWorldFrench/) Version 3.2 (2016-12-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.2 (2016-12-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.1 (2016-11-11)
 
 #### Todo
@@ -182,8 +182,8 @@ Création.
 Création.
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 4.2
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.2
+* [WIP](./PortesMonstresTresors/) Version 4.3 (2016-12-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.3 (2016-12-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.2
 
 #### Todo
@@ -195,8 +195,8 @@ Création.
 Création.
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.6
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.6
+* [WIP](./SavageWorldsFrench/) Version 1.7 (2016-12-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.7 (2016-12-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.6
 
 #### Todo
