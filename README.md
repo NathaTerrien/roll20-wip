@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-12-18 (Dungeon Word v3.2, PMT v4.3, Savage Worlds v1.7)._
+_Updated 2016-12-22 (BoL v1.1, Dungeon Word v3.2, PMT v4.3, Savage Worlds v1.7)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -51,8 +51,8 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
 
 ### Todo
@@ -127,7 +127,7 @@ Traduction puis refonte et amélioration quasi complète (~création).
 #### Sources
 * [WIP](./DungeonWorldFrench/) Version 3.2 (2016-12-18)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.2 (2016-12-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.1 (2016-11-11)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.2 (2016-12-18)
 
 #### Todo
 
@@ -184,7 +184,7 @@ Création.
 #### Sources
 * [WIP](./PortesMonstresTresors/) Version 4.3 (2016-12-18)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.3 (2016-12-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.2
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.3 (2016-12-18)
 
 #### Todo
 * Calcul de la richesse totale
@@ -197,7 +197,7 @@ Création.
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 1.7 (2016-12-18)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.7 (2016-12-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.6
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.7 (2016-12-18)
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
