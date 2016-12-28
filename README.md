@@ -51,9 +51,9 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
 
 ### Todo
 * Translate macro variables when this feature is available on Roll20.
