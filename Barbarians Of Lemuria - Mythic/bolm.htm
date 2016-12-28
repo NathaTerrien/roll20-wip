@@ -16,25 +16,49 @@
                         varmpen = 0;
                         vroll="1d6-3";
                         break;
-                    case "medium":
-                        varmpen = -1;
-                        vroll="1d6-2";
-                        break;
-                    case "heavy":
-                        varmpen = -2;
-                        vroll="1d6-1";
-                        break;
                     case "lightmasterwork":
                         varmpen = 0;
                         vroll="1d6r1-3";
+                        break;
+                    case "lightuncommon":
+                        varmpen = 0;
+                        vroll="1d6-2";
+                        break;
+                    case "lightlegendary":
+                        varmpen = 0;
+                        vroll="2d6kh1-2";
+                        break;
+                    case "medium":
+                        varmpen = -1;
+                        vroll="1d6-2";
                         break;
                     case "mediummasterwork":
                         varmpen = -1;
                         vroll="1d6r1-2";
                         break;
+                    case "mediumuncommon":
+                        varmpen = -1;
+                        vroll="1d6-1";
+                        break;
+                    case "mediumlegendary":
+                        varmpen = -1;
+                        vroll="2d6kh1-1";
+                        break;
+                    case "heavy":
+                        varmpen = -2;
+                        vroll="1d6-1";
+                        break;
                     case "heavymasterwork":
                         varmpen = -2;
                         vroll="1d6r1-1";
+                        break;
+                    case "heavyuncommon":
+                        varmpen = -2;
+                        vroll="1d6";
+                        break;
+                    case "heavylegendary":
+                        varmpen = -2;
+                        vroll="2d6kh1";
                         break;
                     default:
                         varmpen = 0;
@@ -259,11 +283,12 @@
                 <input type="text" name="attr_weapon" style="width:200px" data-i18n-placeholder="weapon" placeholder="Weapon" />
             </div>
             <div class="sheet-lignebrd">
-                <SELECT name="attr_weapondice" style="width:45px;" data-i18n-title="damage-dice" title="Damage dice">
+                <SELECT name="attr_weapondice" style="width:60px;" data-i18n-title="damage-dice" title="Damage dice">
                     <OPTION value="1d3" data-i18n="d3">d3</OPTION>
                     <OPTION value="2d6kl1" data-i18n="d6l">d6L</OPTION>
                     <OPTION value="1d6" data-i18n="d6" selected>d6</OPTION>
                     <OPTION value="2d6kh1" data-i18n="d6h">d6H</OPTION>
+                    <OPTION value="3d6kh1" data-i18n="d6hb">d6H Bonus Die</OPTION>
                 </SELECT>
                 +
                 <SELECT name="attr_weaponattribute" style="width:80px;" data-i18n-title="weapon-attribute" title="Damage Attribute">
@@ -363,10 +388,16 @@
             <OPTION value="none" data-i18n="none" selected>None</OPTION>
             <OPTION value="light" data-i18n="light">Light</OPTION>
             <OPTION value="lightmasterwork" data-i18n="light-masterwork">Light Masterwork</OPTION>
+            <OPTION value="lightuncommon" data-i18n="light-uncommon">Light Uncommon</OPTION>
+            <OPTION value="lightlegendary" data-i18n="light-legendary">Light Legendary</OPTION>
             <OPTION value="medium" data-i18n="medium">Medium</OPTION>
             <OPTION value="mediummasterwork" data-i18n="medium-masterwork">Medium Masterwork</OPTION>
+            <OPTION value="mediumuncommon" data-i18n="medium-uncommon">Medium Uncommon</OPTION>
+            <OPTION value="mediumlegendary" data-i18n="medium-legendary">Medium Legendary</OPTION>
             <OPTION value="heavy" data-i18n="heavy">Heavy</OPTION>
             <OPTION value="heavymasterwork" data-i18n="heavy-masterwork">Heavy Masterwork</OPTION>
+            <OPTION value="heavyuncommon" data-i18n="heavy-uncommon">Heavy Uncommon</OPTION>
+            <OPTION value="heavylegendary" data-i18n="heavy-legendary">Heavy Legendary</OPTION>
         </SELECT>
     </div>
     <div class="sheet-absinp" style="left: 670px;top:370px;text-align: center;width:80px;height:44px;">

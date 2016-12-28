@@ -56,13 +56,13 @@ Creation.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
 
 ### Todo
-* Translate macro variables when this feature is available on Roll20.
-* Correct french translation in the weapons damage list
-* Add d3 and d6 weapons damage
-* Add a "reroll 1s" option to weapons damage
-* Add a "reroll 1s" option to the armour roll
+* ~~Correct french translation in the weapons damage list~~
+* ~~Add d3,d6 and d6H with Bonus die weapons damage~~
+* ~~Handle Masterwork, Uncommon and Legendary Weapons and Armour~~
+* ~~Add a current / max Advance points~~
+* ~~Fix design overlays~~
 * Add Craft Points handling
-* Add a current / max Advance points
+* Translate macro variables when this feature is available on Roll20.
 
 ### Les Cahiers du Vastemonde (french)
 Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
