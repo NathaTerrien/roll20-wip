@@ -24,6 +24,18 @@
                         varmpen = -2;
                         vroll="1d6-1";
                         break;
+                    case "lightmasterwork":
+                        varmpen = 0;
+                        vroll="1d6r1-3";
+                        break;
+                    case "mediummasterwork":
+                        varmpen = -1;
+                        vroll="1d6r1-2";
+                        break;
+                    case "heavymasterwork":
+                        varmpen = -2;
+                        vroll="1d6r1-1";
+                        break;
                     default:
                         varmpen = 0;
                         vroll="0";
@@ -121,7 +133,8 @@
         <span class="sheet-libBlack2" data-i18n="advance">Advance</span>
     </div>
     <div class="sheet-absinp" style="left: 750px;top:102px;">
-        <input type="number" name="attr_advance" class="sheet-iptnumrond" data-i18n-title="advance" title="Advance" value="0" />
+        <input type="number" name="attr_advance" class="sheet-iptnumrondtop" data-i18n-title="advance-current" title="Current Advance" value="0" />
+        <input type="number" name="attr_advance_max" class="sheet-iptnumrondbott sheet-max" data-i18n-title="advance-max" title="Total gained Advance" value="0" />
     </div>
     <div class="sheet-absinp" style="left:805px;top:58px;">
         <textarea name="attr_notes" style="width:180px;height:270px;" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
@@ -239,24 +252,27 @@
     <div class="sheet-absinp" style="left: 540px;top:158px;text-align: center;width:155px;">
         <span class="sheet-libWhite1" data-i18n="weapons">Weapons</span>
     </div>
-    <div class="sheet-absinp" style="left: 695px;top:162px;text-align: center;width:72px;">
-        <span class="sheet-libWhite2" data-i18n="dmg">Dmg</span>
-    </div>
     <div class="sheet-absinp" style="left: 535px;top:183px;text-align: center;width:257px;height:152px;background-color:white;border-left:2px solid #8D8D8D;overflow-y: scroll;">
         <fieldset class="repeating_weapons">
             <div class="sheet-ligne">
-                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" title="Roll Damage" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{damage}}} {{subtitle=@{weapon}}} {{roll=[[@{weapondamage}[Weapon damage]+(?{Modifier|0})[Modifier]]]}}"></button>
-                <input type="text" name="attr_weapon" style="width:130px" data-i18n-placeholder="weapon" placeholder="Weapon" />
-                <SELECT name="attr_weapondamage" style="width:65px;" data-i18n-title="damage" title="Damage">
-                    <OPTION value="1d3+@{strengthhalf}" data-i18n="d3-half">d3+Half-Strengh</OPTION>
-                    <OPTION value="1d3+@{strength}" data-i18n="d3-strength">d3+Strengh</OPTION>
-                    <OPTION value="2d6kl1+@{strengthhalf}" data-i18n="d6l-half">d6L+Half-Strengh</OPTION>
-                    <OPTION value="2d6kl1+@{strength}" data-i18n="d6l-strength">d6L+Strengh</OPTION>
-                    <OPTION value="1d6+@{strengthhalf}" data-i18n="d6-half">d6+Half-Strengh</OPTION>
-                    <OPTION value="1d6+@{strength}" data-i18n="d6-strength">d6+Strengh</OPTION>
-                    <OPTION value="2d6kh1+@{strengthhalf}" data-i18n="d6h-half">d6H+Half-Strengh</OPTION>
-                    <OPTION value="2d6kh1+@{strength}" data-i18n="d6h-strength">d6H+Strengh</OPTION>
+                <button type="roll" class="sheet-butd6small" name="RollDamage" data-i18n-title="roll-damage" title="Roll Damage" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{damage}}} {{subtitle=@{weapon}}} {{roll=[[@{weapondice}r@{weaponmasterwork}+@{weaponattribute}[Weapon damage]+(?{Modifier|0})[Modifier]]]}}"></button>
+                <input type="text" name="attr_weapon" style="width:200px" data-i18n-placeholder="weapon" placeholder="Weapon" />
+            </div>
+            <div class="sheet-lignebrd">
+                <SELECT name="attr_weapondice" style="width:45px;" data-i18n-title="damage-dice" title="Damage dice">
+                    <OPTION value="1d3" data-i18n="d3">d3</OPTION>
+                    <OPTION value="2d6kl1" data-i18n="d6l">d6L</OPTION>
+                    <OPTION value="1d6" data-i18n="d6" selected>d6</OPTION>
+                    <OPTION value="2d6kh1" data-i18n="d6l">d6H</OPTION>
                 </SELECT>
+                +
+                <SELECT name="attr_weaponattribute" style="width:80px;" data-i18n-title="weapon-attribute" title="Damage Attribute">
+                    <OPTION value="@{strength}" data-i18n="strength" selected>Strength</OPTION>
+                    <OPTION value="@{strengthhalf}" data-i18n="strengthhalf">Half-Strength</OPTION>
+                    <OPTION value="0">0</OPTION>
+                </SELECT>
+                <span class="sheet-libBlack3" data-i18n="masterwork">Masterwork</span>
+                <input type="checkbox" name="attr_weaponmasterwork" value="1"  data-i18n-title="weapon-masterwork" title="Masterwork weapons reroll any result of 1 when rolling damage.">
             </div>
         </fieldset>
     </div>
@@ -344,10 +360,13 @@
     <div class="sheet-absinp" style="left: 570px;top:370px;text-align: center;width:100px;height:44px;">
         <span class="sheet-libBlack3" data-i18n="armour">Armour</span>
         <SELECT name="attr_armour" style="width: 95px;vertical-align:bottom;">
-            <OPTION value="none" data-i18n="none">None</OPTION>
+            <OPTION value="none" data-i18n="none" selected>None</OPTION>
             <OPTION value="light" data-i18n="light">Light</OPTION>
+            <OPTION value="lightmasterwork" data-i18n="light-masterwork">Light Masterwork</OPTION>
             <OPTION value="medium" data-i18n="medium">Medium</OPTION>
+            <OPTION value="mediummasterwork" data-i18n="medium-masterwork">Medium Masterwork</OPTION>
             <OPTION value="heavy" data-i18n="heavy">Heavy</OPTION>
+            <OPTION value="heavymasterwork" data-i18n="heavy-masterwork">Heavy Masterwork</OPTION>
         </SELECT>
     </div>
     <div class="sheet-absinp" style="left: 670px;top:370px;text-align: center;width:80px;height:44px;">
@@ -404,6 +423,7 @@
     <span data-i18n="target-defence">Target’s defence</span>
     <span data-i18n="ranged-attack">Ranged Attack</span>
     <span data-i18n="melee-attack">Melee Attack</span>
+    <span data-i18n="damage">Damage</span>
 </div>
 
 <!-- ========= Roll Template ========= -->
