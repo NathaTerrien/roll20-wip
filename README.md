@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-12-22 (BoL v1.1, Dungeon Word v3.2, PMT v4.3, Savage Worlds v1.7)._
+_Updated 2016-12-28 (Todo BoL v1.2)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -39,7 +39,7 @@ Création.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Antika) Version 1.0
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Antika) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Antika) Version 1.1
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Antika) Version 1.0
 
 ### Todo
 * Nettoyage du code
@@ -56,8 +56,12 @@ Creation.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.0 (2016-12-08)
 
 ### Todo
-
-Translate macro variables when this feature is available on Roll20.
+* Translate macro variables when this feature is available on Roll20.
+* Correct french translation in the weapons damage list
+* Add d3 and d6 weapons damage
+* Add a "reroll 1s" to weapons damage
+* Add Craft Points handling
+* Add a current / max Advance points
 
 ### Les Cahiers du Vastemonde (french)
 Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
