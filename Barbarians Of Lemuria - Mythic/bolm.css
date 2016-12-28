@@ -45,7 +45,7 @@ div.sheet-whitelab1{
     width:100px;
     background-color: white;
 }
-div.sheet-ligne{
+div.sheet-lignebrd{
     display: block;
     text-align: left;
     width: 100%;
@@ -82,6 +82,15 @@ div.sheet-ligne{
     font-family: 'Contrail One';
     display: inline-block;
     height:20px;
+}
+.sheet-libBlack4{
+    background-color: transparent;
+    color: black;
+    font-size: 12px;
+    font-weight: lighter;
+    text-align: left;
+    font-family: 'Contrail One';
+    display: inline-block;
 }
 .sheet-libWhite1{
     background-color: transparent;
