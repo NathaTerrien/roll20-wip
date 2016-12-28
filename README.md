@@ -31,6 +31,7 @@ Getting started...
 
 ## Existing sheets
 
+![Antika banner](/_banners/Antika_banner.png)
 ### Antika (french)
 Site officiel : [Antika](http://www.legrog.org/jeux/antika)
 
@@ -45,6 +46,7 @@ Création.
 * Nettoyage du code
 * Tests en jeu
 
+![BoL banner](/_banners/BoL_banner.png)
 ### Barbarians of Lemuria : mythic edition (english and french)
 Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria).
 
