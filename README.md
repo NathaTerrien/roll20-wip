@@ -66,6 +66,7 @@ Creation.
 * Add Craft Points handling
 * Translate macro variables when this feature is available on Roll20.
 
+![Cahiers banner](/_banners/Cahiers_banner.png)
 ### Les Cahiers du Vastemonde (french)
 Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
 
@@ -78,6 +79,7 @@ Création, en collaboration avec l'auteur.
 
 ### Todo
 
+![COG banner](/_banners/cog_banner.png)
 ### Chroniques Galactiques (french)
 
 Création.
@@ -90,6 +92,7 @@ Création.
 #### Todo
 * Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
 
+![COF banner](/_banners/cof_banner.png)
 ### Chroniques Oubliées Fantasy (french)
 
 Création.
@@ -103,6 +106,7 @@ Création.
 * Fiche compagnon simplifiée
 * En réflexion : amélioration de la saisie et diffusion dans le chat des Capacités des Voies
 
+![cypher banner](/_banners/cypher_banner.png)
 ### Cypher System (english)
 
 Creation.
@@ -114,6 +118,7 @@ Creation.
 
 #### Todo
 
+![cypher banner](/_banners/cypher_banner.png)
 ### Cypher System (french)
 
 Création.
@@ -126,6 +131,7 @@ Création.
 #### Todo
 Cf. english version
 
+![dw banner](/_banners/dw_banner.png)
 ### Dungen World (french)
 Wiki [Dungeon World VF V1 et V2](http://dungeonworld.pbta.fr)
 
@@ -148,6 +154,7 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 #### Todo
 
+![ins banner](/_banners/ins_banner.png)
 ### INS/MV 5E (french)
 Site officiel : [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
 
@@ -160,6 +167,7 @@ Création.
 
 #### Todo
 
+![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (english)
 Deprecated though usable. See the Cypher System Sheet.
 
@@ -172,6 +180,7 @@ Creation.
 
 #### Todo
 
+![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (french)
 Obsolète bien qu'utilisable. Voir la fiche pour le Cypher System.
 
@@ -184,6 +193,7 @@ Création.
 
 #### Todo
 
+![pmt banner](/_banners/pmt_banner.png)
 ### Portes, Monstres, Trésors (french)
 
 Création.
@@ -197,6 +207,7 @@ Création.
 * Calcul de la richesse totale
 * Inventaire "non porté" (hors encombrement)
 
+![sawo_banner](/_banners/sawo_banner.png)
 ### Savage Worlds / Deadlands Reloaded (french)
 
 Création.
@@ -222,6 +233,7 @@ Création en collbaoration avec l'auteur.
 
 #### Todo
 
+![terrax_banner](/_banners/terrax_banner.png)
 ### Terra X (french)
 Site officiel : [Terra X](http://legrumph.org/Terrier/?Chibi/Terra-X)
 
@@ -235,6 +247,7 @@ Création.
 ### Todo
 * Tests en jeu
 
+![tor_banner](/_banners/tor_banner.png)
 ### The One Ring french / L'Anneau Unique (french)
 
 Traduction et adaptation.
@@ -262,6 +275,7 @@ Traduction.
 #### Todo
 * Ajouter des jets ?
 
+![whitelies_banner](/_banners/whitelies_banner.png)
 ### White Lies (english and french)
 Websites for the game : [White Lies](http://dwdstudios.com/whitelies) (english), [White Lies](http://legrumph.org/Terrier/?Chibi/White-Lies) (french)
 
@@ -275,6 +289,7 @@ Creation.
 ### Todo
 * In game testing
 
+![wurm_banner](/_banners/wurm_banner.png)
 ### WÜRM (english and french)
 Würm is an Ice Age RPG originally published in [french](http://www.legrog.org/jeux/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
 
