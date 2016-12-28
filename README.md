@@ -92,7 +92,7 @@ Création.
 #### Todo
 * Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
 
-![COF banner](/_banners/cof_banner.png)
+![COF banner](/_banners/COF_banner.png)
 ### Chroniques Oubliées Fantasy (french)
 
 Création.
