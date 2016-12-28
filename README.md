@@ -59,7 +59,8 @@ Creation.
 * Translate macro variables when this feature is available on Roll20.
 * Correct french translation in the weapons damage list
 * Add d3 and d6 weapons damage
-* Add a "reroll 1s" to weapons damage
+* Add a "reroll 1s" option to weapons damage
+* Add a "reroll 1s" option to the armour roll
 * Add Craft Points handling
 * Add a current / max Advance points
 
