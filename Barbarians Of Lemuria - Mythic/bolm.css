@@ -20,7 +20,14 @@ div{
     padding: none;
     background-color: transparent;
 }
-div.sheet-bgmain{
+div.sheet-beast{
+    display: none;
+}
+input[type="radio"].sheet-beast:checked ~ div.sheet-beast{
+    display:block;
+}
+div.sheet-char{
+    display: none;
     position: relative;
     width: 990px;
     min-height: 700px;
@@ -30,6 +37,9 @@ div.sheet-bgmain{
     background-repeat:no-repeat;
     background-position:top left;
     background-size: cover;
+}
+input[type="radio"].sheet-char:checked ~ div.sheet-char{
+    display:block;
 }
 div.sheet-absinp{
     position: absolute;

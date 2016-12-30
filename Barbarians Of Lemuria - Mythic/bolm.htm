@@ -111,8 +111,9 @@
     });
     on('sheet:opened',function(){
         getAttrs(["SHEETVERSION"], function(values) {
-            var vers = parseInt(values.SHEETVERSION) || 0;
-            if (vers == 0) {
+            var vers = parseFloat(values.SHEETVERSION) || 0;
+            if (vers < 1.1) {
+                // fix negative half-strength
                 getAttrs(["strength"], function(values) {
                     var str = parseInt(values.strength) || 0;
                     var half = 0;
@@ -127,13 +128,42 @@
                     });
                 });
             }
+            if (vers < 1.2) {
+                // weapons attributes change
+                getSectionIDs("repeating_weapons", function(idws) {
+                    idws.forEach(function(idw,index){
+                        var olddmg = "repeating_weapons_" + idw + "_weapondamage";
+                        getAttrs(['' + olddmg], function(val) {
+                            var sdmg = val[olddmg] || '';
+                            if (sdmg.length > 0) {
+                                var tdmg = sdmg.split('+');
+                                if (tdmg.length == 2) {
+                                    var obj={};
+                                    obj['repeating_weapons_' + idw + '_weapondice'] = tdmg[0];
+                                    obj['repeating_weapons_' + idw + '_weaponattribute'] = tdmg[1];
+                                    obj[olddmg] = '';
+                                    setAttrs(obj);
+                                }
+                            }
+                        });
+                    });
+                    setAttrs({
+                        SHEETVERSION: 1.2
+                    });
+                });
+            }
         });
     });
 </script>
-
-<!-- ========= SHEET ========= -->
-<div class="sheet-bgmain">
-    <input type="hidden" name="attr_SHEETVERSION" value="0" />
+<!-- ========= SHEET HANDLING ========= -->
+<input type="hidden" name="attr_SHEETVERSION" value="0" />
+<input type="radio" name="attr_sheettype" value="0" class="sheet-char" checked /><span class="sheet-libBlack4" data-i18n="character">Character</span>
+<input type="radio" name="attr_sheettype" value="1" class="sheet-beast" /><span class="sheet-libBlack4" data-i18n="beast">Beast</span>
+<!-- ========= BEAST SHEET ========= -->
+<div class="sheet-beast">
+</div>
+<!-- ========= CHARACTER SHEET ========= -->
+<div class="sheet-char">
     <!-- ========= BASICS ========= -->
     <div class="sheet-absinp sheet-whitelab1" style="left: 226px;top:35px;text-align: right;">
         <span class="sheet-libBlack1" data-i18n="name">Name</span>
