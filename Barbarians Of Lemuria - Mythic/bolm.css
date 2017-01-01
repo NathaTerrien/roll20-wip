@@ -1,8 +1,9 @@
 /* COLORS
  #932315 / 147,35,21 : redish brown
  #6FB387 / 111,179,135 : green
- #8D8D8D : grey
- #C6C6C6 : light grey
+ #727272 : grey
+ #C2C2C2 : mid grey
+ #B5B5B5 #B5B5B5 : light grey
 */
 div,
 button,
@@ -39,13 +40,13 @@ div.sheet-char{
     display: none;
     position: relative;
     width: 990px;
-    min-height: 700px;
+    min-height: 840px;
     text-align:center;
     font-family: 'Candal';
     background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_bg.png');
     background-repeat:no-repeat;
     background-position:top left;
-    background-size: cover;
+    background-size: 990px 700px;
     background-color: white;
 }
 input[type="radio"].sheet-char, input[type="radio"].sheet-beast{
@@ -73,7 +74,7 @@ div.sheet-lignebrd{
     text-align: left;
     width: 100%;
     padding-bottom: 2px;
-    border-bottom: 2px solid #8D8D8D;
+    border-bottom: 2px solid #727272;
 }
 .sheet-block{
     display: block;
@@ -164,8 +165,6 @@ input, textarea{
     display: inline-block;
     padding: none;
     margin: none;
-    /* font-family: Arial;
-    font-size: 13px; */
     border: none;
     box-shadow: none;
     resize:none;
@@ -335,7 +334,7 @@ button[type="roll"].sheet-butd6small:before{
     font-family: "dicefontd6";
     content: 'f';
     font-size: 26px;
-    color: #8D8D8D;
+    color: #727272;
 }
 button[type="roll"].sheet-butd6small:hover:before{
     color: black;
@@ -492,7 +491,7 @@ div.repcontrol{
 .sheet-rolltemplate-tmplt div.sheet-subtitle{
     color: white;
     font-weight: bold;
-    background-color: #8D8D8D;
+    background-color: #727272;
     text-decoration: italic;
     padding: 2px 1px 2px 1px;
 }
