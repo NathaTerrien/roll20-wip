@@ -157,9 +157,9 @@
 </script>
 <!-- ========= SHEET HANDLING ========= -->
 <input type="hidden" name="attr_SHEETVERSION" value="0" />
-<input type="radio" name="attr_sheettype" value="" class="sheet-char">&nbsp;<span class="sheet-libBlack4" data-i18n="player-character">Player Character (PC)</span></input>
+<input type="radio" name="attr_sheettype" value="/r " class="sheet-char" checked>&nbsp;<span class="sheet-libBlack4" data-i18n="player-character">Player Character (PC)</span></input>
 <input type="radio" name="attr_sheettype" value="/w gm " class="sheet-char">&nbsp;<span class="sheet-libBlack4" data-i18n="non-player-character">Non-player Character (NPC)</span></input>
-<input type="radio" name="attr_sheettype" value='/w "gm" ' class="sheet-beast" checked>&nbsp;<span class="sheet-libBlack4" data-i18n="beast-character" checked>Beast (NPC)</span></input>
+<input type="radio" name="attr_sheettype" value='/w "gm" ' class="sheet-beast">&nbsp;<span class="sheet-libBlack4" data-i18n="beast-character">Beast (NPC)</span></input>
 <!-- ========= BEAST SHEET ========= -->
 <div class="sheet-beast">
     <div class="sheet-3colrow">
@@ -176,16 +176,16 @@
                 <div class="sheet-row">
                     <span class="sheet-libBlack3b" data-i18n="agility">Agility</span>
                     <input type="number" name="attr_agility" value="0" />
-                    <button type="roll" class="sheet-butd6small" name="RollAgility" data-i18n-title="agility-roll" title="Agility roll" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(?{Modifier|0})[Modifier]]]}}" ></button>
-                    <button type="roll" class="sheet-butd6smallgreen" name="RollAgilityBonus" data-i18n-title="agility-roll-bonus-die" title="Agility roll with a Bonus die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(?{Modifier|0})[Modifier]]]}}" ></button>
-                    <button type="roll" class="sheet-butd6smallred" name="RollAgilityPenalty" data-i18n-title="agility-roll-penalty-die" title="Agility roll with a Penalty die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                    <button type="roll" class="sheet-butd6small" name="RollAgility" data-i18n-title="agility-roll" title="Agility roll" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{agility})[Agility]]]}}" ></button>
+                    <button type="roll" class="sheet-butd6smallgreen" name="RollAgilityBonus" data-i18n-title="agility-roll-bonus-die" title="Agility roll with a Bonus die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{agility})[Agility]]]}}" ></button>
+                    <button type="roll" class="sheet-butd6smallred" name="RollAgilityPenalty" data-i18n-title="agility-roll-penalty-die" title="Agility roll with a Penalty die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{agility})[Agility]]]}}" ></button>
                 </div>
                 <div class="sheet-row">
                     <span class="sheet-libBlack3b" data-i18n="mind">Mind</span>
                     <input type="number" name="attr_mind" value="0" />
-                    <button type="roll" class="sheet-butd6small" name="RollMind" data-i18n-title="mind-roll" title="Mind roll" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
-                    <button type="roll" class="sheet-butd6smallgreen" name="RollMindBonus" data-i18n-title="mind-roll-bonus-die" title="Mind roll with a Bonus die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
-                    <button type="roll" class="sheet-butd6smallred" name="RollMindPenalty" data-i18n-title="mind-roll-penalty-die" title="Mind roll with a Penalty die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                    <button type="roll" class="sheet-butd6small" name="RollMind" data-i18n-title="mind-roll" title="Mind roll" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{mind})[Mind]]]}}" ></button>
+                    <button type="roll" class="sheet-butd6smallgreen" name="RollMindBonus" data-i18n-title="mind-roll-bonus-die" title="Mind roll with a Bonus die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{mind})[Mind]]]}}" ></button>
+                    <button type="roll" class="sheet-butd6smallred" name="RollMindPenalty" data-i18n-title="mind-roll-penalty-die" title="Mind roll with a Penalty die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{mind})[Mind]]]}}" ></button>
                 </div>
                 <div class="sheet-row">
                     <span class="sheet-libBlack3b" data-i18n="lifeblood">Lifeblood</span>
