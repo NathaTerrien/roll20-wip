@@ -23,6 +23,8 @@ div{
 div.sheet-beast{
     display: none;
     background-color: white;
+    width: 875px;
+    text-align: left;
 }
 input[type="radio"].sheet-beast:checked ~ div.sheet-beast{
     display:block;
@@ -88,7 +90,7 @@ div.sheet-lignebrd{
     text-transform: uppercase;
     font-family: 'Contrail One';
 }
-.sheet-libBlack3{
+.sheet-libBlack3, .sheet-libBlack3b{
     background-color: transparent;
     color: black;
     font-size: 14px;
@@ -98,9 +100,22 @@ div.sheet-lignebrd{
     display: inline-block;
     height:20px;
 }
+.sheet-libBlack3b{
+    width: 98px;
+    padding-left: 2px;
+}
 .sheet-libBlack4{
     background-color: transparent;
     color: black;
+    font-size: 12px;
+    font-weight: lighter;
+    text-align: left;
+    font-family: 'Contrail One';
+    display: inline-block;
+}
+.sheet-libGrey4{
+    background-color: transparent;
+    color: gray;
     font-size: 12px;
     font-weight: lighter;
     text-align: left;
@@ -129,6 +144,15 @@ div.sheet-lignebrd{
     position: absolute;
     transform: rotate(-90deg);
     transform-origin: 12% 0%;
+}
+.sheet-blacktitle{
+    background-color:black;
+    text-align: center;
+}
+.sheet-blackborder{
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-bottom : 2px;
 }
 input, textarea{
     display: inline-block;
