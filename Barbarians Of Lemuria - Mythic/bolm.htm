@@ -157,10 +157,73 @@
 </script>
 <!-- ========= SHEET HANDLING ========= -->
 <input type="hidden" name="attr_SHEETVERSION" value="0" />
-<input type="radio" name="attr_sheettype" value="0" class="sheet-char" checked /><span class="sheet-libBlack4" data-i18n="character">Character</span>
-<input type="radio" name="attr_sheettype" value="1" class="sheet-beast" /><span class="sheet-libBlack4" data-i18n="beast">Beast</span>
+<input type="radio" name="attr_sheettype" value="0" class="sheet-char"><span class="sheet-libBlack4" data-i18n="character">Character</span></input>
+<input type="radio" name="attr_sheettype" value="1" class="sheet-beast" checked><span class="sheet-libBlack4" data-i18n="beast">Beast</span></input>
 <!-- ========= BEAST SHEET ========= -->
 <div class="sheet-beast">
+    <div class="sheet-2colrow">
+        <div class="sheet-col">
+            <span class="sheet-libBlack1" data-i18n="name">Name</span>
+            <input type="text" style="width: 320px;" name="attr_character_name" class="sheet-iptbig1" />
+        </div>
+        <div class="sheet-col">
+            <div class="sheet-row">
+                <span class="sheet-libBlack3" style="width: 100px;" data-i18n="creature-size">Creature Size</span>
+                <SELECT name="attr_size" style="width: 140px;" data-i18n-title="creature-size" title="Creature Size">
+                    <OPTION value="tiny" data-i18n="tiny">Tiny</OPTION>
+                    <OPTION value="very-small" data-i18n="very-small">Very small</OPTION>
+                    <OPTION value="small" data-i18n="small">Small</OPTION>
+                    <OPTION value="medium" data-i18n="medium" selected>Medium</OPTION>
+                    <OPTION value="large" data-i18n="large">Large</OPTION>
+                    <OPTION value="very-large" data-i18n="very-large">Very large</OPTION>
+                    <OPTION value="huge" data-i18n="huge">Huge</OPTION>
+                    <OPTION value="massive" data-i18n="massive">Massive</OPTION>
+                    <OPTION value="enormous" data-i18n="enormous">Enormous</OPTION>
+                    <OPTION value="gigantic" data-i18n="gigantic">Gigantic</OPTION>
+                    <OPTION value="immense" data-i18n="immense">Immense</OPTION>
+                    <OPTION value="colossal" data-i18n="colossal">Colossal</OPTION>
+                </SELECT>
+            </div>
+            <div class="sheet-row">
+                <span class="sheet-libBlack3" style="width: 100px;" data-i18n="normally-found">Normally Found</span>
+                <input type="text" name="attr_found" style="width: 290px;" data-i18n-placeholder="normally-found" placeholder="Normally Found" />
+            </div>
+        </div>
+    </div>
+    <div class="sheet-2colrow">
+        <div class="sheet-col">
+            <div class="sheet-row"><span class="sheet-libBlack2" data-i18n="attributes">Attributes</span></div>
+            <div class="sheet-row">
+                <span class="sheet-libBlack3" style="width: 100px;" data-i18n="strength">Strength</span>
+                <input type="number" name="attr_strength" value="0" />
+                <button type="roll" class="sheet-butd6small" name="RollStrength" data-i18n-title="strength-roll" title="Strength roll" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{strength}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{strength})[Strength]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                <button type="roll" class="sheet-butd6smallgreen" name="RollStrengthBonus" data-i18n-title="strength-roll-bonus-die" title="Strength roll with a Bonus die" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{strength}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{strength})[Strength]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                <button type="roll" class="sheet-butd6smallred" name="RollStrengthPenalty" data-i18n-title="strength-roll-penalty-die" title="Strength roll with a Penalty die" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{strength}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{strength})[Strength]+(?{Modifier|0})[Modifier]]]}}" ></button>
+            </div>
+            <div class="sheet-row">
+                <span class="sheet-libBlack3" style="width: 100px;" data-i18n="agility">Agility</span>
+                <input type="number" name="attr_agility" value="0" />
+                <button type="roll" class="sheet-butd6small" name="RollAgility" data-i18n-title="agility-roll" title="Agility roll" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                <button type="roll" class="sheet-butd6smallgreen" name="RollAgilityBonus" data-i18n-title="agility-roll-bonus-die" title="Agility roll with a Bonus die" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                <button type="roll" class="sheet-butd6smallred" name="RollAgilityPenalty" data-i18n-title="agility-roll-penalty-die" title="Agility roll with a Penalty die" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{agility}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(?{Modifier|0})[Modifier]]]}}" ></button>
+            </div>
+            <div class="sheet-row">
+                <span class="sheet-libBlack3" style="width: 100px;" data-i18n="mind">Mind</span>
+                <input type="number" name="attr_mind" value="0" />
+                <button type="roll" class="sheet-butd6small" name="RollMind" data-i18n-title="mind-roll" title="Mind roll" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                <button type="roll" class="sheet-butd6smallgreen" name="RollMindBonus" data-i18n-title="mind-roll-bonus-die" title="Mind roll with a Bonus die" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+                <button type="roll" class="sheet-butd6smallred" name="RollMindPenalty" data-i18n-title="mind-roll-penalty-die" title="Mind roll with a Penalty die" value="&{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+            </div>
+            <div class="sheet-row">
+                <span class="sheet-libBlack3" style="width: 100px;" data-i18n="lifeblood">Lifeblood</span>
+                <input type="number" name="attr_lifeblood" data-i18n-title="lifeblood-points-current" title="Current Lifeblood Points" value="0" />
+                <span class="sheet-libBlack2">/</span>
+                <input type="number" name="attr_lifeblood_max" data-i18n-title="lifeblood-points-max" title="Maximum Lifeblood Points" value="0" />
+            </div>
+        </div>
+        <div class="sheet-col">
+        </div>
+    </div>
 </div>
 <!-- ========= CHARACTER SHEET ========= -->
 <div class="sheet-char">

@@ -22,6 +22,7 @@ div{
 }
 div.sheet-beast{
     display: none;
+    background-color: white;
 }
 input[type="radio"].sheet-beast:checked ~ div.sheet-beast{
     display:block;
@@ -37,6 +38,10 @@ div.sheet-char{
     background-repeat:no-repeat;
     background-position:top left;
     background-size: cover;
+    background-color: white;
+}
+input[type="radio"].sheet-char, input[type="radio"].sheet-beast{
+    margin-left: 10px;
 }
 input[type="radio"].sheet-char:checked ~ div.sheet-char{
     display:block;
