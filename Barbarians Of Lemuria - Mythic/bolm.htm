@@ -306,12 +306,12 @@
         <button type="roll" class="sheet-butd6smallgreen" name="RollRangeBonus" data-i18n-title="range-roll-bonus-die" title="Ranged attack roll with a Bonus die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{ranged-attack}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(?{Range|Point Blank,1|Close,0|Medium,-1|Long,-2|Distant,-4|Extreme,-6|Utmost,-8})[Range]+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(@{ranged})[Ranged]-(?{Target’s defence|0})[Target’s defence]+(?{Modifier|0})[Modifier]]]}}" ></button>
         <button type="roll" class="sheet-butd6smallred" name="RollRangePenalty" data-i18n-title="range-roll-penalty-die" title="Ranged attack roll with a Penalty die" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{ranged-attack}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(?{Range|Point Blank,1|Close,0|Medium,-1|Long,-2|Distant,-4|Extreme,-6|Utmost,-8})[Range]+(@{agility})[Agility]+(@{armourpenalty})[Armour penalty]+(@{ranged})[Ranged]-(?{Target’s defence|0})[Target’s defence]+(?{Modifier|0})[Modifier]]]}}" ></button>
     </div>
-    <!-- DEFENSE -->
+    <!-- DEFENCE -->
     <div class="sheet-absinp" style="left: 73px;top:605px;">
-        <span class="sheet-libBlack2" data-i18n="defense">Defense</span>
+        <span class="sheet-libBlack2" data-i18n="defence">Defence</span>
     </div>
     <div class="sheet-absinp" style="left: 50px;top:549px;">
-        <input type="number" name="attr_defense" class="sheet-iptnumrond" data-i18n-title="defense" title="Defense" value="0" />
+        <input type="number" name="attr_defense" class="sheet-iptnumrond" data-i18n-title="defence" title="Defence" value="0" />
     </div>
 
     <!-- ========= WEAPONS ========= -->
@@ -572,7 +572,7 @@
                 </div>
                 <div class="sheet-row">
                     <span class="sheet-libBlack3b" data-i18n="defence">Defence</span>
-                    <input type="number" name="attr_defence" value="0" />
+                    <input type="number" name="attr_defense" value="0" />
                 </div>
                 <div class="sheet-row">
                     <span class="sheet-libBlack3b" data-i18n="protection">Protection</span>
