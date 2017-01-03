@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2016-12-28 (Todo BoL v1.2)._
+_Updated 2017-01-03 (BoL v1.2)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -53,17 +53,11 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.1 (2016-12-18)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2 (2017-01-02)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2 (2017-01-02)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2 (2017-01-02)
 
 ### Todo
-* ~~Correct french translation in the weapons damage list~~
-* ~~Add d3,d6 and d6H with Bonus die weapons damage~~
-* ~~Handle Masterwork, Uncommon and Legendary Weapons and Armour~~
-* ~~Add a current / max Advance points~~
-* ~~Fix design overlays~~
-* Add Craft Points handling
 * Translate macro variables when this feature is available on Roll20.
 
 ![Cahiers banner](/_banners/Cahiers_banner.png)
