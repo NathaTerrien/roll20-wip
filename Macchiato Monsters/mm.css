@@ -1,10 +1,5 @@
 /* Colors
- Beige clair : #E9D1A5
- Beige : #D89D5B
- Rouge marron : #6A0B0F
- Gris clair  : #BCBCBC
- Gris moyen : #919191
- Gris foncé : #3C3C3C
+ marron foncé : #B1793F 177,121,63
  */
 div,
 button,
@@ -13,5 +8,117 @@ span,
 input,
 select{
     box-sizing: border-box;
+}
+div{
+    margin: none;
+    padding: none;
+    background-color: transparent;
+}
+div.sheet-bgmain{
+    width: 860px;
+    text-align: center;
+    font-family: 'Patrick Hand';
+    font-size: 14px;
+    background-color : white;
+    /* background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/WhiteLies/whitelies_bg_vo_830x1065.png');
+    background-repeat:no-repeat;
+    background-position:top left;
+    background-size: cover; */
+}
+div.sheet-ligne{
+    display: block;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+    margin: 1px;
+    padding: 1px;
+    /* border: 1px solid blue; */
+}
+div.sheet-mycol{
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    /* border: 1px solid red; */
+}
+div.sheet-abs{
+    position: absolute;
+    vertical-align: bottom;
+    /* border: 1px solid red; */
+}
+div.sheet-stats{
+    position: relative;
+    width: 200px;
+    height: 300px;
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg_attr.png');
+    background-repeat:no-repeat;
+    background-position:top left;
+    background-size: contain;
+}
+span.sheet-stats{
+    display: inline-block;
+    width: 40px;
+    text-align: left;
+    font-size: 20px;
+}
+input, textarea{
+    background-color: transparent;
+    display: inline-block;
+    padding: none;
+    margin: none;
+    font-family: Arial;
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    resize:none;
+    color: #B1793F;
+    z-index: 2;
+    border-radius: 0;
+}
+input{
+    border-bottom: 1px dotted #B1793F;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(177,121,63,0.01),0 0 6px rgba(177,121,63,0.5);
+    background-color: rgba(177,121,63,0.05);
+}
+textarea{
+    padding: 1px 2px 0px 2px;
+}
+input[type="text"]{
+    padding: 0px 0px 0px 2px;
+}
+input[type="number"]{
+    text-align: right;
+    padding: 0px 2px 0px 0px;
+}
+input[type="number"].sheet-stats{
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+input[type="number"].sheet-stats::-webkit-inner-spin-button,
+input[type="number"].sheet-stats::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+button[type="roll"].sheet-btcheck{
+    color: #B1793F;
+    font-weight: normal;
+    font-size: 20px;
+    text-decoration:none;
+    background:none;
+    background-image:none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px;
+    margin: 0px 0px 0px 5px;
+}
+button[type="roll"].sheet-btcheck:before{
+    text-align: center;
+}
+button[type="roll"].sheet-btcheck:hover{
+    font-weight: bold;
 }
 

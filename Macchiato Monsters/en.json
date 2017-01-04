@@ -1,13 +1,19 @@
 {
+    "CHA": "CHA",
+    "CON": "CON",
+    "DEX": "DEX",
     "HD": "HD",
-    "hit-dice": "Hit Dice",
     "HP": "HP",
-    "hit-points-current": "Current Hit Points",
-    "hit-points-max": "Maximum Hit Points",
+    "INT": "INT",
+    "LVL": "LVL",
+    "STR": "STR",
+    "WIS": "WIS",
     "goals": "Goals",
     "goals-current": "Current Goals",
     "goals-max": "Maximum Goals",
-    "LVL": "LVL",
+    "hit-dice": "Hit Dice",
+    "hit-points-current": "Current Hit Points",
+    "hit-points-max": "Maximum Hit Points",
     "level": "Level",
     "name": "NAME"
 }

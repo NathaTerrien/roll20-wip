@@ -2,34 +2,72 @@
 <div class="bgmain">
     <div class="sheet-ligne">
         <!-- ======== COL 1 ======== -->
-        <div class="sheet-mycol">
+        <div class="sheet-mycol" style="width: 49%;">
             <div class="sheet-ligne">
-                MACCHIATO MONSTERS
+                <span data-i18n="name">NAME</span>
+                <input type="text" name="attr_character_name" class="" style="width: 350px;" />
             </div>
+            <div class="sheet-ligne"> <!-- BASICS -->
+                <div class="sheet-col">
+                    <span data-i18n="HD">HD</span>
+                    <input type="text" name="attr_HD" class="" style="width:60px;" data-i18n-placeholder="hit-dice" placeholder="Hit Dice" />
+                </div>
+                <div class="sheet-col">
+                    <span data-i18n="HP">HP</span>
+                    <input type="number" name="attr_HP" value ="0" class="" style="width:40px;" data-i18n-title="hit-points-current" title="Current Hit Points" />
+                    /
+                    <input type="number" name="attr_HP_max" value ="0" class="" style="width:40px;" data-i18n-title="hit-points-max" title="Maximum Hit Points" />
+                </div>
+                <div class="sheet-col">
+                    <span data-i18n="goals">Goals</span>
+                    <input type="number" name="attr_GOALS" value ="0" class="" style="width:35px;" data-i18n-title="goals-current" title="Current Goals" />
+                    /
+                    <input type="number" name="attr_GOALS_max" value ="0" class="" style="width:35px;" data-i18n-title="goals-max" title="Maximum Goals" />
+                </div>
+                <div class="sheet-col">
+                    <span data-i18n="LVL">LVL</span>
+                    <input type="number" name="attr_LEVEL" value="1" class="" style="width:40px;" data-i18n-placeholder="level" placeholder="Level" />
+                </div>
+            </div> <!-- END BASICS -->
             <div class="sheet-ligne">
-                <div class="sheet-col">
-                    <span data-i18n="HD">HD</span>
-                    <input type="text" class="" name="attr_HD" style="width:60px;" data-i18n-placeholder="hit-dice" placeholder="Hit Dice" />
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="HD">HD</span>
-                    <input type="text" class="" name="attr_HD" style="width:60px;" data-i18n-placeholder="hit-dice" placeholder="Hit Dice" />
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="HD">HD</span>
-                    <input type="text" class="" name="attr_HD" style="width:60px;" data-i18n-placeholder="hit-dice" placeholder="Hit Dice" />
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="HD">HD</span>
-                    <input type="text" class="" name="attr_HD" style="width:60px;" data-i18n-placeholder="hit-dice" placeholder="Hit Dice" />
-                </div>
+                <div class="sheet-stats"> <!-- STATS -->
+                    <div class="sheet-abs" style="top: 20px; left: 20px;">
+                        <span class="sheet-stats" data-i18n="STR">STR</span>
+                        <input class="sheet-stats" type="number" name="attr_STR" value="0" />
+                        <button type="roll" class="sheet-btcheck" name="Roll-STR" value="" />
+                    </div>
+                    <div class="sheet-abs" style="top: 65px; left: 20px;">
+                        <span class="sheet-stats" data-i18n="INT">INT</span>
+                        <input class="sheet-stats" type="number" name="attr_INT" value="0" />
+                        <button type="roll" class="sheet-btcheck" name="Roll-INT" value="" />
+                    </div>
+                    <div class="sheet-abs" style="top: 110px; left: 20px;">
+                        <span class="sheet-stats" data-i18n="WIS">WIS</span>
+                        <input class="sheet-stats" type="number" name="attr_WIS" value="0" />
+                        <button type="roll" class="sheet-btcheck" name="Roll-WIS" value="" />
+                    </div>
+                    <div class="sheet-abs" style="top: 155px; left: 20px;">
+                        <span class="sheet-stats" data-i18n="DEX">DEX</span>
+                        <input class="sheet-stats" type="number" name="attr_DEX" value="0" />
+                        <button type="roll" class="sheet-btcheck" name="Roll-DEX" value="" />
+                    </div>
+                    <div class="sheet-abs" style="top: 200px; left: 20px;">
+                        <span class="sheet-stats" data-i18n="CON">CON</span>
+                        <input class="sheet-stats" type="number" name="attr_CON" value="0" />
+                        <button type="roll" class="sheet-btcheck" name="Roll-CON" value="" />
+                    </div>
+                    <div class="sheet-abs" style="top: 245px; left: 20px;">
+                        <span class="sheet-stats" data-i18n="CHA">CHA</span>
+                        <input class="sheet-stats" type="number" name="attr_CHA" value="0" />
+                        <button type="roll" class="sheet-btcheck" name="Roll-CHA" value="" />
+                    </div>
+                </div> <!-- END STATS -->
             </div>
         </div> <!-- ======== END COL 1 ======== -->
         <!-- ======== COL 2 ======== -->
-        <div class="sheet-mycol">
+        <div class="sheet-mycol" style="width: 50%;">
             <div class="sheet-ligne">
-                <span data-i18n="name">NAME</span>
-                <input type="text" class="" name="attr_character_name" style="" />
+                <img style="width:400px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg_title.png" />
             </div>
         </div> <!-- ======== END COL 2 ======== -->
     </div>
