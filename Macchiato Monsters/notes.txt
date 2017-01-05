@@ -1,0 +1,7 @@
+Ce que je prévoyais d'ajouter :
+- une textarea pour les langues
+- une zone de saisie OU une liste déroulante de choix (à ton avis) pour l'armure (c'est limité aux d4 à d12 ?) avec un bouton de jet dR
+- une zone de saisie OU une liste déroulante de choix (à ton avis ?) pour le Combat Training (c'est limité aux d4 à d12 ?)
+- une section répétable pour les traits avec juste une textarea pour chaque ligne (sans jet)
+- une section répétable pour les skills et spells, avec une zone de saisie (en gras, le nom), et une textarea pour la description, ce pour chaque ligne
+- une section équipement
