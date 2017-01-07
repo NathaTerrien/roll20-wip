@@ -1,141 +1,121 @@
 <div class="bgmain"> <!-- ======== SHEET ========  &#9982; -->
     <div class="sheet-ligne"> <!-- ======== LINE 1 ======== -->
-        <div class="sheet-mycol" style="width: 49%;"> <!-- ======== COL 1 ======== -->
-            <div class="sheet-ligne">
-                <span data-i18n="name">NAME</span>
-                <input type="text" name="attr_character_name" class="" style="width: 350px;" />
-            </div>
-            <div class="sheet-ligne" style="text-align: left;"> <!-- HD HP -->
-                <div class="sheet-col">
-                    <span style="font-size: 20px;">&#10084;</span>
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="HP">HP</span>
-                    <input type="number" name="attr_HP" value ="0" class="" style="width:40px;" data-i18n-title="hit-points-current" title="Current Hit Points" />
-                    /
-                    <input type="number" name="attr_HP_max" value ="0" class="" style="width:40px;" data-i18n-title="hit-points-max" title="Maximum Hit Points" />
-                </div>
-                <div class="sheet-col">
-                    <span style="font-size: 22px;font-weight: bold;">&#9876;</span>
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="HD">HD</span>
-                    <input type="number" name="attr_HDNB" value="1" class="" style="width:40px;" data-i18n-placeholder="hit-dice-number" placeholder="Number of Hit Dice" />
-                    d<SELECT name="attr__HDTYPE" style="width:40px;" data-i18n-title="hit-dice-combat" title="Hit Dice / Combat Training" >
-                        <OPTION selected>6</OPTION>
-                        <OPTION>8</OPTION>
-                        <OPTION>10</OPTION>
-                    </SELECT>
-                    <button type="roll" class="sheet-btcheck" name="Roll-HP" value="" />
-                </div> <!-- END HD HP -->
-            </div>
-            <div class="sheet-ligne" style="text-align: left;"> <!-- LEVEL -->
-                <div class="sheet-col">
-                    <span style="font-size: 20px;">&#9685;</span>
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="goals">Goals</span>
-                    <input type="number" name="attr_GOALS" value ="0" class="" style="width:35px;" data-i18n-title="goals-current" title="Current Goals" />
-                    /
-                    <input type="number" name="attr_GOALS_max" value ="0" class="" style="width:35px;" data-i18n-title="goals-max" title="Maximum Goals" />
-                </div>
-                <div class="sheet-col">
-                    <span style="font-size: 20px;font-family: pictos;">,</span>
-                </div>
-                <div class="sheet-col">
-                    <span data-i18n="LVL">LVL</span>
-                    <input type="number" name="attr_LEVEL" value="1" class="" style="width:40px;" data-i18n-placeholder="level" placeholder="Level" />
-                </div>
-            </div> <!-- END LEVEL -->
-        </div> <!-- ======== END COL 1 ======== -->
-        <!-- ======== COL 2 ======== -->
-        <div class="sheet-mycol" style="width: 50%;"> <!-- ======== COL 2 ======== -->
+        <div class="sheet-mycol" style="width: 50%;"> <!-- ======== COL 1 ======== -->
             <div class="sheet-ligne">
                 <img style="width:400px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg_title.png" />
             </div>
+        </div> <!-- ======== END COL 1 ======== -->
+        <div class="sheet-mycol" style="width: 49%;"> <!-- ======== COL 2 ======== -->
+            <div class="sheet-ligne">
+                <span class="sheet-lib1" data-i18n="name">NAME</span>
+                <input type="text" name="attr_character_name" class="sheet-inptxt1" style="width: 320px;" />
+            </div>
+            <div class="sheet-ligne"> <!-- HD HP -->
+                <div class="sheet-col">
+                    <span class="sheet-lib1" data-i18n="HP">HP</span>
+                    <input type="number" name="attr_HP" value ="0" class="" data-i18n-title="hit-points-current" title="Current Hit Points" />
+                    /
+                    <input type="number" name="attr_HP_max" value ="0" class="" data-i18n-title="hit-points-max" title="Maximum Hit Points" />
+                </div>
+                <div class="sheet-col sheet-margleft">
+                    <span class="sheet-lib1" data-i18n="HD">HD</span>
+                    <input type="number" name="attr_HDNB" value="1" class="" style="width:40px;" data-i18n-placeholder="hit-dice-number" placeholder="Number of Hit Dice" />
+                    <SELECT name="attr__HDTYPE" style="width:40px;" data-i18n-title="hit-dice-combat" title="Hit Dice / Combat Training" >
+                        <OPTION selected>d6</OPTION>
+                        <OPTION>d8</OPTION>
+                        <OPTION>d10</OPTION>
+                    </SELECT>
+                    <button type="roll" class="sheet-bthp" name="Roll-HP" data-i18n-title="hit-dice-roll" title="Roll Hit Dice to get new total HP" value="" />
+                </div> <!-- END HD HP -->
+            </div>
+            <div class="sheet-ligne"> <!-- LEVEL -->
+                <div class="sheet-col">
+                    <span class="sheet-lib1" data-i18n="goals">Goals</span>
+                    <input type="number" name="attr_GOALS" value ="0" class="" data-i18n-title="goals-current" title="Current Goals" />
+                    /
+                    <input type="number" name="attr_GOALS_max" value ="0" class="" data-i18n-title="goals-max" title="Maximum Goals" />
+                </div>
+                <div class="sheet-col sheet-margleft">
+                    <span class="sheet-lib1" data-i18n="LVL">LVL</span>
+                    <input type="number" name="attr_LEVEL" value="1" class="" style="width:40px;" data-i18n-placeholder="level" placeholder="Level" />
+                </div>
+            </div> <!-- END LEVEL -->
         </div> <!-- ======== END COL 2 ======== -->
     </div> <!-- ======== END LINE 1 ======== -->
     <div class="sheet-ligne"> <!-- ======== LINE 2 ======== -->
-        <div class="sheet-rel" style="width: 100%;">
-            <div class="sheet-stats"> <!-- ======== STATS ======== -->
-                <div class="sheet-abs" style="top: 20px; left: 20px;">
-                    <span class="sheet-stats" data-i18n="STR">STR</span>
-                    <input class="sheet-stats" type="number" name="attr_STR" value="0" />
-                    <button type="roll" class="sheet-btcheck" name="Roll-STR" value="" />
-                </div>
-                <div class="sheet-abs" style="top: 65px; left: 20px;">
-                    <span class="sheet-stats" data-i18n="INT">INT</span>
-                    <input class="sheet-stats" type="number" name="attr_INT" value="0" />
-                    <button type="roll" class="sheet-btcheck" name="Roll-INT" value="" />
-                </div>
-                <div class="sheet-abs" style="top: 110px; left: 20px;">
-                    <span class="sheet-stats" data-i18n="WIS">WIS</span>
-                    <input class="sheet-stats" type="number" name="attr_WIS" value="0" />
-                    <button type="roll" class="sheet-btcheck" name="Roll-WIS" value="" />
-                </div>
-                <div class="sheet-abs" style="top: 155px; left: 20px;">
-                    <span class="sheet-stats" data-i18n="DEX">DEX</span>
-                    <input class="sheet-stats" type="number" name="attr_DEX" value="0" />
-                    <button type="roll" class="sheet-btcheck" name="Roll-DEX" value="" />
-                </div>
-                <div class="sheet-abs" style="top: 200px; left: 20px;">
-                    <span class="sheet-stats" data-i18n="CON">CON</span>
-                    <input class="sheet-stats" type="number" name="attr_CON" value="0" />
-                    <button type="roll" class="sheet-btcheck" name="Roll-CON" value="" />
-                </div>
-                <div class="sheet-abs" style="top: 245px; left: 20px;">
-                    <span class="sheet-stats" data-i18n="CHA">CHA</span>
-                    <input class="sheet-stats" type="number" name="attr_CHA" value="0" />
-                    <button type="roll" class="sheet-btcheck" name="Roll-CHA" value="" />
-                </div>
-            </div> <!-- ======== END STATS ======== -->
-            <div class="sheet-abs" style="top: 10px; left: 155px;width: 230px;">
-                <span style="font-size: 20px;">&#9960;</span>
-                <span data-i18n="armour">Armour</span>
-                d<SELECT name="attr_ARMOUR" style="width:40px;" data-i18n-title="armour-risk-dice" title="Armour Risk dice" >
-                    <OPTION>0</OPTION>
-                    <OPTION>4</OPTION>
-                    <OPTION selected>6</OPTION>
-                    <OPTION>8</OPTION>
-                    <OPTION>10</OPTION>
-                </SELECT>
-                <button type="roll" class="sheet-btcheck" name="Roll-HP" value="" />
+        <div class="sheet-mycol"> <!-- ======== COL 1 : STATS ======== -->
+            <div class="sheet-ligne">
+                <span class="sheet-stats" data-i18n="STR">STR</span>
+                <input class="sheet-stats" type="number" name="attr_STR" data-i18n-title="strength" title="Strength" value="0" />
+                <button type="roll" class="sheet-btd20" name="Roll-STR" data-i18n-title="strength-roll" title="Roll a Strength Check" value="" />
             </div>
-            <div class="sheet-abs" style="top: 34px; left: 155px;width: 230px;"> <!-- ======== LANGUAGES ======== -->
-                <span style="font-size: 24px;font-family: pictos;">g</span>
-                <span data-i18n="languages">Languages</span>
-                <textarea name="attr_LANGUAGES" style="height: 50px;" data-i18n-placeholder="languages" placeholder="Languages"></textarea>
+            <div class="sheet-lignel">
+                <span class="sheet-stats" data-i18n="INT">INT</span>
+                <input class="sheet-stats" type="number" name="attr_INT" data-i18n-title="intelligence" title="Intelligence" value="0" />
+                <button type="roll" class="sheet-btd20" name="Roll-INT" data-i18n-title="intelligence-roll" title="Roll an Intelligence Check" value="" />
+            </div>
+            <div class="sheet-lignel">
+                <span class="sheet-stats" data-i18n="WIS">WIS</span>
+                <input class="sheet-stats" type="number" name="attr_WIS" data-i18n-title="wisdom" title="Wisdom" value="0" />
+                <button type="roll" class="sheet-btd20" name="Roll-WIS" data-i18n-title="wisdom-roll" title="Roll a Wisdom Check" value="" />
+            </div>
+            <div class="sheet-lignel">
+                <span class="sheet-stats" data-i18n="DEX">DEX</span>
+                <input class="sheet-stats" type="number" name="attr_DEX" data-i18n-title="dexterity" title="Dexterity" value="0" />
+                <button type="roll" class="sheet-btd20" name="Roll-DEX" data-i18n-title="dexterity-roll" title="Roll a Dexterity Check" value="" />
+            </div>
+            <div class="sheet-lignel">
+                <span class="sheet-stats" data-i18n="CON">CON</span>
+                <input class="sheet-stats" type="number" name="attr_CON" data-i18n-title="constitution" title="Constitution" value="0" />
+                <button type="roll" class="sheet-btd20" name="Roll-CON" data-i18n-title="constitution-roll" title="Roll a Constitution Check" value="" />
+            </div>
+            <div class="sheet-lignel">
+                <span class="sheet-stats" data-i18n="CHA">CHA</span>
+                <input class="sheet-stats" type="number" name="attr_CHA" data-i18n-title="charisma" title="Charisma" value="0" />
+                <button type="roll" class="sheet-btd20" name="Roll-CHA" data-i18n-title="charisma-roll" title="Roll a Charisma Check" value="" />
+            </div>
+            <div class="sheet-lignel" style="margin-top: 10px;"> <!-- ======== Armour ======== -->
+                <span class="sheet-lib1" data-i18n="armour">Armour</span>
+                <SELECT name="attr_ARMOUR" class="sheet-seldice" data-i18n-title="armour-risk-dice" title="Armour Risk dice" >
+                    <OPTION>0</OPTION>
+                    <OPTION>d4</OPTION>
+                    <OPTION selected>d6</OPTION>
+                    <OPTION>d8</OPTION>
+                    <OPTION>d10</OPTION>
+                </SELECT>
+                <button type="roll" class="sheet-btrisk" name="Roll-HP" value=""  data-i18n-title="roll-armour-risk-dice" title="Roll Armour Risk dice" />
+            </div>  <!-- ======== END Armour ======== -->
+        </div> <!-- ======== END COL1 : STATS and ARMOUR ======== -->
+        <div class="sheet-mycol" style="width:265px"> <!-- ======== COL2 : LANGUAGES & TRAITS ======== -->
+            <div class="sheet-ligne"> <!-- ======== LANGUAGES ======== -->
+                <span class="sheet-lib1" data-i18n="languages">Languages</span>
+                <textarea name="attr_LANGUAGES" style="height: 40px;" data-i18n-placeholder="languages" placeholder="Languages"></textarea>
             </div> <!-- ======== END LANGUAGES ======== -->
-            <div class="sheet-abs" style="top: 112px; left: 155px;width: 230px;height: 169px"> <!-- ======== TRAITS ======== -->
-                <span style="font-size: 22px;">&#9775;</span>
-                <span data-i18n="traits">Traits</span>
-                <textarea name="attr_TRAITS" style="height: 150px;" data-i18n-placeholder="traits" placeholder="Traits"></textarea>
+            <div class="sheet-ligne">  <!-- ======== TRAITS ======== -->
+                <span class="sheet-lib1" data-i18n="traits">Traits</span>
+                <textarea name="attr_TRAITS" style="height: 130px;" data-i18n-placeholder="traits" placeholder="Traits"></textarea>
             </div> <!-- ======== END TRAITS ======== -->
-            <div class="sheet-abs" style="top: -30px; left: 384px;"> <!-- ======== GEAR ======== -->
-                <div class="sheet-gear">
-                     <div class="sheet-abs" style="top: 2px; left: 320px;width: 130px;text-align: center;">
-                        <span style="font-size: 20px;font-family: pictos;">x</span>
-                        <span data-i18n="gear">GEAR</span>
-                    </div>
-                </div>
-            </div> <!-- ======== END GEAR ======== -->
-        </div>
+        </div> <!-- ======== END COL2 : LANGUAGES & TRAITS ======== -->
+        <div class="sheet-mycol" style="width: 400px;"> <!-- ======== COL 3 : SKILLS & SPELLS ======== -->
+            <div class="sheet-ligne">
+                <span class="sheet-lib1" data-i18n="skills-and-spells">Skills & Spells</span>
+            </div>
+            <textarea name="attr_skillsandspells" style="height: 198px; width: 100%;" data-i18n-placeholder="skills-and-spells" placeholder="Skills & Spells"></textarea>
+        </div> <!-- ======== END COL 3 : SKILLS & SPELLS ======== -->
     </div> <!-- ======== END LINE 2 ======== -->
     <div class="sheet-ligne"> <!-- ======== LINE 3 ======== -->
-        <div class="sheet-mycol" style="width: 480px;"> <!-- ======== SKILLS & SPELLS ======== -->
+        <div class="sheet-mycol" style="width: 550px;"> <!-- ======== GEAR ======== -->
             <div class="sheet-gear">
-                 <div class="sheet-abs" style="top: 2px; left: 320px;width: 130px;text-align: center;">
-                    <span style="font-size: 20px;font-family: pictos;">y</span>
-                    <span data-i18n="skills-and-spells">Skills & Spells</span>
+                 <div class="sheet-abs" style="top: 2px; left: 380px;width: 140px;text-align: center;">
+                    <span class="sheet-lib1" data-i18n="gear">GEAR</span>
                 </div>
             </div>
-        </div> <!-- ======== END SKILLS & SPELLS ======== -->
+        </div> <!-- ======== END GEAR ======== -->
         <div class="sheet-mycol"> <!-- ======== NOTES ======== -->
             <div class="sheet-ligne">
-                <span style="font-size: 22px;">&#10002;</span>
-                <span data-i18n="notes">Notes</span>
+                <span class="sheet-lib1" data-i18n="notes">Notes</span>
             </div>
-            <textarea name="attr_NOTES" style="width: 340px;height: 290px;font-size: 13px;" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+            <textarea name="attr_NOTES" style="width: 260px;height: 300px;font-size: 13px;" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
         </div> <!-- ======== END NOTES ======== -->
     </div> <!-- ======== END LINE 3 ======== -->
 </div>  <!-- ======== END SHEET ======== -->
