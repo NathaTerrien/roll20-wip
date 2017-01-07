@@ -8,12 +8,20 @@
     "LVL": "LVL",
     "STR": "STR",
     "WIS": "WIS",
+    "armour": "Armour",
+    "armour-risk-dice": "Armour Risk dice",
+    "gear": "GEAR",
     "goals": "Goals",
     "goals-current": "Current Goals",
     "goals-max": "Maximum Goals",
-    "hit-dice": "Hit Dice",
+    "hit-dice-combat": "Hit Dice / Combat Training",
+    "hit-dice-number": "Number of Hit Dice",
     "hit-points-current": "Current Hit Points",
     "hit-points-max": "Maximum Hit Points",
+    "languages": "Languages",
     "level": "Level",
-    "name": "NAME"
+    "name": "NAME",
+    "notes": "Notes",
+    "skills-and-spells": "Skills &amp; Spells",
+    "traits": "Traits"
 }

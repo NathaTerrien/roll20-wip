@@ -18,16 +18,17 @@ div.sheet-bgmain{
     width: 860px;
     text-align: center;
     font-family: 'Patrick Hand';
-    font-size: 14px;
+    font-size: 16px;
     background-color : white;
-    /* background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/WhiteLies/whitelies_bg_vo_830x1065.png');
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg3.jpg');
     background-repeat:no-repeat;
     background-position:top left;
-    background-size: cover; */
+    background-size: auto;
+    padding: 4px;
 }
 div.sheet-ligne{
     display: block;
-    text-align: center;
+    text-align: left;
     vertical-align: top;
     width: 100%;
     margin: 1px;
@@ -40,25 +41,43 @@ div.sheet-mycol{
     vertical-align: top;
     /* border: 1px solid red; */
 }
+div.sheet-rel{
+    position: relative;
+    display: inline-block;
+    /* border: 1px solid red; */
+}
 div.sheet-abs{
     position: absolute;
     vertical-align: bottom;
-    /* border: 1px solid red; */
+    display: inline-block;
+    /* border: 1px solid blue; */
 }
 div.sheet-stats{
     position: relative;
-    width: 200px;
+    width: 150px;
     height: 300px;
     background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg_attr.png');
     background-repeat:no-repeat;
     background-position:top left;
     background-size: contain;
 }
+div.sheet-gear{
+    position: relative;
+    width: 465px;
+    height: 330px;
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg_gear.png');
+    background-repeat:no-repeat;
+    background-position:top left;
+    background-size: 465px 330px;
+}
 span.sheet-stats{
     display: inline-block;
     width: 40px;
     text-align: left;
     font-size: 20px;
+}
+.sheet-scroll{
+    overflow-y: scroll;
 }
 input, textarea{
     background-color: transparent;
@@ -73,8 +92,6 @@ input, textarea{
     color: #B1793F;
     z-index: 2;
     border-radius: 0;
-}
-input{
     border-bottom: 1px dotted #B1793F;
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
@@ -101,6 +118,24 @@ input[type="number"].sheet-stats::-webkit-inner-spin-button,
 input[type="number"].sheet-stats::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
+}
+select{
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+    height: 18px;
+    line-height: 18px;
+    max-height 18px;
+    font-weight:normal;
+    font-family: Arial;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px dotted #B1793F;
+    text-align: center;
+    color: #B1793F;
+}
+select:hover{
+    border: 1px solid #B1793F;
 }
 button[type="roll"].sheet-btcheck{
     color: #B1793F;
