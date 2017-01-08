@@ -7,8 +7,11 @@ Macchiato Monsters is a rules-light, old school, slightly collaborative roleplay
 # Current version
 1.0 [Screenshot](mm.jpg)
 
-The sheet has integrated rolls (with chat roll templates).
-One caveat: Risk dice can not be checked on Weapon when multiple damage dice are used.
+The sheet has integrated rolls (with chat roll templates) for:
+* Stat check
+* HP
+* Gear risk dice
+* Weapon damage/risk dice (one caveat: Risk dice can not be checked on Weapon when multiple damage dice are used)
 
 # Release notes
 
