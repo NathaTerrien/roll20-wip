@@ -97,8 +97,7 @@ span.sheet-stats{
 }
 
 input, textarea{
-    /* background-color: transparent; */
-    background-color: rgba(255,255,255,0.6);
+    background-color: transparent;
     display: inline-block;
     padding: none;
     margin: none;
@@ -110,7 +109,7 @@ input, textarea{
     color: #B1793F;
     z-index: 2;
     border-radius: 0;
-    border-bottom: 1px dotted #B1793F;
+    border-bottom: 1px dotted black; /* #B1793F; */
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
     box-shadow: inset 0px 1px 1px rgba(177,121,63,0.01),0 0 6px rgba(177,121,63,0.5);
@@ -119,7 +118,8 @@ input:focus, input:hover, textarea:focus, textarea:hover{
 textarea{
     padding: 1px 2px 0px 2px;
     font-size: 13px;
-    border: 1px dotted #B1793F;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
 }
 input[type="text"]{
     padding: 0px 0px 0px 2px;
@@ -155,7 +155,7 @@ select{
     font-family: Arial;
     font-size: 14px;
     border: none;
-    border-bottom: 1px dotted #B1793F;
+    border-bottom: 1px dotted black;
     text-align: center;
     color: #B1793F;
 }
@@ -166,7 +166,6 @@ select.sheet-seldice{
     width: 48px;
 }
 button[type="roll"]{
-    /* color: #B1793F; */
     color: black;
     font-weight: normal;
     font-size: 20px;
@@ -202,7 +201,8 @@ button[type="roll"].sheet-btrisk:before{
 button[type="roll"].sheet-btrisk:hover:before{
     content: 'd';
 }
-/* fieldset button */
+
+/* === fieldset button === */
 div.repcontrol{
     display: inline-block;
     width: 100%;
@@ -265,4 +265,78 @@ div.repcontrol{
 }
 .repcontrol_add:focus:before, .repcontrol_edit:focus:after {
     color: #B1793F;
+}
+
+/* === template === */
+.sheet-rolltemplate-tmplt div{
+    display: block;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-family: 'Patrick Hand';
+    text-align: center;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+.sheet-rolltemplate-tmplt div.sheet-tplmain{
+    width: 180px;
+    height: 180px;
+    background-image:url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Macchiato%20Monsters/mm_bg_tmplt.png');
+    background-repeat: no-repeat;
+    background-size: 180px 180px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.sheet-rolltemplate-tmplt div.sheet-body{
+    width: 100%;
+}
+.sheet-rolltemplate-tmplt div.sheet-char,
+.sheet-rolltemplate-tmplt div.sheet-title{
+    color: black;
+    text-shadow: 0px 0px 10px white;
+    font-size: 22px;
+    height: 25px;
+    width: 100%;
+}
+.sheet-rolltemplate-tmplt div.sheet-mycol{
+    width: 88px;
+    max-width: 88px;
+    display: inline-block;
+}
+.sheet-rolltemplate-tmplt .sheet-rightbrd{
+    border-right: 1px solid #B1793F;
+}
+.sheet-rolltemplate-tmplt .sheet-leftbrd{
+    border-left: 1px solid #B1793F;
+}
+.sheet-rolltemplate-tmplt .sheet-success{
+    color: #3b8a57;
+    font-size: 16px;
+    display: inline-block;
+}
+.sheet-rolltemplate-tmplt .sheet-failure{
+    color: #932315;
+    font-size: 16px;
+    display: inline-block;
+}
+/* Roll results */
+.sheet-rolltemplate-tmplt .inlinerollresult {
+    background-color: transparent;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 24px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmplt .inlinerollresult.fullcrit{
+    border: none;
+    color: #3b8a57;
+}
+.sheet-rolltemplate-tmplt .inlinerollresult.importantroll{
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-tmplt .inlinerollresult.fullfail{
+    border: none;
+    color: #932315;
 }
