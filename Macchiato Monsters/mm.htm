@@ -127,7 +127,7 @@
                 <fieldset class="repeating_weapons">
                     <div class="sheet-ligne">
                         <button type="roll" class="sheet-bthp" name="Roll-Damage" data-i18n-title="roll-weapond-damage" title="Roll Weapon damage"
-                            value="&{template:tmplt} {{character=@{character_name}}} {{title=@{weaponname} ^{damage}}} {{risk=[[@{weaponrisk}]]}} {{multi=[[@{weaponqty}]]}} {{roll=[[@{weaponqty}d@{weapondamage}]]}}"></button>
+                            value="&{template:tmplt} {{character=@{character_name}}} {{title=@{weaponname}}} {{damage=1}} {{risk=[[@{weaponrisk}]]}} {{multi=[[@{weaponqty}]]}} {{roll=[[@{weaponqty}d@{weapondamage}]]}}"></button>
                         <input type="text" name="attr_weaponname" style="width: 170px;" data-i18n-placeholder="weapon" placeholder="Weapon" />
                         <input type="number" name="attr_weaponqty" style="width: 35px;" value="1"  data-i18n-placeholder="number-attacks" placeholder="Number of attacks/dice" />
                         <SELECT name="attr_weapondamage" class="sheet-seldice" data-i18n-title="weapon-damage-dice" title="Weapon Damage dice" />
@@ -242,6 +242,9 @@
                 </div>
             {{/firstroll}}
             <div class="sheet-title">{{title}}</div>
+            {{#damage}}
+                <div class="sheet-title"><span data-i18n="damage">Damage</span></div>
+            {{/damage}}
         </div>
     </div>
 </rolltemplate>
