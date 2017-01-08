@@ -300,7 +300,9 @@ div.repcontrol{
 .sheet-rolltemplate-tmplt div.sheet-mycol{
     width: 88px;
     max-width: 88px;
-    display: inline-block;
+    min-height: 50px;
+    display: table-cell;
+    vertical-align: middle;
 }
 .sheet-rolltemplate-tmplt .sheet-rightbrd{
     border-right: 1px solid #B1793F;
