@@ -14,7 +14,7 @@ Thank you :)
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
-## WIP
+## Work In Progress
 
 ![Mordiou banner](/_banners/mordiou_banner.jpg)
 ### Mordiou ! (french)
