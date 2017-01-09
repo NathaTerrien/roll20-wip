@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2017-01-03 (BoL v1.2)._
+_Updated 2017-01-09 (Macchiato Monsters v1.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -15,19 +15,6 @@ Thank you :)
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## WIP
-
-### Macchiato Monsters (french and english)
-[Website](http://quenouille.com/macchiato-monsters-dungeonverse-build-together/)
-
-Creation.
-
-#### Sources
-* [WIP]()
-* [Fork]()
-* [Official]()
-
-### Todo
-Getting started...
 
 ## Existing sheets
 
@@ -160,6 +147,20 @@ Création.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
 
 #### Todo
+
+![macchiato banner](/_banners/macchiato_banner.jpg)
+### Macchiato Monsters (french and english)
+[Website](http://quenouille.com/macchiato-monsters-dungeonverse-build-together/)
+
+Creation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
+* [Official]() Waiting for merge
+
+### Todo
+* in-game testing
 
 ![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (english)
