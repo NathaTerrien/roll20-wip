@@ -8,13 +8,25 @@ You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my P
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* [Mordiou!](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
+* Swords & Wizardry translation to french, and enhancement (integrated rolls)
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
 * Stars Without Number, french
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## WIP
+
+![Mordiou banner](/_banners/mordiou_banner.jpg)
+### Mordiou ! (french)
+Site officiel : [Mordiou !](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
+
+Création.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou)
+
+### Todo
+Getting started
 
 ## Existing sheets
 
