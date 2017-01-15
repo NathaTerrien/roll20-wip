@@ -17,15 +17,243 @@ input[type=number].sheet-tinyinput {
 }
 
 input.sheet-shortinput {
-    width:60px;   
+    width:60px;
 }
 
 input.sheet-medinput {
-    width:100px;   
+    width:100px;
 }
 
 input.sheet-longinput {
-    width:160px;   
+    width:160px;
 }
 
-h2 {color:#933; padding-top:20px;}
+h2 {font-size: 16px;color:#993333; padding-top:4px;}
+/*************************************************************/
+/* Colors
+    #993333 / rgb(153, 51, 51)
+*/
+div,
+button,
+textarea,
+span,
+input,
+select{
+    box-sizing: border-box;
+}
+div{
+    margin: none;
+    padding: none;
+    background-color: transparent;
+}
+div.sheet-main{
+    width: 830px;
+    min-width: 830px;
+    max-width: 830px;
+    text-align: center;
+    font-size: 13px;
+    background-color : white;
+    padding: 4px;
+}
+div.sheet-ligne{
+    display: block;
+    text-align: left;
+    vertical-align: top;
+    width: 100%;
+    margin: 1px;
+    padding: 1px;
+}
+div.sheet-mycol{
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+    padding: 4px;
+}
+input, textarea{
+    background-color: transparent;
+    display: inline-block;
+    padding: none;
+    margin: none;
+    font-family: Arial;
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    resize:none;
+    z-index: 2;
+    border-radius: 0;
+    border-bottom: 1px dotted black;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(153,51,51,0.01),0 0 6px rgba(153,51,51,0.5);
+    background-color: rgba(153,51,51,0.05);
+}
+textarea{
+    padding: 1px 2px 0px 2px;
+    font-size: 13px;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+}
+input[type="text"]{
+    padding: 0px 0px 0px 2px;
+    font-size: 13px;
+}
+input[type="text"].sheet-inptxt1 {
+    font-weight: bold;
+    font-size: 16px;
+}
+input[type="number"]{
+    text-align: right;
+    padding: 0px 2px 0px 0px;
+}
+input[type="number"].sheet-stats{
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+input[type="number"].sheet-stats::-webkit-inner-spin-button,
+input[type="number"].sheet-stats::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+select{
+    background-color: rgba(255,255,255,0.6);
+    padding: 0px;
+    margin: 0px;
+    height: 18px;
+    line-height: 18px;
+    max-height 18px;
+    font-weight:normal;
+    font-family: Arial;
+    font-size: 14px;
+    border: none;
+    border-bottom: 1px dotted black;
+    text-align: center;
+    color: #993333;
+}
+select:hover{
+    border: 1px solid #993333;
+}
+select.sheet-seldice{
+    width: 48px;
+}
+button[type="roll"]{
+    color: black;
+    font-weight: normal;
+    font-size: 20px;
+    text-decoration:none;
+    background:none;
+    background-image:none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+button[type="roll"]:hover{
+    font-weight: bold;
+}
+button[type="roll"].sheet-btd20:before{
+    content: '0';
+    font-size: 20px;
+}
+button[type="roll"].sheet-bthp:before{
+    font-family: "dicefontd8";
+    content: '0';
+    font-size: 20px;
+}
+button[type="roll"].sheet-btrisk{
+}
+button[type="roll"].sheet-btrisk:before{
+    font-family: "dicefontd4";
+    content: '0';
+    font-size: 20px;
+}
+button[type="roll"].sheet-btrisk:hover:before{
+    content: 'd';
+}
+.sheet-lib0{
+    display: inline-block;
+    text-align: right;
+    font-size:14px;
+    font-weight:bold;
+    color:#333;
+    margin-right: 4px;
+}
+.sheet-lib1{
+    display: inline-block;
+    text-align: right;
+    font-size:14px;
+    font-weight:bold;
+    color:#333;
+    margin-right: 4px;
+    min-width: 70px;
+}
+.sheet-greybg{
+    background-color:#eee;
+}
+/* === fieldset button === */
+div.repcontrol{
+    display: inline-block;
+    width: 100%;
+}
+.repcontrol_move{
+    height: 11px;
+    line-height: 11px;
+    margin-top: 4px;
+}
+.repcontrol_del {
+    height: 22px;
+    line-height: 12px;
+    margin-top: 4px;
+    width: 30px;
+}
+.repcontrol_add, .repcontrol_edit {
+    color: transparent;
+    box-shadow: none;
+    background: transparent;
+    border-color: transparent;
+    text-shadow:none;
+    width: 100px;
+}
+.repcontrol_add:focus, .repcontrol_edit:focus {
+    outline: none;
+}
+.repcontrol .repcontrol_edit:after {
+    content: 'y';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: rgba(153,51,51,0.7);
+}
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: '2';
+}
+.repcontrol .repcontrol_add:before {
+    content: '+';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: rgba(153,51,51,0.7);
+}
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    box-shadow: 1px 1px 4px 2px rgba(147,35,21,0.8);
+    border-color: #993333;
+    color: #993333;
+}
+.repcontrol_add:focus:before, .repcontrol_edit:focus:after {
+    color: #993333;
+}
