@@ -9,26 +9,6 @@
 .sheet-tdlabelbig { text-align: center;  font-size:18px; font-weight:bold; color:#333; }
 
 .sheet-tdattrlabel { text-align: center;  font-size:18px; font-weight:bold; color:#333; }
-
-input[type=number].sheet-tinyinput {
-    width:33px;
-    font-size:10px;
-    font-weight:bold;
-}
-
-input.sheet-shortinput {
-    width:60px;
-}
-
-input.sheet-medinput {
-    width:100px;
-}
-
-input.sheet-longinput {
-    width:160px;
-}
-
-h2 {font-size: 16px;color:#993333; padding-top:4px;}
 /*************************************************************/
 /* Colors
     #993333 / rgb(153, 51, 51)
@@ -47,9 +27,9 @@ div{
     background-color: transparent;
 }
 div.sheet-main{
-    width: 830px;
-    min-width: 830px;
-    max-width: 830px;
+    width: 860px;
+    min-width: 860px;
+    max-width: 860px;
     text-align: center;
     font-size: 13px;
     background-color : white;
@@ -62,18 +42,20 @@ div.sheet-ligne{
     width: 100%;
     margin: 1px;
     padding: 1px;
+    white-space: nowrap;
 }
 div.sheet-mycol{
     display: inline-block;
     text-align: left;
     vertical-align: top;
     padding: 4px;
+    /* border : 1px solid red; */
 }
 input, textarea{
     background-color: transparent;
     display: inline-block;
-    padding: none;
-    margin: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     font-family: Arial;
     font-size: 14px;
     border: none;
@@ -111,6 +93,26 @@ input[type="number"].sheet-stats{
     text-align: center;
     -moz-appearance: textfield;
 }
+input[type=number].sheet-tinyinput {
+    width:33px;
+    font-size:10px;
+    font-weight:bold;
+}
+input.sheet-shortinput{
+    width:60px;
+}
+input.sheet-medinput{
+    width:110px;
+}
+input.sheet-longinput {
+    width:160px;
+}
+input[type="text"].sheet-biginput{
+    width:250px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 input[type="number"].sheet-stats::-webkit-inner-spin-button,
 input[type="number"].sheet-stats::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -172,6 +174,12 @@ button[type="roll"].sheet-btrisk:before{
 }
 button[type="roll"].sheet-btrisk:hover:before{
     content: 'd';
+}
+.sheet-libred{
+    font-size: 16px;
+    color:#993333;
+    font-weight: bold;
+    padding-top:4px;
 }
 .sheet-lib0{
     display: inline-block;

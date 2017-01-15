@@ -1,75 +1,78 @@
 <div class="sheet-main">
     <div class="sheet-ligne">
-        <div class="mycol" style="width:66%;">
-            <H2><span data-i18n="biographical">Biographical</span></H2>
-            <div class="sheet-mycol">
+        <div class="mycol">
+            <div class="sheet-ligne">
+                <span class="sheet-libred" data-i18n="biographical-and-physical">Biographical & Physical</span>
+                <span class="sheet-lib1" data-i18n="name">Name</span>
+                <input type="text" class="sheet-biginput" name="attr_character_name" />
+            </div>
+            <div class="sheet-mycol" style="width: 275px;">
                 <div class="sheet-ligne">
-                    <span class="sheet-lib1" data-i18n="name">Name</span><input type="text" width="10" name="attr_character_name" />
+                    <span class="sheet-lib1" data-i18n="class">Class</span>
+                    <input type="text" class="sheet-longinput" name="attr_class" data-i18n-placeholder="class" placeholder="Class"/>
                 </div>
                 <div class="sheet-ligne">
-                    <span class="sheet-lib1" data-i18n="class">Class</span><input type="text" width="10" name="attr_class" class="medinput"/>
+                    <span class="sheet-lib1" data-i18n="primary">Primary</span>
+                    <input type="text" class="sheet-medinput" name="attr_primattr" data-i18n-placeholder="attribute" placeholder="Attribute" data-i18n-title="primary-attribute" title="Primary Attribute" />
                 </div>
                 <div class="sheet-ligne">
-                    <span class="sheet-lib1" data-i18n="primary">Primary</span><input type="text" width="10" name="attr_primattr" class="medinput" data-i18n-title="primary-attribute" title="Primary Attribute" />
+                    <span class="sheet-lib1" data-i18n="alignment">Alignment</span>
+                    <input type="text" class="sheet-medinput" name="attr_align" data-i18n-placeholder="alignment" placeholder="Alignment" />
+                </div>
+                <div class="sheet-ligne">
+                    <span class="sheet-lib1" data-i18n="deity">Deity</span>
+                    <input type="text" class="sheet-medinput" name="attr_diety" data-i18n-placeholder="deity" placeholder="Deity" />
                 </div>
             </div>
-            <div class="sheet-mycol sheet-greybg">
+            <div class="sheet-mycol sheet-greybg" style="width: 275px;">
                 <div class="sheet-ligne">
-                    <span class="sheet-lib1" data-i18n="race">Race</span><input type="text" width="10" name="attr_race" class="medinput"/>
+                    <span class="sheet-lib1" data-i18n="race">Race</span>
+                    <input type="text" class="sheet-longinput" name="attr_race" data-i18n-placeholder="race" placeholder="Race" />
                 </div>
                 <div class="sheet-ligne">
-                    <span class="sheet-lib1" data-i18n="alignment">Alignment</span><input type="text" width="10" name="attr_align" class="medinput"/>
+                    <span class="sheet-lib1" data-i18n="age">Age</span>
+                    <input type="text" name="attr_age" class="sheet-shortinput" data-i18n-placeholder="age" placeholder="Age" />
                 </div>
                 <div class="sheet-ligne">
-                    <span class="sheet-lib1" data-i18n="Deity">Deity</span><input type="text" width="10" name="attr_diety" class="medinput"/>
+                    <span class="sheet-lib1" data-i18n="gender">Gender</span>
+                    <input type="text" name="attr_gender" class="sheet-shortinput" data-i18n-placeholder="gender" placeholder="Gender" />
+                </div>
+                <div class="sheet-ligne">
+                    <span class="sheet-lib1" data-i18n="height">Height</span>
+                    <input type="text" name="attr_height" class="sheet-shortinput">
+                    <span class="sheet-lib0" data-i18n="weight">Weight</span>
+                    <input type="text" name="attr_weight" class="sheet-shortinput" />
                 </div>
             </div>
         </div>
-        <div class="sheet-mycol" style="width:33%;">
+        <div class="sheet-mycol" style="width: 275px;">
             <div class="sheet-ligne">
                 <img style="width:270px;" src="http://i.imgur.com/lhVW5Ak.gif" alt="Swords & Wizardry">
             </div>
             <div class="sheet-ligne">
-                <span class="sheet-lib0" data-i18n="Langs">Langs</span>
-                <textarea style="width:200px;height:40px;" name="attr_langs"></textarea>
+                <span class="sheet-lib1" data-i18n="languages">Languages</span>
+                <textarea style="width:170px;height:48px;" name="attr_langs"></textarea>
             </div>
         </div>
     </div>
-    <table width="10"0% border=0 cellpadding=5 >
+    <table class="sheet-medinput"0% border=0 cellpadding=5 >
         <tr>
             <!-- column 1 -->
             <!-- basic char information -->
             <td width=33% valign=top>
-            <!-- char physical info-->
-            <H2><span data-i18n="physical">Physical</span></H2>
-            <table>
-                <tr>
-                    <td class="tdlabel"><span data-i18n="age">Age</span></td>
-                    <td><input type="text" width="10" name="attr_age" class="shortinput"></td>
-                    <td class="tdlabel"><span data-i18n="gender">Gender</span></td>
-                    <td><input type="text" width="10" name="attr_gender" class="shortinput"></td>
-                </tr>
-                <tr>
-                    <td class="tdlabel"><span data-i18n="height">Height</span></td>
-                    <td><input type="text" width="10" name="attr_height" class="shortinput"></td>
-                    <td class="tdlabel"><span data-i18n="weight">Weight</span></td>
-                    <td><input type="text" width="10" name="attr_weight" class="shortinput"></td>
-                </tr>
-            </table>
-
             <!-- movement -->
             <H2><span data-i18n="movement">Movement</span></H2>
             <table>
                 <tr>
                     <td class="tdlabel"><span data-i18n="gear-wt">Gear Wt.</span></td>
-                    <td><input type=number width="10" name="attr_gearwt"/></td>
+                    <td><input type=number class="sheet-medinput" name="attr_gearwt"/></td>
                     <td class="tdlabel"><span data-i18n="treasure-wt">Treasure Wt.</span></td>
-                    <td><input type=number width="10" name="attr_treasurewt"/></td>
+                    <td><input type=number class="sheet-medinput" name="attr_treasurewt"/></td>
                 </tr><tr>
                     <td class="tdlabel"><span data-i18n="carry-bonus">Carry Bonus</span></td>
-                    <td><input type=number width="10" name="attr_carrybonus"/></td>
+                    <td><input type=number class="sheet-medinput" name="attr_carrybonus"/></td>
                     <td class="tdlabel"><span data-i18n="move-squares">Move Squares</span></td>
-                    <td><input type=number width="10" name="attr_movesquares"/></td>
+                    <td><input type=number class="sheet-medinput" name="attr_movesquares"/></td>
                 </tr>
                 <tr>
                     <td class="tdnote"><b><span data-i18n="0-75-lbs">0-75 lbs</span>:</b></td><td class="tdnote"><span data-i18n="4-sqrs">4 sqrs</span></td>
@@ -91,49 +94,49 @@
                 <tabLe>
                     <tr>
                         <td class="tdattrlabel"><span data-i18n="STR">STR</span></td>
-                        <td><input type=number width="10" name="attr_STR"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_STR"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="melee-hit+">Melee Hit+</span></td>
-                        <td><input type=number width="10" name="attr_meleehitbonus"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_meleehitbonus"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="melee-dmg+">Melee Dmg+</span></td>
-                        <td><input type=number width="10" name="attr_meleedmgbonus"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_meleedmgbonus"/></td>
                     </tr>
                     <tr>
                         <td class="tdattrlabel"><span data-i18n="DEX">DEX</span></td>
-                        <td><input type=number width="10" name="attr_DEX"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_DEX"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="missile-hit+">Missile Hit+</span></td>
-                        <td><input type=number width="10" name="attr_missilehitbonus"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_missilehitbonus"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="AC+">AC+</span></td>
-                        <td><input type=number width="10" name="attr_dexac"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_dexac"/></td>
                     </tr>
                     <tr>
                         <td class="tdattrlabel"><span data-i18n="CON">CON</span></td>
-                        <td><input type=number width="10" name="attr_CON"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_CON"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="hit-dice+">Hit Dice+</span></td>
-                        <td><input type=number width="10" name="attr_hdbonus"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_hdbonus"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="raise-dead%">Raise Dead%</span></td>
-                        <td><input type=number width="10" name="attr_raisedeadpct"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_raisedeadpct"/></td>
                     </tr>
                     <tr>
                         <td class="tdattrlabel"><span data-i18n="INT">INT</span></td>
-                        <td><input type=number width="10" name="attr_INT"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_INT"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="mu-spells+">M/U Spells+</span></td>
-                        <td><input type=number width="10" name="attr_xtramuspells"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_xtramuspells"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="xtra-langs">Xtra Langs</span></td>
-                        <td><input type=number width="10" name="attr_xtralangs"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_xtralangs"/></td>
                     </tr>
                     <tr>
                         <td class="tdattrlabel"><span data-i18n="WIS">WIS</span></td>
-                        <td><input type=number width="10" name="attr_WIS"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_WIS"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="cleric-spells+">Cleric Spells+</span></td>
-                        <td><input type=number width="10" name="attr_xtraclericspells"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_xtraclericspells"/></td>
                         <td class="tdlabelsmall">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td class="tdattrlabel"><span data-i18n="CHA">CHA</span></td>
-                        <td><input type=number width="10" name="attr_CHA"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_CHA"/></td>
                         <td class="tdlabelsmall" value=0><span data-i18n="xtra-hirelings">Xtra Hirelings</span></td>
-                        <td><input type=number width="10" name="attr_xtrahirelings"/></td>
+                        <td><input type=number class="sheet-medinput" name="attr_xtrahirelings"/></td>
                         <td class="tdlabelsmall">&nbsp;</td>
                         <td>&nbsp;</td>
                     </tr>
@@ -146,23 +149,23 @@
                 <table>
                         <td colspan=2>&nbsp;</td>
                         <td class="tdlabel"><span data-i18n="base-ac">Base AC</span></td>
-                        <td><input type=number width="10"  value=10 name="attr_baseac"/></td>
+                        <td><input type=number class="sheet-medinput"  value=10 name="attr_baseac"/></td>
                     <tr>
                         <td class="tdlabel"><span data-i18n="armor-name">Armor Name</span></td>
-                        <td><input type="text" width="10" class="medinput" name="attr_armorname"></td>
+                        <td><input type="text" class="sheet-medinput" name="attr_armorname"></td>
                         <td class="tdlabel"><span data-i18n="armor-ac">Armor AC</span></td>
-                        <td><input type=number width="10"  value=0 name="attr_armorac"/></td>
+                        <td><input type=number class="sheet-medinput"  value=0 name="attr_armorac"/></td>
                     </tr>
                     <tr>
                         <td class="tdlabel"><span data-i18n="shield-name">Shield Name</span></td>
-                        <td><input type="text" width="10" class="medinput" name="attr_shieldname"></td>
+                        <td><input type="text" class="sheet-medinput" name="attr_shieldname"></td>
                         <td class="tdlabel"><span data-i18n="shield-ac">Shield AC</span></td>
-                        <td><input type=number width="10"  value=0 name="attr_shieldrac"/></td>
+                        <td><input type=number class="sheet-medinput"  value=0 name="attr_shieldrac"/></td>
                     </tr>
                     <tr>
                         <td colspan=2>&nbsp;</td>
                         <td class="tdlabel"><span data-i18n="other-ac">Other AC</span></td>
-                        <td><input type=number width="10"  value=0 name="attr_otherac"/></td>
+                        <td><input type=number class="sheet-medinput"  value=0 name="attr_otherac"/></td>
                     </tr>
                     <tr>
                         <td colspan=2>&nbsp;</td>
@@ -180,34 +183,34 @@
             <table>
                 <tr>
                     <td class="tdlabel"><span data-i18n="level">Level</span></td>
-                    <td><input type=number width="10" name="attr_level"/></td>
+                    <td><input type=number class="sheet-medinput" name="attr_level"/></td>
                     </tr>
                     <tr>
                     <td class="tdlabel"><span data-i18n="HP">HP</span></td>
-                    <td><input type=number width="10" name="attr_hp"/>/<input type=number width="10" name="attr_maxhp"/>
+                    <td><input type=number class="sheet-medinput" name="attr_hp"/>/<input type=number class="sheet-medinput" name="attr_maxhp"/>
                 </tr>
                 <tr>
                     <td class="tdlabel" ><span data-i18n="XP">XP</span></td>
-                    <td colspan=3><input type="text" width="10" name="attr_xp" class="medinput"/></td>
+                    <td colspan=3><input type="text" class="sheet-medinput" name="attr_xp"/></td>
                 </tr>
                 <tr>
                     <td class="tdlabel"><span data-i18n="next-lvl">Next Lvl</span></td>
-                    <td colspan=3><input type="text" width="10" name="attr_nextlvl" class="medinput"/></td>
+                    <td colspan=3><input type="text" class="sheet-medinput" name="attr_nextlvl"/></td>
                 </tr>
                 <tr>
                     <td class="tdlabel"><span data-i18n="bonus-xp%">Bonus XP%</span></td>
-                    <td colspan=3><input type=number width="10" name="attr_bonusxppct"/></td>
+                    <td colspan=3><input type=number class="sheet-medinput" name="attr_bonusxppct"/></td>
                 </tr>
                 <tr>
                     <td class="tdlabel"><span data-i18n="saving-throw">Saving Throw</span></td>
-                    <td colspan=4><input type=number width="10" name="attr_savingthrow"/></td>
+                    <td colspan=4><input type=number class="sheet-medinput" name="attr_savingthrow"/></td>
                 </tr>
                 <tr>
                     <td class="tdlabel" valign=top>
                     <span data-i18n="saving-throw">Saving Throw</span><br><span data-i18n="bonuses">Bonuses</span>:
                     </td><td>
                         <fieldset class="repeating_savingthrowbonus">
-                            <input type="text" class="medinput" name="attr_stbonus">
+                            <input type="text" name="attr_stbonus">
                         </fieldset>
                     </td>
                 </tr>
@@ -222,9 +225,9 @@
             <!-- weapons-->
                 <H2><span data-i18n="weapons">Weapons</span></H2>
                     <fieldset class="repeating_weapons">
-                            <b><span data-i18n="name">Name</span>&nbsp;&nbsp;</b><input type="text" width="10" name="attr_wpnname" value="Weapon Name">
-                            <br><b><span data-i18n="hit-roll">Hit Roll</span>&nbsp;&nbsp;</b><input type="text" width="10" name="attr_wpnhit" class="shortinput" value="1d20">
-                            <b><span data-i18n="dmg-roll">Dmg Roll</span>&nbsp;&nbsp;</b><input type="text" width="10" name="attr_wpndmg" class="shortinput" value="1d6">
+                            <b><span data-i18n="name">Name</span>&nbsp;&nbsp;</b><input type="text" class="sheet-medinput" name="attr_wpnname" value="Weapon Name">
+                            <br><b><span data-i18n="hit-roll">Hit Roll</span>&nbsp;&nbsp;</b><input type="text" class="sheet-medinput" name="attr_wpnhit" class="sheet-shortinput" value="1d20">
+                            <b><span data-i18n="dmg-roll">Dmg Roll</span>&nbsp;&nbsp;</b><input type="text" class="sheet-medinput" name="attr_wpndmg" class="sheet-shortinput" value="1d6">
                         </tr>
                     </fieldset>
             </td>
@@ -251,7 +254,7 @@
                     <input type=number name="attr_treasurevalue">
                     <input type=number name="attr_treasurewt">
                 </fieldset>
-                <b><span data-i18n="total-wealth-in-gp">Total Wealth in GP</span>: </b><br><input type="text" name="attr_totalwealth" class="medinput">
+                <b><span data-i18n="total-wealth-in-gp">Total Wealth in GP</span>: </b><br><input type="text" name="attr_totalwealth">
             </td>
             <td valign=top>
                 <!-- magic -->
