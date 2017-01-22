@@ -56,8 +56,8 @@ input, textarea{
     display: inline-block;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
-    font-family: Arial;
-    font-size: 14px;
+    font-family: 'Patrick Hand';
+    font-size: 17px;
     border: none;
     box-shadow: none;
     resize:none;
@@ -71,32 +71,29 @@ input:focus, input:hover, textarea:focus, textarea:hover{
 }
 textarea{
     padding: 1px 2px 0px 2px;
-    font-size: 13px;
     border-left: 1px dotted black;
     border-right: 1px dotted black;
 }
 input[type="text"]{
     padding: 0px 0px 0px 2px;
-    font-size: 13px;
 }
 input[type="text"].sheet-inptxt1 {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
 }
 input[type="number"]{
     text-align: right;
     padding: 0px 2px 0px 0px;
 }
 input[type="number"].sheet-stats{
-    width: 40px;
+    width: 30px;
     font-size: 20px;
     text-align: center;
     -moz-appearance: textfield;
 }
 input[type=number].sheet-tinyinput {
     width:33px;
-    font-size:10px;
-    font-weight:bold;
+    font-size:13px;
 }
 input.sheet-shortinput{
     width:60px;
@@ -110,7 +107,7 @@ input.sheet-longinput {
 input[type="text"].sheet-biginput{
     width:250px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 input[type="number"].sheet-stats::-webkit-inner-spin-button,
@@ -176,10 +173,11 @@ button[type="roll"].sheet-btrisk:hover:before{
     content: 'd';
 }
 .sheet-libred{
-    font-size: 16px;
+    font-size: 18px;
     color:#993333;
     font-weight: bold;
     padding-top:4px;
+    font-family: 'Contrail One';
 }
 .sheet-lib0{
     display: inline-block;
@@ -196,10 +194,24 @@ button[type="roll"].sheet-btrisk:hover:before{
     font-weight:bold;
     color:#333;
     margin-right: 4px;
-    min-width: 70px;
+}
+.sheet-libmin1{
+    display: inline-block;
+    text-align: right;
+    font-size:10px;
+    font-weight:normal; color:#333;
 }
 .sheet-greybg{
     background-color:#eee;
+}
+.sheet-wid50{
+    min-width: 50px;
+}
+.sheet-wid70{
+    min-width: 70px;
+}
+.sheet-wid80{
+    min-width: 80px;
 }
 /* === fieldset button === */
 div.repcontrol{
