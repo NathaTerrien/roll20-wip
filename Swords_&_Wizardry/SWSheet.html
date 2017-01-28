@@ -96,10 +96,10 @@
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="damage">Damage</span>
                 <input type="number" class="sheet-tinyinput" name="attr_meleedmgbonus" value="0" data-i18n-title="melee-damage-modifier" title="Melee Damage Modifier"/>
             </div>
-            <div class="sheet-ligne" style="padding-left: 75px;">
+            <div class="sheet-ligne" style="padding-left: 72px;">
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="carry">Carry</span>
                 <input type="number" class="sheet-tinyinput" name="attr_carrybonus" value="0" data-i18n-title="carry-modifier" title="Carry Modifier"/>
-                <span class="sheet-libmin1" style="width:37px;" data-i18n="doors">Doors</span>
+                <span class="sheet-libmin1" style="width:39px;" data-i18n="doors">Doors</span>
                 <button type="roll" name="RollOpenDoor" data-i18n-title="open-doors" title="Open Doors" value=""></button>
                 <input type="number" class="sheet-tinyinput" name="attr_opendoors" value="1" data-i18n-title="open-doors" title="Open Doors"/>
             </div>
@@ -127,6 +127,12 @@
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="xtra-langs">Xtra Langs</span>
                 <input type="number" name="attr_xtralangs" class="sheet-tinyinput" value="0" data-i18n-title="extra-languages" title="Extra languages" />
             </div>
+            <div class="sheet-ligne" style="padding-left: 72px;">
+                <span class="sheet-libmin1 sheet-wid70" data-i18n="new-spell%">New Spell%</span>
+                <input type="number" class="sheet-tinyinput" name="attr_newspellpct" value="0" data-i18n-title="new-spell%" title="New Spell%"/>
+                <span class="sheet-libmin1" data-i18n="min-max-spells">Min/Max Spells</span>
+                <input type="text" class="sheet-tinyinput" name="attr_minmaxspell" value="0/0" data-i18n-title="min-max-spells" title="Min/Max Spells"/>
+            </div>
             <div class="sheet-ligne">
                 <span class="sheet-lib0 sheet-wid30" data-i18n="WIS">WIS</span>
                 <input type="number" name="attr_WIS" class="sheet-stats" value="0" />
@@ -142,7 +148,7 @@
         </div> <!--END ATTRIBUTES-->
         <div style="display: inline-block;">
             <div class="sheet-ligne"> <!-- DEF & ST -->
-                <div class="sheet-mycol sheet-greybg"> <!--DEFENSE-->
+                <div class="sheet-mycol sheet-greybg"  style="margin-top: 4px;"> <!--DEFENSE-->
                     <div class="sheet-ligne">
                             <span class="sheet-libred" data-i18n="defense">Defense</span>
                     </div>
@@ -196,15 +202,15 @@
                     </fieldset>
                 </div> <!-- END SAVING THROWS -->
             </div> <!-- END DEF & ST -->
-            <div class="sheet-greybg" style="width:550px;">
+            <div class="sheet-greybg" style="width:550px; margin-top: 4px;">
                 <div class="sheet-ligne"> <!-- MOVEMENT -->
                     <span class="sheet-libred" data-i18n="movement">Movement</span>
                 </div>
                 <div class="sheet-ligne">
                     <span class="sheet-lib2 sheet-wid70" data-i18n="gear-wt">Gear Wt.</span>
-                    <input type="number" name="attr_gearwt" value="0" class="sheet-shortinput" />
+                    <input type="number" name="attr_gearwt" value="0" class="sheet-medinput" />
                     <span class="sheet-lib2 sheet-wid80" data-i18n="treasure-wt">Treasure Wt.</span>
-                    <input type="number" name="attr_treasurewt" value="0" class="sheet-shortinput" />
+                    <input type="number" name="attr_treasurewt" value="0" class="sheet-medinput" />
                     <span class="sheet-lib2 sheet-wid80" data-i18n="move-squares">Move Squares</span>
                     <input type="number" name="attr_movesquares" value="4" class="sheet-shortinput" />
                 </div>

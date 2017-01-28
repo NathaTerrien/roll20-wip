@@ -34,7 +34,6 @@ div.sheet-main{
     font-size: 13px;
     background-color : #FDFDFD;
     padding: 4px;
-    border: 1px solid red;
 }
 div.sheet-ligne{
     display: block;
@@ -88,9 +87,14 @@ input[type="number"].sheet-stats{
     text-align: center;
     -moz-appearance: textfield;
 }
-input[type=number].sheet-tinyinput {
+input[type="number"].sheet-tinyinput {
     width:33px;
     font-size:13px;
+}
+input[type="text"].sheet-tinyinput {
+    width:33px;
+    font-size:13px;
+    text-align: center;
 }
 input[type="text"].sheet-shortinput{
     width:60px;
