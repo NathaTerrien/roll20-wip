@@ -1,7 +1,7 @@
 <div class="sheet-main">
     <div class="sheet-ligne"> <!-- LINE 1 -->
         <div class="mycol sheet-bord"> <!-- BIO and PHYISCAL -->
-            <div class="sheet-ligne">
+            <div class="sheet-ligne" style="margin-bottom: 2px;">
                 <span class="sheet-libred" data-i18n="biographical-and-physical">Biographical & Physical</span>
                 <span class="sheet-lib1 sheet-wid70" data-i18n="name">Name</span>
                 <input type="text" class="sheet-biginput" name="attr_character_name" />
@@ -61,7 +61,7 @@
                 <span class="sheet-libred" data-i18n="health">Health</span><span class="sheet-libred"> & </span><span class="sheet-libred" data-i18n="XP">XP</span>
             </div>
             <div class="sheet-ligne"> <!--XP and Level-->
-                <div class="sheet-mycol">
+                <div class="sheet-mycol" style="width:310px;">
                     <span class="sheet-lib1" data-i18n="HP">HP</span>
                     <input type="number" name="attr_hp" value="0" class="sheet-shortinput" data-i18n-title="current-hp" title="Current HP" />
                     /
@@ -70,7 +70,7 @@
                     <button type="roll" name="RollHD" data-i18n-title="roll-hd" title="Roll HD" value=""></button>
                     <input type="text" name="attr_hd" class="sheet-medinput" data-i18n-placeholder="hd-example" placeholder="Ex:5d6+5" />
                 </div>
-                <div class="sheet-mycol sheet-greybg">
+                <div class="sheet-mycol sheet-greybg" style="width:550px;">
                     <span class="sheet-lib1 sheet-wid80" data-i18n="level">Level</span>
                     <input type="number" name="attr_level" value="1" class="sheet-stats" />
                     <span class="sheet-lib1 sheet-wid50" data-i18n="XP">XP</span>
@@ -84,7 +84,7 @@
         </div>  <!-- END LINE 2 -->
     </div>
     <div class="sheet-ligne"> <!-- LINE 3 -->
-        <div class="sheet-mycol sheet-bord"> <!--ATTRIBUTES-->
+        <div class="sheet-mycol sheet-bord" style="width:306px;"> <!--ATTRIBUTES-->
             <div class="sheet-ligne">
                     <span class="sheet-libred" data-i18n="attributes">Attributes</span>
             </div>
@@ -196,7 +196,7 @@
                     </fieldset>
                 </div> <!-- END SAVING THROWS -->
             </div> <!-- END DEF & ST -->
-            <div class="sheet-greybg">
+            <div class="sheet-greybg" style="width:550px;">
                 <div class="sheet-ligne"> <!-- MOVEMENT -->
                     <span class="sheet-libred" data-i18n="movement">Movement</span>
                 </div>
@@ -264,22 +264,32 @@
                 </div>
             </div> <!-- END ABILITIES/MAGIC -->
         </div> <!-- END COL1 Weapons & Magig -->
-        <div class="sheet-mycol sheet-greybg"> <!-- COL2 EQUIPEMENT -->
-            <H2><span data-i18n="gear">Gear</span>/<span data-i18n="equipment">Equipment</span></H2>
-            <b><span data-i18n="name">Name</span>/<span data-i18n="qty">Qty</span>/<span data-i18n="wt">Wt</span></b>
-                <fieldset class="repeating_gear">
-                    <input type="text" class="longinput" name="attr_gearname">
-                    <input type="number" name="attr_gearqty">
-                    <input type="number" name="attr_gearwt">
-                </fieldset>
-                <H2><span data-i18n="treasure">Treasure</span>/<span data-i18n="key-items">Key Items</span></H2>
-                <b><span data-i18n="name">Name</span>/<span data-i18n="value">Value</span>/<span data-i18n="wt">Wt</span></b>
-                <fieldset class="repeating_treasure">
-                    <input type="text" class="longinput" name="attr_treasurename">
-                    <input type="number" name="attr_treasurevalue">
-                    <input type="number" name="attr_treasurewt">
-                </fieldset>
-                <b><span data-i18n="total-wealth-in-gp">Total Wealth in GP</span>: </b><br><input type="text" name="attr_totalwealth">
+        <div class="sheet-mycol sheet-greybg" style="width: 388px;"> <!-- COL2 EQUIPEMENT -->
+            <div class="sheet-lib">
+                <span class="sheet-libred" data-i18n="treasure">Treasure</span>/<span class="sheet-libred" data-i18n="key-items">Key Items</span>
+            </div>
+            <div class="sheet-lib">
+                <span class="sheet-lib2" data-i18n="total-wealth-in-gp">Total Wealth in GP</span>: <input type="text" name="attr_totalwealth" />
+            </div>
+            <span class="sheet-lib2l" style="width: 250px;" data-i18n="name">Name</span>
+            <span class="sheet-lib2l" style="width: 50px;" data-i18n="value">Value</span>
+            <span class="sheet-lib2l" data-i18n="wt">Wt</span>
+            <fieldset class="repeating_treasure">
+                <input type="text" name="attr_treasurename" style="width: 250px;" data-i18n-placeholder="item-name" placeholder="Item name" />
+                <input type="number" name="attr_treasurevalue" value="0" />
+                <input type="number" name="attr_treasurewt" value="0" />
+            </fieldset>
+            <div class="sheet-lib">
+                <span class="sheet-libred" data-i18n="gear">Gear</span>/<span class="sheet-libred" data-i18n="equipment">Equipment</span>
+            </div>
+            <span class="sheet-lib2l" style="width: 250px;" data-i18n="name">Name</span>
+            <span class="sheet-lib2l" style="width: 50px;" data-i18n="qty">Qty</span>
+            <span class="sheet-lib2l" style="" data-i18n="wt">Wt</span>
+            <fieldset class="repeating_gear">
+                <input type="text" name="attr_gearname" style="width: 250px;" data-i18n-placeholder="item-name" placeholder="Item name" />
+                <input type="number" name="attr_gearqty" value="1" />
+                <input type="number" name="attr_gearwt"  value="0" />
+            </fieldset>
         </div> <!-- END COL2 EQUIPEMENT -->
     </div>  <!-- END LINE 4 -->
 </div>

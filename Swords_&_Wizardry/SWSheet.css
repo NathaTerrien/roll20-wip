@@ -34,6 +34,7 @@ div.sheet-main{
     font-size: 13px;
     background-color : #FDFDFD;
     padding: 4px;
+    border: 1px solid red;
 }
 div.sheet-ligne{
     display: block;
@@ -200,6 +201,14 @@ button[type="roll"].sheet-btrisk:hover:before{
 .sheet-lib2{
     display: inline-block;
     text-align: right;
+    font-size:12px;
+    font-weight:bold;
+    color:#333;
+    margin-right: 4px;
+}
+.sheet-lib2l{
+    display: inline-block;
+    text-align: left;
     font-size:12px;
     font-weight:bold;
     color:#333;
