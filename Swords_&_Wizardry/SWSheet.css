@@ -27,12 +27,12 @@ div{
     background-color: transparent;
 }
 div.sheet-main{
-    width: 860px;
-    min-width: 860px;
-    max-width: 860px;
+    width: 890px;
+    min-width: 890px;
+    max-width: 890px;
     text-align: center;
     font-size: 13px;
-    background-color : white;
+    background-color : #FDFDFD;
     padding: 4px;
 }
 div.sheet-ligne{
@@ -40,15 +40,12 @@ div.sheet-ligne{
     text-align: left;
     vertical-align: top;
     width: 100%;
-    margin: 1px;
-    padding: 1px;
     white-space: nowrap;
 }
 div.sheet-mycol{
     display: inline-block;
     text-align: left;
     vertical-align: top;
-    padding: 4px;
 }
 input, textarea{
     background-color: transparent;
@@ -216,17 +213,23 @@ button[type="roll"].sheet-btrisk:hover:before{
 }
 .sheet-greybg{
     background-color:#eee;
+    padding: 4px;
 }
 .sheet-bord{
     border-width: 1px 2px 1px 2px;
     border-style: solid;
     border-color: black;
     border-radius: 6px;
+    padding: 4px;
+    margin: 2px;
 }
 .sheet-wid30{
     min-width: 30px;
 }
 .sheet-wid50{
+    min-width: 50px;
+}
+.sheet-wid60{
     min-width: 50px;
 }
 .sheet-wid70{
@@ -237,6 +240,9 @@ button[type="roll"].sheet-btrisk:hover:before{
 }
 .sheet-wid120{
     min-width: 120px;
+}
+.sheet-bold{
+    font-weight: bold;
 }
 /* === fieldset button === */
 div.repcontrol{
