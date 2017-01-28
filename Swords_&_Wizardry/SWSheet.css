@@ -49,7 +49,6 @@ div.sheet-mycol{
     text-align: left;
     vertical-align: top;
     padding: 4px;
-    /* border : 1px solid red; */
 }
 input, textarea{
     background-color: transparent;
@@ -95,13 +94,19 @@ input[type=number].sheet-tinyinput {
     width:33px;
     font-size:13px;
 }
-input.sheet-shortinput{
+input[type="text"].sheet-shortinput{
     width:60px;
 }
-input.sheet-medinput{
+input[type="number"].sheet-shortinput{
+    width:40px;
+}
+input[type="text"].sheet-medinput{
     width:110px;
 }
-input.sheet-longinput {
+input[type="number"].sheet-medinput {
+    width:90px;
+}
+input[type="text"].sheet-longinput {
     width:160px;
 }
 input[type="text"].sheet-biginput{
@@ -195,6 +200,14 @@ button[type="roll"].sheet-btrisk:hover:before{
     color:#333;
     margin-right: 4px;
 }
+.sheet-lib2{
+    display: inline-block;
+    text-align: right;
+    font-size:12px;
+    font-weight:bold;
+    color:#333;
+    margin-right: 4px;
+}
 .sheet-libmin1{
     display: inline-block;
     text-align: right;
@@ -204,6 +217,15 @@ button[type="roll"].sheet-btrisk:hover:before{
 .sheet-greybg{
     background-color:#eee;
 }
+.sheet-bord{
+    border-width: 1px 2px 1px 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 6px;
+}
+.sheet-wid30{
+    min-width: 30px;
+}
 .sheet-wid50{
     min-width: 50px;
 }
@@ -212,6 +234,9 @@ button[type="roll"].sheet-btrisk:hover:before{
 }
 .sheet-wid80{
     min-width: 80px;
+}
+.sheet-wid120{
+    min-width: 120px;
 }
 /* === fieldset button === */
 div.repcontrol{
