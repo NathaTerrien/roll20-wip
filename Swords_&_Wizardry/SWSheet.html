@@ -67,7 +67,7 @@
                     /
                     <input type="number" name="attr_hp_max" value="0" class="sheet-shortinput" data-i18n-title="maximum-hp" title="Current HP"/>
                     <span class="sheet-lib1 sheet-wid30" data-i18n="HD">HD</span>
-                    <button type="roll" name="RollHD" data-i18n-title="roll-hd" title="Roll HD" value=""></button>
+                    <button type="roll" name="RollHD" data-i18n-title="roll-hd" title="Roll HD" value="&{template:tmpl} {{pc=@{character_name}}} {{hd=1}} {{roll=[[@{hd}]]}}"></button>
                     <input type="text" name="attr_hd" class="sheet-medinput" data-i18n-placeholder="hd-example" placeholder="Ex:5d6+5" />
                 </div>
                 <div class="sheet-mycol sheet-greybg" style="width:550px;">
@@ -100,7 +100,7 @@
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="carry">Carry</span>
                 <input type="number" class="sheet-tinyinput" name="attr_carrybonus" value="0" data-i18n-title="carry-modifier" title="Carry Modifier"/>
                 <span class="sheet-libmin1" style="width:39px;" data-i18n="doors">Doors</span>
-                <button type="roll" name="RollOpenDoor" data-i18n-title="open-doors" title="Open Doors" value=""></button>
+                <button type="roll" name="RollOpenDoor" data-i18n-title="open-doors" title="Open Doors" value="&{template:tmpl} {{pc=@{character_name}}} {{name=^{open-doors}}} {{talent=1}} {{roll=[[1d6cs1cf6]]}} {{target=[[@{opendoors}]]}}" /></button>
                 <input type="number" class="sheet-tinyinput" name="attr_opendoors" value="1" data-i18n-title="open-doors" title="Open Doors"/>
             </div>
             <div class="sheet-ligne">
@@ -187,15 +187,15 @@
                 <div class="sheet-mycol sheet-bord" style="width: 305px;"> <!--SAVING THROWS-->
                     <div class="sheet-ligne">
                         <span class="sheet-libred" data-i18n="saving-throw">Saving Throw</span>
-                        <button type="roll" name="RollSavingThrow" data-i18n-title="roll-base-saving-throw" title="Roll base Saving Throw" value=""></button>
+                        <button type="roll" name="RollSavingThrow" data-i18n-title="roll-base-saving-throw" title="Roll base Saving Throw" value="&{template:tmpl} {{pc=@{character_name}}} {{save=1}} {{roll=[[1d20cs20cf1]]}} {{target=[[@{savingthrow}]]}}"></button>
                         <input type="number" class="sheet-shortinput" value="15" name="attr_savingthrow"/>
                     </div>
                     <div class="sheet-ligne">
-                        <span class="sheet-lib1 sheet-wid120" data-i18n="saving-throw">Saving Throw</span> <span class="sheet-lib1" data-i18n="bonuses">Bonuses</span>:
+                        <span class="sheet-lib1" data-i18n="bonuses">Bonuses</span>:
                     </div>
                     <fieldset class="repeating_savingthrowbonus">
                         <div class="sheet-ligne">
-                            <button type="roll" name="RollSavingThrowBonus" data-i18n-title="roll-bonus-saving-throw" title="Roll bonus Saving Throw" value=""></button>
+                            <button type="roll" name="RollSavingThrowBonus" data-i18n-title="roll-bonus-saving-throw" title="Roll bonus Saving Throw" value="&{template:tmpl} {{pc=@{character_name}}} {{name=@{stbonus}}} {{save=1}} {{roll=[[1d20cs20cf1+@{stbonusvalue}]]}} {{target=[[@{savingthrow}]]}}"></button>
                             <input type="number" class="sheet-shortinput" name="attr_stbonusvalue" value="2" />
                             <input type="text" name="attr_stbonus" data-i18n-placeholder="saving-throw-bonus-note" placeholder="Ex: against being paralyzed or poisoned" />
                         </div>
@@ -231,7 +231,7 @@
                     <fieldset class="repeating_weapons">
                         <div class="sheet-ligne">
                             <input type="text" name="attr_wpnname" value="" class="sheet-longinput sheet-bold" data-i18n-placeholder="weapon-name" placeholder="Weapon name" />
-                            <button type="roll" name="RollAttack" data-i18n-title="roll-attack" title="Roll attack (to hit and damage rolls)" value=""></button>
+                            <button type="roll" name="RollAttack" data-i18n-title="roll-attack" title="Roll attack (to hit and damage rolls)" value="&{template:tmpl} {{pc=@{character_name}}} {{name=@{wpnname}}} {{attack=1}} {{roll=[[@{wpnhit}]]}} {{dmg=[[@{wpndmg}]]}}"></button>
                             <span class="sheet-lib2 sheet-wid50" data-i18n="hit-roll">Hit Roll</span>
                             <input type="text" class="sheet-shortinput" name="attr_wpnhit" class="sheet-shortinput" value="1d20+0" />
                             <span class="sheet-lib2 sheet-wid50" data-i18n="dmg-roll">Dmg Roll</span>
@@ -263,7 +263,7 @@
                         <div class="sheet-ligne">
                             <input type=checkbox name="attr_magicused" />
                             <input type="text" name="attr_magicname" style="width: 290px;" data-i18n-placeholder="spell-or-ability-name" placeholder="Spell or Ability name" />
-                            <button type="roll" name="RollMagic" data-i18n-title="roll-magic" title="Roll (ex: 2d4)" value=""></button>
+                            <button type="roll" name="RollMagic" data-i18n-title="roll-magic" title="Roll (ex: 2d4)" value="&{template:tmpl} {{pc=@{character_name}}} {{name=@{magicname}}} {{talent=1}} {{roll=[[@{magicroll}]]}} {{target=[[0]]}}"></button>
                             <input type="text" name="attr_magicroll" class="sheet-medinput" data-i18n-placeholder="roll-magic" placeholder="Roll (ex:1d100)" />
                         </div>
                     </fieldset>
@@ -298,4 +298,60 @@
             </fieldset>
         </div> <!-- END COL2 EQUIPEMENT -->
     </div>  <!-- END LINE 4 -->
-</div>
+</div> <!-- === END SHEET === -->
+<!-- === TEMPLATE   === -->
+<rolltemplate class="sheet-rolltemplate-tmpl">
+    <div class="sheet-tplmain">
+        <div class="sheet-pc">{{pc}}</div>
+        {{#save}}
+            <div class="sheet-jet">{{roll}} &gt;= {{target}}</div>
+            {{#rollGreater() roll target}}
+                <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+                </div>
+            {{/rollGreater() roll target}}
+            {{#rollTotal() roll target}}
+                <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+            {{/rollTotal() roll target}}
+            {{#rollLess() roll target}}
+                <div class="sheet-jet"><span class="sheet-failure" data-i18n="failure">Failure</span></div>
+            {{/rollLess() roll target}}
+            <div class="sheet-jetnom"><span data-i18n="saving-throw">Saving Throw</span> {{#name}}({{name}}){{/name}}</div>
+        {{/save}}
+        {{#talent}}
+            {{#target}}
+                {{#rollTotal() target 0}}
+                    <div class="sheet-jet">{{roll}}</div>
+                {{/rollTotal() target 0}}
+                {{#rollGreater() target 0}}
+                    <div class="sheet-jet">{{roll}} &lt;= {{target}}</div>
+                    {{#rollGreater() roll target}}
+                        <div class="sheet-jet"><span class="sheet-failure" data-i18n="failure">Failure</span></div>
+                    {{/rollGreater() roll target}}
+                    {{#rollTotal() roll target}}
+                        <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+                    {{/rollTotal() roll target}}
+                    {{#rollLess() roll target}}
+                        <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+                    {{/rollLess() roll target}}
+                {{/rollGreater() target 0}}
+            {{/target}}
+            <div class="sheet-jetnom">{{name}}</div>
+        {{/talent}}
+        {{#attack}}
+            <div class="sheet-jet"><span data-i18n="to-hit">To-Hit</span> {{roll}}</div>
+            <div class="sheet-jet"><span data-i18n="damage">Damage</span>
+                {{#rollLess() dmg 1}}
+                    1
+                {{/rollLess() dmg 1}}
+                {{#rollGreater() dmg 0}}
+                    {{dmg}}
+                {{/rollGreater() dmg 0}}
+                </div>
+            <div class="sheet-jetnom">{{name}}</div>
+        {{/attack}}
+        {{#hd}}
+            <div class="sheet-jet">{{roll}}</div>
+            <div class="sheet-jetnom"><span data-i18n="hit-points">Hit Points</span></div>
+        {{/hd}}
+    </div>
+</rolltemplate>
