@@ -319,36 +319,46 @@ div.repcontrol{
 }
 .sheet-rolltemplate-tmpl div.sheet-tplmain{
     background-color: transparent;
-}
-.sheet-rolltemplate-tmpl div.sheet-pc{
-    background-color: black;
-    padding: 2px 10px 2px 10px;
-    border-radius: 0px 6px 0px 0px;
-    font-size: 13px;
-    font-family: 'Candal';
-    color: #eee;
-    display: inline-block;
-}
-.sheet-rolltemplate-tmpl div.sheet-jetnom{
-    background-color: black;
-    padding: 2px 10px 4px 10px;
-    border-radius: 0px 0px 6px 0px;
-    font-size: 13px;
-    font-family: 'Candal';
-    color: #eee;
-    display: inline-block;
-}
-.sheet-rolltemplate-tmpl div.sheet-jet{
     border-width: 1px 2px 1px 2px;
+    border-radius: 0px 6px 6px 0px;
     border-style: solid;
     border-color: black;
-    border-radius: 0px 6px 6px 0px;
+    width: 220px;
+}
+.sheet-rolltemplate-tmpl div.sheet-pc{
+    background-color: #eee;
+    color : #993333;
+    padding: 2px 10px 2px 10px;
+    border-radius: 0px 6px 0px 0px;
+    font-size: 15px;
+    font-family: 'Contrail One';
+    display: inline-block;
+    border-bottom: 1px dotted black;
+    width: 100%;
+}
+.sheet-rolltemplate-tmpl div.sheet-jetnom{
+    background-color: #eee;
+    color : #993333;
+    padding: 2px 10px 4px 10px;
+    border-radius: 0px 0px 6px 0px;
+    font-size: 15px;
+    font-family: 'Contrail One';
+    display: inline-block;
+    border-top: 1px dotted black;
+    width: 100%;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet{
     background-color: white;
     display: inline-block;
-    padding: 4px;
+    padding: 6px;
     display: table-cell;
     font-family: 'Candal';
     text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+.sheet-rolltemplate-tmpl div.sheet-jetbordleft{
+    border-left: 1px dotted black;
 }
 .sheet-rolltemplate-tmpl div.sheet-borderd{
     border-right: 2px solid black;

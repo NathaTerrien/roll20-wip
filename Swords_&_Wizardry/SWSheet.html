@@ -305,52 +305,57 @@
         <div class="sheet-pc">{{pc}}</div>
         {{#save}}
             <div class="sheet-jet">{{roll}} &gt;= {{target}}</div>
+            <div class="sheet-jet sheet-jetbordleft">
             {{#rollGreater() roll target}}
-                <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
-                </div>
+                <span class="sheet-success" data-i18n="success">Success</span>
             {{/rollGreater() roll target}}
             {{#rollTotal() roll target}}
-                <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+                <span class="sheet-success" data-i18n="success">Success</span>
             {{/rollTotal() roll target}}
             {{#rollLess() roll target}}
-                <div class="sheet-jet"><span class="sheet-failure" data-i18n="failure">Failure</span></div>
+                <span class="sheet-failure" data-i18n="failure">Failure</span>
             {{/rollLess() roll target}}
+            </div>
             <div class="sheet-jetnom"><span data-i18n="saving-throw">Saving Throw</span> {{#name}}({{name}}){{/name}}</div>
         {{/save}}
         {{#talent}}
             {{#target}}
                 {{#rollTotal() target 0}}
                     <div class="sheet-jet">{{roll}}</div>
+                    <div class="sheet-jet">&nbsp;</div>
                 {{/rollTotal() target 0}}
                 {{#rollGreater() target 0}}
                     <div class="sheet-jet">{{roll}} &lt;= {{target}}</div>
+                    <div class="sheet-jet sheet-jetbordleft">
                     {{#rollGreater() roll target}}
-                        <div class="sheet-jet"><span class="sheet-failure" data-i18n="failure">Failure</span></div>
+                        <span class="sheet-failure" data-i18n="failure">Failure</span>
                     {{/rollGreater() roll target}}
                     {{#rollTotal() roll target}}
-                        <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+                       <span class="sheet-success" data-i18n="success">Success</span>
                     {{/rollTotal() roll target}}
                     {{#rollLess() roll target}}
-                        <div class="sheet-jet"><span class="sheet-success" data-i18n="success">Success</span></div>
+                        <span class="sheet-success" data-i18n="success">Success</span>
                     {{/rollLess() roll target}}
+                    </div>
                 {{/rollGreater() target 0}}
             {{/target}}
             <div class="sheet-jetnom">{{name}}</div>
         {{/talent}}
         {{#attack}}
             <div class="sheet-jet"><span data-i18n="to-hit">To-Hit</span> {{roll}}</div>
-            <div class="sheet-jet"><span data-i18n="damage">Damage</span>
+            <div class="sheet-jet sheet-jetbordleft"><span data-i18n="damage">Damage</span>
                 {{#rollLess() dmg 1}}
                     1
                 {{/rollLess() dmg 1}}
                 {{#rollGreater() dmg 0}}
                     {{dmg}}
                 {{/rollGreater() dmg 0}}
-                </div>
+            </div>
             <div class="sheet-jetnom">{{name}}</div>
         {{/attack}}
         {{#hd}}
             <div class="sheet-jet">{{roll}}</div>
+            <div class="sheet-jet">&nbsp;</div>
             <div class="sheet-jetnom"><span data-i18n="hit-points">Hit Points</span></div>
         {{/hd}}
     </div>
