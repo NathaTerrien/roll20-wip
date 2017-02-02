@@ -282,10 +282,12 @@
         getAttrs(["sheetversion"], function(values) {
             var vers = parseFloat(values.sheetversion) || 0;
             if (vers < 2.0) {
-                getAttrs(["maxhp"], function(values) {
+                getAttrs(["maxhp","gearwt"], function(values) {
                     var oldhp = parseInt(values.maxhp) || 0;
+                    var oldwt = parseFloat(values.gearwt) || 0.0;
                     setAttrs({
                         hp_max: oldhp,
+                        gearweight: oldwt,
                         sheetversion: 2.0
                     });
                 });
@@ -421,58 +423,58 @@
                 <span class="sheet-lib0 sheet-wid30" data-i18n="STR">STR</span>
                 <input type="number" name="attr_STR" value="0" class="sheet-stats" />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="to-hit">To-Hit</span>
-                <input type="number" name="attr_meleehitbonus" value="0"class="sheet-tinyinput" data-i18n-title="melee-to-hit-mod" title="Melee To-Hit Modifier" />
+                <input type="number" name="attr_meleehitbonus" value="0"class="sheet-tinyinput" data-i18n-title="melee-to-hit-mod" title="Melee To-Hit Modifier. Automatically calculted when STR is modified. Can be overriden." />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="damage">Damage</span>
-                <input type="number" class="sheet-tinyinput" name="attr_meleedmgbonus" value="0" data-i18n-title="melee-damage-modifier" title="Melee Damage Modifier"/>
+                <input type="number" class="sheet-tinyinput" name="attr_meleedmgbonus" value="0" data-i18n-title="melee-damage-modifier" title="Melee Damage Modifier. Automatically calculted when STR is modified. Can be overriden."/>
             </div>
             <div class="sheet-ligne" style="padding-left: 72px;">
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="carry">Carry</span>
-                <input type="number" class="sheet-tinyinput" name="attr_carrybonus" value="0" data-i18n-title="carry-modifier" title="Carry Modifier"/>
+                <input type="number" class="sheet-tinyinput" name="attr_carrybonus" value="0" data-i18n-title="carry-modifier" title="Carry Modifier. Automatically calculted when STR is modified. Can be overriden."/>
                 <span class="sheet-libmin1" style="width:39px;" data-i18n="doors">Doors</span>
                 <button type="roll" name="RollOpenDoor" data-i18n-title="open-doors" title="Open Doors" value="&{template:tmpl} {{pc=@{character_name}}} {{name=^{open-doors}}} {{talent=1}} {{roll=[[1d6cs1cf6]]}} {{target=[[@{opendoors}]]}}" /></button>
-                <input type="number" class="sheet-tinyinput" name="attr_opendoors" value="1" data-i18n-title="open-doors" title="Open Doors"/>
+                <input type="number" class="sheet-tinyinput" name="attr_opendoors" value="1" data-i18n-title="open-doors" title="Open Doors. Automatically calculted when STR is modified. Can be overriden."/>
             </div>
             <div class="sheet-ligne">
                 <span class="sheet-lib0 sheet-wid30" data-i18n="DEX">DEX</span>
                 <input type="number" class="sheet-stats" name="attr_DEX" value="0" />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="to-hit">To-Hit</span>
-                <input type="number" name="attr_missilehitbonus" class="sheet-tinyinput" value="0" data-i18n-title="missile-to-hit-mod" title="Missile Weapon To-Hit Bonus/Penalty"/>
+                <input type="number" name="attr_missilehitbonus" class="sheet-tinyinput" value="0" data-i18n-title="missile-to-hit-mod" title="Missile Weapon To-Hit Bonus/Penalty. Automatically calculted when DEX is modified. Can be overriden."/>
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="AC+">AC+</span>
-                <input type="number" name="attr_dexac" class="sheet-tinyinput" value="0" data-i18n-title="effect-on-ac" title="Effect on Armor Class" />
+                <input type="number" name="attr_dexac" class="sheet-tinyinput" value="0" data-i18n-title="effect-on-ac" title="Effect on Armor Class. If DEX is modified, will be automatically calculted in the Ascending AC system (=positive is good) but it will be used correctly in the total AC calculation, depending on the Ascending or Descending AC choice. Can be overriden." />
             </div>
             <div class="sheet-ligne">
                 <span class="sheet-lib0 sheet-wid30" data-i18n="CON">CON</span>
                 <input type="number" name="attr_CON" value="0" class="sheet-stats" />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="hit-dice+">Hit Dice+</span>
-                <input type="number" name="attr_hdbonus" class="sheet-tinyinput" value="0" data-i18n-title="hp-mod" title="Hit Point Modifier (per hit die)" />
+                <input type="number" name="attr_hdbonus" class="sheet-tinyinput" value="0" data-i18n-title="hp-mod" title="Hit Point Modifier (per hit die). Automatically calculted when CON is modified. Can be overriden." />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="raise-dead%">Raise Dead%</span>
-                <input type="number" name="attr_raisedeadpct" value="0" class="sheet-tinyinput" data-i18n-title="raise-dead-survival" title="Raise Dead Survival" />
+                <input type="number" name="attr_raisedeadpct" value="0" class="sheet-tinyinput" data-i18n-title="raise-dead-survival" title="Raise Dead Survival. Automatically calculted when CON is modified. Can be overriden." />
             </div>
             <div class="sheet-ligne">
                 <span class="sheet-lib0 sheet-wid30" data-i18n="INT">INT</span>
                 <input type="number" class="sheet-stats" name="attr_INT" value="0" />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="spell-level">Spell level</span>
-                <input type="number" name="attr_maxspelllevel" class="sheet-tinyinput" value="0" data-i18n-title="maximum-spell-level" title="Maximum Spell Level" />
+                <input type="number" name="attr_maxspelllevel" class="sheet-tinyinput" value="0" data-i18n-title="maximum-spell-level" title="Maximum Spell Level. Automatically calculted when INT is modified. Can be overriden." />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="languages">Languages</span>
-                <input type="number" name="attr_xtralangs" class="sheet-tinyinput" value="0" data-i18n-title="maximum-additional-languages" title="Maximum Additional Languages" />
+                <input type="number" name="attr_xtralangs" class="sheet-tinyinput" value="0" data-i18n-title="maximum-additional-languages" title="Maximum Additional Languages. Automatically calculted when INT is modified. Can be overriden." />
             </div>
             <div class="sheet-ligne" style="padding-left: 72px;">
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="new-spell%">New Spell%</span>
-                <input type="number" class="sheet-tinyinput" name="attr_newspellpct" value="0" data-i18n-title="chance-new-spell" title="Chance to Understand New Spell" />
+                <input type="number" class="sheet-tinyinput" name="attr_newspellpct" value="0" data-i18n-title="chance-new-spell" title="Chance to Understand New Spell. Automatically calculted when INT is modified. Can be overriden." />
                 <span class="sheet-libmin1" data-i18n="min-max-spells">Min/Max Spells</span>
-                <input type="text" class="sheet-tinyinput" name="attr_minmaxspell" value="0/0" data-i18n-title="min-max-spells" title="Min/Max Spells"/>
+                <input type="text" class="sheet-tinyinput" name="attr_minmaxspell" value="0/0" data-i18n-title="min-max-spells" title="Min/Max Spells. Automatically calculted when INT is modified. Can be overriden."/>
             </div>
             <div class="sheet-ligne">
                 <span class="sheet-lib0 sheet-wid30" data-i18n="WIS">WIS</span>
                 <input type="number" name="attr_WIS" class="sheet-stats" value="0" />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="cleric-spells+">Cleric Spells+</span>
-                <input type="number" name="attr_xtraclericspells" class="sheet-tinyinput" value="0" data-i18n-title="cleric-spells+" title="Cleric Spells+" />
+                <input type="number" name="attr_xtraclericspells" class="sheet-tinyinput" value="0" data-i18n-title="cleric-spells-plus" title="Additional first-level Cleric spell. Automatically calculted when WIS is modified. Can be overriden." />
             </div>
             <div class="sheet-ligne">
                 <span class="sheet-lib0 sheet-wid30" data-i18n="CHA">CHA</span>
                 <input type="number" class="sheet-stats" name="attr_CHA" value="0" />
                 <span class="sheet-libmin1 sheet-wid70" data-i18n="hirelings">Hirelings</span>
-                <input type="number" name="attr_xtrahirelings" value="0" class="sheet-tinyinput" data-i18n-title="extra-hirelings" title="Maximum Number of Special Hirelings" />
+                <input type="number" name="attr_xtrahirelings" value="0" class="sheet-tinyinput" data-i18n-title="extra-hirelings" title="Maximum Number of Special Hirelings. Automatically calculted when CHA is modified. Can be overriden." />
             </div>
         </div> <!--END ATTRIBUTES-->
         <div style="display: inline-block;">
@@ -494,30 +496,34 @@
                         <input type="number" name="attr_baseac" value="10" class="sheet-shortinput" />
                     </div>
                     <div class="sheet-ligne">
+                        <span class="sheet-lib2 sheet-wid50" style="margin-right: 110px;" data-i18n="dex-mod">DEX mod.</span>
+                        <input type="number" name="attr_dexacrep" value="[[@{dexac}]]" class="sheet-shortinput" disabled />
+                    </div>
+                    <div class="sheet-ligne">
                         <span class="sheet-lib2 sheet-wid50" data-i18n="armor">Armor</span>
                         <input type="text" class="sheet-medinput" name="attr_armorname" data-i18n-placeholder="armor-name" placeholder="Armor name" />
-                        <input type="number" class="sheet-shortinput" value="0" name="attr_armorac" data-i18n-title="armor-ac-effect" title="Armor effect on AC" />
+                        <input type="number" class="sheet-shortinput" value="0" name="attr_armorac" data-i18n-title="armor-ac-effect" title="Armor effect on AC. Use either a positive or negative value, as the total AC will be calculted using an absolute value, depending on the Ascending or Descending AC choice." />
                     </div>
                     <div class="sheet-ligne">
                         <span class="sheet-lib2 sheet-wid50" data-i18n="shield">Shield</span>
                         <input type="text" class="sheet-medinput" name="attr_shieldname" data-i18n-placeholder="shield-name" placeholder="Shield name" />
-                        <input type="number" class="sheet-shortinput" value="0" name="attr_shieldrac" data-i18n-title="shield-ac-effect" title="Shield effect on AC"/>
+                        <input type="number" class="sheet-shortinput" value="0" name="attr_shieldrac" data-i18n-title="shield-ac-effect" title="Shield effect on AC. Use either a positive or negative value, as the total AC will be calculted using an absolute value, depending on the Ascending or Descending AC choice."/>
                     </div>
                     <div class="sheet-ligne">
                         <span class="sheet-lib2 sheet-wid50" data-i18n="other">Other</span>
                         <input type="text" class="sheet-medinput" name="attr_otheracname" data-i18n-placeholder="note" placeholder="Note" />
-                        <input type="number" class="sheet-shortinput" value="0" name="attr_otherac" data-i18n-title="other-ac-effect" title="Other effect on AC"/>
+                        <input type="number" class="sheet-shortinput" value="0" name="attr_otherac" data-i18n-title="other-ac-effect" title="Other effect on AC. Use either a positive or negative value, as the total AC will be calculted using an absolute value, depending on the Ascending or Descending AC choice."/>
                     </div>
                     <div class="sheet-ligne" style="text-align: right;">
                         <span class="sheet-lib1" data-i18n="total-ac">Total AC</span>
-                        <input type="number" class="sheet-shortinput" style="font-weight: bold;" value="10" name="attr_AC" />
+                        <input type="number" name="attr_AC" value="10"class="sheet-shortinput" style="font-weight: bold;" data-i18n-title="total-ac-title" title="Final AC. Automatically calculted from the DEX, Armor, Shield, Other AC modifiers and the Ascending or Descending choice, but can be overriden." />
                     </div>
                 </div> <!--END DEFENSE-->
                 <div class="sheet-mycol sheet-bord" style="width: 305px;"> <!--SAVING THROWS-->
                     <div class="sheet-ligne">
                         <span class="sheet-libred" data-i18n="saving-throw">Saving Throw</span>
                         <button type="roll" name="RollSavingThrow" data-i18n-title="roll-base-saving-throw" title="Roll base Saving Throw" value="&{template:tmpl} {{pc=@{character_name}}} {{save=1}} {{roll=[[1d20cs20cf1]]}} {{target=[[@{savingthrow}]]}}"></button>
-                        <input type="number" class="sheet-shortinput" value="15" name="attr_savingthrow"/>
+                        <input type="number" name="attr_savingthrow" value="15" class="sheet-shortinput" />
                     </div>
                     <div class="sheet-ligne">
                         <span class="sheet-lib1" data-i18n="bonuses">Bonuses</span>:
@@ -526,7 +532,7 @@
                         <div class="sheet-ligne">
                             <input type="text" name="attr_stbonus" data-i18n-placeholder="saving-throw-bonus-note" placeholder="Ex: against being paralyzed or poisoned" />
                             <button type="roll" name="RollSavingThrowBonus" data-i18n-title="roll-bonus-saving-throw" title="Roll bonus Saving Throw" value="&{template:tmpl} {{pc=@{character_name}}} {{name=@{stbonus}}} {{save=1}} {{roll=[[1d20cs20cf1+@{stbonusvalue}]]}} {{target=[[@{savingthrow}]]}}"></button>
-                            <input type="number" class="sheet-shortinput" name="attr_stbonusvalue" value="2" />
+                            <input type="number" name="attr_stbonusvalue" value="2" class="sheet-shortinput" />
                         </div>
                     </fieldset>
                 </div> <!-- END SAVING THROWS -->
@@ -537,11 +543,11 @@
                 </div>
                 <div class="sheet-ligne">
                     <span class="sheet-lib2 sheet-wid70" data-i18n="gear-wt">Gear Wt.</span>
-                    <input type="number" name="attr_gearweight" value="0" class="sheet-medinput" />
+                    <input type="number" name="attr_gearweight" value="0" class="sheet-medinput" data-i18n-title="gear-wt-title" title="Total gear weight. Automatically calculted based on (quantity * weight) of each item in the gear list. Can be overriden."  />
                     <span class="sheet-lib2 sheet-wid80" data-i18n="treasure-wt">Treasure Wt.</span>
-                    <input type="number" name="attr_treasurewt" value="0" class="sheet-medinput" />
+                    <input type="number" name="attr_treasurewt" value="0" class="sheet-medinput" data-i18n-title="treasurewt-title" title="Total weight of treasures. Automatically calculted based on the weight of each item in the treasure list. Can be overriden." />
                     <span class="sheet-lib2 sheet-wid80" data-i18n="move-squares">Move Squares</span>
-                    <input type="number" name="attr_movesquares" value="4" class="sheet-shortinput" />
+                    <input type="number" name="attr_movesquares" value="4" class="sheet-shortinput" data-i18n-title="movesquares-title" title="Base movement. Not calculted automatically. Has to be input manually, depending on the house rules and distance measurement used in the game." />
                 </div>
                 <div class="sheet-ligne">
                     <span class="sheet-lib2 sheet-wid80" data-i18n="0-75-lbs">0-75 lbs</span>:<span data-i18n="4-sqrs">4 sqrs</span>
