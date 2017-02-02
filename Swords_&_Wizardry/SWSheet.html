@@ -71,11 +71,7 @@
                 var ac = 0;
                 if (carac>2 && carac<9) {
                     tohit = -1;
-                    if (typeac == 0 ) {
-                        ac = -1;
-                    } else {
-                        ac = 1;
-                    }
+                    ac = -1;
                 }
                 else if (carac>8 && carac<13) {
                     tohit = 0;
@@ -83,11 +79,7 @@
                 }
                 else if (carac > 12) {
                     tohit = 1;
-                    if (typeac == 0 ) {
-                        ac = 1;
-                    } else {
-                        ac = -1;
-                    }
+                    ac = 1;
                 }
                 setAttrs({
                     missilehitbonus: tohit,
@@ -253,8 +245,88 @@
                 });
             });
         });
+    on("change:typeac", function() {
+        getAttrs(["typeac",""], function(values) {
+            var typeac = parseInt(values.typeac) || 0;
+            var baseac = 0;
+            if(typeac == 0) {
+                baseac = 10;
+            } else {
+                baseac = 9;
+            }
+            setAttrs({
+                baseac: baseac
+            });
+        });
+    });
+    on("change:dexac change:baseac change:armorac change:shieldrac change:otherac", function() {
+        getAttrs(["dexac","typeac","baseac","armorac","shieldrac","otherac"], function(values) {
+            var dexac = parseInt(values.dexac) || 0;
+            var typeac = parseInt(values.typeac) || 0;
+            var baseac = parseInt(values.baseac) || 0;
+            var armorac = parseInt(values.armorac) || 0;
+            var shieldrac = parseInt(values.shieldrac) || 0;
+            var otherac = parseInt(values.otherac) || 0;
+            var totalac = 0;
+            if (typeac == 0 ) {
+                totalac = baseac + dexac + Math.abs(armorac) + Math.abs(shieldrac) + Math.abs(otherac);
+            } else {
+                totalac = baseac - dexac - Math.abs(armorac) - Math.abs(shieldrac) - Math.abs(otherac);
+            }
+            setAttrs({
+                AC: totalac
+            });
+        });
+    });
+    on("sheet:opened",function(){
+        getAttrs(["sheetversion"], function(values) {
+            var vers = parseFloat(values.sheetversion) || 0;
+            if (vers < 2.0) {
+                getAttrs(["maxhp"], function(values) {
+                    var oldhp = parseInt(values.maxhp) || 0;
+                    setAttrs({
+                        hp_max: oldhp,
+                        sheetversion: 2.0
+                    });
+                });
+            }
+        });
+    });
+    on("change:repeating_treasure:treasurewt",function(){
+        getSectionIDs("repeating_treasure", function(idws) {
+            var totwght = 0.0;
+            idws.forEach(function(idw,index){
+                var uwght = "repeating_treasure_" + idw + "_treasurewt";
+                getAttrs(['' + uwght], function(val) {
+                    var swght = parseFloat(val[uwght]) || 0.0;
+                    totwght = totwght + swght;
+                    setAttrs({
+                        treasurewt: totwght
+                    });
+                });
+            });
+        });
+    });
+    on("change:repeating_gear:gearqty change:repeating_gear:gearwt",function(){
+        getSectionIDs("repeating_gear", function(idws) {
+            var totwght = 0.0;
+            idws.forEach(function(idw,index){
+                var uqte = "repeating_gear_" + idw + "_gearqty";
+                var uwght = "repeating_gear_" + idw + "_gearwt";
+                getAttrs(['' + uqte,'' + uwght], function(val) {
+                    var sqte = parseFloat(val[uqte]) || 0.0;
+                    var swght = parseFloat(val[uwght]) || 0.0;
+                    totwght = totwght + (sqte * swght);
+                    setAttrs({
+                        gearweight: totwght
+                    });
+                });
+            });
+        });
+    });
 </script>
 <!-- === SHEET ===  -->
+<input type="hidden" name="attr_sheetversion" value="1.0" />
 <div class="sheet-main">
     <div class="sheet-ligne"> <!-- LINE 1 -->
         <div class="mycol sheet-bord"> <!-- BIO and PHYISCAL -->
@@ -419,7 +491,7 @@
                                 <span class="sheet-libmin1" data-i18n="desc-ac">Desc.</span>
                             </input>
                         </div>
-                        <input type="number" class="sheet-shortinput" value="10" name="attr_baseac"/>
+                        <input type="number" name="attr_baseac" value="10" class="sheet-shortinput" />
                     </div>
                     <div class="sheet-ligne">
                         <span class="sheet-lib2 sheet-wid50" data-i18n="armor">Armor</span>
@@ -433,7 +505,7 @@
                     </div>
                     <div class="sheet-ligne">
                         <span class="sheet-lib2 sheet-wid50" data-i18n="other">Other</span>
-                        <input type="text" class="sheet-medinput" name="attr_otherac" data-i18n-placeholder="note" placeholder="Note" />
+                        <input type="text" class="sheet-medinput" name="attr_otheracname" data-i18n-placeholder="note" placeholder="Note" />
                         <input type="number" class="sheet-shortinput" value="0" name="attr_otherac" data-i18n-title="other-ac-effect" title="Other effect on AC"/>
                     </div>
                     <div class="sheet-ligne" style="text-align: right;">
@@ -452,9 +524,9 @@
                     </div>
                     <fieldset class="repeating_savingthrowbonus">
                         <div class="sheet-ligne">
+                            <input type="text" name="attr_stbonus" data-i18n-placeholder="saving-throw-bonus-note" placeholder="Ex: against being paralyzed or poisoned" />
                             <button type="roll" name="RollSavingThrowBonus" data-i18n-title="roll-bonus-saving-throw" title="Roll bonus Saving Throw" value="&{template:tmpl} {{pc=@{character_name}}} {{name=@{stbonus}}} {{save=1}} {{roll=[[1d20cs20cf1+@{stbonusvalue}]]}} {{target=[[@{savingthrow}]]}}"></button>
                             <input type="number" class="sheet-shortinput" name="attr_stbonusvalue" value="2" />
-                            <input type="text" name="attr_stbonus" data-i18n-placeholder="saving-throw-bonus-note" placeholder="Ex: against being paralyzed or poisoned" />
                         </div>
                     </fieldset>
                 </div> <!-- END SAVING THROWS -->
@@ -465,7 +537,7 @@
                 </div>
                 <div class="sheet-ligne">
                     <span class="sheet-lib2 sheet-wid70" data-i18n="gear-wt">Gear Wt.</span>
-                    <input type="number" name="attr_gearwt" value="0" class="sheet-medinput" />
+                    <input type="number" name="attr_gearweight" value="0" class="sheet-medinput" />
                     <span class="sheet-lib2 sheet-wid80" data-i18n="treasure-wt">Treasure Wt.</span>
                     <input type="number" name="attr_treasurewt" value="0" class="sheet-medinput" />
                     <span class="sheet-lib2 sheet-wid80" data-i18n="move-squares">Move Squares</span>

@@ -1,3 +1,4 @@
 Changement de version :
 maxhp -> hp_max
+gearwt -> gearweight
 
