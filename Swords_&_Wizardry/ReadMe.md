@@ -1,6 +1,6 @@
 # Swords & Wizardry
 
-Character sheet for Swords & Wizardry, in english and french[english](http://barbariansoflemuria.webs.com/).
+Character sheet for Swords & Wizardry, in english and french.
 Initially created by Jacob Vann and overhauled by [Natha](https://github.com/NathaTerrien/roll20-wip/blob/master/README.md) (design, translation data, automated calcultations and rolls/roll template).
 
 # Current version
