@@ -7,7 +7,7 @@ Initially created by Jacob Vann and overhauled by [Natha](https://github.com/Nat
 2.0 [Screenshot](SWSheet.png)
 
 The sheet and its automated calculations (modifiers etc.) are based on the Complete version of the rules.
-Every calculation can be overriden by manual input, if house rules are used (but modifying certain field will fire again the associated automated calcultion. For example, modifying DEX will compute again the AC modifier, Total AC etc. and any custom value previously entered has to be set again).
+Every calculation can be overriden by manual input, if house rules are used. But modifying certain fields will fire again the associated automated calcultion. For example, modifying DEX will compute again the AC modifier, Total AC etc. and any custom value previously entered has to be set again.
 
 # Release notes
 
