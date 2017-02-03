@@ -18,8 +18,8 @@ Note : this new version of the sheet is compatible with previous versions and ch
 * New and more compact design
 * Translation compatible
 * Added missing derived attributes (Open doors, Spell level, min/max spells)
-* Automated calculations (by sheet workers) of derived attributes, when an attribute is modified (ex: modifying Strength will calculate the melee To-Hit mod, Damage mod, Carry mod, open door threshold)
-* New "Other" AC modifier to note magic items effect on AC (like rings) or curses, wounds, spell effects etc.
+* Automated calculations (by sheet workers) of derived attributes, when an attribute is modified (ex: modifying Strength will calculate the melee To-Hit mod, Damage mod, Carry mod, Open Doors threshold)
+* New "Other" AC modifier to note magic items effect on AC, like rings or curses, wounds, spell effects etc.
 * Handling of Ascending and Descending AC (radio button). On change: 
   * Base AC is (re)set accordingly
   * DEX modifier to AC is calculted accordingly
