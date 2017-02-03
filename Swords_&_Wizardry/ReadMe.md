@@ -34,7 +34,7 @@ Note : this new version of the sheet is compatible with previous versions and ch
 * New Hit Dice field (roll formula)
 * New separate numeric field in the Saving Throwns bonuses repeating section
 * New optional Roll field (dice formula) in the Abilities & Magic repeating section
-* Roll buttons added, with chat roll tempalte:
+* Roll buttons added, with chat roll template:
   * Hit points from Hit Dice formula
   * Standard Saving throw (with success or failure indicator)
   * Saving throw with Bonus (with success or failure indicator)
