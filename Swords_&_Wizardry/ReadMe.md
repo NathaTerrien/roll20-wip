@@ -32,8 +32,8 @@ Note : this new version of the sheet is compatible with previous versions and ch
   * Move squares are NOT calculated (depending on house rules and/or local distance measuring units)
 * New languages field
 * New Hit Dice field (roll formula)
-* New separate numeric field for Saving Throwns bonuses repeating section
-* New separate and optional Roll (dice formula) field to Abilities & Magic repeating section
+* New separate numeric field in the Saving Throwns bonuses repeating section
+* New optional Roll field (dice formula) in the Abilities & Magic repeating section
 * Roll buttons added, with chat roll tempalte:
   * Hit points from Hit Dice formula
   * Standard Saving throw (with success or failure indicator)
