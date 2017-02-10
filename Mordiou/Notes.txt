@@ -1,5 +1,7 @@
 Notes
 ------
 BG dim : 1280 * 583
+Fleur de Lis : &#9884;
 
 /roll {floor(1d6/2)-1,0d0}kh1
+
