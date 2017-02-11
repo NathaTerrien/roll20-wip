@@ -14,7 +14,7 @@ div{
     margin: none;
     padding: none;
     background-color: transparent;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 div.sheet-bgmain{
     width: 1280px;
@@ -56,7 +56,7 @@ input, textarea{
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
     box-shadow: inset 0px 1px 1px rgba(255,210,3,0.01),0 0 6px rgba(255,210,3,0.5);
-    background-color: rgba(255,210,3,0.05);
+    background-color: rgba(255,210,3,0.2);
 }
 textarea{
     padding: 1px 2px 0px 2px;
@@ -68,9 +68,14 @@ textarea{
 input[type="text"]{
     padding: 0px 0px 0px 2px;
 }
-input[type="text"].sheet-inptxt1 {
+input[type="text"].sheet-inptxt1{
     font-weight: bold;
     font-size: 22px;
+}
+input[type="text"].sheet-aspect{
+    width: 500px;
+    border-bottom: 1px solid black;
+    padding-bottom: 2px;
 }
 input[type="number"]{
     text-align: right;
@@ -80,6 +85,7 @@ input[type="number"].sheet-numbig1{
     height: 46px;
     font-size: 36px;
     text-align: center;
+    border-radius: 16px;
     -moz-appearance: textfield;
 }
 input[type="number"].sheet-numbig1::-webkit-inner-spin-button,
@@ -90,9 +96,9 @@ input[type="number"].sheet-numbig1::-webkit-outer-spin-button {
 /* Checkbox fleur de lis */
 /* ===== Check ===== */
 input.sheet-bigchk{
-    width: 29px;
-    height: 29px;
-    max-width: 29px;
+    width: 28px;
+    max-width: 28px;
+    height: 28px;
     opacity: 0.0;
     z-index: 2;
     margin: 0px 0px 0px 0px;
@@ -103,20 +109,46 @@ input.sheet-bigchk + span{
     text-align: center;
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
-    margin-left: -29px;
-    width: 29px;
-    max-width: 29px;
-    height: 29px;
+    margin-left: -28px;
+    width: 27px;
+    max-width: 28px;
+    height: 28px;
     z-index: 1;
     font-size: 30px;
     line-height: 25px;
     vertical-align: middle;
-    color : rgba(128,128,128,0.3);
+    font-weight: bold;
+    color: #257ABA;
+    background-color: rgba(255,210,3,0.4);
 }
 input.sheet-bigchk:hover + span{
-    color: #257ABA; /* #ADDDAD; */
-}
-input.sheet-bigchk:checked + span{
-    font-weight: bolder;
     color: #257ABA;
+}
+input.sheet-bigchk:checked ~ input.sheet-bigchk + span{
+    color : rgba(128,128,128,0.5);
+    background-color: transparent;
+    font-weight: normal;
+}
+input.sheet-bigchk[value="0"]{
+    width: 91px;
+    max-width: 91px;
+}
+input.sheet-bigchk[value="0"] + span {
+    color : rgba(128,128,128,0.5);
+    width: 70px;
+    min-width: 70px;
+    max-width: 70px;
+    height: 28px;
+    margin-left: -91px;
+    background-color: transparent;
+    font-size: 15px;
+    vertical-align: top;
+    text-align: center;
+}
+input.sheet-bigchk[value="0"]:checked + span {
+    font-weight: bold;
+    color: #257ABA;
+    border-width: 1px 0px 1px 0px;
+    border-style: solid;
+    border-color: ;#257ABA;
 }

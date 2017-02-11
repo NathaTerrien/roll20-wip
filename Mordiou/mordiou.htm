@@ -3,12 +3,23 @@
     <div class="abs" style="left: 540px;top:16px;">
         <input type="text" name="attr_character_name" class="inptxt1" style="width: 300px;" placeholder="Nom du personnage" />
     </div> <!-- NOM -->
-    <div class="abs" style="left: 490px;top:60px;">
-        <textarea name="attr_aspects" style="width: 500px;height: 105px;" placeholder="Aspects"></textarea>
-    </div> <!-- ASPECTS -->
     <div class="abs" style="left: 490px;top: 175px;">
         <textarea name="attr_description" style="width: 684px;height: 105px;" placeholder="Description"></textarea>
     </div> <!-- DESCRIPTION -->
+    <!-- ASPECTS -->
+    <div class="abs" style="left: 490px;top:52px;">
+        <input type="text" name="attr_aspect1" class="aspect" placeholder="1er Aspect" />
+    </div>
+    <div class="abs" style="left: 490px;top:79px;">
+        <input type="text" name="attr_aspect2" class="aspect" placeholder="2nd Aspect" />
+    </div>
+    <div class="abs" style="left: 490px;top:108px;">
+        <input type="text" name="attr_aspect3" class="aspect" placeholder="3ième Aspect" />
+    </div>
+    <div class="abs" style="left: 490px;top:136px;">
+        <input type="text" name="attr_aspect4" class="aspect" placeholder="4ième Aspect" />
+    </div>
+    <!-- FIN ASPECTS -->
     <!-- Aspect de conflits -->
     <div class="abs" style="left: 1020px;top:52px;">
         <input type="text" name="attr_conflit1" style="width: 135px;" placeholder="Aspect de conflit 1" />
@@ -36,11 +47,13 @@
     </div>
     <!-- FIN Aspect de conflits -->
     <!-- EFFORT -->
-    <div class="abs" style="left: 436px;top:309px;">
-        <input type="radio" name="attr_effort" value="1" class="bigchk" /><span>&#9884;</span>
-    </div>
-    <div class="abs" style="left: 436px;top:309px;">
-        <input type="radio" name="attr_effort" value="1" class="bigchk" /><span>&#9884;</span>
+    <div class="abs" style="left: 363px;top:311px;width:350px;text-align: left;white-space: nowrap;">
+        <input type="radio" name="attr_effort" value="0" class="bigchk" checked title="Remettre les Efforts à zéro" /><span></span>
+        <input type="radio" name="attr_effort" value="1" class="bigchk" style="margin-left: 1px;" title="1er Effort" /><span>&#9884;</span>
+        <input type="radio" name="attr_effort" value="2" style="margin-left: 10px;" class="bigchk" title="2nd Effort" /><span>&#9884;</span>
+        <input type="radio" name="attr_effort" value="3" style="margin-left: 9px;" class="bigchk" title="3ième Effort" /><span>&#9884;</span>
+        <input type="radio" name="attr_effort" value="4" style="margin-left: 10px;" class="bigchk" title="4ième Effort" /><span>&#9884;</span>
+        <input type="radio" name="attr_effort" value="5" style="margin-left: 9px;" class="bigchk" title="5ième Effort" /><span>&#9884;</span>
     </div>
     <!-- FIN EFFORT -->
     <div class="abs" style="left: 90px;top:428px;">
