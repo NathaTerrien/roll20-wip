@@ -24,26 +24,26 @@
     <div class="abs" style="left: 1020px;top:52px;">
         <input type="text" name="attr_conflit1" style="width: 135px;" placeholder="Aspect de conflit 1" />
     </div>
-    <div class="abs" style="left: 1161px;top:60px;">
-        <input type="checkbox" name="attr_conflituse1" value="1" class="smallchk" title="Aspect de conflit 1 utilisé" />
+    <div class="abs" style="left: 1157px;top:60px;">
+        <input type="checkbox" name="attr_conflituse1" value="1" class="smallchk" title="Aspect de conflit 1 utilisé" /><span>&#9884;</span>
     </div>
     <div class="abs" style="left: 1020px;top:80px;">
         <input type="text" name="attr_conflit2" style="width: 135px;" placeholder="Aspect de conflit 2" />
     </div>
-    <div class="abs" style="left: 1161px;top:89px;">
-        <input type="checkbox" name="attr_conflituse2" value="1" class="smallchk" title="Aspect de conflit 2 utilisé" />
+    <div class="abs" style="left: 1157px;top:90px;">
+        <input type="checkbox" name="attr_conflituse2" value="1" class="smallchk" title="Aspect de conflit 2 utilisé" /><span>&#9884;</span>
     </div>
     <div class="abs" style="left: 1020px;top:109px;">
         <input type="text" name="attr_conflit3" style="width: 135px;" placeholder="Aspect de conflit 3" />
     </div>
-    <div class="abs" style="left: 1161px;top:117px;">
-        <input type="checkbox" name="attr_conflituse3" value="1" class="smallchk" title="Aspect de conflit 3 utilisé" />
+    <div class="abs" style="left: 1157px;top:117px;">
+        <input type="checkbox" name="attr_conflituse3" value="1" class="smallchk" title="Aspect de conflit 3 utilisé" /><span>&#9884;</span>
     </div>
     <div class="abs" style="left: 1020px;top:137px;">
         <input type="text" name="attr_conflit4" style="width: 135px;" placeholder="Aspect de conflit 4" />
     </div>
-    <div class="abs" style="left: 1161px;top:145px;">
-        <input type="checkbox" name="attr_conflituse4" value="1" class="smallchk" title="Aspect de conflit 4 utilisé" />
+    <div class="abs" style="left: 1157px;top:146px;">
+        <input type="checkbox" name="attr_conflituse4" value="1" class="smallchk" title="Aspect de conflit 4 utilisé" /><span>&#9884;</span>
     </div>
     <!-- FIN Aspect de conflits -->
     <!-- EFFORT -->
@@ -56,9 +56,40 @@
         <input type="radio" name="attr_effort" value="5" style="margin-left: 9px;" class="bigchk" title="5ième Effort" /><span>&#9884;</span>
     </div>
     <!-- FIN EFFORT -->
+    <!-- AIDE Dés -->
+    <div class="abs" style="left: 1000px;top: 305px;">
+        <table>
+            <tr>
+                <td>D6</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>Qualités</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+            </tr>
+        </table>
+    </div>
+    <!-- FIN AIDE Dés -->
+    <!-- ATTENTION -->
     <div class="abs" style="left: 90px;top:428px;">
         <input type="number" name="attr_attention" value="0" class="numbig1" />
-    </div> <!-- ATTENTION -->
+    </div>
+    <div class="abs" style="left: 58px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="JetAttention" title="Jet d'Attention" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="JetAttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="JetAttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+    </div>
+    <!-- FIN ATTENTION -->
     <div class="abs" style="left: 266px;top:428px;">
         <input type="number" name="attr_eloquence" value="0" class="numbig1" />
     </div> <!-- ELOQUENCE -->

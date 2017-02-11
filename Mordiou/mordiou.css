@@ -2,6 +2,9 @@
 Bleu : #257ABA rgba(37,122,186,1.0)
 Jaune : #FFD203  rgba(255,210,3,1.0)
 */
+.sheet-block{
+    display: block;
+}
 div,
 button,
 textarea,
@@ -9,6 +12,13 @@ span,
 input,
 select{
     box-sizing: border-box;
+}
+table, tr, td{
+    text-align: right;
+    border: 1px solid gray;
+    padding: 2px 2px 2px 6px;
+    font-style: italic;
+    color: gray;
 }
 div{
     margin: none;
@@ -95,6 +105,36 @@ input[type="number"].sheet-numbig1::-webkit-outer-spin-button {
 }
 /* Checkbox fleur de lis */
 /* ===== Check ===== */
+input.sheet-smallchk{
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+    opacity: 0.0;
+    z-index: 2;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+input.sheet-smallchk + span{
+    display: inline-block;
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    margin-left: -20px;
+    width: 20px;
+    max-width: 20px;
+    height: 20px;
+    z-index: 1;
+    font-size: 24px;
+    line-height: 20px;
+    vertical-align: middle;
+    color: transparent;
+    font-weight: bold;
+    background-color: transparent;
+}
+input.sheet-smallchk:checked + span{
+    color: #257ABA;
+    background-color: white;
+}
 input.sheet-bigchk{
     width: 28px;
     max-width: 28px;
@@ -121,13 +161,16 @@ input.sheet-bigchk + span{
     color: #257ABA;
     background-color: rgba(255,210,3,0.4);
 }
-input.sheet-bigchk:hover + span{
-    color: #257ABA;
-}
 input.sheet-bigchk:checked ~ input.sheet-bigchk + span{
     color : rgba(128,128,128,0.5);
     background-color: transparent;
     font-weight: normal;
+}
+input.sheet-bigchk:hover + span{
+    color : rgba(128,128,128,0.5);
+}
+input.sheet-bigchk:checked ~ input.sheet-bigchk:hover + span{
+    color: #257ABA;
 }
 input.sheet-bigchk[value="0"]{
     width: 91px;
@@ -150,5 +193,84 @@ input.sheet-bigchk[value="0"]:checked + span {
     color: #257ABA;
     border-width: 1px 0px 1px 0px;
     border-style: solid;
-    border-color: ;#257ABA;
+    border-color: #257ABA;
+}
+input.sheet-bigchk[value="0"]:hover + span {
+    border-width: 1px 0px 1px 0px;
+    border-style: dashed;
+    border-color: #257ABA;
+}
+/* =====  BUTTONS ===== */
+button[type="roll"] {
+    box-sizing: border-box;
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 0 0 !important;
+    color: black;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    background:transparent;
+    box-shadow: none;
+    text-shadow: none;
+    -webkit-box-shadow: none;
+}
+button[type="roll"].sheet-butd6small:hover{
+    color: black;
+    border-color: black;
+    box-shadow: 1px 1px 4px 2px rgba(141,141,141,0.8);
+}
+button[type="roll"].sheet-butd6small:before{
+    font-family: "dicefontd6";
+    content: 'f';
+    font-size: 26px;
+    color: #727272;
+}
+button[type="roll"].sheet-butd6small:hover:before{
+    color: black;
+    content: 'F';
+}
+button[type="roll"].sheet-butd6smallred:hover{
+    color: #932315;
+    border-color: #932315;
+    box-shadow: 1px 1px 4px 2px rgba(147,35,21,0.8);
+}
+button[type="roll"].sheet-butd6smallred:before{
+    font-family: "dicefontd6";
+    content: 'f';
+    font-size: 26px;
+    color: rgba(147,35,21,0.7);
+}
+button[type="roll"].sheet-butd6smallred:hover:before{
+    color: #932315;
+    content: 'F';
+}
+button[type="roll"].sheet-butd6smallgreen:hover{
+    color: #6FB387;
+    border-color: #6FB387;
+    box-shadow: 1px 1px 4px 2px rgba(111,179,135,0.8);
+}
+button[type="roll"].sheet-butd6smallgreen:before{
+    font-family: "dicefontd6";
+    content: 'f';
+    font-size: 26px;
+    color: rgba(111,179,135,0.7);
+}
+button[type="roll"].sheet-butd6smallgreen:hover:before{
+    color: #6FB387;
+    content: 'F';
+}
+button[type="roll"].sheet-butd6smallwhite:hover{
+    color: white;
+    border-color: white;
+    box-shadow: 1px 1px 4px 2px rgba(255,255,255,0.8);
+}
+button[type="roll"].sheet-butd6smallwhite:before{
+    font-family: "dicefontd6";
+    content: 'f';
+    font-size: 26px;
+    color: white;
+}
+button[type="roll"].sheet-butd6smallwhite:hover:before{
+    content: 'F';
 }
