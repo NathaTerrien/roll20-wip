@@ -1,3 +1,53 @@
+<!-- === SCRIPT === -->
+<script type="text/worker">
+/* ---- mordiou ---------------------- */
+    var mordiou = mordiou || (function(){
+        'use strict';
+        var version = '1.0',
+        calcJet = function (pVal) {
+            var nb = parseInt(pVal) || 0;
+            var fortune = 0;
+            var basejet = '({floor(1d6/2)-1,0d0}kh1)';
+            var jet = '0d0';
+            if (nb > 0) {
+                var i = 1;
+                jet = basejet;
+                for (i = 1; i < nb; i++) {
+                    jet = jet + " + " + basejet;
+                }
+            }
+            return jet;
+        };
+        return {
+            calcJet: calcJet
+        };
+    }());
+/* ---- FIN mordiou ---------------------- */
+    on("change:fortune", function(){
+        getAttrs(["fortune"], function(values) {
+            var nb = parseInt(values.fortune) || 0;
+            var jet = mordiou.calcJet(nb);
+            setAttrs({
+                fortune_jet: jet
+            });
+        });
+    });
+    on("change:attention", function(){
+        getAttrs(["attention"], function(values) {
+            var nb = parseInt(values.attention) || 0;
+            var jet = mordiou.calcJet(nb);
+            setAttrs({
+                attention_jet: jet
+            });
+        });
+    });
+</script>
+<!-- === caracs cachées === -->
+<input type="hidden" name="attr_plus2d" value="+ ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+<input type="hidden" name="attr_moins2d" value="- ({floor(1d6/2)-1,0d0}kh1) - ({floor(1d6/2)-1,0d0}kh1)" />
+<input type="hidden" name="attr_fortune_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+<input type="hidden" name="attr_attention_jet" value="0d0" />
+
 <!-- === SHEET === -->
 <div class="bgmain">
     <div class="abs" style="left: 540px;top:16px;">
@@ -46,6 +96,13 @@
         <input type="checkbox" name="attr_conflituse4" value="1" class="smallchk" title="Aspect de conflit 4 utilisé" /><span>&#9884;</span>
     </div>
     <!-- FIN Aspect de conflits -->
+    <!-- Fortune -->
+    <div class="abs" style="left: 155px;top:135px;text-align: center;">
+        <input type="number" name="attr_fortune" value="3" class="numbig1" title="Points de Fortune courants" />
+        /
+        <input type="number" name="attr_fortune_max" value="3" class="numbig1" title="Points de Fortune maximums" />
+    </div>
+    <!-- FIN Fortune -->
     <!-- EFFORT -->
     <div class="abs" style="left: 363px;top:311px;width:350px;text-align: left;white-space: nowrap;">
         <input type="radio" name="attr_effort" value="0" class="bigchk" checked title="Remettre les Efforts à zéro" /><span></span>
@@ -85,9 +142,9 @@
         <input type="number" name="attr_attention" value="0" class="numbig1" />
     </div>
     <div class="abs" style="left: 58px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="JetAttention" title="Jet d'Attention" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{subtitle=-}} {{task=1}} {{roll=[[2d6+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="JetAttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-bonus-die}}} {{roll=[[3d6kh2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="JetAttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="@{sheettype} &{template:tmplt} {{character=@{character_name}}} {{title=^{mind}}} {{task=1}} {{subtitle=^{with-penalty-die}}} {{roll=[[3d6kl2+(@{mind})[Mind]+(?{Modifier|0})[Modifier]]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="JetAttention" title="Jet d'Attention" value="&{template:default} {{character=@{character_name}}} {{title=Attention}} {{subtitle=-}} {{qualites=[[@{attention_jet}[Attention] + @{fortune_jet}[Fortune]]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="JetAttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="&{template:default} {{character=@{character_name}}} {{title=Attention}} {{subtitle=avec Aspect}} {{qualites=[[@{attention_jet}[Attention] + @{fortune_jet}[Fortune] @{plus2d}[Aspect]]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="JetAttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="&{template:default} {{character=@{character_name}}} {{title=Attention}} {{subtitle=Circonstances défavorables}} {{qualites=[[@{attention_jet}[Attention] + @{fortune_jet}[Fortune] @{moins2d}[Circonstances]]]}}" ></button>
     </div>
     <!-- FIN ATTENTION -->
     <div class="abs" style="left: 266px;top:428px;">
