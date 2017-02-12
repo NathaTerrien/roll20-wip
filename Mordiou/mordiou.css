@@ -1,6 +1,7 @@
 /* Couleurs
 Bleu : #257ABA rgba(37,122,186,1.0)
 Jaune : #FFD203  rgba(255,210,3,1.0)
+Gris foncé : #949597
 */
 .sheet-block{
     display: block;
@@ -89,6 +90,12 @@ input[type="text"].sheet-aspect{
 }
 input[type="number"]{
     text-align: right;
+    -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
 }
 input[type="number"].sheet-numbig1{
     width: 47px;
@@ -96,14 +103,28 @@ input[type="number"].sheet-numbig1{
     font-size: 36px;
     text-align: center;
     border-radius: 16px;
-    -moz-appearance: textfield;
 }
-input[type="number"].sheet-numbig1::-webkit-inner-spin-button,
-input[type="number"].sheet-numbig1::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
+input[type="number"].sheet-numbig2{
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 25px 0px 0px 25px;
 }
-/* Checkbox fleur de lis */
+input[type="number"].sheet-numbig2.sheet-nummax{
+    color: #949597;
+    border-radius: 0px 25px 25px 0px;
+}
+.sheet-asbignb{
+    display: inline-block;
+    font-size: 50px;
+    line-height: 50px;
+    font-family: 'Patrick Hand';
+    color: #949597;
+    vertical-align: middle;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
 /* ===== Check ===== */
 input.sheet-smallchk{
     width: 20px;

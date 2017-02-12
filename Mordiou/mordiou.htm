@@ -4,19 +4,19 @@
     var mordiou = mordiou || (function(){
         'use strict';
         var version = '1.0',
+        basejet = '({floor(1d6/2)-1,0d0}kh1)',
+        jetplus = ' + ' + basejet,
         calcJet = function (pVal) {
             var nb = parseInt(pVal) || 0;
-            var fortune = 0;
-            var basejet = '({floor(1d6/2)-1,0d0}kh1)';
+            var jetarr = [];
             var jet = '0d0';
-            if (nb > 0) {
-                var i = 1;
-                jet = basejet;
-                for (i = 1; i < nb; i++) {
-                    jet = jet + " + " + basejet;
-                }
-            }
-            return jet;
+            if (nb > 0) jet = basejet + jetplus.repeat(nb-1);
+            jetarr.push(jet); // jet normal
+            jetarr.push(jet + jetplus.repeat(2)); // jet aspect
+            jet = '0d0';
+            if (nb > 2) jet = basejet + jetplus.repeat(nb-3);
+            jetarr.push(jet); // jet difficile
+            return jetarr;
         };
         return {
             calcJet: calcJet
@@ -24,30 +24,156 @@
     }());
 /* ---- FIN mordiou ---------------------- */
     on("change:fortune", function(){
-        getAttrs(["fortune"], function(values) {
-            var nb = parseInt(values.fortune) || 0;
-            var jet = mordiou.calcJet(nb);
+        getAttrs(["fortune","attention","eloquence","erudition","panache","resolution","ruse","vigueur"], function(values) {
+            var fort = parseInt(values.fortune) || 0;
+            // Attention
+            var attention_arr = mordiou.calcJet(fort + (parseInt(values.attention) || 0));
+            // Eloquence
+            var eloquence_arr = mordiou.calcJet(fort + (parseInt(values.eloquence) || 0));
+            // Erudition
+            var erudition_arr = mordiou.calcJet(fort + (parseInt(values.erudition) || 0));
+            // Panache
+            var panache_arr = mordiou.calcJet(fort + (parseInt(values.panache) || 0));
+            // Resolution
+            var resolution_arr = mordiou.calcJet(fort + (parseInt(values.resolution) || 0));
+            // Ruse
+            var ruse_arr = mordiou.calcJet(fort + (parseInt(values.ruse) || 0));
+            // Vigueur
+            var vigueur_arr = mordiou.calcJet(fort + (parseInt(values.vigueur) || 0));
             setAttrs({
-                fortune_jet: jet
+                attention_jet: attention_arr[0],
+                attention_jetplus: attention_arr[1],
+                attention_jetmoins: attention_arr[2],
+                eloquence_jet: eloquence_arr[0],
+                eloquence_jetplus: eloquence_arr[1],
+                eloquence_jetmoins: eloquence_arr[2],
+                erudition_jet: erudition_arr[0],
+                erudition_jetplus: erudition_arr[1],
+                erudition_jetmoins: erudition_arr[2],
+                panache_jet: panache_arr[0],
+                panache_jetplus: panache_arr[1],
+                panache_jetmoins: panache_arr[2],
+                resolution_jet: resolution_arr[0],
+                resolution_jetplus: resolution_arr[1],
+                resolution_jetmoins: resolution_arr[2],
+                ruse_jet: ruse_arr[0],
+                ruse_jetplus: ruse_arr[1],
+                ruse_jetmoins: ruse_arr[2],
+                vigueur_jet: vigueur_arr[0],
+                vigueur_jetplus: vigueur_arr[1],
+                vigueur_jetmoins: vigueur_arr[2]
             });
         });
     });
     on("change:attention", function(){
-        getAttrs(["attention"], function(values) {
-            var nb = parseInt(values.attention) || 0;
-            var jet = mordiou.calcJet(nb);
+        getAttrs(["attention","fortune"], function(values) {
+            var nb = (parseInt(values.attention) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
             setAttrs({
-                attention_jet: jet
+                attention_jet: jetarr[0],
+                attention_jetplus: jetarr[1],
+                attention_jetmoins: jetarr[2]
+            });
+        });
+    });
+    on("change:eloquence", function(){
+        getAttrs(["eloquence","fortune"], function(values) {
+            var nb = (parseInt(values.eloquence) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
+            setAttrs({
+                eloquence_jet: jetarr[0],
+                eloquence_jetplus: jetarr[1],
+                eloquence_jetmoins: jetarr[2]
+            });
+        });
+    });
+    on("change:erudition", function(){
+        getAttrs(["erudition","fortune"], function(values) {
+            var nb = (parseInt(values.erudition) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
+            setAttrs({
+                erudition_jet: jetarr[0],
+                erudition_jetplus: jetarr[1],
+                erudition_jetmoins: jetarr[2]
+            });
+        });
+    });
+    on("change:panache", function(){
+        getAttrs(["panache","fortune"], function(values) {
+            var nb = (parseInt(values.panache) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
+            setAttrs({
+                panache_jet: jetarr[0],
+                panache_jetplus: jetarr[1],
+                panache_jetmoins: jetarr[2]
+            });
+        });
+    });
+    on("change:resolution", function(){
+        getAttrs(["resolution","fortune"], function(values) {
+            var nb = (parseInt(values.resolution) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
+            setAttrs({
+                resolution_jet: jetarr[0],
+                resolution_jetplus: jetarr[1],
+                resolution_jetmoins: jetarr[2]
+            });
+        });
+    });
+    on("change:ruse", function(){
+        getAttrs(["ruse","fortune"], function(values) {
+            var nb = (parseInt(values.ruse) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
+            setAttrs({
+                ruse_jet: jetarr[0],
+                ruse_jetplus: jetarr[1],
+                ruse_jetmoins: jetarr[2]
+            });
+        });
+    });
+    on("change:vigueur", function(){
+        getAttrs(["vigueur","fortune"], function(values) {
+            var nb = (parseInt(values.vigueur) || 0) + (parseInt(values.fortune) || 0);
+            var jetarr = mordiou.calcJet(nb);
+            setAttrs({
+                vigueur_jet: jetarr[0],
+                vigueur_jetplus: jetarr[1],
+                vigueur_jetmoins: jetarr[2]
             });
         });
     });
 </script>
-<!-- === caracs cachées === -->
-<input type="hidden" name="attr_plus2d" value="+ ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-<input type="hidden" name="attr_moins2d" value="- ({floor(1d6/2)-1,0d0}kh1) - ({floor(1d6/2)-1,0d0}kh1)" />
-<input type="hidden" name="attr_fortune_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-<input type="hidden" name="attr_attention_jet" value="0d0" />
-
+<!-- === jets cachées === -->
+<div style="display: none;">
+    <!-- attention -->
+    <input readonly name="attr_attention_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_attention_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_attention_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <!-- eloquence -->
+    <input readonly name="attr_eloquence_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_eloquence_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_eloquence_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <!-- erudition -->
+    <input readonly name="attr_erudition_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_erudition_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_erudition_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <!-- panache -->
+    <input readonly name="attr_panache_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_panache_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_panache_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <!-- resolution -->
+    <input readonly name="attr_resolution_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_resolution_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_resolution_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <!-- ruse -->
+    <input readonly name="attr_ruse_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_ruse_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_ruse_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <!-- vigueur -->
+    <input readonly name="attr_vigueur_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_vigueur_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_vigueur_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+</div> <!-- === FIN jets cachées === -->
 <!-- === SHEET === -->
 <div class="bgmain">
     <div class="abs" style="left: 540px;top:16px;">
@@ -97,10 +223,10 @@
     </div>
     <!-- FIN Aspect de conflits -->
     <!-- Fortune -->
-    <div class="abs" style="left: 155px;top:135px;text-align: center;">
-        <input type="number" name="attr_fortune" value="3" class="numbig1" title="Points de Fortune courants" />
-        /
-        <input type="number" name="attr_fortune_max" value="3" class="numbig1" title="Points de Fortune maximums" />
+    <div class="abs" style="left: 145px;top:133px;width: 125px;text-align: center;">
+        <input type="number" name="attr_fortune" value="3" class="numbig2" title="Points de Fortune courants" />
+        <div class="asbignb">|</div>
+        <input type="number" name="attr_fortune_max" value="3" class="numbig2 nummax" title="Points de Fortune maximums" />
     </div>
     <!-- FIN Fortune -->
     <!-- EFFORT -->
@@ -142,27 +268,69 @@
         <input type="number" name="attr_attention" value="0" class="numbig1" />
     </div>
     <div class="abs" style="left: 58px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="JetAttention" title="Jet d'Attention" value="&{template:default} {{character=@{character_name}}} {{title=Attention}} {{subtitle=-}} {{qualites=[[@{attention_jet}[Attention] + @{fortune_jet}[Fortune]]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="JetAttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="&{template:default} {{character=@{character_name}}} {{title=Attention}} {{subtitle=avec Aspect}} {{qualites=[[@{attention_jet}[Attention] + @{fortune_jet}[Fortune] @{plus2d}[Aspect]]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="JetAttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="&{template:default} {{character=@{character_name}}} {{title=Attention}} {{subtitle=Circonstances défavorables}} {{qualites=[[@{attention_jet}[Attention] + @{fortune_jet}[Fortune] @{moins2d}[Circonstances]]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Attention" title="Jet d'Attention" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention}} {{modificateur=-}} {{d6=[[@{fortune}+@{attention}]]}} {{qualites=[[@{attention_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_AttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention}} {{modificateur=avec Aspect}} {{d6=[[@{fortune}+@{attention}+2]]}} {{qualites=[[@{attention_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_AttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention}} {{modificateur=Circonstances défavorables}} {{d6=[[{(0d0+@{fortune}+@{attention}-2),0d0}kh1]]}} {{qualites=[[@{attention_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN ATTENTION -->
+    <!-- Eloquence -->
     <div class="abs" style="left: 266px;top:428px;">
         <input type="number" name="attr_eloquence" value="0" class="numbig1" />
-    </div> <!-- ELOQUENCE -->
+    </div>
+    <div class="abs" style="left: 234px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="Jet_Eloquence" title="Jet d'Eloquence" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence}} {{modificateur=-}} {{qualites=[[@{eloquence_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_EloquenceAspect" title="Jet d'Eloquence + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence}} {{modificateur=avec Aspect}} {{qualites=[[@{eloquence_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_EloquenceDef" title="Jet d'Eloquence - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{eloquence_jetmoins}]]}}" ></button>
+    </div>
+    <!-- FIN ELOQUENCE -->
+    <!-- Erudition -->
     <div class="abs" style="left: 442px;top:428px;">
         <input type="number" name="attr_erudition" value="0" class="numbig1" />
-    </div> <!-- ERUDITION -->
+    </div>
+    <div class="abs" style="left: 410px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="Jet_Erudition" title="Jet d'Erudition" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition}} {{modificateur=-}} {{qualites=[[@{erudition_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_EruditionAspect" title="Jet d'Erudition + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition}} {{modificateur=avec Aspect}} {{qualites=[[@{erudition_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_EruditionDef" title="Jet d'Erudition - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{erudition_jetmoins}]]}}" ></button>
+    </div>
+    <!-- FIN ERUDITION -->
+    <!-- Panache -->
     <div class="abs" style="left: 619px;top:428px;">
         <input type="number" name="attr_panache" value="0" class="numbig1" />
-    </div> <!-- PANACHE -->
+    </div>
+    <div class="abs" style="left: 587px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="Jet_Panache" title="Jet de Panache" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache}} {{modificateur=-}} {{qualites=[[@{panache_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_PanacheAspect" title="Jet de Panache + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache}} {{modificateur=avec Aspect}} {{qualites=[[@{panache_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_PanacheDef" title="Jet de Panache - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{panache_jetmoins}]]}}" ></button>
+    </div>
+    <!-- FIN PANACHE -->
+    <!-- Resolution -->
     <div class="abs" style="left: 796px;top:428px;">
         <input type="number" name="attr_resolution" value="0" class="numbig1" />
-    </div> <!-- RESOLUTION -->
+    </div>
+    <div class="abs" style="left: 764px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="Jet_Resolution" title="Jet de Résolution" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution}} {{modificateur=-}} {{qualites=[[@{resolution_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_ResolutionAspect" title="Jet de Résolution + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution}} {{modificateur=avec Aspect}} {{qualites=[[@{resolution_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_ResolutionDef" title="Jet de Résolution - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{resolution_jetmoins}]]}}" ></button>
+    </div>
+    <!-- FIN RESOLUTION -->
+    <!-- Ruse -->
     <div class="abs" style="left: 973px;top:428px;">
         <input type="number" name="attr_ruse" value="0" class="numbig1" />
-    </div> <!-- RUSE -->
+    </div>
+    <div class="abs" style="left: 941px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="Jet_Ruse" title="Jet de Ruse" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse}} {{modificateur=-}} {{qualites=[[@{ruse_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_RuseAspect" title="Jet de Ruse + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse}} {{modificateur=avec Aspect}} {{qualites=[[@{ruse_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_RuseDef" title="Jet de Ruse - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{ruse_jetmoins}]]}}" ></button>
+    </div>
+    <!-- FIN RUSE -->
+    <!-- Vigueur -->
     <div class="abs" style="left: 1149px;top:428px;">
         <input type="number" name="attr_vigueur" value="0" class="numbig1" />
-    </div> <!-- VIGUEUR -->
+    </div>
+    <div class="abs" style="left: 1117px;top:420px;">
+        <button type="roll" class="sheet-butd6small block" name="Jet_Vigueur" title="Jet de Vigueur" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur}} {{modificateur=-}} {{qualites=[[@{vigueur_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_VigueurAspect" title="Jet de Vigueur + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur}} {{modificateur=avec Aspect}} {{qualites=[[@{vigueur_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_VigueurDef" title="Jet de Vigueur - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{vigueur_jetmoins}]]}}" ></button>
+    </div>
+    <!-- FIN VIGUEUR -->
 </div>
