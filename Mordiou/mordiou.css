@@ -90,10 +90,12 @@ input[type="text"].sheet-aspect{
 }
 input[type="number"]{
     text-align: right;
+}
+input[type="number"].sheet-numtxt{
     -moz-appearance: textfield;
 }
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type="number"].sheet-numtxt::-webkit-inner-spin-button,
+input[type="number"].sheet-numtxt::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
