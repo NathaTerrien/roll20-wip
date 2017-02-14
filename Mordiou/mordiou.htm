@@ -4,14 +4,14 @@
     var mordiou = mordiou || (function(){
         'use strict';
         var version = '1.0',
-        basejet = '({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)',
+        basejet = '({floor(1d6/2)-1,0d0}kh1)',
         jetplus = ' + ' + basejet,
         calcJet = function (pVal) {
             var nb = parseInt(pVal) || 0;
-            if (nb > 8) nb = 8;
+            if (nb > 8) {nb = 8};
             var jetarr = [];
             var jet = '0d0';
-            if (nb > 0) jet = basejet + jetplus.repeat(nb-1);
+            if (nb > 0) {jet = basejet + jetplus.repeat(nb-1)};
             jetarr.push(jet); // jet normal
             jetarr.push(jet + jetplus.repeat(2)); // jet aspect
             jet = '0d0';
@@ -140,33 +140,33 @@
 <!-- === jets cachées === -->
 <div style="display: none;">
     <!-- attention -->
-    <input readonly name="attr_attention_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_attention_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_attention_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_attention_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_attention_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_attention_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
     <!-- eloquence -->
-    <input readonly name="attr_eloquence_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_eloquence_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_eloquence_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_eloquence_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_eloquence_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_eloquence_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
     <!-- erudition -->
-    <input readonly name="attr_erudition_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_erudition_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_erudition_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_erudition_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_erudition_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_erudition_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
     <!-- panache -->
-    <input readonly name="attr_panache_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_panache_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_panache_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_panache_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_panache_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_panache_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
     <!-- resolution -->
-    <input readonly name="attr_resolution_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_resolution_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_resolution_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_resolution_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_resolution_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_resolution_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
     <!-- ruse -->
-    <input readonly name="attr_ruse_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_ruse_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_ruse_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_ruse_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_ruse_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_ruse_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
     <!-- vigueur -->
-    <input readonly name="attr_vigueur_jet" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_vigueur_jetplus" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1) + ({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
-    <input readonly name="attr_vigueur_jetmoins" value="({floor(1d6/2)-10d0+0}kh1),0d0+8}kl1)" />
+    <input readonly name="attr_vigueur_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_vigueur_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_vigueur_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
 </div> <!-- === FIN jets cachées === -->
 <!-- === SHEET === -->
 <div class="bgmain">
@@ -280,9 +280,9 @@
         <input type="number" name="attr_attention" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 58px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Attention" title="Jet d'Attention" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention (@{attention})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==-}} {{d6=[[{({(0d0+@{fortune}[Fortune]+@{aide}[Aide]-@{defense}[Défense]+@{attention}[Style]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{attention_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_AttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention (@{attention})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==avec Aspect}} {{d6=[[{({(0d0+@{fortune}[Fortune]+@{aide}[Aide]-@{defense}[Défense]+@{attention}[Style]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{attention_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_AttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention (@{attention})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==Circonstances défavorables}} {{d6=[[{({(0d0+@{fortune}+@{attention}[Style]-2[Circonstance]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{attention_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Attention" title="Jet d'Attention" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention (@{attention})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{poignee=[[{({(0d0+@{attention}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{attention_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_AttentionAspect" title="Jet d'Attention + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention (@{attention})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{attention}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{attention_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_AttentionDef" title="Jet d'Attention - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Attention (@{attention})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{attention}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{attention_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN Attention -->
     <!-- Eloquence -->
@@ -290,9 +290,9 @@
         <input type="number" name="attr_eloquence" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 234px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Eloquence" title="Jet d'Eloquence" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence (@{eloquence})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{qualites=[[@{eloquence_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_EloquenceAspect" title="Jet d'Eloquence + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence (@{eloquence})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{qualites=[[@{eloquence_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_EloquenceDef" title="Jet d'Eloquence - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence (@{eloquence})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{qualites=[[@{eloquence_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Eloquence" title="Jet d'Eloquence" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence (@{eloquence})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{poignee=[[{({(0d0+@{eloquence}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{eloquence_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_EloquenceAspect" title="Jet d'Eloquence + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence (@{eloquence})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{eloquence}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{eloquence_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_EloquenceDef" title="Jet d'Eloquence - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Eloquence (@{eloquence})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{eloquence}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{eloquence_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN ELOQUENCE -->
     <!-- Erudition -->
@@ -300,9 +300,9 @@
         <input type="number" name="attr_erudition" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 410px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Erudition" title="Jet d'Erudition" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition (@{erudition})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==-}} {{qualites=[[@{erudition_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_EruditionAspect" title="Jet d'Erudition + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition (@{erudition})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==avec Aspect}} {{qualites=[[@{erudition_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_EruditionDef" title="Jet d'Erudition - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition (@{erudition})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==Circonstances défavorables}} {{qualites=[[@{erudition_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Erudition" title="Jet d'Erudition" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition (@{erudition})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{poignee=[[{({(0d0+@{erudition}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{erudition_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_EruditionAspect" title="Jet d'Erudition + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition (@{erudition})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{erudition}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{erudition_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_EruditionDef" title="Jet d'Erudition - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Erudition (@{erudition})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{erudition}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{erudition_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN ERUDITION -->
     <!-- Panache -->
@@ -310,9 +310,9 @@
         <input type="number" name="attr_panache" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 587px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Panache" title="Jet de Panache" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache (@{panache})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==-}} {{qualites=[[@{panache_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_PanacheAspect" title="Jet de Panache + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache (@{panache})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==avec Aspect}} {{qualites=[[@{panache_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_PanacheDef" title="Jet de Panache - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache (@{panache})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==Circonstances défavorables}} {{qualites=[[@{panache_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Panache" title="Jet de Panache" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache (@{panache})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{poignee=[[{({(0d0+@{panache}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{panache_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_PanacheAspect" title="Jet de Panache + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache (@{panache})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{panache}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{panache_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_PanacheDef" title="Jet de Panache - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Panache (@{panache})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{panache}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{panache_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN PANACHE -->
     <!-- Resolution -->
@@ -320,9 +320,9 @@
         <input type="number" name="attr_resolution" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 764px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Resolution" title="Jet de Résolution" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution (@{resolution})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}}} {{modificateur==-}} {{qualites=[[@{resolution_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_ResolutionAspect" title="Jet de Résolution + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution (@{resolution})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==avec Aspect}} {{qualites=[[@{resolution_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_ResolutionDef" title="Jet de Résolution - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution (@{resolution})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==Circonstances défavorables}} {{qualites=[[@{resolution_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Resolution" title="Jet de Résolution" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution (@{resolution})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}}} {{modificateur=-}} {{poignee=[[{({(0d0+@{resolution}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{resolution_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_ResolutionAspect" title="Jet de Résolution + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution (@{resolution})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{resolution}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{resolution_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_ResolutionDef" title="Jet de Résolution - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Résolution (@{resolution})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{resolution}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{resolution_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN RESOLUTION -->
     <!-- Ruse -->
@@ -330,9 +330,9 @@
         <input type="number" name="attr_ruse" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 941px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Ruse" title="Jet de Ruse" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse (@{ruse})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==-}} {{qualites=[[@{ruse_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_RuseAspect" title="Jet de Ruse + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse (@{ruse})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==avec Aspect}} {{qualites=[[@{ruse_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_RuseDef" title="Jet de Ruse - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse (@{ruse})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==Circonstances défavorables}} {{qualites=[[@{ruse_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Ruse" title="Jet de Ruse" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse (@{ruse})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{poignee=[[{({(0d0+@{ruse}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{ruse_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_RuseAspect" title="Jet de Ruse + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse (@{ruse})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{ruse}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{ruse_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_RuseDef" title="Jet de Ruse - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Ruse (@{ruse})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{ruse}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{ruse_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN RUSE -->
     <!-- Vigueur -->
@@ -340,9 +340,9 @@
         <input type="number" name="attr_vigueur" value="0" min="0" class="numbig1 numtxt" />
     </div>
     <div class="abs" style="left: 1117px;top:420px;">
-        <button type="roll" class="sheet-butd6small block" name="Jet_Vigueur" title="Jet de Vigueur" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur (@{vigueur})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==-}} {{qualites=[[@{vigueur_jet}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_VigueurAspect" title="Jet de Vigueur + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur (@{vigueur})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==avec Aspect}} {{qualites=[[@{vigueur_jetplus}]]}}" ></button>
-        <button type="roll" class="sheet-butd6smallred block" name="Jet_VigueurDef" title="Jet de Vigueur - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur (@{vigueur})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur==Circonstances défavorables}} {{qualites=[[@{vigueur_jetmoins}]]}}" ></button>
+        <button type="roll" class="sheet-butd6small block" name="Jet_Vigueur" title="Jet de Vigueur" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur (@{vigueur})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=-}} {{poignee=[[{({(0d0+@{vigueur}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{vigueur_jet}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallgreen block" name="Jet_VigueurAspect" title="Jet de Vigueur + 2D (Aspect applicable)" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur (@{vigueur})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=avec Aspect}} {{poignee=[[{({(0d0+@{vigueur}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]+2[Aspect]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{vigueur_jetplus}]]}}" ></button>
+        <button type="roll" class="sheet-butd6smallred block" name="Jet_VigueurDef" title="Jet de Vigueur - 2D (circonstances défavorables)" value="&{template:default} {{personnage=@{character_name}}} {{style=Vigueur (@{vigueur})}} {{fortune=@{fortune}}} {{aide=@{aide}}} {{defense=@{defense}}} {{maniere=[[@{maniere}*2]]}} {{modificateur=Circonstances défavorables}} {{poignee=[[{({(0d0+@{vigueur}[Style]+@{fortune}[Fortune]+@{aide}[Aide]-(@{maniere}*2)[Manières]-@{defense}[Défense]-2[Circonstances]),0d0+0}kh1),0d0+8}kl1]]}} {{qualites=[[@{vigueur_jetmoins}]]}}" ></button>
     </div>
     <!-- FIN VIGUEUR -->
 </div>
