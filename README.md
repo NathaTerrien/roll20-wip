@@ -1,14 +1,13 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2017-01-09 (Macchiato Monsters v1.0)._
+_Updated 2017-02-16 (Swors & Wizardry v2.1, Mordiou ! WiP)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* Swords & Wizardry translation to french, and enhancement (integrated rolls)
 * [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
 * Stars Without Number, french
 * Castles & Crusades, english
@@ -26,7 +25,8 @@ Création.
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou)
 
 ### Todo
-Getting started
+* Roll templates
+* Test
 
 ## Existing sheets
 
@@ -239,6 +239,19 @@ Création en collbaoration avec l'auteur.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Supersix) Version 1.0
 
 #### Todo
+
+![sworswiz_banner](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Swords_%26_Wizardry/SWSheet_logo.gif)
+### Swords & Wizardry (english and french)
+
+Overhaul and translation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
+* [Official]https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.0 (2017-02-04)
+
+### Todo
+* In game testing
 
 ![terrax_banner](/_banners/terrax_banner.png)
 ### Terra X (french)
