@@ -248,7 +248,7 @@ Overhaul and translation.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
-* [Official]https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.0 (2017-02-04)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.0 (2017-02-04)
 
 ### Todo
 * In game testing
