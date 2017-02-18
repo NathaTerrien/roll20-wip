@@ -297,3 +297,69 @@ button[type="roll"].sheet-butd6smallwhite:before{
 button[type="roll"].sheet-butd6smallwhite:hover:before{
     content: 'F';
 }
+/* TEMPLATE */
+.sheet-rolltemplate-tmpl div{
+    padding: 2px 4px 2px 4px;
+}
+.sheet-rolltemplate-tmpl div.sheet-tplmain{
+    width: 98%;
+    border: 1px solid black;
+    background-color : white;
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Mordiou/mordiou_tmpl_v0.png');
+    background-repeat: repeat-y;
+    background-position:top left;
+    background-size: auto;
+}
+.sheet-rolltemplate-tmpl div.sheet-perso{
+    font-family: 'Shadows Into Light';
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 0px 10px white;
+}
+.sheet-rolltemplate-tmpl div.sheet-poignee{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    background-color: rgba(255,255,255,0.7);
+}
+.sheet-rolltemplate-tmpl div.sheet-qualites{
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+}
+.sheet-rolltemplate-tmpl span.sheet-lib{
+    font-family: 'Shadows Into Light';
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 0px 0px 10px white;
+}
+.sheet-rolltemplate-tmpl span.sheet-lib.sheet-plus{
+    font-size: 20px;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult,
+.sheet-rolltemplate-tmpl .inlinerollresult.fullcrit,
+.sheet-rolltemplate-tmpl .inlinerollresult.importantroll,
+.sheet-rolltemplate-tmpl .inlinerollresult.fullfail{
+    background-color: transparent;
+    border: none;
+    padding: 0px 0px 0px 0px;
+    cursor: help;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+}
+.sheet-rolltemplate-tmpl div.sheet-qualites .inlinerollresult,
+.sheet-rolltemplate-tmpl div.sheet-qualites .inlinerollresult.fullcrit,
+.sheet-rolltemplate-tmpl div.sheet-qualites .inlinerollresult.importantroll,
+.sheet-rolltemplate-tmpl div.sheet-qualites .inlinerollresult.fullfail{
+    background-color: transparent;
+    border: none;
+    padding: 0px 0px 0px 0px;
+    cursor: help;
+    font-family: 'Shadows Into Light';
+    font-size: 24px;
+    font-weight: bold;
+    color: #257ABA;
+}
