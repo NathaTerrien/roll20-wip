@@ -1,32 +1,30 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2017-02-16 (Swors & Wizardry v2.1, Mordiou ! WiP)._
+_Updated 2017-02-19 (Swords & Wizardry v2.1, Mordiou ! WiP)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
-* [Brigandyne](http://www.legrog.org/jeux/brigandyne/brigandyne-fr), french
 * Stars Without Number, french
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
 ## Work In Progress
 
-![Mordiou banner](/_banners/mordiou_banner.jpg)
-### Mordiou ! (french)
-Site officiel : [Mordiou !](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
+![Brigandyne banner](/_banners/Brigandyne_banner.png)
+### Brigandyne (french)
+Site officiel : [Brigandyne](https://brigandyne.wordpress.com/), french
 
 Création.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou)
+* [WIP]()
 
 ### Todo
-* Roll templates
-* Test
+Getting started
 
 ## Existing sheets
 
@@ -131,8 +129,8 @@ Wiki [Dungeon World VF V1 et V2](http://dungeonworld.pbta.fr)
 Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 3.2 (2016-12-18)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.2 (2016-12-18)
+* [WIP](./DungeonWorldFrench/) Version 3.3 (2017-02-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.3 (2017-02-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.2 (2016-12-18)
 
 #### Todo
@@ -169,10 +167,23 @@ Creation.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
+
+### Todo
+
+![Mordiou banner](/_banners/mordiou_banner.jpg)
+### Mordiou ! (french)
+Site officiel : [Mordiou !](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
+
+Création.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.0 (2017-02-16)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.0 (2017-01-09)
 * [Official]() Waiting for merge
 
 ### Todo
-* in-game testing
+* In game tests
 
 ![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (english)
@@ -206,8 +217,8 @@ Création.
 Création.
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 4.3 (2016-12-18)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.3 (2016-12-18)
+* [WIP](./PortesMonstresTresors/) Version 4.4 (2017-02-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.4 (2017-02-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.3 (2016-12-18)
 
 #### Todo
@@ -220,8 +231,8 @@ Création.
 Création.
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.7 (2016-12-18)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.7 (2016-12-18)
+* [WIP](./SavageWorldsFrench/) Version 1.8 (2017-02-18)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.8 (2017-02-18)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.7 (2016-12-18)
 
 #### Todo
