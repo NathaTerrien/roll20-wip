@@ -131,7 +131,7 @@ Traduction puis refonte et amélioration quasi complète (~création).
 #### Sources
 * [WIP](./DungeonWorldFrench/) Version 3.3 (2017-02-18)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.3 (2017-02-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.2 (2016-12-18)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.3 (2017-02-18)
 
 #### Todo
 
@@ -179,8 +179,8 @@ Création.
 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.0 (2017-02-16)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.0 (2017-01-09)
-* [Official]() Waiting for merge
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.0 (2017-02-16)
+* [Official](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.0 (2017-02-16)
 
 ### Todo
 * In game tests
@@ -219,7 +219,7 @@ Création.
 #### Sources
 * [WIP](./PortesMonstresTresors/) Version 4.4 (2017-02-18)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.4 (2017-02-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.3 (2016-12-18)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.4 (2017-02-18)
 
 #### Todo
 * Calcul de la richesse totale
@@ -233,7 +233,7 @@ Création.
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 1.8 (2017-02-18)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.8 (2017-02-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.7 (2016-12-18)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.8 (2017-02-18)
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
@@ -259,7 +259,7 @@ Overhaul and translation.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.0 (2017-02-04)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
 
 ### Todo
 * In game testing
