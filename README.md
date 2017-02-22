@@ -12,7 +12,10 @@ Thank you :)
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
 
+---
+
 ## Work In Progress
+---
 
 ![Brigandyne banner](/_banners/Brigandyne_banner.png)
 ### Brigandyne (french)
@@ -26,7 +29,10 @@ Création.
 ### Todo
 Getting started
 
+---
+
 ## Existing sheets
+---
 
 ![Antika banner](/_banners/Antika_banner.png)
 ### Antika (french)
@@ -43,6 +49,7 @@ Création.
 * Nettoyage du code
 * Tests en jeu
 
+___
 ![BoL banner](/_banners/BoL_banner.png)
 ### Barbarians of Lemuria : mythic edition (english and french)
 Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria).
@@ -57,6 +64,7 @@ Creation.
 ### Todo
 * Translate macro variables when this feature is available on Roll20.
 
+___
 ![Cahiers banner](/_banners/Cahiers_banner.png)
 ### Les Cahiers du Vastemonde (french)
 Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers-du-Vastemonde)
@@ -70,6 +78,7 @@ Création, en collaboration avec l'auteur.
 
 ### Todo
 
+___
 ![COG banner](/_banners/cog_banner.png)
 ### Chroniques Galactiques (french)
 
@@ -83,6 +92,7 @@ Création.
 #### Todo
 * Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
 
+___
 ![COF banner](/_banners/COF_banner.png)
 ### Chroniques Oubliées Fantasy (french)
 
@@ -97,6 +107,7 @@ Création.
 * Fiche compagnon simplifiée
 * En réflexion : amélioration de la saisie et diffusion dans le chat des Capacités des Voies
 
+___
 ![cypher banner](/_banners/cypher_banner.png)
 ### Cypher System (english)
 
@@ -109,6 +120,7 @@ Creation.
 
 #### Todo
 
+___
 ![cypher banner](/_banners/cypher_banner.png)
 ### Cypher System (french)
 
@@ -122,6 +134,7 @@ Création.
 #### Todo
 Cf. english version
 
+___
 ![dw banner](/_banners/dw_banner.png)
 ### Dungen World (french)
 Wiki [Dungeon World VF V1 et V2](http://dungeonworld.pbta.fr)
@@ -135,6 +148,7 @@ Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Todo
 
+___
 ### Icons (french)
 Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS](http://johndoe-rpg.com/catalogue/icons/), édité par John Doe.
 
@@ -145,6 +159,7 @@ Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS]
 
 #### Todo
 
+___
 ![ins banner](/_banners/ins_banner.png)
 ### INS/MV 5E (french)
 Site officiel : [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Génération Perdue](http://raise-dead.com)
@@ -158,6 +173,7 @@ Création.
 
 #### Todo
 
+___
 ![macchiato banner](/_banners/macchiato_banner.jpg)
 ### Macchiato Monsters (french and english)
 [Website](http://quenouille.com/macchiato-monsters-dungeonverse-build-together/)
@@ -171,6 +187,7 @@ Creation.
 
 ### Todo
 
+___
 ![Mordiou banner](/_banners/mordiou_banner.jpg)
 ### Mordiou ! (french)
 Site officiel : [Mordiou !](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), french
@@ -185,6 +202,7 @@ Création.
 ### Todo
 * In game tests
 
+___
 ![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (english)
 Deprecated though usable. See the Cypher System Sheet.
@@ -198,6 +216,7 @@ Creation.
 
 #### Todo
 
+___
 ![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (french)
 Obsolète bien qu'utilisable. Voir la fiche pour le Cypher System.
@@ -211,6 +230,7 @@ Création.
 
 #### Todo
 
+___
 ![pmt banner](/_banners/pmt_banner.png)
 ### Portes, Monstres, Trésors (french)
 
@@ -225,6 +245,7 @@ Création.
 * Calcul de la richesse totale
 * Inventaire "non porté" (hors encombrement)
 
+___
 ![sawo_banner](/_banners/sawo_banner.png)
 ### Savage Worlds / Deadlands Reloaded (french)
 
@@ -239,6 +260,7 @@ Création.
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
 
+___
 ### Supersix (french)
 Site officiel : [Supersix](http://supersix.fr/telechargements/)
 
@@ -251,6 +273,7 @@ Création en collbaoration avec l'auteur.
 
 #### Todo
 
+___
 ![sworswiz_banner](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Swords_%26_Wizardry/SWSheet_logo.gif)
 ### Swords & Wizardry (english and french)
 
@@ -264,6 +287,7 @@ Overhaul and translation.
 ### Todo
 * In game testing
 
+___
 ![terrax_banner](/_banners/terrax_banner.png)
 ### Terra X (french)
 Site officiel : [Terra X](http://legrumph.org/Terrier/?Chibi/Terra-X)
@@ -278,6 +302,7 @@ Création.
 ### Todo
 * Tests en jeu
 
+___
 ![tor_banner](/_banners/tor_banner.png)
 ### The One Ring french / L'Anneau Unique (french)
 
@@ -294,6 +319,7 @@ Traduction et adaptation.
 * Ajouter une demande de dé de maîtrise
 * Script API pour template de jet
 
+___
 ### Trail of Cthulhu (french)
 
 Traduction.
@@ -306,6 +332,7 @@ Traduction.
 #### Todo
 * Ajouter des jets ?
 
+___
 ![whitelies_banner](/_banners/whitelies_banner.png)
 ### White Lies (english and french)
 Websites for the game : [White Lies](http://dwdstudios.com/whitelies) (english), [White Lies](http://legrumph.org/Terrier/?Chibi/White-Lies) (french)
@@ -320,6 +347,7 @@ Creation.
 ### Todo
 * In game testing
 
+___
 ![wurm_banner](/_banners/wurm_banner.png)
 ### WÜRM (english and french)
 Würm is an Ice Age RPG originally published in [french](http://www.legrog.org/jeux/wurm), and recently translated to [english](http://www.nocturnal-media.com/games-1/#/new-page-1/).
@@ -334,7 +362,10 @@ Creation.
 ### Todo
 * In game testing
 
+---
+
 ## API Scripts
+---
 
 ###Cypher System
 
@@ -345,6 +376,7 @@ Creation.
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
+___
 ### Numenéra
 
 #### Sources
@@ -354,6 +386,7 @@ Creation.
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
+___
 ###Portes Monstres Tresors
 * [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
 * [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
