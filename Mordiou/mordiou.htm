@@ -4,7 +4,7 @@
     var mordiou = mordiou || (function(){
         'use strict';
         var version = '1.0',
-        basejet = '({floor(1d6/2)-1,0d0}kh1)',
+        basejet = '(floor((1d6-1)/2.5))',
         jetplus = ' + ' + basejet,
         calcJet = function (pVal) {
             var nb = parseInt(pVal) || 0;
@@ -136,37 +136,62 @@
             });
         });
     });
+    on("change:effort", function(){
+        getAttrs(["effort","fortune"], function(values) {
+            var eff = parseInt(values.effort) || 0;
+            var fort = parseInt(values.fortune) || 0;
+            if (eff == 5) {
+                setAttrs({
+                    effort: 0,
+                    fortune: fort-1
+                });
+            }
+        });
+    });
+    on("change:conflituse1 change:conflituse2 change:conflituse3 change:conflituse4", function(){
+        getAttrs(["conflituse1","conflituse2","conflituse3","conflituse4"], function(values) {
+            var conf = (parseInt(values.conflituse1) || 0) + (parseInt(values.conflituse2) || 0) + (parseInt(values.conflituse3) || 0) + (parseInt(values.conflituse4) || 0);
+            if (conf == 4) {
+                setAttrs({
+                    conflituse1: 0,
+                    conflituse2: 0,
+                    conflituse3: 0,
+                    conflituse4: 0
+                });
+            }
+        });
+    });
 </script>
 <!-- === jets cachées === -->
 <div style="display: none;">
     <!-- attention -->
-    <input readonly name="attr_attention_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_attention_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_attention_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_attention_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_attention_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_attention_jetmoins" value="(floor((1d6-1)/2.5))" />
     <!-- eloquence -->
-    <input readonly name="attr_eloquence_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_eloquence_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_eloquence_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_eloquence_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_eloquence_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_eloquence_jetmoins" value="(floor((1d6-1)/2.5))" />
     <!-- erudition -->
-    <input readonly name="attr_erudition_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_erudition_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_erudition_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_erudition_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_erudition_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_erudition_jetmoins" value="(floor((1d6-1)/2.5))" />
     <!-- panache -->
-    <input readonly name="attr_panache_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_panache_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_panache_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_panache_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_panache_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_panache_jetmoins" value="(floor((1d6-1)/2.5))" />
     <!-- resolution -->
-    <input readonly name="attr_resolution_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_resolution_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_resolution_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_resolution_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_resolution_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_resolution_jetmoins" value="(floor((1d6-1)/2.5))" />
     <!-- ruse -->
-    <input readonly name="attr_ruse_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_ruse_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_ruse_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_ruse_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_ruse_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_ruse_jetmoins" value="(floor((1d6-1)/2.5))" />
     <!-- vigueur -->
-    <input readonly name="attr_vigueur_jet" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_vigueur_jetplus" value="({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1) + ({floor(1d6/2)-1,0d0}kh1)" />
-    <input readonly name="attr_vigueur_jetmoins" value="({floor(1d6/2)-1,0d0}kh1)" />
+    <input readonly name="attr_vigueur_jet" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_vigueur_jetplus" value="(floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5)) + (floor((1d6-1)/2.5))" />
+    <input readonly name="attr_vigueur_jetmoins" value="(floor((1d6-1)/2.5))" />
 </div> <!-- === FIN jets cachées === -->
 <!-- === SHEET === -->
 <div class="bgmain">
@@ -233,21 +258,25 @@
     </div>
     <!-- FIN Défense -->
     <!-- Aide -->
-    <div class="abs" style="left: 85px;top:260px;width: 125px;text-align: center;">
-        <input type="number" name="attr_aide" value="0" min="0" class="numbig2" title="Dés d'Aide" />
+    <div class="abs" style="left: 78px;top:260px;width: 125px;text-align: center;">
+        <input type="number" name="attr_aide" value="0" min="0" class="numbig2" title="Dé(s) d'Aide utilisé(s) / ajouté(s) au prochain jet. A remettre à zéro manuellement après le jet." />
+        <div class="asbignb">|</div>
+        <input type="number" name="attr_aide_max" value="0" min="0" class="numbig2 nummax" title="Dé(s) d'Aide." />
     </div>
     <!-- FIN Aide -->
     <!-- Manière -->
     <div class="abs" style="left: 340px;top:210px;">
         <div style="display: table-cell;padding-left:13px;vertical-align: middle; height: 90px;width: 90px;text-align: center;border: 1px solid #949597; border-radius:50%;">
-            <input type="number" name="attr_maniere" value="0" min="0" class="numbig1" title="Manières (1 Manière = -2D)" />
+            <input type="number" name="attr_maniere" value="0" min="0" class="numbig1" title="Manières (1 Manière = -2D au prochain jet)" />
             <span style="font-family: 'Shadows Into Light';font-style: italic;font-weight: bold;font-size: 15px;">Manières</span>
         </div>
     </div>
     <!-- FIN Manière -->
     <!-- Réserves -->
-    <div class="abs" style="left: 215px;top:260px;width: 125px;text-align: center;">
-        <input type="number" name="attr_reserves" value="0" min="0" class="numbig2" title="Réserves" />
+    <div class="abs" style="left: 207px;top:260px;width: 125px;text-align: center;">
+        <input type="number" name="attr_reserves" value="0" min="0" class="numbig2" title="Dé(s) de Réserve utilisé(s) / ajouté(s) au prochain jet. A remettre à zéro manuellement après le jet." />
+        <div class="asbignb">|</div>
+        <input type="number" name="attr_reserves_max" value="0" min="0" class="numbig2 nummax" title="Dé(s) mis en Réserve." />
     </div>
     <!-- FIN Réserves -->
     <!-- EFFORT -->
@@ -363,7 +392,7 @@
             <div class="qualites"><span class="lib plus">Qualités : </span>{{qualites}}</div>
         {{/initiative}}
         {{#poignee}}
-            <div class="poignee"><span class="lib">Poignée : </span><span class="fat">{{style}}</span> + Fortune ({{fortune}}) + Aide ({{aide}}){{#aspect}} + Aspect (2){{/aspect}}{{#circonstance}} - Circonstances (2){{/circonstance}} - Manières ({{maniere}}) - Défense ({{defense}}) = <span class="fat">{{poignee}}</span></div>
+            <div class="poignee"><span class="fat">{{style}}</span> + Fortune ({{fortune}}) + Aide ({{aide}}){{#aspect}} + Aspect (2){{/aspect}}{{#circonstance}} - Circonstances (2){{/circonstance}} - Manières ({{maniere}}) - Défense ({{defense}}) = <span class="fat">{{poignee}}D</span></div>
         {{/poignee}}
         {{#qualites}}
             <div class="qualites"><span class="lib plus">Qualités : </span>{{qualites}}</div>

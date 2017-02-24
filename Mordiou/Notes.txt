@@ -9,19 +9,22 @@ Fleur de Lis : &#9884;
  "Aide" c'est les dés donnés par les alliés. Il est possible de les ajouter à sa poignée.
  "Réserves", ce sont des marqueurs/jetons permettant d'annuler chacun une action adverse. On en gagne un à chaque fois que l'on utilise l'action "Réserver".
 
+V1.1
+------
 Manque :
-- floor((1d6-1)/2.5)
 - Jet d'init
-- Aide / Réserve
-- Inverser Aspect de conflit / Aspect ?
 - Gérer la poignée avec Aide et Réserves
 - Ajouter des aides
  dont Interagir x 3
  Switch Action/Hors combat
 cf. page 31
 - Montrer Aspects, de Conflits, Description
-- Aide et réerver : Pool Max/Courant => courant est utilisé dans les jets
-- Enlever Poignée
 - Diminuer la taille de 20%
 - Enlever le Tableau des Qualités et mettre un ? + info bulle
+
+Done :
+- OK floor((1d6-1)/2.5)
 - Effacer tous les aspects de conflit sur la 4ième coche
+- Effacer Effort et -1 Fortune sur 5 efforts
+- Aide et réerver : Pool Max/Courant
+- Enlever Poignée

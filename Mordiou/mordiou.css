@@ -210,13 +210,12 @@ input.sheet-bigchk[value="0"] + span {
     font-size: 15px;
     vertical-align: top;
     text-align: center;
-}
-input.sheet-bigchk[value="0"]:checked + span {
-    font-weight: bold;
-    color: #257ABA;
     border-width: 1px 0px 1px 0px;
     border-style: solid;
     border-color: #257ABA;
+}
+input.sheet-bigchk[value="0"]:checked + span {
+    border: none;
 }
 input.sheet-bigchk[value="0"]:hover + span {
     border-width: 1px 0px 1px 0px;
