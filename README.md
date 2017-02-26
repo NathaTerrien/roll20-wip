@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2017-02-19 (Brigandyne WiP)._
+_Updated 2017-02-26 (Mordiou v1.1, Brigandyne WiP)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -195,8 +195,8 @@ Site officiel : [Mordiou !](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), fre
 Création.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.0 (2017-02-16)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.0 (2017-02-16)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.1 (2017-02-26)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.1 (2017-02-26)
 * [Official](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.0 (2017-02-16)
 
 ### Todo
