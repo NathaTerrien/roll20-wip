@@ -47,44 +47,44 @@
                     attention_jet: attention_arr[0],
                     attention_jetplus: attention_arr[1],
                     attention_jetmoins: attention_arr[2],
-                    attentionD: attentiond,
-                    attentionDP: Math.min(attentiond+2,8),
+                    attentionD: Math.max(attentiond,0),
+                    attentionDP: Math.min(Math.max(attentiond+2,0),8),
                     attentionDM: Math.max(attentiond-2,0),
                     eloquence_jet: eloquence_arr[0],
                     eloquence_jetplus: eloquence_arr[1],
                     eloquence_jetmoins: eloquence_arr[2],
-                    eloquenceD : eloquenced,
-                    eloquenceDP: Math.min(eloquenced+2,8),
+                    eloquenceD : Math.max(eloquenced,0),
+                    eloquenceDP: Math.min(Math.max(eloquenced+2,0),8),
                     eloquenceDM: Math.max(eloquenced-2,0),
                     erudition_jet: erudition_arr[0],
                     erudition_jetplus: erudition_arr[1],
                     erudition_jetmoins: erudition_arr[2],
-                    eruditionD : eruditiond,
-                    eruditionDP: Math.min(eruditiond+2,8),
+                    eruditionD : Math.max(eruditiond,0),
+                    eruditionDP: Math.min(Math.max(eruditiond+2,0),8),
                     eruditionDM: Math.max(eruditiond-2,0),
                     panache_jet: panache_arr[0],
                     panache_jetplus: panache_arr[1],
                     panache_jetmoins: panache_arr[2],
-                    panacheD : panached,
-                    panacheDP: Math.min(panached+2,8),
+                    panacheD : Math.max(panached,0),
+                    panacheDP: Math.min(Math.max(panached+2,0),8),
                     panacheDM: Math.max(panached-2,0),
                     resolution_jet: resolution_arr[0],
                     resolution_jetplus: resolution_arr[1],
                     resolution_jetmoins: resolution_arr[2],
-                    resolutionD : resolutiond,
-                    resolutionDP: Math.min(resolutiond+2,8),
+                    resolutionD : Math.max(resolutiond,0),
+                    resolutionDP: Math.min(Math.max(resolutiond+2,0),8),
                     resolutionDM: Math.max(resolutiond-2,0),
                     ruse_jet: ruse_arr[0],
                     ruse_jetplus: ruse_arr[1],
                     ruse_jetmoins: ruse_arr[2],
-                    ruseD : rused,
-                    ruseDP: Math.min(rused+2,8),
+                    ruseD : Math.max(rused,0),
+                    ruseDP: Math.min(Math.max(rused+2,0),8),
                     ruseDM: Math.max(rused-2,0),
                     vigueur_jet: vigueur_arr[0],
                     vigueur_jetplus: vigueur_arr[1],
                     vigueur_jetmoins: vigueur_arr[2],
-                    vigueurD : vigueurd,
-                    vigueurDP: Math.min(vigueurd+2,8),
+                    vigueurD : Math.max(vigueurd,0),
+                    vigueurDP: Math.min(Math.max(vigueurd+2,0),8),
                     vigueurDM: Math.max(vigueurd-2,0)
                 });
             });
@@ -147,8 +147,8 @@
                 attention_jet: jetarr[0],
                 attention_jetplus: jetarr[1],
                 attention_jetmoins: jetarr[2],
-                attentionD: attentiond,
-                attentionDP: Math.min(attentiond+2,8),
+                attentionD: Math.max(attentiond,0),
+                attentionDP: Math.min(Math.max(attentiond+2,0),8),
                 attentionDM: Math.max(attentiond-2,0)
             });
         });
@@ -161,8 +161,8 @@
                 eloquence_jet: jetarr[0],
                 eloquence_jetplus: jetarr[1],
                 eloquence_jetmoins: jetarr[2],
-                eloquenceD: eloquenced,
-                eloquenceDP: Math.min(eloquenced+2,8),
+                eloquenceD: Math.max(eloquenced,0),
+                eloquenceDP: Math.min(Math.max(eloquenced+2,0),8),
                 eloquenceDM: Math.max(eloquenced-2,0)
             });
         });
@@ -175,8 +175,8 @@
                 erudition_jet: jetarr[0],
                 erudition_jetplus: jetarr[1],
                 erudition_jetmoins: jetarr[2],
-                eruditionD: eruditiond,
-                eruditionDP: Math.min(eruditiond+2,8),
+                eruditionD: Math.max(eruditiond,0),
+                eruditionDP: Math.min(Math.max(eruditiond+2,0),8),
                 eruditionDM: Math.max(eruditiond-2,0)
             });
         });
@@ -189,8 +189,8 @@
                 panache_jet: jetarr[0],
                 panache_jetplus: jetarr[1],
                 panache_jetmoins: jetarr[2],
-                panacheD: panached,
-                panacheDP: Math.min(panached+2,8),
+                panacheD: Math.max(panached,0),
+                panacheDP: Math.min(Math.max(panached+2,0),8),
                 panacheDM: Math.max(panached-2,0)
             });
         });
@@ -203,8 +203,8 @@
                 resolution_jet: jetarr[0],
                 resolution_jetplus: jetarr[1],
                 resolution_jetmoins: jetarr[2],
-                resolutionD: resolutiond,
-                resolutionDP: Math.min(resolutiond+2,8),
+                resolutionD: Math.max(resolutiond,0),
+                resolutionDP: Math.min(Math.max(resolutiond+2,0),8),
                 resolutionDM: Math.max(resolutiond-2,0)
             });
         });
@@ -217,8 +217,8 @@
                 ruse_jet: jetarr[0],
                 ruse_jetplus: jetarr[1],
                 ruse_jetmoins: jetarr[2],
-                ruseD: rused,
-                ruseDP: Math.min(rused+2,8),
+                ruseD: Math.max(rused,0),
+                ruseDP: Math.min(Math.max(rused+2,0),8),
                 ruseDM: Math.max(rused-2,0)
             });
         });
@@ -231,8 +231,8 @@
                 vigueur_jet: jetarr[0],
                 vigueur_jetplus: jetarr[1],
                 vigueur_jetmoins: jetarr[2],
-                vigueurD: vigueurd,
-                vigueurDP: Math.min(vigueurd+2,8),
+                vigueurD: Math.max(vigueurd,0),
+                vigueurDP: Math.min(Math.max(vigueurd+2,0),8),
                 vigueurDM: Math.max(vigueurd-2,0)
             });
         });
@@ -370,7 +370,7 @@
         <input type="number" name="attr_aidemax" value="0" min="0" class="numbig2 nummax" title="Dé(s) d'Aide." />
     </div>
     <div class="abs" style="left: 94px;top:305px;z-index:1;">
-        <input type="checkbox" name="attr_aideraz" value="1" class="gomme" title="Remettre à zéro l'Aide à utiliser pour le jet. A faire après le jet." />
+        <input type="checkbox" name="attr_aideraz" value="1" class="gomme" title="Remettre à zéro l'Aide à utiliser pour le jet. A faire après le jet." /><span>*</span>
     </div>
     <!-- FIN Aide -->
     <!-- Manière -->
@@ -389,7 +389,7 @@
         <div style="display:none"><input type="number" name="attr_reserves_buffer" value="0" /></div>
     </div>
     <div class="abs" style="left: 230px;top:305px;z-index:1;">
-        <input type="checkbox" name="attr_reservesraz" value="1" class="gomme" title="Remettre à zéro la Réserve de Dé à utiliser pour le jet. A faire après le jet." />
+        <input type="checkbox" name="attr_reservesraz" value="1" class="gomme" title="Remettre à zéro la Réserve de Dé à utiliser pour le jet. A faire après le jet." /><span>*</span>
     </div>
     <!-- FIN Réserves -->
     <!-- EFFORT -->
