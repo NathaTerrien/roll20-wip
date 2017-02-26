@@ -12,13 +12,9 @@ Fleur de Lis : &#9884;
 V1.1
 ------
 Manque :
-- Ajouter des aides (fond de page)
- dont Interagir x 3
+ Aide Interagir x 3
  Switch Action/Hors combat
 cf. page 31
-- Montrer Aspects, de Conflits, Description
-- Diminuer la taille de 15 à 20%
-- Enlever le Tableau des Qualités et mettre un ? + info bulle
 
 Done :
 - Jet d'inititiative
@@ -32,3 +28,7 @@ Done :
   * Enlever le mot "Poignée"
   * n'afficher les valeurs que si différente de zéro
 - Gérer la poignée avec Aide et Réserves pour le jet
+- Ajouter des aides (fond de page)
+- Diminuer la taille de 15%
+- Enlever le Tableau des Qualités
+
