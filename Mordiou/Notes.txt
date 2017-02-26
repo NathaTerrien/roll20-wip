@@ -13,8 +13,7 @@ V1.1
 ------
 Manque :
 - Jet d'init
-- Gérer la poignée avec Aide et Réserves
-- Ajouter des aides
+- Ajouter des aides (fond de page)
  dont Interagir x 3
  Switch Action/Hors combat
 cf. page 31
@@ -23,8 +22,13 @@ cf. page 31
 - Enlever le Tableau des Qualités et mettre un ? + info bulle
 
 Done :
+- Affichage des poignées
 - OK floor((1d6-1)/2.5)
 - Effacer tous les aspects de conflit sur la 4ième coche
 - Effacer Effort et -1 Fortune sur 5 efforts
-- Aide et réerver : Pool Max/Courant
-- Enlever Poignée
+- Aide et Réserves : valeurs différenciées entre le Pool (gris) et la valeur utilisée pour le jet (bleu)
+- Bouton pour Remettre à Zéro la valeur d'Aide et de Réserves pour le jet
+- Temple :
+  * Enlever le mot "Poignée"
+  * n'afficher les valeurs que si différente de zéro
+- Gérer la poignée avec Aide et Réserves pour le jet

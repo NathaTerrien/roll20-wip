@@ -6,6 +6,12 @@ Gris foncé : #949597
 .sheet-block{
     display: block;
 }
+.sheet-libf{
+    font-family: 'Shadows Into Light';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 19px;
+}
 div,
 button,
 textarea,
@@ -98,6 +104,21 @@ input[type="number"].sheet-numtxt::-webkit-inner-spin-button,
 input[type="number"].sheet-numtxt::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
+}
+input[type="number"].sheet-poigne{
+    display: inline-block;
+    width: 20px;
+    color: black;
+    margin: -4px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    height: 14px;
+    text-align: center;
+    line-height: 14px;
+}
+input[type="number"].sheet-poigne:focus,
+input[type="number"].sheet-poigne:hover{
+    background-color: transparent;
+    box-shadow: none;
 }
 input[type="number"].sheet-numbig1{
     width: 47px;
