@@ -12,16 +12,16 @@ Fleur de Lis : &#9884;
 V1.1
 ------
 Manque :
-- Jet d'init
 - Ajouter des aides (fond de page)
  dont Interagir x 3
  Switch Action/Hors combat
 cf. page 31
 - Montrer Aspects, de Conflits, Description
-- Diminuer la taille de 20%
+- Diminuer la taille de 15 à 20%
 - Enlever le Tableau des Qualités et mettre un ? + info bulle
 
 Done :
+- Jet d'inititiative
 - Affichage des poignées
 - OK floor((1d6-1)/2.5)
 - Effacer tous les aspects de conflit sur la 4ième coche
