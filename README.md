@@ -8,6 +8,7 @@ You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my P
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
+* Yggdrasill, french and english
 * Stars Without Number, french
 * Castles & Crusades, english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
