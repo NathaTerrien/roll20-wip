@@ -8,6 +8,7 @@ You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my P
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
+* Chroniques Oubliées Contemporain, french
 * Yggdrasill, french and english
 * Stars Without Number, french
 * Castles & Crusades, english
