@@ -1,7 +1,7 @@
 # Natha's Roll20 Work In Progress
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
 
-_Updated 2017-02-26 (Mordiou v1.1, Brigandyne WiP)._
+_Updated 2017-03-11 (Brigandyne WiP)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -26,10 +26,10 @@ Site officiel : [Brigandyne](https://brigandyne.wordpress.com/), french
 Création.
 
 #### Sources
-* [WIP]()
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne)
 
 ### Todo
-Getting started
+Validate background
 
 ---
 
@@ -59,9 +59,9 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2 (2017-01-02)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2 (2017-01-02)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.2 (2017-01-02)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
 
 ### Todo
 * Translate macro variables when this feature is available on Roll20.
@@ -116,7 +116,7 @@ ___
 Creation.
 
 #### Sources
-* [WIP](./CypherSystem/) Version 1.6
+* [WIP](./CypherSystem/) Version 1.6 (2016-02-21)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
 
@@ -199,7 +199,7 @@ Création.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.1 (2017-02-26)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.1 (2017-02-26)
-* [Official](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.0 (2017-02-16)
+* [Official](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.1 (2017-02-26)
 
 ### Todo
 * In game tests
