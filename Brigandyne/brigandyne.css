@@ -31,13 +31,13 @@ div{
     /* border: 1px solid red; */
 }
 div.sheet-bgmain{
-    width: 1100px;
-    max-width: 1100px;
-    height: 778px;
-    max-height: 778px;
+    width: 1280px;
+    max-width: 1280px;
+    height: 905px;
+    max-height: 905px;
     text-align: center;
     background-color : white;
-    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Mordiou/mordiou_bg_v3.jpg');
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/brigandyne_fond_v1_1280px.jpg');
     background-repeat:no-repeat;
     background-position:top left;
     background-size: auto;
@@ -53,7 +53,7 @@ div.sheet-rel{
     display: inline-block;
 }
 input, textarea{
-    background-color: transparent;
+    background-color: rgba(224,211,186,0.2);
     display: inline-block;
     padding: none;
     margin: none;
@@ -62,21 +62,25 @@ input, textarea{
     border: none;
     box-shadow: none;
     resize:none;
-    color: #257ABA;
+    color: #231F20;
     z-index: 2;
     border-radius: 0;
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
-    box-shadow: inset 0px 1px 1px rgba(255,210,3,0.01),0 0 6px rgba(255,210,3,0.5);
-    background-color: rgba(255,210,3,0.2);
+    box-shadow: inset 0px 1px 1px rgba(134,112,77,0.01),0 0 6px rgba(134,112,77,0.5);
+    background-color:  #E0D3BA;
 }
 textarea{
     padding: 1px 2px 0px 2px;
-    border-left: 1px dotted black;
-    border-right: 1px dotted black;
-    border-bottom: 1px dotted black; /* #B1793F; */
+    border-left: 1px dotted #231F20;
+    border-right: 1px dotted #231F20;
+    border-bottom: 1px dotted #231F20;
     border-radius: 4px;
 }
 input[type="text"]{
     padding: 0px 0px 0px 2px;
+}
+input[type="text"].sheet-inptxt1{
+    font-weight: bold;
+    font-size: 22px;
 }
