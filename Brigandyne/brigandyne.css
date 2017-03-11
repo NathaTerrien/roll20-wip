@@ -1,0 +1,82 @@
+/* Couleurs
+Beige base : #BCA87D rgba(188,168,125,1.0)
+Beige clair fond saisie : #E0D3BA rgba(224,211,186,1.0)
+Beige gris (bordure sec claire) : #B5A790 rgba(181,167,144,1.0)
+Marron clair (bordure sec foncé) : #86704D rgba(134,112,77,1.0)
+Marron foncé (bordure ) : #64553E rgba(100,85,62,1.0)
+Texte ou fond "noir" : #231F20 rgba(35,31,32,1.0)
+Couleur : # rgba(,,,1.0)
+*/
+.sheet-block{
+    display: block;
+}
+.sheet-libf{
+    font-family: 'Shadows Into Light';
+    font-style: italic;
+    font-weight: bold;
+    font-size: 17px;
+}
+div,
+button,
+textarea,
+span,
+input,
+select{
+    box-sizing: border-box;
+}
+div{
+    margin: none;
+    padding: none;
+    background-color: transparent;
+    /* border: 1px solid red; */
+}
+div.sheet-bgmain{
+    width: 1100px;
+    max-width: 1100px;
+    height: 778px;
+    max-height: 778px;
+    text-align: center;
+    background-color : white;
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Mordiou/mordiou_bg_v3.jpg');
+    background-repeat:no-repeat;
+    background-position:top left;
+    background-size: auto;
+    position: relative;
+}
+div.sheet-abs{
+    position: absolute;
+    vertical-align: bottom;
+    display: inline-block;
+}
+div.sheet-rel{
+    position: relative;
+    display: inline-block;
+}
+input, textarea{
+    background-color: transparent;
+    display: inline-block;
+    padding: none;
+    margin: none;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;
+    border: none;
+    box-shadow: none;
+    resize:none;
+    color: #257ABA;
+    z-index: 2;
+    border-radius: 0;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(255,210,3,0.01),0 0 6px rgba(255,210,3,0.5);
+    background-color: rgba(255,210,3,0.2);
+}
+textarea{
+    padding: 1px 2px 0px 2px;
+    border-left: 1px dotted black;
+    border-right: 1px dotted black;
+    border-bottom: 1px dotted black; /* #B1793F; */
+    border-radius: 4px;
+}
+input[type="text"]{
+    padding: 0px 0px 0px 2px;
+}
