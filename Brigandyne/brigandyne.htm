@@ -1,92 +1,154 @@
 <div class="sheet-bgmain">
     <div class="ligne">
-        <div class="mycol">
-            <div class="inps">
-                <input type="text" name="attr_character_name" class="inptxt1" style="width: 250px;" placeholder="Nom du personnage" />
+        <div class="col">
+            <div class="mycol">
+                <div class="inps">
+                    <input type="text" name="attr_character_name" class="inptxt1" style="width: 250px;" placeholder="Nom du personnage" />
+                </div>
+            </div>
+            <div class="ligne">
+                <input type="checkbox" name="attr_chkaffdesc" value="1" class="affichage" title="Afficher/masquer les éléments descriptifs du personnage" checked /><span>U</span>
+                <input type="checkbox" name="attr_chkaffdmagie" value="1" class="affichage" title="Afficher/masquer la section magie" checked /><span>e</span>
             </div>
         </div>
         <div class="mycol">
+            <div class="coltitre">Points de Vie</div>
+            <div class="inps">
+                <input type="number" name="attr_pv" value="0" title="Points de Vie courants" />
+                /
+                <input type="number" name="attr_pv_max" value="0" title="Points de Vie maximums" />
+            </div>
+        </div>
+        <div class="mycol">
+            <div class="coltitre">Fortune</div>
+            <div class="inps">
+                <input type="number" name="attr_fortune" value="0" title="Points de Fortune courants" />
+                /
+                <input type="number" name="attr_fortune_max" value="0" title="Points de Fortune maximums" />
+            </div>
+        </div>
+        <div class="col">
+            <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/brigandyne_logo.png" />
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="mycol">
             <div class="coltitre">Archétype</div>
             <div class="inps">
-                <input type="text" name="attr_archetype" style="width: 250px;" placeholder="Archétype" />
+                <input type="text" name="attr_archetype" style="width: 100px;" placeholder="Archétype" />
             </div>
         </div>
         <div class="mycol">
             <div class="coltitre">Carrière</div>
             <div class="inps">
-                <input type="text" name="attr_carriere" style="width: 250px;" placeholder="Carrière" />
+                <input type="text" name="attr_carriere" style="width: 200px;" placeholder="Carrière" />
+            </div>
+        </div>
+        <div class="mycol">
+            <div class="coltitre">XP</div>
+            <div class="inps">
+                <input type="number" name="attr_experience" value="0" title="Points d'expérience courants" />
+            </div>
+        </div>
+        <div class="mycol">
+            <div class="coltitre">Protection</div>
+            <div class="inps">
+                <input type="text" name="attr_protectiondesc" style="width: 250px;" placeholder="Armure, bouclier ..." />
+                <input type="number" name="attr_protection" value="0" title="Protection" />
             </div>
         </div>
     </div>
-    <!-- DESCRIPTION -->
-    <input type="checkbox" name="attr_chkaffdesc" value="1" class="affichage" title="Afficher/masquer les éléments descriptifs du personnage" checked /><span>E</span>
-    <div class="affichage">
-        <div class="ligne">
-            <div class="mycol">
-                <div class="coltitre">Peuple</div>
-                <div class="inps">
-                    <input type="text" name="attr_peuple" style="width: 120px;" placeholder="Peuple" />
+    <div><!-- DESCRIPTION -->
+        <input type="checkbox" name="attr_chkaffdesc" value="1" class="aff" checked />
+        <div class="affichage">
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Peuple</div>
+                    <div class="inps">
+                        <input type="text" name="attr_peuple" style="width: 120px;" placeholder="Peuple" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Sexe</div>
+                    <div class="inps">
+                        <input type="text" name="attr_sexe" style="width: 70px;" placeholder="Sexe" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Taille</div>
+                    <div class="inps">
+                        <input type="text" name="attr_taille" style="width: 70px;" placeholder="Taille" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Poids</div>
+                    <div class="inps">
+                        <input type="text" name="attr_poids" style="width: 70px;" placeholder="Poids" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Cheveux</div>
+                    <div class="inps">
+                        <input type="text" name="attr_cheveux" style="width: 70px;" placeholder="Cheveux" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Yeux</div>
+                    <div class="inps">
+                        <input type="text" name="attr_yeux" style="width: 70px;" placeholder="Yeux" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Main directrice</div>
+                    <div class="inps">
+                        <input type="checkbox" name="attr_droitier" title="Main directrice droite"><label>Droitier</label></input>
+                        <input type="checkbox" name="attr_gaucher" title="Main directrice gauche"><label>Gaucher</label></input>
+                    </div>
                 </div>
             </div>
-            <div class="mycol">
-                <div class="coltitre">Sexe</div>
-                <div class="inps">
-                    <input type="text" name="attr_sexe" style="width: 70px;" placeholder="Sexe" />
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Langues</div>
+                    <div class="inps">
+                        <textarea name="attr_langues" style="width: 380px; height: 40px;" placeholder="Langues"></textarea>
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Traits de Caractère</div>
+                    <div class="inps">
+                        <textarea name="attr_traits" style="width: 380px; height: 40px;" placeholder="Traits de Caractère"></textarea>
+                    </div>
                 </div>
             </div>
-            <div class="mycol">
-                <div class="coltitre">Taille</div>
-                <div class="inps">
-                    <input type="text" name="attr_taille" style="width: 70px;" placeholder="Taille" />
-                </div>
-            </div>
-            <div class="mycol">
-                <div class="coltitre">Poids</div>
-                <div class="inps">
-                    <input type="text" name="attr_poids" style="width: 70px;" placeholder="Poids" />
-                </div>
-            </div>
-            <div class="mycol">
-                <div class="coltitre">Cheveux</div>
-                <div class="inps">
-                    <input type="text" name="attr_cheveux" style="width: 70px;" placeholder="Cheveux" />
-                </div>
-            </div>
-            <div class="mycol">
-                <div class="coltitre">Yeux</div>
-                <div class="inps">
-                    <input type="text" name="attr_yeux" style="width: 70px;" placeholder="Yeux" />
-                </div>
-            </div>
-            <div class="mycol">
-                <div class="coltitre">Main directrice</div>
-                <div class="inps">
-                    <input type="checkbox" name="attr_droitier" title="Main directrice droite"><label>Droitier</label></input>
-                    <input type="checkbox" name="attr_gaucher" title="Main directrice gauche"><label>Gaucher</label></input>
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Description</div>
+                    <div class="inps">
+                        <textarea name="attr_description" style="width: 790px; height: 40px;" placeholder="Description"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
+    </div><!-- FIN DESCRIPTION -->
+    <div> <!-- CARAC -->
         <div class="ligne">
             <div class="mycol">
-                <div class="coltitre">Langues</div>
+                <div class="coltitre">Carac</div>
                 <div class="inps">
-                    <textarea name="attr_langues" style="width: 380px; height: 40px;" placeholder="Langues"></textarea>
-                </div>
-            </div>
-            <div class="mycol">
-                <div class="coltitre">Traits de Caractère</div>
-                <div class="inps">
-                    <textarea name="attr_traits" style="width: 380px; height: 40px;" placeholder="Traits de Caractère"></textarea>
+                    <input type="text" name="attr_archetype" style="width: 250px;" placeholder="Archétype" />
                 </div>
             </div>
         </div>
-        <div class="ligne">
+    </div> <!-- FIN CARAC -->
+    <div><!-- MAGIE -->
+        <input type="checkbox" name="attr_chkaffdmagie" value="1" class="aff" checked />
+        <div class="affichage">
             <div class="mycol">
-                <div class="coltitre">Description</div>
+                <div class="coltitre">Domaines magiques connus</div>
                 <div class="inps">
-                    <textarea name="attr_description" style="width: 790px; height: 40px;" placeholder="Description"></textarea>
+                    <input type="text" name="attr_archetype" style="width: 250px;" placeholder="Archétype" />
                 </div>
             </div>
         </div>
-    </div> <!-- DESCRIPTION -->
+    </div><!-- FIN MAGIE -->
 </div>
