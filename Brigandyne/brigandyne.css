@@ -25,14 +25,14 @@ select{
     box-sizing: border-box;
 }
 div{
-    margin: none;
+    margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     background-color: transparent;
     /* border: 1px solid red; */
 }
 div.sheet-bgmain{
-    width: 850px;
-    max-width: 850px;
+    width: 840px;
+    max-width: 840px;
     text-align: left;
     background-color : #BCA87D;
     background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/natural-paper.png');
@@ -63,19 +63,38 @@ div.sheet-mycol{
     text-align: left;
     vertical-align: top;
     background-color: #E0D3BA;
-    border: 2px solid #64553E;
+    border-style: solid;
+    border-color: #64553E;
+}
+div.sheet-colune{
+    border-width: 2px;
     border-radius: 0px 20px 20px 20px;
+}
+div.sheet-coldeb{
+    border-width: 2px 1px 2px 2px;
+    border-radius: 0px 0px 0px 20px;
+}
+div.sheet-colmid{
+    border-width: 2px 1px 2px 1px;
+    margin-left: -3px;
+}
+div.sheet-colfin{
+    border-width: 2px 2px 2px 1px;
+    border-radius: 0px 20px 20px 0px;
+    margin-left: -3px;
 }
 div.sheet-coltitre{
     width: inherit;
-    border-radius: 0px 17px 0px 0px;
-    /* background-color: #231F20; */
-    background: linear-gradient(to right, #231F20 70%, #64553E);
+    background: #231F20;
     color: white;
     font-family: 'Contrail One';
     font-size: 14px;
     font-weight: normal;
     padding: 2px 10px 2px 10px;
+}
+div.sheet-coltitre.sheet-fin{
+    border-radius: 0px 17px 0px 0px;
+    background: linear-gradient(to right, #231F20 60%, #64553E);
 }
 div.sheet-inps{
     width: inherit;
@@ -93,14 +112,14 @@ div.sheet-bgsombre{
     display: table;
     width: 100%;
     border-collapse: collapse;
-    border: 1px dotted #231F20;
+    border: 1px dotted #231F20; /* 2px solid #231F20; */
 }
 .sheet-trow {
     display: table-row;
     border: 1px dotted #231F20;
     background-color: #E0D3BA;
 }
-.sheet-trow:nth-child(odd){
+.sheet-trow:nth-child(even){
     background-color: #B5A790;
 }
 .sheet-theading {
@@ -178,13 +197,20 @@ input[type="number"]{
     max-width: 50px;
     padding: 0px 0px 0px 0px;
 }
+input[type="number"].sheet-min{
+    font-size: 16px;
+    font-weight: normal;
+    max-width: 70px;
+}
 input[type="number"].sheet-carac{
     text-align: center;
     font-weight: normal;
+    font-size: 18px;
     max-width: 35px;
 }
 input[type="number"].sheet-carac:read-only,
 input[type="number"].sheet-carac:disabled {
+    font-size: 20px;
     font-weight: bold;
     color: #64553E;
 }
@@ -199,7 +225,7 @@ input[type="number"].sheet-numtxt::-webkit-outer-spin-button {
 select{
     width: auto;
     margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 2px 0px 2px;
     height: 20px;
     font-family: "Patrick Hand";
     font-size: 14px;
@@ -232,12 +258,12 @@ input[type="checkbox"].sheet-affichage{
     margin: 0;
 }
 input[type="checkbox"].sheet-affichage + span{
-    margin-left: -26px;
+    margin-left: -40px;
     display: inline-block;
     text-align: center;
     padding: 0;
-    width: 20px;
-    max-width: 20px;
+    width: 40px;
+    max-width: 40px;
     height: 20px;
     z-index: 10;
     font-family: 'pictos';
@@ -254,4 +280,68 @@ input[type="checkbox"].sheet-affichage:checked + span{
 }
 /* ===== BOUTONS ===== */
 
+/* === fieldset BOUTONS === */
+div.repcontrol{
+    display: inline-block;
+    width: 100%;
+}
+.repcontrol_move{
+    height: 11px;
+    line-height: 11px;
+    margin-top: 4px;
+}
+.repcontrol_del {
+    height: 22px;
+    line-height: 12px;
+    margin-top: 4px;
+    width: 30px;
+}
+.repcontrol_add, .repcontrol_edit {
+    color: transparent;
+    box-shadow: none;
+    background: transparent;
+    border-color: transparent;
+    text-shadow:none;
+    width: 100px;
+}
+.repcontrol_add:focus, .repcontrol_edit:focus {
+    outline: none;
+}
+.repcontrol .repcontrol_edit:after {
+    content: 'y';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: rgba(35,31,32,0.7);
+}
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: '2';
+}
+.repcontrol .repcontrol_add:before {
+    content: '+';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: rgba(35,31,32,0.7);
+}
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    box-shadow: 1px 1px 4px 2px rgba(35,31,32,0.8);
+    border-color: #231F20;
+    color: #231F20;
+}
+.repcontrol_add:focus:before, .repcontrol_edit:focus:after {
+    color: #231F20;
+}
 /* ===== TEMPLATE ===== */
