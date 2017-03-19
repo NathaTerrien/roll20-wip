@@ -26,7 +26,7 @@ select{
 }
 div{
     margin: none;
-    padding: none;
+    padding: 0px 0px 0px 0px;
     background-color: transparent;
     /* border: 1px solid red; */
 }
@@ -40,7 +40,7 @@ div.sheet-bgmain{
     background-position:top left;
     background-size: auto;
     position: relative;
-    padding: 6px;
+
 }
 div.sheet-abs{
     position: absolute;
@@ -57,7 +57,6 @@ div.sheet-ligne{
     vertical-align: top;
     width: 100%;
     margin: 1px;
-    padding: 1px;
 }
 div.sheet-mycol{
     display: inline-block;
@@ -70,7 +69,8 @@ div.sheet-mycol{
 div.sheet-coltitre{
     width: inherit;
     border-radius: 0px 17px 0px 0px;
-    background-color: #231F20;
+    /* background-color: #231F20; */
+    background: linear-gradient(to right, #231F20 70%, #64553E);
     color: white;
     font-family: 'Contrail One';
     font-size: 14px;
@@ -81,6 +81,59 @@ div.sheet-inps{
     width: inherit;
     padding: 2px 10px 2px 10px;
 }
+div.sheet-bgblock{
+    padding: 3px 6px 3px 6px;
+    border-bottom: 1px dotted #64553E;
+}
+div.sheet-bgsombre{
+    background-color: rgba(100,85,62,0.5);
+}
+/* ===== DIV AS TABLE ===== */
+.sheet-ttable {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px dotted #231F20;
+}
+.sheet-trow {
+    display: table-row;
+    border: 1px dotted #231F20;
+    background-color: #E0D3BA;
+}
+.sheet-trow:nth-child(odd){
+    background-color: #B5A790;
+}
+.sheet-theading {
+    display: table-header-group;
+}
+.sheet-tcell{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px dotted #231F20;
+}
+.sheet-thead{
+    display: table-cell;
+    vertical-align: middle;
+    background: #231F20;
+    text-align: center;
+    color: white;
+    font-family: 'Contrail One';
+    font-size: 14px;
+    font-weight: normal;
+    border: 1px dotted #64553E;
+    padding: 4px 0px 4px 0px;
+}
+.sheet-tfoot{
+    display: table-footer-group;
+    font-weight: bold;
+    background-color: #ddd;
+}
+.sheet-tbody {
+    display: table-row-group;
+}
+/* ===== DIVERS ==== */
 label{
     display: inline;
     font-family: 'Contrail One';
@@ -89,6 +142,7 @@ label{
     color: #231F20;
     margin-left: 4px;
 }
+/* ===== INPUTS ==== */
 input, textarea{
     background-color: transparent;
     display: inline-block;
@@ -98,7 +152,6 @@ input, textarea{
     font-size: 16px;
     border: none;
     box-shadow: none;
-    resize:none;
     color: #231F20;
     border-radius: 0;
 }
@@ -108,6 +161,8 @@ input:focus, input:hover, textarea:focus, textarea:hover{
 }
 textarea{
     padding: 1px 2px 0px 2px;
+    resize: vertical;
+    margin-bottom: 0px;
 }
 input[type="text"]{
     padding: 0px 0px 0px 2px;
@@ -123,12 +178,43 @@ input[type="number"]{
     max-width: 50px;
     padding: 0px 0px 0px 0px;
 }
+input[type="number"].sheet-carac{
+    text-align: center;
+    font-weight: normal;
+    max-width: 35px;
+}
+input[type="number"].sheet-carac:read-only,
+input[type="number"].sheet-carac:disabled {
+    font-weight: bold;
+    color: #64553E;
+}
+input[type="number"].sheet-numtxt{
+    -moz-appearance: textfield;
+}
+input[type="number"].sheet-numtxt::-webkit-inner-spin-button,
+input[type="number"].sheet-numtxt::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+}
+select{
+    width: auto;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    height: 20px;
+    font-family: "Patrick Hand";
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    line-height: 20px;
+}
 /* ===== AFFICHAGE/MASQUE ===== */
 div.sheet-affichage{
     display: none;
-    padding: 2px;
-    background-color: rgba(100,85,62,0.5);
-    /* border-radius: 0px 20px 20px 20px; */
 }
 input[type="checkbox"].sheet-aff:checked ~ div.sheet-affichage{
     display: block;
@@ -166,3 +252,6 @@ input[type="checkbox"].sheet-affichage:checked:hover + span{
 input[type="checkbox"].sheet-affichage:checked + span{
     color: #231F20;
 }
+/* ===== BOUTONS ===== */
+
+/* ===== TEMPLATE ===== */

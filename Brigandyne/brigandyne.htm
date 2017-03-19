@@ -1,71 +1,109 @@
+<script type="text/worker">
+    on("change:FORinit change:FORprog", function(){
+        getAttrs(["FORinit","FORprog"], function(values) {
+            var init = parseInt(values.FORinit) || 0;
+            var prog = parseInt(values.FORprog) || 0;
+            setAttrs({
+                FOR: init+prog,
+                BF: Math.floor((init+prog)/10)
+            });
+        });
+    });
+</script>
+ <!-- ===== FEUILLE =====  -->
 <div class="sheet-bgmain">
-    <div class="ligne">
-        <div class="col">
+    <div class="bgblock"> <!-- PERSO/PV/LOGO -->
+        <div class="ligne">
+            <div class="col">
+                <div class="mycol">
+                    <div class="inps">
+                        <input type="text" name="attr_character_name" class="inptxt1" style="width: 258px;" placeholder="Nom du personnage" />
+                    </div>
+                </div>
+                <div class="ligne" style="text-align: center;">
+                    <input type="checkbox" name="attr_chkaffcarr" value="1" class="affichage" title="Afficher/masquer les éléments de carrière du personnage" checked /><span>U</span>
+                    <input type="checkbox" name="attr_chkaffdesc" value="1" class="affichage" title="Afficher/masquer les éléments descriptifs du personnage" checked /><span>E</span>
+                    <input type="checkbox" name="attr_chkaffarmes" value="1" class="affichage" title="Afficher/masquer les Armes de Mêlée du personnage" checked /><span style="font-weight: bolder;">&#9876;</span>
+                    <input type="checkbox" name="attr_chkafftir" value="1" class="affichage" title="Afficher/masquer les Armes de Tir du personnage" checked /><span style="font-weight: bolder;">&#10165;</span>
+                    <input type="checkbox" name="attr_chkaffposs" value="1" class="affichage" title="Afficher/masquer les possessions du personnage" checked /><span>x</span>
+                    <input type="checkbox" name="attr_chkaffdmagie" value="1" class="affichage" title="Afficher/masquer la section magie" checked /><span>e</span>
+                </div>
+            </div>
             <div class="mycol">
+                <div class="coltitre">Points de Vie</div>
                 <div class="inps">
-                    <input type="text" name="attr_character_name" class="inptxt1" style="width: 250px;" placeholder="Nom du personnage" />
+                    <input type="number" name="attr_pv" value="0" title="Points de Vie courants" />
+                    /
+                    <input type="number" name="attr_pv_max" value="0" title="Points de Vie maximums" />
+                </div>
+            </div>
+            <div class="mycol">
+                <div class="coltitre">Fortune</div>
+                <div class="inps">
+                    <input type="number" name="attr_fortune" value="0" title="Points de Fortune courants" />
+                    /
+                    <input type="number" name="attr_fortune_max" value="0" title="Points de Fortune maximums" />
+                </div>
+            </div>
+            <div class="col">
+                <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/brigandyne_logo.png" />
+            </div>
+        </div>
+    </div>
+    <div class="bgblock bgsombre"><!-- CARRIERE -->
+        <input type="checkbox" name="attr_chkaffcarr" value="1" class="aff" checked />
+        <div class="affichage">
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Archétype</div>
+                    <div class="inps">
+                        <input type="text" name="attr_archetype" style="width: 220px;" placeholder="Archétype" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Carrière</div>
+                    <div class="inps">
+                        <input type="text" name="attr_carriere" style="width: 150px;" placeholder="Carrière" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">XP</div>
+                    <div class="inps">
+                        <input type="number" name="attr_experience" value="0" title="Points d'expérience courants" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Protection</div>
+                    <div class="inps">
+                        <input type="text" name="attr_protectiondesc" style="width: 250px;" placeholder="Armure, bouclier ..." />
+                        <input type="number" name="attr_protection" value="0" title="Protection" />
+                    </div>
                 </div>
             </div>
             <div class="ligne">
-                <input type="checkbox" name="attr_chkaffdesc" value="1" class="affichage" title="Afficher/masquer les éléments descriptifs du personnage" checked /><span>U</span>
-                <input type="checkbox" name="attr_chkaffdmagie" value="1" class="affichage" title="Afficher/masquer la section magie" checked /><span>e</span>
+                <div class="mycol">
+                    <div class="coltitre">Spécialités</div>
+                    <div class="inps">
+                        <input type="text" name="attr_specialites" style="width: 400px;" placeholder="Spécialités" />
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Coup Spécial</div>
+                    <div class="inps">
+                        <input type="text" name="attr_coupspecial" style="width: 380px;" placeholder="Coup Spécial" />
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mycol">
-            <div class="coltitre">Points de Vie</div>
-            <div class="inps">
-                <input type="number" name="attr_pv" value="0" title="Points de Vie courants" />
-                /
-                <input type="number" name="attr_pv_max" value="0" title="Points de Vie maximums" />
-            </div>
-        </div>
-        <div class="mycol">
-            <div class="coltitre">Fortune</div>
-            <div class="inps">
-                <input type="number" name="attr_fortune" value="0" title="Points de Fortune courants" />
-                /
-                <input type="number" name="attr_fortune_max" value="0" title="Points de Fortune maximums" />
-            </div>
-        </div>
-        <div class="col">
-            <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/brigandyne_logo.png" />
-        </div>
-    </div>
-    <div class="ligne">
-        <div class="mycol">
-            <div class="coltitre">Archétype</div>
-            <div class="inps">
-                <input type="text" name="attr_archetype" style="width: 100px;" placeholder="Archétype" />
-            </div>
-        </div>
-        <div class="mycol">
-            <div class="coltitre">Carrière</div>
-            <div class="inps">
-                <input type="text" name="attr_carriere" style="width: 200px;" placeholder="Carrière" />
-            </div>
-        </div>
-        <div class="mycol">
-            <div class="coltitre">XP</div>
-            <div class="inps">
-                <input type="number" name="attr_experience" value="0" title="Points d'expérience courants" />
-            </div>
-        </div>
-        <div class="mycol">
-            <div class="coltitre">Protection</div>
-            <div class="inps">
-                <input type="text" name="attr_protectiondesc" style="width: 250px;" placeholder="Armure, bouclier ..." />
-                <input type="number" name="attr_protection" value="0" title="Protection" />
-            </div>
-        </div>
-    </div>
-    <div><!-- DESCRIPTION -->
+    </div> <!-- CARRIERE -->
+    <div class="bgblock"><!-- DESCRIPTION -->
         <input type="checkbox" name="attr_chkaffdesc" value="1" class="aff" checked />
         <div class="affichage">
             <div class="ligne">
                 <div class="mycol">
                     <div class="coltitre">Peuple</div>
                     <div class="inps">
-                        <input type="text" name="attr_peuple" style="width: 120px;" placeholder="Peuple" />
+                        <input type="text" name="attr_peuple" style="width: 125px;" placeholder="Peuple" />
                     </div>
                 </div>
                 <div class="mycol">
@@ -89,20 +127,20 @@
                 <div class="mycol">
                     <div class="coltitre">Cheveux</div>
                     <div class="inps">
-                        <input type="text" name="attr_cheveux" style="width: 70px;" placeholder="Cheveux" />
+                        <input type="text" name="attr_cheveux" style="width: 80px;" placeholder="Cheveux" />
                     </div>
                 </div>
                 <div class="mycol">
                     <div class="coltitre">Yeux</div>
                     <div class="inps">
-                        <input type="text" name="attr_yeux" style="width: 70px;" placeholder="Yeux" />
+                        <input type="text" name="attr_yeux" style="width: 80px;" placeholder="Yeux" />
                     </div>
                 </div>
                 <div class="mycol">
                     <div class="coltitre">Main directrice</div>
                     <div class="inps">
-                        <input type="checkbox" name="attr_droitier" title="Main directrice droite"><label>Droitier</label></input>
-                        <input type="checkbox" name="attr_gaucher" title="Main directrice gauche"><label>Gaucher</label></input>
+                        <input type="radio" name="attr_main" value="Droitier" title="Main directrice droite"><label>Droitier</label></input>
+                        <input type="radio" name="attr_main" value="Gaucher" title="Main directrice gauche"><label>Gaucher</label></input>
                     </div>
                 </div>
             </div>
@@ -110,13 +148,13 @@
                 <div class="mycol">
                     <div class="coltitre">Langues</div>
                     <div class="inps">
-                        <textarea name="attr_langues" style="width: 380px; height: 40px;" placeholder="Langues"></textarea>
+                        <textarea name="attr_langues" style="width: 390px; height: 40px;" placeholder="Langues"></textarea>
                     </div>
                 </div>
                 <div class="mycol">
                     <div class="coltitre">Traits de Caractère</div>
                     <div class="inps">
-                        <textarea name="attr_traits" style="width: 380px; height: 40px;" placeholder="Traits de Caractère"></textarea>
+                        <textarea name="attr_traits" style="width: 390px; height: 40px;" placeholder="Traits de Caractère"></textarea>
                     </div>
                 </div>
             </div>
@@ -124,31 +162,242 @@
                 <div class="mycol">
                     <div class="coltitre">Description</div>
                     <div class="inps">
-                        <textarea name="attr_description" style="width: 790px; height: 40px;" placeholder="Description"></textarea>
+                        <textarea name="attr_description" style="width: 390px; height: 40px;" placeholder="Description"></textarea>
+                    </div>
+                </div>
+                <div class="mycol">
+                    <div class="coltitre">Notes</div>
+                    <div class="inps">
+                        <textarea name="attr_notes" style="width: 390px; height: 40px;" placeholder="Description"></textarea>
                     </div>
                 </div>
             </div>
         </div>
     </div><!-- FIN DESCRIPTION -->
-    <div> <!-- CARAC -->
-        <div class="ligne">
-            <div class="mycol">
-                <div class="coltitre">Carac</div>
-                <div class="inps">
-                    <input type="text" name="attr_archetype" style="width: 250px;" placeholder="Archétype" />
+    <div class="bgblock bgsombre"> <!-- CARAC -->
+        <div class="ttable">
+            <div class="trow">
+                <div class="thead">COM</div>
+                <div class="thead">CNS</div>
+                <div class="thead">DIS</div>
+                <div class="thead">END</div>
+                <div class="thead">FOR</div>
+                <div class="thead">&nbsp;</div>
+                <div class="thead">HAB</div>
+                <div class="thead">MAG</div>
+                <div class="thead">MVT</div>
+                <div class="thead">PER</div>
+                <div class="thead">SOC</div>
+                <div class="thead">SRV</div>
+                <div class="thead">TIR</div>
+                <div class="thead">VOL</div>
+            </div>
+            <div class="trow">
+                <div class="tcell"><input type="number" name="attr_COMinit" value="0" class="carac numtxt" title="Combat, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_CNSinit" value="0" class="carac numtxt" title="Connaissances, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_DISinit" value="0" class="carac numtxt" title="Discrétion, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_ENDinit" value="0" class="carac numtxt" title="Endurance, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_FORinit" value="0" class="carac numtxt" title="Force, valeur initiale" /></div>
+                <div class="thead">&nbsp;</div>
+                <div class="tcell"><input type="number" name="attr_HABinit" value="0" class="carac numtxt" title="Habileté, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_MAGinit" value="0" class="carac numtxt" title="Magie, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_MVTinit" value="0" class="carac numtxt" title="Mouvement, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_PERinit" value="0" class="carac numtxt" title="Perception, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_SOCinit" value="0" class="carac numtxt" title="Sociabilité, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_SRVinit" value="0" class="carac numtxt" title="Survie, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_TIRinit" value="0" class="carac numtxt" title="Tir, valeur initiale" /></div>
+                <div class="tcell"><input type="number" name="attr_VOLinit" value="0" class="carac numtxt" title="Volonté, valeur initiale" /></div>
+            </div>
+            <div class="trow">
+                <div class="tcell">
+                        <SELECT name="attr_COMprog" class="selprog" title="Combat, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
                 </div>
+                <div class="tcell">
+                        <SELECT name="attr_CNSprog" class="selprog" title="Connaissances, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_DISprog" class="selprog" title="Discrétion, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_ENDprog" class="selprog" title="Endurance, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_FORprog" class="selprog" title="Force, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="thead">BF</div>
+                <div class="tcell">
+                        <SELECT name="attr_HABprog" class="selprog" title="Habileté, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_MAGprog" class="selprog" title="Magie, progression" >
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_MVTprog" class="selprog" title="Mouvement, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_PERprog" class="selprog" title="Perception, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_SOCprog" class="selprog" title="Sociabilité, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_SRVprog" class="selprog" title="Survie, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_TIRprog" class="selprog" title="Tir, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+                <div class="tcell">
+                        <SELECT name="attr_VOLprog" class="selprog" title="Volonté, progression">
+                                <OPTION value="0" selected >&#9660;</OPTION>
+                                <OPTION value="5">+5%</OPTION>
+                                <OPTION value="10">+10%</OPTION>
+                                <OPTION value="15">+15%</OPTION>
+                                <OPTION value="20">+20%</OPTION>
+                        </SELECT>
+                </div>
+            </div>
+            <div class="trow">
+                <div class="tcell"><input type="number" name="attr_COM" value="[[@{COMinit}+@{COMprog}]]" class="carac numtxt" title="Combat, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_CNS" value="[[@{CNSinit}+@{CNSprog}]]" class="carac numtxt" title="Connaissances, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_DIS" value="[[@{DISinit}+@{DISprog}]]" class="carac numtxt" title="Discrétion, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_END" value="[[@{ENDinit}+@{ENDprog}]]" class="carac numtxt" title="Endurance, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_FOR" value="0" class="carac numtxt" title="Force, valeur finale" readonly /></div>
+                <div class="tcell"><input type="number" name="attr_BF" value="0" class="carac numtxt" title="Bonus de Force" readonly /></div>
+                <div class="tcell"><input type="number" name="attr_HAB" value="[[@{HABinit}+@{HABprog}]]" class="carac numtxt" title="Habileté, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_MAG" value="[[@{MAGinit}+@{MAGprog}]]" class="carac numtxt" title="Magie, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_MVT" value="[[@{MVTinit}+@{MVTprog}]]" class="carac numtxt" title="Mouvement, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_PER" value="[[@{PERinit}+@{PERprog}]]" class="carac numtxt" title="Perception, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_SOC" value="[[@{SOCinit}+@{SOCprog}]]" class="carac numtxt" title="Sociabilité, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_SRV" value="[[@{SRVinit}+@{SRVprog}]]" class="carac numtxt" title="Survie, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_TIR" value="[[@{TIRinit}+@{TIRprog}]]" class="carac numtxt" title="Tir, valeur finale" disabled /></div>
+                <div class="tcell"><input type="number" name="attr_VOL" value="[[@{VOLinit}+@{VOLprog}]]" class="carac numtxt" title="Volonté, valeur finale" disabled /></div>
             </div>
         </div>
     </div> <!-- FIN CARAC -->
-    <div><!-- MAGIE -->
+    <div class="bgblock"> <!-- ARMES MELEES -->
+        <input type="checkbox" name="attr_chkaffarmes" value="1" class="aff" checked />
+        <div class="affichage">
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Armes de Mêlée</div>
+                    <div class="inps">
+                        <input type="text" name="attr_armes" style="width: 250px;" placeholder="Archétype" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- FIN ARMES MELEES -->
+    <div class="bgblock"> <!-- ARMES MELEES -->
+        <input type="checkbox" name="attr_chkafftir" value="1" class="aff" checked />
+        <div class="affichage">
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Armes de Tir</div>
+                    <div class="inps">
+                        <input type="text" name="attr_armes" style="width: 250px;" placeholder="Archétype" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- FIN ARMES MELEES -->
+    <div class="bgblock bgsombre"> <!-- POSSESSIONS -->
+        <input type="checkbox" name="attr_chkaffposs" value="1" class="aff" checked />
+        <div class="affichage">
+            <div class="ligne">
+                <div class="mycol">
+                    <div class="coltitre">Possessions</div>
+                    <div class="inps">
+                        <textarea name="attr_possessions" style="width: 810px; height: 80px;" placeholder="Possessions"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- FIN POSSESSIONS -->
+    <div class="bgblock"><!-- MAGIE -->
         <input type="checkbox" name="attr_chkaffdmagie" value="1" class="aff" checked />
         <div class="affichage">
             <div class="mycol">
                 <div class="coltitre">Domaines magiques connus</div>
                 <div class="inps">
-                    <input type="text" name="attr_archetype" style="width: 250px;" placeholder="Archétype" />
+                    <input type="text" name="attr_magie" style="width: 250px;" placeholder="Archétype" />
                 </div>
             </div>
         </div>
     </div><!-- FIN MAGIE -->
-</div>
+    <div class="bgblock" style="text-align: right;"> <!-- Pied -->
+        <label>Version 1.0 (Mars 2017)</label>
+        <button type="roll" value="&{template:default} {{name=Liens}} {{Brigandyne=https://brigandyne.wordpress.com/}} {{Fiche Roll20=https://github.com/NathaTerrien/roll20-wip/blob/master/README.md}}"><span style="font-family: Pictos;">G</span></button>
+    </div>  <!-- FIN Pied -->
+</div> <!-- FIN FEUILLE -->
