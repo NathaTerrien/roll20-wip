@@ -200,7 +200,10 @@ input[type="number"]{
 input[type="number"].sheet-min{
     font-size: 16px;
     font-weight: normal;
-    max-width: 70px;
+}
+input[type="number"].sheet-min.sheet-arme{
+    width: 44px;
+    max-width: 44px;
 }
 input[type="number"].sheet-carac{
     text-align: center;

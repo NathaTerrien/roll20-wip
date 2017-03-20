@@ -459,7 +459,8 @@
         <div class="affichage">
             <div class="ttable">
                 <div class="trow">
-                    <div class="thead" style="width: 250px; max-width: 250px;" >Armes de Mêlée</div>
+                    <div class="thead" style="width: 200px; max-width: 200px;" >Armes de Mêlée</div>
+                    <div class="thead" style="width: 50px; max-width: 50px;">Mod.</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Dégâts</div>
                     <div class="thead" style="width: 60px; max-width: 60px;">Allonge</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Dis°</div>
@@ -468,7 +469,8 @@
                 </div>
                 <div class="trow">
                     <div class="tcell"><input type="text" name="attr_melee_nom_bag" value="Bagarre, mains nues"  style="width: 100%;" placeholder="Arme de mêlée" /></div>
-                    <div class="tcell"><input type="number" name="attr_melee_deg_bag" value="-2" class="carac" /></div>
+                    <div class="tcell"><input type="number" name="attr_melee_mod_bag" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
+                    <div class="tcell"><input type="number" name="attr_melee_deg_bag" value="-2" class="min arme" title="Dégâts" /></div>
                     <div class="tcell">
                         <SELECT name="attr_melee_all_bag" class="selprog" title="Allonge">
                                 <OPTION value="-">&#9660;</OPTION>
@@ -494,7 +496,7 @@
                         </SELECT>
                     </div>
                     <div class="tcell">
-                        <SELECT name="attr_melee_main_bag" class="selprog" title="Dissimulation">
+                        <SELECT name="attr_melee_main_bag" class="selprog" title="Mains">
                                 <OPTION value="-">&#9660;</OPTION>
                                 <OPTION value="1">&#9995;</OPTION>
                                 <OPTION value="1.5" selected>&#9995;|&#9995;</OPTION>
@@ -507,37 +509,38 @@
             <fieldset class="repeating_armes">
                 <div class="ttable">
                     <div class="trow">
-                        <div class="tcell" style="width: 250px; max-width: 250px;"><input type="text" name="attr_melee_nom" value="" style="width: 100%;" placeholder="Arme de mêlée" /></div>
-                        <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_melee_deg" value="-2" class="carac" /></div>
+                        <div class="tcell" style="width: 200px; max-width: 200px;"><input type="text" name="attr_melee_nom" value="" style="width: 100%;" placeholder="Arme de mêlée" /></div>
+                        <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_melee_mod" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
+                        <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_melee_deg" value="0" class="min arme" title="Dégâts" /></div>
                         <div class="tcell" style="width: 60px; max-width: 60px;">
                             <SELECT name="attr_melee_all" class="selprog" title="Allonge">
                                     <OPTION value="-">&#9660;</OPTION>
                                     <OPTION>AA</OPTION>
                                     <OPTION>A</OPTION>
                                     <OPTION>B</OPTION>
-                                    <OPTION>C</OPTION>
-                                    <OPTION>D</OPTION>
-                                    <OPTION>E</OPTION>
-                                    <OPTION selected>F</OPTION>
-                            </SELECT>
-                        </div>
-                        <div class="tcell" style="width: 50px; max-width: 50px;">
-                            <SELECT name="attr_melee_diss" class="selprog" title="Dissimulation">
-                                    <OPTION value="-" selected>&#9660;</OPTION>
-                                    <OPTION>AA</OPTION>
-                                    <OPTION>A</OPTION>
-                                    <OPTION>B</OPTION>
-                                    <OPTION>C</OPTION>
+                                    <OPTION selected>C</OPTION>
                                     <OPTION>D</OPTION>
                                     <OPTION>E</OPTION>
                                     <OPTION>F</OPTION>
                             </SELECT>
                         </div>
                         <div class="tcell" style="width: 50px; max-width: 50px;">
-                            <SELECT name="attr_melee_main" class="selprog" title="Dissimulation">
+                            <SELECT name="attr_melee_diss" class="selprog" title="Dissimulation">
                                     <OPTION value="-">&#9660;</OPTION>
-                                    <OPTION value="1">&#9995;</OPTION>
-                                    <OPTION value="1.5" selected>&#9995;|&#9995;</OPTION>
+                                    <OPTION>AA</OPTION>
+                                    <OPTION>A</OPTION>
+                                    <OPTION>B</OPTION>
+                                    <OPTION selected>C</OPTION>
+                                    <OPTION>D</OPTION>
+                                    <OPTION>E</OPTION>
+                                    <OPTION>F</OPTION>
+                            </SELECT>
+                        </div>
+                        <div class="tcell" style="width: 50px; max-width: 50px;">
+                            <SELECT name="attr_melee_main" class="selprog" title="Mains">
+                                    <OPTION value="-">&#9660;</OPTION>
+                                    <OPTION value="1" selected>&#9995;</OPTION>
+                                    <OPTION value="1.5">&#9995;|&#9995;</OPTION>
                                     <OPTION value="2">&#9995; &#9995;</OPTION>
                             </SELECT>
                         </div>
@@ -553,10 +556,12 @@
             <div class="ttable">
                 <div class="trow">
                     <div class="thead" style="width: 200px; max-width: 200px;" >Armes de Tir</div>
-                    <div class="thead" style="width: 100px; max-width: 100px;">Dégâts</div>
-                    <div class="thead" style="width: 60px; max-width: 60px;">Portée</div>
-                    <div class="thead" style="width: 50px; max-width: 50px;">Dis°</div>
+                    <div class="thead" style="width: 50px; max-width: 50px;">Mod.</div>
+                    <div class="thead" style="width: 80px; max-width: 80px;">Dégâts</div>
+                    <div class="thead" style="width: 50px; max-width: 50px;">Portée</div>
+                    <div class="thead" style="width: 40px; max-width: 40px;">Dis°</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Main</div>
+                    <div class="thead" style="width: 50px; max-width: 50px;">Mun.</div>
                     <div class="thead">Spécial</div>
                 </div>
             </div>
@@ -564,42 +569,35 @@
                 <div class="ttable">
                     <div class="trow">
                         <div class="tcell" style="width: 200px; max-width: 200px;"><input type="text" name="attr_tir_nom" value="" style="width: 100%;" placeholder="Arme de tir" /></div>
-                        <div class="tcell" style="width: 100px; max-width: 100px;">
-                            <input type="number" name="attr_tir_deg" value="-2" class="carac" />
-                            (BF : <input type="checkbox" name="attr_tir_for" value="[[@{BF}]]" class="dispcheck" title="Appliquer le Bonus de Force aux dégâts" />)
+                        <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_tir_mod" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
+                        <div class="tcell" style="width: 80px; max-width: 80px;">
+                            <input type="number" name="attr_tir_deg" value="0" class="min arme" title="Dégâts" />
+                            <input type="checkbox" name="attr_tir_for" value="[[@{BF}]]" class="dispcheck" title="Appliquer le Bonus de Force aux dégâts">BF</input>
                         </div>
-                        <div class="tcell" style="width: 60px; max-width: 60px;">
-                            <SELECT name="attr_tir_all" class="selprog" title="Allonge">
+                        <div class="tcell" style="width: 50px; max-width: 50px;">
+                            <input type="text" name="attr_tir_port" value="" class="min arme" title="Portée" />
+                        </div>
+                        <div class="tcell" style="width: 40px; max-width: 40px;">
+                            <SELECT name="attr_tir_diss" class="selprog" title="Dissimulation">
                                     <OPTION value="-">&#9660;</OPTION>
                                     <OPTION>AA</OPTION>
                                     <OPTION>A</OPTION>
                                     <OPTION>B</OPTION>
-                                    <OPTION>C</OPTION>
-                                    <OPTION>D</OPTION>
-                                    <OPTION>E</OPTION>
-                                    <OPTION selected>F</OPTION>
-                            </SELECT>
-                        </div>
-                        <div class="tcell" style="width: 50px; max-width: 50px;">
-                            <SELECT name="attr_tir_diss" class="selprog" title="Dissimulation">
-                                    <OPTION value="-" selected>&#9660;</OPTION>
-                                    <OPTION>AA</OPTION>
-                                    <OPTION>A</OPTION>
-                                    <OPTION>B</OPTION>
-                                    <OPTION>C</OPTION>
+                                    <OPTION selected>C</OPTION>
                                     <OPTION>D</OPTION>
                                     <OPTION>E</OPTION>
                                     <OPTION>F</OPTION>
                             </SELECT>
                         </div>
                         <div class="tcell" style="width: 50px; max-width: 50px;">
-                            <SELECT name="attr_tir_main" class="selprog" title="Dissimulation">
+                            <SELECT name="attr_tir_main" class="selprog" title="Mains">
                                     <OPTION value="-">&#9660;</OPTION>
                                     <OPTION value="1">&#9995;</OPTION>
-                                    <OPTION value="1.5" selected>&#9995;|&#9995;</OPTION>
-                                    <OPTION value="2">&#9995; &#9995;</OPTION>
+                                    <OPTION value="1.5">&#9995;|&#9995;</OPTION>
+                                    <OPTION value="2" selected>&#9995; &#9995;</OPTION>
                             </SELECT>
                         </div>
+                        <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_tir_mun" value="0" class="min arme" title="Munitions restantes" /></div>
                         <div class="tcell"><input type="text" name="attr_tir_spec" style="width: 100%;" placeholder="Spécial" /></div>
                     </div>
                 </div>
