@@ -112,14 +112,14 @@ div.sheet-bgsombre{
     display: table;
     width: 100%;
     border-collapse: collapse;
-    border: 1px dotted #231F20; /* 2px solid #231F20; */
+    border: 1px dotted #231F20;
 }
 .sheet-trow {
     display: table-row;
     border: 1px dotted #231F20;
     background-color: #E0D3BA;
 }
-.sheet-trow:nth-child(even){
+.sheet-trow.sheet-sombre{
     background-color: #B5A790;
 }
 .sheet-theading {
@@ -241,6 +241,36 @@ select{
     -moz-appearance: none;
     line-height: 20px;
 }
+input[type="checkbox"].sheet-dispchk,
+input[type="radio"].sheet-dispchk{
+    opacity: 0;
+    width: 16px;
+    z-index: 2;
+}
+input[type="checkbox"].sheet-dispchk + span,
+input[type="radio"].sheet-dispchk + span{
+    display: inline-block;
+    margin-right: 4px;
+    margin-left: -18px;
+    min-width: 18px;
+    z-index: 1;
+    font-family: 'Contrail One';
+    font-size: 14px;
+    font-weight: normal;
+    color: #231F20;
+}
+input[type="checkbox"].sheet-dispchk + span::before,
+input[type="radio"].sheet-dispchk + span::before{
+    font-size: 18px;
+    color: #231F20;
+    content: '☐';
+    margin-right: 2px;
+}
+input[type="checkbox"].sheet-dispchk:checked + span::before,
+input[type="radio"].sheet-dispchk:checked + span::before{
+    content: '✔';
+}
+
 /* ===== AFFICHAGE/MASQUE ===== */
 div.sheet-affichage{
     display: none;

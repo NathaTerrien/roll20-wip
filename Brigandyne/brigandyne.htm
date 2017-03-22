@@ -211,7 +211,7 @@
                 <div class="mycol colune">
                     <div class="coltitre fin">Peuple</div>
                     <div class="inps">
-                        <input type="text" name="attr_peuple" style="width: 140px;" placeholder="Peuple" />
+                        <input type="text" name="attr_peuple" style="width: 150px;" placeholder="Peuple" />
                     </div>
                 </div>
                 <div class="mycol coldeb">
@@ -246,9 +246,9 @@
                 </div>
                 <div class="mycol colfin">
                     <div class="coltitre fin">Main directrice</div>
-                    <div class="inps">
-                        <input type="radio" name="attr_main" value="Droitier" title="Main directrice droite"><label>Droitier</label></input>
-                        <input type="radio" name="attr_main" value="Gaucher" title="Main directrice gauche"><label>Gaucher</label></input>
+                    <div class="inps" style="width: 160px;">
+                        <input type="radio" name="attr_main" value="Droitier" class="dispchk" title="Main directrice droite" /><span>Droitier</span>
+                        <input type="radio" name="attr_main" value="Gaucher" class="dispchk" title="Main directrice gauche" /><span>Gaucher</span>
                     </div>
                 </div>
             </div>
@@ -316,7 +316,7 @@
                 <div class="tcell"><input type="number" name="attr_TIRinit" value="0" class="carac numtxt" title="Tir, valeur initiale" /></div>
                 <div class="tcell"><input type="number" name="attr_VOLinit" value="0" class="carac numtxt" title="Volonté, valeur initiale" /></div>
             </div>
-            <div class="trow">
+            <div class="trow sombre">
                 <div class="tcell">
                         <SELECT name="attr_COMprog" class="selprog" title="Combat, progression">
                                 <OPTION value="0" selected >&#9660;</OPTION>
@@ -557,7 +557,7 @@
                 <div class="trow">
                     <div class="thead" style="width: 200px; max-width: 200px;" >Armes de Tir</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Mod.</div>
-                    <div class="thead" style="width: 80px; max-width: 80px;">Dégâts</div>
+                    <div class="thead" style="width: 90px; max-width: 90px;">Dégâts</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Portée</div>
                     <div class="thead" style="width: 40px; max-width: 40px;">Dis°</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Main</div>
@@ -570,9 +570,9 @@
                     <div class="trow">
                         <div class="tcell" style="width: 200px; max-width: 200px;"><input type="text" name="attr_tir_nom" value="" style="width: 100%;" placeholder="Arme de tir" /></div>
                         <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_tir_mod" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
-                        <div class="tcell" style="width: 80px; max-width: 80px;">
+                        <div class="tcell" style="width: 90px; max-width: 90px;">
                             <input type="number" name="attr_tir_deg" value="0" class="min arme" title="Dégâts" />
-                            <input type="checkbox" name="attr_tir_for" value="[[@{BF}]]" class="dispcheck" title="Appliquer le Bonus de Force aux dégâts">BF</input>
+                            <input type="checkbox" name="attr_tir_for" value="[[@{BF}]]" class="dispchk" title="Appliquer le Bonus de Force aux dégâts" /><span>BF</span>
                         </div>
                         <div class="tcell" style="width: 50px; max-width: 50px;">
                             <input type="text" name="attr_tir_port" value="" class="min arme" title="Portée" />
@@ -619,15 +619,56 @@
     <div class="bgblock"><!-- MAGIE -->
         <input type="checkbox" name="attr_chkaffdmagie" value="1" class="aff" checked />
         <div class="affichage">
-            <div class="mycol">
-                <div class="coltitre">Domaines magiques connus</div>
+            <div class="mycol coldeb">
+                <div class="coltitre">Dons élémentaires</div>
                 <div class="inps">
-                    <input type="text" name="attr_magie" style="width: 250px;" placeholder="Archétype" />
+                    <input type="checkbox" name="attr_mag_air" value="1" class="dispchk" title="Air" /><span>Air</span>
+                    <input type="checkbox" name="attr_mag_eau" value="1" class="dispchk" title="Eau" /><span>Eau</span>
+                    <input type="checkbox" name="attr_mag_feu" value="1" class="dispchk" title="Feu" /><span>Feu</span>
+                    <input type="checkbox" name="attr_mag_terre" value="1" class="dispchk" title="Terre" /><span>Terre</span>
+                </div>
+            </div>
+            <div class="mycol colmid">
+                <div class="coltitre">Maléfices de magie noire</div>
+                <div class="inps">
+                    <input type="checkbox" name="attr_mag_alchimie" value="1" class="dispchk" title="Alchimie" /><span>Alchi.</span>
+                    <input type="checkbox" name="attr_mag_demonisme" value="1" class="dispchk" title="Démonisme" /><span>Démon.</span>
+                    <input type="checkbox" name="attr_mag_illusions" value="1" class="dispchk" title="Illusions" /><span>Illu.</span>
+                    <input type="checkbox" name="attr_mag_necromancie" value="1" class="dispchk" title="Nécromancie" /><span>Nécro.</span>
+                </div>
+            </div>
+            <div class="mycol colmid">
+                <div class="coltitre">Maléfices de magie noire</div>
+                <div class="inps">
+                    <input type="checkbox" name="attr_mag_divination" value="1" class="dispchk" title="Divination" /><span>Divi.</span>
+                    <input type="checkbox" name="attr_mag_enchantements" value="1" class="dispchk" title="Enchantements" /><span>Enchant.</span>
+                    <input type="checkbox" name="attr_mag_protection" value="1" class="dispchk" title="Protection" /><span>Protec.</span>
+                    <input type="checkbox" name="attr_mag_psyche" value="1" class="dispchk" title="Pysché" /><span>Psyché</span>
+                </div>
+            </div>
+            <div class="mycol colfin">
+                <div class="coltitre fin">&nbsp;</div>
+                <div class="inps">
+                    <input type="checkbox" name="attr_mag_animale" value="1" class="dispchk" title="Voie animale" /><span>V. animale</span>
+                </div>
+            </div>
+            <div class="ligne">
+                <div class="mycol coldeb">
+                    <div class="coltitre">Tours de Magie</div>
+                    <div class="inps">
+                        <textarea name="attr_mag_tours" style="width: 390px; height: 40px;" placeholder="Tours"></textarea>
+                    </div>
+                </div>
+                <div class="mycol colfin">
+                    <div class="coltitre fin">Familier</div>
+                    <div class="inps">
+                        <textarea name="attr_mag_familier" style="width: 390px; height: 40px;" placeholder="Familier"></textarea>
+                    </div>
                 </div>
             </div>
         </div>
     </div><!-- FIN MAGIE -->
-    <div class="bgblock" style="text-align: right;"> <!-- Pied -->
+    <div class="bgblock bgsombre" style="text-align: right;"> <!-- Pied -->
         <label>Version 1.0 (Mars 2017)</label>
         <button type="roll" value="&{template:default} {{name=Liens}} {{Brigandyne=https://brigandyne.wordpress.com/}} {{Fiche Roll20=https://github.com/NathaTerrien/roll20-wip/blob/master/README.md}}"><span style="font-family: Pictos;">G</span></button>
     </div>  <!-- FIN Pied -->
