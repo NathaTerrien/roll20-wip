@@ -161,20 +161,20 @@
     <div class="bgblock"> <!-- CARAC -->
         <div class="ttable">
             <div class="trow">
-                <div class="thead">COM</div>
-                <div class="thead">CNS</div>
-                <div class="thead">DIS</div>
-                <div class="thead">END</div>
-                <div class="thead">FOR</div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">COM</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">CNS</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">DIS</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">END</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">FOR</button></div>
                 <div class="thead">&nbsp;</div>
-                <div class="thead">HAB</div>
-                <div class="thead">MAG</div>
-                <div class="thead">MVT</div>
-                <div class="thead">PER</div>
-                <div class="thead">SOC</div>
-                <div class="thead">SRV</div>
-                <div class="thead">TIR</div>
-                <div class="thead">VOL</div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">HAB</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">MAG</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">MVT</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">PER</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">SOC</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">SRV</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">TIR</button></div>
+                <div class="thead"><button type="roll" class="bcar" name="COM" title="Jet de Combat" value="">VOL</button></div>
             </div>
             <div class="trow">
                 <div class="tcell"><input type="number" name="attr_COMinit" value="0" class="carac numtxt" title="Combat, valeur initiale" /></div>
@@ -463,6 +463,7 @@
             <div class="ttable">
                 <div class="trow">
                     <div class="thead" style="width: 200px; max-width: 200px;" >Arme</div>
+                    <div class="thead" style="width: 35px; max-width: 35px;">&nbsp;</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Mod.</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Dégâts</div>
                     <div class="thead" style="width: 60px; max-width: 60px;">Allonge</div>
@@ -472,6 +473,7 @@
                 </div>
                 <div class="trow">
                     <div class="tcell"><input type="text" name="attr_melee_nom_bag" value="Bagarre, mains nues"  style="width: 100%;" placeholder="Arme de mêlée" /></div>
+                    <div class="tcell"><button type="roll" class="atk" name="MainsNues" title="Attaque à mains nues" value=""></button></div>
                     <div class="tcell"><input type="number" name="attr_melee_mod_bag" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
                     <div class="tcell"><input type="number" name="attr_melee_deg_bag" value="-2" class="min arme" title="Dégâts" /></div>
                     <div class="tcell">
@@ -513,6 +515,7 @@
                 <div class="ttable">
                     <div class="trow">
                         <div class="tcell" style="width: 200px; max-width: 200px;"><input type="text" name="attr_melee_nom" value="" style="width: 100%;" placeholder="Arme de mêlée" /></div>
+                        <div class="tcell" style="width: 35px; max-width: 35px;"><button type="roll" class="atk" name="Attaque" title="Jet d'attaque" value=""></button></div>
                         <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_melee_mod" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
                         <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_melee_deg" value="0" class="min arme" title="Dégâts" /></div>
                         <div class="tcell" style="width: 60px; max-width: 60px;">
@@ -560,6 +563,7 @@
             <div class="ttable">
                 <div class="trow">
                     <div class="thead" style="width: 200px; max-width: 200px;" >Arme</div>
+                    <div class="thead" style="width: 35px; max-width: 35px;" >&nbsp;</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Mod.</div>
                     <div class="thead" style="width: 90px; max-width: 90px;">Dégâts</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Portée</div>
@@ -573,6 +577,7 @@
                 <div class="ttable">
                     <div class="trow">
                         <div class="tcell" style="width: 200px; max-width: 200px;"><input type="text" name="attr_tir_nom" value="" style="width: 100%;" placeholder="Arme de tir" /></div>
+                        <div class="tcell" style="width: 35px; max-width: 35px;"><button type="roll" class="atk" name="Attaque" title="Jet d'attaque" value=""></button></div>
                         <div class="tcell" style="width: 50px; max-width: 50px;"><input type="number" name="attr_tir_mod" value="0" class="min arme" title="Modificateur à l'attaque" /></div>
                         <div class="tcell" style="width: 90px; max-width: 90px;">
                             <input type="number" name="attr_tir_deg" value="0" class="min arme" title="Dégâts" />
@@ -664,6 +669,7 @@
             <div class="ttable">
                 <div class="trow">
                     <div class="thead" style="width: 200px; max-width: 200px;">Sortilèges</div>
+                    <div class="thead" style="width: 35px; max-width: 35px;">&nbsp;</div>
                     <div class="thead" style="width: 65px; max-width: 65px;">Test</div>
                     <div class="thead" style="width: 50px; max-width: 50px;">Diff</div>
                     <div class="thead" style="width: 80px; max-width: 80px;">Durée</div>
@@ -676,6 +682,7 @@
                         <div class="tcell" style="width: 200px; max-width: 200px;">
                             <input type="text" name="attr_sort_nom" value="" style="width: 100%;" placeholder="Sortilège" />
                         </div>
+                        <div class="tcell" style="width: 35px; max-width: 35px;"><button type="roll" class="atk" name="Sort" title="Jet de Magie pour lancer le sort" value=""></button></div>
                         <div class="tcell" style="width: 65px; max-width: 65px;">
                             <SELECT name="attr_sort_all" class="selprog" title="Type de test">
                                     <OPTION value="0" selected>Normal</OPTION>
@@ -731,6 +738,7 @@
         </div>
     </div> <!-- FIN POSSESSIONS -->
     <div class="bgblock" style="text-align: right;"> <!-- Pied -->
-        <label>Version 0.4 (22 Mars 2017)</label>
+        <label>Version 1.0 (Mars 2017)</label>
+        <button type="roll" value="&{template:default} {{name=Liens}} {{Brigandyne=https://brigandyne.wordpress.com/}} {{Fiche Roll20=https://github.com/NathaTerrien/roll20-wip/blob/master/README.md}}"><span style="font-family: Pictos;">G</span></button>
     </div>  <!-- FIN Pied -->
 </div> <!-- FIN FEUILLE -->

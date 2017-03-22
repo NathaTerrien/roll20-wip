@@ -153,6 +153,7 @@ div.sheet-bgsombre{
     font-weight: normal;
     border: 1px dotted #64553E;
     padding: 4px 0px 4px 0px;
+    margin: 0px 0px 0px 0px;
 }
 .sheet-tfoot{
     display: table-footer-group;
@@ -226,6 +227,7 @@ input[type="number"].sheet-carac:disabled {
     font-size: 20px;
     font-weight: bold;
     color: #64553E;
+    margin: 0px 0px 0px 0px !important;
 }
 input[type="number"].sheet-numtxt{
     -moz-appearance: textfield;
@@ -250,6 +252,7 @@ select{
     -webkit-appearance: none;
     -moz-appearance: none;
     line-height: 20px;
+    cursor: n-resize;
 }
 input[type="checkbox"].sheet-dispchk,
 input[type="radio"].sheet-dispchk{
@@ -324,7 +327,54 @@ input[type="checkbox"].sheet-affichage:checked + span{
     color: #231F20;
 }
 /* ===== BOUTONS ===== */
-
+button[type="roll"]{
+    text-align: center;
+    text-decoration: none;
+    background:none;
+    background-image:none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+}
+button[type="roll"].sheet-bcar{
+    color: white;
+    font-family: 'Contrail One';
+    font-size: 14px;
+    font-weight: normal;
+}
+button[type="roll"].sheet-bcar:before{
+    content: none;
+}
+button[type="roll"].sheet-bcar:after{
+    font-family: "dicefontd10";
+    color: white;
+    font-size: 18px;
+    content: '0';
+    padding-left: 3px;
+}
+button[type="roll"].sheet-bcar:hover:after{
+    font-weight: bold;
+}
+button[type="roll"].sheet-atk{
+    font-family: 'Contrail One';
+    font-size: 14px;
+    font-weight: normal;
+}
+button[type="roll"].sheet-atk:before{
+    font-family: "dicefontd10";
+    color: #231F20;
+    font-size: 20px;
+    font-weight: bold;
+    content: '0';
+    padding-left: 3px;
+    line-height: 14px;
+}
+button[type="roll"].sheet-atk:hover:before{
+    content: 'T';
+}
 /* === fieldset BOUTONS === */
 div.repcontrol{
     display: inline-block;
