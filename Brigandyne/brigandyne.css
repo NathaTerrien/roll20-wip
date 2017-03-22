@@ -40,6 +40,7 @@ div.sheet-bgmain{
     background-position:top left;
     background-size: auto;
     position: relative;
+    padding: 6px 0px 6px 0px;
 
 }
 div.sheet-abs{
@@ -112,8 +113,6 @@ div.sheet-inps{
     padding: 2px 10px 2px 10px;
 }
 div.sheet-bgblock{
-    padding: 3px 6px 3px 6px;
-    border-bottom: 1px dotted #64553E;
 }
 div.sheet-bgsombre{
     background-color: rgba(100,85,62,0.5);
@@ -288,6 +287,8 @@ div.sheet-affichage{
 }
 input[type="checkbox"].sheet-aff:checked ~ div.sheet-affichage{
     display: block;
+    padding: 3px 6px 3px 6px;
+    border-bottom: 1px dotted #64553E;
 }
 input[type="checkbox"].sheet-aff{
     display: none;

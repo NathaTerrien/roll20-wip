@@ -330,7 +330,7 @@
             </div>
         </div>
     </div> <!-- FIN CARAC -->
-    <div class="bgblock bgsombre"><!-- CARRIERE -->
+    <div class="bgblock"><!-- CARRIERE -->
         <input type="checkbox" name="attr_chkaffcarr" value="1" class="aff" checked />
         <div class="affichage">
             <div class="ligne titre"><span>U</span>CARRIÈRE</div>
@@ -377,7 +377,7 @@
             </div>
         </div>
     </div> <!-- CARRIERE -->
-    <div class="bgblock"><!-- DESCRIPTION -->
+    <div class="bgblock bgsombre"><!-- DESCRIPTION -->
         <input type="checkbox" name="attr_chkaffdesc" value="1" class="aff" checked />
         <div class="affichage">
             <div class="ligne titre"><span>E</span>DESCRIPTION</div>
@@ -456,7 +456,7 @@
             </div>
         </div>
     </div><!-- FIN DESCRIPTION -->
-    <div class="bgblock bgsombre"> <!-- ARMES MELEES -->
+    <div class="bgblock"> <!-- ARMES MELEES -->
         <input type="checkbox" name="attr_chkaffarmes" value="1" class="aff" checked />
         <div class="affichage">
             <div class="ligne titre"><span>&#9876;</span>MÊLÉE</div>
@@ -607,57 +607,46 @@
                 </div>
             </fieldset>
         </div>    </div> <!-- FIN ARMES TIR -->
-    <div class="bgblock"> <!-- POSSESSIONS -->
-        <input type="checkbox" name="attr_chkaffposs" value="1" class="aff" checked />
-        <div class="affichage">
-            <div class="ligne titre"><span>x</span>POSSESSIONS</div>
-            <div class="ligne">
-                <div class="mycol colune">
-                    <div class="inps">
-                        <textarea name="attr_possessions" style="width: 800px; height: 80px;" placeholder="Possessions"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- FIN POSSESSIONS -->
-    <div class="bgblock bgsombre"><!-- MAGIE -->
+    <div class="bgblock"><!-- MAGIE -->
         <input type="checkbox" name="attr_chkaffdmagie" value="1" class="aff" checked />
         <div class="affichage">
             <div class="ligne titre"><span>e</span>MAGIE</div>
-            <div class="mycol coldeb">
-                <div class="coltitre">Dons élémentaires</div>
-                <div class="inps">
-                    <input type="checkbox" name="attr_mag_air" value="1" class="dispchk" title="Air" /><span>Air</span>
-                    <input type="checkbox" name="attr_mag_eau" value="1" class="dispchk" title="Eau" /><span>Eau</span>
-                    <input type="checkbox" name="attr_mag_feu" value="1" class="dispchk" title="Feu" /><span>Feu</span>
-                    <input type="checkbox" name="attr_mag_terre" value="1" class="dispchk" title="Terre" /><span>Terre</span>
+            <div class="ligne"> <!-- DOMAINES -->
+                <div class="mycol coldeb">
+                    <div class="coltitre">Dons élémentaires</div>
+                    <div class="inps">
+                        <input type="checkbox" name="attr_mag_air" value="1" class="dispchk" title="Air" /><span>Air</span>
+                        <input type="checkbox" name="attr_mag_eau" value="1" class="dispchk" title="Eau" /><span>Eau</span>
+                        <input type="checkbox" name="attr_mag_feu" value="1" class="dispchk" title="Feu" /><span>Feu</span>
+                        <input type="checkbox" name="attr_mag_terre" value="1" class="dispchk" title="Terre" /><span>Terre</span>
+                    </div>
                 </div>
-            </div>
-            <div class="mycol colmid">
-                <div class="coltitre">Maléfices de magie noire</div>
-                <div class="inps">
-                    <input type="checkbox" name="attr_mag_alchimie" value="1" class="dispchk" title="Alchimie" /><span>Alchi.</span>
-                    <input type="checkbox" name="attr_mag_demonisme" value="1" class="dispchk" title="Démonisme" /><span>Démon.</span>
-                    <input type="checkbox" name="attr_mag_illusions" value="1" class="dispchk" title="Illusions" /><span>Illu.</span>
-                    <input type="checkbox" name="attr_mag_necromancie" value="1" class="dispchk" title="Nécromancie" /><span>Nécro.</span>
+                <div class="mycol colmid">
+                    <div class="coltitre">Maléfices de magie noire</div>
+                    <div class="inps">
+                        <input type="checkbox" name="attr_mag_alchimie" value="1" class="dispchk" title="Alchimie" /><span>Alchi.</span>
+                        <input type="checkbox" name="attr_mag_demonisme" value="1" class="dispchk" title="Démonisme" /><span>Démon.</span>
+                        <input type="checkbox" name="attr_mag_illusions" value="1" class="dispchk" title="Illusions" /><span>Illu.</span>
+                        <input type="checkbox" name="attr_mag_necromancie" value="1" class="dispchk" title="Nécromancie" /><span>Nécro.</span>
+                    </div>
                 </div>
-            </div>
-            <div class="mycol colmid">
-                <div class="coltitre">Maléfices de magie noire</div>
-                <div class="inps">
-                    <input type="checkbox" name="attr_mag_divination" value="1" class="dispchk" title="Divination" /><span>Divi.</span>
-                    <input type="checkbox" name="attr_mag_enchantements" value="1" class="dispchk" title="Enchantements" /><span>Enchant.</span>
-                    <input type="checkbox" name="attr_mag_protection" value="1" class="dispchk" title="Protection" /><span>Protec.</span>
-                    <input type="checkbox" name="attr_mag_psyche" value="1" class="dispchk" title="Pysché" /><span>Psyché</span>
+                <div class="mycol colmid">
+                    <div class="coltitre">Maléfices de magie noire</div>
+                    <div class="inps">
+                        <input type="checkbox" name="attr_mag_divination" value="1" class="dispchk" title="Divination" /><span>Divi.</span>
+                        <input type="checkbox" name="attr_mag_enchantements" value="1" class="dispchk" title="Enchantements" /><span>Enchant.</span>
+                        <input type="checkbox" name="attr_mag_protection" value="1" class="dispchk" title="Protection" /><span>Protec.</span>
+                        <input type="checkbox" name="attr_mag_psyche" value="1" class="dispchk" title="Pysché" /><span>Psyché</span>
+                    </div>
                 </div>
-            </div>
-            <div class="mycol colfin">
-                <div class="coltitre fin">&nbsp;</div>
-                <div class="inps">
-                    <input type="checkbox" name="attr_mag_animale" value="1" class="dispchk" title="Voie animale" /><span>V. animale</span>
+                <div class="mycol colfin">
+                    <div class="coltitre fin">&nbsp;</div>
+                    <div class="inps">
+                        <input type="checkbox" name="attr_mag_animale" value="1" class="dispchk" title="Voie animale" /><span>V. animale</span>
+                    </div>
                 </div>
-            </div>
-            <div class="ligne">
+            </div> <!-- FIN DOMAINES -->
+            <div class="ligne"> <!-- TOURS et FAM -->
                 <div class="mycol coldeb">
                     <div class="coltitre">Tours de Magie</div>
                     <div class="inps">
@@ -670,11 +659,78 @@
                         <textarea name="attr_mag_familier" style="width: 390px; height: 40px;" placeholder="Familier"></textarea>
                     </div>
                 </div>
+            </div> <!-- FIN TOURS et FAM -->
+            <!-- SORTS -->
+            <div class="ttable">
+                <div class="trow">
+                    <div class="thead" style="width: 200px; max-width: 200px;">Sortilèges</div>
+                    <div class="thead" style="width: 65px; max-width: 65px;">Test</div>
+                    <div class="thead" style="width: 50px; max-width: 50px;">Diff</div>
+                    <div class="thead" style="width: 80px; max-width: 80px;">Durée</div>
+                    <div class="thead">Effet</div>
+                </div>
             </div>
+            <fieldset class="repeating_sorts">
+                <div class="ttable">
+                    <div class="trow">
+                        <div class="tcell" style="width: 200px; max-width: 200px;">
+                            <input type="text" name="attr_sort_nom" value="" style="width: 100%;" placeholder="Sortilège" />
+                        </div>
+                        <div class="tcell" style="width: 65px; max-width: 65px;">
+                            <SELECT name="attr_sort_all" class="selprog" title="Type de test">
+                                    <OPTION value="0" selected>Normal</OPTION>
+                                    <OPTION>/COM</OPTION>
+                                    <OPTION>/CNS</OPTION>
+                                    <OPTION>/DIS</OPTION>
+                                    <OPTION>/END</OPTION>
+                                    <OPTION>/FOR</OPTION>
+                                    <OPTION>/HAB</OPTION>
+                                    <OPTION>/MAG</OPTION>
+                                    <OPTION>/MVT</OPTION>
+                                    <OPTION>/PER</OPTION>
+                                    <OPTION>/SOC</OPTION>
+                                    <OPTION>/SRV</OPTION>
+                                    <OPTION>/TIR</OPTION>
+                                    <OPTION>/VOL</OPTION>
+                            </SELECT>
+                        </div>
+                        <div class="tcell" style="width: 50px; max-width: 50px;">
+                            <input type="number" name="attr_sort_diff" value="0" class="min arme" title="Difficulté/Modificateur au jet de MAG" />
+                        </div>
+                        <div class="tcell" style="width: 80px; max-width: 80px;">
+                            <input type="text" name="attr_sort_duree" value="" style="width: 100%;" placeholder="Durée" />
+                        </div>
+                        <div class="tcell">
+                            <textarea name="attr_sort_effet" style="width: 100%; height: 20px;" placeholder="Effet"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="ttable">
+                    <div class="trow sombre">
+                        <div class="thead" style="width: 70px; max-width: 70px;">Formule</div>
+                        <div class="tcell">
+                            <input type="text" name="attr_sort_formule" style="width: 100%;" placeholder="Formule" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <!-- FIN SORTS -->
         </div>
     </div><!-- FIN MAGIE -->
+    <div class="bgblock bgsombre"> <!-- POSSESSIONS -->
+        <input type="checkbox" name="attr_chkaffposs" value="1" class="aff" checked />
+        <div class="affichage">
+            <div class="ligne titre"><span>x</span>POSSESSIONS</div>
+            <div class="ligne">
+                <div class="mycol colune">
+                    <div class="inps">
+                        <textarea name="attr_possessions" style="width: 800px; height: 80px;" placeholder="Possessions"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- FIN POSSESSIONS -->
     <div class="bgblock" style="text-align: right;"> <!-- Pied -->
-        <label>Version 1.0 (Mars 2017)</label>
-        <button type="roll" value="&{template:default} {{name=Liens}} {{Brigandyne=https://brigandyne.wordpress.com/}} {{Fiche Roll20=https://github.com/NathaTerrien/roll20-wip/blob/master/README.md}}"><span style="font-family: Pictos;">G</span></button>
+        <label>Version 0.4 (22 Mars 2017)</label>
     </div>  <!-- FIN Pied -->
 </div> <!-- FIN FEUILLE -->
