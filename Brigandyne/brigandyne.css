@@ -58,6 +58,17 @@ div.sheet-ligne{
     width: 100%;
     margin: 1px;
 }
+div.sheet-ligne.sheet-titre{
+    color: white;
+    font-family: 'Contrail One';
+    font-size: 14px;
+    text-shadow: 0px 0px 10px #231F20;
+    text-align: left;
+}
+div.sheet-ligne.sheet-titre span{
+    font-family: 'Pictos';
+    margin-right: 6px;
+}
 div.sheet-mycol{
     display: inline-block;
     text-align: left;
