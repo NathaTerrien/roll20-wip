@@ -35,9 +35,9 @@ div.sheet-bgmain{
     max-width: 840px;
     text-align: left;
     background-color : #BCA87D;
-    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/natural-paper.png');
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Brigandyne/brigandyne_bg.jpg');
     background-repeat:repeat;
-    background-position:top left;
+    background-position: top left;
     background-size: auto;
     position: relative;
     padding: 6px 0px 6px 0px;
