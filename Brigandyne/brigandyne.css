@@ -5,7 +5,6 @@ Beige gris (bordure sec claire) : #B5A790 rgba(181,167,144,1.0)
 Marron clair (bordure sec foncé) : #86704D rgba(134,112,77,1.0)
 Marron foncé (bordure ) : #64553E rgba(100,85,62,1.0)
 Texte ou fond "noir" : #231F20 rgba(35,31,32,1.0)
-Couleur : # rgba(,,,1.0)
 */
 .sheet-block{
     display: block;
@@ -73,7 +72,7 @@ div.sheet-mycol{
     display: inline-block;
     text-align: left;
     vertical-align: top;
-    background-color: #E0D3BA;
+    background-color: rgba(224,211,186,0.8); /* #E0D3BA; */
     border-style: solid;
     border-color: #64553E;
 }
@@ -126,10 +125,10 @@ div.sheet-bgsombre{
 .sheet-trow {
     display: table-row;
     border: 1px dotted #231F20;
-    background-color: #E0D3BA;
+    background-color: rgba(224,211,186,0.8); /* #E0D3BA; */
 }
 .sheet-trow.sheet-sombre{
-    background-color: #B5A790;
+    background-color: rgba(181,167,144,0.8); /* #B5A790; */
 }
 .sheet-theading {
     display: table-header-group;
@@ -186,7 +185,7 @@ input, textarea{
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
     box-shadow: inset 0px 1px 1px rgba(134,112,77,0.01),0 0 6px rgba(134,112,77,0.5);
-    background-color: transparent;
+    background-color: #E0D3BA;
 }
 textarea{
     padding: 1px 2px 0px 2px;
