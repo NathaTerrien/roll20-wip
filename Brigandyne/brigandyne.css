@@ -41,7 +41,6 @@ div.sheet-bgmain{
     background-size: auto;
     position: relative;
     padding: 6px 0px 6px 0px;
-
 }
 div.sheet-abs{
     position: absolute;
@@ -254,6 +253,11 @@ select{
     line-height: 20px;
     cursor: n-resize;
 }
+select.sheet-selprog{
+    font-size: 16px;
+    font-weight: normal;
+    color: black;
+}
 input[type="checkbox"].sheet-dispchk,
 input[type="radio"].sheet-dispchk{
     opacity: 0;
@@ -440,3 +444,98 @@ div.repcontrol{
     color: #231F20;
 }
 /* ===== TEMPLATE ===== */
+.sheet-rolltemplate-tmpl div{
+    vertical-align: middle;
+    border: none;
+    box-sizing: border-box;
+    display: block;
+}
+.sheet-rolltemplate-tmpl div.sheet-tplmain{
+    background-color: transparent;
+    border-width: 1px 2px 1px 2px;
+    border-radius: 0px 12px 12px 12px;
+    border-style: solid;
+    border-color: #64553E;
+    width: auto;
+}
+.sheet-rolltemplate-tmpl div.sheet-pc{
+    background-color: #231F20;
+    color : white;
+    padding: 4px 0px 4px 4px;
+    border-radius: 0px 10px 0px 0px;
+    font-size: 15px;
+    font-family: 'Contrail One';
+    display: inline-block;
+    border-bottom: 1px dotted #64553E;
+    width: 100%;
+}
+.sheet-rolltemplate-tmpl div.sheet-jetnom{
+    background-color: #86704D;
+    color: #E0D3BA;
+    padding: 4px 0px 4px 4px;
+    border-radius: 0px 0px 10px 10px;
+    font-size: 15px;
+    font-family: 'Contrail One';
+    display: inline-block;
+    border-top: 1px dotted #64553E;
+    width: 100%;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet{
+    background-color: #E0D3BA;
+    padding: 6px;
+    display: table-cell;
+    font-family: 'Shadows Into Light';
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+.sheet-rolltemplate-tmpl div.sheet-bordleft{
+    border-left: 1px dotted #64553E;
+}
+.sheet-rolltemplate-tmpl div.sheet-bordtop{
+    border-top: 1px dotted #64553E;
+}
+.sheet-rolltemplate-tmpl div.sheet-borderd{
+    border-right: 2px solid #64553E;
+}
+.sheet-rolltemplate-tmpl div.sheet-desc{
+    width: 100%;
+    text-align: left;
+    font-family: 'Arial';
+    font-size: inherit;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: #B5A790;
+    color: #231F20;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult {
+    background-color: transparent;
+    color: #231F20;;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 18px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmpl .sheet-success{
+    color: #3FB315;;
+}
+.sheet-rolltemplate-tmpl .sheet-failure{
+    color: #B31515;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult.fullcrit{
+    border: none;
+    color: #3FB315;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult.importantroll{
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult.fullfail{
+    border: none;
+    color: #B31515;
+}
