@@ -1,10 +1,13 @@
 # Natha's Roll20 Work In Progress
-Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.
+Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
+[Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-03-11 (Brigandyne WiP)._
+_Updated 2017-03-26 (Brigandyne v1.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
+
+Current amount gifted : $70.00 / $99.99  
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
@@ -19,17 +22,7 @@ Thank you :)
 ## Work In Progress
 ---
 
-![Brigandyne banner](/_banners/Brigandyne_banner.png)
-### Brigandyne (french)
-Site officiel : [Brigandyne](https://brigandyne.wordpress.com/), french
-
-Création.
-
-#### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne)
-
-### Todo
-Validate background
+Nothing yet.
 
 ---
 
@@ -65,7 +58,20 @@ Creation.
 
 ### Todo
 * Translate macro variables when this feature is available on Roll20.
+___
+![Brigandyne banner](/_banners/Brigandyne_banner.png)
+### Brigandyne (french)
+Site officiel : [Brigandyne](https://brigandyne.wordpress.com/), french
 
+Création.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.0 (2017-03-26)
+* [Fork]() Version 1.0 (2017-03-26)
+* [Official]() Version 1.0 (2017-03-26)
+
+### Todo
+* In game testing
 ___
 ![Cahiers banner](/_banners/Cahiers_banner.png)
 ### Les Cahiers du Vastemonde (french)
