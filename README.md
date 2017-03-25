@@ -67,7 +67,7 @@ Création.
 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.0 (2017-03-26)
-* [Fork]() Version 1.0 (2017-03-26)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne) Version 1.0 (2017-03-26)
 * [Official]() Version 1.0 (2017-03-26)
 
 ### Todo
