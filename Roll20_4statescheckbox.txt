@@ -1,0 +1,67 @@
+Multi-states (>3) checkbox
+
+I was looking for a way to do a 4 states cycling checkbox (and without using images, to avoid the hosting hassle)
+I found several solutions online, through CSS only or JS+CSS, that looked great but couldn't be applied to Roll20 (either because of the JS part, or the CSS which would require the use of IDs).
+So I cobbled my own thing, which is not CSS only, but uses sheet workers.
+It's not pretty but it worls : basically, it's an invisible checkbox on top of a radiobutton with 4 values.
+When clicking the checkbox, it fires a sheet worker which modified the attribute associated with the radiobutton (the value of the checkbox doesn't matter).
+There is probably a better and more elegant solution.
+
+HTML :
+<span class="cyclestate">
+    <input type="checkbox" name="attr_COMprogsel" title="Combat, progression" />
+    <input type="radio" name="attr_COMprog" value="-1" checked /><span>&#9724;</span>
+    <input type="radio" name="attr_COMprog" value="0" /><span>&#9744;</span>
+    <input type="radio" name="attr_COMprog" value="5" /><span>&#9745;</span>
+    <input type="radio" name="attr_COMprog" value="10" /><span>&#9746;</span>
+</span>
+
+Sheet worker :
+    on("change:COMprogsel", function(){
+        getAttrs(["COMprog"], function(values){
+            var prog = parseInt(values.COMprog) || 0;
+            var newprog = -1;
+            switch(prog) {
+                case -1:
+                    newprog = 0;
+                    break;
+                case 0:
+                    newprog = 5;
+                    break;
+                case 5:
+                    newprog = 10;
+                    break;
+                case 10:
+                    newprog = -1;
+                    break;
+                default:
+                    newprog = -1;
+            }
+            setAttrs({COMprog: newprog});
+        });
+    });
+
+CSS :
+span.sheet-cyclestate input[type="checkbox"]{
+    opacity: 0;
+    z-index: 20;
+    width: 18px;
+    height: 18px;
+    margin-right: -18px;
+}
+span.sheet-cyclestate input[type="radio"]{
+   z-index: 1;
+}
+span.sheet-cyclestate input[type="radio"]:not(b),
+span.sheet-cyclestate input[type="radio"]:not(b) + span {
+  display: none;
+}
+span.sheet-cyclestate input[type="radio"]:checked + span {
+  display: inline-block;
+  width: 18px;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  font-size: 18px;
+  color : #231F20;
+}
