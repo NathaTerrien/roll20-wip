@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-03-26 (Brigandyne v1.0)._
+_Updated 2017-03-28 (WiP The Sprawl, Brigandyne v1.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -22,8 +22,16 @@ Thank you :)
 ## Work In Progress
 ---
 
-Nothing yet.
+![thesorawl banner](/_banners/thesprawl_banner.png)
+### The Sprawl (french translation)
 
+Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, et intégration de la traduction française, dans le cadre  du [financement participatif](https://fr.ulule.com/the-sprawl-jdr-cyberpunk/).
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl)
+
+### Todo
+Insertion des tags i18n data.
 ---
 
 ## Existing sheets
@@ -68,7 +76,7 @@ Création.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.0 (2017-03-26)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne) Version 1.0 (2017-03-26)
-* [Official]() Version 1.0 (2017-03-26)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Brigandyne) Version 1.0 (2017-03-26)
 
 ### Todo
 * In game testing
