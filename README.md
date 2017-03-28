@@ -22,7 +22,7 @@ Thank you :)
 ## Work In Progress
 ---
 
-![thesorawl banner](/_banners/thesprawl_banner.png)
+![thesorawl banner](/_banners/the_sprawl.png)
 ### The Sprawl (french translation)
 
 Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, et intégration de la traduction française, dans le cadre  du [financement participatif](https://fr.ulule.com/the-sprawl-jdr-cyberpunk/).
