@@ -1,3 +1,6 @@
+.charsheet * {
+    box-sizing: border-box;
+}
 .charsheet::-webkit-scrollbar {
     width: 8px;
     background-color: #19867e !important;
@@ -32,6 +35,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
+span.sheet-translate{
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
 .sheet-clock_numbers {
     font-family: "Lucida Console", Monaco, monospace;
     color: #44E6CF !important;
@@ -110,9 +117,6 @@ input {
 select {
     position: relative;
     top: 4px;
-}
-.charsheet * {
-    box-sizing: border-box;
 }
 .charsheet {
     width: 852px;
@@ -563,7 +567,7 @@ input[type="text"].sheet-linkname {
     width: 62%;
 }
 .sheet-column_titles .sheet-gear4d {
-    width: 68%;
+    width: 67%;
 }
 .sheet-column_titles .sheet-gear4e {
     width: 83%;
