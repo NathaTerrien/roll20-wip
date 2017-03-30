@@ -2,12 +2,12 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-03-28 (WiP The Sprawl, Brigandyne v1.0)._
+_Updated 2017-03-30 (WiP The Sprawl, Brigandyne v1.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 
-Current amount gifted : $70.00 / $99.99  
+Current amount gifted : $80.00 / $99.99  
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
