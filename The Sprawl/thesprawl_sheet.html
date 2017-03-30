@@ -102,12 +102,19 @@
 </div>
 <div class="sheet-2colrow">
     <div class="sheet-col">
-        <label for="attr_cred" class="links-cred" data-i18n="cred">Cred</label><input type="number" name="attr_cred" value="0" style="width: 100% !important;" />
+        <div class="line">
+            <label for="attr_cred" class="links-cred" data-i18n="cred">Cred</label>
+        </div>
+        <input type="number" name="attr_cred" value="0" style="width: 100% !important;" />
         <div class="sheet-repeating">
-            <label for="attr_intelgear" class="links-intel" data-i18n="intel-and-gear">[Intel] &amp; [Gear]</label>
-            <input type="text" name="attr_intelgear1" />
+            <div class="line">
+                <label for="attr_intelgear" class="links-intel" data-i18n="intel-and-gear">[Intel] &amp; [Gear]</label>
+            </div>
+            <div class="line"><input type="text" name="attr_intelgear1" /></div>
             <fieldset class="repeating_intelgear">
+                <div class="line">
                 <input type="text" name="attr_intelgear" />
+                </div>
             </fieldset>
         </div>
     </div>
@@ -144,401 +151,476 @@
 
 <div class="sheet-2colrow">
     <div class="sheet-col sheet-repeating">
-        <label for="attr_moves" class="links-moves" data-i18n="moves">Moves</label>
+        <div class="line">
+            <label for="attr_moves" class="links-moves" data-i18n="moves">Moves</label>
+        </div>
         <div class="sheet-column_titles sheet-column_header">
-            <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
-            <div class="gear4d"><input type="text" name="attr_movename" /></div>
-            <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=@{movename}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{movedesc}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-            <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
-            <div class="gear2"><textarea name="attr_movedesc" cols="50" rows="5"></textarea></div>
+                <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
+                <div class="gear4d"><input type="text" name="attr_movename" /></div>
+                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=@{movename}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{movedesc}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+                <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
+                <div class="gear2"><textarea name="attr_movedesc" cols="50" rows="5"></textarea></div>
         </div>
         <fieldset class="repeating_moves">
             <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
                 <div class="gear4d"><input type="text" name="attr_movename" /></div>
                 <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=@{movename}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{movedesc}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+            </div>
+            <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
                 <div class="gear2"><textarea name="attr_movedesc" cols="50" rows="5"></textarea></div>
-        </fieldset>
-        </div>
-        <div class="sheet-col sheet-repeating">
-            <label for="attr_cyber" class="links-cyberware"><span class="translate" data-i18n="cyberware">Cyberware</span></label>
-
-             <div class="sheet-column_titles sheet-column_header">
-                    <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
-                    <div class="gear1b"><input type="text" name="attr_cybername" /></div>
-                    <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
-                    <div class="gear2 long_gear2"><input type="text" name="attr_cyberdesc" /></div>
-                    <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                    <div class="gear4"><input type="text" name="attr_cyberimgurl" /></div>
-                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=Cyberware ID}} {{roll_tabledescvalue=@{cybername}}} {{roll_imageurl=@{cyberimgurl}}} {{roll_imagedesc=^{cyberware-image}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{cyberdesc}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                </div>
-
-            <fieldset class="repeating_cyberwear">
-                <div class="sheet-column_titles sheet-column_header">
-                    <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
-                    <div class="gear1b"><input type="text" name="attr_cybername" /></div>
-                    <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
-                    <div class="gear2 long_gear2"><input type="text" name="attr_cyberdesc" /></div>
-                    <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                    <div class="gear4"><input type="text" name="attr_cyberimgurl" /></div>
-                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=Cyberware ID}} {{roll_tabledescvalue=@{cybername}}} {{roll_imageurl=@{cyberimgurl}}} {{roll_imagedesc=^{cyberware-image}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{cyberdesc}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                </div>
-            </fieldset>
-        </div>
-    </div>
-
-    <div class="sheet-2colrow">
-        <div class="sheet-col sheet-repeating">
-            <div class="twoarea">
-                <label for="attr_links" class="links_icon" data-i18n="links">Links</label>
-                <fieldset class="repeating_links">
-                    <input type="text" name="attr_linkname" class="sheet-linkname" /><input type="number" name="attr_links" class="sheet-linksmargin" value="0" /><button type="roll" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{rolls-links-with} @{linkname}}} {{roll_imageurl=@{fileimg}}} {{roll_imagedesc=^{file-image}}} {{roll_value1name=^{dice}}} {{roll_value1value=[[1d6]]+[[1d6]]}} {{roll_value2name=^{links}}} {{roll_value2value=[[@{links}]]}} {{roll_value3name=^{forward}}} {{roll_value3value=[[(?{Forward|0})]]}}' class="sheet-linksmargin"></button>
-                </fieldset>
             </div>
-            <label for="attr_contacts" class="links-contacts" data-i18n="contacts">Contacts</label>
-            <fieldset class="repeating_contacts">
-                <div class="sheet-column_titles sheet-column_header">
-                    <div class="gear4e"><input type="text" name="attr_contacts" /></div>
-                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{contacts}}} {{roll_value1name=^{details}}} {{roll_value1value=@{contacts}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                </div>
+        </fieldset>
+    </div>
+    <div class="sheet-col sheet-repeating">
+        <div class="line">
+            <label for="attr_cyber" class="links-cyberware"><span class="translate" data-i18n="cyberware">Cyberware</span></label>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
+            <div class="gear1b"><input type="text" name="attr_cybername" /></div>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
+            <div class="gear2 long_gear2"><input type="text" name="attr_cyberdesc" /></div>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
+            <div class="gear4"><input type="text" name="attr_cyberimgurl" /></div>
+            <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=Cyberware ID}} {{roll_tabledescvalue=@{cybername}}} {{roll_imageurl=@{cyberimgurl}}} {{roll_imagedesc=^{cyberware-image}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{cyberdesc}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+        </div>
+        <fieldset class="repeating_cyberwear">
+            <div class="sheet-column_titles sheet-column_header">
+                <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
+                <div class="gear1b"><input type="text" name="attr_cybername" /></div>
+            </div>
+            <div class="sheet-column_titles sheet-column_header">
+                <div class="gear0"><span class="translate" data-i18n="notes">Notes</span></div>
+                <div class="gear2 long_gear2"><input type="text" name="attr_cyberdesc" /></div>
+            </div>
+            <div class="sheet-column_titles sheet-column_header">
+                <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
+                <div class="gear4"><input type="text" name="attr_cyberimgurl" /></div>
+                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=Cyberware ID}} {{roll_tabledescvalue=@{cybername}}} {{roll_imageurl=@{cyberimgurl}}} {{roll_imagedesc=^{cyberware-image}}} {{roll_value1name=^{notes}}} {{roll_value1value=@{cyberdesc}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<div class="sheet-2colrow">
+    <div class="sheet-col sheet-repeating">
+        <div class="twoarea">
+            <label for="attr_links" class="links_icon" data-i18n="links">Links</label>
+            <fieldset class="repeating_links">
+                <input type="text" name="attr_linkname" class="sheet-linkname" /><input type="number" name="attr_links" class="sheet-linksmargin" value="0" /><button type="roll" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{rolls-links-with} @{linkname}}} {{roll_imageurl=@{fileimg}}} {{roll_imagedesc=^{file-image}}} {{roll_value1name=^{dice}}} {{roll_value1value=[[1d6]]+[[1d6]]}} {{roll_value2name=^{links}}} {{roll_value2value=[[@{links}]]}} {{roll_value3name=^{forward}}} {{roll_value3value=[[(?{Forward|0})]]}}' class="sheet-linksmargin"></button>
             </fieldset>
         </div>
-        <div class="sheet-col sheet-repeating">
-            <label for="attr_directive" class="links-directives" data-i18n="directives">Directives</label>
+        <label for="attr_contacts" class="links-contacts" data-i18n="contacts">Contacts</label>
+        <fieldset class="repeating_contacts">
+            <div class="sheet-column_titles sheet-column_header">
+                <div class="gear4e"><input type="text" name="attr_contacts" /></div>
+                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{contacts}}} {{roll_value1name=^{details}}} {{roll_value1value=@{contacts}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="sheet-col sheet-repeating">
+        <label for="attr_directive" class="links-directives" data-i18n="directives">Directives</label>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
+            <div class="gear4d"><input type="text" name="attr_directive" /></div>
+            <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{directive}}} {{roll_tabledescvalue=@{directive}}} {{roll_value1name=^{details}}} {{roll_value1value=@{directive-details}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="details">Details</span></div>
+            <div class="gear2"><textarea name="attr_directive-details" cols="50" rows="5"></textarea></div>
+        </div>
+        <fieldset class="repeating_directives">
             <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
                 <div class="gear4d"><input type="text" name="attr_directive" /></div>
                 <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{directive}}} {{roll_tabledescvalue=@{directive}}} {{roll_value1name=^{details}}} {{roll_value1value=@{directive-details}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+            </div>
+            <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="details">Details</span></div>
                 <div class="gear2"><textarea name="attr_directive-details" cols="50" rows="5"></textarea></div>
-
             </div>
-
-            <fieldset class="repeating_directives">
-                <div class="sheet-column_titles sheet-column_header">
-                    <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
-                    <div class="gear4d"><input type="text" name="attr_directive" /></div>
-                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{directive}}} {{roll_tabledescvalue=@{directive}}} {{roll_value1name=^{details}}} {{roll_value1value=@{directive-details}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                    <div class="gear0"><span class="translate" data-i18n="details">Details</span></div>
-                    <div class="gear2"><textarea name="attr_directive-details" cols="50" rows="5"></textarea></div>
-
-                </div>
-            </fieldset>
-        </div>
+        </fieldset>
     </div>
+</div>
 
-    <div class="sheet-2colrow">
-        <div class="sheet-col sheet-repeating">
-            <label for="attr_equipment" class="links-weapons" data-i18n="weapons">Weapons</label>
+<div class="sheet-2colrow">
+    <div class="sheet-col sheet-repeating">
+        <label for="attr_equipment" class="links-weapons" data-i18n="weapons">Weapons</label>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
+            <div class="gear1b"><input type="text" name="attr_gearname" /></div>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="tags">Tags</span></div>
+            <div class="gear2"><input type="text" name="attr_geartags" /></div>
+        </div>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear0"><span class="translate" data-i18n="harm">Harm</span></div>
+            <div class="gear3"><input type="number" name="attr_gearharm" /></div>
+            <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
+            <div class="gear4b"><input type="text" name="attr_gearimgurl" /></div>
+            <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=^{product-id}}} {{roll_tabledescvalue=@{gearname}}} {{roll_imageurl=@{gearimgurl}}} {{roll_imagedesc=^{gear-image}}} {{roll_value1name=^{tags}}} {{roll_value1value=@{geartags}}} {{roll_value2name=^{harm}}} {{roll_value2value=@{gearharm}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+        </div>
+        <fieldset class="repeating_equipment">
             <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
                 <div class="gear1b"><input type="text" name="attr_gearname" /></div>
+            </div>
+            <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="tags">Tags</span></div>
                 <div class="gear2"><input type="text" name="attr_geartags" /></div>
+            </div>
+            <div class="sheet-column_titles sheet-column_header">
                 <div class="gear0"><span class="translate" data-i18n="harm">Harm</span></div>
                 <div class="gear3"><input type="number" name="attr_gearharm" /></div>
                 <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
                 <div class="gear4b"><input type="text" name="attr_gearimgurl" /></div>
                 <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=^{product-id}}} {{roll_tabledescvalue=@{gearname}}} {{roll_imageurl=@{gearimgurl}}} {{roll_imagedesc=^{gear-image}}} {{roll_value1name=^{tags}}} {{roll_value1value=@{geartags}}} {{roll_value2name=^{harm}}} {{roll_value2value=@{gearharm}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
             </div>
-            <fieldset class="repeating_equipment">
-                <div class="sheet-column_titles sheet-column_header">
-                    <div class="gear0"><span class="translate" data-i18n="name">Name</span></div>
-                    <div class="gear1b"><input type="text" name="attr_gearname" /></div>
-                    <div class="gear0"><span class="translate" data-i18n="tags">Tags</span></div>
-                    <div class="gear2"><input type="text" name="attr_geartags" /></div>
-                    <div class="gear0"><span class="translate" data-i18n="harm">Harm</span></div>
-                    <div class="gear3"><input type="number" name="attr_gearharm" /></div>
-                    <div class="gear0b"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                    <div class="gear4b"><input type="text" name="attr_gearimgurl" /></div>
-                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=^{product-id}}} {{roll_tabledescvalue=@{gearname}}} {{roll_imageurl=@{gearimgurl}}} {{roll_imagedesc=^{gear-image}}} {{roll_value1name=^{tags}}} {{roll_value1value=@{geartags}}} {{roll_value2name=^{harm}}} {{roll_value2value=@{gearharm}}} {{roll_value3name=^{user}}} {{roll_value3value=@{name}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                </div>
-            </fieldset>
+        </fieldset>
+    </div>
+    <div class="sheet-col sheet-repeating">
+        <label for="attr_equipment" class="links-equipment" data-i18n="other-equipment">Other Equipment</label>
+        <div class="sheet-column_titles sheet-column_header">
+            <div class="gear4e"><input type="text" name="attr_equipname" /></div>
+            <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{equipment}}} {{roll_value1name=^{details}}} {{roll_value1value=@{equipname}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
         </div>
-        <div class="sheet-col sheet-repeating">
-            <label for="attr_equipment" class="links-equipment" data-i18n="other-equipment">Other Equipment</label>
+        <fieldset class="repeating_otherequipment">
             <div class="sheet-column_titles sheet-column_header">
                 <div class="gear4e"><input type="text" name="attr_equipname" /></div>
                 <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{equipment}}} {{roll_value1name=^{details}}} {{roll_value1value=@{equipname}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
             </div>
-            <fieldset class="repeating_otherequipment">
-                <div class="sheet-column_titles sheet-column_header">
-                    <div class="gear4e"><input type="text" name="attr_equipname" /></div>
-                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{equipment}}} {{roll_value1name=^{details}}} {{roll_value1value=@{equipname}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                </div>
-            </fieldset>
-        </div>
+        </fieldset>
     </div>
-    <div class="sheet-row1 checkboxes2">
-        <label for="attr_vehicles" data-i18n="vehicles-and-drones">Vehicles and Drones</label>
-        <div class="test">
-            <div class="flipswitch">
-                <input type="checkbox" name="attr_flipswitch1" class="flipswitch-cb1" />
-                <label class="flipswitch-label1" >
-            <div class="flipswitch-inner1"></div>
-            <div class="flipswitch-switch1"></div>
-        </label>
-                <div class="sheet-collapsible2 sheet-section2">
-                    <div class="sheet-2colrow">
-                        <div class="sheet-col sheet-repeating">
+</div>
+<div class="sheet-row1 checkboxes2">
+    <label for="attr_vehicles" data-i18n="vehicles-and-drones">Vehicles and Drones</label>
+    <div class="test">
+        <div class="flipswitch">
+            <input type="checkbox" name="attr_flipswitch1" class="flipswitch-cb1" />
+            <label class="flipswitch-label1" >
+                <div class="flipswitch-inner1"></div>
+                <div class="flipswitch-switch1"></div>
+            </label>
+            <div class="sheet-collapsible2 sheet-section2">
+                <div class="sheet-2colrow">
+                    <div class="sheet-col sheet-repeating">
+                        <div class="line">
                             <label for="attr_equipment" class="links-vehicles" data-i18n="vehicles">Vehicles</label>
-                            <fieldset class="repeating_vehicles">
-                                <div class="sheet-column_titles sheet-column_header">
-                                    <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_vehname" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="frame">Frame</span></div>
-                                    <div class="gear2c"><input type="text" name="attr_vehframe" /></div>
-                                    <div class="gear0e"><span class="translate" data-i18n="design">Design</span></div>
-                                    <div class="gear2d"><input type="text" name="attr_vehdesign" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="profile">Profile</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_vehprofile" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="strengths">Strengths</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_vehstrengths" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="looks">Looks</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_vehlooks" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="weaknesses">Weaknesses</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_vehweakness" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="weapons">Weapons</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_vehweapons" /></div>
-                                    <div class="gear0d"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                                    <div class="gear4c"><input type="text" name="attr_vehimgurl" /></div>
-                                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{vehicle}}} {{roll_tabledescvalue=@{vehname}}} {{roll_imageurl=@{vehimgurl}}} {{roll_imagedesc=^{vehicle-image}}} {{roll_value1name=^{frame}}} {{roll_value1value=@{vehframe}}} {{roll_value2name=^{design}}} {{roll_value2value=@{vehdesign}}} {{roll_value3name=^{profile}}} {{roll_value3value=@{vehprofile}}} {{roll_value4name=^{strengths}}} {{roll_value4value=@{vehstrengths}}} {{roll_value5name=^{looks}}} {{roll_value5value=@{vehlooks}}} {{roll_value6name=^{weaknesses}}} {{roll_value6value=@{vehweakness}}} {{roll_value7name=^{weapons}}} {{roll_value7value=@{vehweapons}}} {{roll_value3long=true}} {{roll_value7long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                                </div>
-                            </fieldset>
                         </div>
-                        <div class="sheet-col sheet-repeating">
-                            <label for="attr_directives" class="links-drones" data-i18n="drones">Drones</label>
-                            <fieldset class="repeating_drones">
-                                <div class="sheet-column_titles sheet-column_header">
-                                    <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_dronename" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="style">Style</span></div>
-                                    <div class="gear2c"><input type="text" name="attr_dronestyle" /></div>
-                                    <div class="gear0e"><span class="translate" data-i18n="frame">Frame</span></div>
-                                    <div class="gear2d"><input type="text" name="attr_droneframe" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="strengths">Strengths</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_dronestrengths" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="sensors">Sensors</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_dronesensors" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="weaknesses">Weaknesses</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_droneweakness" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="armed">Armed</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_droneweapons" /></div>
-                                    <div class="gear0d"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                                    <div class="gear4c"><input type="text" name="attr_droneimgurl" /></div>
-                                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - Drone}} {{roll_tabledescvalue=@{dronename}}} {{roll_imageurl=@{droneimgurl}}} {{roll_imagedesc=^{drone-image}}} {{roll_value1name=^{style}}} {{roll_value1value=@{dronestyle}}} {{roll_value2name=^{frame}}} {{roll_value2value=@{droneframe}}} {{roll_value3name=^{strengths}}} {{roll_value3value=@{dronestrengths}}} {{roll_value4name=^{sensors}}} {{roll_value4value=@{dronesensors}}} {{roll_value5name=^{weaknesses}}} {{roll_value5value=@{droneweakness}}} {{roll_value6name=^{weapons}}} {{roll_value6value=@{droneweapons}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="sheet-row1 checkboxes3">
-        <label for="attr_vehicles" data-i18n="cyberdeck">Cyberdeck</label>
-        <div class="test">
-            <div class="flipswitch">
-                <input type="checkbox" name="attr_flipswitch2" class="flipswitch-cb2" />
-                <label class="flipswitch-label2" >
-            <div class="flipswitch-inner2"></div>
-            <div class="flipswitch-switch2"></div>
-        </label>
-                <div class="sheet-collapsible3 sheet-section2">
-                    <div class="sheet-2colrow">
-                        <div class="sheet-col sheet-repeating">
-                            <label for="attr_cyberdeck" class="links-cyberdeck" data-i18n="cyberdeck">Cyberdeck</label>
+                        <fieldset class="repeating_vehicles">
                             <div class="sheet-column_titles sheet-column_header">
                                 <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
-                                <div class="gear2b"><input type="text" name="attr_cyberdeck-name" /></div>
-                                <div class="gear0c"><span class="translate" data-i18n="hardening">Hardening</span></div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-hard" /></div>
-                                <div class="gear0h">/</div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-hardmax" /></div>
-                                <div class="gear0i"><span class="translate" data-i18n="firewall">Firewall</span></div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-fire" /></div>
-                                <div class="gear0h">/</div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-firemax" /></div>
-                                <div class="gear0c"><span class="translate" data-i18n="processor">Processor</span></div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-pro" /></div>
-                                <div class="gear0h">/</div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-promax" /></div>
-                                <div class="gear0i"><span class="translate" data-i18n="stealth">Stealth</span></div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-stealth" /></div>
-                                <div class="gear0h">/</div>
-                                <div class="gear2e"><input type="number" name="attr_cyberdeck-stealthmax" /></div>
-                                <div class="gear0c programs"><span class="translate" data-i18n="programs-loaded">Programs Loaded</span></div>
-                                <div class="gear2b"><input type="text" name="attr_cyberdeck-loaded" /></div>
-                                <div class="gear0d"><span class="translate" data-i18n="avatar-img">Avatar Img</span></div>
-                                <div class="gear4c"><input type="text" name="attr_cyberdeck-imgurl" /></div>
-                                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{cyberdeck}}} {{roll_tabledescvalue=@{cyberdeck-name}}} {{roll_imageurl=@{cyberdeck-imgurl}}} {{roll_imagedesc=^{cyberdeck-image}}} {{roll_value1name=^{hardening}}} {{roll_value1value=@{cyberdeck-hard}/@{cyberdeck-hardmax}}} {{roll_value2name=^{firewall}}} {{roll_value2value=@{cyberdeck-fire}/@{cyberdeck-firemax}}} {{roll_value3name=^{processor}}} {{roll_value3value=@{cyberdeck-pro}/@{cyberdeck-promax}}} {{roll_value4name=^{stealth}}} {{roll_value4value=@{cyberdeck-stealth}/@{cyberdeck-stealthmax}}} {{roll_value5name=^{programs-loaded}}} {{roll_value5value=@{cyberdeck-loaded}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                                <div class="gear2b"><input type="text" name="attr_vehname" /></div>
                             </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="frame">Frame</span></div>
+                                <div class="gear2c"><input type="text" name="attr_vehframe" /></div>
+                                <div class="gear0e"><span class="translate" data-i18n="design">Design</span></div>
+                                <div class="gear2d"><input type="text" name="attr_vehdesign" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="profile">Profile</span></div>
+                                <div class="gear2b"><input type="text" name="attr_vehprofile" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="strengths">Strengths</span></div>
+                                <div class="gear2b"><input type="text" name="attr_vehstrengths" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="looks">Looks</span></div>
+                                <div class="gear2b"><input type="text" name="attr_vehlooks" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="weaknesses">Weaknesses</span></div>
+                                <div class="gear2b"><input type="text" name="attr_vehweakness" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="weapons">Weapons</span></div>
+                                <div class="gear2b"><input type="text" name="attr_vehweapons" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0d"><span class="translate" data-i18n="img-url">Img Url</span></div>
+                                <div class="gear4c"><input type="text" name="attr_vehimgurl" /></div>
+                                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{vehicle}}} {{roll_tabledescvalue=@{vehname}}} {{roll_imageurl=@{vehimgurl}}} {{roll_imagedesc=^{vehicle-image}}} {{roll_value1name=^{frame}}} {{roll_value1value=@{vehframe}}} {{roll_value2name=^{design}}} {{roll_value2value=@{vehdesign}}} {{roll_value3name=^{profile}}} {{roll_value3value=@{vehprofile}}} {{roll_value4name=^{strengths}}} {{roll_value4value=@{vehstrengths}}} {{roll_value5name=^{looks}}} {{roll_value5value=@{vehlooks}}} {{roll_value6name=^{weaknesses}}} {{roll_value6value=@{vehweakness}}} {{roll_value7name=^{weapons}}} {{roll_value7value=@{vehweapons}}} {{roll_value3long=true}} {{roll_value7long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sheet-col sheet-repeating">
+                        <label for="attr_directives" class="links-drones" data-i18n="drones">Drones</label>
+                        <fieldset class="repeating_drones">
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
+                                <div class="gear2b"><input type="text" name="attr_dronename" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="style">Style</span></div>
+                                <div class="gear2c"><input type="text" name="attr_dronestyle" /></div>
+                                <div class="gear0e"><span class="translate" data-i18n="frame">Frame</span></div>
+                                <div class="gear2d"><input type="text" name="attr_droneframe" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="strengths">Strengths</span></div>
+                                <div class="gear2b"><input type="text" name="attr_dronestrengths" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="sensors">Sensors</span></div>
+                                <div class="gear2b"><input type="text" name="attr_dronesensors" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="weaknesses">Weaknesses</span></div>
+                                <div class="gear2b"><input type="text" name="attr_droneweakness" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="armed">Armed</span></div>
+                                <div class="gear2b"><input type="text" name="attr_droneweapons" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0d"><span class="translate" data-i18n="img-url">Img Url</span></div>
+                                <div class="gear4c"><input type="text" name="attr_droneimgurl" /></div>
+                                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - Drone}} {{roll_tabledescvalue=@{dronename}}} {{roll_imageurl=@{droneimgurl}}} {{roll_imagedesc=^{drone-image}}} {{roll_value1name=^{style}}} {{roll_value1value=@{dronestyle}}} {{roll_value2name=^{frame}}} {{roll_value2value=@{droneframe}}} {{roll_value3name=^{strengths}}} {{roll_value3value=@{dronestrengths}}} {{roll_value4name=^{sensors}}} {{roll_value4value=@{dronesensors}}} {{roll_value5name=^{weaknesses}}} {{roll_value5value=@{droneweakness}}} {{roll_value6name=^{weapons}}} {{roll_value6value=@{droneweapons}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sheet-row1 checkboxes3">
+    <label for="attr_vehicles" data-i18n="cyberdeck">Cyberdeck</label>
+    <div class="test">
+        <div class="flipswitch">
+            <input type="checkbox" name="attr_flipswitch2" class="flipswitch-cb2" />
+            <label class="flipswitch-label2" >
+        <div class="flipswitch-inner2"></div>
+        <div class="flipswitch-switch2"></div>
+    </label>
+            <div class="sheet-collapsible3 sheet-section2">
+                <div class="sheet-2colrow">
+                    <div class="sheet-col sheet-repeating">
+                        <div class="line">
+                            <label for="attr_cyberdeck" class="links-cyberdeck" data-i18n="cyberdeck">Cyberdeck</label>
                         </div>
-                        <div class="sheet-col sheet-repeating">
+                        <div class="sheet-column_titles sheet-column_header">
+                            <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
+                            <div class="gear2b"><input type="text" name="attr_cyberdeck-name" /></div>
+                        </div>
+                        <div class="sheet-column_titles sheet-column_header">
+                            <div class="gear0c"><span class="translate" data-i18n="hardening">Hardening</span></div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-hard" /></div>
+                            <div class="gear0h">/</div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-hardmax" /></div>
+                            <div class="gear0i"><span class="translate" data-i18n="firewall">Firewall</span></div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-fire" /></div>
+                            <div class="gear0h">/</div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-firemax" /></div>
+                        </div>
+                        <div class="sheet-column_titles sheet-column_header">
+                            <div class="gear0c"><span class="translate" data-i18n="processor">Processor</span></div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-pro" /></div>
+                            <div class="gear0h">/</div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-promax" /></div>
+                            <div class="gear0i"><span class="translate" data-i18n="stealth">Stealth</span></div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-stealth" /></div>
+                            <div class="gear0h">/</div>
+                            <div class="gear2e"><input type="number" name="attr_cyberdeck-stealthmax" /></div>
+                        </div>
+                        <div class="sheet-column_titles sheet-column_header">
+                            <div class="gear0c programs"><span class="translate" data-i18n="programs-loaded">Programs Loaded</span></div>
+                            <div class="gear2b"><input type="text" name="attr_cyberdeck-loaded" /></div>
+                        </div>
+                        <div class="sheet-column_titles sheet-column_header">
+                            <div class="gear0d"><span class="translate" data-i18n="avatar-img">Avatar Img</span></div>
+                            <div class="gear4c"><input type="text" name="attr_cyberdeck-imgurl" /></div>
+                            <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - ^{cyberdeck}}} {{roll_tabledescvalue=@{cyberdeck-name}}} {{roll_imageurl=@{cyberdeck-imgurl}}} {{roll_imagedesc=^{cyberdeck-image}}} {{roll_value1name=^{hardening}}} {{roll_value1value=@{cyberdeck-hard}/@{cyberdeck-hardmax}}} {{roll_value2name=^{firewall}}} {{roll_value2value=@{cyberdeck-fire}/@{cyberdeck-firemax}}} {{roll_value3name=^{processor}}} {{roll_value3value=@{cyberdeck-pro}/@{cyberdeck-promax}}} {{roll_value4name=^{stealth}}} {{roll_value4value=@{cyberdeck-stealth}/@{cyberdeck-stealthmax}}} {{roll_value5name=^{programs-loaded}}} {{roll_value5value=@{cyberdeck-loaded}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                        </div>
+                    </div>
+                    <div class="sheet-col sheet-repeating">
+                        <div class="line">
                             <label for="attr_programs" class="links-programs" data-i18n="programs-owned">Programs Owned</label>
-                            <fieldset class="repeating_programs">
-                                <div class="sheet-column_titles sheet-column_header">
-                                    <div class="gear4e"><input type="text" name="attr_programs" /></div>
-                                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{program}}} {{roll_value1name=^{details}}} {{roll_value1value=@{programs}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                                </div>
-                            </fieldset>
                         </div>
+                        <fieldset class="repeating_programs">
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear4e"><input type="text" name="attr_programs" /></div>
+                                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name}}} {{roll_tabledescvalue=^{program}}} {{roll_value1name=^{details}}} {{roll_value1value=@{programs}}} {{roll_value1long=true}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                            </div>
+                        </fieldset>
                     </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sheet-row1 checkboxes4">
+    <label for="attr_vehicles" data-i18n="gangs-and-crews">Gangs and Crews</label>
+    <div class="test">
+        <div class="flipswitch">
+            <input type="checkbox" name="attr_flipswitch3" class="flipswitch-cb3" />
+            <label class="flipswitch-label3" >
+                <div class="flipswitch-inner3"></div>
+                <div class="flipswitch-switch3"></div>
+            </label>
+            <div class="sheet-collapsible4 sheet-section2">
+                <div class="sheet-2colrow">
+                    <div class="sheet-col sheet-repeating">
+                        <label for="attr_equipment" class="links-gangs" data-i18n="gangs">Gangs</label>
+                        <fieldset class="repeating_gangs">
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
+                                <div class="gear2b"><input type="text" name="attr_gangname" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="type">Type</span></div>
+                                <div class="gear2b"><input type="text" name="attr_gangtype" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="size">Size</span></div>
+                                <div class="gear2c"><input type="text" name="attr_gangsize" /></div>
+                                <div class="gear0e"><span class="translate" data-i18n="tags">Tags</span></div>
+                                <div class="gear2d"><input type="text" name="attr_gangtags" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="territory">Territory</span></div>
+                                <div class="gear2b"><input type="text" name="attr_gangterritory" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="character">Character</span></div>
+                                <div class="gear2b"><input type="text" name="attr_gangchar" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="leader">Leader</span></div>
+                                <div class="gear2b"><input type="text" name="attr_gangleader" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0c"><span class="translate" data-i18n="main-gigs">Main Gigs</span></div>
+                                <div class="gear2b"><input type="text" name="attr_gang-gigs" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0d"><span class="translate" data-i18n="img-url">Img Url</span></div>
+                                <div class="gear4c"><input type="text" name="attr_gangimgurl" /></div>
+                                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - Gang}} {{roll_tabledescvalue=@{gangname}}} {{roll_imageurl=@{gangimgurl}}} {{roll_imagedesc=^{gang-image}}} {{roll_value1name=^{type}}} {{roll_value1value=@{gangtype}}} {{roll_value2name=^{size}}} {{roll_value2value=@{gangsize}}} {{roll_value3name=^{tags}}} {{roll_value3value=@{gangtags}}} {{roll_value4name=^{territory}}} {{roll_value4value=@{gangterritory}}} {{roll_value5name=^{character}}} {{roll_value5value=@{gangchar}}} {{roll_value6name=^{leader}}} {{roll_value6value=@{gangleader}}} {{roll_value7name=^{main-gigs}}} {{roll_value7value=@{gang-gigs}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="sheet-col sheet-repeating">
+                        <label for="attr_directives" class="links-crews" data-i18n="crews">Crews</label>
+                        <fieldset class="repeating_crews">
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0f"><span class="translate" data-i18n="name">Name</span></div>
+                                <div class="gear2c"><input type="text" name="attr_crewname" /></div>
+                                <div class="gear0g"><span class="translate" data-i18n="type">Type</span></div>
+                                <div class="gear2d"><input type="text" name="attr_crewtype" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0f"><span class="translate" data-i18n="profit">Profit</span></div>
+                                <div class="gear2c"><input type="text" name="attr_crewprofit" /></div>
+                                <div class="gear0g"><span class="translate" data-i18n="disaster">Disaster</span></div>
+                                <div class="gear2d"><input type="text" name="attr_crewdisaster" /></div>
+                            </div>
+                            <div class="sheet-column_titles sheet-column_header">
+                                <div class="gear0d gear0f"><span class="translate" data-i18n="img-url">Img Url</span></div>
+                                <div class="gear4d"><input type="text" name="attr_crewimgurl" /></div>
+                                <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - Crew}} {{roll_tabledescvalue=@{crewname}}} {{roll_imageurl=@{crewimgurl}}} {{roll_imagedesc=^{crew-image}}} {{roll_value1name=^{type}}} {{roll_value1value=@{crewtype}}} {{roll_value2name=^{profit}}} {{roll_value2value=@{crewprofit}}} {{roll_value3name=^{disaster}}} {{roll_value3value=@{crewdisaster}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="sheet-row1 checkboxes4">
-        <label for="attr_vehicles" data-i18n="gangs-and-crews">Gangs and Crews</label>
-        <div class="test">
-            <div class="flipswitch">
-                <input type="checkbox" name="attr_flipswitch3" class="flipswitch-cb3" />
-                <label class="flipswitch-label3" >
-            <div class="flipswitch-inner3"></div>
-            <div class="flipswitch-switch3"></div>
-        </label>
-                <div class="sheet-collapsible4 sheet-section2">
-                    <div class="sheet-2colrow">
-                        <div class="sheet-col sheet-repeating">
-                            <label for="attr_equipment" class="links-gangs" data-i18n="gangs">Gangs</label>
-                            <fieldset class="repeating_gangs">
-                                <div class="sheet-column_titles sheet-column_header">
-                                    <div class="gear0c"><span class="translate" data-i18n="name">Name</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_gangname" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="type">Type</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_gangtype" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="size">Size</span></div>
-                                    <div class="gear2c"><input type="text" name="attr_gangsize" /></div>
-                                    <div class="gear0e"><span class="translate" data-i18n="tags">Tags</span></div>
-                                    <div class="gear2d"><input type="text" name="attr_gangtags" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="territory">Territory</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_gangterritory" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="character">Character</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_gangchar" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="leader">Leader</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_gangleader" /></div>
-                                    <div class="gear0c"><span class="translate" data-i18n="main-gigs">Main Gigs</span></div>
-                                    <div class="gear2b"><input type="text" name="attr_gang-gigs" /></div>
-                                    <div class="gear0d"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                                    <div class="gear4c"><input type="text" name="attr_gangimgurl" /></div>
-                                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - Gang}} {{roll_tabledescvalue=@{gangname}}} {{roll_imageurl=@{gangimgurl}}} {{roll_imagedesc=^{gang-image}}} {{roll_value1name=^{type}}} {{roll_value1value=@{gangtype}}} {{roll_value2name=^{size}}} {{roll_value2value=@{gangsize}}} {{roll_value3name=^{tags}}} {{roll_value3value=@{gangtags}}} {{roll_value4name=^{territory}}} {{roll_value4value=@{gangterritory}}} {{roll_value5name=^{character}}} {{roll_value5value=@{gangchar}}} {{roll_value6name=^{leader}}} {{roll_value6value=@{gangleader}}} {{roll_value7name=^{main-gigs}}} {{roll_value7value=@{gang-gigs}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="sheet-col sheet-repeating">
-                            <label for="attr_directives" class="links-crews" data-i18n="crews">Crews</label>
-                            <fieldset class="repeating_crews">
-                                <div class="sheet-column_titles sheet-column_header">
-                                    <div class="gear0f"><span class="translate" data-i18n="name">Name</span></div>
-                                    <div class="gear2c"><input type="text" name="attr_crewname" /></div>
-                                    <div class="gear0g"><span class="translate" data-i18n="type">Type</span></div>
-                                    <div class="gear2d"><input type="text" name="attr_crewtype" /></div>
-                                    <div class="gear0f"><span class="translate" data-i18n="profit">Profit</span></div>
-                                    <div class="gear2c"><input type="text" name="attr_crewprofit" /></div>
-                                    <div class="gear0g"><span class="translate" data-i18n="disaster">Disaster</span></div>
-                                    <div class="gear2d"><input type="text" name="attr_crewdisaster" /></div>
-                                    <div class="gear0d gear0f"><span class="translate" data-i18n="img-url">Img Url</span></div>
-                                    <div class="gear4d"><input type="text" name="attr_crewimgurl" /></div>
-                                    <div class="gear5"><button type="roll" class="sheet-btn sheet-tochat" value='&{template:spr_desc} {{roll_tabledescname=@{name} - Crew}} {{roll_tabledescvalue=@{crewname}}} {{roll_imageurl=@{crewimgurl}}} {{roll_imagedesc=^{crew-image}}} {{roll_value1name=^{type}}} {{roll_value1value=@{crewtype}}} {{roll_value2name=^{profit}}} {{roll_value2value=@{crewprofit}}} {{roll_value3name=^{disaster}}} {{roll_value3value=@{crewdisaster}}}'><span class="translate" data-i18n="broadcast">Broadcast</span></button></div>
-                                </div>
-                            </fieldset>
-                        </div>
-                    </div>
+</div>
+<div class="sheet-row1">
+    <label for="attr_notes" class="links-notes" data-i18n="notes">Notes</label>
+    <textarea name="attr_notes" cols="100" rows="10"></textarea>
+</div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="sheet-row1">
-        <label for="attr_notes" class="links-notes" data-i18n="notes">Notes</label>
-        <textarea name="attr_notes" cols="100" rows="10"></textarea>
-    </div>
-
-
-
-
-    <!-- ROLL TEMPLATES -->
-
-
-    <rolltemplate class="sheet-rolltemplate-spr_desc">
-        <table>
-            <tr>
-                <td colspan="2">{{roll_tabledescname}}</td>
-            </tr>
-            <tr>
-                <th colspan="2">{{roll_tabledescvalue}}</th>
-            </tr>
-            {{#roll_harm1}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/aJQbMCV.jpg)</td>
-            </tr>{{/roll_harm1}} {{#roll_harm2}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/r7DeZid.jpg)</td>
-            </tr>{{/roll_harm2}} {{#roll_harm3}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/U3HQbtc.jpg)</td>
-            </tr>{{/roll_harm3}} {{#roll_harm4}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/chNCCfx.jpg)</td>
-            </tr>{{/roll_harm4}} {{#roll_harm5}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/Xtbv4tF.jpg)</td>
-            </tr>{{/roll_harm5}} {{#roll_harm6}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/cFWDwj7.jpg)</td>
-            </tr>{{/roll_harm6}} {{#roll_harm7}}
-            <tr>
-                <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/HhmjEZs.jpg)</td>
-            </tr>{{/roll_harm7}} {{#roll_imageurl}}
-            <tr>
-                <td colspan="2">[{{roll_imagedesc}}]({{roll_imageurl}})</td>
-            </tr>{{/roll_imageurl}} {{#roll_value1value}}
-            <tr>
-                <td class="sheet-desc_leftcol {{#roll_value1long}}longoff{{/roll_value1long}}">{{roll_value1name}}</td>
-                <td class="sheet-desc_rightcol {{#roll_value1long}}longoff{{/roll_value1long}}">{{roll_value1value}}</td>
-            </tr>{{/roll_value1value}} {{#roll_value2value}}
-            <tr>
-                <td class="sheet-desc_leftcol">{{roll_value2name}}</td>
-                <td class="sheet-desc_rightcol">{{roll_value2value}}</td>
-            </tr>{{/roll_value2value}} {{#roll_value3value}}
-            <tr>
-                <td class="sheet-desc_leftcol {{#roll_value3long}}longoff{{/roll_value3long}}">{{roll_value3name}}</td>
-                <td class="sheet-desc_rightcol {{#roll_value3long}}longoff{{/roll_value3long}}">{{roll_value3value}}</td>
-            </tr>{{/roll_value3value}} {{#roll_value4value}}
-            <tr>
-                <td class="sheet-desc_leftcol">{{roll_value4name}}</td>
-                <td class="sheet-desc_rightcol">{{roll_value4value}}</td>
-            </tr>{{/roll_value4value}} {{#roll_value5value}}
-            <tr>
-                <td class="sheet-desc_leftcol">{{roll_value5name}}</td>
-                <td class="sheet-desc_rightcol">{{roll_value5value}}</td>
-            </tr>{{/roll_value5value}} {{#roll_value6value}}
-            <tr>
-                <td class="sheet-desc_leftcol">{{roll_value6name}}</td>
-                <td class="sheet-desc_rightcol">{{roll_value6value}}</td>
-            </tr>{{/roll_value6value}} {{#roll_value7value}}
-            <tr>
-                <td class="sheet-desc_leftcol {{#roll_value7long}}longoff{{/roll_value7long}}">{{roll_value7name}}</td>
-                <td class="sheet-desc_rightcol {{#roll_value7long}}longoff{{/roll_value7long}}">{{roll_value7value}}</td>
-            </tr>{{/roll_value7value}}
-            <tr>
-                <td class="sheet-desc_leftcol"></td>
-                <td class="sheet-desc_rightcol"></td>
-            </tr>
-            <tr>
-                <td class="sheet-desc_leftcol"></td>
-                <td class="sheet-desc_rightcol"></td>
-            </tr>
-            <tr>
-                <td class="sheet-desc_leftcol"></td>
-                <td class="sheet-desc_rightcol"></td>
-            </tr>
-            <tr>
-                <td class="sheet-desc_leftcol"></td>
-                <td class="sheet-desc_rightcol"></td>
-            </tr>
-        </table>
-    </rolltemplate>
+<!-- ROLL TEMPLATES -->
+<rolltemplate class="sheet-rolltemplate-spr_desc">
+    <table>
+        <tr>
+            <td colspan="2">{{roll_tabledescname}}</td>
+        </tr>
+        <tr>
+            <th colspan="2">{{roll_tabledescvalue}}</th>
+        </tr>
+        {{#roll_harm1}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/aJQbMCV.jpg)</td>
+        </tr>{{/roll_harm1}} {{#roll_harm2}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/r7DeZid.jpg)</td>
+        </tr>{{/roll_harm2}} {{#roll_harm3}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/U3HQbtc.jpg)</td>
+        </tr>{{/roll_harm3}} {{#roll_harm4}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/chNCCfx.jpg)</td>
+        </tr>{{/roll_harm4}} {{#roll_harm5}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/Xtbv4tF.jpg)</td>
+        </tr>{{/roll_harm5}} {{#roll_harm6}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/cFWDwj7.jpg)</td>
+        </tr>{{/roll_harm6}} {{#roll_harm7}}
+        <tr>
+            <td colspan="2">[roll_harmimagedesc}}](http://i.imgur.com/HhmjEZs.jpg)</td>
+        </tr>{{/roll_harm7}} {{#roll_imageurl}}
+        <tr>
+            <td colspan="2">[{{roll_imagedesc}}]({{roll_imageurl}})</td>
+        </tr>{{/roll_imageurl}} {{#roll_value1value}}
+        <tr>
+            <td class="sheet-desc_leftcol {{#roll_value1long}}longoff{{/roll_value1long}}">{{roll_value1name}}</td>
+            <td class="sheet-desc_rightcol {{#roll_value1long}}longoff{{/roll_value1long}}">{{roll_value1value}}</td>
+        </tr>{{/roll_value1value}} {{#roll_value2value}}
+        <tr>
+            <td class="sheet-desc_leftcol">{{roll_value2name}}</td>
+            <td class="sheet-desc_rightcol">{{roll_value2value}}</td>
+        </tr>{{/roll_value2value}} {{#roll_value3value}}
+        <tr>
+            <td class="sheet-desc_leftcol {{#roll_value3long}}longoff{{/roll_value3long}}">{{roll_value3name}}</td>
+            <td class="sheet-desc_rightcol {{#roll_value3long}}longoff{{/roll_value3long}}">{{roll_value3value}}</td>
+        </tr>{{/roll_value3value}} {{#roll_value4value}}
+        <tr>
+            <td class="sheet-desc_leftcol">{{roll_value4name}}</td>
+            <td class="sheet-desc_rightcol">{{roll_value4value}}</td>
+        </tr>{{/roll_value4value}} {{#roll_value5value}}
+        <tr>
+            <td class="sheet-desc_leftcol">{{roll_value5name}}</td>
+            <td class="sheet-desc_rightcol">{{roll_value5value}}</td>
+        </tr>{{/roll_value5value}} {{#roll_value6value}}
+        <tr>
+            <td class="sheet-desc_leftcol">{{roll_value6name}}</td>
+            <td class="sheet-desc_rightcol">{{roll_value6value}}</td>
+        </tr>{{/roll_value6value}} {{#roll_value7value}}
+        <tr>
+            <td class="sheet-desc_leftcol {{#roll_value7long}}longoff{{/roll_value7long}}">{{roll_value7name}}</td>
+            <td class="sheet-desc_rightcol {{#roll_value7long}}longoff{{/roll_value7long}}">{{roll_value7value}}</td>
+        </tr>{{/roll_value7value}}
+        <tr>
+            <td class="sheet-desc_leftcol"></td>
+            <td class="sheet-desc_rightcol"></td>
+        </tr>
+        <tr>
+            <td class="sheet-desc_leftcol"></td>
+            <td class="sheet-desc_rightcol"></td>
+        </tr>
+        <tr>
+            <td class="sheet-desc_leftcol"></td>
+            <td class="sheet-desc_rightcol"></td>
+        </tr>
+        <tr>
+            <td class="sheet-desc_leftcol"></td>
+            <td class="sheet-desc_rightcol"></td>
+        </tr>
+    </table>
+</rolltemplate>
