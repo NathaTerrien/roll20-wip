@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-03-31 (gifts)._
+_Updated 2017-03-31 (The Sprawl multilingue v1.1, gifts)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -28,11 +28,14 @@ Thank you :)
 Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, et intégration de la traduction française, dans le cadre  du [financement participatif](https://fr.ulule.com/the-sprawl-jdr-cyberpunk/).
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl) v1.1 (2017-03-31)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl) v1.1 (2017-03-31)
 
 ### Todo
 
-Insertion des tags i18n data.
+* ~~Insertion des tags i18n data.~~
+* ~~Révision HTML et CSS pour fiabiliser le layout en multilingue~~
+* Intégration de la VF
 
 ---
 
