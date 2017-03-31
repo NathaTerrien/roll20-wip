@@ -22,14 +22,14 @@
 -------- MINIFY HTML ----------
 Commentaires : <!--(.*?)-->
 Sauts de lignes : \n
-Indentation : >\s+< => ><
-Templates : >\s+{ => >{
-    }\s+< => }<
-    }\s+{ => }{
+Indentation : >\s+< == ><
+Templates : >\s+{ == >{
+    }\s+< == }<
+    }\s+{ == }{
 ------- MINIFY CSS -----
-\n => \s
-\s\s+ => \s
-\s{\s => {
-{\s => {
-;\s} => }
-:\s => :
+\n == \s
+\s\s+ == \s
+\s{\s == {
+{\s == {
+;\s} == }
+:\s == :
