@@ -13,13 +13,13 @@ Thank you :)
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
 * Chroniques Oubliées Contemporain, french
-* Mazes & Minotaurs
-* Into the Odd
-* Star Trek (Decipher's System)
+* Mazes & Minotaurs, english
+* Into the Odd, french and english
+* Star Trek (Decipher's System), english
 * Yggdrasill, french and english
 * Stars Without Number, french
 * Castles & Crusades, english
-* [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html)
+* [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html), french
 
 ---
 
