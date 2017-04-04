@@ -11,7 +11,11 @@ Current amount gifted : $90.00 / $99.99
 Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
+In no particular order ...
 * Chroniques Oubliées Contemporain, french
+* Mazes & Minotaurs
+* Into the Odd
+* Star Trek (Decipher's System)
 * Yggdrasill, french and english
 * Stars Without Number, french
 * Castles & Crusades, english
