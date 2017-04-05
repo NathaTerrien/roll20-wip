@@ -17,29 +17,29 @@ HTML :
 </span>
 
 Sheet worker :
-    on("change:COMprogsel", function(){
-        getAttrs(["COMprog"], function(values){
-            var prog = parseInt(values.COMprog) || 0;
-            var newprog = -1;
-            switch(prog) {
-                case -1:
-                    newprog = 0;
-                    break;
-                case 0:
-                    newprog = 5;
-                    break;
-                case 5:
-                    newprog = 10;
-                    break;
-                case 10:
-                    newprog = -1;
-                    break;
-                default:
-                    newprog = -1;
-            }
-            setAttrs({COMprog: newprog});
-        });
+on("change:COMprogsel", function(){
+    getAttrs(["COMprog"], function(values){
+        var prog = parseInt(values.COMprog) || 0;
+        var newprog = -1;
+        switch(prog) {
+            case -1:
+                newprog = 0;
+                break;
+            case 0:
+                newprog = 5;
+                break;
+            case 5:
+                newprog = 10;
+                break;
+            case 10:
+                newprog = -1;
+                break;
+            default:
+                newprog = -1;
+        }
+        setAttrs({COMprog: newprog});
     });
+});
 
 CSS :
 span.sheet-cyclestate input[type="checkbox"]{
@@ -49,12 +49,10 @@ span.sheet-cyclestate input[type="checkbox"]{
     height: 18px;
     margin-right: -18px;
 }
-span.sheet-cyclestate input[type="radio"]{
-   z-index: 1;
-}
-span.sheet-cyclestate input[type="radio"]:not(b),
-span.sheet-cyclestate input[type="radio"]:not(b) + span {
+span.sheet-cyclestate input[type="radio"],
+span.sheet-cyclestate input[type="radio"] + span {
   display: none;
+  z-index: 1;
 }
 span.sheet-cyclestate input[type="radio"]:checked + span {
   display: inline-block;
