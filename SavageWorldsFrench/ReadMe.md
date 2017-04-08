@@ -82,13 +82,21 @@ NB : décrémenter les PP automatiquement au lancement d'un pouvoir nécessitera
 
 # Notes de version
 
-##v1.8 (2017-02-18)
+## v1.9 (2017-04-09)
+
+* Correction du jet de dégâts en jet brut, pour les armes dynamiques
+* Ajout de la possibilité d'utiliser la compétence Arcane dans les jets d'Arme (pour Eclair par exemple). Les jets d'attaque avec Arcane demande une difficulté (4 par défaut) en mode Total du jet et Succès+Relance(s). En mode Succès+Relance(s) et Cible, n'utilise que la Résistance de la cible, pour le calcul des dégâts.
+* Nouvelles options (boutons "oeil") pour afficher/masquer des contenus de blocs de la fiche
+* Nouvelle option de configuration pour masquer le logo
+* Légers ajustements de mise en page
+
+## v1.8 (2017-02-18)
 Nouvelle correction d'un bug occasionnel de calcul de l'encombrement.
 
-##v1.7 (2016-12-18)
+## v1.7 (2016-12-18)
 Correction d'un bug occasionnel de calcul de l'encombrement.
 
-##v1.6 (2016-07-30)
+## v1.6 (2016-07-30)
 
 * Ajout d'un jet de compétence "Non entraîné", afin de pouvoir masquer toutes les compétences non entraînées et faire les jets tout de même
 * Ajout d'une champ de saisie de "Notes" en fin de feuille
@@ -96,10 +104,10 @@ Correction d'un bug occasionnel de calcul de l'encombrement.
 * Ajout de la portée
 * Légère remise en page sur l'affichage des pouvoirs dans le chat
 
-##v1.5 (2016-02-28)
+## v1.5 (2016-02-28)
 Correction d'affichage sous Firefox.
 
-##v1.4 (2016-02-21)
+## v1.4 (2016-02-21)
 Merci à Xo de Vorcen pour les tests !
 
 * Configuration
@@ -123,10 +131,10 @@ Merci à Xo de Vorcen pour les tests !
   * Amélioration de l'affichage des résultats de jets en mode succès+relances (indicateur d'échec, succès sans relance et succès+relances)
   * Correction des malus de jets en état critique (-3 pour les Blessures et -2 pour la Fatigue)
 
-##v1.2 (2015-12-22)
+## v1.2 (2015-12-22)
 Equipement / Inventaire / Encombrement : ajout du poids individuel, gestion des poids décimaux, correction d'un bug lors de la suppression d'une ligne.
 
-##v1.1 (2015-11-30)
+## v1.1 (2015-11-30)
 Merci à The Aaron pour son script [TAS](https://github.com/shdwjk/TheAaronSheet).
 
 * Ajout de sheet workers (nouveauté technique Roll20) pour :
@@ -136,5 +144,5 @@ Merci à The Aaron pour son script [TAS](https://github.com/shdwjk/TheAaronSheet
 * Ajout de l'affichage de la compétence utilisées dans les jets d'Armes.
 * État du personnage plus détaillé dans les jets
 
-##v1.0 (2015-11-16)
+## v1.0 (2015-11-16)
 Création de la fiche.
