@@ -408,7 +408,7 @@ on("change:atkcible", function () {
     <!-- onglets -->
     <input type="radio" name="attr_chkvie" value="0" class="onglmain" title="Feuille" checked /><span>Feuille</span>
     <input type="radio" name="attr_chkvie" value="1" class="onglconfig" title="Configuration" /><span>Configuration</span>
-    <span style="display:inline-block;width:150px;text-align: center;color: #888888;font-size: 0.9em;">v1.9 (09/04/2017)</span>
+    <span style="display:inline-block;width:150px;text-align: center;color: #888888;font-size: 0.9em;">v2.0 (09/04/2017)</span>
     <!-- Style FdP -->
     <input type="checkbox" name="attr_sheetDead" value="1" class="chkSheetDead" />
     <!-- paramètres cachés -->
@@ -1789,181 +1789,85 @@ on("change:atkcible", function () {
 </div> <!-- FIN FDP -->
 <!-- *** TEMPLATES ** -->
 <rolltemplate class="sheet-rolltemplate-sawo">
-    {{#perso}}
-        <table>
-           <tr>
-                <td style="text-align: center;">
-                    {{#pouvoir}}Pouvoir de{{/pouvoir}}
-                    <b>{{perso}}</b>
-                    {{#attaque}}attaque{{/attaque}}
-                    {{^pouvoir}}
-                        {{^attaque}}fait un jet{{/attaque}}
-                    {{/pouvoir}}
-                </td>
-            </tr>
-            {{#cible}}
-                {{#rollTotal() atkcible 1}}
-                    <tr>
-                        <td style="text-align: center;">
-                            {{^attaque}}contre{{/attaque}}
-                            <b>{{cible}}</b>
-                        </td>
-                    </tr>
-                {{/rollTotal() atkcible 1}}
-            {{/cible}}
-        </table>
-    {{/perso}}
-    <table>
-        <tr>
-            <th colspan="2">
-                {{name}}
-                {{#competence}}({{competence}}){{/competence}}
-            </th>
-        </tr>
+    <div class="tmpl">
+        {{#perso}}
+            <div class="titre">{{name}}{{#competence}} ({{competence}}){{/competence}}</div>
+            <div class="ligne">
+                {{#pouvoir}}Pouvoir de{{/pouvoir}}
+                <b>{{perso}}</b>
+                {{#attaque}}attaque{{/attaque}}
+                {{^pouvoir}}
+                    {{^attaque}}fait un jet{{/attaque}}
+                {{/pouvoir}}
+                {{#cible}}
+                    {{#rollTotal() atkcible 1}}
+                        {{^attaque}}contre{{/attaque}}
+                        <b>{{cible}}</b>
+                    {{/rollTotal() atkcible 1}}
+                {{/cible}}
+            </div>
+            {{#rollTotal() etat 1}}
+                <div class="ligne">
+                    <span class="desc">{{perso}} est</span>
+                    {{#rollTotal() blessures 0}}
+                        {{#rollTotal() fatigue 0}}
+                            {{#rollTotal() secoue 0}}
+                                <span class="etat">Normal</span>
+                            {{/rollTotal() secoue 0}}
+                        {{/rollTotal() fatigue 0}}
+                    {{/rollTotal() blessures 0}}
+                    {{#rollTotal() secoue 1}}
+                        <span class="etat attention">Secoué</span>
+                    {{/rollTotal() secoue 1}}
+                    {{#rollGreater() blessures 0}}
+                        {{#rollLess() blessures 4}}<span class="etat">Blessé ({{blessures}})</span>{{/rollLess() blessures 4}}
+                        {{#rollTotal() blessures 4}}<span class="etat echec">en État critique</span>{{/rollTotal() blessures 4}}
+                    {{/rollGreater() blessures 0}}
+                    {{#rollGreater() fatigue 0}}
+                            {{#rollTotal() fatigue 1}}<span class="etat">Fatigué</span>{{/rollTotal() fatigue 1}}
+                            {{#rollTotal() fatigue 2}}<span class="etat attention">Épuisé</span>{{/rollTotal() fatigue 2}}
+                            {{#rollTotal() fatigue 3}}<span class="etat echec">en Fatigue Critique</span>{{/rollTotal() fatigue 3}}
+                    {{/rollGreater() fatigue 0}}
+                    {{#rollGreater() encombrement 0}}<span class="etat">Encombré ({{encombrement}})</span>{{/rollGreater() encombrement 0}}
+                </div>
+            {{/rollTotal() etat 1}}
+        {{/perso}}
         {{#relances}}
             {{#rollLess() relances 1}}
-                <tr>
-                    <td class="info" style="text-align: left;font-weight: bold;color: red;">{{#attaque}}Attaque : {{/attaque}}Échec</td>
-                    <td style="text-align: center;">{{relances}}</td>
-                </tr>
+                <div class="ligne"><div class="jet">{{#attaque}}<span class="etat">Attaque</span>{{/attaque}}<span class="echec">Échec</span> ({{relances}})</div></div>
             {{/rollLess() relances 1}}
             {{#rollTotal() relances 1}}
-                <tr>
-                    <td class="info" style="text-align: left;font-weight: bold;color: green;">{{#attaque}}Attaque : {{/attaque}}Succès sans relance</td>
-                    <td style="text-align: center;">{{relances}}</td>
-                </tr>
+                <div class="ligne"><div class="jet">{{#attaque}}<span class="etat">Attaque</span>{{/attaque}}{{relances}} <span class="succes">Succès</span> sans relance</div></div>
                 {{#attaque}}
-                    {{#rollLess() degatsrel 1}}
-                        <tr>
-                            <td class="info" style="text-align: left;font-weight: bold;color: red;">Pas de Dégât</td>
-                            <td style="text-align: center;">{{degatsrel}}</td>
-                        </tr>
-                    {{/rollLess() degatsrel 1}}
-                    {{#rollTotal() degatsrel 1}}
-                        <tr>
-                            <td class="info" style="text-align: left;font-weight: bold;color: green;">Dégâts : Succès sans relance</td>
-                            <td style="text-align: center;">{{degatsrel}}</td>
-                        </tr>
-                    {{/rollTotal() degatsrel 1}}
-                    {{#rollGreater() degatsrel 1}}
-                        <tr>
-                            <td class="info" style="text-align: left;font-weight: bold;color: green;">Dégâts : Succès+relance(s)</td>
-                            <td style="text-align: center;">{{degatsrel}}</td>
-                        </tr>
-                    {{/rollGreater() degatsrel 1}}
+                    <div class="ligne"><div class="jet">
+                        {{#rollLess() degatsrel 1}}<span class="etat">Dégâts</span><span class="echec">Aucun</span> ({{degatsrel}}){{/rollLess() degatsrel 1}}
+                        {{#rollTotal() degatsrel 1}}<span class="etat">Dégâts</span>{{degatsrel}} <span class="succes">Succès</span> sans relance{{/rollTotal() degatsrel 1}}
+                        {{#rollGreater() degatsrel 1}}<span class="etat">Dégâts</span><span class="succes">Succès</span> et {{degatsrel}}<span class="pseudores">-1</span> relance(s){{/rollGreater() degatsrel 1}}
+                    </div></div>
                 {{/attaque}}
             {{/rollTotal() relances 1}}
             {{#rollGreater() relances 1}}
-                <tr>
-                    <td class="info" style="text-align: left;font-weight: bold;color: green;">{{#attaque}}Attaque : {{/attaque}}Succès+Relance(s)</td>
-                    <td style="text-align: center;">{{relances}}</td>
-                </tr>
+                <div class="ligne"><div class="jet">{{#attaque}}<span class="etat">Attaque</span>{{/attaque}}<span class="succes">Succès</span> et {{relances}}<span class="pseudores">-1</span> relance(s)</div></div>
                 {{#attaque}}
-                    {{#rollLess() degatsrelplus 1}}
-                        <tr>
-                            <td class="info" style="text-align: left;font-weight: bold;color: red;">Pas de Dégât</td>
-                            <td style="text-align: center;">{{degatsrelplus}}</td>
-                        </tr>
-                    {{/rollLess() degatsrelplus 1}}
-                    {{#rollTotal() degatsrelplus 1}}
-                        <tr>
-                            <td class="info" style="text-align: left;font-weight: bold;color: green;">Dégâts(+1d6) : Succès sans relance</td>
-                            <td style="text-align: center;">{{degatsrelplus}}</td>
-                        </tr>
-                    {{/rollTotal() degatsrelplus 1}}
-                    {{#rollGreater() degatsrelplus 1}}
-                        <tr>
-                            <td class="info" style="text-align: left;font-weight: bold;color: green;">Dégâts(+1d6) : Succès+relance(s)</td>
-                            <td style="text-align: center;">{{degatsrelplus}}</td>
-                        </tr>
-                    {{/rollGreater() degatsrelplus 1}}
+                    <div class="ligne"><div class="jet">
+                        {{#rollLess() degatsrelplus 1}}<span class="etat">Dégâts +1d6</span> <span class="echec">Aucun</span> ({{degatsrelplus}}){{/rollLess() degatsrelplus 1}}
+                        {{#rollTotal() degatsrelplus 1}}<span class="etat">Dégâts +1d6</span> {{degatsrelplus}} <span class="succes">Succès</span> sans relance{{/rollTotal() degatsrelplus 1}}
+                        {{#rollGreater() degatsrelplus 1}}<span class="etat">Dégâts +1d6</span><span class="succes">Succès</span> et {{degatsrelplus}}<span class="pseudores">-1</span> relance(s){{/rollGreater() degatsrelplus 1}}
+                    </div></div>
                 {{/attaque}}
             {{/rollGreater() relances 1}}
         {{/relances}}
         {{#jet}}
-            <tr>
-                <td class="info" style="text-align: left;font-weight: bold;">Jet : </td>
-                <td>{{jet}}</td>
-            </tr>
+            <div class="ligne"><div class="jet"><span class="etat">Jet</span>{{jet}}</div></div>
             {{#degats}}
-                <tr>
-                    <td class="info" style="text-align: left;font-weight: bold">Dégâts : </td>
-                    <td>{{degats}}</td>
-                </tr>
-                <tr>
-                    <td class="info" style="text-align: right;font-weight: bold">+1d6 si relance : </td>
-                    <td>{{degatsplus}}</td>
-                </tr>
+                <div class="ligne"><div class="jet"><span class="etat">Dégâts</span>{{degats}} +{{degatsplus}} (1d6) si relance</div></div>
             {{/degats}}
         {{/jet}}
         {{#pouvoir}}
-            <tr>
-                <td style="text-align: right; padding-right: 4px;">PP</td>
-                <td class="info" style="width:100%;text-align:left; font-weight: bold;">{{pp}}</td>
-            </tr>
-            <tr>
-                <td style="text-align: right; padding-right: 4px;">Portée</td>
-                <td class="info" style="width:100%;text-align:left; font-weight: bold;">{{portee}}</td>
-            </tr>
-            <tr>
-                <td style="text-align: right; padding-right: 4px;">Durée</td>
-                <td class="info" style="width:100%;text-align:left; font-weight: bold;">{{duree}}</td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="jetdesc">{{description}}</div>
-                </td>
-            </tr>
+            <div class="jetdesc">{{pp}} PP</div>
+            <div class="jetdesc">Portée {{portee}}</div>
+            <div class="jetdesc">Durée {{duree}}</div>
+            <div class="jetdesc">{{description}}</div>
         {{/pouvoir}}
-    </table>
-    {{#rollTotal() etat 1}}
-        <table style="border-top:none;">
-            <tr><td colspan="2" style="text-align: center;">État de {{perso}}</td></tr>
-            {{#rollTotal() blessures 0}}
-                {{#rollTotal() fatigue 0}}
-                    {{#rollTotal() secoue 0}}
-                        <td class="info" style="text-align: center;" colspan="2">Normal</td>
-                    {{/rollTotal() secoue 0}}
-                {{/rollTotal() fatigue 0}}
-            {{/rollTotal() blessures 0}}
-            {{#rollTotal() secoue 1}}
-                <tr class="septpl">
-                    <td class="info" style="text-align: center;" colspan="2">Secoué</td>
-                </tr>
-            {{/rollTotal() secoue 1}}
-            {{#rollGreater() blessures 0}}
-                <tr class="septpl">
-                    <td class="info">
-                        Blessures
-                    </td>
-                    <td style="text-align: center;">
-                        {{blessures}}
-                        {{#rollTotal() blessures 4}}
-                            <span style="text-align: center;color: red;">(État critique)</span>
-                        {{/rollTotal() blessures 4}}
-                    </td>
-                </tr>
-            {{/rollGreater() blessures 0}}
-            {{#rollGreater() fatigue 0}}
-                <tr class="septpl">
-                    <td class="info">Fatigue</td>
-                    {{#rollTotal() fatigue 1}}
-                        <td style="text-align: center;">Fatigué</td>
-                    {{/rollTotal() fatigue 1}}
-                    {{#rollTotal() fatigue 2}}
-                        <td style="text-align: center;">Epuisé</td>
-                    {{/rollTotal() fatigue 2}}
-                    {{#rollTotal() fatigue 3}}
-                        <td style="text-align: center;color: red;">État Critique</td>
-                    {{/rollTotal() fatigue 3}}
-                </tr>
-            {{/rollGreater() fatigue 0}}
-            {{#rollGreater() encombrement 0}}
-                <tr class="septpl">
-                    <td style="text-align: right;">{{encombrement}}</td>
-                    <td class="info">Encombrement</td>
-                </tr>
-            {{/rollGreater() encombrement 0}}
-        </table>
-    {{/rollTotal() etat 1}}
+    </div>
 </rolltemplate>
