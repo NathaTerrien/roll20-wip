@@ -1,49 +1,100 @@
 /* TEMPLATES */
-.sheet-rolltemplate-sawo table {
-    width: 100%;
-    padding: 2px;
-    border: none;
-    background-color: #FBFCFC;
-    border-top: 1px solid #CD071E;
-    border-bottom: 1px solid #CD071E;
+.sheet-rolltemplate-sawo div{
+    display: block;
+    text-align: center;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
 }
-.sheet-rolltemplate-sawo tr {
-    border-left: 1px solid #CD071E;
-    border-right: 1px solid #CD071E;
+.sheet-rolltemplate-sawo div.sheet-tmpl{
+     border: 1px solid #CD071E;
+     background-color: #FBFCFC;
 }
-.sheet-rolltemplate-sawo tr.sheet-septpl {
-    border-top: 1px dashed #CD071E;
-}
-.sheet-rolltemplate-sawo tr.sheet-septpl:first-child {
-    border-top: none;
-}
-.sheet-rolltemplate-sawo th {
+.sheet-rolltemplate-sawo div.sheet-titre{
     background-color: #CD071E;
     color : #FBFCFC;
-    line-height: 1.2em;
-    font-size: 1.1em;
-    text-align: center;
+    font-size: 15px;
     font-family: Candal;
     font-variant: small-caps;
     font-weight: normal;
-    margin-bottom: 4px;
+    padding: 3px;
 }
-.sheet-rolltemplate-sawo td {
-    padding-left: 5px;
-    font-size: 0.9em;
-}
-.sheet-rolltemplate-sawo td.sheet-info {
-    font-style: italic;
+.sheet-rolltemplate-sawo div.sheet-ligne{
     background-color:#F6F1EC;
-    text-align: right;
+    padding: 3px;
+}
+.sheet-rolltemplate-sawo div.sheet-ligne:nth-child(odd){
+    background-color: #FBFCFC;
+}
+.sheet-rolltemplate-sawo div.sheet-ligne.sheet-transp{
+    background-color:transparent;
+}
+.sheet-rolltemplate-sawo div.sheet-jet{
+    padding: 1px;
 }
 .sheet-rolltemplate-sawo div.sheet-jetdesc{
-    font-family: 'Verdana', serif;
-    font-size: 0.9em;
     max-height: 140px;
     overflow-y: auto;
+    text-align: left;
+    background-color: #FBFCFC;
+    padding: 2px;
 }
+.sheet-rolltemplate-sawo div.sheet-jetdesc:nth-child(even){
+    background-color: #F6F1EC;
+}
+.sheet-rolltemplate-sawo span.sheet-etat{
+    border: 1px solid #AAA;
+    border-radius: 4px;
+    padding: 2px 2px 2px 2px !important;
+    margin: 2px 2px 2px 2px !important;
+    background: #DDD;
+    white-space: nowrap;
+}
+.sheet-rolltemplate-sawo span.sheet-desc{
+    font-style: italic;
+    font-size: smaller;
+}
+.sheet-rolltemplate-sawo .sheet-succes{
+    color: #228000;
+    font-weight: bold;
+}
+.sheet-rolltemplate-sawo .sheet-attention{
+    color: #c58103;
+}
+.sheet-rolltemplate-sawo .sheet-echec{
+    color: #B31515;
+}
+.sheet-rolltemplate-sawo .sheet-pseudores{
+    color: black;
+    border: none;
+    padding: 0px 0px;
+    font-weight: normal;
+    cursor: help;
+    font-size: 14px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-sawo .inlinerollresult {
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 0px 0px;
+    font-weight: normal;
+    cursor: help;
+    font-size: 14px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-sawo .inlinerollresult.fullcrit{
+    border: none;
+    color: #228000;
+}
+.sheet-rolltemplate-sawo .inlinerollresult.importantroll{
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-sawo .inlinerollresult.fullfail{
+    border: none;
+    color: #B31515;
+}
+
 /************************************** FDP ********************************************/
     /************************************** GENERAL *********************************/
 div,
