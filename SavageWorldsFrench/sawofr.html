@@ -1458,20 +1458,24 @@ on("change:atkcible", function () {
                 <div class="redtitle1 disp"><div class="nopnj">ATOUTS &amp; HANDICAPS</div><div class="pnj">APTITUDES</div></div>
                 <input type="checkbox" name="attr_dispAtouts" class="dispchk" title="Afficher/masquer le contenu" checked /><span class="dispchk">E</span>
                 <div class="dispchk">
-                    <div class="redtitle2"><div class="nopnj">ATOUTS</div><div class="pnj">APTITUDES (+)</div></div>
-                    <fieldset class="repeating_atouts"> <!-- ATOUTS -->
-                        <div class="input">
-                            <input type="checkbox" name="attr_atoutdisplay" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                            <textarea name="attr_atout" class="textdesc" style="width: 244px;" placeholder="Atout" title="Atout"></textarea>
-                        </div>
-                    </fieldset>
-                    <div class="redtitle2"><div class="nopnj">HANDICAPS</div><div class="pnj">APTITUDES (-)</div></div>
-                    <fieldset class="repeating_handicaps"> <!-- ATOUTS -->
-                        <div class="input">
-                            <input type="checkbox" name="attr_handicapdisplay" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                            <textarea name="attr_handicap" class="textdesc" style="width: 244px;" placeholder="Handicap" title="Handicap"></textarea>
-                        </div>
-                    </fieldset>
+                    <div> <!-- ATOUTS -->
+                        <div class="redtitle2"><div class="nopnj">ATOUTS</div><div class="pnj">APTITUDES (+)</div></div>
+                        <fieldset class="repeating_atouts"> <!-- ATOUTS -->
+                            <div class="input">
+                                <input type="checkbox" name="attr_atoutdisplay" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                                <textarea name="attr_atout" class="textdesc" style="width: 244px;" placeholder="Atout" title="Atout"></textarea>
+                            </div>
+                        </fieldset>
+                    </div> <!-- FIN ATOUTS -->
+                    <div> <!-- HANDICAPS -->
+                        <div class="redtitle2"><div class="nopnj">HANDICAPS</div><div class="pnj">APTITUDES (-)</div></div>
+                        <fieldset class="repeating_handicaps"> <!-- ATOUTS -->
+                            <div class="input">
+                                <input type="checkbox" name="attr_handicapdisplay" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
+                                <textarea name="attr_handicap" class="textdesc" style="width: 244px;" placeholder="Handicap" title="Handicap"></textarea>
+                            </div>
+                        </fieldset>
+                    </div> <!-- FIN HANDICAPS -->
                 </div>
             </div>
             <div class="colblock nopnj">
