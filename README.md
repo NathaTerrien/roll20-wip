@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-03-31 (The Sprawl multilingue v1.1, gifts)._
+_Updated 2017-04-09 (Savage Worlds French v2.0)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -12,14 +12,13 @@ Thank you :)
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
-* Chroniques Oubliées Contemporain, french
-* Mazes & Minotaurs, english
-* Into the Odd, french and english
-* Star Trek (Decipher's System), english
 * Yggdrasill, french and english
+* Chroniques Oubliées Contemporain, french
 * Stars Without Number, french
 * Castles & Crusades, english
+* Star Trek (Decipher's System), english
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html), french
+* Mazes & Minotaurs, english
 
 ---
 
@@ -83,8 +82,8 @@ Site officiel : [Brigandyne](https://brigandyne.wordpress.com/), french
 Création.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.0 (2017-03-26)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne) Version 1.0 (2017-03-26)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.1 (2017-04-05)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne) Version 1.1 (2017-04-05)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Brigandyne) Version 1.0 (2017-03-26)
 
 ### Todo
@@ -277,8 +276,8 @@ ___
 Création.
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 1.8 (2017-02-18)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.8 (2017-02-18)
+* [WIP](./SavageWorldsFrench/) Version 2.0 (2017-04-09)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 2.0 (2017-04-09)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.8 (2017-02-18)
 
 #### Todo
