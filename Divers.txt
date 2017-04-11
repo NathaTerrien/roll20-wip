@@ -20,12 +20,14 @@
         });
 
 -------- MINIFY HTML ----------
-Commentaires : <!--(.*?)-->
-Sauts de lignes : \n
+Worker:  //(.*?)\n ==
+Commentaires : <!--(.*?)--> ==
+Sauts de lignes : \n == espace
 Indentation : >\s+< == ><
 Templates : >\s+{ == >{
     }\s+< == }<
     }\s+{ == }{
+    \s+ => \s
 ------- MINIFY CSS -----
 \n == \s
 \s\s+ == \s
