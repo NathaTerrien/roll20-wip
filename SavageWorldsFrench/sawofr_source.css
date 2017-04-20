@@ -680,6 +680,8 @@ div.repcontrol{
 div.sheet-fdp{
     background: transparent;
     width:860px;
+    max-width:860px;
+    min-width: 860px;
     color: #231F20;
 }
 div.sheet-main{
@@ -767,6 +769,7 @@ div.sheet-input{
     border-bottom: 1px dashed #231F20;
     padding: 1px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
+    white-space: nowrap;
 }
 div.sheet-input div{
     display: inline-block;

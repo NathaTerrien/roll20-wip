@@ -1,6 +1,6 @@
 <!-- **** SCRIPTS / SHEET WORKERS -->
 <script type="text/worker">
-// === JOKER / PNJ / EXTRA
+/* === JOKER / PNJ / EXTRA */
 on("change:joker_de", function() {
     getAttrs(["joker_de","pnj","chkPossessions","templateetat"], function(values) {
         var extra = 0;
@@ -36,7 +36,7 @@ on("change:pnj", function(){
         }
     });
 });
-// === BLESSURES et Malus blessure
+/* === BLESSURES et Malus blessure */
 on("change:blessures", function() {
     getAttrs(["blessures"], function(values) {
         var malusblessures = 0;
@@ -50,7 +50,7 @@ on("change:blessures", function() {
         });
     });
 });
-// === FATIGUE et Malus blessure
+/* === FATIGUE et Malus blessure */
 on("change:fatigue", function() {
     getAttrs(["fatigue"], function(values) {
         var malusfatigue = 0;
@@ -64,7 +64,7 @@ on("change:fatigue", function() {
         });
     });
 });
-// === ARMES FIXES
+/* === ARMES FIXES */
 on("change:arme1_comp", function() {
     getAttrs(["arme1_comp"], function(values) {
         setAttrs({
@@ -92,7 +92,7 @@ on("change:arme3_comp", function() {
         });
     });
 });
-// === ARMES DYNAMIQUES
+/* === ARMES DYNAMIQUES */
 on("change:repeating_armes:armed_comp", function() {
     getAttrs(["repeating_armes_armeD_comp"], function(values) {
         setAttrs({
@@ -102,8 +102,8 @@ on("change:repeating_armes:armed_comp", function() {
         });
     });
 });
-// === CARACS DÉRIVÉES
-//    Charisme
+/* === CARACS DÉRIVÉES */
+/* Charisme */
 on("change:charisme_base change:charisme_bonus", function() {
     getAttrs(["charisme_base","charisme_bonus"], function(values) {
         setAttrs({
@@ -111,7 +111,7 @@ on("change:charisme_base change:charisme_bonus", function() {
         });
     });
 });
-// Parade
+/* Parade */
 on("change:combat_de change:combat_bonus change:parade_bonus", function() {
     getAttrs(["combat_de","combat_bonus","parade_bonus"], function(values) {
         setAttrs({
@@ -120,7 +120,7 @@ on("change:combat_de change:combat_bonus change:parade_bonus", function() {
         });
     });
 });
-// Résistance
+/* Résistance */
 on("change:vigueur_de change:vigueur_bonus change:resistance_bonus", function() {
     getAttrs(["vigueur_de","vigueur_bonus","resistance_bonus"], function(values) {
         setAttrs({
@@ -129,7 +129,7 @@ on("change:vigueur_de change:vigueur_bonus change:resistance_bonus", function() 
         });
     });
 });
-// Affichage / Masquage toutes compétences
+/* Affichage / Masquage toutes compétences */
 on("change:chkAllComp", function() {
     getAttrs(["chkAllComp"], function(values) {
         setAttrs({
@@ -160,7 +160,7 @@ on("change:chkAllComp", function() {
         });
     });
 });
-// === Inventaire et encombrement
+/* Inventaire et encombrement */
 on("change:force_de", function() {
     getAttrs(["force_de"], function(values) {
         setAttrs({
@@ -203,7 +203,7 @@ on("change:encombpoids change:encombmax", function() {
         });
     });
 });
-// === Attaques
+/* === Attaques */
 on("change:atkcible", function () {
     getAttrs(["atkcible"], function(values){
         var cibleparade = "",
@@ -1560,7 +1560,7 @@ on("change:atkcible", function () {
                 <input name="attr_arme1_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme1_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
                 <input name="attr_arme1_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
                 <input type="checkbox" name="attr_arme1display" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                <textarea name="attr_arme1_notes" class="textdesc" style="width: 171px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+                <textarea name="attr_arme1_notes" class="textdesc" style="width: 205px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
             </div> <!-- FIN ARME FIXE 1 -->
             <div class="input"> <!-- ARME FIXE 2 -->
                 <button type="roll"
@@ -1608,7 +1608,7 @@ on("change:atkcible", function () {
                 <input name="attr_arme2_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme2_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
                 <input name="attr_arme2_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
                 <input type="checkbox" name="attr_arme2display" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                <textarea name="attr_arme2_notes" class="textdesc" style="width: 171px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+                <textarea name="attr_arme2_notes" class="textdesc" style="width: 205px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
             </div> <!-- FIN ARME FIXE 2 -->
             <div class="input"> <!-- ARME FIXE 3 -->
                 <button type="roll"
@@ -1656,7 +1656,7 @@ on("change:atkcible", function () {
                 <input name="attr_arme3_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme3_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
                 <input name="attr_arme3_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
                 <input type="checkbox" name="attr_arme3display" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                <textarea name="attr_arme3_notes" class="textdesc" style="width: 171px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+                <textarea name="attr_arme3_notes" class="textdesc" style="width: 205px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
             </div> <!-- FIN ARME FIXE 3 -->
             <fieldset class="repeating_armes">
                 <div class="input"> <!-- ARME DYNAMIQUE -->
@@ -1705,7 +1705,7 @@ on("change:atkcible", function () {
                     <input name="attr_armeD_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_armeD_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
                     <input name="attr_armeD_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
                     <input type="checkbox" name="attr_armeDdisplay" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                    <textarea name="attr_armeD_notes" class="textdesc" style="width: 171px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
+                    <textarea name="attr_armeD_notes" class="textdesc" style="width: 205px;" placeholder="Notes" title="Notes sur l'arme"></textarea>
                 </div> <!-- FIN ARME DYNAMIQUE -->
             </fieldset>
         </div> <!-- ** FIN ARMES ** -->
@@ -1735,7 +1735,7 @@ on("change:atkcible", function () {
                     <input name="attr_pouv_portee" type="text" style="width:100px;margin-right:3px;" placeholder="Portée" title="Portée de l'arme" />
                     <input name="attr_pouv_duree" type="text" style="width:100px;margin-right:3px;" placeholder="Durée" title="Durée du pouvoir" />
                     <input type="checkbox" name="attr_pouvoirdisplay" class="dispcheck" title="Agrandir/Réduire la description" /><span>s</span>
-                    <textarea name="attr_pouv_effets" class="textdesc" style="width: 300px;" placeholder="Effets du pouvoir" title="Effets du pouvoir"></textarea>
+                    <textarea name="attr_pouv_effets" class="textdesc" style="width: 328px;" placeholder="Effets du pouvoir" title="Effets du pouvoir"></textarea>
                 </div> <!-- FIN POUVOIR DYNAMIQUE -->
             </fieldset>
        </div> <!-- ** FIN POUVOIRS ** -->

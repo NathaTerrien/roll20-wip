@@ -20,7 +20,7 @@
         });
 
 -------- MINIFY HTML ----------
-Worker:  //(.*?)\n ==
+Worker:  /\*(.*?)\*/\n ==
 Commentaires : <!--(.*?)--> ==
 Sauts de lignes : \n == espace
 Indentation : >\s+< == ><
