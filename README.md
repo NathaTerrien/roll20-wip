@@ -63,7 +63,7 @@ Création.
 ___
 ![BoL banner](/_banners/BoL_banner.png)
 ### Barbarians of Lemuria : mythic edition (english and french)
-Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/) and [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria).
+Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/), [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria) and german.
 
 Creation.
 
@@ -84,7 +84,7 @@ Création.
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.1 (2017-04-05)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne) Version 1.1 (2017-04-05)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Brigandyne) Version 1.0 (2017-03-26)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Brigandyne) Version 1.1 (2017-04-05)
 
 ### Todo
 * In game testing
@@ -278,7 +278,7 @@ Création.
 #### Sources
 * [WIP](./SavageWorldsFrench/) Version 2.0 (2017-04-09)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 2.0 (2017-04-09)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 1.8 (2017-02-18)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 2.0 (2017-04-09)
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
