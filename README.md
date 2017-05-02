@@ -2,13 +2,12 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-04-09 (Savage Worlds French v2.0)._
+_Updated 2017-05-02 (Gifts)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 
-Current amount gifted : $90.00 / $99.99  
-Thank you :)
+Current amount gifted for 2017-2018 : $0.00 / $99.99
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
