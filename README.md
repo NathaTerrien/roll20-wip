@@ -26,7 +26,7 @@ In no particular order ...
 
 ## Work In Progress
 ---
-![SIG_banner](/_banners/sig.png)
+![SIG_banner](/_banners/sigf.png)
 ### Sig: The City Between (english)
 
 Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com/products/sig/)
