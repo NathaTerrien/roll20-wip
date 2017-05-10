@@ -2,15 +2,18 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-05-02 (Gifts)._
+_Updated 2017-05-10 (SIG, projects and gifts)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 
-Current amount gifted for 2017-2018 : $0.00 / $99.99
+Current amount gifted for 2017-2018 : $15.00 / $99.99
+
+Thanks to: Bobby Lapointe.
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
+* Apocalypse World, french translation
 * Yggdrasill, french and english
 * Chroniques Oubliées Contemporain, french
 * Stars Without Number, french
@@ -23,6 +26,16 @@ In no particular order ...
 
 ## Work In Progress
 ---
+![SIG_banner](/_banners/sig_banner.png)
+### Sig: The City Between (english)
+
+Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com/products/sig/)
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/)
+
+### Todo
+* Getting started
 
 ![thesorawl banner](/_banners/the_sprawl.png)
 ### The Sprawl (french translation)
@@ -34,7 +47,6 @@ Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, 
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl) v1.1 (2017-03-31)
 
 ### Todo
-
 * ~~Insertion des tags i18n data.~~
 * ~~Révision HTML et CSS pour fiabiliser le layout en multilingue~~
 * Intégration de la VF
