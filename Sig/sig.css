@@ -1,5 +1,6 @@
 /* COLORS
- #932315 / 147,35,21 : redish brown
+ #006F5B / 0,111,91 : green
+
  #6FB387 / 111,179,135 : green
  #727272 : grey
  #C2C2C2 : mid grey
@@ -21,32 +22,20 @@ div{
     padding: none;
     background-color: transparent;
 }
-div.sheet-beast{
-    display: none;
-    background-color: white;
-    width: 875px;
-    text-align: left;
-    font-family: 'Candal';
-    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_beast_bg.png');
-    background-repeat:no-repeat;
-    background-position: center center;
-    background-size: initial;
-    background-color: white;
-}
 input[type="radio"].sheet-beast:checked ~ div.sheet-beast{
     display:block;
 }
-div.sheet-char{
-    display: none;
+div.sheet-pc{
+    display: block;
     position: relative;
-    width: 990px;
-    min-height: 840px;
+    width: 1024px;
+    min-height: 791px;
     text-align:center;
     font-family: 'Candal';
-    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm_bg.png');
+    background-image: url('https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Sig/sig_bg_pc.jpg');
     background-repeat:no-repeat;
     background-position:top left;
-    background-size: 990px 700px;
+    background-size: 1024px 791px;
     background-color: white;
 }
 input[type="radio"].sheet-char, input[type="radio"].sheet-beast{
@@ -168,9 +157,11 @@ input, textarea{
     border: none;
     box-shadow: none;
     resize:none;
-    color: #932315;
+    color: #006F5B;
     z-index: 2;
     border-radius: 0;
+    font-family: 'Shadows Into Light';
+    font-size: 17px;
 }
 input{
     background-color: transparent;
@@ -184,8 +175,8 @@ textarea{
     hyphens: auto;
 }
 input:focus, input:hover, textarea:focus, textarea:hover{
-    box-shadow: inset 0px 1px 1px rgba(147,35,21,0.01),0 0 6px rgba(147,35,21,0.5);
-    background-color: rgba(147,35,21,0.05);
+    box-shadow: inset 0px 1px 1px rgba(0,111,91,0.01),0 0 6px rgba(0,111,91,0.5);
+    background-color: rgba(0,111,91,0.05);
 }
 input[type="text"]{
     padding: 0px 0px 0px 2px;
@@ -195,8 +186,8 @@ input[type="number"]{
     padding: 0px 2px 0px 0px;
 }
 input.sheet-iptbig1{
-    font-size:20px;
-    width:280px;
+    font-size:23px;
+    width:275px;
     text-align:center;
     font-weight:bold;
     min-height:30px;
