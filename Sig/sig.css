@@ -162,6 +162,7 @@ input, textarea{
     border-radius: 0;
     font-family: 'Shadows Into Light';
     font-size: 17px;
+    letter-spacing: 0.03em;
 }
 input{
     background-color: transparent;
@@ -192,6 +193,11 @@ input.sheet-iptbig1{
     font-weight:bold;
     min-height:30px;
     text-transform: capitalize;
+}
+input.sheet-ipttalent{
+    width: 274px;
+    text-align: center;
+    font-weight:bold;
 }
 input[disabled],
 input[readonly] {
