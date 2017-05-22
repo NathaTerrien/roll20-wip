@@ -199,6 +199,10 @@ input.sheet-ipttalent{
     text-align: center;
     font-weight:bold;
 }
+input.sheet-ipthrtage{
+    width: 112px;
+    text-align:center;
+}
 input[disabled],
 input[readonly] {
     -moz-appearance: textfield;
