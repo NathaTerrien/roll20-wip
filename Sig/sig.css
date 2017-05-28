@@ -302,14 +302,25 @@ select{
     background-color:rgba(255,255,255,0.5);
     padding: 0px;
     margin: 0px;
-    height: 1.6em;
-    line-height: 1.6em;
-    max-height 1.6em;
+    height: 1.4em;
+    line-height: 1.4em;
+    max-height 1.4em;
     font-weight:normal;
     border: none;
 }
-select:hover{
-    border: 1px solid #932315;
+select.sheet-smallsel{
+    width: 20px;
+    background-color: rgba(0,111,91,0.4);
+    padding: 0px;
+    margin: 0px;
+    height: 1.6em;
+    line-height: 1.6em;
+    font-weight: normal;
+    border: none;
+    color: white;
+}
+select.sheet-smallsel:hover{
+    background-color: #006F5B;
 }
 /* =====  BUTTONS ===== */
 button[type="roll"] {
