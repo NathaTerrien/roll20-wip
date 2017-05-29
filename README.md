@@ -2,14 +2,14 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-05-10 (SIG, projects and gifts)._
+_Updated 2017-05-28 (SIG, projects and gifts)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
 
-Current amount gifted for 2017-2018 : $15.00 / $99.99
+Current amount gifted for 2017-2018 : $99.99 / $99.99
 
-Thanks to: Bobby Lapointe.
+Thanks to: Bobby Lapointe and Kamille!
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
@@ -30,12 +30,15 @@ In no particular order ...
 ### Sig: The City Between (english)
 
 Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com/products/sig/)
+[Preview](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Sig/sig_wip.jpg)
 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/)
 
 ### Todo
-* Getting started
+* Numeric and dice attributes 
+* Rolls
+* Roll template
 
 ![thesorawl banner](/_banners/the_sprawl.png)
 ### The Sprawl (french translation)
