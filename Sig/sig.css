@@ -1,11 +1,8 @@
 /* COLORS
  #006F5B / 0,111,91 : green
-
- #6FB387 / 111,179,135 : green
- #727272 : grey
- #C2C2C2 : mid grey
- #B5B5B5 #B5B5B5 : light grey
-*/
+ #D54134 / 213,65,52 : red
+ #AAABAE / : grey
+ */
 div,
 button,
 textarea,
@@ -22,9 +19,6 @@ div{
     padding: none;
     background-color: transparent;
 }
-input[type="radio"].sheet-beast:checked ~ div.sheet-beast{
-    display:block;
-}
 div.sheet-pc{
     display: block;
     position: relative;
@@ -38,117 +32,12 @@ div.sheet-pc{
     background-size: 1024px 791px;
     background-color: white;
 }
-input[type="radio"].sheet-char, input[type="radio"].sheet-beast{
-    margin-left: 10px;
-}
-input[type="radio"].sheet-char:checked ~ div.sheet-char{
-    display:block;
-}
 div.sheet-absinp{
     position: absolute;
     /* border: 1px solid red; */
 }
-div.sheet-ligne{
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin-bottom: 2px;
-}
-div.sheet-whitelab1{
-    width:100px;
-    background-color: white;
-}
-div.sheet-lignebrd{
-    display: block;
-    text-align: left;
-    width: 100%;
-    padding-bottom: 2px;
-    border-bottom: 2px solid #727272;
-}
 .sheet-block{
     display: block;
-}
-.sheet-libBlack1{
-    background-color: transparent;
-    color: black;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: left;
-    text-transform: uppercase;
-    font-family: 'Contrail One';
-}
-.sheet-libBlack2{
-    background-color: transparent;
-    color: black;
-    font-size: 18px;
-    font-weight: normal;
-    text-align: left;
-    text-transform: uppercase;
-    font-family: 'Contrail One';
-}
-.sheet-libBlack3, .sheet-libBlack3b{
-    background-color: transparent;
-    color: black;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: left;
-    font-family: 'Contrail One';
-    display: inline-block;
-    height:20px;
-}
-.sheet-libBlack3b{
-    width: 98px;
-    padding-left: 2px;
-}
-.sheet-libBlack4{
-    background-color: transparent;
-    color: black;
-    font-size: 12px;
-    font-weight: lighter;
-    text-align: left;
-    font-family: 'Contrail One';
-    display: inline-block;
-}
-.sheet-libGrey4{
-    background-color: transparent;
-    color: gray;
-    font-size: 12px;
-    font-weight: lighter;
-    text-align: left;
-    font-family: 'Contrail One';
-    display: inline-block;
-}
-.sheet-libWhite1{
-    background-color: transparent;
-    color: white;
-    font-size: 24px;
-    font-weight: normal;
-    text-align: left;
-    text-transform: uppercase;
-    font-family: 'Contrail One';
-}
-.sheet-libWhite2{
-    background-color: transparent;
-    color: white;
-    font-size: 18px;
-    font-weight: normal;
-    text-align: left;
-    text-transform: uppercase;
-    font-family: 'Contrail One';
-}
-.sheet-vertical{
-    position: absolute;
-    transform: rotate(-90deg);
-    transform-origin: 12% 0%;
-}
-.sheet-blacktitle{
-    background-color:black;
-    text-align: center;
-}
-.sheet-blackborder{
-    border: 2px solid black;
-    border-radius: 3px;
-    margin-bottom : 4px;
 }
 input, textarea{
     display: inline-block;
@@ -208,6 +97,64 @@ input[readonly] {
     -moz-appearance: textfield;
     background-color: transparent;
 }
+input.sheet-inptsel{
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    margin-right: -24px;
+}
+input.sheet-inptsel + span{
+    display: inline-block;
+    line-height: 22px;
+    width:22px;
+    height:22px;
+    text-align:center;
+}
+input.sheet-inptsel + span::before{
+    display: inline-block;
+    line-height: 22px;
+    width:22px;
+    height:22px;
+    text-align:center;
+    border-width: 3px;
+    border-style: solid;
+    border-radius:50%;
+    border-color: transparent;
+}
+input.sheet-inptsel[value="0"] + span::before{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #AAABAE;
+    content: "0";
+    border-width: 2px;
+    border-color: black;
+}
+input.sheet-inptsel:not([value="0"]) + span::before{
+    font-family: "Pictos";
+    font-size: 20px;
+    font-weight: bold;
+    color: transparent;
+    content: "*";
+}
+input.sheet-inptsel[value="0"]:hover + span::before,
+input.sheet-inptsel[value="0"]:checked + span::before{
+    font-family: "Pictos";
+    font-size: 20px;
+    font-weight: bold;
+    color: #006F5B;
+    border-color: #006F5B;
+    content: "3";
+}
+input.sheet-inptsel:not([value="0"]):hover + span::before,
+input.sheet-inptsel:not([value="0"]):checked + span::before{
+    font-family: "Pictos";
+    font-size: 20px;
+    font-weight: bold;
+    color: #D54134;
+    content: "*";
+    border-color: #D54134;
+}
 input[type=number]:disabled::-webkit-inner-spin-button,
 input[type=number]:disabled::-webkit-outer-spin-button,
 input[type=number]:read-only::-webkit-inner-spin-button,
@@ -216,10 +163,10 @@ input[type=number]:read-only::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
-input.sheet-iptnumrond{
-    line-height: 30px;
-    font-size: 30px;
-    text-align: center;
+input[type=number].sheet-iptnumrond{
+    line-height: 36px;
+    font-size: 36px;
+    text-align: right;
     padding: 0;
     min-width: 50px;
     min-height: 50px;
@@ -228,6 +175,9 @@ input.sheet-iptnumrond{
     border-radius: 50%;
     border:none;
     font-weight: bold;
+}
+input[type=number].sheet-iptnumrond:not([value="0"]){
+    color: #D54134;
 }
 input.sheet-iptnumrondtop{
     line-height: 25px;
@@ -265,38 +215,6 @@ input.sheet-iptnumrondbott{
 }
 .sheet-max{
     background-color: rgba(147,35,21,0.1);
-}
-input.sheet-iptnumrond, input.sheet-iptnumrondtop, input.sheet-iptnumrondbott {
-    -moz-appearance: textfield;
-}
-input.sheet-iptnumrond::-webkit-inner-spin-button,
-input.sheet-iptnumrond::-webkit-outer-spin-button,
-input.sheet-iptnumrondtop::-webkit-inner-spin-button,
-input.sheet-iptnumrondtop::-webkit-outer-spin-button,
-input.sheet-iptnumrondbott::-webkit-inner-spin-button,
-input.sheet-iptnumrondbott::-webkit-outer-spin-button{
-    -webkit-appearance: none;
-    appearance: none;
-}
-input.sheet-iptnumrondsm{
-    line-height: 20px;
-    font-size: 20px;
-    text-align: center;
-    min-width: 31px;
-    min-height: 31px;
-    max-width: 31px;
-    max-height: 31px;
-    border-radius: 50%;
-    border:none;
-    font-weight: bold;
-}
-input.sheet-iptnumrondsm {
-    -moz-appearance: textfield;
-}
-input.sheet-iptnumrondsm::-webkit-inner-spin-button,
-input.sheet-iptnumrondsm::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
 }
 select{
     background-color:rgba(255,255,255,0.5);
