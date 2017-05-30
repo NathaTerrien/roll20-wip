@@ -318,6 +318,9 @@
             </div>
         </div><!-- END FAMILY HERITAGE -->
         <div><!-- POLITICAL FACTION -->
+            <div class="sheet-absinp" style="left: 600px;top: 470px;">
+                <button type="roll" name="ShowFaction" title="Show political faction" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{political=1}} {{lib1=Member of }} {{val1=@{politicalmember}}} {{lib2=Duty: }} {{val2=@{politicalduty}}} {{lib3=Leverage: }} {{val3=@{politicalleverage}}}"></button>
+            </div>
             <div class="sheet-absinp" style="left: 377px;top: 518px;">
                 <input type="text" name="attr_politicalmember" class="ipttalent" placeholder="Faction" title="" />
             </div>
@@ -427,3 +430,30 @@
         </div> <!-- END HARM -->
     </div> <!-- END BEGIN PC SHEET -->
 </div> <!-- END SHEETS -->
+<!-- === TEMPLATE   === -->
+<rolltemplate class="sheet-rolltemplate-tmpl">
+    <div class="sheet-tplmain">
+        <div class="sheet-pc">{{pc}}</div>
+        {{#lib1}}
+            <div style="display:block;">
+                <div class="sheet-jet">{{lib1}}</div>
+                <div class="sheet-jet">{{val1}}</div>
+            </div>
+        {{/lib1}}
+        {{#lib2}}
+            <div style="display:block;">
+            <div class="sheet-jet">{{lib2}}</div>
+            <div class="sheet-jet">{{val2}}</div>
+            </div>
+        {{/lib2}}
+        {{#lib3}}
+            <div style="display:block;">
+            <div class="sheet-jet">{{lib3}}</div>
+            <div class="sheet-jet">{{val3}}</div>
+            </div>
+        {{/lib3}}
+        {{#political}}
+            <div class="sheet-jetnom"><span>Political Faction</span></div>
+        {{/political}}
+    </div>
+</rolltemplate>
