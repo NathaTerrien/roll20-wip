@@ -1,4 +1,36 @@
 <script type="text/worker">
+    on("change:harm",function(){
+        getAttrs(["harm","spark","smoke"], function(values) {
+            var pts=parseInt(values.harm) || 0;
+            var spark=parseInt(values.spark) || 6;
+            var smoke=parseInt(values.smoke) || 6;
+            var dice=20;
+            switch(pts) {
+                case 1:
+                    dice=12;
+                    break;
+                case 2:
+                    dice=10;
+                    break;
+                case 3:
+                    dice=8;
+                    break;
+                case 4:
+                    dice=6;
+                    break;
+                case 5:
+                    dice=4;
+                    break;
+                case 6:
+                    dice=0;
+                    break;
+            }
+            setAttrs({
+                sparkdice: Math.min(spark,dice),
+                smokedice: Math.min(smoke,dice)
+            });
+        });
+    });
     on("change:politicalchoice", function(){
         getAttrs(["politicalchoice"], function(values) {
             var choice=values.politicalchoice || "";
@@ -365,32 +397,33 @@
                 <textarea type="text" name="attr_spiritualbelief" style="width: 210px;height: 56px;" placeholder="Spiritual belief"></textarea>
             </div>
         </div><!-- END SPIRITUAL POWER -->
+        <div style="display: none;"> <!-- HIDDEN ATTRIBUTES -->
+            <input type="number" name="attr_spark" value="6" />
+            <input type="number" name="attr_smoke" value="6" />
+        </div><!-- END HIDDEN ATTRIBUES -->
+        <div><!-- SPARK -->
+            <div class="absinp" style="left: 720px;top: 380px;"> <!-- SPARK DICE -->
+                <span class="iptnumrondright">D</span><input type="number" name="attr_sparkdice" class="iptnumrondright" title="Current spark dice" value="6" readonly />
+            </div> <!-- END SPARK DICE -->
+        </div><!-- END SPARK -->
+        <div><!-- SMOKE -->
+            <div class="absinp" style="left: 800px;top: 380px;"> <!-- SMOKE DICE -->
+                <span class="iptnumrondright">D</span><input type="number" name="attr_smokedice" class="iptnumrondright" title="Current smoke dice" value="6" readonly />
+            </div> <!-- END SMOKE DICE -->
+        </div><!-- END SPARK -->
         <div><!-- HARM -->
-            <div class="absinp" style="left: 900px;top: 56px;">
+            <div class="absinp" style="left: 898px;top: 56px;"><!-- HARM GAUGE -->
                 <input type="radio" name="attr_harm" class="inptsel" title="0 point of harm" value="0" checked /><span></span>
-            </div>
-            <div class="absinp" style="left: 898px;top: 84px;">
-                <input type="radio" name="attr_harm" class="inptsel" title="1 point of harm" value="1" /><span></span>
-            </div>
-            <div class="absinp" style="left: 898px;top: 129px;">
-                <input type="radio" name="attr_harm" class="inptsel" title="2 points of harm" value="2" /><span></span>
-            </div>
-            <div class="absinp" style="left: 898px;top: 173px;">
-                <input type="radio" name="attr_harm" class="inptsel" title="3 points of harm" value="3" /><span></span>
-            </div>
-            <div class="absinp" style="left: 898px;top: 218px;">
-                <input type="radio" name="attr_harm" class="inptsel" title="4 points of harm" value="4" /><span></span>
-            </div>
-            <div class="absinp" style="left: 898px;top: 260px;">
-                <input type="radio" name="attr_harm" class="inptsel" title="5 points of harm" value="5" /><span></span>
-            </div>
-            <div class="absinp" style="left: 898px;top: 306px;">
-                <input type="radio" name="attr_harm" class="inptsel" title="6 points of harm" value="6" /><span></span>
-            </div>
-            <div class="absinp" style="left: 887px;top: 380px;">
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 9px;" title="1 point of harm" value="1" /><span></span>
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 25px;" title="2 points of harm" value="2" /><span></span>
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 25px;" title="3 points of harm" value="3" /><span></span>
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 25px;" title="4 points of harm" value="4" /><span></span>
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 21px;" title="5 points of harm" value="5" /><span></span>
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 26px;" title="6 points of harm" value="6" /><span></span>
+            </div><!-- END HARM GAUGE -->
+            <div class="absinp" style="left: 887px;top: 380px;"> <!-- HARM POINTS -->
                 <input type="number" name="attr_harm" class="iptnumrond" title="Current points of harm" value="0" min="0" max="6" />
-            </div>
-
-        </div><!-- END HARM -->
+            </div> <!-- END HARM POINTS -->
+        </div> <!-- END HARM -->
     </div> <!-- END BEGIN PC SHEET -->
 </div> <!-- END SHEETS -->

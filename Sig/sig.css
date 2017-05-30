@@ -98,17 +98,17 @@ input[readonly] {
     background-color: transparent;
 }
 input.sheet-inptsel{
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     opacity: 0;
-    margin-right: -24px;
 }
 input.sheet-inptsel + span{
-    display: inline-block;
+    display: block;
     line-height: 22px;
     width:22px;
     height:22px;
     text-align:center;
+    margin-top: -24px;
 }
 input.sheet-inptsel + span::before{
     display: inline-block;
@@ -130,13 +130,6 @@ input.sheet-inptsel[value="0"] + span::before{
     border-width: 2px;
     border-color: black;
 }
-input.sheet-inptsel:not([value="0"]) + span::before{
-    font-family: "Pictos";
-    font-size: 20px;
-    font-weight: bold;
-    color: transparent;
-    content: "*";
-}
 input.sheet-inptsel[value="0"]:hover + span::before,
 input.sheet-inptsel[value="0"]:checked + span::before{
     font-family: "Pictos";
@@ -147,13 +140,21 @@ input.sheet-inptsel[value="0"]:checked + span::before{
     content: "3";
 }
 input.sheet-inptsel:not([value="0"]):hover + span::before,
-input.sheet-inptsel:not([value="0"]):checked + span::before{
+input.sheet-inptsel:not([value="0"]) + span::before{
     font-family: "Pictos";
     font-size: 20px;
     font-weight: bold;
     color: #D54134;
     content: "*";
     border-color: #D54134;
+}
+input.sheet-inptsel:checked ~ input.sheet-inptsel:not([value="0"]) + span::before{
+    font-family: "Pictos";
+    font-size: 20px;
+    font-weight: bold;
+    color: transparent;
+    border-color: transparent;
+    content: "*";
 }
 input[type=number]:disabled::-webkit-inner-spin-button,
 input[type=number]:disabled::-webkit-outer-spin-button,
@@ -163,7 +164,7 @@ input[type=number]:read-only::-webkit-outer-spin-button {
     appearance: none;
     margin: 0;
 }
-input[type=number].sheet-iptnumrond{
+input.sheet-iptnumrond{
     line-height: 36px;
     font-size: 36px;
     text-align: right;
@@ -175,26 +176,32 @@ input[type=number].sheet-iptnumrond{
     border-radius: 50%;
     border:none;
     font-weight: bold;
-}
-input[type=number].sheet-iptnumrond:not([value="0"]){
     color: #D54134;
 }
-input.sheet-iptnumrondtop{
-    line-height: 25px;
-    font-size: 22px;
-    text-align: center;
+input.sheet-iptnumrondright{
+    line-height: 36px;
+    font-size: 30px;
+    text-align: left;
     padding: 0;
-    max-width: 50px;
-    min-width: 50px;
-    min-height: 25px;
-    max-height: 25px;
-    border-radius: 25px 25px 0px 0px;
+    max-width: 35px;
+    min-width: 35px;
+    min-height: 50px;
+    max-height: 50px;
+    border-radius: 0px 25px 25px 0px;
     border-width: 1px;
-    border-style: dotted;
-    border-bottom-style: none;
-    border-color: black;
+    border-style: solid;
+    border-color: transparent;
     font-weight: bold;
-    display: block;
+    display: inline-block;
+}
+span.sheet-iptnumrondright{
+    display: inline-block;
+    color: #006F5B;
+    font-family: 'Shadows Into Light';
+    font-size: 30px;
+    min-height: 50px;
+    max-height: 50px;
+    height: 50px;
 }
 input.sheet-iptnumrondbott{
     line-height: 25px;
