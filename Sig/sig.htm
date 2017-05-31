@@ -1,5 +1,5 @@
 <script type="text/worker">
-    on("change:harm",function(){
+    on("change:harm change:spark change:smoke",function(){
         getAttrs(["harm","spark","smoke"], function(values) {
             var pts=parseInt(values.harm) || 0;
             var spark=parseInt(values.spark) || 6;
@@ -280,6 +280,9 @@
             </div>
         </div><!-- END TALENTS DEEP -->
         <div><!-- FAMILY HERITAGE -->
+            <div class="sheet-absinp" style="left: 271px;top: 470px;">
+                <button type="roll" name="ShowFamily" title="Show family heritage" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{family=1}} {{lib1=Parent}} {{val1=@{familyparent1}}} {{heritage1=@{familyheritage1}}} {{planar1=@{planarheritage1}}} {{lib2=Parent}} {{val2=@{familyparent2}}} {{heritage2=@{familyheritage2}}} {{planar2=@{planarheritage2}}}"></button>
+            </div>
                 <!--- PARENT 1 -->
             <div class="sheet-absinp" style="left: 38px;top: 497px;">
                 <input type="text" name="attr_familyparent1" class="ipttalent" placeholder="Parent" title="" />
@@ -319,7 +322,7 @@
         </div><!-- END FAMILY HERITAGE -->
         <div><!-- POLITICAL FACTION -->
             <div class="sheet-absinp" style="left: 600px;top: 470px;">
-                <button type="roll" name="ShowFaction" title="Show political faction" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{political=1}} {{lib1=Member of }} {{val1=@{politicalmember}}} {{lib2=Duty: }} {{val2=@{politicalduty}}} {{lib3=Leverage: }} {{val3=@{politicalleverage}}}"></button>
+                <button type="roll" name="ShowFaction" title="Show political faction" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{political=1}} {{lib1=Member of}} {{val1=@{politicalmember}}} {{lib2=Duty}} {{val2=@{politicalduty}}} {{lib3=Leverage}} {{val3=@{politicalleverage}}}"></button>
             </div>
             <div class="sheet-absinp" style="left: 377px;top: 518px;">
                 <input type="text" name="attr_politicalmember" class="ipttalent" placeholder="Faction" title="" />
@@ -361,6 +364,9 @@
             </div>
         </div><!-- END POLITICAL FACTION -->
         <div><!-- SPIRITUAL POWER -->
+            <div class="sheet-absinp" style="left: 952px;top: 470px;">
+                <button type="roll" name="ShowPower" title="Show spiritual power" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{spiritual=1}} {{lib1=Worshiper of}} {{val1=@{spiritualworshiper}}} {{lib2=Devotion}} {{val2=@{spiritualdevotion}}} {{lib3=Ritual}} {{val3=@{spiritualritual}}}"></button>
+            </div>
             <div class="sheet-absinp" style="left: 719px;top: 518px;">
                 <input type="text" name="attr_spiritualworshiper" class="ipttalent" placeholder="Worshiper of" title="" />
             </div>
@@ -405,11 +411,49 @@
             <input type="number" name="attr_smoke" value="6" />
         </div><!-- END HIDDEN ATTRIBUES -->
         <div><!-- SPARK -->
-            <div class="absinp" style="left: 720px;top: 380px;"> <!-- SPARK DICE -->
-                <span class="iptnumrondright">D</span><input type="number" name="attr_sparkdice" class="iptnumrondright" title="Current spark dice" value="6" readonly />
-            </div> <!-- END SPARK DICE -->
+            <div class="absinp" style="left: 723px;top: 78px;">
+                <input type="radio" name="attr_spark" class="inptdice" title="D20" value="20" /><span></span>
+            </div>
+            <div class="absinp" style="left: 723px;top: 122px;">
+                <input type="radio" name="attr_spark" class="inptdice" title="D12" value="12" /><span></span>
+            </div>
+            <div class="absinp" style="left: 723px;top: 166px;">
+                <input type="radio" name="attr_spark" class="inptdice" title="D10" value="10" /><span></span>
+            </div>
+            <div class="absinp" style="left: 723px;top: 210px;">
+                <input type="radio" name="attr_spark" class="inptdice" title="D8" value="8" /><span></span>
+            </div>
+            <div class="absinp" style="left: 723px;top: 254px;">
+                <input type="radio" name="attr_spark" class="inptdice" title="D6" value="6" checked /><span></span>
+            </div>
+            <div class="absinp" style="left: 723px;top: 298px;">
+                <input type="radio" name="attr_spark" class="inptdice" title="D4" value="4" /><span></span>
+            </div>
+            <div class="absinp" style="left: 712px;top: 373px;"> <!-- SPARK DICE AND ROLL-->
+                <button type="roll" name="RollSpark" title="Roll Spark" class="butroll" value="&{template:tmpl} {{pc=@{character_name}}} {{spark=1}} {{roll=[[1d@{sparkdice}]]}}">
+                <span class="iptnumrondright">D</span><input type="number" name="attr_sparkdice" class="iptnumrondright" value="6" readonly />
+                </button>
+            </div> <!-- END SPARK DICE AND ROLL -->
         </div><!-- END SPARK -->
         <div><!-- SMOKE -->
+            <div class="absinp" style="left: 803px;top: 78px;">
+                <input type="radio" name="attr_smoke" class="inptdice" title="D20" value="20" /><span></span>
+            </div>
+            <div class="absinp" style="left: 803px;top: 122px;">
+                <input type="radio" name="attr_smoke" class="inptdice" title="D12" value="12" /><span></span>
+            </div>
+            <div class="absinp" style="left: 803px;top: 166px;">
+                <input type="radio" name="attr_smoke" class="inptdice" title="D10" value="10" /><span></span>
+            </div>
+            <div class="absinp" style="left: 803px;top: 210px;">
+                <input type="radio" name="attr_smoke" class="inptdice" title="D8" value="8" /><span></span>
+            </div>
+            <div class="absinp" style="left: 803px;top: 254px;">
+                <input type="radio" name="attr_smoke" class="inptdice" title="D6" value="6" checked /><span></span>
+            </div>
+            <div class="absinp" style="left: 803px;top: 298px;">
+                <input type="radio" name="attr_smoke" class="inptdice" title="D4" value="4" /><span></span>
+            </div>
             <div class="absinp" style="left: 800px;top: 380px;"> <!-- SMOKE DICE -->
                 <span class="iptnumrondright">D</span><input type="number" name="attr_smokedice" class="iptnumrondright" title="Current smoke dice" value="6" readonly />
             </div> <!-- END SMOKE DICE -->
@@ -432,28 +476,45 @@
 </div> <!-- END SHEETS -->
 <!-- === TEMPLATE   === -->
 <rolltemplate class="sheet-rolltemplate-tmpl">
-    <div class="sheet-tplmain">
-        <div class="sheet-pc">{{pc}}</div>
+    <div class="tplmain">
+        <div class="pc">{{pc}}</div>
+        {{#roll}}
+            <div class="droll">{{roll}}</div>
+        {{/roll}}
         {{#lib1}}
-            <div style="display:block;">
-                <div class="sheet-jet">{{lib1}}</div>
-                <div class="sheet-jet">{{val1}}</div>
+            <div class="lib">{{lib1}}</div>
+            <div class="desc">{{val1}}
+                {{#family}}
+                    <br/>( {{heritage1}} {{planar1}} )
+                {{/family}}
             </div>
         {{/lib1}}
         {{#lib2}}
-            <div style="display:block;">
-            <div class="sheet-jet">{{lib2}}</div>
-            <div class="sheet-jet">{{val2}}</div>
+            <div class="lib">{{lib2}}</div>
+            <div class="desc">{{val2}}
+                {{#family}}
+                    <br/>( {{heritage2}} {{planar2}} )
+                {{/family}}
             </div>
         {{/lib2}}
         {{#lib3}}
-            <div style="display:block;">
-            <div class="sheet-jet">{{lib3}}</div>
-            <div class="sheet-jet">{{val3}}</div>
-            </div>
+            <div class="lib">{{lib3}}</div>
+            <div class="desc">{{val3}}</div>
         {{/lib3}}
+        {{#family}}
+            <div class="nme"><span>Family Heritage</span></div>
+        {{/family}}
         {{#political}}
-            <div class="sheet-jetnom"><span>Political Faction</span></div>
+            <div class="nme"><span>Political Faction</span></div>
         {{/political}}
+        {{#spiritual}}
+            <div class="nme"><span>Spiritual Power</span></div>
+        {{/spiritual}}
+        {{#spark}}
+            <div class="nme"><span>Spark</span></div>
+        {{/spark}}
+        {{#smoke}}
+            <div class="nme"><span>Smoke</span></div>
+        {{/smoke}}
     </div>
 </rolltemplate>
