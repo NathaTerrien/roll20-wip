@@ -281,7 +281,7 @@
         </div><!-- END TALENTS DEEP -->
         <div><!-- FAMILY HERITAGE -->
             <div class="absinp" style="left: 271px;top: 470px;">
-                <button type="roll" name="ShowFamily" title="Show family heritage" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{family=1}} {{lib1=Parent}} {{val1=@{familyparent1}}} {{heritage1=@{familyheritage1}}} {{planar1=@{planarheritage1}}} {{lib2=Parent}} {{val2=@{familyparent2}}} {{heritage2=@{familyheritage2}}} {{planar2=@{planarheritage2}}}"></button>
+                <button type="roll" name="ShowFamily" title="Show family heritage" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{family=1}} {{rollib=Family Heritage}} {{lib1=Parent}} {{val1=@{familyparent1}}} {{heritage1=@{familyheritage1}}} {{planar1=@{planarheritage1}}} {{lib2=Parent}} {{val2=@{familyparent2}}} {{heritage2=@{familyheritage2}}} {{planar2=@{planarheritage2}}}"></button>
             </div>
                 <!--- PARENT 1 -->
             <div class="absinp" style="left: 38px;top: 497px;">
@@ -322,7 +322,7 @@
         </div><!-- END FAMILY HERITAGE -->
         <div><!-- POLITICAL FACTION -->
             <div class="absinp" style="left: 600px;top: 470px;">
-                <button type="roll" name="ShowFaction" title="Show political faction" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{political=1}} {{lib1=Member of}} {{val1=@{politicalmember}}} {{lib2=Duty}} {{val2=@{politicalduty}}} {{lib3=Leverage}} {{val3=@{politicalleverage}}}"></button>
+                <button type="roll" name="ShowFaction" title="Show political faction" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{rollib=Political Faction}} {{lib1=Member of}} {{val1=@{politicalmember}}} {{lib2=Duty}} {{val2=@{politicalduty}}} {{lib3=Leverage}} {{val3=@{politicalleverage}}}"></button>
             </div>
             <div class="absinp" style="left: 377px;top: 518px;">
                 <input type="text" name="attr_politicalmember" class="ipttalent" placeholder="Faction" title="" />
@@ -365,7 +365,7 @@
         </div><!-- END POLITICAL FACTION -->
         <div><!-- SPIRITUAL POWER -->
             <div class="absinp" style="left: 952px;top: 470px;">
-                <button type="roll" name="ShowPower" title="Show spiritual power" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{spiritual=1}} {{lib1=Worshiper of}} {{val1=@{spiritualworshiper}}} {{lib2=Devotion}} {{val2=@{spiritualdevotion}}} {{lib3=Ritual}} {{val3=@{spiritualritual}}}"></button>
+                <button type="roll" name="ShowPower" title="Show spiritual power" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{rollib=Spiritual Power}} {{lib1=Worshiper of}} {{val1=@{spiritualworshiper}}} {{lib2=Devotion}} {{val2=@{spiritualdevotion}}} {{lib3=Ritual}} {{val3=@{spiritualritual}}}"></button>
             </div>
             <div class="absinp" style="left: 719px;top: 518px;">
                 <input type="text" name="attr_spiritualworshiper" class="ipttalent" placeholder="Worshiper of" title="" />
@@ -434,7 +434,7 @@
             </div> <!-- END SPARK DICE  -->
             <div class="absinp" style="left: 712px;top: 373px; z-index: 10;"> <!-- SPARK ROLL -->
                 <button type="roll" name="RollSpark" title="Roll Spark" class="butroll"
-                    value="&{template:tmpl} {{pc=@{character_name}}} {{spark=1}} {{roll=[[1d[[@{sparkdice}]][Spark]+?{Bonus|0}[Bonus]]]}}"></button>
+                    value="&{template:tmpl} {{pc=@{character_name}}} {{isroll=1}} {{rollib=Spark (D@{sparkdice})}} {{roll=[[1d[[@{sparkdice}]][Spark]+?{Bonus|0}[Bonus]]]}}"></button>
             </div> <!-- END SPARK ROLL -->
         </div><!-- END SPARK -->
         <div><!-- SMOKE -->
@@ -461,7 +461,7 @@
             </div> <!-- END SMOKE DICE -->
             <div class="absinp" style="left: 791px;top: 373px; z-index: 10;"> <!-- SPARK ROLL -->
                 <button type="roll" name="RollSmoke" title="Roll Smoke" class="butroll"
-                    value="&{template:tmpl} {{pc=@{character_name}}} {{smoke=1}} {{roll=[[1d[[@{smokedice}]][Smoke]+?{Bonus|0}[Bonus]]]}}"></button>
+                    value="&{template:tmpl} {{pc=@{character_name}}} {{isroll=1}} {{rollib=Smoke (D@{smokedice})}} {{roll=[[1d[[@{smokedice}]][Smoke]+?{Bonus|0}[Bonus]]]}}"></button>
             </div> <!-- END SPARK ROLL -->
         </div><!-- END SPARK -->
         <div><!-- HARM -->
@@ -507,20 +507,8 @@
             <div class="lib">{{lib3}}</div>
             <div class="desc">{{val3}}</div>
         {{/lib3}}
-        {{#family}}
-            <div class="nme"><span>Family Heritage</span></div>
-        {{/family}}
-        {{#political}}
-            <div class="nme"><span>Political Faction</span></div>
-        {{/political}}
-        {{#spiritual}}
-            <div class="nme"><span>Spiritual Power</span></div>
-        {{/spiritual}}
-        {{#spark}}
-            <div class="nme"><span>Spark</span></div>
-        {{/spark}}
-        {{#smoke}}
-            <div class="nme"><span>Smoke</span></div>
-        {{/smoke}}
+        {{#rollib}}
+            <div class="nme"><span>{{rollib}}</span></div>
+        {{/rollib}}
     </div>
 </rolltemplate>
