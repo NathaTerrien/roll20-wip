@@ -1,4 +1,65 @@
 <script type="text/worker">
+    on("change:talentbroadbonus", function(){
+        getAttrs(["talentbroadbonus"],function(values){
+            var tlnt=parseInt(values.talentbroadbonus) || 0;
+            if (tlnt == 0) {
+                setAttrs({
+                    talentbroadrollbonus: 0,
+                    talentbroadrollbonusname: ''
+                });
+            } else {
+                getAttrs(["talentbroad" + tlnt],function(valz){
+                    setAttrs({
+                        talentbroadrollbonus: 1,
+                        talentbroadrollbonusname: valz["talentbroad" + tlnt]
+                    });
+                });
+            }
+        });
+    });
+    on("change:talentcommonbonus", function(){
+        getAttrs(["talentcommonbonus"],function(values){
+            var tlnt=parseInt(values.talentcommonbonus) || 0;
+            if (tlnt == 0) {
+                setAttrs({
+                    talentcommonrollbonus: 0,
+                    talentcommonrollbonusname: ''
+                });
+            } else {
+                getAttrs(["talentcommon" + tlnt],function(valz){
+                    setAttrs({
+                        talentcommonrollbonus: 2,
+                        talentcommonrollbonusname: valz["talentcommon" + tlnt]
+                    });
+                });
+            }
+        });
+    });
+    on("change:talentdeepbonus", function(){
+        getAttrs(["talentdeepbonus"],function(values){
+            var tlnt=parseInt(values.talentdeepbonus) || 0;
+            if (tlnt == 0) {
+                setAttrs({
+                    talentdeeprollbonus: 0,
+                    talentdeeprollbonusname: ''
+                });
+            } else {
+                getAttrs(["talentdeep" + tlnt],function(valz){
+                    setAttrs({
+                        talentdeeprollbonus: 3,
+                        talentdeeprollbonusname: valz["talentdeep" + tlnt]
+                    });
+                });
+            }
+        });
+    });
+    on("change:talentbroadrollbonus change:talentcommonrollbonus change:talentdeeprollbonus", function(){
+        getAttrs(["talentbroadrollbonus","talentcommonrollbonus","talentdeeprollbonus"],function(values){
+            setAttrs({
+                talentrollbonus: ((parseInt(values.talentbroadrollbonus) || 0)+(parseInt(values.talentcommonrollbonus) || 0)+(parseInt(values.talentdeeprollbonus) || 0))
+            });
+        });
+    });
     on("change:harm change:spark change:smoke",function(){
         getAttrs(["harm","spark","smoke"], function(values) {
             var pts=parseInt(values.harm) || 0;
@@ -213,6 +274,15 @@
     });
 </script>
 <div class="sigsheet"> <!-- BEGIN SHEETS -->
+    <div style="display: none;"><!-- HIDDEN VALUES -->
+        <input type="number" name="attr_talentbroadrollbonus" value="0" />
+        <input type="text" name="attr_talentbroadrollbonusname" value="" />
+        <input type="number" name="attr_talentcommonrollbonus" value="" />
+        <input type="text" name="attr_talentcommonrollbonusname" value="" />
+        <input type="number" name="attr_talentdeeprollbonus" value="" />
+        <input type="text" name="attr_talentdeeprollbonusname" value="" />
+        <input type="number" name="attr_talentrollbonus" value="0" disabled />
+    </div>
     <div class="pc"> <!-- BEGIN PC SHEET -->
         <div><!-- BASICS -->
             <div class="absinp" style="left: 35px;top: 120px;">
@@ -229,6 +299,14 @@
             </div>
         </div><!-- END BASICS -->
         <div><!-- TALENTS BROAD -->
+            <div class="absinp" style="left: 550px;top: 35px;">
+                <input type="radio" name="attr_talentbroadbonus" value="0" class="" checked />
+                <input type="radio" name="attr_talentbroadbonus" value="1" class="" />
+                <input type="radio" name="attr_talentbroadbonus" value="2" class="" />
+                <input type="radio" name="attr_talentbroadbonus" value="3" class="" />
+                <input type="radio" name="attr_talentbroadbonus" value="4" class="" />
+                <input type="radio" name="attr_talentbroadbonus" value="5" class="" />
+            </div>
             <div class="absinp" style="left: 377px;top: 60px;">
                 <input type="text" name="attr_talentbroad1" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
@@ -246,6 +324,14 @@
             </div>
         </div><!-- END TALENTS BROAD -->
         <div><!-- TALENTS COMMON -->
+            <div class="absinp" style="left: 550px;top: 177px;">
+                <input type="radio" name="attr_talentcommonbonus" value="0" class="" checked />
+                <input type="radio" name="attr_talentcommonbonus" value="1" class="" />
+                <input type="radio" name="attr_talentcommonbonus" value="2" class="" />
+                <input type="radio" name="attr_talentcommonbonus" value="3" class="" />
+                <input type="radio" name="attr_talentcommonbonus" value="4" class="" />
+                <input type="radio" name="attr_talentcommonbonus" value="5" class="" />
+            </div>
             <div class="absinp" style="left: 377px;top: 187px;">
                 <input type="text" name="attr_talentcommon1" class="ipttalent" placeholder="Common talent" title="Common talent (+2)" />
             </div>
@@ -263,6 +349,14 @@
             </div>
         </div><!-- END TALENTS COMMON -->
         <div><!-- TALENTS DEEP -->
+            <div class="absinp" style="left: 550px;top: 304px;">
+                <input type="radio" name="attr_talentdeepbonus" value="0" class="" checked />
+                <input type="radio" name="attr_talentdeepbonus" value="1" class="" />
+                <input type="radio" name="attr_talentdeepbonus" value="2" class="" />
+                <input type="radio" name="attr_talentdeepbonus" value="3" class="" />
+                <input type="radio" name="attr_talentdeepbonus" value="4" class="" />
+                <input type="radio" name="attr_talentdeepbonus" value="5" class="" />
+            </div>
             <div class="absinp" style="left: 377px;top: 314px;">
                 <input type="text" name="attr_talentdeep1" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
             </div>
@@ -434,7 +528,7 @@
             </div> <!-- END SPARK DICE  -->
             <div class="absinp" style="left: 712px;top: 373px; z-index: 10;"> <!-- SPARK ROLL -->
                 <button type="roll" name="RollSpark" title="Roll Spark" class="butroll"
-                    value="&{template:tmpl} {{pc=@{character_name}}} {{isroll=1}} {{rollib=Spark (D@{sparkdice})}} {{roll=[[1d[[@{sparkdice}]][Spark]+?{Bonus|0}[Bonus]]]}}"></button>
+                    value="&{template:tmpl} {{pc=@{character_name}}} {{isroll=1}} {{rollib=Spark (D@{sparkdice})}} {{roll=[[1d[[@{sparkdice}]][Spark]+?{Bonus|@{talentrollbonus}}[Bonus]]]}} {{talentbroadrollbonus=[[@{talentbroadrollbonus}]]}} {{talentbroadrollbonusname=@{talentbroadrollbonusname}}} {{talentcommonrollbonus=[[@{talentcommonrollbonus}]]}} {{talentcommonrollbonusname=@{talentcommonrollbonusname}}} {{talentdeeprollbonus=[[@{talentdeeprollbonus}]]}} {{talentdeeprollbonusname=@{talentdeeprollbonusname}}}"></button>
             </div> <!-- END SPARK ROLL -->
         </div><!-- END SPARK -->
         <div><!-- SMOKE -->
@@ -461,7 +555,7 @@
             </div> <!-- END SMOKE DICE -->
             <div class="absinp" style="left: 791px;top: 373px; z-index: 10;"> <!-- SPARK ROLL -->
                 <button type="roll" name="RollSmoke" title="Roll Smoke" class="butroll"
-                    value="&{template:tmpl} {{pc=@{character_name}}} {{isroll=1}} {{rollib=Smoke (D@{smokedice})}} {{roll=[[1d[[@{smokedice}]][Smoke]+?{Bonus|0}[Bonus]]]}}"></button>
+                    value="&{template:tmpl} {{pc=@{character_name}}} {{isroll=1}} {{rollib=Smoke (D@{smokedice})}} {{roll=[[1d[[@{smokedice}]][Smoke]+?{Bonus|@{talentrollbonus}}[Bonus]]]}} {{talentbroadrollbonus=[[@{talentbroadrollbonus}]]}} {{talentbroadrollbonusname=@{talentbroadrollbonusname}}} {{talentcommonrollbonus=[[@{talentcommonrollbonus}]]}} {{talentcommonrollbonusname=@{talentcommonrollbonusname}}} {{talentdeeprollbonus=[[@{talentdeeprollbonus}]]}} {{talentdeeprollbonusname=@{talentdeeprollbonusname}}}"></button>
             </div> <!-- END SPARK ROLL -->
         </div><!-- END SPARK -->
         <div><!-- HARM -->
@@ -510,5 +604,16 @@
         {{#rollib}}
             <div class="nme"><span>{{rollib}}</span></div>
         {{/rollib}}
+        {{#roll}}
+            {{#rollGreater() talentbroadrollbonus 0}}
+                <div class="desc">{{talentbroadrollbonusname}}</div>
+            {{/rollGreater() talentbroadrollbonus 0}}
+            {{#rollGreater() talentcommonrollbonus 0}}
+                <div class="desc">{{talentcommonrollbonusname}}</div>
+            {{/rollGreater() talentcommonrollbonus 0}}
+            {{#rollGreater() talentdeeprollbonus 0}}
+                <div class="desc">{{talentdeeprollbonusname}}</div>
+            {{/rollGreater() talentdeeprollbonus 0}}
+        {{/roll}}
     </div>
 </rolltemplate>
