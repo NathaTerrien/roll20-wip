@@ -48,9 +48,13 @@ input, textarea{
     font-family: 'Shadows Into Light';
     font-size: 17px;
     letter-spacing: 0.03em;
+    transition: 0.2s;
 }
 input{
     background-color: transparent;
+}
+input + span{
+    transition: 0.2s;
 }
 textarea{
     background-color: transparent;
@@ -178,6 +182,42 @@ input.sheet-inptsel:checked ~ input.sheet-inptsel:not([value="0"]) + span::befor
     border-color: transparent;
     content: "*";
 }
+input[type="checkbox"].sheet-inptreset {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+input.sheet-inptreset + span {
+    font-family: "Pictos";
+    font-size: 20px;
+    font-weight: bold;
+    color: #BEBDBD;
+    min-width: 20px;
+    min-height: 20px;
+    margin-left: -20px;
+}
+input.sheet-inptreset:checked + span,
+input.sheet-inptreset:hover + span {
+    color: #D54134;
+}
+input.sheet-inptrlbns{
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+input.sheet-inptrlbns + span {
+    font-family: "Pictos";
+    font-size: 20px;
+    font-weight: bold;
+    color: #BEBDBD;
+    min-width: 20px;
+    min-height: 20px;
+    margin-left: -20px;
+}
+input.sheet-inptrlbns:checked + span,
+input.sheet-inptrlbns:hover + span {
+    color: #006F5B;
+}
 input[type=number]:disabled::-webkit-inner-spin-button,
 input[type=number]:disabled::-webkit-outer-spin-button,
 input[type=number]:read-only::-webkit-inner-spin-button,
@@ -234,6 +274,7 @@ select{
     max-height 1.4em;
     font-weight:normal;
     border: none;
+    transition: 0.2s;
 }
 select.sheet-smallsel{
     width: 20px;
@@ -263,6 +304,7 @@ button[type="roll"] {
     box-shadow: none;
     text-shadow: none;
     -webkit-box-shadow: none;
+    transition: 0.3s;
 }
 button[type="roll"].sheet-butroll{
     white-space: nowrap;
@@ -386,4 +428,3 @@ button[type="roll"].sheet-butshow:hover:before{
     border: none;
     color: #D54134;
 }
-

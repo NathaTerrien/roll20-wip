@@ -1,4 +1,16 @@
 <script type="text/worker">
+    on("change:talentbonusreset", function(){
+        getAttrs(["talentbonusreset"],function(values){
+            if ( (parseInt(values.talentbonusreset) || 0) == 1 ) {
+                setAttrs({
+                    talentbroadbonus: 0,
+                    talentcommonbonus: 0,
+                    talentdeepbonus: 0
+                });
+                setAttrs({talentbonusreset: 0},{silent: true});
+            }
+        });
+    });
     on("change:talentbroadbonus", function(){
         getAttrs(["talentbroadbonus"],function(values){
             var tlnt=parseInt(values.talentbroadbonus) || 0;
@@ -298,29 +310,41 @@
                 <input type="text" name="attr_player" class="iptbig1" placeholder="Player" />
             </div>
         </div><!-- END BASICS -->
+        <!-- ===== TALENTS ===== -->
+        <div class="absinp" style="left: 655px;top: 35px;"> <!-- RESET TALENT BONUS -->
+            <input type="checkbox" name="attr_talentbonusreset" value="1" class="inptreset" title="Reset Talents selection" /><span>1</span>
+        </div> <!-- END RESET TALENT BONUS -->
         <div><!-- TALENTS BROAD -->
-            <div class="absinp" style="left: 550px;top: 35px;">
-                <input type="radio" name="attr_talentbroadbonus" value="0" class="" checked />
-                <input type="radio" name="attr_talentbroadbonus" value="1" class="" />
-                <input type="radio" name="attr_talentbroadbonus" value="2" class="" />
-                <input type="radio" name="attr_talentbroadbonus" value="3" class="" />
-                <input type="radio" name="attr_talentbroadbonus" value="4" class="" />
-                <input type="radio" name="attr_talentbroadbonus" value="5" class="" />
-            </div>
+            <div style="display:none"><input type="radio" name="attr_talentbroadbonus" value="0" class="" checked /></div>
             <div class="absinp" style="left: 377px;top: 60px;">
                 <input type="text" name="attr_talentbroad1" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 60px;">
+                <input type="radio" name="attr_talentbroadbonus" value="1" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
             </div>
             <div class="absinp" style="left: 377px;top: 85px;">
                 <input type="text" name="attr_talentbroad2" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
+            <div class="absinp" style="left: 655px;top: 85px;">
+                <input type="radio" name="attr_talentbroadbonus" value="2" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+            </div>
             <div class="absinp" style="left: 377px;top: 110px;">
                 <input type="text" name="attr_talentbroad3" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 110px;">
+                <input type="radio" name="attr_talentbroadbonus" value="3" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
             </div>
             <div class="absinp" style="left: 377px;top: 135px;">
                 <input type="text" name="attr_talentbroad4" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
+            <div class="absinp" style="left: 655px;top: 135px;">
+                <input type="radio" name="attr_talentbroadbonus" value="4" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+            </div>
             <div class="absinp" style="left: 377px;top: 160px;">
                 <input type="text" name="attr_talentbroad5" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 160px;">
+                <input type="radio" name="attr_talentbroadbonus" value="5" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
             </div>
         </div><!-- END TALENTS BROAD -->
         <div><!-- TALENTS COMMON -->
@@ -373,6 +397,7 @@
                 <input type="text" name="attr_talentdeep5" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
             </div>
         </div><!-- END TALENTS DEEP -->
+        <!-- ===== HERTIAGE/POLITICAL/SPIRITUAL ===== -->
         <div><!-- FAMILY HERITAGE -->
             <div class="absinp" style="left: 271px;top: 468px;">
                 <button type="roll" name="ShowFamily" title="Show family heritage" class="butshow" value="&{template:tmpl} {{pc=@{character_name}}} {{family=1}} {{rollib=Family Heritage}} {{lib1=Parent}} {{val1=@{familyparent1}}} {{heritage1=@{familyheritage1}}} {{planar1=@{planarheritage1}}} {{lib2=Parent}} {{val2=@{familyparent2}}} {{heritage2=@{familyheritage2}}} {{planar2=@{planarheritage2}}}"></button>
@@ -500,10 +525,7 @@
                 <textarea type="text" name="attr_spiritualbelief" style="width: 210px;height: 56px;" placeholder="Spiritual belief"></textarea>
             </div>
         </div><!-- END SPIRITUAL POWER -->
-        <div style="display: none;"> <!-- HIDDEN ATTRIBUTES -->
-            <input type="number" name="attr_spark" value="6" />
-            <input type="number" name="attr_smoke" value="6" />
-        </div><!-- END HIDDEN ATTRIBUES -->
+        <!-- ===== ATTRIBUTES/HARM/INFLUENCE ===== -->
         <div><!-- SPARK -->
             <div class="absinp" style="left: 725px;top: 80px;">
                 <input type="radio" name="attr_spark" class="inptdice" title="D20" value="20" /><span></span>
