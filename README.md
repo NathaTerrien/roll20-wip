@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-05-28 (SIG, projects and gifts)._
+_Updated 2017-06-03 (SIG, projects and gifts)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -37,9 +37,7 @@ Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/)
 
 ### Todo
-* Numeric and dice attributes 
-* Rolls
-* Roll template
+* waiting for approval
 
 ![thesorawl banner](/_banners/the_sprawl.png)
 ### The Sprawl (french translation)
@@ -53,7 +51,7 @@ Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, 
 ### Todo
 * ~~Insertion des tags i18n data.~~
 * ~~Révision HTML et CSS pour fiabiliser le layout en multilingue~~
-* Intégration de la VF
+* ~~Intégration de la VF~~
 
 ---
 
