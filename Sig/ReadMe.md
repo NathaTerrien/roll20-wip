@@ -17,6 +17,6 @@ Visit the Elemental Plane of Flame to test yourself in scorched wastelands of th
 
 # Release notes
 
-##v1.0 (2017-06-01)
+##v1.0 (2017-06-06)
 
 Creation of the sheet.

@@ -289,13 +289,13 @@
     <div style="display: none;"><!-- HIDDEN VALUES -->
         <input type="number" name="attr_talentbroadrollbonus" value="0" />
         <input type="text" name="attr_talentbroadrollbonusname" value="" />
-        <input type="number" name="attr_talentcommonrollbonus" value="" />
+        <input type="number" name="attr_talentcommonrollbonus" value="0" />
         <input type="text" name="attr_talentcommonrollbonusname" value="" />
-        <input type="number" name="attr_talentdeeprollbonus" value="" />
+        <input type="number" name="attr_talentdeeprollbonus" value="0" />
         <input type="text" name="attr_talentdeeprollbonusname" value="" />
-        <input type="number" name="attr_talentrollbonus" value="0" disabled />
+        <input type="number" name="attr_talentrollbonus" value="0" />
     </div>
-    <div class="pc"> <!-- BEGIN PC SHEET -->
+    <div class="sigpcsheet"> <!-- BEGIN PC SHEET -->
         <div><!-- BASICS -->
             <div class="absinp" style="left: 35px;top: 120px;">
                 <input type="text" name="attr_character_name" class="iptbig1" />
@@ -311,7 +311,7 @@
             </div>
         </div><!-- END BASICS -->
         <!-- ===== TALENTS ===== -->
-        <div class="absinp" style="left: 655px;top: 35px;"> <!-- RESET TALENT BONUS -->
+        <div class="absinp " style="left: 655px;top: 35px;"> <!-- RESET TALENT BONUS -->
             <input type="checkbox" name="attr_talentbonusreset" value="1" class="inptreset" title="Reset Talents selection" /><span>1</span>
         </div> <!-- END RESET TALENT BONUS -->
         <div><!-- TALENTS BROAD -->
@@ -320,81 +320,97 @@
                 <input type="text" name="attr_talentbroad1" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
             <div class="absinp" style="left: 655px;top: 60px;">
-                <input type="radio" name="attr_talentbroadbonus" value="1" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+                <input type="radio" name="attr_talentbroadbonus" value="1" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 85px;">
                 <input type="text" name="attr_talentbroad2" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
             <div class="absinp" style="left: 655px;top: 85px;">
-                <input type="radio" name="attr_talentbroadbonus" value="2" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+                <input type="radio" name="attr_talentbroadbonus" value="2" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 110px;">
                 <input type="text" name="attr_talentbroad3" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
             <div class="absinp" style="left: 655px;top: 110px;">
-                <input type="radio" name="attr_talentbroadbonus" value="3" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+                <input type="radio" name="attr_talentbroadbonus" value="3" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 135px;">
                 <input type="text" name="attr_talentbroad4" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
             <div class="absinp" style="left: 655px;top: 135px;">
-                <input type="radio" name="attr_talentbroadbonus" value="4" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+                <input type="radio" name="attr_talentbroadbonus" value="4" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 160px;">
                 <input type="text" name="attr_talentbroad5" class="ipttalent" placeholder="Broad talent" title="Broad talent (+1)" />
             </div>
-            <div class="absinp" style="left: 655px;top: 160px;">
-                <input type="radio" name="attr_talentbroadbonus" value="5" class="inptrlbns" title="Click to select this Talent to use as bonus to the next Spark or Smoke roll" /><span>2</span>
+            <div class="absinp grbttmbrd" style="left: 655px;top: 160px;">
+                <input type="radio" name="attr_talentbroadbonus" value="5" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
         </div><!-- END TALENTS BROAD -->
         <div><!-- TALENTS COMMON -->
-            <div class="absinp" style="left: 550px;top: 177px;">
-                <input type="radio" name="attr_talentcommonbonus" value="0" class="" checked />
-                <input type="radio" name="attr_talentcommonbonus" value="1" class="" />
-                <input type="radio" name="attr_talentcommonbonus" value="2" class="" />
-                <input type="radio" name="attr_talentcommonbonus" value="3" class="" />
-                <input type="radio" name="attr_talentcommonbonus" value="4" class="" />
-                <input type="radio" name="attr_talentcommonbonus" value="5" class="" />
-            </div>
+            <div style="display:none"><input type="radio" name="attr_talentcommonbonus" value="0" class="" checked /></div>
             <div class="absinp" style="left: 377px;top: 187px;">
                 <input type="text" name="attr_talentcommon1" class="ipttalent" placeholder="Common talent" title="Common talent (+2)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 187px;">
+                <input type="radio" name="attr_talentcommonbonus" value="1" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 212px;">
                 <input type="text" name="attr_talentcommon2" class="ipttalent" placeholder="Common talent" title="Common talent (+2)" />
             </div>
+            <div class="absinp" style="left: 655px;top: 212px;">
+                <input type="radio" name="attr_talentcommonbonus" value="2" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
+            </div>
             <div class="absinp" style="left: 377px;top: 237px;">
                 <input type="text" name="attr_talentcommon3" class="ipttalent" placeholder="Common talent" title="Common talent (+2)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 237px;">
+                <input type="radio" name="attr_talentcommonbonus" value="3" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 262px;">
                 <input type="text" name="attr_talentcommon4" class="ipttalent" placeholder="Common talent" title="Common talent (+2)" />
             </div>
+            <div class="absinp" style="left: 655px;top: 262px;">
+                <input type="radio" name="attr_talentcommonbonus" value="4" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
+            </div>
             <div class="absinp" style="left: 377px;top: 287px;">
                 <input type="text" name="attr_talentcommon5" class="ipttalent" placeholder="Common talent" title="Common talent (+2)" />
             </div>
+            <div class="absinp grbttmbrd" style="left: 655px;top: 287px;">
+                <input type="radio" name="attr_talentcommonbonus" value="5" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
+            </div>
         </div><!-- END TALENTS COMMON -->
         <div><!-- TALENTS DEEP -->
-            <div class="absinp" style="left: 550px;top: 304px;">
-                <input type="radio" name="attr_talentdeepbonus" value="0" class="" checked />
-                <input type="radio" name="attr_talentdeepbonus" value="1" class="" />
-                <input type="radio" name="attr_talentdeepbonus" value="2" class="" />
-                <input type="radio" name="attr_talentdeepbonus" value="3" class="" />
-                <input type="radio" name="attr_talentdeepbonus" value="4" class="" />
-                <input type="radio" name="attr_talentdeepbonus" value="5" class="" />
-            </div>
+            <div style="display:none"><input type="radio" name="attr_talentdeepbonus" value="0" class="" checked /></div>
             <div class="absinp" style="left: 377px;top: 314px;">
                 <input type="text" name="attr_talentdeep1" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 314px;">
+                <input type="radio" name="attr_talentdeepbonus" value="1" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 339px;">
                 <input type="text" name="attr_talentdeep2" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
             </div>
+            <div class="absinp" style="left: 655px;top: 339px;">
+                <input type="radio" name="attr_talentdeepbonus" value="2" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
+            </div>
             <div class="absinp" style="left: 377px;top: 364px;">
                 <input type="text" name="attr_talentdeep3" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
+            </div>
+            <div class="absinp" style="left: 655px;top: 364px;">
+                <input type="radio" name="attr_talentdeepbonus" value="3" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
             <div class="absinp" style="left: 377px;top: 389px;">
                 <input type="text" name="attr_talentdeep4" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
             </div>
+            <div class="absinp" style="left: 655px;top: 389px;">
+                <input type="radio" name="attr_talentdeepbonus" value="4" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
+            </div>
             <div class="absinp" style="left: 377px;top: 414px;">
                 <input type="text" name="attr_talentdeep5" class="ipttalent" placeholder="Deep talent" title="Deep talent (+3)" />
+            </div>
+            <div class="absinp grbttmbrd" style="left: 655px;top: 414px;">
+                <input type="radio" name="attr_talentdeepbonus" value="5" class="inptrlbns" title="Click to select this Talent as bonus to the next Spark or Smoke roll" /><span>3</span>
             </div>
         </div><!-- END TALENTS DEEP -->
         <!-- ===== HERTIAGE/POLITICAL/SPIRITUAL ===== -->
@@ -435,6 +451,9 @@
                 <input type="radio" name="attr_familyheritage2" value="stanger" class="" title="Stranger Nature" />
             </div>
                 <!-- BELIEF -->
+            <div class="absinp" style="left: 44px;top: 685px;">
+                <button type="roll" name="ShowBeliefs1" title="Show Beliefs" class="butshowblack" value="&{template:tmpl} {{pc=@{character_name}}} {{rollib=Beliefs}} {{lib1=Family Belief}} {{val1=@{familybelief}}} {{lib2=Political Belief}} {{val2=@{politicalbelief}}} {{lib3=Spiritual Belief}} {{val3=@{spiritualbelief}}}"></button>
+            </div>
             <div class="absinp" style="left: 93px;top: 690px;">
                 <textarea type="text" name="attr_familybelief" style="width: 218px;height: 56px;" placeholder="Family belief"></textarea>
             </div>
@@ -478,6 +497,10 @@
             <div class="absinp" style="left: 377px;top: 630px;">
                 <textarea type="text" name="attr_politicalleverage" style="width: 274px;height: 36px;" placeholder="Leverage"></textarea>
             </div>
+                <!-- BELIEF -->
+            <div class="absinp" style="left: 394px;top: 685px;">
+                <button type="roll" name="ShowBeliefs2" title="Show Beliefs" class="butshowblack" value="&{template:tmpl} {{pc=@{character_name}}} {{rollib=Beliefs}} {{lib1=Family Belief}} {{val1=@{familybelief}}} {{lib2=Political Belief}} {{val2=@{politicalbelief}}} {{lib3=Spiritual Belief}} {{val3=@{spiritualbelief}}}"></button>
+            </div>
             <div class="absinp" style="left: 443px;top: 690px;">
                 <textarea type="text" name="attr_politicalbelief" style="width: 207px;height: 56px;" placeholder="Political belief"></textarea>
             </div>
@@ -520,6 +543,10 @@
             </div>
             <div class="absinp" style="left: 719px;top: 630px;">
                 <textarea type="text" name="attr_spiritualritual" style="width: 274px;height: 36px;" placeholder="Ritual"></textarea>
+            </div>
+                <!-- BELIEF -->
+            <div class="absinp" style="left: 734px;top: 685px;">
+                <button type="roll" name="ShowBeliefs3" title="Show Beliefs" class="butshowblack" value="&{template:tmpl} {{pc=@{character_name}}} {{rollib=Beliefs}} {{lib1=Family Belief}} {{val1=@{familybelief}}} {{lib2=Political Belief}} {{val2=@{politicalbelief}}} {{lib3=Spiritual Belief}} {{val3=@{spiritualbelief}}}"></button>
             </div>
             <div class="absinp" style="left: 783px;top: 690px;">
                 <textarea type="text" name="attr_spiritualbelief" style="width: 210px;height: 56px;" placeholder="Spiritual belief"></textarea>
@@ -588,18 +615,29 @@
                 <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 25px;" title="3 points of harm" value="3" /><span></span>
                 <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 25px;" title="4 points of harm" value="4" /><span></span>
                 <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 21px;" title="5 points of harm" value="5" /><span></span>
-                <input type="radio" name="attr_harm" class="inptsel" style="margin-top: 26px;" title="6 points of harm" value="6" /><span></span>
+                <input type="radio" name="attr_harm" class="inptsel" style="margin-left: 2px;margin-top: 27px;" title="6 points of harm" value="6" /><span></span>
             </div><!-- END HARM GAUGE -->
             <div class="absinp" style="left: 887px;top: 380px;"> <!-- HARM POINTS -->
                 <input type="number" name="attr_harm" class="iptnumrond" title="Current points of harm" value="0" min="0" max="6" />
             </div> <!-- END HARM POINTS -->
         </div> <!-- END HARM -->
+        <div> <!-- INFLUENCE -->
+            <div class="absinp" style="left: 950px;top: 356px;">
+                <p class="atrtitle">INFLUENCE</p>
+            </div>
+            <div class="absinp atrcircle" style="left: 954px;top: 374px;">
+                <div class="atrcirclein">g</div>
+            </div>
+            <div class="absinp" style="left: 960px;top: 380px; z-index:3">
+                <input type="number" name="attr_influence" class="iptnumrond iptblue" title="Current points of influence" value="0" min="0" max="20" />
+            </div>
+        </div> <!-- END INFLUENCE -->
     </div> <!-- END BEGIN PC SHEET -->
 </div> <!-- END SHEETS -->
 <!-- === TEMPLATE   === -->
 <rolltemplate class="sheet-rolltemplate-tmpl">
     <div class="tplmain">
-        <div class="pc">{{pc}}</div>
+        <div class="sigpc">{{pc}}</div>
         {{#roll}}
             <div class="droll">{{roll}}</div>
         {{/roll}}
@@ -628,13 +666,13 @@
         {{/rollib}}
         {{#roll}}
             {{#rollGreater() talentbroadrollbonus 0}}
-                <div class="desc">{{talentbroadrollbonusname}}</div>
+                <div class="desc">{{talentbroadrollbonusname}} (+1)</div>
             {{/rollGreater() talentbroadrollbonus 0}}
             {{#rollGreater() talentcommonrollbonus 0}}
-                <div class="desc">{{talentcommonrollbonusname}}</div>
+                <div class="desc">{{talentcommonrollbonusname}} (+2)</div>
             {{/rollGreater() talentcommonrollbonus 0}}
             {{#rollGreater() talentdeeprollbonus 0}}
-                <div class="desc">{{talentdeeprollbonusname}}</div>
+                <div class="desc">{{talentdeeprollbonusname}} (+3)</div>
             {{/rollGreater() talentdeeprollbonus 0}}
         {{/roll}}
     </div>
