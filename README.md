@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-06-03 (SIG, projects and gifts)._
+_Updated 2017-06-03 (The Sprawl, SIG, projects and gifts)._
 
 # You like my work? Wanna help?
 You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
@@ -38,20 +38,6 @@ Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com
 
 ### Todo
 * waiting for approval
-
-![thesorawl banner](/_banners/the_sprawl.png)
-### The Sprawl (french translation)
-
-Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, et intégration de la traduction française, dans le cadre  du [financement participatif](https://fr.ulule.com/the-sprawl-jdr-cyberpunk/).
-
-#### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl) v1.1 (2017-03-31)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl) v1.1 (2017-03-31)
-
-### Todo
-* ~~Insertion des tags i18n data.~~
-* ~~Révision HTML et CSS pour fiabiliser le layout en multilingue~~
-* ~~Intégration de la VF~~
 
 ---
 
@@ -355,6 +341,19 @@ Traduction et adaptation.
 * Virer la cible des jets qui ne sert à rien
 * Ajouter une demande de dé de maîtrise
 * Script API pour template de jet
+
+___
+![thesorawl banner](/_banners/the_sprawl.png)
+### The Sprawl (french translation)
+
+Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, et intégration de la traduction française, dans le cadre  du [financement participatif](https://fr.ulule.com/the-sprawl-jdr-cyberpunk/).
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl) v1.2 (2017-06-03)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl) v1.2 (2017-06-03)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/The%20Sprawl) v1.1 
+
+### Todo
 
 ___
 ### Trail of Cthulhu (french)
