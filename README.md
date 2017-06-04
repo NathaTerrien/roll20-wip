@@ -5,11 +5,7 @@ Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Tab
 _Updated 2017-06-03 (The Sprawl, SIG, projects and gifts)._
 
 # You like my work? Wanna help?
-You can [make a gift](https://app.roll20.net/gift/forid/75857), to help pay my Pro subscription.
-
-Current amount gifted for 2017-2018 : $99.99 / $99.99
-
-Thanks to: Bobby Lapointe and Kamille!
+Wait a few days, as I'm in the process of putting up a Tipeee page :)
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
