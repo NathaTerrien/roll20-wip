@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-06-03 (The Sprawl, SIG, projects and gifts)._
+_Updated 2017-06-04 (The Sprawl, SIG, projects and gifts)._
 
 # You like my work? Wanna help?
 Wait a few days, as I'm in the process of putting up a Tipeee page :)
@@ -18,22 +18,21 @@ In no particular order ...
 * [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html), french
 * Mazes & Minotaurs, english
 
+## Other stuff to do
+In no particular order ...
+* Enhancement to the Savage Worlds (French) sheet:
+  * Beast & Barbarians and Lankhmar layout
+  * Beast & Barbarians 
+* Enhancement to the Chroniques Oubliées sheet:
+  * 
+
+
 ---
 
 ## Work In Progress
 ---
-![SIG_banner](/_banners/sig.png)
-### Sig: The City Between (english)
 
-Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com/products/sig/)
-
-[Preview](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Sig/sig_wip.jpg)
-
-#### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/)
-
-### Todo
-* waiting for approval
+TBA.
 
 ---
 
@@ -278,6 +277,21 @@ Création.
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
 * Gestion de la Cadence de Tir automatique ? (probablement via l'API ...)
+
+___
+![SIG_banner](/_banners/sig.png)
+### Sig: The City Between (english)
+
+Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com/products/sig/)
+
+[Preview](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Sig/sig_wip.jpg)
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/) Version 1.0 (2017-06-04)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SIG) Version 1.0 (2017-06-04)
+* [Official]() Waiting for the merge
+
+### Todo
 
 ___
 ### Supersix (french)
