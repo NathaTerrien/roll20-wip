@@ -13,10 +13,11 @@ Visit the Elemental Plane of Flame to test yourself in scorched wastelands of th
 # Current version
 1.0 [Screenshot](sig.jpg)
 
-![How to use the sheet](sig_howto.jpg)
+Click to enlarge:
+[![How to use the sheet](sig_howto.jpg)](sig_howto.jpg)
 
 # Release notes
 
-##v1.0 (2017-06-06)
+##v1.0 (2017-06-04)
 
 Creation of the sheet.
