@@ -21,10 +21,14 @@ In no particular order ...
 ## Other stuff to do
 In no particular order ...
 * Enhancement to the Savage Worlds (French) sheet:
-  * Beast & Barbarians and Lankhmar layout
-  * Beast & Barbarians 
-* Enhancement to the Chroniques Oubliées sheet:
-  * 
+  * Correction des blessures des extras (pas de 1 => 0 / état critique)
+  * Option (ou nouvelle fiche ?) de mise en page aux couleurs de Beast & Barbarians et Lankhmar
+  * (pour Beast & Barbarians) : gérer les Extra/Bras droit/Sous-fifre/Joker et/ou la possibilité d'autoriser 0 à 3 blessures à un PNJ
+* Enhancement to the Chroniques Oubliées (French) sheet:
+  * Bonus "Divers" des caracs, attaques et initiatives devient une somme d'une liste de bouns détaillé (avec libellé saisissable)
+  * RD sous forme de liste répétable
+  * Différentes source de dégâts pour les armes
+  * Liste répétable pour l'équipement consommables
 
 
 ---
