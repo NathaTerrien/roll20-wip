@@ -7,7 +7,7 @@ _Updated 2017-06-05 (The Sprawl, SIG, projects and gifts)._
 # You like my work and want to support me?
 
 You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's like Patreon, but with an easy "one time tip" option).
-Thanks :)
+![[Tipeee page](https://www.tipeee.com/natharoll20)](https://www.tipeee.com/img/tipeee-logo-com.png)
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
