@@ -12,6 +12,7 @@ You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's l
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
+* Colonial Gothic, english and french
 * Apocalypse World, french translation
 * Yggdrasill, french and english
 * Chroniques Oubliées Contemporain, french
