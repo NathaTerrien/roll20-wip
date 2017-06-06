@@ -2,10 +2,12 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-06-04 (The Sprawl, SIG, projects and gifts)._
+_Updated 2017-06-05 (The Sprawl, SIG, projects and gifts)._
 
-# You like my work? Wanna help?
-Wait a few days, as I'm in the process of putting up a Tipeee page :)
+# You like my work and want to support me?
+
+You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's like Patreon, but with an easy "one time tip" option).
+Thanks :)
 
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
