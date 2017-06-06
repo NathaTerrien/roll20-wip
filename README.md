@@ -2,11 +2,12 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-06-05 (The Sprawl, SIG, projects and gifts)._
+_Updated 2017-06-05 (The Sprawl, SIG, projects and Tipeeee)._
 
 # You like my work and want to support me?
 
 You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's like Patreon, but with an easy "one time tip" option).
+
 [![Tipeee](https://www.tipeee.com/img/tipeee-logo-com.png)](https://www.tipeee.com/natharoll20)
 
 ## Considered sheets (creation, translation or enhancements)
@@ -68,8 +69,8 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.4 (2017-06-06)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.4 (2017-06-06)
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
 
 ### Todo
@@ -295,7 +296,7 @@ Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/) Version 1.0 (2017-06-04)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SIG) Version 1.0 (2017-06-04)
-* [Official]() Waiting for the merge
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SIG)  Version 1.0 (2017-06-04)
 
 ### Todo
 
@@ -367,7 +368,7 @@ Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, 
 #### Sources
 * [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl) v1.2 (2017-06-03)
 * [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl) v1.2 (2017-06-03)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/The%20Sprawl) v1.1 
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/The%20Sprawl) v1.2 (2017-06-03)
 
 ### Todo
 
