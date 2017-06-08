@@ -44,7 +44,7 @@
     "get-holding-wealth": "Get a holding (detail) and Wealth.",
     "get-move-class": "Get a new move from your class.",
     "get-move-other": "Get a move from another Playbook.",
-    "get-plus-cool-max3": "Get +1 Sharp (max Sharp +3)",
+    "get-plus-cool-max2": "Get +1 Cool (max Cool +2)",
     "get-plus-hard-max2": "Get +1 Hard (max Hard +2)",
     "get-plus-hard-max3": "Get +1 Hard (max Hard +3)",
     "get-plus-hot-max2": "Get +1 Hot (max Hot +2)",

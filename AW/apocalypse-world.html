@@ -70,7 +70,7 @@
 				<input type='checkbox' name='attr_coolHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
 				<div class="sheet-roll-box sheet-cf">
 				<label class="sheet-buttonLbl"><span data-i18n="do-something-under-fire">Do something under fire</span>:</label>
-				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Cool}} {{roll_mod=@{cool}}} {{result=[[2d6 + @{cool} - @{shattered}]]}}' name='roll_dsuf'></button>
+				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{cool}}} {{roll_mod=@{cool}}} {{result=[[2d6 + @{cool} - @{shattered}]]}}' name='roll_dsuf'></button>
 				</div>
             </div>
             <div class="sheet-attr-box">
@@ -79,7 +79,7 @@
 				<input type='checkbox' name='attr_hardHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
 				<div class="sheet-roll-box sheet-cf">
 				<label class="sheet-buttonLbl"><span data-i18n="go-aggro">Go aggro/seize by force</span>:</label>
-				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Hard}} {{roll_mod=@{hard}}} {{result=[[2d6 + @{hard} - @{crippled}]]}}' name='roll_gasbf' ></button>
+				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{hard}}} {{roll_mod=@{hard}}} {{result=[[2d6 + @{hard} - @{crippled}]]}}' name='roll_gasbf' ></button>
 				</div>
             </div>
 
@@ -89,7 +89,7 @@
 				<input type='checkbox' name='attr_hotHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
 				<div class="sheet-roll-box sheet-cf">
 				<label class="sheet-buttonLbl"><span data-i18n="seduce-or-manipulate">Seduce or manipulate</span></label>
-				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Hot}} {{roll_mod=@{hot}}} {{result=[[2d6 + @{hot} - @{disfigured}]]}}' name='roll_som' ></button>
+				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{hot}}} {{roll_mod=@{hot}}} {{result=[[2d6 + @{hot} - @{disfigured}]]}}' name='roll_som' ></button>
 				</div>
             </div>
 
@@ -99,7 +99,7 @@
 				<input type='checkbox' name='attr_sharplHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
 				<div class="sheet-roll-box sheet-cf">
 				<label class="sheet-buttonLbl"><span data-i18n="read-a-sitch">Read a sitch; read a person</span></label>
-				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Sharp}} {{roll_mod=@{sharp}}} {{result=[[2d6 + @{sharp} - @{broken}]]}}' name='roll_rasrap' ></button>
+				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{sharp}}} {{roll_mod=@{sharp}}} {{result=[[2d6 + @{sharp} - @{broken}]]}}' name='roll_rasrap' ></button>
 				</div>
 			</div>
 
@@ -109,7 +109,7 @@
 				<input type='checkbox' name='attr_weirdlHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
 				<div class="sheet-roll-box sheet-cf">
 				<label class="sheet-buttonLbl"><span data-i18n="open-your-brain">Open your brain</span></label>
-				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=Weird}} {{roll_mod=@{weird}}} {{result=[[2d6 + @{weird}]]}}' name='roll_oyb' ></button>
+				<button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{weird}}} {{roll_mod=@{weird}}} {{result=[[2d6 + @{weird}]]}}' name='roll_oyb' ></button>
 				</div>
             </div>
 
@@ -155,7 +155,7 @@
 					<div class="sheet-angel">
                         <ul>
                             <li><label class="sheet-improvement"><input type="checkbox" name="attr_angel-improvement-6" /> <span data-i18n="get-plus-sharp-max3">Get +1 Sharp (max Sharp +3)</span></label></li>
-                            <li><label class="sheet-improvement"><input type="checkbox" name="attr_angel-improvement-7" /> <span data-i18n="get-plus-cool-max3">Get +1 Sharp (max Sharp +3)</span></label></li>
+                            <li><label class="sheet-improvement"><input type="checkbox" name="attr_angel-improvement-7" /> <span data-i18n="get-plus-cool-max2">Get +1 Cool (max Cool +2)</span></label></li>
 							<li><label class="sheet-improvement"><input type="checkbox" name="attr_angel-improvement-8" /> <span data-i18n="get-plus-hard-max2">Get +1 Hard (max Hard +2)</span></label></li>
 							<li><label class="sheet-improvement"><input type="checkbox" name="attr_angel-improvement-9" /> <span data-i18n="get-plus-hard-max2">Get +1 Hard (max Hard +2)</span></label></li>
 							<li><label class="sheet-improvement"><input type="checkbox" name="attr_angel-improvement-10" /> <span data-i18n="get-plus-weird-max2">Get +1 Weird (max Weird +2)</span></label></li>
@@ -573,7 +573,6 @@
                     <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=@{classmovename}}} {{roll_mod=[[@{classmoves}]]}} {{result=[[2d6 + @{classmoves}]]}}' name='roll_move'></button>
                     <label class="sheet-desc"><span data-i18n="description">Description</span>:</label>
 					<textarea rows="4" cols="50" name="attr_classmovedesc" ></textarea>
-<!--   			   <button type='roll' value="@{name} rolls a [[2d6!]]" name='roll_move' />  -->
 			</fieldset>
 
             <label class="sheet-other-moves sheet-section-title"><span data-i18n="other-moves">Other Moves</span>:</label>
