@@ -1,10 +1,11 @@
 <div class='sheet-maindiv'>
     <label class="sheet-name"><span data-i18n="name">Name</span>:</label>
     <input type="text" name="attr_name"/>
-
-    <input type='checkbox' name='attr_lock_class' class='sheet-lock'>
-    <label class="sheet-lock"><small><span data-i18n="lock-unlock-class">Lock/Unlock Class</span></small></label><br/>
-    <label class="sheet-name">Class:</label>
+    <div class="lne">
+        <label class="sheet-name"><span data-i18n="class-archetype">Class</span>:</label>
+        <input type='checkbox' name='attr_lock_class' class='sheet-lock'>
+        <label class="sheet-lock"><small><span data-i18n="lock-unlock-class">Lock/Unlock Class</span></small></label><br/>
+    </div>
     <input type='checkbox' name='attr_lock_class' class='sheet-lock' style="display: none;">
     <div class="sheet-classSelected" style=" width: 100%; padding-left: 20px;">
         <input type='checkbox' name='attr_lock_class' class='sheet-lock' style="display: none;">
@@ -661,7 +662,7 @@
                     <textarea rows="4" cols="50" name="attr_custom"></textarea>
                 </div>
 
-                <div class="sheet-skinner">
+                <div class="sheet-operator">
                     <label class="sheet-crew"><span data-i18n="crew-contacts">Crew Contacts</span>:</label>
                     <textarea rows="4" cols="50" name="attr_crew"></textarea>
                 </div>
@@ -697,7 +698,7 @@
 
             <div class="sheet-holder sheet-box">
                 <h3><span><span data-i18n="holding">Holding</span></span></h3>
-                <div><label class="sheet-custom"><span data-i18n="size">Size</span>:</label></div>
+                <div><label class="sheet-custom"><span data-i18n="holding-size">Size</span>:</label></div>
                 <div><input type="text" name="attr_holdingsize" /></div>
                 <div><label class="sheet-custom"><span data-i18n="gigs">Gigs</span>:</label></div>
                 <div><input type="text" name="attr_holdinggigs" /></div>
@@ -762,82 +763,25 @@
     </div>
     </div>
 
-
 </div>
 
 <!-- ROLL TEMPLATES -->
 <rolltemplate class="sheet-rolltemplate-aw">
     <table>
-        <tr><th colspan="2">{{name}} rolls{{#roll_name}} {{roll_name}}{{/roll_name}}{{#roll_mod}}({{roll_mod}}){{/roll_mod}}</th></tr>
+        <tr><th colspan="2">{{name}}<br/><span data-i18n="rolls">rolls</span>{{#roll_name}} {{roll_name}}{{/roll_name}}{{#roll_mod}}({{roll_mod}}){{/roll_mod}}</th></tr>
         <tr>
-            {{#rollTotal() result 15}}
+            {{#rollGreater() result 9}}
                 <td class="result success">{{result}}</td>
-                <td> Succeeds </td>
-            {{/rollTotal() result 15}}
-            {{#rollTotal() result 14}}
-                <td class="result success">{{result}}</td>
-                <td> Succeeds </td>
-            {{/rollTotal() result 14}}
-            {{#rollTotal() result 13}}
-                <td class="result success">{{result}}</td>
-                <td> Succeeds </td>
-            {{/rollTotal() result 13}}
-            {{#rollTotal() result 12}}
-                <td class="result success">{{result}}</td>
-                <td> Succeeds </td>
-            {{/rollTotal() result 12}}
-            {{#rollTotal() result 11}}
-                <td class="result success">{{result}}</td>
-                <td> Succeeds </td>
-            {{/rollTotal() result 11}}
-            {{#rollTotal() result 10}}
-                <td class="result success">{{result}}</td>
-                <td> Succeeds </td>
-            {{/rollTotal() result 10}}
-            {{#rollTotal() result 9}}
+                <td><span data-i18n="succeeds">Succeeds</span></td>
+            {{/rollGreater() result 9}}
+            {{#rollBetween() result 7 9}}
                 <td class="result">{{result}}</td>
-                <td>Succeeds partially</td>
-            {{/rollTotal() result 9}}
-            {{#rollTotal() result 8}}
-                <td class="result">{{result}}</td>
-                <td>Succeeds partially</td>
-            {{/rollTotal() result 8}}
-            {{#rollTotal() result 7}}
-                <td class="result">{{result}}</td>
-                <td>Succeeds partially</td>
-            {{/rollTotal() result 7}}
-            {{#rollTotal() result 6}}
+                <td><span data-i18n="succeeds-partially">Succeeds partially</span></td>
+            {{/rollBetween() result 7 9}}
+            {{#rollLess() result 7}}
                 <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 6}}
-            {{#rollTotal() result 5}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 5}}
-            {{#rollTotal() result 4}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 4}}
-            {{#rollTotal() result 3}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 3}}
-            {{#rollTotal() result 2}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 2}}
-            {{#rollTotal() result 1}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 1}}
-            {{#rollTotal() result 0}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result 0}}
-            {{#rollTotal() result -1}}
-                <td class="result failure">{{result}}</td>
-                <td>Misses</td>
-            {{/rollTotal() result -1}}
+                <td><span data-i18n="misses">Misses</span></td>
+            {{/rollLess() result 7}}
         </tr>
     </table>
 </rolltemplate>
