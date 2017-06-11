@@ -33,8 +33,8 @@
     "gear-barter": "Matos & Troc",
     "get-2-gigs-moonlighting": "Deux jobs (précise) et Travail au noir",
     "get-brainer-gear2": "Get 2 pieces of Brainer gear",
-    "get-car": "Get a car. (précise)",
-    "get-car-noshit-driver": "Get a car (précise) and a \"No Shit Driver\"",
+    "get-car": "Une bagnole (précise)",
+    "get-car-noshit-driver": "Une bagnole (précise) et un \"No Shit Driver\"",
     "get-followers-fortune": "Des disciples (précise) et Offrande",
     "get-gang-alpha": "Un gang (précise) et Mâle Alpha",
     "get-gang-leadership": "Un gang (précise) et Commandement",
@@ -125,5 +125,5 @@
     "weird": "Zarb",
     "workspace-lifesupport": "Ajoute une unité de soins intensifs à ton atelier pour bosser sur des gens",
     "your-bike": "Ta Bécane",
-    "your-cars": "Your Car(s)"
+    "your-cars": "Bagnole(s)"
 }
