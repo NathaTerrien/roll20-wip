@@ -72,6 +72,15 @@ list-style: none;
 .charsheet .sheet-attr-box {
     padding: 5px;
 }
+
+.charsheet input[type=number]{
+    text-align: right;
+    font-weight: bold;
+    font-size: large;
+    padding: 1px 2px 0px 2px;
+    max-width: 45px;
+}
+
 .charsheet .sheet-attr-box input[type=text] {
     width: 35px;
     text-align: center;

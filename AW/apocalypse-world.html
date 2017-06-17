@@ -1,6 +1,42 @@
+<!-- ========= SCRIPT ========= -->
+<script type="text/worker">
+    on('sheet:opened',function(){
+        getAttrs(["SHEETVERSION"], function(values) {
+            var vers = parseFloat(values.SHEETVERSION) || 0;
+            if (vers < 1.1) {
+                // fix harm attribute to handle the clock visual
+                getAttrs(["sheet-harm-1","sheet-harm-2","sheet-harm-3","sheet-harm-4","sheet-harm-5","sheet-harm-6"], function(values) {
+                    var h1 = parseInt(values["sheet-harm-1"]) || 0;
+                    var h2 = parseInt(values["sheet-harm-2"]) || 0;
+                    var h3 = parseInt(values["sheet-harm-3"]) || 0;
+                    var h4 = parseInt(values["sheet-harm-4"]) || 0;
+                    var h5 = parseInt(values["sheet-harm-5"]) || 0;
+                    var h6 = parseInt(values["sheet-harm-6"]) || 0;
+                    var vharm = 0;
+                    if (h6 == 1) {
+                        vharm = 12;
+                    } else if (h5 == 1) {
+                        vharm = 11;
+                    } else if (h4 == 1) {
+                        vharm = 10;
+                    } else if (h3 == 1) {
+                        vharm = 9;
+                    } else if (h2 == 1) {
+                        vharm = 6;
+                    } else if (h1 == 1) {
+                        vharm = 3;
+                    }
+                    setAttrs({"harm":vharm,"SHEETVERSION":"1.1"});
+                });
+            }
+        });
+    });
+</script>
+<!-- ========= SHEET ========= -->
 <div class='sheet-maindiv'>
+    <input type="hidden" name="SHEETVERSION" value="1.0" />
     <label class="sheet-name"><span data-i18n="name">Name</span>:</label>
-    <input type="text" name="attr_name"/>
+    <input type="text" name="attr_character_name" />
     <div class="lne">
         <label class="sheet-name"><span data-i18n="class-archetype">Class</span>:</label>
         <input type='checkbox' name='attr_lock_class' class='sheet-lock'>
@@ -67,7 +103,7 @@
             <label class="sheet-class-moves sheet-section-title"><span data-i18n="stats">Stats</span>:</label>
             <div class="sheet-attr-box">
                 <label class="sheet-cool sheet-name"><span data-i18n="cool">Cool</span>:</label>
-                <input type="text" name="attr_cool"/>
+                <input type="number" name="attr_cool" value="0" />
                 <input type='checkbox' name='attr_coolHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                 <label class="sheet-buttonLbl"><span data-i18n="do-something-under-fire">Do something under fire</span>:</label>
@@ -76,7 +112,7 @@
             </div>
             <div class="sheet-attr-box">
                 <label class="sheet-hard sheet-name"><span data-i18n="hard">Hard</span>:</label>
-                <input type="text" name="attr_hard"/>
+                <input type="number" name="attr_hard" value="0" />
                 <input type='checkbox' name='attr_hardHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                 <label class="sheet-buttonLbl"><span data-i18n="go-aggro">Go aggro/seize by force</span>:</label>
@@ -86,7 +122,7 @@
 
             <div class="sheet-attr-box">
                 <label class="sheet-hot sheet-name"><span data-i18n="hot">Hot</span>:</label>
-                <input type="text" name="attr_hot"/>
+                <input type="number" name="attr_hot" value="0" />
                 <input type='checkbox' name='attr_hotHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                 <label class="sheet-buttonLbl"><span data-i18n="seduce-or-manipulate">Seduce or manipulate</span>:</label>
@@ -96,7 +132,7 @@
 
             <div class="sheet-attr-box">
                 <label class="sheet-sharp sheet-name"><span data-i18n="sharp">Sharp</span>:</label>
-                <input type="text" name="attr_sharp"/>
+                <input type="number" name="attr_sharp" value="0" />
                 <input type='checkbox' name='attr_sharplHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                 <label class="sheet-buttonLbl"><span data-i18n="read-a-sitch">Read a sitch; read a person</span>:</label>
@@ -106,7 +142,7 @@
 
             <div class="sheet-attr-box">
                 <label class="sheet-weird sheet-name"><span data-i18n="weird">Weird</span>:</label>
-                <input type="text" name="attr_weird"/>
+                <input type="number" name="attr_weird" value="0" />
                 <input type='checkbox' name='attr_weirdlHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                 <label class="sheet-buttonLbl"><span data-i18n="open-your-brain">Open your brain</span>:</label>
@@ -598,13 +634,13 @@
             <div class="sheet-box">
                 <label class="sheet-harm sheet-section-title"><span data-i18n="harm">Harm</span>:</label>
                 <div class="sheet-harm-section">
-                    <input type="radio" value="0" name="attr_harm" class="sheet-harm-checkbox sheet-harm-0" checked>0
-                    <input type="radio" value="1" name="attr_harm" class="sheet-harm-checkbox sheet-harm-3">3
-                    <input type="radio" value="2" name="attr_harm" class="sheet-harm-checkbox sheet-harm-6">6
-                    <input type="radio" value="3" name="attr_harm" class="sheet-harm-checkbox sheet-harm-9">9
-                    <input type="radio" value="4" name="attr_harm" class="sheet-harm-checkbox sheet-harm-10">10
-                    <input type="radio" value="5" name="attr_harm" class="sheet-harm-checkbox sheet-harm-11">11
-                    <input type="radio" value="6" name="attr_harm" class="sheet-harm-checkbox sheet-harm12">12
+                    <input type="radio" value="0" name="attr_harm" class="sheet-harm-checkbox sheet-harm-0" checked />0
+                    <input type="radio" value="3" name="attr_harm" class="sheet-harm-checkbox sheet-harm-3" />3
+                    <input type="radio" value="6" name="attr_harm" class="sheet-harm-checkbox sheet-harm-6" />6
+                    <input type="radio" value="9" name="attr_harm" class="sheet-harm-checkbox sheet-harm-9" />9
+                    <input type="radio" value="10" name="attr_harm" class="sheet-harm-checkbox sheet-harm-10" />10
+                    <input type="radio" value="11" name="attr_harm" class="sheet-harm-checkbox sheet-harm-11" />11
+                    <input type="radio" value="12" name="attr_harm" class="sheet-harm-checkbox sheet-harm12" />12
                     <br/>
                     <div class="sheet-clock"></div>
                 </div>
@@ -763,8 +799,7 @@
     </div>
 
 </div>
-
-<!-- ROLL TEMPLATES -->
+<!-- ========= ROLL TEMPLATE ========= -->
 <rolltemplate class="sheet-rolltemplate-aw">
     <table>
         <tr><th colspan="2">{{name}}<br/><span data-i18n="rolls">rolls</span>{{#roll_name}} {{roll_name}}{{/roll_name}}{{#roll_mod}}({{roll_mod}}){{/roll_mod}}</th></tr>
