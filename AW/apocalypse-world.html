@@ -70,8 +70,8 @@
                 <input type="text" name="attr_cool"/>
                 <input type='checkbox' name='attr_coolHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
-                    <label class="sheet-buttonLbl"><span data-i18n="do-something-under-fire">Do something under fire</span>:</label>
-                    <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{cool}}} {{roll_mod=@{cool}}} {{result=[[2d6 + @{cool} - @{shattered}]]}}' name='roll_dsuf'></button>
+                <label class="sheet-buttonLbl"><span data-i18n="do-something-under-fire">Do something under fire</span>:</label>
+                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{cool}}} {{roll_mod=@{cool}}} {{result=[[2d6 + @{cool} - @{shattered}]]}}' name='roll_dsuf'></button>
                 </div>
             </div>
             <div class="sheet-attr-box">
@@ -79,37 +79,41 @@
                 <input type="text" name="attr_hard"/>
                 <input type='checkbox' name='attr_hardHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
-                    <label class="sheet-buttonLbl"><span data-i18n="go-aggro">Go aggro/seize by force</span>:</label>
-                    <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{hard}}} {{roll_mod=@{hard}}} {{result=[[2d6 + @{hard} - @{crippled}]]}}' name='roll_gasbf' ></button>
+                <label class="sheet-buttonLbl"><span data-i18n="go-aggro">Go aggro/seize by force</span>:</label>
+                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{hard}}} {{roll_mod=@{hard}}} {{result=[[2d6 + @{hard} - @{crippled}]]}}' name='roll_gasbf' ></button>
                 </div>
             </div>
+
             <div class="sheet-attr-box">
                 <label class="sheet-hot sheet-name"><span data-i18n="hot">Hot</span>:</label>
                 <input type="text" name="attr_hot"/>
                 <input type='checkbox' name='attr_hotHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
-                    <label class="sheet-buttonLbl"><span data-i18n="seduce-or-manipulate">Seduce or manipulate</span>:</label>
-                    <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{hot}}} {{roll_mod=@{hot}}} {{result=[[2d6 + @{hot} - @{disfigured}]]}}' name='roll_som' ></button>
+                <label class="sheet-buttonLbl"><span data-i18n="seduce-or-manipulate">Seduce or manipulate</span>:</label>
+                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{hot}}} {{roll_mod=@{hot}}} {{result=[[2d6 + @{hot} - @{disfigured}]]}}' name='roll_som' ></button>
                 </div>
             </div>
+
             <div class="sheet-attr-box">
                 <label class="sheet-sharp sheet-name"><span data-i18n="sharp">Sharp</span>:</label>
                 <input type="text" name="attr_sharp"/>
                 <input type='checkbox' name='attr_sharplHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
-                    <label class="sheet-buttonLbl"><span data-i18n="read-a-sitch">Read a sitch; read a person</span>:</label>
-                    <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{sharp}}} {{roll_mod=@{sharp}}} {{result=[[2d6 + @{sharp} - @{broken}]]}}' name='roll_rasrap' ></button>
+                <label class="sheet-buttonLbl"><span data-i18n="read-a-sitch">Read a sitch; read a person</span>:</label>
+                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{sharp}}} {{roll_mod=@{sharp}}} {{result=[[2d6 + @{sharp} - @{broken}]]}}' name='roll_rasrap' ></button>
                 </div>
             </div>
+
             <div class="sheet-attr-box">
                 <label class="sheet-weird sheet-name"><span data-i18n="weird">Weird</span>:</label>
                 <input type="text" name="attr_weird"/>
                 <input type='checkbox' name='attr_weirdlHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
-                    <label class="sheet-buttonLbl"><span data-i18n="open-your-brain">Open your brain</span>:</label>
-                    <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{weird}}} {{roll_mod=@{weird}}} {{result=[[2d6 + @{weird}]]}}' name='roll_oyb' ></button>
+                <label class="sheet-buttonLbl"><span data-i18n="open-your-brain">Open your brain</span>:</label>
+                <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=^{weird}}} {{roll_mod=@{weird}}} {{result=[[2d6 + @{weird}]]}}' name='roll_oyb' ></button>
                 </div>
             </div>
+
             <div class="sheet-box">
                 <label class="sheet-improvements sheet-section-title"><span data-i18n="improvements">Improvements</span>:</label>
 
@@ -593,24 +597,23 @@
         <div class="sheet-col">
             <div class="sheet-box">
                 <label class="sheet-harm sheet-section-title"><span data-i18n="harm">Harm</span>:</label>
-                <label class="sheet-harm">3</label>
-                <input type="checkbox" name="attr_sheet-harm-1" />
-                <label class="sheet-harm">6</label>
-                <input type="checkbox" name="attr_sheet-harm-2" />
-                <label class="sheet-harm">9</label>
-                <input type="checkbox" name="attr_sheet-harm-3" />
-                <label class="sheet-harm">10</label>
-                <input type="checkbox" name="attr_sheet-harm-4" />
-                <label class="sheet-harm">11</label>
-                <input type="checkbox" name="attr_sheet-harm-5" />
-                <label class="sheet-harm">12</label>
-                <input type="checkbox" name="attr_sheet-harm-6" />  <br />
-
-                <input type="checkbox" name="attr_shattered" value="1"  /> <label><span data-i18n="shattered">Shattered</span></label><br />
-                <input type="checkbox" name="attr_crippled" value="1"  /> <label><span data-i18n="crippled">Crippled</span></label> <br />
-                <input type="checkbox" name="attr_disfigured" value="1"  /><label><span data-i18n="disfigured">Disfigured</span></label> <br />
-                <input type="checkbox" name="attr_broken" value="1"  /><label><span data-i18n="broken">Broken</span></label>
-
+                <div class="sheet-harm-section">
+                    <input type="radio" value="0" name="attr_harm" class="sheet-harm-checkbox sheet-harm-0" checked>0
+                    <input type="radio" value="1" name="attr_harm" class="sheet-harm-checkbox sheet-harm-3">3
+                    <input type="radio" value="2" name="attr_harm" class="sheet-harm-checkbox sheet-harm-6">6
+                    <input type="radio" value="3" name="attr_harm" class="sheet-harm-checkbox sheet-harm-9">9
+                    <input type="radio" value="4" name="attr_harm" class="sheet-harm-checkbox sheet-harm-10">10
+                    <input type="radio" value="5" name="attr_harm" class="sheet-harm-checkbox sheet-harm-11">11
+                    <input type="radio" value="6" name="attr_harm" class="sheet-harm-checkbox sheet-harm12">12
+                    <br/>
+                    <div class="sheet-clock"></div>
+                </div>
+                <div>
+                    <input type="checkbox" name="attr_shattered" value="1"  /> <label><span data-i18n="shattered">Shattered</span></label>
+                    <input type="checkbox" name="attr_disfigured" value="1"  /><label><span data-i18n="disfigured">Disfigured</span></label> <br />
+                    <input type="checkbox" name="attr_crippled" value="1"  /> <label><span data-i18n="crippled">Crippled</span></label>
+                    <input type="checkbox" name="attr_broken" value="1"  /><label><span data-i18n="broken">Broken</span></label>
+                </div>
             </div>
 
             <div class="sheet-box">
