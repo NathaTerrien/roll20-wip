@@ -1,6 +1,42 @@
+<!-- ========= SCRIPT ========= -->
+<script type="text/worker">
+    on('sheet:opened',function(){
+        getAttrs(["SHEETVERSION"], function(values) {
+            var vers = parseFloat(values.SHEETVERSION) || 0;
+            if (vers < 1.1) {
+                // fix harm attribute to handle the clock visual
+                getAttrs(["sheet-harm-1","sheet-harm-2","sheet-harm-3","sheet-harm-4","sheet-harm-5","sheet-harm-6"], function(values) {
+                    var h1 = parseInt(values["sheet-harm-1"]) || 0;
+                    var h2 = parseInt(values["sheet-harm-2"]) || 0;
+                    var h3 = parseInt(values["sheet-harm-3"]) || 0;
+                    var h4 = parseInt(values["sheet-harm-4"]) || 0;
+                    var h5 = parseInt(values["sheet-harm-5"]) || 0;
+                    var h6 = parseInt(values["sheet-harm-6"]) || 0;
+                    var vharm = 0;
+                    if (h6 == 1) {
+                        vharm = 12;
+                    } else if (h5 == 1) {
+                        vharm = 11;
+                    } else if (h4 == 1) {
+                        vharm = 10;
+                    } else if (h3 == 1) {
+                        vharm = 9;
+                    } else if (h2 == 1) {
+                        vharm = 6;
+                    } else if (h1 == 1) {
+                        vharm = 3;
+                    }
+                    setAttrs({"harm":vharm,"SHEETVERSION":"1.1"});
+                });
+            }
+        });
+    });
+</script>
+<!-- ========= SHEET ========= -->
 <div class='sheet-maindiv'>
+    <input type="hidden" name="SHEETVERSION" value="1.0" />
     <label class="sheet-name"><span data-i18n="name">Name</span>:</label>
-    <input type="text" name="attr_name"/>
+    <input type="text" name="attr_character_name"/>
     <div class="lne">
         <label class="sheet-name"><span data-i18n="class-archetype">Class</span>:</label>
         <input type='checkbox' name='attr_lock_class' class='sheet-lock'>
@@ -26,29 +62,29 @@
         <input type="checkbox" name="attr_class" class="sheet-class" value='Skinner'/><label><span data-i18n="skinner">Skinner</span></label>
         <input type="checkbox" name="attr_class" class="sheet-class" value='Waterbearer'/><label><span data-i18n="waterbearer">Waterbearer</span></label>
     </div>
-    <div class="sheet-2colrow" style="padding-left: 20px;">
+    <div class="sheet-3colrow" style="padding-left: 20px;">
         <input type='checkbox' name='attr_lock_class' class='sheet-lock' style="display: none;">
-        <div class="sheet-col sheet-classcol"">
+        <div class="sheet-col sheet-classcol">
             <input type='checkbox' name='attr_lock_class' class='sheet-lock' style="display: none;">
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Angel' /><label><span data-i18n="angel">Angel</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Battlebabe'/><label><span data-i18n="battlebabe">Battlebabe</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Brainer'/><label><span data-i18n="brainer">Brainer</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Child-Thing'/><label><span data-i18n="child-thing">Child-Thing</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Chopper'/><label><span data-i18n="chopper">Chopper</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Driver'/><label><span data-i18n="driver">Driver</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='Faceless'/><label><span data-i18n="faceless">Faceless</span></label>
-            <input type="checkbox" name="attr_class" class="sheet-class" value='GunLugger'/><label><span data-i18n="gunlugger">GunLugger</span></label>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Angel' /><label><span data-i18n="angel">Angel</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Battlebabe'/><label><span data-i18n="battlebabe">Battlebabe</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Brainer'/><label><span data-i18n="brainer">Brainer</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Child-Thing'/><label><span data-i18n="child-thing">Child-Thing</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Chopper'/><label><span data-i18n="chopper">Chopper</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Driver'/><label><span data-i18n="driver">Driver</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Faceless'/><label><span data-i18n="faceless">Faceless</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='GunLugger'/><label><span data-i18n="gunlugger">GunLugger</span></label></div>
         </div>
         <div class="sheet-col sheet-classcol">
-          <input type='checkbox' name='attr_lock_class' class='sheet-lock' style="display: none;">
-          <input type="checkbox" name="attr_class" class="sheet-class" value='Hardholder'/><label><span data-i18n="hardholder">Hardholder</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='Hocus'/><label><span data-i18n="hocus">Hocus</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='Maestro'/><label><span data-i18n="maestro-d">Maestro D</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='News'/><label><label><span data-i18n="news">News</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='Quarantine'/><label><span data-i18n="quarantine">The Quarantine</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='SavvyHead'/><label><span data-i18n="savvyhead">SavvyHead</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='Skinner'/><label><span data-i18n="skinner">Skinner</span></label>
-          <input type="checkbox" name="attr_class" class="sheet-class" value='Waterbearer'/><label><span data-i18n="waterbearer">Waterbearer</span></label>
+            <input type='checkbox' name='attr_lock_class' class='sheet-lock' style="display: none;">
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Hardholder'/><label><span data-i18n="hardholder">Hardholder</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Hocus'/><label><span data-i18n="hocus">Hocus</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Maestro'/><label><span data-i18n="maestro-d">Maestro D</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='News'/><label><span data-i18n="news">News</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Quarantine'/><label><span data-i18n="quarantine">The Quarantine</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='SavvyHead'/><label><span data-i18n="savvyhead">SavvyHead</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Skinner'/><label><span data-i18n="skinner">Skinner</span></label></div>
+            <div><input type="checkbox" name="attr_class" class="sheet-class" value='Waterbearer'/><label><span data-i18n="waterbearer">Waterbearer</span></label></div>
         </div>
     </div>
     <div class="sheet-3colrow">
@@ -56,7 +92,7 @@
             <label class="sheet-class-moves sheet-section-title"><span data-i18n="stats">Stats</span>:</label>
             <div class="sheet-attr-box">
                 <label class="sheet-cool sheet-name"><span data-i18n="cool">Cool</span>:</label>
-                <input type="text" name="attr_cool"/>
+                <input type="number" name="attr_cool" value="0" />
                 <input type='checkbox' name='attr_coolHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                     <label class="sheet-buttonLbl"><span data-i18n="do-something-under-fire">do something under fire</span>:</label>
@@ -65,7 +101,7 @@
             </div>
             <div class="sheet-attr-box">
                 <label class="sheet-hard sheet-name"><span data-i18n="hard">Hard</span>:</label>
-                <input type="text" name="attr_hard"/>
+                <input type="number" name="attr_hard" value="0" />
                 <input type='checkbox' name='attr_hardHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                     <label class="sheet-buttonLbl"><span data-i18n="go-aggro">go aggro/seize by force</span>:</label>
@@ -74,7 +110,7 @@
             </div>
             <div class="sheet-attr-box">
                 <label class="sheet-hot sheet-name"><span data-i18n="hot">Hot</span>:</label>
-                <input type="text" name="attr_hot"/>
+                <input type="number" name="attr_hot" value="0" />
                 <input type='checkbox' name='attr_hotHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                     <label class="sheet-buttonLbl"><span data-i18n="seduce-or-manipulate">seduce or manipulate</span>:</label>
@@ -83,7 +119,7 @@
             </div>
             <div class="sheet-attr-box">
                 <label class="sheet-sharp sheet-name"><span data-i18n="sharp">Sharp</span>:</label>
-                <input type="text" name="attr_sharp"/>
+                <input type="number" name="attr_sharp" value="0" />
                 <input type='checkbox' name='attr_sharplHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                     <label class="sheet-buttonLbl"><span data-i18n="read-a-sitch">read a sitch; read a person</span>:</label>
@@ -92,7 +128,7 @@
             </div>
             <div class="sheet-attr-box">
                 <label class="sheet-weird sheet-name"><span data-i18n="weird">Weird</span>:</label>
-                <input type="text" name="attr_weird"/>
+                <input type="number" name="attr_weird" value="0" />
                 <input type='checkbox' name='attr_weirdlHighlighted' value='1' class='sheet-highlight'><label class='sheet-highlight'><span data-i18n="highlighted">Highlighted</span></label>
                 <div class="sheet-roll-box sheet-cf">
                     <label class="sheet-buttonLbl"><span data-i18n="open-your-brain">open your brain</span>:</label>
@@ -455,59 +491,57 @@
             </div>
         </div> <!-- END COL 1 -->
         <div class="sheet-col even"> <!-- COL 2 -->
-            <label class="sheet-class-moves sheet-section-title">Class Moves:</label>
+            <label class="sheet-class-moves sheet-section-title"><span data-i18n="class-moves">Class Moves</span>:</label>
             <fieldset class="repeating_moves">
-                <label class="sheet-movename">Move:</label>
+                <label class="sheet-movename"><span data-i18n="move">Move</span>:</label>
                 <input type="text" name="attr_classmovename" />
-                <label class="sheet-stat">Stat:</label>
+                <label class="sheet-stat"><span data-i18n="stat">Stat</span>:</label>
                 <select name="attr_classmoves" class="sheet-moves">
-                    <option value="@{cool}">Cool</option>
-                    <option value="@{hard}">Hard</option>
-                    <option value="@{hot}">Hot</option>
-                    <option value="@{sharp}">Sharp</option>
-                    <option value="@{weird}">Weird</option>
+                    <option value="@{cool}"><span data-i18n="cool">Cool</span></option>
+                    <option value="@{hard}"><span data-i18n="hard">Hard</span></option>
+                    <option value="@{hot}"><span data-i18n="hot">Hot</span></option>
+                    <option value="@{sharp}"><span data-i18n="sharp">Sharp</span></option>
+                    <option value="@{weird}"><span data-i18n="weird">Weird</span></option>
                 </select>
                 <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=@{classmovename}}} {{roll_mod=[[@{classmoves}]]}} {{result=[[2d6 + @{classmoves}]]}}' name='roll_move'></button>
-                <label class="sheet-desc">Description:</label>
+                <label class="sheet-desc"><span data-i18n="description">Description</span>:</label>
                 <textarea rows="4" cols="50" name="attr_classmovedesc" ></textarea>
             </fieldset>
-            <label class="sheet-other-moves sheet-section-title">Other Moves:</label>
+            <label class="sheet-other-moves sheet-section-title"><span data-i18n="other-moves">Other Moves</span>:</label>
             <fieldset class="repeating_othermoves">
-                <label class="sheet-movename">Move:</label>
+                <label class="sheet-movename"><span data-i18n="move">Move</span>:</label>
                 <input type="text" name="attr_movename" />
-                <label class="sheet-stat">Stat:</label>
+                <label class="sheet-stat"><span data-i18n="stat">Stat</span>:</label>
                 <select name="attr_moves" class="sheet-moves">
-                    <option value="@{cool}">Cool</option>
-                    <option value="@{hard}">Hard</option>
-                    <option value="@{hot}">Hot</option>
-                    <option value="@{sharp}">Sharp</option>
-                    <option value="@{weird}">Weird</option>
+                    <option value="@{cool}"><span data-i18n="cool">Cool</span></option>
+                    <option value="@{hard}"><span data-i18n="hard">Hard</span></option>
+                    <option value="@{hot}"><span data-i18n="hot">Hot</span></option>
+                    <option value="@{sharp}"><span data-i18n="sharp">Sharp</span></option>
+                    <option value="@{weird}"><span data-i18n="weird">Weird</span></option>
                 </select>
                 <button type='roll' value='&{template:aw} {{name=@{character_name}}} {{roll_name=@{movename}}} {{roll_mod=[[@{moves}]]}} {{result=[[2d6 + @{moves}]]}}' name='roll_move'></button>
-                <label class="sheet-desc">Description:</label>
+                <label class="sheet-desc"><span data-i18n="description">Description</span>:</label>
                 <textarea rows="4" cols="50" name="attr_movedesc" ></textarea>
             </fieldset>
         </div> <!-- END COL 2 -->
         <div class="sheet-col"> <!-- COL 3 -->
             <div class="sheet-box">
-                <label class="sheet-harm sheet-section-title">Harm:</label>
-                <label class="sheet-harm">3</label>
-                <input type="checkbox" name="attr_sheet-harm-1" />
-                <label class="sheet-harm">6</label>
-                <input type="checkbox" name="attr_sheet-harm-2" />
-                <label class="sheet-harm">9</label>
-                <input type="checkbox" name="attr_sheet-harm-3" />
-                <label class="sheet-harm">10</label>
-                <input type="checkbox" name="attr_sheet-harm-4" />
-                <label class="sheet-harm">11</label>
-                <input type="checkbox" name="attr_sheet-harm-5" />
-                <label class="sheet-harm">12</label>
-                <input type="checkbox" name="attr_sheet-harm-6" />
-                <br />
+                <label class="sheet-harm sheet-section-title"><span data-i18n="harm">Harm</span>:</label>
+                <div class="sheet-harm-section">
+                    <input type="radio" value="0" name="attr_harm" class="sheet-harm-checkbox sheet-harm-0" checked />0
+                    <input type="radio" value="3" name="attr_harm" class="sheet-harm-checkbox sheet-harm-3" />3
+                    <input type="radio" value="6" name="attr_harm" class="sheet-harm-checkbox sheet-harm-6" />6
+                    <input type="radio" value="9" name="attr_harm" class="sheet-harm-checkbox sheet-harm-9" />9
+                    <input type="radio" value="10" name="attr_harm" class="sheet-harm-checkbox sheet-harm-10" />10
+                    <input type="radio" value="11" name="attr_harm" class="sheet-harm-checkbox sheet-harm-11" />11
+                    <input type="radio" value="12" name="attr_harm" class="sheet-harm-checkbox sheet-harm12" />12
+                    <br/>
+                    <div class="sheet-clock"></div>
+                </div>
                 <h4>When Life is Untenable:</h4>
                 <input type="checkbox" name="attr_-1hard" value="1"  /><label>Come back with -1hard</label><br />
-                <input type="checkbox" name="attr_1weird" value="1"  /><label>Come back with +1weird</label><br />
                 <input type="checkbox" name="attr_newplaybook" value="1"  /><label>Change to a new Playbook</label><br />
+                <input type="checkbox" name="attr_1weird" value="1"  /><label>Come back with +1weird</label><br />
                 <input type="checkbox" name="attr_dead" value="1"  /><label>Die</label>
             </div>
             <div class="sheet-box">
@@ -524,12 +558,12 @@
                 <input type="checkbox" name="attr_class" class="sheet-isSavvyhead" value='SavvyHead' style="display: none;" />
                 <input type="checkbox" name="attr_class" class="sheet-isSkinner" value='Skinner' style="display: none;" />
                 <!-- End Class Selected -->
-                <label class="sheet-other sheet-section-title">Other:</label>
-                <label class="sheet-hx">Hx:</label>
+                <label class="sheet-other sheet-section-title"><span data-i18n="other">Other</span>:</label>
+                <label class="sheet-hx"><span data-i18n="hx">Hx</span>:</label>
                 <textarea rows="4" cols="50" name="attr_hx" ></textarea>
-                <label class="sheet-gear">Gear & Barter:</label>
+                <label class="sheet-gear"><span data-i18n="gear-barter">Gear & Barter</span>:</label>
                 <textarea rows="4" cols="50" name="attr_gear"></textarea>
-                <label class="sheet-hold">Hold:</label>
+                <label class="sheet-hold"><span data-i18n="hold">Hold</span>:</label>
                 <textarea rows="4" cols="50" name="attr_hold"></textarea>
                 <input type="checkbox" name="attr_class" class="sheet-isAngel" value='Angel' style="display: none;" />
                 <div class="sheet-angel">
@@ -698,76 +732,20 @@
 <!-- ROLL TEMPLATES -->
 <rolltemplate class="sheet-rolltemplate-aw">
     <table>
-        <tr><th colspan="2">{{name}} rolls{{#roll_name}} {{roll_name}}{{/roll_name}}{{#roll_mod}}({{roll_mod}}){{/roll_mod}}</th></tr>
+        <tr><th colspan="2">{{name}}<br/><span data-i18n="rolls">rolls</span>{{#roll_name}} {{roll_name}}{{/roll_name}}{{#roll_mod}}({{roll_mod}}){{/roll_mod}}</th></tr>
         <tr>
-            {{#rollTotal() result 15}}
-              <td class="result success">{{result}}</td>
-              <td> Succeeds </td>
-            {{/rollTotal() result 15}}
-            {{#rollTotal() result 14}}
-              <td class="result success">{{result}}</td>
-              <td> Succeeds </td>
-            {{/rollTotal() result 14}}
-            {{#rollTotal() result 13}}
-              <td class="result success">{{result}}</td>
-              <td> Succeeds </td>
-            {{/rollTotal() result 13}}
-            {{#rollTotal() result 12}}
-              <td class="result success">{{result}}</td>
-              <td> Succeeds </td>
-            {{/rollTotal() result 12}}
-            {{#rollTotal() result 11}}
-              <td class="result success">{{result}}</td>
-              <td> Succeeds </td>
-            {{/rollTotal() result 11}}
-            {{#rollTotal() result 10}}
-              <td class="result success">{{result}}</td>
-              <td> Succeeds </td>
-            {{/rollTotal() result 10}}
-            {{#rollTotal() result 9}}
-              <td class="result">{{result}}</td>
-              <td>Succeeds partially</td>
-            {{/rollTotal() result 9}}
-            {{#rollTotal() result 8}}
-              <td class="result">{{result}}</td>
-              <td>Succeeds partially</td>
-            {{/rollTotal() result 8}}
-            {{#rollTotal() result 7}}
-              <td class="result">{{result}}</td>
-              <td>Succeeds partially</td>
-            {{/rollTotal() result 7}}
-            {{#rollTotal() result 6}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 6}}
-            {{#rollTotal() result 5}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 5}}
-            {{#rollTotal() result 4}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 4}}
-            {{#rollTotal() result 3}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 3}}
-            {{#rollTotal() result 2}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 2}}
-            {{#rollTotal() result 1}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 1}}
-            {{#rollTotal() result 0}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result 0}}
-            {{#rollTotal() result -1}}
-              <td class="result failure">{{result}}</td>
-              <td>Misses</td>
-            {{/rollTotal() result -1}}
+            {{#rollGreater() result 9}}
+                <td class="result success">{{result}}</td>
+                <td><span data-i18n="succeeds">Succeeds</span></td>
+            {{/rollGreater() result 9}}
+            {{#rollBetween() result 7 9}}
+                <td class="result">{{result}}</td>
+                <td><span data-i18n="succeeds-partially">Succeeds partially</span></td>
+            {{/rollBetween() result 7 9}}
+            {{#rollLess() result 7}}
+                <td class="result failure">{{result}}</td>
+                <td><span data-i18n="misses">Misses</span></td>
+            {{/rollLess() result 7}}
         </tr>
     </table>
 </rolltemplate>
