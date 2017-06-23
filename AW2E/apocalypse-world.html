@@ -538,11 +538,11 @@
                     <br/>
                     <div class="sheet-clock"></div>
                 </div>
-                <h4>When Life is Untenable:</h4>
-                <input type="checkbox" name="attr_-1hard" value="1"  /><label>Come back with -1hard</label><br />
-                <input type="checkbox" name="attr_newplaybook" value="1"  /><label>Change to a new Playbook</label><br />
-                <input type="checkbox" name="attr_1weird" value="1"  /><label>Come back with +1weird</label><br />
-                <input type="checkbox" name="attr_dead" value="1"  /><label>Die</label>
+                <h4><span data-i18n="life-untenable">When Life is Untenable</span>:</h4>
+                <input type="checkbox" name="attr_-1hard" value="1"  /><label><span data-i18n="back-minus-harm">Come back with -1hard</span></label><br />
+                <input type="checkbox" name="attr_newplaybook" value="1"  /><label><span data-i18n="change-playbook">Change to a new Playbook</span></label><br />
+                <input type="checkbox" name="attr_1weird" value="1"  /><label><span data-i18n="back-minus-weird">Come back with +1weird</span></label><br />
+                <input type="checkbox" name="attr_dead" value="1"  /><label><span data-i18n="die">Die</span></label>
             </div>
             <div class="sheet-box">
                 <!-- Class Selected -->
@@ -567,19 +567,19 @@
                 <textarea rows="4" cols="50" name="attr_hold"></textarea>
                 <input type="checkbox" name="attr_class" class="sheet-isAngel" value='Angel' style="display: none;" />
                 <div class="sheet-angel">
-                    <label class="sheet-stock">Stock:</label>
+                    <label class="sheet-stock"><span data-i18n="stock">Stock</span>:</label>
                     <textarea rows="4" cols="50" name="attr_stock"></textarea>
                 </div>
                 <div class="sheet-battlebabe">
-                    <label class="sheet-custom">Custom Weapons:</label>
+                    <label class="sheet-custom"><span data-i18n="custom-weapons">Custom Weapons</span>:</label>
                     <textarea rows="4" cols="50" name="attr_custom"></textarea>
                 </div>
                 <div class="sheet-skinner">
-                    <label class="sheet-crew">Crew Contacts:</label>
+                    <label class="sheet-crew"><span data-i18n="crew-contacts">Crew Contacts</span>:</label>
                     <textarea rows="4" cols="50" name="attr_crew"></textarea>
                 </div>
                 <div class="sheet-brainer">
-                    <label class="sheet-stock">Puppet Strings:</label>
+                    <label class="sheet-stock"><span data-i18n="puppet-strings">Puppet Strings</span>:</label>
                     <textarea rows="4" cols="50" name="attr_puppetstrings"></textarea>
                 </div>
             </div>
@@ -602,127 +602,136 @@
             <input type="checkbox" name="attr_class" class="sheet-isWaterbearer" value='Waterbearer' style="display: none;" />
             <!-- End Class Selected -->
             <div class="sheet-box sheet-child-thing">
-                <h3><span>Your Den</span></h3>
-                <label class="sheet-custom">Features:</label>
+                <h3><span><span data-i18n="your-den">Your Den</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="features">Features</span>:</label>
                 <textarea rows="4" cols="30" name="attr_features"></textarea>
             </div>
             <div class="sheet-box sheet-child-thing">
-                <h3><span>Wolves of the Maelstrom</span></h3>
-                <label class="sheet-custom">Under Their Disguises:</label>
+                <h3><span><span data-i18n="wolves-maelstrom">Wolves of the Maelstrom</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="under-disguises">Under Their Disguises</span>:</label>
                 <textarea rows="4" cols="30" name="attr_disguises"></textarea>
-                <label class="sheet-custom">But:</label>
+                <label class="sheet-custom"><span data-i18n="but">But</span>:</label>
                 <textarea rows="4" cols="30" name="attr_wolves_features"></textarea>
             </div>
             <div class="sheet-box sheet-driver">
-                <h3><span>Your Car(s)</span></h3>
+                <h3><span><span data-i18n="your-cars">Your Car(s)</span></span></h3>
                 <fieldset class="repeating_cars">
-                    <label class="sheet-custom">Frame:</label>
-                    <input type="text" name="attr_carframe" />
-                    <label class="sheet-custom">Power:</label>
-                    <input type="text" name="attr_carpower" />
-                    <label class="sheet-custom">Armor:</label>
-                    <input type="text" name="attr_cararmor" />
-                    <label class="sheet-custom">Looks:</label>
-                    <input type="text" name="attr_carlooks" />
-                    <label class="sheet-custom">Power:</label>
-                    <input type="text" name="attr_carweak" />
-                    <label class="sheet-custom">Tags:</label>
-                    <textarea rows="4" cols="50" name="attr_cartags"></textarea>
+                    <div><label class="sheet-custom"><span data-i18n="frame">Frame</span>:</label></div>
+                    <div><input type="text" name="attr_carframe" /></div>
+                    <div><label class="sheet-custom"><span data-i18n="power">Power</span>:</label></div>
+                    <div><input type="text" name="attr_carpower" /></div>
+                    <div><label class="sheet-custom"><span data-i18n="armor">Armor</span>:</label></div>
+                    <div><input type="text" name="attr_cararmor" /></div>
+                    <div><label class="sheet-custom"><span data-i18n="looks">Looks</span>:</label></div>
+                    <div><input type="text" name="attr_carlooks" /></div>
+                    <div><label class="sheet-custom"><span data-i18n="weaknesses">Weaknesses</span>:</label></div>
+                    <div><input type="text" name="attr_carweak" /></div>
+                    <div><label class="sheet-custom"><span data-i18n="tags">Tags</span>:</label></div>
+                    <div><textarea rows="4" cols="50" name="attr_cartags"></textarea></div>
                 </fieldset>
             </div>
             <div class="sheet-box sheet-faceless">
-                <h3><span>Your Mask</span></h3>
-                <label class="sheet-custom">Look:</label>
+                <h3><span><span data-i18n="your-mask">Your Mask</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="look">Look</span>:</label>
                 <textarea rows="4" cols="30" name="attr_look"></textarea>
-                <label class="sheet-custom">Unmasked, You Are:</label>
+                <label class="sheet-custom"><span data-i18n="unmasked">Unmasked, You Are</span>:</label>
                 <textarea rows="4" cols="30" name="attr_unmasked"></textarea>
             </div>
             <div class="sheet-holder sheet-box">
-                <h3><span>Holding</span></h3>
-                <label class="sheet-custom">Size:</label>
-                <input type="text" name="attr_holdingsize" />
-                <label class="sheet-custom">Gigs:</label>
-                <input type="text" name="attr_holdinggigs" />
-                <label class="sheet-custom">Barter:</label>
-                <input type="text" name="attr_holdingbarter" />
-                <label class="sheet-custom">Surplus:</label>
-                <textarea rows="4" cols="30" name="attr_surplus"></textarea>
-                <label class="sheet-custom">Want:</label>
-                <textarea rows="4" cols="30" name="attr_want"></textarea>
+                <h3><span><span data-i18n="holding">Holding</span></span></h3>
+                <div><label class="sheet-custom"><span data-i18n="holding-size">Size</span>:</label></div>
+                <div><input type="text" name="attr_holdingsize" /></div>
+                <div><label class="sheet-custom"><span data-i18n="gigs">Gigs</span>:</label></div>
+                <div><input type="text" name="attr_holdinggigs" /></div>
+                <div><label class="sheet-custom"><span data-i18n="barter">Barter</span>:</label></div>
+                <div><input type="text" name="attr_holdingbarter" /></div>
+                <div><label class="sheet-custom"><span data-i18n="surplus">Surplus</span>:</label></div>
+                <div><textarea rows="4" cols="30" name="attr_surplus"></textarea></div>
+                <div><label class="sheet-custom"><span data-i18n="want">Want</span>:</label></div>
+                <div><textarea rows="4" cols="30" name="attr_want"></textarea></div>
             </div>
             <div class="sheet-box sheet-holder sheet-chopper">
-                <h3><span>Gang</span></h3>
-                <label class="sheet-custom">Size:</label>
-                <input type="text" name="attr_gangsize" />
-                <label class="sheet-custom">Harm:</label>
-                <input type="text" name="attr_gangharm" />
-                <label class="sheet-custom">Armor:</label>
-                <input type="text" name="attr_gangarmor" />
-                <label class="sheet-custom">Tags:</label>
-                <textarea rows="4" cols="50" name="attr_gangtags"></textarea>
+                <h3><span><span data-i18n="gang">Gang</span></span></h3>
+                <div><label class="sheet-custom"><span data-i18n="size">Size</span>:</label></div>
+                <div><input type="text" name="attr_gangsize" /></div>
+                <div><label class="sheet-custom"><span data-i18n="harm">Harm</span>:</label></div>
+                <div><input type="text" name="attr_gangharm" /></div>
+                <div><label class="sheet-custom"><span data-i18n="armor">Armor</span>:</label></div>
+                <div><input type="text" name="attr_gangarmor" /></div>
+                <div><label class="sheet-custom"><span data-i18n="tags">Tags</span>:</label></div>
+                <div><textarea rows="4" cols="50" name="attr_gangtags"></textarea></div>
+            </div>
+            <div class="sheet-box sheet-chopper">
+                <h3><span><span data-i18n="your-bike">Your Bike</span></span></h3>
+                <div><label class="sheet-custom"><span data-i18n="strength">Strength</span>:</label></div>
+                <div><input type="text" name="attr_bikestrength" /></div>
+                <div><label class="sheet-custom"><span data-i18n="looks">Looks</span>:</label></div>
+                <div><input type="text" name="attr_bikelook" /></div>
+                <div><label class="sheet-custom"><span data-i18n="weaknesses">Weaknesses</span>:</label></div>
+                <div><input type="text" name="attr_bikeweakness" /></div>
             </div>
             <div class="sheet-box sheet-hocus">
-                <h3><span>Followers</span></h3>
-                <label class="sheet-custom">Description:</label>
-                <input type="text" name="attr_followerdesc" />
-                <label class="sheet-custom">Fortune:</label>
-                <input type="text" name="attr_followerfortune" />
-                <label class="sheet-custom">Barter:</label>
-                <input type="text" name="attr_followerbarter" />
-                <label class="sheet-custom">Surplus:</label>
-                <textarea rows="4" cols="30" name="attr_surplus"></textarea>
-                <label class="sheet-custom">Want:</label>
-                <textarea rows="4" cols="30" name="attr_want"></textarea>
+                <h3><span><span data-i18n="followers">Followers</span></span></h3>
+                <div><label class="sheet-custom"><span data-i18n="description">Description</span>:</label></div>
+                <div><input type="text" name="attr_followerdesc" /></div>
+                <div><label class="sheet-custom"><span data-i18n="fortune">Fortune</span>:</label></div>
+                <div><input type="text" name="attr_followerfortune" /></div>
+                <div><label class="sheet-custom"><span data-i18n="barter">Barter</span>:</label></div>
+                <div><input type="text" name="attr_followerbarter" /></div>
+                <div><label class="sheet-custom"><span data-i18n="surplus">Surplus</span>:</label></div>
+                <div><textarea rows="4" cols="30" name="attr_surplus"></textarea></div>
+                <div><label class="sheet-custom"><span data-i18n="want">Want</span>:</label></div>
+                <div><textarea rows="4" cols="30" name="attr_want"></textarea></div>
             </div>
             <div class="sheet-box sheet-maestro">
-                <h3><span>Establishment</span></h3>
-                <label class="sheet-custom">Attractions:</label>
+                <h3><span><span data-i18n="establishment">Establishment</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="TODO">Attractions</span>:</label>
                 <textarea rows="4" cols="30" name="attr_attractions"></textarea>
-                <label class="sheet-custom">Atmosphere:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Atmosphere</span>:</label>
                 <textarea rows="4" cols="30" name="attr_atmosphere"></textarea>
-                <label class="sheet-custom">Regulars:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Regulars</span>:</label>
                 <textarea rows="4" cols="30" name="attr_regulars"></textarea>
-                <label class="sheet-custom">Interested Parties:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Interested Parties</span>:</label>
                 <textarea rows="4" cols="30" name="attr_interested"></textarea>
-                <label class="sheet-custom">Security:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Security</span>:</label>
                 <textarea rows="4" cols="30" name="attr_security"></textarea>
             </div>
             <div class="sheet-box sheet-news">
-                <h3><span>Studio</span></h3>
-                <label class="sheet-custom">Amenities:</label>
+                <h3><span><span data-i18n="TODO">Studio</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="TODO">Amenities</span>:</label>
                 <textarea rows="4" cols="30" name="attr_amenities"></textarea>
-                <label class="sheet-custom">Attractions:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Attractions</span>:</label>
                 <textarea rows="4" cols="30" name="attr_attractions"></textarea>
-                <label class="sheet-custom">Complications:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Complications</span>:</label>
                 <textarea rows="4" cols="30" name="attr_complications"></textarea>
-                <label class="sheet-custom">People with Connections:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">People with Connections</span>:</label>
                 <textarea rows="4" cols="30" name="attr_connections"></textarea>
             </div>
             <div class="sheet-box sheet-quarantine">
-                <h3><span>Stasis</span></h3>
-                <label class="sheet-custom">You emerged from stasis:</label>
+                <h3><span><span data-i18n="TODO">Stasis</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="TODO">You emerged from stasis</span>:</label>
                 <textarea rows="4" cols="30" name="attr_emerged"></textarea>
-                <label class="sheet-custom">Remaining in Stasis</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Remaining in Stasis</span></label>
                 <textarea rows="4" cols="30" name="attr_remaining_stasis"></textarea>
-                <label class="sheet-custom">It's Untouched. Why?</label>
+                <label class="sheet-custom"><span data-i18n="TODO">It's Untouched. Why?</span></label>
                 <textarea rows="4" cols="30" name="attr_untouched"></textarea>
-                <label class="sheet-custom">Status of Specialist Jackson, Tammy M.:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Status of Specialist Jackson, Tammy M.</span>:</label>
                 <textarea rows="4" cols="30" name="attr_tammy"></textarea>
             </div>
             <div class="sheet-box sheet-quarantine">
-                <h3><span>Stasis Facilities</span></h3>
-                <label class="sheet-custom">Unlocked Facilities:</label>
+                <h3><span><span data-i18n="TODO">Stasis Facilities</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="TODO">Unlocked Facilities</span>:</label>
                 <textarea rows="4" cols="30" name="attr_unlocked"></textarea>
             </div>
             <div class="sheet-box sheet-waterbearer">
-                <h3><span>Source</span></h3>
-                <label class="sheet-custom">Features:</label>
+                <h3><span><span data-i18n="TODO">Source</span></span></h3>
+                <label class="sheet-custom"><span data-i18n="TODO">Features</span>:</label>
                 <textarea rows="4" cols="30" name="attr_features"></textarea>
-                <label class="sheet-custom">Chosen Friends:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Chosen Friends</span>:</label>
                 <textarea rows="4" cols="30" name="attr_chosen_friends"></textarea>
-                <label class="sheet-custom">Laws:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Laws</span>:</label>
                 <textarea rows="4" cols="30" name="attr_laws"></textarea>
-                <label class="sheet-custom">Penalties:</label>
+                <label class="sheet-custom"><span data-i18n="TODO">Penalties</span>:</label>
                 <textarea rows="4" cols="30" name="attr_penalties"></textarea>
             </div>
         </div> <!-- END COL 3 -->
