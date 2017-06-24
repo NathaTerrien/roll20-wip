@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-06-05 (The Sprawl, SIG, projects and Tipeeee)._
+_Updated 2017-06-24 (Apocalypse World 1E & 2E multinlingual)._
 
 # You like my work and want to support me?
 
@@ -13,7 +13,6 @@ You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's l
 ## Considered sheets (creation, translation or enhancements)
 In no particular order ...
 * Colonial Gothic, english and french
-* Apocalypse World, french translation
 * Yggdrasill, french and english
 * Chroniques Oubliées Contemporain, french
 * Stars Without Number, french
@@ -40,7 +39,7 @@ In no particular order ...
 ## Work In Progress
 ---
 
-TBA.
+Works in progress are announced on my [Tipeee page](https://www.tipeee.com/natharoll20).
 
 ---
 
@@ -61,6 +60,28 @@ Création.
 ### Todo
 * Nettoyage du code
 * Tests en jeu
+___
+![AW](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/AW/AW_logo.jpg)
+### Apocalypse World 1E (multilingual)
+Adaptation and slight layout enhancement of the existing sheet to handle translation, plus french translation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/AW) (2017-06-24)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/AW) (2017-06-19)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/AW) (2017-06-19)
+
+### Todo
+___
+
+### Apocalypse World 2E (multilingual)
+Adaptation and slight layout enhancement of the existing sheet to handle translation, plus french translation.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/AW2E) (2017-06-24)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/AW2E) (2017-06-24)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/AW2E) (waiting for merge)
+
+### Todo
 
 ___
 ![BoL banner](/_banners/BoL_banner.png)
