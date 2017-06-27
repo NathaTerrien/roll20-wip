@@ -1,4 +1,4 @@
-# Natha's Roll20 Work In Progress
+# Natha does stuff for Roll20
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
