@@ -16,9 +16,13 @@ Works in progress and future plans are announced and discussed on my [Tipeee pag
 ---
 
 ## Existing sheets
+
+Click on the banner or 'screenshot' links to view a screenshot of the sheet.
+
 ---
 
-![Antika banner](/_banners/Antika_banner.png)
+[![Click to view screenshot](/_banners/Antika_banner.png)](https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Antika/antika.jpg)
+[![How to use the sheet](sig_howto.jpg)](sig_howto.jpg)
 ### Antika (french)
 Site officiel : [Antika](http://www.legrog.org/jeux/antika)
 
