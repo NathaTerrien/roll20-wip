@@ -10,7 +10,7 @@ You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's l
 
 [![Tipeee](https://www.tipeee.com/img/tipeee-logo-com.png)](https://www.tipeee.com/natharoll20)
 
-## Work In Progress / What's next?
+# Work In Progress / What's next?
 Works in progress and future plans are announced and discussed on my [Tipeee page](https://www.tipeee.com/natharoll20).
 
 ---
