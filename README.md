@@ -10,36 +10,12 @@ You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's l
 
 [![Tipeee](https://www.tipeee.com/img/tipeee-logo-com.png)](https://www.tipeee.com/natharoll20)
 
-## Considered sheets (creation, translation or enhancements)
-In no particular order ...
-* Colonial Gothic, english and french
-* Yggdrasill, french and english
-* Chroniques Oubliées Contemporain, french
-* Stars Without Number, french
-* Castles & Crusades, english
-* Star Trek (Decipher's System), english
-* [Wastburg](http://www.les12singes.com/wastburg/12-wastburg.html), french
-* Mazes & Minotaurs, english
-
-## Other stuff to do
-In no particular order ...
-* Enhancement to the Savage Worlds (French) sheet:
-  * Correction des blessures des extras (pas de 1 => 0 / état critique)
-  * Option (ou nouvelle fiche ?) de mise en page aux couleurs de Beast & Barbarians et Lankhmar
-  * (pour Beast & Barbarians) : gérer les Extra/Bras droit/Sous-fifre/Joker et/ou la possibilité d'autoriser 0 à 3 blessures à un PNJ
-* Enhancement to the Chroniques Oubliées (French) sheet:
-  * Bonus "Divers" des caracs, attaques et initiatives devient une somme d'une liste de bouns détaillé (avec libellé saisissable)
-  * RD sous forme de liste répétable
-  * Différentes source de dégâts pour les armes
-  * Liste répétable pour l'équipement consommables
-
-
 ---
 
-## Work In Progress
+## Work In Progress / What's next?
 ---
 
-Works in progress are announced on my [Tipeee page](https://www.tipeee.com/natharoll20).
+Works in progress and future plans are announced and discussed on my [Tipeee page](https://www.tipeee.com/natharoll20).
 
 ---
 
