@@ -22,7 +22,6 @@ Click on the banner or 'screenshot' links to view a screenshot of the sheet.
 ---
 
 [![Click to view screenshot](/_banners/Antika_banner.png)](https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Antika/antika.jpg)
-[![How to use the sheet](sig_howto.jpg)](sig_howto.jpg)
 ### Antika (french)
 Site officiel : [Antika](http://www.legrog.org/jeux/antika)
 
@@ -37,7 +36,7 @@ Création.
 * Nettoyage du code
 * Tests en jeu
 ___
-![AW](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/AW/AW_logo.jpg)
+[![Click to view screenshot](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/AW/AW_logo.jpg)](https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/AW/preview.jpg)
 ### Apocalypse World 1E (multilingual)
 Adaptation and slight layout enhancement of the existing sheet to handle translation, plus french translation.
 
@@ -60,7 +59,7 @@ Adaptation and slight layout enhancement of the existing sheet to handle transla
 ### Todo
 
 ___
-![BoL banner](/_banners/BoL_banner.png)
+[![Click to view screenshot](/_banners/BoL_banner.png)](https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Barbarians%20Of%20Lemuria%20-%20Mythic/bolm.jpg)
 ### Barbarians of Lemuria : mythic edition (english and french)
 Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.webs.com/), [french](http://www.ludospherik.fr/content/14-barbarians-of-lemuria) and german.
 
