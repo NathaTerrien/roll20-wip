@@ -13,8 +13,6 @@ You can tip me on my [Tipeee page](https://www.tipeee.com/natharoll20) (that's l
 ---
 
 ## Work In Progress / What's next?
----
-
 Works in progress and future plans are announced and discussed on my [Tipeee page](https://www.tipeee.com/natharoll20).
 
 ---
