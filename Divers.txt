@@ -19,6 +19,9 @@
             });
         });
 
+
+If you set an attribute to an empty string, however, the default will be filled in by the sheet.
+
 -------- MINIFY HTML ----------
 Worker:  /\*(.*?)\*/\n ==
 Commentaires : <!--(.*?)--> ==
