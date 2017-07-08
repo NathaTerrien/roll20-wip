@@ -94,6 +94,7 @@
     border: none;
     color: #B31515;
 }
+
 /************************************** FDP ********************************************/
     /************************************** GENERAL *********************************/
 div,
@@ -508,7 +509,7 @@ button[type="roll"]{
     border-color: rgba(34,66,143,0.5);
     border-radius: 4px;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"]{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"]{
     color: #8B6434;
 }
 button[type="roll"]:hover{
@@ -516,7 +517,7 @@ button[type="roll"]:hover{
     border-color:#CD071E;
     font-weight: bold;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"]:hover{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"]:hover{
     color: #8B6434;
 }
 button[type="roll"].sheet-btRolrel,
@@ -554,9 +555,9 @@ button[type="roll"].sheet-btRolbrut:hover:before{
     font-weight: bold;
     color: #CD071E;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover:before,
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover:before,
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover:before{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover:before,
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover:before,
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover:before{
     color: #8B6434;
 }
 button[type="roll"].sheet-btRolrel:hover,
@@ -566,9 +567,9 @@ button[type="roll"].sheet-btRolbrut:hover{
     border-style: solid;
     border-color:#CD071E;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover,
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover,
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover,
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover,
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover{
     border-color:#8B6434;
 }
 input[type=checkbox].sheet-chkRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
@@ -601,7 +602,7 @@ button[type="roll"].sheet-btDesc:hover{
     color: #CD071E;
     font-weight: normal;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btDesc:hover{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btDesc:hover{
     color: #8B6434;
 }
 /* Formatage des boutons de fieldset */
@@ -687,7 +688,7 @@ div.sheet-main{
     padding: 5px 5px 5px 5px;
     border: 1px solid #888888;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main{
     background: linear-gradient(#85582A,#C39657,#F0DAAD,#C39657,#85582A);
 }
 div.sheet-configuration{
@@ -722,7 +723,7 @@ div.sheet-redtitle1{
 div.sheet-redtitle1.sheet-disp{
     display: inline-block;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle1{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle1{
     color: #8B6434;
 }
 div.sheet-redtitle2{
@@ -736,7 +737,7 @@ div.sheet-redtitle2{
 div.sheet-redtitle2.sheet-disp{
     display: inline-block;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle2{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle2{
     color: #8B6434;
 }
 div.sheet-redtitle3{
@@ -748,7 +749,7 @@ div.sheet-redtitle3{
     font-weight: bold;
     margin: 5px 1px 1px 1px;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle3{
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle3{
     color: #8B6434;
 }
 div.sheet-colblock{
@@ -858,7 +859,10 @@ input[type=checkbox].sheet-chkTir,
 input[type=checkbox].sheet-persoExtra,
 input[type=checkbox].sheet-persoPnj,
 input[type=checkbox].sheet-chkPossessions,
-input[type=checkbox].sheet-chkSheetDead,
+input[type=radio].sheet-chkSheetSaWo,
+input[type=radio].sheet-chkSheetDead,
+input[type=radio].sheet-chkSheetLankh,
+input[type=radio].sheet-chkSheetBnB,
 input[type=checkbox].sheet-dispLogo {
     display: none;
 }
@@ -964,16 +968,22 @@ input[type=checkbox].sheet-chkTir:checked ~ div.sheet-main div.sheet-chkTir {
 input[type=checkbox].sheet-chkPossessions:checked ~ div.sheet-main div.sheet-chkPossessions {
     display: block;
 }
-div.sheet-SheetSaWo{
+div.sheet-SheetSaWo,
+div.sheet-SheetDead,
+div.sheet-SheetLankh,
+div.sheet-SheetBnB {
+    display: none;
+}
+input[type=radio].sheet-chkSheetSaWo:checked ~ div.sheet-main div.sheet-SheetSaWo {
     display: inline-block;
 }
-div.sheet-SheetDead{
-    display: none;
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-SheetDead {
+    display: inline-block;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-SheetSaWo {
-    display: none;
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-SheetLankh {
+    display: inline-block;
 }
-input[type=checkbox].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-SheetDead {
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-SheetBnB {
     display: inline-block;
 }
     /************************************** DISPCHK ***************************/
