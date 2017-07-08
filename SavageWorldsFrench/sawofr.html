@@ -1319,10 +1319,16 @@ on("change:atkcible", function () {
         <div class="mycol"> <!-- ** COL2 ** -->
             <div class="logo">
                 <div class="SheetSaWo" style="text-align:center;">
-                    <img style="width: 200px;" src="https://www.peginc.com/wp-content/uploads/2013/02/SW_LOGO_24bit.png" />
+                    <img style="width: 200px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/SavageWorldsFrench/sawofr_logo_sawo.png" />
                 </div>
                 <div class="SheetDead" style="text-align:center;">
-                    <img style="width: 265px;" src="https://www.peginc.com/wp-content/uploads/2013/02/DL.png" />
+                    <img style="width: 372px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/SavageWorldsFrench/sawofr_logo_deadlands.png" />
+                </div>
+                <div class="SheetLankh" style="text-align:center;">
+                    <img style="width: 372px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/SavageWorldsFrench/sawofr_logo_lankhmar.png" />
+                </div>
+                <div class="SheetBnB" style="text-align:center;">
+                    <img style="width: 372px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/SavageWorldsFrench/sawofr_logo_bnb.png" />
                 </div>
             </div>
             <div class="colblock"> <!-- DEGATS -->
@@ -1752,15 +1758,24 @@ on("change:atkcible", function () {
     <div class="configuration">
         <div class="2colrow">
             <div class="col">
-                <div class="conftitre">STYLE VISUEL</div>
+                <div class="conftitre">GÉNÉRALE</div>
                 <div class="row">
                     <input type="checkbox" name="attr_pnj" value="1" class="chkSkill" title="Ce personnage est un PNJ. Pour en faire un Extra (et donc automatiquement un PNJ), sélectionnez le dé Joker à '- Extra (PNJ)'" /><span>Personnage Non Joueur</span>
-                    <input type="checkbox" name="attr_chkPossessions" value="1" class="chkSkill" title="Afficher ou masquer la section 'Possessions' : richesse, équipement etc." checked /><span>Afficher les possessions</span>
                 </div>
                 <div class="row">
+                    <input type="checkbox" name="attr_chkPossessions" value="1" class="chkSkill" title="Afficher ou masquer la section 'Possessions' : richesse, équipement etc." checked /><span>Afficher les possessions</span>
                     <input type="checkbox" name="attr_sheetLogo" value="1" class="chkSkill" title="Afficher ou masquer le logo" checked /><span>Afficher le logo</span>
-                    <input type="checkbox" name="attr_sheetDead" value="1" class="chkSkill" title="Couleurs et logo Deadlands Reloaded" /><span>Deadlands Reloaded</span>
-               </div>
+                </div>
+                <div class="row">
+                    <div class="confcat">Style Visuel :
+                        <SELECT name="attr_sheetDead">
+                            <OPTION value="0" selected>Savage Worlds</OPTION>
+                            <OPTION value="1" selected>Deadlands Reloaded</OPTION>
+                            <OPTION value="2" selected>Lankhmar</OPTION>
+                            <OPTION value="3" selected>Beasts & Barbarians</OPTION>
+                        </SELECT>
+                    </div>
+                </div>
             </div>
             <div class="col">
                 <div class="conftitre">JETS</div>

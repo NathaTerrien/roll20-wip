@@ -509,16 +509,10 @@ button[type="roll"]{
     border-color: rgba(34,66,143,0.5);
     border-radius: 4px;
 }
-input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"]{
-    color: #8B6434;
-}
 button[type="roll"]:hover{
     border-width: 1px;
     border-color:#CD071E;
     font-weight: bold;
-}
-input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"]:hover{
-    color: #8B6434;
 }
 button[type="roll"].sheet-btRolrel,
 button[type="roll"].sheet-btRoljet,
@@ -533,14 +527,6 @@ button[type="roll"].sheet-btRolbrut{
     background: transparent;
     text-transform: uppercase;
     display: none;
-}
-button[type="roll"].sheet-btRolrel{
-    color: black;
-}
-button[type="roll"].sheet-btRoljet{
-    color: black;
-}
-button[type="roll"].sheet-btRolbrut{
     color: black;
 }
 button[type="roll"].sheet-btRolrel:before,
@@ -691,6 +677,12 @@ div.sheet-main{
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main{
     background: linear-gradient(#85582A,#C39657,#F0DAAD,#C39657,#85582A);
 }
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main{
+    background: linear-gradient(#85582A,#C39657,#F0DAAD,#C39657,#85582A);
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main{
+    background: linear-gradient(#7B7A5B,#969070,#B4B095,#E2DCBA);
+}
 div.sheet-configuration{
     display: none;
     width:100%;
@@ -726,6 +718,12 @@ div.sheet-redtitle1.sheet-disp{
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle1{
     color: #8B6434;
 }
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-redtitle1{
+    color: #8B6434;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-redtitle1{
+    color: #7B7A5B;
+}
 div.sheet-redtitle2{
     font-family: Candal;
     font-size: 12px;
@@ -740,6 +738,12 @@ div.sheet-redtitle2.sheet-disp{
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle2{
     color: #8B6434;
 }
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-redtitle2{
+    color: #8B6434;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-redtitle2{
+    color: #7B7A5B;
+}
 div.sheet-redtitle3{
     display: inline-block;
     font-family: Candal;
@@ -751,6 +755,12 @@ div.sheet-redtitle3{
 }
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle3{
     color: #8B6434;
+}
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-redtitle3{
+    color: #8B6434;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-redtitle3{
+    color: #7B7A5B;
 }
 div.sheet-colblock{
     background-color: white;
