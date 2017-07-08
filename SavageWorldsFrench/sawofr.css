@@ -309,6 +309,9 @@ input[type=radio].sheet-blessure + span {
     color: #AAA;
     padding: 2px;
 }
+input[type=radio].sheet-blessure:hover + span {
+    text-decoration: underline;
+}
 input[type=radio].sheet-blessure:checked + span {
     color: red;
     border: 2px solid red;
@@ -344,13 +347,16 @@ input[type=checkbox].sheet-secoue + span {
 input[type=checkbox].sheet-secoue + span:before {
     content: '*';
 }
+input[type=checkbox].sheet-secoue:hover + span {
+    text-decoration: underline;
+}
 input[type=checkbox].sheet-secoue:checked + span {
     color: orange;
 }
 input[type=checkbox].sheet-secoue:checked + span:before {
     content: '2';
 }
-input[type="checkbox"].sheet-dispcheck{
+input[type="checkbox"].sheet-loupe{
     width: 15px;
     height: 18px;
     max-width: 18px;
@@ -358,7 +364,7 @@ input[type="checkbox"].sheet-dispcheck{
     z-index: 2;
     margin: 0;
 }
-input[type="checkbox"].sheet-dispcheck + span{
+input[type="checkbox"].sheet-loupe + span{
     display: inline-block;
     text-align: center;
     margin: 0;
@@ -370,12 +376,23 @@ input[type="checkbox"].sheet-dispcheck + span{
     font-family: pictos;
     color: #888888;
 }
-input[type="checkbox"].sheet-dispcheck:hover + span{
+input[type="checkbox"].sheet-loupe:hover + span{
     color: #CD071E;
 }
-input[type="checkbox"].sheet-dispcheck:checked + span{
-    font-weight: bold;
+input[type="checkbox"].sheet-loupe:checked + span{
     color: #CD071E;
+}
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main input[type="checkbox"].sheet-loupe:hover + span,
+input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main input[type="checkbox"].sheet-loupe:checked + span {
+    color:#8B6434;
+}
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main input[type="checkbox"].sheet-loupe:hover + span,
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main input[type="checkbox"].sheet-loupe:checked + span {
+    color:#735C32;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main input[type="checkbox"].sheet-loupe:hover + span,
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main input[type="checkbox"].sheet-loupe:checked + span {
+    color:#969070;
 }
     /************************************** INPUTS ***************************/
 input{
@@ -546,6 +563,16 @@ input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover:before{
     color: #8B6434;
 }
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover:before,
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover:before,
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover:before{
+    color: #735C32;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover:before,
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover:before,
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover:before{
+    color: #969070;
+}
 button[type="roll"].sheet-btRolrel:hover,
 button[type="roll"].sheet-btRoljet:hover,
 button[type="roll"].sheet-btRolbrut:hover{
@@ -557,6 +584,16 @@ input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover,
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover{
     border-color:#8B6434;
+}
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover,
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover,
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover{
+    border-color:#735C32;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btRolrel:hover,
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btRoljet:hover,
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btRolbrut:hover{
+    border-color:#969070;
 }
 input[type=checkbox].sheet-chkRolrel:checked ~ div.sheet-main button[type=roll].sheet-btRolrel{
     display: inline-block;
@@ -590,6 +627,12 @@ button[type="roll"].sheet-btDesc:hover{
 }
 input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main button[type="roll"].sheet-btDesc:hover{
     color: #8B6434;
+}
+input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main button[type="roll"].sheet-btDesc:hover{
+    color: #735C32;
+}
+input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main button[type="roll"].sheet-btDesc:hover{
+    color: #969070;
 }
 /* Formatage des boutons de fieldset */
 div.repcontrol{
@@ -678,7 +721,7 @@ input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main{
     background: linear-gradient(#85582A,#C39657,#F0DAAD,#C39657,#85582A);
 }
 input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main{
-    background: linear-gradient(#85582A,#C39657,#F0DAAD,#C39657,#85582A);
+    background: linear-gradient(#472D0F,#735C32,#AD9E77,#735C32,#472D0F);
 }
 input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main{
     background: linear-gradient(#7B7A5B,#969070,#B4B095,#E2DCBA);
@@ -719,7 +762,7 @@ input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle
     color: #8B6434;
 }
 input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-redtitle1{
-    color: #8B6434;
+    color: #472D0F;
 }
 input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-redtitle1{
     color: #7B7A5B;
@@ -739,7 +782,7 @@ input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle
     color: #8B6434;
 }
 input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-redtitle2{
-    color: #8B6434;
+    color: #472D0F;
 }
 input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-redtitle2{
     color: #7B7A5B;
@@ -757,7 +800,7 @@ input[type=radio].sheet-chkSheetDead:checked ~ div.sheet-main div.sheet-redtitle
     color: #8B6434;
 }
 input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-redtitle3{
-    color: #8B6434;
+    color: #472D0F;
 }
 input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-redtitle3{
     color: #7B7A5B;
@@ -1010,9 +1053,14 @@ span.sheet-dispchk{
     font-family: 'Pictos';
     font-size: 20px;
     color: #AAA;
+    font-weight: normal;
 }
 input[type="checkbox"].sheet-dispchk:checked + span.sheet-dispchk{
-    color: #555;
+
+}
+input[type="checkbox"].sheet-dispchk:hover + span.sheet-dispchk{
+    color: black;
+    text-decoration: underline;
 }
 div.sheet-dispchk{
     display: none;
