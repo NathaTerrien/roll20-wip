@@ -861,19 +861,16 @@ div.sheet-attcomptext:after{
     /*********************** AFFICHAGE COMPETENCE et AUTRES OPTIONS ********************/
 .sheet-extra{
     display: none;
-}
-.sheet-pnj{
-    display: none;
-}
-.sheet-logo{
-    display: none;
-    text-align:center;
-    width:100%;
+    max-width: 0px;
 }
 input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-extra {
     display: block;
 }
 input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-noextra {
+    display: none;
+    max-width: 0px;
+}
+.sheet-pnj{
     display: none;
 }
 input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-pnj {
@@ -881,6 +878,11 @@ input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-pnj {
 }
 input[type=checkbox].sheet-persoPnj:checked ~ div.sheet-main .sheet-nopnj {
     display: none;
+}
+.sheet-logo{
+    display: none;
+    text-align:center;
+    width:100%;
 }
 input[type=checkbox].sheet-dispLogo:checked ~ div.sheet-main .sheet-logo {
     display: block;
