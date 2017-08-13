@@ -286,6 +286,7 @@ input[type=radio].sheet-onglconfig:checked + span {
     border-bottom-width: 0px;
 }
     /************************************** RADIOS / CHECKBOX ***************************/
+        /*** BLESSURES ***/
 input[type=radio]{
     margin-right: 2px;
     margin-left: 1px;
@@ -293,9 +294,9 @@ input[type=radio]{
 input[type=radio].sheet-blessure{
     opacity : 0;
     z-index : 10;
-    width: 30px;
-    height: 20px;
     margin-top: -10px;
+    width: 30px;
+    height: 25px;
 }
 input[type=radio].sheet-blessure + span {
     width: 30px;
@@ -320,6 +321,23 @@ input[type=radio].sheet-blessure[value="0"]:checked + span {
     color: green;
     border: 2px solid green;
 }
+input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-blessure.sheet-inextra {
+    width: 30px;
+    min-width: 30px;
+}
+input[type=checkbox].sheet-persoExtra:not(checked) ~ div.sheet-main .sheet-blessure.sheet-inextra {
+    width: 0px;
+    max-width: 0px;
+}
+input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-blessure.sheet-noextra {
+    width: 0px;
+    max-width: 0px;
+}
+input[type=checkbox].sheet-persoExtra:not(checked) ~ div.sheet-main .sheet-blessure.sheet-noextra {
+    width: 30px;
+    min-width: 30px;
+}
+        /*** Autres ***/
 input[type="checkbox"]{
     margin-right: 1px;
     margin-left: 1px;
@@ -859,16 +877,18 @@ div.sheet-attcomptext:after{
     content: ")";
 }
     /*********************** AFFICHAGE COMPETENCE et AUTRES OPTIONS ********************/
-.sheet-extra{
+.sheet-extra,
+.sheet-inextra{
     display: none;
-    max-width: 0px;
 }
 input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-extra {
     display: block;
 }
+input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-inextra {
+    display: inline-block;
+}
 input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-noextra {
     display: none;
-    max-width: 0px;
 }
 .sheet-pnj{
     display: none;
