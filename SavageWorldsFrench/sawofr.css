@@ -286,11 +286,11 @@ input[type=radio].sheet-onglconfig:checked + span {
     border-bottom-width: 0px;
 }
     /************************************** RADIOS / CHECKBOX ***************************/
-        /*** BLESSURES ***/
 input[type=radio]{
     margin-right: 2px;
     margin-left: 1px;
 }
+        /*** BLESSURES ***/
 input[type=radio].sheet-blessure{
     opacity : 0;
     z-index : 10;
@@ -321,19 +321,25 @@ input[type=radio].sheet-blessure[value="0"]:checked + span {
     color: green;
     border: 2px solid green;
 }
-input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-blessure.sheet-inextra {
+.sheet-blessure.sheet-bless1,
+.sheet-blessure.sheet-bless2,
+.sheet-blessure.sheet-bless3 {
+    display: none;
+    width: 0px;
+    max-width: 0px;
+}
+input[type=checkbox].sheet-persoBless1:checked ~ div.sheet-main .sheet-blessure.sheet-bless1 {
+    display: inline-block;
     width: 30px;
     min-width: 30px;
 }
-input[type=checkbox].sheet-persoExtra:not(checked) ~ div.sheet-main .sheet-blessure.sheet-inextra {
-    width: 0px;
-    max-width: 0px;
+input[type=checkbox].sheet-persoBless2:checked ~ div.sheet-main .sheet-blessure.sheet-bless2 {
+    display: inline-block;
+    width: 30px;
+    min-width: 30px;
 }
-input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-blessure.sheet-noextra {
-    width: 0px;
-    max-width: 0px;
-}
-input[type=checkbox].sheet-persoExtra:not(checked) ~ div.sheet-main .sheet-blessure.sheet-noextra {
+input[type=checkbox].sheet-persoBless3:checked ~ div.sheet-main .sheet-blessure.sheet-bless3 {
+    display: inline-block;
     width: 30px;
     min-width: 30px;
 }
@@ -877,15 +883,11 @@ div.sheet-attcomptext:after{
     content: ")";
 }
     /*********************** AFFICHAGE COMPETENCE et AUTRES OPTIONS ********************/
-.sheet-extra,
-.sheet-inextra{
+.sheet-extra{
     display: none;
 }
 input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-extra {
     display: block;
-}
-input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-inextra {
-    display: inline-block;
 }
 input[type=checkbox].sheet-persoExtra:checked ~ div.sheet-main .sheet-noextra {
     display: none;
@@ -938,7 +940,10 @@ input[type=radio].sheet-chkSheetSaWo,
 input[type=radio].sheet-chkSheetDead,
 input[type=radio].sheet-chkSheetLankh,
 input[type=radio].sheet-chkSheetBnB,
-input[type=checkbox].sheet-dispLogo {
+input[type=checkbox].sheet-dispLogo,
+input[type=checkbox].sheet-persoBless1,
+input[type=checkbox].sheet-persoBless2,
+input[type=checkbox].sheet-persoBless3 {
     display: none;
 }
 div.sheet-chkArcane,
@@ -1060,6 +1065,12 @@ input[type=radio].sheet-chkSheetLankh:checked ~ div.sheet-main div.sheet-SheetLa
 }
 input[type=radio].sheet-chkSheetBnB:checked ~ div.sheet-main div.sheet-SheetBnB {
     display: inline-block;
+}
+div.sheet-persocustom{
+    visibility: hidden;
+}
+input.sheet-persocustom[value="5"] ~ div.sheet-persocustom{
+    visibility: visible;
 }
     /************************************** DISPCHK ***************************/
 input[type="checkbox"].sheet-dispchk{

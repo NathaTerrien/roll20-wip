@@ -1,9 +1,74 @@
 {
-	"html": "sawofr.html",
-	"css": "sawofr.css",
-	"authors": "Natha",
-	"roll20userid": "75857",
-	"preview": "sawofr.jpg",
-	"instructions": "Feuille de Personnage VF pour Savage Worlds et Deadlands Reloaded. Consultez le [readme](https://github.com/Roll20/roll20-character-sheets/blob/master/SavageWorldsFrench/ReadMe.md). v2.0 (09/04/2017)."
+	"html": "sawofr.html"
+    ,"css": "sawofr.css"
+    ,"authors": "Natha"
+    ,"roll20userid": "75857"
+    ,"preview": "sawofr.jpg"
+    ,"instructions": "Feuille de Personnage VF pour Savage Worlds, Beasts & Barbarians, Lankhmar et Deadlands Reloaded. Consultez le [readme](https://github.com/Roll20/roll20-character-sheets/blob/master/SavageWorldsFrench/ReadMe.md). v3.0 (15/08/2017)."
     ,"tipeee":"https://www.tipeee.com/natharoll20"
+    ,"useroptions": [
+        {"attribute": "sheetDead",
+            "displayname": "Style",
+            "type": "select",
+            "options": [
+                    "Savage Worlds|0",
+                    "Deadlands Reloaded|1",
+                    "Lankhmar|2",
+                    "Beasts and Barbarians|3"
+                ],
+            "default": "0",
+            "description": "Style de la feuille de personnage."},
+        {"attribute": "pnjtype",
+            "displayname": "Type de personnage",
+            "type": "select",
+            "options": [
+                    "PJ|0",
+                    "PNJ Joker|1",
+                    "PNJ Sous-fifre|2",
+                    "PNJ Bras droit|3",
+                    "PNJ Extra|4"
+                ],
+            "default": "0",
+            "description": "Type de personnage par défaut, lors de la création d'un nouveau personnage."},
+        {"attribute": "sheetStyle",
+            "displayname": "Niveau de détail des jets",
+            "type": "select",
+            "options": [
+                    "Succès+Relances|0",
+                    "Total des Jets|1",
+                    "Jets bruts|2"
+                ],
+            "default": "0",
+            "description": "Style d'affichage des jets dans le chat. Succès+Relances : affichage par template, montrant succès et relances. Total des Jets : affichage par template, montrant le total des jets. Jets bruts : affichage type macro, sans  template, montrant les jets bruts."},
+        {"attribute": "templateetat",
+            "displayname": "Etat dans les templates",
+            "type": "checkbox",
+            "value": "1",
+            "checked" : "checked",
+            "description": "Afficher l'état du personnage dans les templates de jet."
+        },
+        {
+        "attribute": "variable2",
+            "displayname": "Variable 2",
+            "type": "number",
+            "default": "1",
+            "description": "The second user option is a number input and will only accept valid numbers."
+        },
+        {
+        "attribute": "selectoption",
+            "displayname": "Select Option",
+            "type": "select",
+            "options": ["one", "two", "three"],
+            "default": "three",
+            "description": "The third user option is a select, with both set options and a default option."
+        },
+        {
+        "attribute": "variable3",
+            "displayname": "Variable 3",
+            "type": "checkbox",
+            "value": "borkborkbork",
+            "checked" : "checked",
+            "description": "The fourth user option is a checkbox with a value for the checked box as well as whether or not the box is checked by default."
+        },
+    ]
 }
