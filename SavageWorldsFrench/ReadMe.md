@@ -5,9 +5,9 @@ Basée sur les traductions éditées par [Black Book Editions](http://www.black-
 
 # Version courante
 3.0 Captures d'écran :  
-[Style Savage Worlds](sawofr.jpg)  
+[Style Savage Worlds](sawofr_style_sawo.jpg)  
 [Style Beasts & Barbarians](sawofr_style_bnb.jpg)  
-[Style Deadlands](sawofr_style_deadlands.png)  
+[Style Deadlands](sawofr_style_deadlands.jpg)  
 [Style Lankhmar](sawofr_style_lankhmar.jpg)  
 
 # Configuration
