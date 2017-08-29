@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-06-24 (Apocalypse World 1E & 2E multinlingual)._
+_Updated 2017-08-29 (Savage Worlds French v3)._
 
 # You like my work and want to support me?
 
@@ -274,9 +274,9 @@ ___
 Création.
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 2.0 (2017-04-09)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 2.0 (2017-04-09)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 2.0 (2017-04-09)
+* [WIP](./SavageWorldsFrench/) Version 3.0 (2017-08-15)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 3.0 (2017-08-15)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 3.0 (2017-08-29)
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
