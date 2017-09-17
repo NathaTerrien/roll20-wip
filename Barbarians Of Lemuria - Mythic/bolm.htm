@@ -83,30 +83,26 @@
                 });
             });
         });
-    on("change:armourhelmet", function(){
-            getAttrs(["armourhelmet"], function(values) {
-                var vhelmet = parseInt(values.armourhelmet) || 0;
-                var vinitpen = 0;
-                if (vhelmet == 1) {
-                    vinitpen = -1;
-                }
-                setAttrs({
-                    armourinit: vinitpen
-                });
-            });
+    on("change:armourhelmet", function(eventinfo){
+        var vhelmet = parseInt(eventinfo.newValue) || 0;
+        var vinitpen = 0;
+        if (vhelmet == 1) {
+            vinitpen = -1;
+        }
+        setAttrs({
+            armourinit: vinitpen
         });
-    on("change:strength", function(){
-        getAttrs(["strength"], function(values) {
-            var str = parseInt(values.strength) || 0;
-            var half = 0;
-            if (str < 0 ) {
-                half = str;
-            } else {
-                half = Math.floor(str/2);
-            }
-            setAttrs({
-                strengthhalf: half
-            });
+    });
+    on("change:strength", function(eventinfo){
+        var str = parseInt(eventinfo.newValue) || 0;
+        var half = 0;
+        if (str < 0 ) {
+            half = str;
+        } else {
+            half = Math.floor(str/2);
+        }
+        setAttrs({
+            strengthhalf: half
         });
     });
     on('sheet:opened',function(){

@@ -37,10 +37,9 @@
             });
         });
     });
-    on("change:UBRIS", function(){
-        getAttrs(["UBRIS"], function(values) {
+    on("change:UBRIS", function(eventinfo){
             var newval=0;
-            var carac=parseInt(values.UBRIS) || 0;
+            var carac=parseInt(eventinfo.newValue) || 0;
             if (carac > 9) {
                 newval=9;
             } else {
@@ -49,7 +48,6 @@
             setAttrs({
                 UBRISJET: newval
             });
-        });
     });
 </script>
 <div class="sheet-bgmain">

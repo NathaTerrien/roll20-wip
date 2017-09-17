@@ -277,7 +277,7 @@ on("change:atkcible", function () {
     <input type="text" disabled hidden name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
     <input type="text" disabled hidden name="attr_RollBastArcane" value="{ 1d@{arcane_de}!![Arcane],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[Joker]}kh1 + (@{arcane_bonus})[Bonus] - @{malusblessures}[Blessures] - @{malusfatigue}[Fatigue] + (?{Modificateur|0})[Modificateur]" />
-    <input type="text" disabled hidden name="attr_relRollBastArcane" value="{ floor( ( { @{RollBastCombat} } ) / ( @{ciblearcane})[Difficulté] ), 0d0 }kh1 " />
+    <input type="text" disabled hidden name="attr_relRollBastArcane" value="{ floor( ( { @{RollBastArcane} } ) / ( @{ciblearcane})[Difficulté] ), 0d0 }kh1 " />
     <input type="text" disabled hidden name="attr_jetRollBastArcane" value="@{RollBastArcane}" />
 
     <input type="text" disabled hidden name="attr_RollBastForce" value="1d@{force_de}!!+(@{force_bonus})[Dégâts : Force]" />
