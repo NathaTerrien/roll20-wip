@@ -549,6 +549,23 @@
             </table>
             <div class="spacer"></div>
             <div class="theskills">
+                <h1>Artha and Epiphanies</h1>
+                <table>
+                    <tr>
+                        <td class="statname">Fate</td><td><input type="text" class="bubble" name="attr_fate"></td><td class="desc">Open-end 6s</td>
+                        <td class="statname">Persona</td><td><input type="text" class="bubble" name="attr_persona"></td><td class="desc">+1D per point</td>
+                        <td class="statname">Deeds</td><td><input type="text" class="bubble" name="attr_deeds"></td><td class="desc">Double dice or reroll a failed dice</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td class="statname">Aristeia</td><td class="desc" colspan="2">1 Deed points, 3 Persona Points, and 5 Fate points</td>
+                        <td class="statname">Epiphany</td><td class="desc" colspan="2">3 Deed points, 10 Persona Points, and 20 Fate points</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="spacer"></div>
+            <div class="theskills">
                 <h1>Skills</h1>
                 <fieldset class="repeating_skill">
                     <div class="askill">
@@ -585,86 +602,74 @@
                 </fieldset>
             </div>
             <div style="display:inline-block;min-width:700px;min-height: 10px;">&nbsp;</div>
-            <div class="skills">
-                <h1>Being Learned</h1>
-                <fieldset class="repeating_learned">
-                    <table>
-                        <tr>
-                            <td class="statname"><input type="text" class="underline long statname" name="attr_name"></td>
-                            <td>
-                                <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{openended}}>@{shade}]]}} {{totalob=[[[[?{Base Obstacle|1}*2]]+[[@{obstaclepenalties}]]]]}} {{beinglearned=[[[[?{Base Obstacle|1}]]+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
-                                <select class="box" name="attr_shade" title="@{shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_skill" title="@{skill}" disabled="disabled" value="10 - @{aptitutde}">
-                                <div class="opencontinaer">
-                                    <input type="radio" class="openended unchecked" name="attr_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
-                                    <input type="radio" class="openended checked" name="attr_openended" value="!" title="Open Ended (D6 Explode)" />
-                                    <span class="openended"></span>
-                                </div>
-                            </td>
-                            <td rowspan="4" style="vertical-align: top;"><input type="number" class="bubble" name="attr_aptitutde" disabled="disabled" value="floor((@{stat}+@{stat2})/2)"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <select name="attr_stat"><option value="10 - @{will}" selected="selected">Will</option><option value="10 - @{power}">Power</option><option value="10 - @{agility}">Agility</option><option value="10 - @{perception}">Perception</option><option value="10 - @{forte}">Forte</option><option value="10 - @{speed}">Speed</option><option value="10 - @{custom1}">Custom 1</option><option value="10 - @{custom2}">Custom 2</option></select>
-                                <input type="checkbox" class="learned" name="attr_dual" />
-                                <select name="attr_stat2" class="learned2"><option value="@{stat}" selected="selected"></option><option value="10 - @{will}">Will</option><option value="10 - @{power}">Power</option><option value="10 - @{agility}">Agility</option><option value="10 - @{perception}">Perception</option><option value="10 - @{forte}">Forte</option><option value="10 - @{speed}">Speed</option><option value="10 - @{custom1}">Custom 1</option><option value="10 - @{custom2}">Custom 2</option></select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="text-align: right; padding-right: 40px;"><input type="radio" class="sheet-normal sheet-zero" name="attr_learning_dots" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="4" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="5" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="6" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="7" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="8" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="9" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="10" /><span></span></td>
-                        </tr>
-                        <tr class="spacer"></tr>
-                    </table>
-                </fieldset>
-            </div>
-            <div class="skills">
-                <h1>Spells</h1>
-                <fieldset class="repeating_spell">
-                    <table>
-                        <tr>
-                            <td><input type="text" class="underline full statname" name="attr_name" placeholder="Spell Name"></td>
-                            <td>Ob<input type="text" class="underline" name="attr_ob">Actions<input type="text" class="underline" name="attr_actions"></td>
-                        </tr>
-                        <tr>
-                            <td>Orgin:<input type="text" class="underline full" name="attr_orgin"></td>
-                            <td>Area of Effect:<input type="text" class="underline full" name="attr_aoe"></td>
-                        </tr>
-                        <tr>
-                            <td>Element:<input type="text" class="underline full" name="attr_element"></td>
-                            <td>Impetus:<input type="text" class="underline full" name="attr_impetus"></td>
-                        </tr>
-                        <tr>
-                            <td>Duration:<input type="text" class="underline full" name="attr_duration"></td>
-                            <td>Resource:<input type="text" class="underline full" name="attr_resource"></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2"><textarea></textarea></td>
-                        </tr>
-                        <tr class="spacer"></tr>
-                    </table>
-                </fieldset>
-            </div>
-            <div class="skills">
-                <h1>Artha and Epiphanies</h1>
-                <table>
-                    <tr>
-                        <td class="statname">Fate</td><td><input type="text" class="bubble" name="attr_fate"></td><td class="desc">Open-end 6s</td>
-                    </tr>
-                    <tr>
-                        <td class="statname">Persona</td><td><input type="text" class="bubble" name="attr_persona"></td><td class="desc">+1D per point</td>
-                    </tr>
-                    <tr>
-                        <td class="statname">Deeds</td><td><input type="text" class="bubble" name="attr_deeds"></td><td class="desc">Double dice or reroll a failed dice</td>
-                    </tr>
-                    <tr>
-                        <td class="statname">Aristeia</td><td class="desc" colspan="2">1 Deed points, 3 Persona Points, and 5 Fate points</td>
-                    </tr>
-                    <tr>
-                        <td class="statname">Epiphany</td><td class="desc" colspan="2">3 Deed points, 10 Persona Points, and 20 Fate points</td>
-                    </tr>
-                </table>
+            <div>
                 <h1>Practice Log</h1>
                 <textarea name="attr_practicelog"></textarea>
             </div>
+            <div class="theskills">
+                <h1>Being Learned</h1>
+                <fieldset class="repeating_learned">
+                    <div class="askill">
+                        <table>
+                            <tr>
+                                <td class="statname"><input type="text" class="underline long statname" name="attr_name"></td>
+                                <td>
+                                    <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{openended}}>@{shade}]]}} {{totalob=[[[[?{Base Obstacle|1}*2]]+[[@{obstaclepenalties}]]]]}} {{beinglearned=[[[[?{Base Obstacle|1}]]+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                                    <select class="box" name="attr_shade" title="@{shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_skill" title="@{skill}" disabled="disabled" value="10 - @{aptitutde}">
+                                    <div class="opencontinaer">
+                                        <input type="radio" class="openended unchecked" name="attr_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
+                                        <input type="radio" class="openended checked" name="attr_openended" value="!" title="Open Ended (D6 Explode)" />
+                                        <span class="openended"></span>
+                                    </div>
+                                </td>
+                                <td rowspan="4" style="vertical-align: top;"><input type="number" class="bubble" name="attr_aptitutde" disabled="disabled" value="floor((@{stat}+@{stat2})/2)"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <select name="attr_stat"><option value="10 - @{will}" selected="selected">Will</option><option value="10 - @{power}">Power</option><option value="10 - @{agility}">Agility</option><option value="10 - @{perception}">Perception</option><option value="10 - @{forte}">Forte</option><option value="10 - @{speed}">Speed</option><option value="10 - @{custom1}">Custom 1</option><option value="10 - @{custom2}">Custom 2</option></select>
+                                    <input type="checkbox" class="learned" name="attr_dual" />
+                                    <select name="attr_stat2" class="learned2"><option value="@{stat}" selected="selected"></option><option value="10 - @{will}">Will</option><option value="10 - @{power}">Power</option><option value="10 - @{agility}">Agility</option><option value="10 - @{perception}">Perception</option><option value="10 - @{forte}">Forte</option><option value="10 - @{speed}">Speed</option><option value="10 - @{custom1}">Custom 1</option><option value="10 - @{custom2}">Custom 2</option></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" style="text-align: right; padding-right: 40px;"><input type="radio" class="sheet-normal sheet-zero" name="attr_learning_dots" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="4" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="5" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="6" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="7" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="8" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="9" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="10" /><span></span></td>
+                            </tr>
+                            <tr class="spacer"></tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+            <div style="display:inline-block;min-width:700px;min-height: 10px;">&nbsp;</div>
+            <div class="theskills">
+                <h1>Spells</h1>
+                <fieldset class="repeating_spell">
+                    <div class="askill">
+                        <table>
+                            <tr>
+                                <td><input type="text" class="underline full statname" name="attr_name" placeholder="Spell Name"></td>
+                                <td>Ob<input type="text" class="underline" name="attr_ob">Actions<input type="text" class="underline" name="attr_actions"></td>
+                            </tr>
+                            <tr>
+                                <td>Orgin:<input type="text" class="underline full" name="attr_orgin"></td>
+                                <td>Area of Effect:<input type="text" class="underline full" name="attr_aoe"></td>
+                            </tr>
+                            <tr>
+                                <td>Element:<input type="text" class="underline full" name="attr_element"></td>
+                                <td>Impetus:<input type="text" class="underline full" name="attr_impetus"></td>
+                            </tr>
+                            <tr>
+                                <td>Duration:<input type="text" class="underline full" name="attr_duration"></td>
+                                <td>Resource:<input type="text" class="underline full" name="attr_resource"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><textarea></textarea></td>
+                            </tr>
+                            <tr class="spacer"></tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </div>
+            <div style="display:inline-block;min-width:700px;min-height: 10px;">&nbsp;</div>
         </div> <!-- **** END PAGE 2 *** -->
 
         <div class="page3tab">  <!-- **** BEGIN PAGE 3 *** -->
