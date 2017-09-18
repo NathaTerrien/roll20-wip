@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-08-29 (Savage Worlds French v3)._
+_Updated 2017-09-17 (Chroniques Oubliées & Galactique bug fix)._
 
 # You like my work and want to support me?
 
@@ -28,22 +28,21 @@ Site officiel : [Antika](http://www.legrog.org/jeux/antika)
 Création.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Antika) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Antika) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Antika) Version 1.0
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Antika)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Antika)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Antika)
 
 ### Todo
-* Nettoyage du code
-* Tests en jeu
+
 ___
 [![Click to view screenshot](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/AW/AW_logo.jpg)](https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/AW/preview.jpg)
 ### Apocalypse World 1E (multilingual)
 Adaptation and slight layout enhancement of the existing sheet to handle translation, plus french translation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/AW) (2017-06-24)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/AW) (2017-06-19)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/AW) (2017-06-19)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/AW)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/AW)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/AW)
 
 ### Todo
 ___
@@ -52,9 +51,9 @@ ___
 Adaptation and slight layout enhancement of the existing sheet to handle translation, plus french translation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/AW2E) (2017-06-24)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/AW2E) (2017-06-24)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/AW2E) (waiting for merge)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/AW2E)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/AW2E)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/AW2E)
 
 ### Todo
 
@@ -66,9 +65,9 @@ Barbarians of Lemuria : mythic edition, [english](http://barbariansoflemuria.web
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.4 (2017-06-06)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.4 (2017-06-06)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic) v1.3 (2017-01-13)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Barbarians%20Of%20Lemuria%20-%20Mythic)
 
 ### Todo
 * Translate macro variables when this feature is available on Roll20.
@@ -80,9 +79,9 @@ Site officiel : [Brigandyne](https://brigandyne.wordpress.com/), french
 Création.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne) Version 1.1 (2017-04-05)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne) Version 1.1 (2017-04-05)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Brigandyne) Version 1.1 (2017-04-05)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Brigandyne)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Brigandyne)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Brigandyne)
 
 ### Todo
 * In game testing
@@ -94,9 +93,9 @@ Site officiel : [Cahiers du Vastemonde](http://legrumph.org/Terrier/?Les-Cahiers
 Création, en collaboration avec l'auteur.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CahiersDuVastemonde) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CahiersDuVastemonde) Version 1.0
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Vastemonde)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CahiersDuVastemonde)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CahiersDuVastemonde)
 
 ### Todo
 
@@ -107,9 +106,9 @@ ___
 Création.
 
 #### Sources
-* [WIP](./ChroniquesGalactiques/) Version 1.1
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.1
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesGalactiques) Version 1.1
+* [WIP](./ChroniquesGalactiques/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesGalactiques)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesGalactiques)
 
 #### Todo
 * Gestion des caractéristiques supérieures et des dégâts dans les jets de capacité
@@ -121,9 +120,9 @@ ___
 Création.
 
 #### Sources
-* [WIP](./ChroniquesOubliees/) Version 1.7 (2016-11-27)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.7 (2016-11-27)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees) Version 1.7 (2016-11-29)
+* [WIP](./ChroniquesOubliees/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/ChroniquesOubliees)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/ChroniquesOubliees)
 
 #### Todo
 * Fiche compagnon simplifiée
@@ -136,9 +135,9 @@ ___
 Creation.
 
 #### Sources
-* [WIP](./CypherSystem/) Version 1.6 (2016-02-21)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem) Version 1.6 (2016-02-21)
+* [WIP](./CypherSystem/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystem)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystem)
 
 #### Todo
 
@@ -149,9 +148,9 @@ ___
 Création.
 
 #### Sources
-* [WIP](./CypherSystemFrench/) Version 1.6
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.6 (2016-02-21)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench) Version 1.6 (2016-02-21)
+* [WIP](./CypherSystemFrench/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/CypherSystemFrench)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/CypherSystemFrench)
 
 #### Todo
 Cf. english version
@@ -164,9 +163,9 @@ Wiki [Dungeon World VF V1 et V2](http://dungeonworld.pbta.fr)
 Traduction puis refonte et amélioration quasi complète (~création).
 
 #### Sources
-* [WIP](./DungeonWorldFrench/) Version 3.3 (2017-02-18)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.3 (2017-02-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench) Version 3.3 (2017-02-18)
+* [WIP](./DungeonWorldFrench/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/DungeonWorldFrench)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/DungeonWorldFrench)
 
 #### Todo
 
@@ -175,9 +174,9 @@ ___
 Adaptation de la feuille VO par Gaël Rouzic, avec mon aide technique, d'[ICONS](http://johndoe-rpg.com/catalogue/icons/), édité par John Doe.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Icons%20French) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Icons%20French) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Icons%20French) Version 1.0
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Icons%20French)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Icons%20French)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Icons%20French)
 
 #### Todo
 
@@ -189,9 +188,9 @@ Site officiel : [In Nomine Satanis / Magna Veritas (INS/MV) 5ième édition, Gé
 Création.
 
 #### Sources
-* [WIP](./INS-MV_5E/) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/INS-MV_5E) Version 1.0
+* [WIP](./INS-MV_5E/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/INS-MV_5E)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/INS-MV_5E)
 
 #### Todo
 
@@ -203,9 +202,9 @@ ___
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Macchiato%20Monsters) v1.0 (2017-01-09)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Macchiato%20Monsters)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Macchiato%20Monsters)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Macchiato%20Monsters)
 
 ### Todo
 
@@ -217,38 +216,37 @@ Site officiel : [Mordiou !](http://legrumph.org/Terrier/?Chibi/Mordiou-%21), fre
 Création.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.1 (2017-02-26)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou) v1.1 (2017-02-26)
-* [Official](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou) v1.1 (2017-02-26)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Mordiou)
+* [Official](https://github.com/NathaTerrien/roll20-wip/tree/master/Mordiou)
 
 ### Todo
-* In game tests
 
 ___
 ![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (english)
-Deprecated though usable. See the Cypher System Sheet.
+Deprecated though usable. See the Cypher System Sheet instead.
 
 Creation.
 
 #### Sources
-* [WIP](./Numenera_NathasNumenera_English/) Version 4.8
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English) Version 4.8
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English) Version 4.8
+* [WIP](./Numenera_NathasNumenera_English/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_English)
 
 #### Todo
 
 ___
 ![numenera banner](/_banners/Numenera_banner.png)
 ### Numenéra tabbed (french)
-Obsolète bien qu'utilisable. Voir la fiche pour le Cypher System.
+Obsolète bien qu'utilisable. Voir plutôt la fiche pour le Cypher System.
 
 Création.
 
 #### Sources
-* [WIP](./Numenera_NathasNumenera_French/) Version 4.8
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French) Version 4.8
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French) Version 4.8
+* [WIP](./Numenera_NathasNumenera_French/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Numenera_NathasNumenera_French)
 
 #### Todo
 
@@ -259,9 +257,9 @@ ___
 Création.
 
 #### Sources
-* [WIP](./PortesMonstresTresors/) Version 4.4 (2017-02-18)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.4 (2017-02-18)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors) Version 4.4 (2017-02-18)
+* [WIP](./PortesMonstresTresors/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/PortesMonstresTresors)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/PortesMonstresTresors)
 
 #### Todo
 * Calcul de la richesse totale
@@ -274,9 +272,9 @@ ___
 Création.
 
 #### Sources
-* [WIP](./SavageWorldsFrench/) Version 3.0 (2017-08-15)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 3.0 (2017-08-15)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench) Version 3.0 (2017-08-29)
+* [WIP](./SavageWorldsFrench/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SavageWorldsFrench)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SavageWorldsFrench)
 
 #### Todo
 * Fonction API d'application des dégâts, et application de marqueurs en fonction de l'état secoué, des blessures etc.
@@ -291,9 +289,9 @@ Creation of the sheet for [Sig: The City Between](http://www.genesisoflegend.com
 [Preview](https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Sig/sig_wip.jpg)
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/) Version 1.0 (2017-06-04)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SIG) Version 1.0 (2017-06-04)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SIG)  Version 1.0 (2017-06-04)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/sig/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/SIG)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/SIG)
 
 ### Todo
 
@@ -304,9 +302,9 @@ Site officiel : [Supersix](http://supersix.fr/telechargements/)
 Création en collbaoration avec l'auteur.
 
 #### Sources
-* [WIP](./Supersix/) Version 1.0
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Supersix) Version 1.0
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Supersix) Version 1.0
+* [WIP](./Supersix/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Supersix)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Supersix)
 
 #### Todo
 
@@ -317,12 +315,11 @@ ___
 Overhaul and translation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry) Version 2.1 (2017-02-15)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Swords_%26_Wizardry)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Swords_%26_Wizardry)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Swords_%26_Wizardry)
 
 ### Todo
-* In game testing
 
 ___
 ![terrax_banner](/_banners/terrax_banner.png)
@@ -332,12 +329,11 @@ Site officiel : [Terra X](http://legrumph.org/Terrier/?Chibi/Terra-X)
 Création.
 
 ### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX) Version 1.1 (BAB pris en compte dans les attaques)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Terra-X) Version 1.1 (BAB pris en compte dans les attaques)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Terra-X) Version 1.1 (BAB pris en compte dans les attaques)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/TerraX)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Terra-X)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Terra-X)
 
 ### Todo
-* Tests en jeu
 
 ___
 ![tor_banner](/_banners/tor_banner.png)
@@ -347,14 +343,10 @@ Traduction et adaptation.
 
 #### Sources
 * [WIP](./Anneau%20Unique/)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Anneau%20Unique) Version 1.1
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Anneau%20Unique) Version 1.1
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Anneau%20Unique)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Anneau%20Unique)
 
 #### Todo
-* Ajouter les descriptifs VF en infobulles (cf. fiche VO)
-* Virer la cible des jets qui ne sert à rien
-* Ajouter une demande de dé de maîtrise
-* Script API pour template de jet
 
 ___
 ![thesorawl banner](/_banners/the_sprawl.png)
@@ -363,9 +355,9 @@ ___
 Adaptation de la fiche existante VO de Tim Denee (782723) pour le multi-lingue, et intégration de la traduction française, dans le cadre  du [financement participatif](https://fr.ulule.com/the-sprawl-jdr-cyberpunk/).
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl) v1.2 (2017-06-03)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl) v1.2 (2017-06-03)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/The%20Sprawl) v1.2 (2017-06-03)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/The%20Sprawl)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/The%20Sprawl)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/The%20Sprawl)
 
 ### Todo
 
@@ -375,12 +367,11 @@ ___
 Traduction.
 
 #### Sources
-* [WIP](./Trail of Cthulhu_french/) Version 1.0 (2015-12-26)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Trail%20of%20Cthulhu_french) Version 1.0 (2015-12-26)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Trail%20of%20Cthulhu_french) Version 1.0 (2015-12-26)
+* [WIP](./Trail of Cthulhu_french/)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Trail%20of%20Cthulhu_french)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Trail%20of%20Cthulhu_french)
 
 #### Todo
-* Ajouter des jets ?
 
 ___
 ![whitelies_banner](/_banners/whitelies_banner.png)
@@ -390,12 +381,11 @@ Websites for the game : [White Lies](http://dwdstudios.com/whitelies) (english),
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies) Version 1.0 (2016-10-30)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/WhiteLies) Version 1.0 (2016-10-30)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/WhiteLies)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/WhiteLies)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/WhiteLies)
 
 ### Todo
-* In game testing
 
 ___
 ![wurm_banner](/_banners/wurm_banner.png)
@@ -405,12 +395,12 @@ Würm is an Ice Age RPG originally published in [french](http://www.legrog.org/j
 Creation.
 
 #### Sources
-* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Wurm) Version 1.0 (2016-11-23)
-* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Wurm) Version 1.0 (2016-11-23)
-* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Wurm) Version 1.0 (2016-11-29)
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Wurm)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Wurm)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Wurm)
 
 ### Todo
-* In game testing
+
 
 ---
 
@@ -420,8 +410,8 @@ Creation.
 ###Cypher System
 
 #### Sources
-* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
-* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet) Version 1.2
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/CypherSystemSheet)
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/CypherSystemSheet)
 
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
@@ -429,16 +419,18 @@ Creation.
 ___
 ### Numenéra
 
+Deprecated, as the related character sheet. See the Cypher System sheet/script instead.
+
 #### Sources
-* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha) Version 4.8
-* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha) Version 4.8
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/Numenera_Natha)
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/Numenera_Natha)
 
 #### Todo
 * Handle display of every messages through template (attribute change, action parameters reset), both in french and english
 
 ___
 ###Portes Monstres Tresors
-* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
-* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors) Version 1.3
+* [WIP/Fork](https://github.com/NathaTerrien/Natha-roll20-api-scripts/tree/master/PortesMonstresTresors)
+* [Official](https://github.com/Roll20/roll20-api-scripts/tree/master/PortesMonstresTresors)
 
 #### Todo
