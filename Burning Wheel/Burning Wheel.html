@@ -609,11 +609,11 @@
             <div class="theskills">
                 <h1>Being Learned</h1>
                 <fieldset class="repeating_learned">
-                    <div class="askill">
+                    <div class="alearned">
                         <table>
                             <tr>
-                                <td class="statname"><input type="text" class="underline long statname" name="attr_name"></td>
                                 <td>
+                                    <input type="text" class="underline long statname" name="attr_name">
                                     <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{openended}}>@{shade}]]}} {{totalob=[[[[?{Base Obstacle|1}*2]]+[[@{obstaclepenalties}]]]]}} {{beinglearned=[[[[?{Base Obstacle|1}]]+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
                                     <select class="box" name="attr_shade" title="@{shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_skill" title="@{skill}" disabled="disabled" value="10 - @{aptitutde}">
                                     <div class="opencontinaer">
@@ -621,18 +621,18 @@
                                         <input type="radio" class="openended checked" name="attr_openended" value="!" title="Open Ended (D6 Explode)" />
                                         <span class="openended"></span>
                                     </div>
+                                    <input type="number" class="bubble" name="attr_aptitutde" disabled="disabled" value="floor((@{stat}+@{stat2})/2)">
                                 </td>
-                                <td rowspan="4" style="vertical-align: top;"><input type="number" class="bubble" name="attr_aptitutde" disabled="disabled" value="floor((@{stat}+@{stat2})/2)"></td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td>
                                     <select name="attr_stat"><option value="10 - @{will}" selected="selected">Will</option><option value="10 - @{power}">Power</option><option value="10 - @{agility}">Agility</option><option value="10 - @{perception}">Perception</option><option value="10 - @{forte}">Forte</option><option value="10 - @{speed}">Speed</option><option value="10 - @{custom1}">Custom 1</option><option value="10 - @{custom2}">Custom 2</option></select>
                                     <input type="checkbox" class="learned" name="attr_dual" />
                                     <select name="attr_stat2" class="learned2"><option value="@{stat}" selected="selected"></option><option value="10 - @{will}">Will</option><option value="10 - @{power}">Power</option><option value="10 - @{agility}">Agility</option><option value="10 - @{perception}">Perception</option><option value="10 - @{forte}">Forte</option><option value="10 - @{speed}">Speed</option><option value="10 - @{custom1}">Custom 1</option><option value="10 - @{custom2}">Custom 2</option></select>
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3" style="text-align: right; padding-right: 40px;"><input type="radio" class="sheet-normal sheet-zero" name="attr_learning_dots" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="4" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="5" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="6" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="7" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="8" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="9" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="10" /><span></span></td>
+                                <td style="text-align: right;"><input type="radio" class="sheet-normal sheet-zero" name="attr_learning_dots" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="4" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="5" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="6" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="7" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="8" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="9" /><span></span><input type="radio" class="sheet-normal" name="attr_learning_dots" value="10" /><span></span></td>
                             </tr>
                             <tr class="spacer"></tr>
                         </table>

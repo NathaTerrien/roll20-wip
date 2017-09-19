@@ -342,6 +342,7 @@ div.sheet-skills {
 /* Natha */
 div.sheet-theskills{
     display: block !important;
+    text-align: left;
 }
 div.sheet-theskills .repcontainer .repitem {
     float: left !important;
@@ -351,7 +352,14 @@ div.sheet-theskills .repcontrol{
     max-width: 250px !important;
 }
 div.sheet-askill{
+    display: inline-block;
     width: 245px;
+    max-width: 245px;
+}
+div.sheet-alearned{
+    display: inline-block;
+    width: 245px;
+    max-width: 245px;
 }
 /* End Natha */
 .sheet-stride {
