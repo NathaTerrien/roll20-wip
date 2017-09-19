@@ -604,7 +604,45 @@
             <div style="display:inline-block;min-width:700px;min-height: 10px;">&nbsp;</div>
             <div>
                 <h1>Practice Log</h1>
-                <textarea name="attr_practicelog"></textarea>
+                <fieldset class="repeating_practicelogs">
+                    <div class="apracticelog">
+                        <SELECT name="attr_prlg_category" style="width: 140px;">
+                            <OPTION value="academic">Academic</OPTION>
+                            <OPTION value="artisan">Artisan</OPTION>
+                            <OPTION value="artist">Artist</OPTION>
+                            <OPTION value="craftsman">Craftsman</OPTION>
+                            <OPTION value="forester">Forester</OPTION>
+                            <OPTION value="martial">Martial</OPTION>
+                            <OPTION value="medicinal">Medicinal</OPTION>
+                            <OPTION value="military">Military</OPTION>
+                            <OPTION value="musical">Musical</OPTION>
+                            <OPTION value="peasant">Peasant</OPTION>
+                            <OPTION value="physical">Physical</OPTION>
+                            <OPTION value="thought">School of Thought</OPTION>
+                            <OPTION value="seafaring">Seafaring</OPTION>
+                            <OPTION value="social">Social</OPTION>
+                            <OPTION value="sorcerous">Sorcerous</OPTION>
+                            <OPTION value="special">Special/Misc.</OPTION>
+                            <OPTION value="will">Will</OPTION>
+                            <OPTION value="perception">Perception</OPTION>
+                            <OPTION value="agility">Agility</OPTION>
+                            <OPTION value="speed">Speed</OPTION>
+                            <OPTION value="power">Power</OPTION>
+                            <OPTION value="forte">Forte</OPTION>
+                            <OPTION value="faith">Faith</OPTION>
+                            <OPTION value="steel">Steel</OPTION>
+                        </SELECT>
+                        <SELECT name="attr_prlg_difficulty" style="width: 100px;">
+                            <OPTION value="routine">Routine</OPTION>
+                            <OPTION value="difficult">Difficult</OPTION>
+                            <OPTION value="challenging">Challenging</OPTION>
+                        </SELECT>
+                        Pratice <input type="number" class="sheet-underline sheet-stat" name="attr_prlg_pratice" value="0" /> hours/day
+                        for <input type="text" class="sheet-underline sheet-long sheet-statname" name="attr_prlg_duration" />
+                        Current Pratice Time: <input type="text" class="sheet-underline" style="width: 150px;" name="attr_prlg_current" />
+                    </div>
+                </fieldset>
+                <textarea name="attr_practicelog" class="smalltext" style="margin-top: 4px;" placeholder="Old text practice log"></textarea>
             </div>
             <div class="theskills">
                 <h1>Being Learned</h1>
@@ -662,7 +700,7 @@
                                 <td>Resource:<input type="text" class="underline full" name="attr_resource"></td>
                             </tr>
                             <tr>
-                                <td colspan="2"><textarea></textarea></td>
+                                <td colspan="2"><textarea class="smalltext"></textarea></td>
                             </tr>
                             <tr class="spacer"></tr>
                         </table>

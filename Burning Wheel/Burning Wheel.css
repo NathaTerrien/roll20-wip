@@ -344,12 +344,20 @@ div.sheet-theskills{
     display: block !important;
     text-align: left;
 }
+textarea.sheet-smalltext{
+    height: 20px;
+}
 div.sheet-theskills .repcontainer .repitem {
     float: left !important;
 }
 div.sheet-theskills .repcontrol{
     display: block !important;
     max-width: 250px !important;
+}
+div.sheet-apracticelog{
+    display: block;
+    margin-bottom: 2px;
+    white-space: nowrap;
 }
 div.sheet-askill{
     display: inline-block;
@@ -358,8 +366,9 @@ div.sheet-askill{
 }
 div.sheet-alearned{
     display: inline-block;
-    width: 245px;
-    max-width: 245px;
+    width: 240px;
+    max-width: 240px;
+    min-height: 131px;
 }
 /* End Natha */
 .sheet-stride {
