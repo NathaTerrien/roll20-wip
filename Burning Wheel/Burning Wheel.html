@@ -450,7 +450,8 @@
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_custom2_routine_dots" title="@{custom2_routine_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_routine_dots" title="@{custom2_routine_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_routine_dots" title="@{custom2_routine_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_routine_dots" title="@{custom2_routine_dots}" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_routine_dots" title="@{custom2_routine_dots}" value="4" /><span></span></span>
                 </tr>
                 <tr>
-                    <td><input type="number" class="underline" name="attr_custom2_difficult_needed" title="@{custom2_difficult_needed}" disabled="disabled" value="ceil(@{custom2}/2)">Difficult:</td><td><span>
+                    <td><input type="number" class="underline" name="attr_custom2_difficult_needed" title="@{custom2_difficult_needed}" disabled="disabled" value="ceil(@{custom2}/2)">Difficult:</td>
+                    <td><span>
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_custom2_difficult_dots" title="@{custom2_difficult_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_difficult_dots" title="@{custom2_difficult_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_difficult_dots" title="@{custom2_difficult_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_difficult_dots" title="@{custom2_difficult_dots}" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_custom2_difficult_dots" title="@{custom2_difficult_dots}" value="4" /><span></span></span>
                 </tr>
                 <tr>
@@ -470,20 +471,25 @@
                             <span class="openended"></span>
                         </div>
                     </td>
-                    <td rowspan="3"><table><tr><td><input type="text" class="bubble" name="attr_resources_f" placeholder="F" title="@{resources_f}"></td><td rowspan="2"><input type="text" class="bubble" name="attr_resources_d" placeholder="D" title="@{resources_d}"></td></tr><tr><td rowspan="1.5"><input type="text" class="bubble" name="attr_resources_p" placeholder="P" title="@{resources_p}"></td></tr></table></td>
+                    <td rowspan="4"><table><tr><td><input type="text" class="bubble" name="attr_resources_f" placeholder="F" title="@{resources_f}"></td><td rowspan="2"><input type="text" class="bubble" name="attr_resources_d" placeholder="D" title="@{resources_d}"></td></tr><tr><td rowspan="1.5"><input type="text" class="bubble" name="attr_resources_p" placeholder="P" title="@{resources_p}"></td></tr></table></td>
                 </tr>
                 <tr>
                     <td><input type="number" class="underline routineneeded" name="attr_resources_routine_needed" title="@{resources_routine_needed}" disabled="disabled" value="@{resources}*(1 - round(@{resources}/10))">Routine:</td><td><span>
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_resources_routine_dots" title="@{resources_routine_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_routine_dots" title="@{resources_routine_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_routine_dots" title="@{resources_routine_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_routine_dots" title="@{resources_routine_dots}" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_routine_dots" title="@{resources_routine_dots}" value="4" /><span></span></span>
                 </tr>
                 <tr>
-                    <td><input type="number" class="underline" name="attr_resources_difficult_needed" title="@{resources_difficult_needed}" disabled="disabled" value="ceil(@{resources}/2)">Difficult:</td><td><span>
+                    <td><input type="number" class="underline" name="attr_resources_difficult_needed" title="@{resources_difficult_needed}" disabled="disabled" value="ceil(@{resources}/2)">Difficult:</td>
+                    <td><span>
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_resources_difficult_dots" title="@{resources_difficult_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_difficult_dots" title="@{resources_difficult_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_difficult_dots" title="@{resources_difficult_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_difficult_dots" title="@{resources_difficult_dots}" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_difficult_dots" title="@{resources_difficult_dots}" value="4" /><span></span></span>
                 </tr>
                 <tr>
-                    <td><input type="number" class="underline" name="attr_resources_challenge_needed" title="@{resources_challenge_needed}" disabled="disabled" value="((floor((@{resources}-2)/2) + 1) + abs({floor((@{resources}-2)/2) - 1)) / 2">Challenge:</td><td><span>
+                    <td><input type="number" class="underline" name="attr_resources_challenge_needed" title="@{resources_challenge_needed}" disabled="disabled" value="((floor((@{resources}-2)/2) + 1) + abs({floor((@{resources}-2)/2) - 1)) / 2">Challenge:</td>
+                    <td><span>
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_resources_challenge_dots" title="@{resources_challenge_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_challenge_dots" title="@{resources_challenge_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_challenge_dots" title="@{resources_challenge_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_resources_challenge_dots" title="@{resources_challenge_dots}" value="3" /><span></span><input type="radio" class="sheet-normal sheet-c4" name="attr_resources_challenge_dots" title="@{resources_challenge_dots}" value="4" /><span></span>
                     </span></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">Current Tax:<input type="number" class="bubble" name="attr_resources_tax" title="@{resources_tax}" value="0"></td>
                 </tr>
             </table>
             <div class="spacer"></div>
@@ -606,6 +612,7 @@
                 <h1>Practice Log</h1>
                 <fieldset class="repeating_practicelogs">
                     <div class="apracticelog">
+                        <input type="text" class="underline long statname" name="attr_prlg_skill" title="Skill" placeholder="Skill" />
                         <SELECT name="attr_prlg_category" style="width: 140px;">
                             <OPTION value="academic">Academic</OPTION>
                             <OPTION value="artisan">Artisan</OPTION>
@@ -639,7 +646,7 @@
                         </SELECT>
                         Pratice <input type="text" class="sheet-underline sheet-stat" name="attr_prlg_pratice" value="0" /> hours/day
                         for <input type="text" class="sheet-underline sheet-long sheet-statname" name="attr_prlg_cycle" />
-                        Current Pratice Time: <input type="text" class="sheet-underline" style="width: 150px;" name="attr_prlg_current" />
+                        Current Pratice Time <input type="text" class="underline long statname" name="attr_prlg_current" title="Current Pratice Time" />
                     </div>
                 </fieldset>
                 <textarea name="attr_practicelog" class="smalltext" style="margin-top: 4px;" placeholder="Old text practice log"></textarea>
@@ -2459,7 +2466,6 @@
     var practicearr = [{"category":"academic","routine":"2","difficult":"4","challenging":"8","cycle":"6 months"},{"category":"artisan","routine":"4","difficult":"8","challenging":"12","cycle":"1 year"},{"category":"artist","routine":"3","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"craftsman","routine":"3","difficult":"8","challenging":"12","cycle":"1 year"},{"category":"forester","routine":"3","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"martial","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"medicinal","routine":"4","difficult":"8","challenging":"12","cycle":"1 year"},{"category":"military","routine":"2","difficult":"4","challenging":"8","cycle":"6 months"},{"category":"musical","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"peasant","routine":"1 hour","difficult":"4","challenging":"12","cycle":"3 months"},{"category":"physical","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"thought","routine":"3","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"seafaring","routine":"2","difficult":"4","challenging":"8","cycle":"3 months"},{"category":"social","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"sorcerous","routine":"5","difficult":"10","challenging":"15","cycle":"1 year"},{"category":"special","routine":"3","difficult":"6","challenging":"12","cycle":"3 months"},{"category":"will","routine":"No routine tests","difficult":"8","challenging":"16","cycle":"1 year"},{"category":"perception","routine":"No routine tests","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"agility","routine":"No routine tests","difficult":"4","challenging":"8","cycle":"3 months"},{"category":"speed","routine":"No routine tests","difficult":"6","challenging":"9","cycle":"3 months"},{"category":"power","routine":"No routine tests","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"forte","routine":"No routine tests","difficult":"8","challenging":"16","cycle":"2 months"},{"category":"faith","routine":"No routine tests","difficult":"10","challenging":"20","cycle":"1 year"},{"category":"steel","routine":"No routine tests","difficult":"3","challenging":"9","cycle":"2 months"}];
 
     on("change:repeating_practicelogs:prlg_category change:repeating_practicelogs:prlg_difficulty", function(eventinfo){
-        // console.log(eventinfo);
         getAttrs(["repeating_practicelogs_prlg_category","repeating_practicelogs_prlg_difficulty"], function(values) {
             var practice = practicearr.filter(function (prac) { return prac.category == values.repeating_practicelogs_prlg_category });
             setAttrs({
