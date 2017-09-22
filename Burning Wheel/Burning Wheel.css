@@ -137,7 +137,6 @@ textarea.sheet-page1,
 .sheet-page1 .sheet-trait {
     width: calc(100% - 20px);
 }
-/* Natha */
 .sheet-page1 textarea.sheet-trait{
     border-bottom: 1px solid black;
     height: 20px;
@@ -340,6 +339,12 @@ div.sheet-skills {
     margin-left: 10px;
 }
 /* Natha */
+.sheet-top{
+    vertical-align: top;
+}
+.sheet-nowrap{
+    white-space: nowrap;
+}
 div.sheet-theskills{
     display: block !important;
     text-align: left;

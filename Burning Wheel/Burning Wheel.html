@@ -554,19 +554,148 @@
                 </tr>
             </table>
             <div class="spacer"></div>
-            <div class="theskills">
-                <h1>Artha and Epiphanies</h1>
-                <table>
+            <div>
+                <table style="width: 100%;">
                     <tr>
-                        <td class="statname">Fate</td><td><input type="text" class="bubble" name="attr_fate"></td><td class="desc">Open-end 6s</td>
-                        <td class="statname">Persona</td><td><input type="text" class="bubble" name="attr_persona"></td><td class="desc">+1D per point</td>
-                        <td class="statname">Deeds</td><td><input type="text" class="bubble" name="attr_deeds"></td><td class="desc">Double dice or reroll a failed dice</td>
+                        <td><h1>Artha</h1></td>
+                        <td class="statname">Fate</td><td><input type="text" class="bubble" name="attr_fate"></td>
+                        <td class="statname">Persona</td><td><input type="text" class="bubble" name="attr_persona"></td>
+                        <td class="statname">Deeds</td><td><input type="text" class="bubble" name="attr_deeds"></td>
                     </tr>
                 </table>
-                <table>
+                <table style="width: 100%;">
                     <tr>
-                        <td class="statname">Aristeia</td><td class="desc" colspan="2">1 Deed points, 3 Persona Points, and 5 Fate points</td>
-                        <td class="statname">Epiphany</td><td class="desc" colspan="2">3 Deed points, 10 Persona Points, and 20 Fate points</td>
+                        <td colspan="3"><h3>Spending</h3></td>
+                        <td colspan="3"><h3>Earning</h3></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid black;">
+                        <td class="statname">Name</td>
+                        <td class="statname">Cost</td>
+                        <td class="statname">Effect</td>
+                        <td class="statname">Name</td>
+                        <td class="statname">Reward</td>
+                        <td class="statname">Description</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Luck</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">Open-end 6s</td>
+                        <td class="statname top">Belief</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">Driving the game forward with a Belief</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Shrug it Off</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">Temporary negation of Sup. wound penalty</td>
+                        <td class="statname top">Instinct</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">Playing an Instinct makes life difficult</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                        <td class="statname top">Trait</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">A Trait sends the story in a new direction</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                        <td class="statname top">Humor</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">An in-character game-stopper</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Boon</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">+1D to stat or skill test, max +3D</td>
+                        <td class="statname top">Right Skill<br/>, Right time</td>
+                        <td class="italic top nowrap">1 Fate</td>
+                        <td class="top">Having a skill to make the story go</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Focus</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Counter a time complication</td>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Grit Your Teeth</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Temp negation of Light Wound penalty</td>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Complication</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Negate a failed roll with a consequence</td>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Will to Live</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Test Health to recover from a MW</td>
+                        <td class="statname top">Embodiment</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Really good or distinctive roleplaying</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                        <td class="statname top">Moldbreaker</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Going beyond the bounds of the character</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top"></td>
+                        <td class="italic top nowrap"></td>
+                        <td class="top"></td>
+                        <td class="statname top">Workhorse</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Doing all the work for a scenario</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Divine Inspiration</td>
+                        <td class="italic top nowrap">1 Deeds</td>
+                        <td class="top">Double dice for one test</td>
+                        <td class="statname top">MVP</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Being the crucial element of success</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Saving Grace</td>
+                        <td class="italic top nowrap">1 Deeds</td>
+                        <td class="top">Re-roll failed dice from one test</td>
+                        <td class="statname top">Personal Goals</td>
+                        <td class="italic top nowrap">1 Persona</td>
+                        <td class="top">Revenge, triumph, seduction, victory</td>
+                    </tr>
+                    <tr class="spacer"></tr>
+                    <tr>
+                        <td class="statname top">Aristeia</td>
+                        <td class="italic top nowrap">5E,3P,1D</td>
+                        <td class="top">Grey skill/stat, or ignore wound penalties</td>
+                        <td class="statname top">Greater Goals</td>
+                        <td class="italic top nowrap">1 Deeds</td>
+                        <td class="top">Accomplishing goals bigger than you!</td>
+                    </tr>
+                    <tr>
+                        <td class="statname top">Epiphany</td>
+                        <td class="italic top nowrap">20F,10P,3D</td>
+                        <td class="top">Permanently shade shift a skill/stat</td>
+                        <td class="statname top">Beyond the Call</td>
+                        <td class="italic top nowrap">1 Deeds</td>
+                        <td class="top">Helping, no matter the cost</td>
                     </tr>
                 </table>
             </div>
@@ -811,6 +940,7 @@
             </table>
             <span>*The first Superficial wound gives a +1 Ob penalty. The second does not give another +1 Ob. If a third Superficial wound is suffered, the obstacle penalty is replaced with a -1D penalty.</span>
             <div class="spacer"></div>
+
             <table class="weapons">
                 <tr>
                     <td class="header" colspan="9">Weapons</td>
