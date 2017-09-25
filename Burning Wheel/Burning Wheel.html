@@ -173,6 +173,29 @@
             <h1>Stats</h1>
             <table class="page2">
                 <tr>
+                    <td class="statname" title="@{perception}">Perception</td>
+                    <td>
+                        <button type="roll" class="sheet-roll" name="roll_perception" title="roll_perception" value="&{template:bw} {{name=Perception}} {{stat_name=Perception}} {{stat=[[@{perception}]]}} {{shade=[[@{perception_shade}]]}} {{openended=@{perception_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{perception}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{perception_openended}}>@{perception_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{perception}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{perception}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{perception}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <select class="box" name="attr_perception_shade" title="@{perception_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_perception" title="@{perception}" value="1">
+                        <div class="opencontinaer">
+                            <input type="radio" class="openended unchecked" name="attr_perception_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
+                            <input type="radio" class="openended checked" name="attr_perception_openended" value="!" title="Open Ended (D6 Explode)" />
+                            <span class="openended"></span>
+                        </div>
+                    </td>
+                    <td rowspan="3"><table><tr><td><input type="text" class="bubble" name="attr_perception_f" placeholder="F" title="@{perception_f}"></td><td rowspan="2"><input type="text" class="bubble" name="attr_perception_d" placeholder="D" title="@{perception_d}"></td></tr><tr><td rowspan="1.5"><input type="text" class="bubble" name="attr_perception_p" placeholder="P" title="@{perception_p}"></td></tr></table></td>
+                </tr>
+                <tr>
+                    <td><input type="number" class="underline" name="attr_perception_difficult_needed" title="@{perception_difficult_needed}" disabled="disabled" value="ceil(@{perception}/2)">Difficult:</td><td><span>
+                        <input type="radio" class="sheet-normal sheet-zero" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="4" /><span></span></span>
+                </tr>
+                <tr>
+                    <td><input type="number" class="underline" name="attr_perception_challenge_needed" title="@{perception_challenge_needed}" disabled="disabled" value="((floor((@{perception}-2)/2) + 1) + abs({floor((@{perception}-2)/2) - 1)) / 2">Challenge:</td><td><span>
+                        <input type="radio" class="sheet-normal sheet-zero" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="3" /><span></span><input type="radio" class="sheet-normal sheet-c4" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="4" /><span></span>
+                    </span></td>
+                </tr>
+                <tr class="spacer"></tr>
+                <tr>
                     <td class="statname" title="@{will}">Will</td>
                     <td>
                         <button type="roll" class="sheet-roll" name="roll_will" title="roll_will" value="&{template:bw} {{name=Will}} {{stat_name=Will}} {{stat=[[@{will}]]}} {{shade=[[@{will_shade}]]}} {{openended=@{will_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{will}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{will_openended}}>@{will_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{will}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{will}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{will}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
@@ -194,28 +217,15 @@
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_will_challenge_dots" title="@{will_challenge_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_will_challenge_dots" title="@{will_challenge_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_will_challenge_dots" title="@{will_challenge_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_will_challenge_dots" title="@{will_challenge_dots}" value="3" /><span></span><input type="radio" class="sheet-normal sheet-c4" name="attr_will_challenge_dots" title="@{will_challenge_dots}" value="4" /><span></span>
                     </span></td>
                 </tr>
-                <tr class="spacer"></tr>
                 <tr>
-                    <td class="statname" title="@{perception}">Perception</td>
-                    <td>
-                        <button type="roll" class="sheet-roll" name="roll_perception" title="roll_perception" value="&{template:bw} {{name=Perception}} {{stat_name=Perception}} {{stat=[[@{perception}]]}} {{shade=[[@{perception_shade}]]}} {{openended=@{perception_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{perception}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{perception_openended}}>@{perception_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{perception}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{perception}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{perception}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
-                        <select class="box" name="attr_perception_shade" title="@{perception_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_perception" title="@{perception}" value="1">
-                        <div class="opencontinaer">
-                            <input type="radio" class="openended unchecked" name="attr_perception_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
-                            <input type="radio" class="openended checked" name="attr_perception_openended" value="!" title="Open Ended (D6 Explode)" />
-                            <span class="openended"></span>
-                        </div>
+                    <td colspan="2" style="text-align: center;">Sustained Spells:<input type="number" class="bubble" name="attr_will_sustspells" title="@{will_sustspells}" value="0"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <fieldset class="repeating_sustainedspells">
+                            <input type="text" name="attr_sustainedspell" class="underline full" />
+                        </fieldset>
                     </td>
-                    <td rowspan="3"><table><tr><td><input type="text" class="bubble" name="attr_perception_f" placeholder="F" title="@{perception_f}"></td><td rowspan="2"><input type="text" class="bubble" name="attr_perception_d" placeholder="D" title="@{perception_d}"></td></tr><tr><td rowspan="1.5"><input type="text" class="bubble" name="attr_perception_p" placeholder="P" title="@{perception_p}"></td></tr></table></td>
-                </tr>
-                <tr>
-                    <td><input type="number" class="underline" name="attr_perception_difficult_needed" title="@{perception_difficult_needed}" disabled="disabled" value="ceil(@{perception}/2)">Difficult:</td><td><span>
-                        <input type="radio" class="sheet-normal sheet-zero" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="3" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_difficult_dots" title="@{perception_difficult_dots}" value="4" /><span></span></span>
-                </tr>
-                <tr>
-                    <td><input type="number" class="underline" name="attr_perception_challenge_needed" title="@{perception_challenge_needed}" disabled="disabled" value="((floor((@{perception}-2)/2) + 1) + abs({floor((@{perception}-2)/2) - 1)) / 2">Challenge:</td><td><span>
-                        <input type="radio" class="sheet-normal sheet-zero" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="3" /><span></span><input type="radio" class="sheet-normal sheet-c4" name="attr_perception_challenge_dots" title="@{perception_challenge_dots}" value="4" /><span></span>
-                    </span></td>
                 </tr>
             </table>
 
@@ -246,7 +256,7 @@
                 <tr>
                     <td class="statname" title="@{forte}">Forte</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_forte" title="roll_forte" value="&{template:bw} {{name=Forte}} {{stat_name=Forte}} {{stat=[[@{forte}]]}} {{shade=[[@{forte_shade}]]}} {{openended=@{forte_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{forte}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{forte_openended}}>@{forte_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{forte}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{forte}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{forte}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_forte" title="roll_forte" value="&{template:bw} {{name=Forte}} {{stat_name=Forte}} {{stat=[[@{forte}]]}} {{shade=[[@{forte_shade}]]}} {{openended=@{forte_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{forte}-@{forte_tax}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{forte_openended}}>@{forte_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{forte}-@{forte_tax}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{forte}-@{forte_tax}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{forte}-@{forte_tax}+?{Modifiers|0}-@{wounddice}-2]]}} {{tax=[[@{forte_tax}]]}}"></button>
                         <select class="box" name="attr_forte_shade" title="@{forte_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_forte" title="@{forte}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_forte_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -264,6 +274,9 @@
                     <td><input type="number" class="underline" name="attr_forte_challenge_needed" title="@{forte_challenge_needed}" disabled="disabled" value="((floor((@{forte}-2)/2) + 1) + abs({floor((@{forte}-2)/2) - 1)) / 2">Challenge:</td><td><span>
                         <input type="radio" class="sheet-normal sheet-zero" name="attr_forte_challenge_dots" title="@{forte_challenge_dots}" value="0" checked="checked" /><span></span><input type="radio" class="sheet-normal" name="attr_forte_challenge_dots" title="@{forte_challenge_dots}" value="1" /><span></span><input type="radio" class="sheet-normal" name="attr_forte_challenge_dots" title="@{forte_challenge_dots}" value="2" /><span></span><input type="radio" class="sheet-normal" name="attr_forte_challenge_dots" title="@{forte_challenge_dots}" value="3" /><span></span><input type="radio" class="sheet-normal sheet-c4" name="attr_forte_challenge_dots" title="@{forte_challenge_dots}" value="4" /><span></span>
                     </span></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;">Current Tax:<input type="number" class="bubble" name="attr_forte_tax" title="@{forte_tax}" value="0"></td>
                 </tr>
             </table>
 
@@ -502,7 +515,7 @@
                 <tr>
                     <td class="statname" title="@{reflexes}">Reflexes</td>
                     <td>
-                        <select class="box" name="attr_reflexes_shade" title="@{reflexes_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_reflexes" title="@{reflexes}" disabled="disabled" value="floor((@{perception}+@{agility}+@{speed})/3)">
+                        <select class="box" name="attr_reflexes_shade" title="@{reflexes_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_reflexes" title="@{reflexes}" disabled="disabled" value="floor((@{perception}+@{agility}+@{speed})/3)-@{wounddice}">
                     </td>
                 </tr>
                 <tr class="spacer"></tr>
