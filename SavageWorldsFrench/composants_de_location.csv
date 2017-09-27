@@ -1,0 +1,32 @@
+CODE COMPOSANT ;                LIBELLE                 
+1192553        ;REPOSE JAMBE TRACER L                   
+AEPN           ;AEROSOL PNEUMATIQUE                     
+AESO           ;AEROSOL SONIQUE                         
+AEUL           ;AEROSOL ULTRASONIQUE                    
+APAV67P1       ;APAV67P1                                
+APTE           ;APPUI TETE                              
+ASPITRACHEAL   ;ASPIRATEUR TRACHEAL                     
+BARD           ;BARRIERE DE LIT DROITE                  
+BARG           ;BARRIERE DE LIT GAUCHE                  
+BARR           ;BARRIERE                                
+COMP1          ;COMPOSANT1                              
+COMP2          ;COMPOSANT2                              
+FARO           ;FAUTEUIL ROULANT                        
+FAUT           ;FAUTEUIL                                
+FORTISSIMO     ;LIT MEDICAL FORTISSIMO ET ACCESSOIRES   
+LIME           ;LIT MEDICALISE                          
+LIT            ;LIT AVEC RELEVE JAMBES                  
+LITE           ;LIT ELECTRIQUE                          
+PIEDSERUM      ;PIED A SERUM                            
+POMPAMBU       ;POMPE AMBULATOIRE                       
+POMPEFIXE      ;POMPE FIXE                              
+POMPEPROG      ;POMPE PROGRAMMABLE                      
+POTE           ;POTENCE                                 
+POTP           ;POTENCE DE PERFUSION                    
+POTR           ;POTENCE DE RELŠVEMENT                   
+REJAD          ;REPOSE JAMBE DROIT                      
+REJAG          ;REPOSE JAMBE GAUCHE                     
+SOMA           ;SOULEVE MALADE                          
+TABLE          ;TABLE EXAMEN                            
+TIRELAIT       ;TIRELAIT ELECTRIQUE MAMIVAC             
+VELO           ;VELO D'ENTRAINEMENT                     

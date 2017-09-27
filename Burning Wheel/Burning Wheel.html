@@ -198,7 +198,7 @@
                 <tr>
                     <td class="statname" title="@{will}">Will</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_will" title="roll_will" value="&{template:bw} {{name=Will}} {{stat_name=Will}} {{stat=[[@{will}]]}} {{shade=[[@{will_shade}]]}} {{openended=@{will_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{will}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{will_openended}}>@{will_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{will}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{will}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{will}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_will" title="roll_will" value="&{template:bw} {{name=Will}} {{stat_name=Will}} {{stat=[[@{will}]]}} {{shade=[[@{will_shade}]]}} {{openended=@{will_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{will}-@{will_sustspells}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{will_openended}}>@{will_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{will}-@{will_sustspells}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{will}-@{will_sustspells}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{will}-@{will_sustspells}+?{Modifiers|0}-@{wounddice}-2]]}} {{sustspells=[[@{will_sustspells}]]}}"></button>
                         <select class="box" name="attr_will_shade" title="@{will_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_will" title="@{will}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_will_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -2505,6 +2505,10 @@
                     <br>
                     <div class="attr right">Tax</div><div class="num dice right padleft">-{{tax}}</div>
                 {{/rollGreater() tax 0}}
+                {{#rollGreater() sustspells 0}}
+                    <br>
+                    <div class="attr right">Sust. Spells</div><div class="num dice right padleft">-{{sustspells}}</div>
+                {{/rollGreater() sustspells 0}}
             </div><div class="column">
                 <div class="num ob right padright">+{{ob}}</div><div class="attr left">Base Ob</div>
                 {{#rollGreater() obpen 0}}
