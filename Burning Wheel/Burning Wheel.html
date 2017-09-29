@@ -1808,7 +1808,7 @@
                     <th colspan="2">Divide Mental Pool</th>
                 </tr>
                 <tr>
-                    <td>Mental Pool</td><td><input type="number" disabled="disabled" name="attr_mental_pool" value="(@{base_mental}+0)+(@{statm_total}+0)-(@{will}+0)-(@{perception}+0)"></td>
+                    <td>Mental Pool</td><td><input type="number" disabled="disabled" name="attr_mental_pool" value="(@{base_mental}+0)+(@{statm_total}+0)-(@{will}+((4-@{will_shade})*5)+0)-(@{perception}+((4-@{perception_shade})*5)+0)"></td>
                 </tr>
                 <tr>
                     <td>Will <select class="box" name="attr_will_shade" title="@{will_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_will" title="@{will}" value="1"></td>
@@ -1818,7 +1818,7 @@
                     <th colspan="2">Divide Physical Pool</th>
                 </tr>
                 <tr>
-                    <td>Physical Pool</td><td><input type="number" disabled="disabled" name="attr_physcial_pool" value="(@{base_physical}+0)+(@{statp_total}+0)-(@{power}+0)-(@{forte}+0)-(@{agility}+0)-(@{speed}+0)"></td>
+                    <td>Physical Pool</td><td><input type="number" disabled="disabled" name="attr_physcial_pool" value="(@{base_physical}+0)+(@{statp_total}+0)-(@{power}+((4-@{power_shade})*5)+0)-(@{forte}+((4-@{forte_shade})*5)+0)-(@{agility}+((4-@{agility_shade})*5)+0)-(@{speed}+((4-@{speed_shade})*5)+0)"></td>
                 </tr>
                 <tr>
                     <td>Power <select class="box" name="attr_power_shade" title="@{power_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_power" title="@{power}" value="1"></td>
@@ -1834,7 +1834,7 @@
 
             <table class="lifepath">
                 <tr>
-                    <th>5. Skill<input type="number" disabled="disabled" name="attr_current_skill_points" value="(@{skill_total}+@{gen_total})-(@{skill_cost_total})">Remaining</th><th>Root</th><th>Req</th><th>Open</th><th>Adv</th><th>Final</th>
+                    <th>5. Skill<input type="number" disabled="disabled" name="attr_current_skill_points" value="(@{skill_total}+@{gen_total})-(@{skill_cost_total})" style="width:35px;"/>Remaining</th><th>Root</th><th>Req</th><th>Open</th><th>Shade</th><th>*</th><th>Adv</th><th>Final</th>
                 </tr>
                 <tr>
                     <td><input type="text" class="skillname" name="attr_skill_name1"></td>
@@ -1843,8 +1843,10 @@
                         <input type="checkbox" class="learned" name="attr_dual1" />
                         <select name="attr_skill_second_root1" class="learned2 age"><option value="@{skill_root1}" selected="selected"></option><option value="@{will}">Will</option><option value="@{power}">Power</option><option value="@{agility}">Agility</option><option value="@{perception}">Perception</option><option value="@{forte}">Forte</option><option value="@{speed}">Speed</option><option value="@{custom1}">Custom 1</option><option value="@{custom2}">Custom 2</option></select>
                     </td>
-                    <td class="center"><input type="checkbox" name="attr_skill_req1"></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_req1"/></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open1" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade1" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark1" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances1" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent1" disabled="disabled" value="floor((@{skill_root1}+@{skill_second_root1})/4)+(@{skill_advances1}+0)"></td>
                 </tr>
@@ -1857,6 +1859,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req2"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open2" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade2" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark2" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances2" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent2" disabled="disabled" value="floor((@{skill_root2}+@{skill_second_root2})/4)+(@{skill_advances2}+0)"></td>
                 </tr>
@@ -1869,6 +1873,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req3"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open3" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade3" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark3" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances3" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent3" disabled="disabled" value="floor((@{skill_root3}+@{skill_second_root3})/4)+(@{skill_advances3}+0)"></td>
                 </tr>
@@ -1881,6 +1887,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req4"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open4" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade4" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark4" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances4" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent4" disabled="disabled" value="floor((@{skill_root4}+@{skill_second_root4})/4)+(@{skill_advances4}+0)"></td>
                 </tr>
@@ -1893,6 +1901,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req5"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open5" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade5" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark5" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances5" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent5" disabled="disabled" value="floor((@{skill_root5}+@{skill_second_root5})/4)+(@{skill_advances5}+0)"></td>
                 </tr>
@@ -1905,6 +1915,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req6"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open6" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade6" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark6" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances6" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent6" disabled="disabled" value="floor((@{skill_root6}+@{skill_second_root6})/4)+(@{skill_advances6}+0)"></td>
                 </tr>
@@ -1917,6 +1929,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req7"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open7" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade7" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark7" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances7" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent7" disabled="disabled" value="floor((@{skill_root7}+@{skill_second_root7})/4)+(@{skill_advances7}+0)"></td>
                 </tr>
@@ -1929,6 +1943,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req8"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open8" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade8" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark8" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances8" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent8" disabled="disabled" value="floor((@{skill_root8}+@{skill_second_root8})/4)+(@{skill_advances8}+0)"></td>
                 </tr>
@@ -1941,6 +1957,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req9"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open9" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade9" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark9" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances9" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent9" disabled="disabled" value="floor((@{skill_root9}+@{skill_second_root9})/4)+(@{skill_advances9}+0)"></td>
                 </tr>
@@ -1953,6 +1971,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req10"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open10" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade10" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark10" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances10" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent10" disabled="disabled" value="floor((@{skill_root10}+@{skill_second_root10})/4)+(@{skill_advances10}+0)"></td>
                 </tr>
@@ -1965,6 +1985,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req11"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open11" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade11" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark11" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances11" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent11" disabled="disabled" value="floor((@{skill_root11}+@{skill_second_root11})/4)+(@{skill_advances11}+0)"></td>
                 </tr>
@@ -1977,6 +1999,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req12"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open12" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade12" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark12" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances12" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent12" disabled="disabled" value="floor((@{skill_root12}+@{skill_second_root12})/4)+(@{skill_advances12}+0)"></td>
                 </tr>
@@ -1989,6 +2013,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req13"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open13" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade13" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark13" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances13" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent13" disabled="disabled" value="floor((@{skill_root13}+@{skill_second_root13})/4)+(@{skill_advances13}+0)"></td>
                 </tr>
@@ -2001,6 +2027,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req14"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open14" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade14" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark14" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances14" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent14" disabled="disabled" value="floor((@{skill_root14}+@{skill_second_root14})/4)+(@{skill_advances14}+0)"></td>
                 </tr>
@@ -2013,6 +2041,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req15"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open15" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade15" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark15" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances15" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent15" disabled="disabled" value="floor((@{skill_root15}+@{skill_second_root15})/4)+(@{skill_advances15}+0)"></td>
                 </tr>
@@ -2025,6 +2055,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req16"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open16" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade16" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark16" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances16" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent16" disabled="disabled" value="floor((@{skill_root16}+@{skill_second_root16})/4)+(@{skill_advances16}+0)"></td>
                 </tr>
@@ -2037,6 +2069,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req17"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open17" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade17" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark17" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances17" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent17" disabled="disabled" value="floor((@{skill_root17}+@{skill_second_root17})/4)+(@{skill_advances17}+0)"></td>
                 </tr>
@@ -2049,6 +2083,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req18"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open18" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade18" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark18" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances18" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent18" disabled="disabled" value="floor((@{skill_root18}+@{skill_second_root18})/4)+(@{skill_advances18}+0)"></td>
                 </tr>
@@ -2061,6 +2097,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req19"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open19" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade19" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark19" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances19" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent19" disabled="disabled" value="floor((@{skill_root19}+@{skill_second_root19})/4)+(@{skill_advances19}+0)"></td>
                 </tr>
@@ -2073,6 +2111,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req20"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open20" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade20" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark20" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances20" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent20" disabled="disabled" value="floor((@{skill_root20}+@{skill_second_root20})/4)+(@{skill_advances20}+0)"></td>
                 </tr>
@@ -2085,6 +2125,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req21"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open21" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade21" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark21" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances21" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent21" disabled="disabled" value="floor((@{skill_root21}+@{skill_second_root21})/4)+(@{skill_advances21}+0)"></td>
                 </tr>
@@ -2097,6 +2139,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req22"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open22" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade22" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark22" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances22" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent22" disabled="disabled" value="floor((@{skill_root22}+@{skill_second_root22})/4)+(@{skill_advances22}+0)"></td>
                 </tr>
@@ -2109,6 +2153,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req23"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open23" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade23" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark23" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances23" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent23" disabled="disabled" value="floor((@{skill_root23}+@{skill_second_root23})/4)+(@{skill_advances23}+0)"></td>
                 </tr>
@@ -2121,6 +2167,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req24"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open24" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade24" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark24" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances24" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent24" disabled="disabled" value="floor((@{skill_root24}+@{skill_second_root24})/4)+(@{skill_advances24}+0)"></td>
                 </tr>
@@ -2133,6 +2181,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req25"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open25" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade25" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark25" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances25" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent25" disabled="disabled" value="floor((@{skill_root25}+@{skill_second_root25})/4)+(@{skill_advances25}+0)"></td>
                 </tr>
@@ -2145,6 +2195,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req26"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open26" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade26" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark26" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances26" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent26" disabled="disabled" value="floor((@{skill_root26}+@{skill_second_root26})/4)+(@{skill_advances26}+0)"></td>
                 </tr>
@@ -2157,6 +2209,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req27"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open27" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade27" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark27" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances27" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent27" disabled="disabled" value="floor((@{skill_root27}+@{skill_second_root27})/4)+(@{skill_advances27}+0)"></td>
                 </tr>
@@ -2169,6 +2223,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req28"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open28" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade28" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark28" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances28" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent28" disabled="disabled" value="floor((@{skill_root28}+@{skill_second_root28})/4)+(@{skill_advances28}+0)"></td>
                 </tr>
@@ -2181,6 +2237,8 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req29"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open29" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade29" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark29" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances29" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent29" disabled="disabled" value="floor((@{skill_root29}+@{skill_second_root29})/4)+(@{skill_advances29}+0)"></td>
                 </tr>
@@ -2193,12 +2251,14 @@
                     </td>
                     <td class="center"><input type="checkbox" name="attr_skill_req30"></td>
                     <td class="center"><input type="checkbox" name="attr_skill_open30" value="1"></td>
+                    <td class="center"><select class="box" name="attr_skill_shade30" title=""><option value="1">B</option><option value="5">G</option><option value="10">W</option></select></td>
+                    <td class="center"><input type="checkbox" name="attr_skill_mark30" value="1" title="Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song" /></td>
                     <td><input type="number" name="attr_skill_advances30" value="0"></td>
                     <td><input type="number" name="attr_skill_finalexponent30" disabled="disabled" value="floor((@{skill_root30}+@{skill_second_root30})/4)+(@{skill_advances30}+0)"></td>
                 </tr>
             </table>
-            <input type="hidden" disabled="disabled" name="attr_skill_cost_total" value="@{skill_open1}+@{skill_open2}+@{skill_open3}+@{skill_open4}+@{skill_open5}+@{skill_open6}+@{skill_open7}+@{skill_open8}+@{skill_open9}+@{skill_open10}+@{skill_open11}+@{skill_open12}+@{skill_open13}+@{skill_open14}+@{skill_open15}+@{skill_open16}+@{skill_open17}+@{skill_open18}+@{skill_open19}+@{skill_open20}+@{skill_open21}+@{skill_open22}+@{skill_open23}+@{skill_open24}+@{skill_open25}+@{skill_open26}+@{skill_open27}+@{skill_open28}+@{skill_open29}+@{skill_open30}+@{skill_advances1}+@{skill_advances2}+@{skill_advances3}+@{skill_advances4}+@{skill_advances5}+@{skill_advances6}+@{skill_advances7}+@{skill_advances8}+@{skill_advances9}+@{skill_advances10}+@{skill_advances11}+@{skill_advances12}+@{skill_advances13}+@{skill_advances14}+@{skill_advances15}+@{skill_advances16}+@{skill_advances17}+@{skill_advances18}+@{skill_advances19}+@{skill_advances20}+@{skill_advances21}+@{skill_advances22}+@{skill_advances23}+@{skill_advances24}+@{skill_advances25}+@{skill_advances26}+@{skill_advances27}+@{skill_advances28}+@{skill_advances29}+@{skill_advances30}">
-
+            <input type="hidden" disabled="disabled" name="attr_skill_cost_total" value="(@{skill_open1}*@{skill_shade1})+(@{skill_open2}*@{skill_shade2})+(@{skill_open3}*@{skill_shade3})+(@{skill_open4}*@{skill_shade4})+(@{skill_open5}*@{skill_shade5})+(@{skill_open6}*@{skill_shade6})+(@{skill_open7}*@{skill_shade7})+(@{skill_open8}*@{skill_shade8})+(@{skill_open9}*@{skill_shade9})+(@{skill_open10}*@{skill_shade10})+(@{skill_open11}*@{skill_shade11})+(@{skill_open12}*@{skill_shade12})+(@{skill_open13}*@{skill_shade13})+(@{skill_open14}*@{skill_shade14})+(@{skill_open15}*@{skill_shade15})+(@{skill_open16}*@{skill_shade16})+(@{skill_open17}*@{skill_shade17})+(@{skill_open18}*@{skill_shade18})+(@{skill_open19}*@{skill_shade19})+(@{skill_open20}*@{skill_shade20})+(@{skill_open21}*@{skill_shade21})+(@{skill_open22}*@{skill_shade22})+(@{skill_open23}*@{skill_shade23})+(@{skill_open24}*@{skill_shade24})+(@{skill_open25}*@{skill_shade25})+(@{skill_open26}*@{skill_shade26})+(@{skill_open27}*@{skill_shade27})+(@{skill_open28}*@{skill_shade28})+(@{skill_open29}*@{skill_shade29})+(@{skill_open30}*@{skill_shade30})+@{skill_advances1}+@{skill_advances2}+@{skill_advances3}+@{skill_advances4}+@{skill_advances5}+@{skill_advances6}+@{skill_advances7}+@{skill_advances8}+@{skill_advances9}+@{skill_advances10}+@{skill_advances11}+@{skill_advances12}+@{skill_advances13}+@{skill_advances14}+@{skill_advances15}+@{skill_advances16}+@{skill_advances17}+@{skill_advances18}+@{skill_advances19}+@{skill_advances20}+@{skill_advances21}+@{skill_advances22}+@{skill_advances23}+@{skill_advances24}+@{skill_advances25}+@{skill_advances26}+@{skill_advances27}+@{skill_advances28}+@{skill_advances29}+@{skill_advances30}+@{skill_mark1}+@{skill_mark2}+@{skill_mark3}+@{skill_mark4}+@{skill_mark5}+@{skill_mark6}+@{skill_mark7}+@{skill_mark8}+@{skill_mark9}+@{skill_mark10}+@{skill_mark11}+@{skill_mark12}+@{skill_mark13}+@{skill_mark14}+@{skill_mark15}+@{skill_mark16}+@{skill_mark17}+@{skill_mark18}+@{skill_mark19}+@{skill_mark20}+@{skill_mark21}+@{skill_mark22}+@{skill_mark23}+@{skill_mark24}+@{skill_mark25}+@{skill_mark26}+@{skill_mark27}+@{skill_mark28}+@{skill_mark29}+@{skill_mark30}">
+            <div>* Mark if one of the following: Training Skill, Dwarven Magical Skill, Elven Spell or Skill Song, Wolf Song</div>
             <div class="spacer"></div>
 
             <table class="lifepath" style="margin-right: 10px;">
@@ -2746,27 +2806,25 @@
                 You're Incapacitated!
             </div>
         {{/rollBetween() stat 0 wounddice}}
-        {{#rollGreater() stat wounddice}}
-            {{#rollLess() successes totalob}}
-                <div class="resultcontainer red">
-                    <div class="results">Successes</div><div class="vs"></div><div class="results">Obstacle</div>
-                    <div class="results"><span class="result">{{successes}}</span></div><div class="vs"> VS </div><div class="results"><span class="result">{{totalob}}</span></div>
-                </div>
-            {{/rollLess() successes totalob}}
-            {{#rollGreater() successes totalob}}
-                <div class="resultcontainer green">
-                    <div class="results">Successes</div><div class="vs"></div><div class="results">Obstacle</div>
-                    <div class="results"><span class="result">{{successes}}</span></div><div class="vs"> VS </div><div class="results"><span class="result">{{totalob}}</span></div>
-                </div>
-            {{/rollGreater() successes totalob}}
-            {{#rollTotal() successes totalob}}
-                <div class="resultcontainer green">
-                    <div class="results">Successes</div><div class="vs"></div><div class="results">Obstacle</div>
-                    <div class="results"><span class="result">{{successes}}</span></div><div class="vs"> VS </div><div class="results"><span class="result">{{totalob}}</span></div>
-                </div>
-            {{/rollTotal() successes totalob}}
-        {{/rollGreater() stat wounddice}}
-    </div>
+        {{#rollLess() successes totalob}}
+            <div class="resultcontainer red">
+                <div class="results">Successes</div><div class="vs"></div><div class="results">Obstacle</div>
+                <div class="results"><span class="result">{{successes}}</span></div><div class="vs"> VS </div><div class="results"><span class="result">{{totalob}}</span></div>
+            </div>
+        {{/rollLess() successes totalob}}
+        {{#rollGreater() successes totalob}}
+            <div class="resultcontainer green">
+                <div class="results">Successes</div><div class="vs"></div><div class="results">Obstacle</div>
+                <div class="results"><span class="result">{{successes}}</span></div><div class="vs"> VS </div><div class="results"><span class="result">{{totalob}}</span></div>
+            </div>
+        {{/rollGreater() successes totalob}}
+        {{#rollTotal() successes totalob}}
+            <div class="resultcontainer green">
+                <div class="results">Successes</div><div class="vs"></div><div class="results">Obstacle</div>
+                <div class="results"><span class="result">{{successes}}</span></div><div class="vs"> VS </div><div class="results"><span class="result">{{totalob}}</span></div>
+            </div>
+        {{/rollTotal() successes totalob}}
+</div>
 </rolltemplate>
 
 <!-- WORKERS -->
@@ -2812,7 +2870,6 @@
     });
     //Stock filtering for Age
     on("change:stockage", function(eventinfo){
-        console.log('stockage:' + eventinfo.newValue);
         setAttrs({
             stockagement: eventinfo.newValue,
             stockagephys: eventinfo.newValue
