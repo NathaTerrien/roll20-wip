@@ -339,6 +339,15 @@ div.sheet-skills {
     margin-left: 10px;
 }
 /* Natha */
+input.sheet-stockage{
+    display: none;
+}
+select.sheet-age.sheet-stockage{
+    display: none;
+}
+input.sheet-stockage:checked + select.sheet-age.sheet-stockage{
+    display: inline-block;
+}
 .sheet-top{
     vertical-align: top;
 }

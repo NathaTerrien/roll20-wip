@@ -1,4 +1,4 @@
-<div class="container"> <!-- *** BEGIN CONTAINER *** -->
+"<div class="container"> <!-- *** BEGIN CONTAINER *** -->
     <div class="background"> <!-- *** BEGIN BACKGROUND *** -->
         <!-- SHEET PAGE TABS-->
         <input type="radio" class="pages page1" name="attr_pagenumber" title="Page 1" value="1" />
@@ -420,7 +420,7 @@
                     <td class="statname" title="@{circles}">Circles</td>
                     <td>
                         <button type="roll" class="sheet-roll" name="roll_circles" title="roll_circles" value="&{template:bw} {{name=Circles}} {{stat_name=Circles}} {{stat=[[@{circles}]]}} {{shade=[[@{circles_shade}]]}} {{openended=@{circles_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{circles}+?{Modifiers|0}+?{Artha|0}]]d6@{circles_openended}}>@{circles_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{circles}+?{Modifiers|0}]]}} {{dice-1=[[@{circles}+?{Modifiers|0}-1]]}} {{dice-2=[[@{circles}+?{Modifiers|0}-2]]}}"></button>
-                        <select class="box" name="attr_circles_shade" title="@{circles_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_circles" title="@{circles}" value="1">
+                        <select class="box" name="attr_circles_shade" title="@{circles_shade}"><option disabled value="4">B</option><option disabled value="3">G</option><option disabled value="2">W</option></select><input type="text" class="underline stat" name="attr_circles" title="@{circles}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_circles_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
                             <input type="radio" class="openended checked" name="attr_circles_openended" value="!" title="Open Ended (D6 Explode)" />
@@ -509,12 +509,12 @@
 
             <table class="page2" style="vertical-align: top;">
                 <tr>
-                    <td class="statname italic">Hesitation</td><td style="float:right;"><input type="number" class="underline" name="attr_hesitation" disabled="disabled" value="10-@{will}"></td>
+                    <td class="statname italic">Hesitation</td><td colspan="2" style="float:right;"><input type="number" class="underline" name="attr_hesitation" disabled="disabled" value="10-@{will}"></td>
                 </tr>
                 <tr class="spacer"></tr>
                 <tr>
                     <td class="statname" title="@{reflexes}">Reflexes</td>
-                    <td>
+                    <td colspan="2">
                         <select class="box" name="attr_reflexes_shade" title="@{reflexes_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_reflexes" title="@{reflexes}" disabled="disabled" value="floor((@{perception}+@{agility}+@{speed})/3)-@{wounddice}">
                     </td>
                 </tr>
@@ -522,8 +522,9 @@
                 <tr>
                     <td class="statname" title="@{mortalwound}">Mortal Wound</td>
                     <td>
-                        <select class="box" name="attr_mortalwound_shade" title="@{mortalwound_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_mortalwound" title="@{mortalwound}" disabled="disabled" value="floor((@{power}+@{forte})/2)+6">
+                        <select class="box" name="attr_mortalwound_shade" title="@{mortalwound_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_mortalwound" title="@{mortalwound}" value="0" readonly />
                     </td>
+                    <td>Tough <input type="checkbox" name="attr_mortalwound_tough" value="1" title="The Tough trait lets you round up when factoring Mortal Wound." /></td>
                 </tr>
             </table>
 
@@ -1378,9 +1379,26 @@
                     <th colspan="2">Consult the Age Chart</th>
                 </tr>
                 <tr>
+                    <td>Filter by Stock</td>
+                    <td>
+                        <select name="attr_stockage" class="age">
+                            <option value="all" selected>All</option>
+                            <option value="dwarves">Dwarves</option>
+                            <option value="elves">Elves and Dark Elves</option>
+                            <option value="men">Men</option>
+                            <option value="orcs">Orcs</option>
+                            <option value="roden">Roden</option>
+                            <option value="trolls">Trolls</option>
+                            <option value="wolves">Great Wolves</option>
+                        </select>
+                    </td>
+                </tr>
+                </tr>
+                <tr>
                     <td>Mental Age</td>
                     <td>
-                        <select name="attr_base_mental" class="age">
+                        <input type="radio" name="attr_stockagement" value="all" checked class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
                             <optgroup label="Dwarves">
                                 <option value="[[floor(6.01)]]">1-20 yrs - 6pts</option>
                                 <option value="[[floor(7.01)]]">21-30 yrs - 7pts</option>
@@ -1477,12 +1495,115 @@
                                 <option value="[[floor(5.61)]]">12-15 yrs - 5pts</option>
                             </optgroup>
                         </select>
+                        <input type="radio" name="attr_stockagement" value="dwarves" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(6.01)]]">1-20 yrs - 6pts</option>
+                            <option value="[[floor(7.01)]]">21-30 yrs - 7pts</option>
+                            <option value="[[floor(7.02)]]">31-50 yrs - 7pts</option>
+                            <option value="[[floor(8.01)]]">51-76 yrs - 8pts</option>
+                            <option value="[[floor(8.02)]]">77-111 yrs - 8pts</option>
+                            <option value="[[floor(9.01)]]">112-151 yrs - 9pts</option>
+                            <option value="[[floor(9.02)]]">152-199 yrs - 9pts</option>
+                            <option value="[[floor(10.01)]]">200-245 yrs - 10pts</option>
+                            <option value="[[floor(11.01)]]">246-300 yrs - 11pts</option>
+                            <option value="[[floor(11.02)]]">301-345 yrs - 11pts</option>
+                            <option value="[[floor(12.01)]]">346-396 yrs - 12pts</option>
+                            <option value="[[floor(11.03)]]">397-445 yrs - 11pts</option>
+                            <option value="[[floor(11.04)]]">446-525 yrs - 11pts</option>
+                            <option value="[[floor(10.02)]]">526-600 yrs - 10pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagement" value="elves" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(7.11)]]">1-25 yrs - 7pts</option>
+                            <option value="[[floor(8.11)]]">25-60 yrs - 8pts</option>
+                            <option value="[[floor(9.11)]]">61-100 yrs - 9pts</option>
+                            <option value="[[floor(1.12)]]">101-125 yrs - 9pts</option>
+                            <option value="[[floor(10.11)]]">126-160 yrs - 10pts</option>
+                            <option value="[[floor(10.12)]]">161-225 yrs - 10pts</option>
+                            <option value="[[floor(11.11)]]">226-325 yrs - 11pts</option>
+                            <option value="[[floor(12.11)]]">326-425 yrs - 12pts</option>
+                            <option value="[[floor(13.11)]]">426-525 yrs - 13pts</option>
+                            <option value="[[floor(13.12)]]">526-625 yrs - 13pts</option>
+                            <option value="[[floor(14.11)]]">626-725 yrs - 14pts</option>
+                            <option value="[[floor(14.12)]]">726-825 yrs - 14pts</option>
+                            <option value="[[floor(15.11)]]">826-925 yrs - 15pts</option>
+                            <option value="[[floor(15.12)]]">926-1025 yrs - 15pts</option>
+                            <option value="[[floor(15.13)]]">1026-1125 yrs - 15pts</option>
+                            <option value="[[floor(15.14)]]">1126-1225 yrs - 15pts</option>
+                            <option value="[[floor(15.15)]]">1226-1325 yrs - 15pts</option>
+                            <option value="[[floor(16.11)]]">1326+ yrs - 16pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagement" value="men" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(5.21)]]">1-10 yrs - 5pts</option>
+                            <option value="[[floor(6.21)]]">11-14 yrs - 6pts</option>
+                            <option value="[[floor(6.22)]]">15-16 yrs - 6pts</option>
+                            <option value="[[floor(7.21)]]">17-25 yrs - 7pts</option>
+                            <option value="[[floor(7.22)]]">26-29 yrs - 7pts</option>
+                            <option value="[[floor(7.23)]]">30-35 yrs - 7pts</option>
+                            <option value="[[floor(7.24)]]">36-40 yrs - 7pts</option>
+                            <option value="[[floor(7.25)]]">41-55 yrs - 7pts</option>
+                            <option value="[[floor(7.26)]]">56-65 yrs - 7pts</option>
+                            <option value="[[floor(7.27)]]">66-79 yrs - 7pts</option>
+                            <option value="[[floor(6.23)]]">80-100 yrs - 6pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagement" value="orcs" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(3.31)]]">1-10 yrs - 3pts</option>
+                            <option value="[[floor(4.31)]]">11-16 yrs - 4pts</option>
+                            <option value="[[floor(5.31)]]">17-22 yrs - 5pts</option>
+                            <option value="[[floor(5.32)]]">23-30 yrs - 5pts</option>
+                            <option value="[[floor(6.31)]]">41-40 yrs - 6pts</option>
+                            <option value="[[floor(6.32)]]">41-50 yrs - 6pts</option>
+                            <option value="[[floor(7.31)]]">51-60 yrs - 7pts</option>
+                            <option value="[[floor(7.32)]]">61-80 yrs - 7pts</option>
+                            <option value="[[floor(8.31)]]">81-99 yrs - 8pts</option>
+                            <option value="[[floor(8.32)]]">100-125 yrs - 8pts</option>
+                            <option value="[[floor(9.31)]]">126-150 yrs - 9pts</option>
+                            <option value="[[floor(9.32)]]">151+ yrs - 9pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagement" value="roden" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(6.41)]]">1-5 yrs - 6pts</option>
+                            <option value="[[floor(7.41)]]">6-9 yrs - 7pts</option>
+                            <option value="[[floor(7.42)]]">10-15 yrs - 7pts</option>
+                            <option value="[[floor(8.41)]]">16-24 yrs - 8pts</option>
+                            <option value="[[floor(8.42)]]">25-30 yrs - 8pts</option>
+                            <option value="[[floor(7.43)]]">31-36 yrs - 7pts</option>
+                            <option value="[[floor(7.44)]]">37-40 yrs - 7pts</option>
+                            <option value="[[floor(7.45)]]">41-45 yrs - 7pts</option>
+                            <option value="[[floor(6.42)]]">46-49 yrs - 6pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagement" value="trolls" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(3.51)]]">1-5 yrs - 3pts</option>
+                            <option value="[[floor(4.51)]]">6-12 yrs - 4pts</option>
+                            <option value="[[floor(4.52)]]">13-19 yrs - 4pts</option>
+                            <option value="[[floor(4.53)]]">20-27 yrs - 4pts</option>
+                            <option value="[[floor(4.54)]]">28-57 yrs - 4pts</option>
+                            <option value="[[floor(4.55)]]">58-80 yrs - 4pts</option>
+                            <option value="[[floor(4.56)]]">81-124 yrs - 4pts</option>
+                            <option value="[[floor(5.51)]]">125-213 yrs - 5pts</option>
+                            <option value="[[floor(5.52)]]">214-390 yrs - 5pts</option>
+                            <option value="[[floor(6.51)]]">391-712 yrs - 6pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagement" value="wolves" class="stockage" />
+                        <select name="attr_base_mental" class="age stockage">
+                            <option value="[[floor(6.61)]]">1 yr - 6pts</option>
+                            <option value="[[floor(7.61)]]">2-3 yrs - 7pts</option>
+                            <option value="[[floor(7.62)]]">4-5 yrs - 7pts</option>
+                            <option value="[[floor(7.63)]]">6-7 yrs - 7pts</option>
+                            <option value="[[floor(6.62)]]">8-9 yrs - 6pts</option>
+                            <option value="[[floor(6.63)]]">10-11 yrs - 6pts</option>
+                            <option value="[[floor(5.61)]]">12-15 yrs - 5pts</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Physical Age</td>
                     <td>
-                        <select name="attr_base_physical" class="age">
+                        <input type="radio" name="attr_stockagephys" value="all" checked class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
                             <optgroup label="Dwarves">
                                 <option value="[[floor(13.01)]]">1-20 yrs - 13pts</option>
                                 <option value="[[floor(13.02)]]">21-30 yrs - 13pts</option>
@@ -1578,6 +1699,108 @@
                                 <option value="[[floor(12.62)]]">10-11 yrs - 12pts</option>
                                 <option value="[[floor(10.61)]]">12-15 yrs - 10pts</option>
                             </optgroup>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="dwarves" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(13.01)]]">1-20 yrs - 13pts</option>
+                            <option value="[[floor(13.02)]]">21-30 yrs - 13pts</option>
+                            <option value="[[floor(14.01)]]">31-50 yrs - 14pts</option>
+                            <option value="[[floor(15.01)]]">51-76 yrs - 15pts</option>
+                            <option value="[[floor(16.01)]]">77-111 yrs - 16pts</option>
+                            <option value="[[floor(16.02)]]">112-151 yrs - 16pts</option>
+                            <option value="[[floor(17.01)]]">152-199 yrs - 17pts</option>
+                            <option value="[[floor(18.01)]]">200-245 yrs - 18pts</option>
+                            <option value="[[floor(17.02)]]">246-300 yrs - 17pts</option>
+                            <option value="[[floor(16.03)]]">301-345 yrs - 16pts</option>
+                            <option value="[[floor(15.02)]]">346-396 yrs - 15pts</option>
+                            <option value="[[floor(14.02)]]">397-445 yrs - 14pts</option>
+                            <option value="[[floor(13.03)]]">446-525 yrs - 13pts</option>
+                            <option value="[[floor(12.01)]]">526-600 yrs - 12pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="elves" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(13.11)]]">1-25 yrs - 13pts</option>
+                            <option value="[[floor(13.12)]]">25-60 yrs - 13pts</option>
+                            <option value="[[floor(14.11)]]">61-100 yrs - 14pts</option>
+                            <option value="[[floor(15.11)]]">101-125 yrs - 15pts</option>
+                            <option value="[[floor(16.11)]]">126-160 yrs - 16pts</option>
+                            <option value="[[floor(17.11)]]">161-225 yrs - 17pts</option>
+                            <option value="[[floor(17.12)]]">226-325 yrs - 17pts</option>
+                            <option value="[[floor(17.13)]]">326-425 yrs - 17pts</option>
+                            <option value="[[floor(18.11)]]">426-525 yrs - 18pts</option>
+                            <option value="[[floor(19.11)]]">526-625 yrs - 19pts</option>
+                            <option value="[[floor(19.12)]]">626-725 yrs - 19pts</option>
+                            <option value="[[floor(20.11)]]">726-825 yrs - 20pts</option>
+                            <option value="[[floor(20.12)]]">826-925 yrs - 20pts</option>
+                            <option value="[[floor(21.11)]]">926-1025 yrs - 21pts</option>
+                            <option value="[[floor(22.11)]]">1026-1125 yrs - 22pts</option>
+                            <option value="[[floor(23.11)]]">1126-1225 yrs - 23pts</option>
+                            <option value="[[floor(24.11)]]">1226-1325 yrs - 24pts</option>
+                            <option value="[[floor(24.12)]]">1326+ yrs - 24pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="men" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(10.21)]]">1-10 yrs - 10pts</option>
+                            <option value="[[floor(13.21)]]">11-14 yrs - 13pts</option>
+                            <option value="[[floor(16.21)]]">15-16 yrs - 16pts</option>
+                            <option value="[[floor(16.21)]]">17-25 yrs - 16pts</option>
+                            <option value="[[floor(15.22)]]">26-29 yrs - 15pts</option>
+                            <option value="[[floor(14.21)]]">30-35 yrs - 14pts</option>
+                            <option value="[[floor(13.22)]]">36-40 yrs - 13pts</option>
+                            <option value="[[floor(12.21)]]">41-55 yrs - 12pts</option>
+                            <option value="[[floor(11.21)]]">56-65 yrs - 11pts</option>
+                            <option value="[[floor(10.22)]]">66-79 yrs - 10pts</option>
+                            <option value="[[floor(9.21)]]">80-100 yrs - 9pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="orcs" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(10.31)]]">1-10 yrs - 10pts</option>
+                            <option value="[[floor(11.31)]]">11-16 yrs - 11pts</option>
+                            <option value="[[floor(12.31)]]">17-22 yrs - 12pts</option>
+                            <option value="[[floor(13.31)]]">23-30 yrs - 13pts</option>
+                            <option value="[[floor(14.31)]]">41-40 yrs - 14pts</option>
+                            <option value="[[floor(15.31)]]">41-50 yrs - 15pts</option>
+                            <option value="[[floor(16.31)]]">51-60 yrs - 16pts</option>
+                            <option value="[[floor(17.31)]]">61-80 yrs - 17pts</option>
+                            <option value="[[floor(17.32)]]">81-99 yrs - 17pts</option>
+                            <option value="[[floor(18.31)]]">100-125 yrs - 18pts</option>
+                            <option value="[[floor(18.32)]]">126-150 yrs - 18pts</option>
+                            <option value="[[floor(19.31)]]">151+ yrs - 19pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="roden" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(10.41)]]">1-5 yrs - 10pts</option>
+                            <option value="[[floor(13.41)]]">6-9 yrs - 13pts</option>
+                            <option value="[[floor(14.41)]]">10-15 yrs - 14pts</option>
+                            <option value="[[floor(15.41)]]">16-24 yrs - 15pts</option>
+                            <option value="[[floor(14.42)]]">25-30 yrs - 14pts</option>
+                            <option value="[[floor(13.42)]]">31-36 yrs - 13pts</option>
+                            <option value="[[floor(12.41)]]">37-40 yrs - 12pts</option>
+                            <option value="[[floor(11.41)]]">41-45 yrs - 11pts</option>
+                            <option value="[[floor(10.42)]]">46-49 yrs - 10pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="trolls" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(11.51)]]">1-5 yrs - 11pts</option>
+                            <option value="[[floor(14.51)]]">6-12 yrs - 14pts</option>
+                            <option value="[[floor(17.51)]]">13-19 yrs - 17pts</option>
+                            <option value="[[floor(19.51)]]">20-27 yrs - 19pts</option>
+                            <option value="[[floor(20.51)]]">28-57 yrs - 20pts</option>
+                            <option value="[[floor(19.52)]]">58-80 yrs - 19pts</option>
+                            <option value="[[floor(18.51)]]">81-124 yrs - 18pts</option>
+                            <option value="[[floor(17.52)]]">125-213 yrs - 17pts</option>
+                            <option value="[[floor(16.51)]]">214-390 yrs - 16pts</option>
+                            <option value="[[floor(15.51)]]">391-712 yrs - 15pts</option>
+                        </select>
+                        <input type="radio" name="attr_stockagephys" value="wolves" class="stockage" />
+                        <select name="attr_base_physical" class="age stockage">
+                            <option value="[[floor(12.61)]]">1 yr - 12pts</option>
+                            <option value="[[floor(16.61)]]">2-3 yrs - 16pts</option>
+                            <option value="[[floor(17.61)]]">4-5 yrs - 17pts</option>
+                            <option value="[[floor(16.62)]]">6-7 yrs - 16pts</option>
+                            <option value="[[floor(14.61)]]">8-9 yrs - 14pts</option>
+                            <option value="[[floor(12.62)]]">10-11 yrs - 12pts</option>
+                            <option value="[[floor(10.61)]]">12-15 yrs - 10pts</option>
                         </select>
                     </td>
                 </tr>
@@ -2220,7 +2443,7 @@
                     <td class="description">is an average of Perception, Agility, and Speed rounded down.</td>
                 </tr>
                 <tr>
-                    <td class="attribute">MW <select class="box" name="attr_mortalwound_shade" title="@{mortalwound_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="number" class="underline stat" name="attr_mortalwound" title="@{mortalwound}" disabled="disabled" value="floor((@{power}+@{forte})/2)+6"></td>
+                    <td class="attribute">MW <select class="box" name="attr_mortalwound_shade" title="@{mortalwound_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="number" class="underline stat" name="attr_mortalwound" title="@{mortalwound}" value="0" readonly></td>
                     <td class="description">is the average of Power and Forte rounded down plus a base of six.</td>
                 </tr>
                 <tr>
@@ -2383,6 +2606,7 @@
 
 <!-- *** BEGIN HIDDEN FIELDS *** -->
 <input type="hidden" name="attr_woundpenalty_total" value="(@{injury_b1}@{tolerance_b1})+(@{injury_b2}@{tolerance_b2})+(@{injury_b3}@{tolerance_b3})+(@{injury_b4}@{tolerance_b4})+(@{injury_b5}@{tolerance_b5})+(@{injury_b6}@{tolerance_b6})+(@{injury_b7}@{tolerance_b7})+(@{injury_b8}@{tolerance_b8})+(@{injury_b9}@{tolerance_b9})+(@{injury_b10}@{tolerance_b10})+(@{injury_b11}@{tolerance_b11})+(@{injury_b12}@{tolerance_b12})+(@{injury_b13}@{tolerance_b13})+(@{injury_b14}@{tolerance_b14})+(@{injury_b15}@{tolerance_b15})+(@{injury_b16}@{tolerance_b16})" />
+<input type="hidden" name="attr_sheetversion" value="1.0" />
 <!-- *** END  HIDDEN FIELDS *** -->
 
 <!-- ROLL TEMPLATE -->
@@ -2545,15 +2769,66 @@
     </div>
 </rolltemplate>
 
-
 <!-- WORKERS -->
 <script type="text/worker">
-
-    // Script for updating hesitation
-  on("change:will change:will_shade", function() {
+    // Transition from on version of the sheet to another
+    on("sheet:opened",function(){
+        getAttrs(["sheetversion"],function(values){
+            var vers=parseFloat(values.sheetversion) || 0.0;
+            if (vers < 2.0) {
+                //Update Mortal Wound taking Tough in account
+                calcMortalWound();
+                //Update version sheet
+                setAttrs({sheetversion:2.0});
+            }
+        });
+    });
+    // Change on Will/shade will update hesitation and Circles shade
+    on("change:will change:will_shade", function() {
         updateHesitation();
-  });
-
+    });
+    // Script for updating reflexes
+    on("change:perception change:perception_shade change:agility change:agility_shade change:speed change:speed_shade", function() {
+        getAttrs(['perception', 'perception_shade', 'agility', 'agility_shade', 'speed', 'speed_shade'], function(v) {
+            if(v.perception_shade && v.perception && v.agility_shade && v.agility && v.speed_shade && v.speed) {
+                var perception = isNaN(parseInt(v.perception, 10)) === false ? parseInt(v.perception, 10) : 0;
+                var agility = isNaN(parseInt(v.agility, 10)) === false ? parseInt(v.agility, 10) : 0;
+                var speed = isNaN(parseInt(v.speed, 10)) === false ? parseInt(v.speed, 10) : 0;
+                // Calculate the average of per,agi and speed using complex shade math
+                var avg = averageStats(perception, v.perception_shade, agility, v.agility_shade, speed, v.speed_shade);
+                //If successful, set the result
+                if(avg) {
+                    setAttrs({
+                        reflexes: avg.value,
+                        reflexes_shade: avg.shade
+                    });
+                }
+            }
+        });
+    });
+    // Mortal wound change
+    on("change:power change:power_shade change:forte change:forte_shade change:mortalwound_tough", function() {
+        calcMortalWound();
+    });
+    //Stock filtering for Age
+    on("change:stockage", function(eventinfo){
+        console.log('stockage:' + eventinfo.newValue);
+        setAttrs({
+            stockagement: eventinfo.newValue,
+            stockagephys: eventinfo.newValue
+        });
+    });
+    //Pratice log time calculatation
+    on("change:repeating_practicelogs:prlg_category change:repeating_practicelogs:prlg_difficulty", function(eventinfo){
+        getAttrs(["repeating_practicelogs_prlg_category","repeating_practicelogs_prlg_difficulty"], function(values) {
+            var practice = practicearr.filter(function (prac) { return prac.category == values.repeating_practicelogs_prlg_category });
+            setAttrs({
+                repeating_practicelogs_prlg_pratice:practice[0][values.repeating_practicelogs_prlg_difficulty],
+                repeating_practicelogs_prlg_cycle:practice[0]['cycle']
+            });
+        });
+    });
+    // FUNCTIONS AND UTILITIES
     var updateHesitation = function() {
         getAttrs(['will', 'will_shade'], function(v) {
             if(v.will_shade && v.will) {
@@ -2572,33 +2847,14 @@
                     hesitation = 0;
                 }
                 setAttrs({
-                    hesitation: hesitation
+                    hesitation: hesitation,
+                    circles_shade: v.will_shade
                 });
             }
-    });
-    }
-    // Script for updating reflexes
-  on("change:perception change:perception_shade change:agility change:agility_shade change:speed change:speed_shade", function() {
-        getAttrs(['perception', 'perception_shade', 'agility', 'agility_shade', 'speed', 'speed_shade'], function(v) {
-            if(v.perception_shade && v.perception && v.agility_shade && v.agility && v.speed_shade && v.speed) {
-                var perception = isNaN(parseInt(v.perception, 10)) === false ? parseInt(v.perception, 10) : 0;
-                var agility = isNaN(parseInt(v.agility, 10)) === false ? parseInt(v.agility, 10) : 0;
-                var speed = isNaN(parseInt(v.speed, 10)) === false ? parseInt(v.speed, 10) : 0;
-                // Calculate the average of per,agi and speed using complex shade math
-                var avg = averageStats(perception, v.perception_shade, agility, v.agility_shade, speed, v.speed_shade);
-                //If successful, set the result
-                if(avg) {
-                    setAttrs({
-                        reflexes: avg.value,
-                        reflexes_shade: avg.shade
-                    });
-                }
-            }
-    });
-    });
-
+        });
+    };
     // Script for updating mortalwound
-  on("change:power change:power_shade change:forte change:forte_shade change:mortalwound_tough", function() {
+    var calcMortalWound = function() {
         getAttrs(['power', 'power_shade', 'forte', 'forte_shade', 'mortalwound_tough'], function(v) {
             if(v.power_shade && v.power && v.forte_shade && v.forte) {
                 var power = isNaN(parseInt(v.power, 10)) === false ? parseInt(v.power, 10) : 0;
@@ -2615,9 +2871,9 @@
                     });
                 }
             }
-    });
-    });
-
+        });
+    };
+    // Averaging stats
     var averageStats = function(stat1, shade1, stat2, shade2, stat3, shade3, use_ceil) {
         // Shade checking. Logic is grabbed from the Monster Burner pg 367, the chapter on Gray and White Math
         var shades = [0,0,0]; //B,G,W
@@ -2713,18 +2969,7 @@
             // No valid input, we fail
             return null;
         }
-    }
-
-    // Practice log handling
+    };
+    // Practice log data
     var practicearr = [{"category":"academic","routine":"2","difficult":"4","challenging":"8","cycle":"6 months"},{"category":"artisan","routine":"4","difficult":"8","challenging":"12","cycle":"1 year"},{"category":"artist","routine":"3","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"craftsman","routine":"3","difficult":"8","challenging":"12","cycle":"1 year"},{"category":"forester","routine":"3","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"martial","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"medicinal","routine":"4","difficult":"8","challenging":"12","cycle":"1 year"},{"category":"military","routine":"2","difficult":"4","challenging":"8","cycle":"6 months"},{"category":"musical","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"peasant","routine":"1 hour","difficult":"4","challenging":"12","cycle":"3 months"},{"category":"physical","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"thought","routine":"3","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"seafaring","routine":"2","difficult":"4","challenging":"8","cycle":"3 months"},{"category":"social","routine":"2","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"sorcerous","routine":"5","difficult":"10","challenging":"15","cycle":"1 year"},{"category":"special","routine":"3","difficult":"6","challenging":"12","cycle":"3 months"},{"category":"will","routine":"No routine tests","difficult":"8","challenging":"16","cycle":"1 year"},{"category":"perception","routine":"No routine tests","difficult":"6","challenging":"12","cycle":"6 months"},{"category":"agility","routine":"No routine tests","difficult":"4","challenging":"8","cycle":"3 months"},{"category":"speed","routine":"No routine tests","difficult":"6","challenging":"9","cycle":"3 months"},{"category":"power","routine":"No routine tests","difficult":"4","challenging":"8","cycle":"1 month"},{"category":"forte","routine":"No routine tests","difficult":"8","challenging":"16","cycle":"2 months"},{"category":"faith","routine":"No routine tests","difficult":"10","challenging":"20","cycle":"1 year"},{"category":"steel","routine":"No routine tests","difficult":"3","challenging":"9","cycle":"2 months"}];
-
-    on("change:repeating_practicelogs:prlg_category change:repeating_practicelogs:prlg_difficulty", function(eventinfo){
-        getAttrs(["repeating_practicelogs_prlg_category","repeating_practicelogs_prlg_difficulty"], function(values) {
-            var practice = practicearr.filter(function (prac) { return prac.category == values.repeating_practicelogs_prlg_category });
-            setAttrs({
-                repeating_practicelogs_prlg_pratice:practice[0][values.repeating_practicelogs_prlg_difficulty],
-                repeating_practicelogs_prlg_cycle:practice[0]['cycle']
-            });
-        });
-    });
 </script>
