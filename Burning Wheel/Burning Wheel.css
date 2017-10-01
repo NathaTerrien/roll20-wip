@@ -339,6 +339,32 @@ div.sheet-skills {
     margin-left: 10px;
 }
 /* Natha */
+input[type="checkbox"].sheet-showhide{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-right: -20px;
+    opacity: 0;
+}
+input[type="checkbox"].sheet-showhide + span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+input[type="checkbox"].sheet-showhide + span:before{
+    font-size: 18px;
+    content:"▶";
+}
+input[type="checkbox"].sheet-showhide:checked + span:before{
+    content:"▼";
+}
+div.sheet-showhide{
+    display: none;
+}
+input[type="checkbox"].sheet-showhide:checked + span ~ div.sheet-showhide{
+    display: block;
+}
 input.sheet-stockage{
     display: none;
 }
@@ -792,7 +818,7 @@ input.sheet-stat[value="1"] ~ .sheet-routineneeded {
 }
 
 .sheet-lifepath.attribute {
-    width: 120px;
+    width: 80px;
 }
 
 .sheet-lifepath .sheet-center {

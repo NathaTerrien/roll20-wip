@@ -586,143 +586,151 @@
                         <td class="statname" style="text-align: right;">Deeds&nbsp;</td><td><input type="text" class="bubble" name="attr_deeds"></td>
                     </tr>
                 </table>
-                <h3>Spending Artha</h3>
-                <table style="width: 100%;">
-                    <tr style="border-bottom: 1px solid black;">
-                        <td class="statname" style="width: 25%;">Name</td>
-                        <td class="statname" style="width: 15%;">Cost</td>
-                        <td class="statname">Effect</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Luck</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">Open-end 6s</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Shrug it Off</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">Temporary negation of Sup. wound penalty</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Boon</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">+1D to stat or skill test, max +3D</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Focus</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Counter a time complication</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Grit Your Teeth</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Temp negation of Light Wound penalty</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Complication</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Negate a failed roll with a consequence</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Will to Live</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Test Health to recover from a MW</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Divine Inspiration</td>
-                        <td class="italic top nowrap">1 Deeds</td>
-                        <td class="top">Double dice for one test</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Saving Grace</td>
-                        <td class="italic top nowrap">1 Deeds</td>
-                        <td class="top">Re-roll failed dice from one test</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Minor Epiphany</td>
-                        <td class="italic top nowrap">5F,3P,1D</td>
-                        <td class="top">Temporarily shade-shift a skill/stat for one scene</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Divine Aura</td>
-                        <td class="italic top nowrap">5F,3P,1D</td>
-                        <td class="top">Ignore all wound or subtracted die penalties while accomplishing one simple goal</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Epiphany</td>
-                        <td class="italic top nowrap">20F,10P,3D</td>
-                        <td class="top">Permanently shade shift a skill/stat</td>
-                    </tr>
-                </table>
+            </div>
+            <div>
+                <h3>Spending Artha</h3><input type="checkbox" name="attr_arthaspendingshow" class="showhide" title="Show/Hide Spending Artha" /><span></span>
+                <div class="showhide">
+                    <table style="width: 100%;">
+                        <tr style="border-bottom: 1px solid black;">
+                            <td class="statname" style="width: 25%;">Name</td>
+                            <td class="statname" style="width: 15%;">Cost</td>
+                            <td class="statname">Effect</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Luck</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">Open-end 6s</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Shrug it Off</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">Temporary negation of Sup. wound penalty</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Boon</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">+1D to stat or skill test, max +3D</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Focus</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Counter a time complication</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Grit Your Teeth</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Temp negation of Light Wound penalty</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Complication</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Negate a failed roll with a consequence</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Will to Live</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Test Health to recover from a MW</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Divine Inspiration</td>
+                            <td class="italic top nowrap">1 Deeds</td>
+                            <td class="top">Double dice for one test</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Saving Grace</td>
+                            <td class="italic top nowrap">1 Deeds</td>
+                            <td class="top">Re-roll failed dice from one test</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Minor Epiphany</td>
+                            <td class="italic top nowrap">5F,3P,1D</td>
+                            <td class="top">Temporarily shade-shift a skill/stat for one scene</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Divine Aura</td>
+                            <td class="italic top nowrap">5F,3P,1D</td>
+                            <td class="top">Ignore all wound or subtracted die penalties while accomplishing one simple goal</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Epiphany</td>
+                            <td class="italic top nowrap">20F,10P,3D</td>
+                            <td class="top">Permanently shade shift a skill/stat</td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="spacer"></div>
-                <h3>Earning Artha</h3>
-                <table style="width: 100%;">
-                    <tr style="border-bottom: 1px solid black;">
-                        <td class="statname" style="width: 25%;">Name</td>
-                        <td class="statname" style="width: 15%;">Reward</td>
-                        <td class="statname">Description</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Belief</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">Driving the game forward with a Belief</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Instinct</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">Playing an Instinct makes life difficult</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Trait</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">A Trait sends the story in a new direction</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Humor</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">An in-character game-stopper</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Right Skill, Right time</td>
-                        <td class="italic top nowrap">1 Fate</td>
-                        <td class="top">Having a skill to make the story go</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Embodiment</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Really good or distinctive roleplaying</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Moldbreaker</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Going beyond the bounds of the character</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Workhorse</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Doing all the work for a scenario</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">MVP</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Being the crucial element of success</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Personal Goals</td>
-                        <td class="italic top nowrap">1 Persona</td>
-                        <td class="top">Revenge, triumph, seduction, victory</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Greater Goals</td>
-                        <td class="italic top nowrap">1 Deeds</td>
-                        <td class="top">Accomplishing goals bigger than you!</td>
-                    </tr>
-                    <tr>
-                        <td class="statname top">Beyond the Call</td>
-                        <td class="italic top nowrap">1 Deeds</td>
-                        <td class="top">Helping, no matter the cost</td>
-                    </tr>
-                </table>
+            </div>
+            <div>
+                <h3>Earning Artha</h3><input type="checkbox" name="attr_arthaearningshow" class="showhide" title="Show/Hide Spending Artha" /><span></span>
+                <div class="showhide">
+                    <table style="width: 100%;">
+                        <tr style="border-bottom: 1px solid black;">
+                            <td class="statname" style="width: 25%;">Name</td>
+                            <td class="statname" style="width: 15%;">Reward</td>
+                            <td class="statname">Description</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Belief</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">Driving the game forward with a Belief</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Instinct</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">Playing an Instinct makes life difficult</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Trait</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">A Trait sends the story in a new direction</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Humor</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">An in-character game-stopper</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Right Skill, Right time</td>
+                            <td class="italic top nowrap">1 Fate</td>
+                            <td class="top">Having a skill to make the story go</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Embodiment</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Really good or distinctive roleplaying</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Moldbreaker</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Going beyond the bounds of the character</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Workhorse</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Doing all the work for a scenario</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">MVP</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Being the crucial element of success</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Personal Goals</td>
+                            <td class="italic top nowrap">1 Persona</td>
+                            <td class="top">Revenge, triumph, seduction, victory</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Greater Goals</td>
+                            <td class="italic top nowrap">1 Deeds</td>
+                            <td class="top">Accomplishing goals bigger than you!</td>
+                        </tr>
+                        <tr>
+                            <td class="statname top">Beyond the Call</td>
+                            <td class="italic top nowrap">1 Deeds</td>
+                            <td class="top">Helping, no matter the cost</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
             <div class="spacer"></div>
             <div class="theskills">
