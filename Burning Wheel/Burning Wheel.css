@@ -381,12 +381,11 @@ div.sheet-askill{
 div.sheet-alearned{
     display: inline-block;
     width: 240px;
+    min-width: 240px;
     max-width: 240px;
-    min-height: 131px;
 }
 /* End Natha */
 .sheet-stride {
-    margin-left: calc(66% + 18px);
     font-weight: bold;
     font-size: 1.1em;
 }
@@ -793,7 +792,7 @@ input.sheet-stat[value="1"] ~ .sheet-routineneeded {
 }
 
 .sheet-lifepath.attribute {
-    width: 80px;
+    width: 120px;
 }
 
 .sheet-lifepath .sheet-center {
