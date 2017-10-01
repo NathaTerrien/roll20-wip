@@ -181,7 +181,7 @@
                 <tr>
                     <td class="statname" title="@{perception}">Perception</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_perception" title="roll_perception" value="&{template:bw} {{name=Perception}} {{stat_name=Perception}} {{stat=[[@{perception}]]}} {{shade=[[@{perception_shade}]]}} {{openended=@{perception_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{perception}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{perception_openended}}>@{perception_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{perception}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{perception}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{perception}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_perception" title="roll_perception" value="&{template:bw} {{name=Perception}} {{stat_name=Perception}} {{stat=[[@{perception}]]}} {{shade=[[@{perception_shade}]]}} {{openended=@{perception_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{perception}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{perception_openended}}>@{perception_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{perception}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{perception}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{perception}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                         <select class="box" name="attr_perception_shade" title="@{perception_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_perception" title="@{perception}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_perception_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -204,7 +204,7 @@
                 <tr>
                     <td class="statname" title="@{will}">Will</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_will" title="roll_will" value="&{template:bw} {{name=Will}} {{stat_name=Will}} {{stat=[[@{will}]]}} {{shade=[[@{will_shade}]]}} {{openended=@{will_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{will}-@{will_sustspells}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{will_openended}}>@{will_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{will}-@{will_sustspells}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{will}-@{will_sustspells}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{will}-@{will_sustspells}+?{Modifiers|0}-@{wounddice}-2]]}} {{sustspells=[[@{will_sustspells}]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_will" title="roll_will" value="&{template:bw} {{name=Will}} {{stat_name=Will}} {{stat=[[@{will}]]}} {{shade=[[@{will_shade}]]}} {{openended=@{will_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{will}-@{will_sustspells}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{will_openended}}>@{will_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{will}-@{will_sustspells}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{will}-@{will_sustspells}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{will}-@{will_sustspells}+?{Modifiers|0}-(@{wounddice})-(2)]]}} {{sustspells=[[@{will_sustspells}]]}}"></button>
                         <select class="box" name="attr_will_shade" title="@{will_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_will" title="@{will}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_will_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -239,7 +239,7 @@
                 <tr>
                     <td class="statname" title="@{power}">Power</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_power" title="roll_power" value="&{template:bw} {{name=Power}} {{stat_name=Power}} {{stat=[[@{power}]]}} {{shade=[[@{power_shade}]]}} {{openended=@{power_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{power}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{power_openended}}>@{power_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{power}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{power}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{power}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_power" title="roll_power" value="&{template:bw} {{name=Power}} {{stat_name=Power}} {{stat=[[@{power}]]}} {{shade=[[@{power_shade}]]}} {{openended=@{power_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{power}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{power_openended}}>@{power_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{power}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{power}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{power}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                         <select class="box" name="attr_power_shade" title="@{power_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_power" title="@{power}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_power_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -262,7 +262,7 @@
                 <tr>
                     <td class="statname" title="@{forte}">Forte</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_forte" title="roll_forte" value="&{template:bw} {{name=Forte}} {{stat_name=Forte}} {{stat=[[@{forte}]]}} {{shade=[[@{forte_shade}]]}} {{openended=@{forte_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{forte}-@{forte_tax}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{forte_openended}}>@{forte_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{forte}-@{forte_tax}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{forte}-@{forte_tax}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{forte}-@{forte_tax}+?{Modifiers|0}-@{wounddice}-2]]}} {{tax=[[@{forte_tax}]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_forte" title="roll_forte" value="&{template:bw} {{name=Forte}} {{stat_name=Forte}} {{stat=[[@{forte}]]}} {{shade=[[@{forte_shade}]]}} {{openended=@{forte_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{forte}-(@{forte_tax})+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{forte_openended}}>@{forte_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{forte}-(@{forte_tax})+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{forte}-(@{forte_tax})+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{forte}-(@{forte_tax})+?{Modifiers|0}-(@{wounddice})-(2)]]}} {{tax=[[@{forte_tax}]]}}"></button>
                         <select class="box" name="attr_forte_shade" title="@{forte_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_forte" title="@{forte}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_forte_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -290,7 +290,7 @@
                 <tr>
                     <td class="statname" title="@{agility}">Agility</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_agility" title="roll_agility" value="&{template:bw} {{name=Agility}} {{stat_name=Agility}} {{stat=[[@{agility}]]}} {{shade=[[@{agility_shade}]]}} {{openended=@{agility_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{agility}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{agility_openended}}>@{agility_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{agility}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{agility}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{agility}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_agility" title="roll_agility" value="&{template:bw} {{name=Agility}} {{stat_name=Agility}} {{stat=[[@{agility}]]}} {{shade=[[@{agility_shade}]]}} {{openended=@{agility_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{agility}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{agility_openended}}>@{agility_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{agility}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{agility}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{agility}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                         <select class="box" name="attr_agility_shade" title="@{agility_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_agility" title="@{agility}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_agility_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -313,7 +313,7 @@
                 <tr>
                     <td class="statname" title="@{speed}">Speed</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_speed" title="roll_speed" value="&{template:bw} {{name=Speed}} {{stat_name=Speed}} {{stat=[[@{speed}]]}} {{shade=[[@{speed_shade}]]}} {{openended=@{speed_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{speed}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{speed_openended}}>@{speed_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{speed}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{speed}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{speed}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_speed" title="roll_speed" value="&{template:bw} {{name=Speed}} {{stat_name=Speed}} {{stat=[[@{speed}]]}} {{shade=[[@{speed_shade}]]}} {{openended=@{speed_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{speed}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{speed_openended}}>@{speed_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{speed}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{speed}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{speed}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                         <select class="box" name="attr_speed_shade" title="@{speed_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline" name="attr_speed" title="@{speed}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_speed_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -342,7 +342,7 @@
                 <tr>
                     <td class="statname" title="@{health}">Health</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_health" title="roll_health" value="&{template:bw} {{name=Health}} {{stat_name=Health}} {{stat=[[@{health}]]}} {{shade=[[@{health_shade}]]}} {{openended=@{health_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{health}+?{Modifiers|0}+?{Artha|0}]]d6@{health_openended}}>@{health_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{health}+?{Modifiers|0}]]}} {{dice-1=[[@{health}+?{Modifiers|0}-1]]}} {{dice-2=[[@{health}+?{Modifiers|0}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_health" title="roll_health" value="&{template:bw} {{name=Health}} {{stat_name=Health}} {{stat=[[@{health}]]}} {{shade=[[@{health_shade}]]}} {{openended=@{health_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{health}+?{Modifiers|0}+?{Artha|0}]]d6@{health_openended}}>@{health_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{health}+?{Modifiers|0}]]}} {{dice-1=[[@{health}+?{Modifiers|0}-(1)]]}} {{dice-2=[[@{health}+?{Modifiers|0}-(2)]]}}"></button>
                         <select class="box" name="attr_health_shade" title="@{health_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_health" title="@{health}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_health_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -369,7 +369,7 @@
                 <tr>
                     <td class="statname" title="@{steel}">Steel</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_steel" title="roll_steel" value="&{template:bw} {{name=Steel}} {{stat_name=Steel}} {{stat=[[@{steel}]]}} {{shade=[[@{steel_shade}]]}} {{openended=@{steel_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{steel}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{steel_openended}}>@{steel_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{steel}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{steel}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{steel}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_steel" title="roll_steel" value="&{template:bw} {{name=Steel}} {{stat_name=Steel}} {{stat=[[@{steel}]]}} {{shade=[[@{steel_shade}]]}} {{openended=@{steel_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{steel}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{steel_openended}}>@{steel_shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{steel}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{steel}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{steel}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                         <select class="box" name="attr_steel_shade" title="@{steel_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_steel" title="@{steel}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_steel_openended" value="" title="Open Ended (D6 Explode)" />
@@ -398,7 +398,7 @@
                 <tr>
                     <td class="statname" title="@{custom1}"><input type="text" class="underline long statname" name="attr_custom1_name"></td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_custom1" title="roll_custom1" value="&{template:bw} {{name=@{custom1_name}}} {{stat_name=@{custom1_name}}} {{stat=[[@{custom1}]]}} {{shade=[[@{custom1_shade}]]}} {{openended=@{custom1_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{custom1}+?{Modifiers|0}+?{Artha|0}]]d6@{custom1_openended}}>@{custom1_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{custom1}+?{Modifiers|0}]]}} {{dice-1=[[@{custom1}+?{Modifiers|0}-1]]}} {{dice-2=[[@{custom1}+?{Modifiers|0}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_custom1" title="roll_custom1" value="&{template:bw} {{name=@{custom1_name}}} {{stat_name=@{custom1_name}}} {{stat=[[@{custom1}]]}} {{shade=[[@{custom1_shade}]]}} {{openended=@{custom1_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{custom1}+?{Modifiers|0}+?{Artha|0}]]d6@{custom1_openended}}>@{custom1_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{custom1}+?{Modifiers|0}]]}} {{dice-1=[[@{custom1}+?{Modifiers|0}-(1)]]}} {{dice-2=[[@{custom1}+?{Modifiers|0}-(2)]]}}"></button>
                         <select class="box" name="attr_custom1_shade" title="@{custom1_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_custom1" title="@{custom1}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_custom1_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -425,8 +425,8 @@
                 <tr>
                     <td class="statname" title="@{circles}">Circles</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_circles" title="roll_circles" value="&{template:bw} {{name=Circles}} {{stat_name=Circles}} {{stat=[[@{circles}]]}} {{shade=[[@{circles_shade}]]}} {{openended=@{circles_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{circles}+?{Modifiers|0}+?{Artha|0}]]d6@{circles_openended}}>@{circles_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{circles}+?{Modifiers|0}]]}} {{dice-1=[[@{circles}+?{Modifiers|0}-1]]}} {{dice-2=[[@{circles}+?{Modifiers|0}-2]]}}"></button>
-                        <select class="box" name="attr_circles_shade" title="@{circles_shade}"><option disabled value="4">B</option><option disabled value="3">G</option><option disabled value="2">W</option></select><input type="text" class="underline stat" name="attr_circles" title="@{circles}" value="1">
+                        <button type="roll" class="sheet-roll" name="roll_circles" title="roll_circles" value="&{template:bw} {{name=Circles}} {{stat_name=Circles}} {{stat=[[@{circles}]]}} {{shade=[[@{circles_shade}]]}} {{openended=@{circles_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{circles}+?{Modifiers|0}+?{Artha|0}]]d6@{circles_openended}}>@{circles_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{circles}+?{Modifiers|0}]]}} {{dice-1=[[@{circles}+?{Modifiers|0}-(1)]]}} {{dice-2=[[@{circles}+?{Modifiers|0}-(2)]]}}"></button>
+                        <select class="box" name="attr_circles_shade" title="@{circles_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_circles" title="@{circles}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_circles_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
                             <input type="radio" class="openended checked" name="attr_circles_openended" value="!" title="Open Ended (D6 Explode)" />
@@ -454,7 +454,7 @@
                 <tr>
                     <td class="statname" title="@{custom2}"><input type="text" class="underline long statname" name="attr_custom2_name"></td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_custom2" title="roll_custom2" value="&{template:bw} {{name=@{custom2_name}}} {{stat_name=@{custom2_name}}} {{stat=[[@{custom2}]]}} {{shade=[[@{custom2_shade}]]}} {{openended=@{custom2_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{custom2}+?{Modifiers|0}+?{Artha|0}]]d6@{custom2_openended}}>@{custom2_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{custom2}+?{Modifiers|0}]]}} {{dice-1=[[@{custom2}+?{Modifiers|0}-1]]}} {{dice-2=[[@{custom2}+?{Modifiers|0}-2]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_custom2" title="roll_custom2" value="&{template:bw} {{name=@{custom2_name}}} {{stat_name=@{custom2_name}}} {{stat=[[@{custom2}]]}} {{shade=[[@{custom2_shade}]]}} {{openended=@{custom2_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{custom2}+?{Modifiers|0}+?{Artha|0}]]d6@{custom2_openended}}>@{custom2_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{custom2}+?{Modifiers|0}]]}} {{dice-1=[[@{custom2}+?{Modifiers|0}-(1)]]}} {{dice-2=[[@{custom2}+?{Modifiers|0}-(2)]]}}"></button>
                         <select class="box" name="attr_custom2_shade" title="@{custom2_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_custom2" title="@{custom2}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_custom2_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -482,7 +482,7 @@
                 <tr>
                     <td class="statname" title="@{resources}">Resources</td>
                     <td>
-                        <button type="roll" class="sheet-roll" name="roll_resources" title="roll_resources" value="&{template:bw} {{name=Resources}} {{stat_name=Resources}} {{stat=[[@{resources}]]}} {{shade=[[@{resources_shade}]]}} {{openended=@{resources_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{resources}-@{resources_tax}+?{Modifiers|0}+?{Artha|0}]]d6@{resources_openended}}>@{resources_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{resources}-@{resources_tax}+?{Modifiers|0}]]}} {{dice-1=[[@{resources}-@{resources_tax}+?{Modifiers|0}-1]]}} {{dice-2=[[@{resources}-@{resources_tax}+?{Modifiers|0}-2]]}} {{tax=[[@{resources_tax}]]}}"></button>
+                        <button type="roll" class="sheet-roll" name="roll_resources" title="roll_resources" value="&{template:bw} {{name=Resources}} {{stat_name=Resources}} {{stat=[[@{resources}]]}} {{shade=[[@{resources_shade}]]}} {{openended=@{resources_openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[0]]}} {{ob=[[?{Base Obstacle|1}]]}} {{successes=[[ {[[@{resources}-(@{resources_tax})+?{Modifiers|0}+?{Artha|0}]]d6@{resources_openended}}>@{resources_shade}]]}} {{totalob=[[?{Base Obstacle|1}]]}} {{dice=[[@{resources}-(@{resources_tax})+?{Modifiers|0}]]}} {{dice-1=[[@{resources}-(@{resources_tax})+?{Modifiers|0}-(1)]]}} {{dice-2=[[@{resources}-(@{resources_tax})+?{Modifiers|0}-(2)]]}} {{tax=[[@{resources_tax}]]}}"></button>
                         <select class="box" name="attr_resources_shade" title="@{resources_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_resources" title="@{resources}" value="1">
                         <div class="opencontinaer">
                             <input type="radio" class="openended unchecked" name="attr_resources_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -522,7 +522,7 @@
                 <tr>
                     <td class="statname" title="@{reflexes}">Reflexes</td>
                     <td>
-                        <select class="box" name="attr_reflexes_shade" title="@{reflexes_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_reflexes" title="@{reflexes}" disabled="disabled" value="floor((@{perception}+@{agility}+@{speed})/3)-@{wounddice}">
+                        <select class="box" name="attr_reflexes_shade" title="@{reflexes_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_reflexes" title="@{reflexes}" disabled="disabled" value="floor((@{perception}+@{agility}+@{speed})/3)-(@{wounddice})">
                     </td>
                 </tr>
                 <tr class="spacer"></tr>
@@ -604,7 +604,7 @@
                         <tr>
                             <td class="statname top">Shrug it Off</td>
                             <td class="italic top nowrap">1 Fate</td>
-                            <td class="top">Temporary negation of Sup. wound penalty</td>
+                            <td class="top">Temporarily negate a Superficial Wound penalty</td>
                         </tr>
                         <tr>
                             <td class="statname top">Boon</td>
@@ -619,7 +619,7 @@
                         <tr>
                             <td class="statname top">Grit Your Teeth</td>
                             <td class="italic top nowrap">1 Persona</td>
-                            <td class="top">Temp negation of Light Wound penalty</td>
+                            <td class="top">Temporarily negate -1D of wound penalty, max once per wound</td>
                         </tr>
                         <tr>
                             <td class="statname top">Complication</td>
@@ -634,12 +634,12 @@
                         <tr>
                             <td class="statname top">Divine Inspiration</td>
                             <td class="italic top nowrap">1 Deeds</td>
-                            <td class="top">Double dice for one test</td>
+                            <td class="top">Double the exponent of a single stat, skill, or attribute for one test</td>
                         </tr>
                         <tr>
                             <td class="statname top">Saving Grace</td>
                             <td class="italic top nowrap">1 Deeds</td>
-                            <td class="top">Re-roll failed dice from one test</td>
+                            <td class="top">Re-roll all failed dice from one test</td>
                         </tr>
                         <tr>
                             <td class="statname top">Minor Epiphany</td>
@@ -654,7 +654,7 @@
                         <tr>
                             <td class="statname top">Epiphany</td>
                             <td class="italic top nowrap">20F,10P,3D</td>
-                            <td class="top">Permanently shade shift a skill/stat</td>
+                            <td class="top">Permanently shade-shift a skill/stat</td>
                         </tr>
                     </table>
                 </div>
@@ -741,7 +741,7 @@
                             <tr>
                                 <td class="statname" title="@{skill}"><input type="text" class="underline long statname" name="attr_name"></td>
                                 <td>
-                                    <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{openended}}>@{shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                                    <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{openended}}>@{shade}]]}} {{totalob=[[?{Base Obstacle|1}+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                                     <select class="box" name="attr_shade" title="@{shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_skill" title="@{skill}" value="1">
                                     <div class="opencontinaer">
                                         <input type="radio" class="openended unchecked" name="attr_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -778,7 +778,7 @@
                             <tr>
                                 <td>
                                     <input type="text" class="underline long statname" name="attr_name">
-                                    <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-@{wounddice}]]d6@{openended}}>@{shade}]]}} {{totalob=[[[[?{Base Obstacle|1}*2]]+[[@{obstaclepenalties}]]]]}} {{beinglearned=[[[[?{Base Obstacle|1}]]+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-@{wounddice}]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-@{wounddice}-1]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-@{wounddice}-2]]}}"></button>
+                                    <button type="roll" class="sheet-roll" name="roll_skill" title="roll_skill" value="&{template:bw} {{name=@{name}}} {{stat_name=@{name}}} {{stat=[[@{skill}]]}} {{shade=[[@{shade}]]}} {{openended=@{openended}}} {{mod=[[?{Modifiers|0}]]}} {{artha=[[?{Artha|0}]]}} {{wounddice=[[@{wounddice}]]}} {{ob=[[?{Base Obstacle|1}]]}} {{obpen=[[@{obstaclepenalties}]]}} {{successes=[[ {[[@{skill}+?{Modifiers|0}+?{Artha|0}-(@{wounddice})]]d6@{openended}}>@{shade}]]}} {{totalob=[[[[?{Base Obstacle|1}*2]]+[[@{obstaclepenalties}]]]]}} {{beinglearned=[[[[?{Base Obstacle|1}]]+[[@{obstaclepenalties}]]]]}} {{dice=[[@{skill}+?{Modifiers|0}-(@{wounddice})]]}} {{dice-1=[[@{skill}+?{Modifiers|0}-(@{wounddice})-(1)]]}} {{dice-2=[[@{skill}+?{Modifiers|0}-(@{wounddice})-(2)]]}}"></button>
                                     <select class="box" name="attr_shade" title="@{shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_skill" title="@{skill}" disabled="disabled" value="10 - @{aptitutde}">
                                     <div class="opencontinaer">
                                         <input type="radio" class="openended unchecked" name="attr_openended" value="" checked="checked" title="Open Ended (D6 Explode)" />
@@ -808,7 +808,7 @@
                 <h1>Practice Log</h1>
                 <fieldset class="repeating_practicelogs">
                     <div class="apracticelog nowrap">
-                        <input type="text" class="underline long statname" name="attr_prlg_skill" title="Skill" placeholder="Skill" />
+                        <input type="text" name="attr_prlg_skill" title="Skill" placeholder="Skill" class="underline long statname" style="width: 160px;" />
                         <SELECT name="attr_prlg_category" style="width: 140px;">
                             <OPTION value="academic">Academic</OPTION>
                             <OPTION value="artisan">Artisan</OPTION>
@@ -840,9 +840,9 @@
                             <OPTION value="difficult">Difficult</OPTION>
                             <OPTION value="challenging">Challenging</OPTION>
                         </SELECT>
-                        Practice <input type="text" class="underline stat" name="attr_prlg_pratice" value="0" /> hours/day
-                        for <input type="text" class="underline long statname" name="attr_prlg_cycle" />
-                        Current: <input type="text" class="underline long statname" style="width:140px;" name="attr_prlg_current" title="Current Pratice Time" />
+                        Practice <input type="text" name="attr_prlg_pratice" value="0" class="underline stat" /> hours/day
+                        for <input type="text" name="attr_prlg_cycle" class="underline long statname" style="width:55px;" />
+                        Current: <input type="text" class="underline long statname" style="width:65px;" name="attr_prlg_current" title="Current Pratice Time" />
                     </div>
                 </fieldset>
                 <textarea name="attr_practicelog" class="smalltext" style="margin-top: 4px;" placeholder="Old text practice log"></textarea>
@@ -2676,8 +2676,8 @@
                     <td>Total the resource points spent on the character's property, reputations, and affiliations--not relationships, spells or gear. Property is specficially designated in the resource list. Divide by 15. Round down. 5 exponent points may be spent for a Gray shade.'</td>
                 </tr>
                 <tr>
-                    <td class="attribute nowrap">Circles <select class="box" name="attr_circles_shade" title="@{circles_shade}"><option disabled value="4">B</option><option disabled value="3">G</option><option disabled value="2">W</option></select><input type="text" class="underline stat" name="attr_circles" title="@{circles}" value="1"></td>
-                    <td>Starting Circles is half Will exp, rounded down (min 1). Increase by +1D if 50 or more rps were spent on propery and relationships.</td>
+                    <td class="attribute nowrap">Circles <select class="box" name="attr_circles_shade" title="@{circles_shade}"><option value="4">B</option><option value="3">G</option><option value="2">W</option></select><input type="text" class="underline stat" name="attr_circles" title="@{circles}" value="1"></td>
+                    <td>Starting Circles is half Will exp, rounded down (min 1). Increase by +1D if 50 or more rps were spent on propery and relationships.<br/>The starting shade is the same as the Will shade.</td>
                 </tr>
             </table>
             <table class="lifepath" style="margin-right:10px;">
@@ -2888,7 +2888,7 @@
             }
         });
     });
-    // Change on Will/shade will update hesitation and Circles shade
+    // Change on Will/shade will update hesitation
     on("change:will change:will_shade", function() {
         updateHesitation();
     });
@@ -2951,8 +2951,7 @@
                     hesitation = 0;
                 }
                 setAttrs({
-                    hesitation: hesitation,
-                    circles_shade: v.will_shade
+                    hesitation: hesitation
                 });
             }
         });
