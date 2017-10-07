@@ -1,0 +1,78 @@
+div,
+button,
+textarea,
+span,
+input,
+select{
+    box-sizing: border-box;
+}
+div{
+    margin: none !important;
+    padding: none !important;
+    background-color: transparent;
+    font-family: 'Contrail One';
+    text-align: left;
+}
+span{
+    display: inline-block;
+    font-family: 'Contrail One';
+}
+div.sheet-bgmain{
+    background-color: white;
+    position: relative;
+    width: 910px;
+    min-height: 600px;
+    text-align:center;
+    font-family: cursive;
+    background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_logo_grey.png");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: contain;
+}
+div.sheet-sepall{
+    background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep.png");
+    width: 905px;
+    min-height:82px;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: contain;
+    opacity: 0.1;
+}
+div.sheet-mylig{
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: top;
+    width: 100%;
+}
+div.sheet-mycol{
+    display: inline-block;
+    min-width: 300px;
+    max-width: 300px;
+    border: 1px solid red;
+    vertical-align: top;
+    white-space: normal;
+    padding-bottom: 20px;
+    background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep.png");
+    background-repeat:no-repeat;
+    background-position:center bottom;
+    background-size: 295px;
+}
+.sheet-titre{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.sheet-titre1{
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.sheet-titre2{
+    color: #404040;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
