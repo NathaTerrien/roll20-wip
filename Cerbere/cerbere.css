@@ -51,28 +51,72 @@ div.sheet-mycol{
     border: 1px solid red;
     vertical-align: top;
     white-space: normal;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep.png");
     background-repeat:no-repeat;
     background-position:center bottom;
     background-size: 295px;
 }
 .sheet-titre{
+    display: block;
     color: black;
     font-weight: bold;
     font-size: 18px;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    text-align: center;
 }
 .sheet-titre1{
     color: black;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
     text-transform: capitalize;
 }
 .sheet-titre2{
     color: #404040;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     text-transform: capitalize;
 }
-
+.sheet-fright{
+    float:right;
+}
+input, textarea{
+    display: inline-block;
+    padding: none;
+    margin: none;
+    border: none;
+    box-shadow: none;
+    resize:none;
+    color: #006F5B;
+    z-index: 2;
+    border-radius: 0;
+    font-family: 'Shadows Into Light';
+    font-size: 17px;
+    letter-spacing: 0.03em;
+    transition: 0.2s;
+}
+input{
+    background-color: transparent;
+}
+input + span{
+    transition: 0.2s;
+}
+textarea{
+    background-color: transparent;
+    padding: 1px 2px 0px 2px;
+    overflow-y: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+input:focus, input:hover, textarea:focus, textarea:hover{
+    box-shadow: inset 0px 1px 1px rgba(0,111,91,0.01),0 0 6px rgba(0,111,91,0.5);
+    background-color: rgba(0,111,91,0.05);
+}
+input[type="text"]{
+    padding: 0px 0px 0px 2px;
+}
+input[type="number"]{
+    text-align: right;
+    padding: 0px 2px 0px 0px;
+}
