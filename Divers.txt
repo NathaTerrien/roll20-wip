@@ -72,3 +72,43 @@ Templates : >\s+{ == >{
         "description": "The fourth user option is a checkbox with a value for the checked box as well as whether or not the box is checked by default."
     },
 ]
+
+----------- AUTO EXPAND TEXTAREA -------------------------
+<div class="autoex">
+    <span name="attr_name"></span>
+    <textarea spellcheck="false" name="attr_name"></textarea>
+</div>
+.sheet-autoex {
+    position: relative;
+    cursor: text;
+}
+.sheet-autoex span {
+    visibility: hidden;
+    white-space: pre-wrap;
+    display: block;
+    line-height: inherit;
+}
+.sheet-autoex textarea {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin: 0;
+    resize: none;
+    height: 100%;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    padding: inherit;
+    text-align: inherit;
+    text-transform: inherit;
+    line-height: inherit;
+}
+Important: In order for this to actually show up on the sheet, one specific CSS property is missing: you need to set a min-height for the .sheet-auto-expand element equal to the minimum height you want it to be (so at least 1 line-height + vertical padding, or more if you want to show more lines by default).
