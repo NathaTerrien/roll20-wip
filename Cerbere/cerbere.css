@@ -52,7 +52,8 @@ div.sheet-mylig{
     width: 100%;
 }
 div.sheet-alig{
-    margin-bottom: 4px;
+    position: relative;
+    margin-bottom: 2px;
     vertical-align: middle;
     display: block;
 }
@@ -67,6 +68,9 @@ div.sheet-mycol{
     background-repeat:no-repeat;
     background-position:center bottom;
     background-size: 295px;
+}
+.sheet-center{
+    text-align: center;
 }
 .sheet-brdleft{
     border-left: 2px dashed grey;
@@ -96,15 +100,21 @@ div.sheet-mycol{
     font-size: 13px;
     text-transform: capitalize;
 }
+.sheet-fleft{
+    vertical-align: middle;
+    display: inline-block;
+}
 .sheet-fright{
+    vertical-align: middle;
+    display: inline-block;
     float: right;
     clear: right;
-    vertical-align: middle;
 }
-.sheet-fleft{
-    float: left;
-    clear: left;
+.sheet-fcenter{
     vertical-align: middle;
+    display: inline-block;
+    position: absolute;
+    left:50%;
 }
 /* AUT EXPAND */
 .sheet-autoex {
