@@ -22,6 +22,7 @@ div{
 span{
     display: inline-block;
     font-family: 'Contrail One';
+    vertical-align: middle;
 }
 div.sheet-bgmain{
     background-color: white;
@@ -54,7 +55,6 @@ div.sheet-mylig{
 }
 div.sheet-alig{
     position: relative;
-    margin-bottom: 2px;
     vertical-align: middle;
     display: block;
 }
