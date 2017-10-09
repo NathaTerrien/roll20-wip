@@ -26,7 +26,7 @@ span{
 div.sheet-bgmain{
     background-color: white;
     position: relative;
-    width: 910px;
+    width: 914px;
     min-height: 600px;
     text-align:center;
     font-family: cursive;
@@ -35,6 +35,7 @@ div.sheet-bgmain{
     background-position:center center;
     background-size: contain;
     padding: 2px;
+    border: 1px solid gray;
 }
 div.sheet-sepall{
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep.png");
@@ -69,15 +70,25 @@ div.sheet-mycol{
     background-position:center bottom;
     background-size: 295px;
 }
-.sheet-center{
+div.sheet-mycol2{
+    display: inline-block;
+    min-width: 300px;
+    vertical-align: top;
+    white-space: normal;
+    padding-bottom: 30px;
+}
+.sheet-centrer{
     text-align: center;
 }
+.sheet-inlblk{
+    display: inline-block;
+}
 .sheet-brdleft{
-    border-left: 2px dashed grey;
+    border-left: 2px dotted grey;
     padding-left: 2px;
 }
 .sheet-brdright{
-    border-right: 2px dashed grey;
+    border-right: 2px dotted grey;
     padding-right: 2px;
 }
 .sheet-titre{
@@ -98,7 +109,7 @@ div.sheet-mycol{
     color: #404040;
     font-weight: bold;
     font-size: 13px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 .sheet-fleft{
     vertical-align: middle;
@@ -114,7 +125,8 @@ div.sheet-mycol{
     vertical-align: middle;
     display: inline-block;
     position: absolute;
-    left:50%;
+    left:120px;
+    opacity: 0.7;
 }
 /* AUT EXPAND */
 .sheet-autoex {
@@ -193,7 +205,7 @@ input[type="number"]{
 /* BIG BULLES */
 input[type="radio"].sheet-bigbulles {
     position: absolute;
-    opacity: 0.0;
+    opacity: 0;
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -203,7 +215,6 @@ input[type="radio"].sheet-bigbulles {
 input[type="radio"].sheet-bigbulles + span::before {
     line-height: 32px;
     text-align: center;
-    text-indent: -2px;
     display: inline-block;
     vertical-align: middle;
     content: "⚫";
@@ -223,6 +234,42 @@ input[type="radio"].sheet-bigbulles.sheet-zero:checked + span::before {
     opacity: 0.5;
 }
 input[type="radio"].sheet-bigbulles.sheet-zero:hover + span::before {
+    opacity: 1;
+}
+/* FIN BIG BULLES */
+/* BULLES */
+input[type="radio"].sheet-bulles {
+    position: absolute;
+    opacity: 0;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 5px;
+}
+input[type="radio"].sheet-bulles + span::before {
+    line-height: 13px;
+    text-align: center;
+    text-indent: -2px;
+    display: inline-block;
+    vertical-align: middle;
+    content: "⚫";
+    width: 12px;
+    height: 12px;
+    font-size: 12px;
+    text-indent: -1px;
+}
+input[type="radio"].sheet-bulles:checked ~ input[type="radio"] + span::before {
+    content: "⚪";
+}
+input[type="radio"].sheet-bulles.sheet-zero + span::before{
+    opacity: 0.25;
+    content: "⛌";
+}
+input[type="radio"].sheet-bulles.sheet-zero:checked + span::before {
+    opacity: 0.5;
+}
+input[type="radio"].sheet-bulles.sheet-zero:hover + span::before {
     opacity: 1;
 }
 /* FIN BIG BULLES */
@@ -269,34 +316,45 @@ input[type="checkbox"].sheet-chkcomp + span::before {
     height: 14px;
     font-size: 14px;
     font-weight: bold;
-    color: #404040;
+    color: #191970;
     margin-left: -20px;
     border: 2px solid #404040;
     border-radius: 50%;
 }
 input[type="checkbox"].sheet-chkcomp:checked + span::before {
-
     content: "✔";
 }
 /* FIN CHKCOMP */
 input[type="number"].sheet-bignum{
-    height: 50px;
+    height: 40px;
     width: 50px;
-    font-size: 36px;
+    font-size: 26px;
     font-weight: bold;
     border: 2px solid gray;
+}
+input[type="number"].sheet-mednum{
+    height: 30px;
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+input[type="number"].sheet-smlnum{
+    height: 20px;
+    font-size: 19px;
+    width: 40px;
+    font-weight: bold;
 }
 .sheet-radtopleft{
     border-radius: 10px 0px 0px 0px;
 }
+.sheet-radtopright{
+    border-radius: 0px 10px 0px 0px;
+}
 .sheet-radbotright{
     border-radius: 0px 0px 10px 0px;
 }
-input[type="number"].sheet-mednum{
-    height: 30px;
-    width: 60px;
-    font-size: 20px;
-    font-weight: bold;
+.sheet-radbotleft{
+    border-radius: 0px 0px 0px 10px;
 }
 .sheet-brdbracleft{
     border-width: 2px 0px 2px 2px;
