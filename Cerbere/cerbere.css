@@ -9,8 +9,10 @@ button,
 textarea,
 span,
 input,
-select{
+select,
+img{
     box-sizing: border-box;
+    vertical-align: middle !important;
 }
 div{
     margin: 0px;
@@ -22,12 +24,12 @@ div{
 span{
     display: inline-block;
     font-family: 'Contrail One';
-    vertical-align: middle;
 }
 div.sheet-bgmain{
     background-color: white;
     position: relative;
     width: 914px;
+    max-width: 914px;
     min-height: 600px;
     text-align:center;
     font-family: cursive;
@@ -55,27 +57,23 @@ div.sheet-mylig{
 }
 div.sheet-alig{
     position: relative;
-    vertical-align: middle;
     display: block;
 }
 div.sheet-mycol{
     display: inline-block;
     min-width: 300px;
-    max-width: 300px;
     vertical-align: top;
     white-space: normal;
+}
+.sheet-maxcol{
+    max-width: 300px;
+}
+.sheet-sepbas{
     padding-bottom: 30px;
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep_grey.png");
     background-repeat:no-repeat;
     background-position:center bottom;
     background-size: 295px;
-}
-div.sheet-mycol2{
-    display: inline-block;
-    min-width: 300px;
-    vertical-align: top;
-    white-space: normal;
-    padding-bottom: 30px;
 }
 .sheet-centrer{
     text-align: center;
@@ -132,9 +130,9 @@ div.sheet-mycol2{
 .sheet-autoex {
     position: relative;
     cursor: text;
+    line-height: 20px;
     min-height: 22px;
     margin-bottom: 5px;
-    line-height: 22px;
 }
 .sheet-autoex span {
     visibility: hidden;
@@ -149,8 +147,8 @@ div.sheet-mycol2{
     left: 0;
     margin: 0;
     resize: none;
-    height: 105%;
-    width: 100%;
+    height: 100%;
+    width: 98%;
     display: block;
     box-sizing: border-box;
     background: transparent;
@@ -198,6 +196,9 @@ input:focus, input:hover, textarea:focus, textarea:hover{
 input[type="text"]{
     padding: 0px 0px 0px 2px;
 }
+input[type="text"].sheet-medtxtinpt{
+    width: 100px;
+}
 input[type="number"]{
     text-align: right;
     padding: 0px 2px 0px 0px;
@@ -216,7 +217,6 @@ input[type="radio"].sheet-bigbulles + span::before {
     line-height: 32px;
     text-align: center;
     display: inline-block;
-    vertical-align: middle;
     content: "⚫";
     width: 24px;
     height: 24px;
@@ -252,7 +252,6 @@ input[type="radio"].sheet-bulles + span::before {
     text-align: center;
     text-indent: -2px;
     display: inline-block;
-    vertical-align: middle;
     content: "⚫";
     width: 12px;
     height: 12px;
@@ -287,7 +286,6 @@ input[type="checkbox"].sheet-bigchk + span::before {
     line-height: 37px;
     text-align: center;
     display: inline-block;
-    vertical-align: middle;
     content: "☐";
     width: 30px;
     height: 30px;
@@ -311,7 +309,6 @@ input[type="checkbox"].sheet-chkcomp + span::before {
     content:"";
     text-align: center;
     display: inline-block;
-    vertical-align: middle;
     width: 14px;
     height: 14px;
     font-size: 14px;
