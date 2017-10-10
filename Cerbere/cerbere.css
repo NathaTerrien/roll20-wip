@@ -12,7 +12,9 @@ input,
 select,
 img{
     box-sizing: border-box;
-    vertical-align: middle !important;
+}
+img{
+   vertical-align: middle;
 }
 div{
     margin: 0px;
@@ -20,17 +22,18 @@ div{
     background-color: transparent;
     font-family: 'Contrail One';
     text-align: left;
+    vertical-align: top;
 }
 span{
     display: inline-block;
     font-family: 'Contrail One';
+    vertical-align: middle;
 }
 div.sheet-bgmain{
     background-color: white;
     position: relative;
     width: 914px;
     max-width: 914px;
-    min-height: 600px;
     text-align:center;
     font-family: cursive;
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_symbol_grey.png");
@@ -52,18 +55,23 @@ div.sheet-sepall{
 div.sheet-mylig{
     text-align: center;
     white-space: nowrap;
-    vertical-align: top;
     width: 100%;
+    display: block;
 }
 div.sheet-alig{
     position: relative;
     display: block;
+    vertical-align: middle;
+    clear: both;
 }
 div.sheet-mycol{
     display: inline-block;
     min-width: 300px;
     vertical-align: top;
     white-space: normal;
+}
+.sheet-decal{
+    margin-left: 20px;
 }
 .sheet-maxcol{
     max-width: 300px;
@@ -104,7 +112,7 @@ div.sheet-mycol{
     text-transform: uppercase;
 }
 .sheet-titre2{
-    color: #404040;
+    color: #505050;
     font-weight: bold;
     font-size: 13px;
     text-transform: uppercase;
@@ -117,7 +125,6 @@ div.sheet-mycol{
     vertical-align: middle;
     display: inline-block;
     float: right;
-    clear: right;
 }
 .sheet-fcenter{
     vertical-align: middle;
@@ -148,7 +155,7 @@ div.sheet-mycol{
     margin: 0;
     resize: none;
     height: 100%;
-    width: 98%;
+    width: 100%;
     display: block;
     box-sizing: border-box;
     background: transparent;
@@ -161,6 +168,7 @@ div.sheet-mycol{
     text-transform: inherit;
     line-height: inherit;
     padding: 0px 2px 2px 2px;
+    overflow: hidden;
 }
 /* FIN AUTO EXPAND */
 input, textarea{
@@ -171,10 +179,9 @@ input, textarea{
     box-shadow: none;
     resize:none;
     color: #191970;
-    z-index: 2;
     border-radius: 0;
     font-family: 'Shadows Into Light';
-    font-size: 17px;
+    font-size: 18px;
     letter-spacing: 0.03em;
     transition: 0.2s;
 }
@@ -195,9 +202,10 @@ input:focus, input:hover, textarea:focus, textarea:hover{
 }
 input[type="text"]{
     padding: 0px 0px 0px 2px;
+    height: 22px;
 }
-input[type="text"].sheet-medtxtinpt{
-    width: 100px;
+input[type="text"].sheet-medinpt{
+    width: 110px;
 }
 input[type="number"]{
     text-align: right;
@@ -365,3 +373,71 @@ input[type="number"].sheet-smlnum{
     border-color: gray;
     border-style: solid;
 }
+/* === fieldset BOUTONS === */
+div.repcontrol{
+    display: inline-block;
+    width: 100%;
+}
+.repcontainer.editmode .repitem .itemcontrol{
+    z-index: 10;
+}
+.repcontrol_move{
+    height: 11px;
+    line-height: 11px;
+    margin-top: 4px;
+}
+.repcontrol_del {
+    height: 22px;
+    line-height: 12px;
+    margin-top: 4px;
+    width: 30px;
+}
+.repcontrol_add, .repcontrol_edit {
+    color: transparent;
+    box-shadow: none;
+    background: transparent;
+    border-color: transparent;
+    text-shadow:none;
+    width: 100px;
+}
+.repcontrol_add:focus, .repcontrol_edit:focus {
+    outline: none;
+}
+.repcontrol .repcontrol_edit:after {
+    content: 'y';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: black;
+}
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: '2';
+}
+.repcontrol .repcontrol_add:before {
+    content: '+';
+    visibility: visible;
+    font-family: pictos;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    padding: 2px 4px 2px 4px;
+    color: black;
+}
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    box-shadow: 1px 1px 4px 2px rgba(35,31,32,0.8);
+    border-color: #231F20;
+    color: #231F20;
+}
+.repcontrol_add:focus:before, .repcontrol_edit:focus:after {
+    color: #231F20;
+}
+/* ===== TEMPLATE ===== */
