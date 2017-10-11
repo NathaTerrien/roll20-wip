@@ -74,6 +74,14 @@ div.sheet-mycol{
 .sheet-maxcol{
     max-width: 300px;
 }
+.sheet-maxht{
+    max-height: 250px;
+    overflow-y: auto;
+    text-align: justify;
+    font-family: 'Verdana';
+    font-size: 12px;
+    white-space: pre-line;
+}
 .sheet-sepbas{
     padding-bottom: 30px;
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep_grey.png");
