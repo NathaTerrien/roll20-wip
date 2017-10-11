@@ -1,7 +1,8 @@
 /* Couleurs
  noir
- gris / grey
- gris hérité #
+ gris / grey #808080
+ gris moyen #505050
+ gris hérité #404040
  bleu nuit : 25,25,112 / MidnightBlue / #191970
 */
 div,
@@ -34,14 +35,11 @@ div.sheet-bgmain{
     position: relative;
     width: 914px;
     max-width: 914px;
-    text-align:center;
     font-family: cursive;
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_symbol_grey.png");
     background-repeat:no-repeat;
     background-position:center center;
     background-size: contain;
-    padding: 2px;
-    border: 1px solid gray;
 }
 div.sheet-sepall{
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep.png");
@@ -439,5 +437,69 @@ div.repcontrol{
 }
 .repcontrol_add:focus:before, .repcontrol_edit:focus:after {
     color: #231F20;
+}
+/* ===== ONGLETS TABS ===== */
+div.sheet-tab1,
+div.sheet-tab2{
+    display: none;
+    text-align: center;
+    width: 100%;
+    border: 1px solid gray;
+    padding: 2px;
+}
+input.sheet-tab1:checked ~ div.sheet-tab1{
+    display: block;
+}
+input.sheet-tab2:checked ~ div.sheet-tab2{
+    display: block;
+}
+input.sheet-tab1,
+input.sheet-tab2{
+    margin: 0;
+    margin-top: -4px;
+    margin-bottom: -4px;
+    padding: 0;
+    display: inline-block;
+    opacity: 0;
+    width: 110px;
+    height: 20px;
+    z-index: 2;
+}
+input.sheet-tab1 + span,
+input.sheet-tab2 + span{
+    color: #666666;
+    background-color: #BBBBBB;
+    font-size:15px;
+    text-align:center;
+    display: inline-block;
+    width: 110px;
+    height: 20px;
+    margin: 0;
+    margin-left: -110px;
+    margin-right: -5px;
+    padding:0;
+    margin-bottom: -1px;
+    padding-top: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    border-style: solid;
+    border-width: 1px;
+    border-left-color: #909090;
+    border-top-color: #909090;
+    border-right-color: #909090;
+    border-bottom-color: gray;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    z-index: 1;
+}
+input.sheet-tab1:checked + span,
+input.sheet-tab2:checked + span{
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border-left-color: gray;
+    border-top-color: gray;
+    border-right-color: gray;
+    border-bottom-color: white;
 }
 /* ===== TEMPLATE ===== */
