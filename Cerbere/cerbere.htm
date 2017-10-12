@@ -1,6 +1,6 @@
 <div class="bgmain">
-    <input type="radio" name="attr_tabs" class="tab1" value="1" /><span>Volet 1</span>
-    <input type="radio" name="attr_tabs" class="tab2" value="2" checked /><span>Volet 2</span>
+    <input type="radio" name="attr_tabs" class="tab1" value="1" /><span>Personnage</span>
+    <input type="radio" name="attr_tabs" class="tab2" value="2" checked /><span>Aide</span>
     <div class="tab1">
         <div class="mylig">
             <div class="mycol brdright sepbas maxcol centrer" style="min-height:212px;">
@@ -242,8 +242,72 @@
             </div>
         </div>
     </div>
-    <div class="tab2">
-        <div class="mylig">
+    <div class="tab2"> <!-- TAB 2 -->
+        <div class="mylig"> <!-- LIGNE 1 -->
+            <div class="mycol maxcol">
+                <div class="maxht"><span class="titre2">résultat du meilleur dé</span>
+                    1-2 : NON (échec)
+                    3-7 : OUI MAIS / NON MAIS (Réussite/échec mineur)
+                    8-10 : OUI / OUI ET (Réussite majeure)
+                    <span class="titre2">circonstances</span>
+                    AVANTAGE : +2 sur un dé au choix
+                    DÉSAVANTAGE : -2 sur le plus haut dé
+                    <span class="titre2">sauvegardes</span> : 8 ou plus sur le meilleur dé
+                    <span class="titre2">coopération</span> : Gain d’un ou plusieurs avantages.
+                    <span class="titre2">actions indirectes</span>
+                    OUI MAIS : accorde un avantage
+                    OUI : accorde un dé supplémentaire (max 3)
+                    <span class="titre2">MANŒUVRES</span>
+                    Décrire le décor, Effectuer une cascade, Engager/Se dégager, Esquiver, Préparer son action, Se déplacer, Se mettre à couvert, Se relever
+                    <span class="titre2">INITIATIVE</span>
+                    Les personnages agissent les premiers. Chaque protagoniste impliqué effectue à son tour une manœuvre et une action. Si celui qui parle effectue une action non offensive, il peut passer la main à l’un de ses alliés. S’il s’agit d’une action offensive, il passe la main à un adversaire.
+                </div>
+            </div>
+            <div class="mycol maxcol">
+                <div class="maxht"><span class="titre1">DÉGÂTS & SOINS</span>
+                    1-2 = 0 dégât/soin
+                    3-7 = 1 dégât/soin
+                    8-9 = 2 dégâts/soins
+                    10 = 3 dégâts/soins
+                    <span class="titre2">CORPS À CORPS</span> : +1 au dégâts.
+                    Sur 8+ sur un dé, l’adversaire est saisi, repoussé, projeté ou renversé.
+                    <span class="titre2">DISTANCE</span> : bénéficiez d’une manoeuvre gratuite
+                    <span class="titre2">SE METTRE À COUVERT ou PRÉPARER SON ACTION.</span>
+                    <span class="titre2">MAINS NUES</span> : toujours une arme de prédilection ; protections toujours applicables ; pas de blessure.
+                    <span class="titre2">PROTECTIONS</span>
+                    -1 dégâts si les dégâts sont égaux ou inférieurs à la protection portée.
+                    <span class="titre2">BLESSURES (1D10)</span>
+                    1-2 = CONTUSIONS
+                    3-7 = BLESSURE LÉGÈRE (1 blessure)
+                    8-9 = BLESSURE GRAVE (3 blessures)
+                    10 = INVALIDITÉ
+                </div>
+            </div>
+            <div class="mycol maxcol">
+                <div class="maxht"><span class="titre2">contacts</span>
+                    Pour trouver un contact, lancez 1d10 + un si une compétence appropriée s’applique en fonction de la nature du contact + un si vous dépensez un crédit.
+                    Le résultat indique la relation :
+                    1-2 = Aucun contact connu
+                    3-7 = Contact compliqué et délicat
+                    8-9 = Contact simple
+                    10 = Contact privilégié
+                    <span class="titre2">interrogatoires</span> cinq attitudes :
+                    • Agressif
+                    • Inquisiteur
+                    • Froid et détaché
+                    • Poli
+                    • Amical
+                    Les figurants réagissent bien à l’une de ces attitudes et mal à une autre.
+                    <span class="titre2">expérience</span>
+                    1 XP – un point de vie
+                    3 XP – un talent
+                    4 XP – un point d’ancienneté
+                    5 XP – une compétence
+                    5 XP – un outil maîtrisé
+                </div>
+            </div>
+        </div>  <!-- FIN LIGNE 1 -->
+        <div class="mylig"> <!-- LIGNE 2 -->
             <div class="mycol maxcol">
                 <div class="alig"><span class="titre1">soins</span></div>
                 <div class="maxht"><span class="titre2">BLESSURE</span> - Une blessure inflige un désavantage à tous les jets. Un personnage avec plus de trois blessure tombe inconscient et coche l’Invalidité.
@@ -278,33 +342,33 @@
             <div class="mycol maxcol">
                 <div class="alig"><span class="titre1">armes</span></div>
                 <div class="maxht"><span class="titre2">ARMES DE CORPS À CORPS</span>
-                    Gants électrostun  Étourdissant
-                    Matraque/tonfa  Étourdissant, parade
+                    Gants électrostun [Étourdissant]
+                    Matraque/tonfa [Étourdissant, parade]
                     Couteau
-                    Boken  Réglage étourdissant
-                    Sabre Dévastateur
-                    Naginata  Parade, Dévastateu
+                    Boken [Réglage étourdissant]
+                    Sabre [Dévastateur]
+                    Naginata  [Parade, Dévastateu]
                     <span class="titre2">ARMES DE TIR</span>
-                    Électrogun Étourdissant
-                    Pistolaser léger  Réglage étourdissant
-                    Briseur sonique  Zone, étourdissant
-                    Fusil gyrojet  Projectile guidé
-                    Épingleur Perforant
-                    Brise-nerf  Dévastateur, perforant
-                    Carabine laser  Précis
+                    Électrogun [Étourdissant]
+                    Pistolaser léger [Réglage étourdissant]
+                    Briseur sonique  [Zone, étourdissant]
+                    Fusil gyrojet  [Projectile guidé]
+                    Épingleur [Perforant]
+                    Brise-nerf [Dévastateur, perforant]
+                    Carabine laser [Précis]
                     <span class="titre2">ARMES LOURDES</span>
-                    Pistolaser lourd  Dégâts +2
-                    Fusil plasma  Dévastateur, zone
-                    Grenades étourdissantes  Étourdissant, zone
-                    Grenades à fragmentation  Zone
+                    Pistolaser lourd [Dégâts +2]
+                    Fusil plasma [Dévastateur, zone]
+                    Grenades étourdissantes [Étourdissant, zone]
+                    Grenades à fragmentation [Zone]
                     <span class="titre2">PROTECTIONS</span>
-                    Vêtements renforcés  2
-                    Combinaison de sécurité  3
-                    Armure tactique  4
-                    Armure tactique assistée  5
-                    Bouclier déflecteur individuel  +1
+                    Vêtements renforcés [2]
+                    Combinaison de sécurité [3]
+                    Armure tactique [4]
+                    Armure tactique assistée [5]
+                    Bouclier déflecteur individuel [+1]
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </div>  <!-- FIN LIGNE 2 -->
+    </div> <!-- FIN TAB2 2 -->
+</div> <!-- FIN FDP -->

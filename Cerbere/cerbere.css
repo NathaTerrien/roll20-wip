@@ -36,10 +36,6 @@ div.sheet-bgmain{
     width: 914px;
     max-width: 914px;
     font-family: cursive;
-    background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_symbol_grey.png");
-    background-repeat:no-repeat;
-    background-position:center center;
-    background-size: contain;
 }
 div.sheet-sepall{
     background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep.png");
@@ -75,12 +71,16 @@ div.sheet-mycol{
     max-width: 300px;
 }
 .sheet-maxht{
-    max-height: 250px;
+    height: 400px;
+    max-height: 400px;
     overflow-y: auto;
     text-align: justify;
     font-family: 'Verdana';
     font-size: 12px;
     white-space: pre-line;
+    border-bottom: 2px dotted gray;
+    margin-bottom: 4px;
+    padding: 2px;
 }
 .sheet-sepbas{
     padding-bottom: 30px;
@@ -454,6 +454,10 @@ div.sheet-tab2{
     width: 100%;
     border: 1px solid gray;
     padding: 2px;
+    background-image: url("https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_symbol_grey.png");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: 500px 500px;
 }
 input.sheet-tab1:checked ~ div.sheet-tab1{
     display: block;
@@ -487,7 +491,6 @@ input.sheet-tab2 + span{
     margin-right: -5px;
     padding:0;
     margin-bottom: -1px;
-    padding-top: 5px;
     font-size: 0.9em;
     text-transform: uppercase;
     border-style: solid;
