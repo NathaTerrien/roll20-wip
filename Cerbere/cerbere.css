@@ -544,7 +544,19 @@ button[type="roll"].sheet-myrol:hover{
 button[type="roll"].sheet-myrol:before{
     content: none;
 }
-button[type="roll"].sheet-titre2{
+button[type="roll"].sheet-myrol.sheet-dotright:after{
+    content: '•';
+    color: #960018;
+    font-size: 14px;
+    padding-left: 2px;
+}
+button[type="roll"].sheet-myrol.sheet-dotleft:before{
+    content: '•';
+    color: #960018;
+    font-size: 14px;
+    padding-right: 2px;
+}
+button[type="roll"].sheet-myrol.sheet-titre2{
     color: #505050;
     font-weight: bold;
     font-size: 13px;
