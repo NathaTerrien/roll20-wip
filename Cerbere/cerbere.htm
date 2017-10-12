@@ -3,12 +3,12 @@
     <input type="radio" name="attr_tabs" class="tab2" value="2" /><span>Aide</span>
     <div class="tab1">
         <div class="mylig">
-            <div class="mycol brdright sepbas maxcol centrer" style="min-height:212px;">
+            <div class="mycol brdright sepbas maxcol centrer" style="min-height:217px;;">
                 <div class="titre">le métal froid des anneaux de cerbère</div>
-                <img style="width:200px;padding: 6px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_logo_transp.png" />
+                <img style="width:200px;padding-bottom: 6px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_logo_transp.png" />
                 <input type="text" spellcheck="false" name="attr_character_name" class="titre" style="width:100%;" title="Nom du personnage" placeholder="Nom du personnage" />
             </div>
-            <div class="mycol sepbas maxcol"  style="min-height:212px;">
+            <div class="mycol sepbas maxcol"  style="min-height:217px;;">
                 <div class="alig centrer">
                     <input type="number" spellcheck="false" class="bignum radtopleft" name="attr_vie" value="10" title="Points de Vie courants" />
                     <div class="centrer inlblk" style="width: 110px;">
@@ -46,7 +46,7 @@
                     <input type="number" spellcheck="false" class="mednum brdbracright" name="attr_exeperience_max" value="0" title="Points d'expériences cumulés" />
                 </div>
             </div>
-            <div class="mycol brdleft sepbas maxcol" style="min-height:212px;">
+            <div class="mycol brdleft sepbas maxcol" style="min-height:217px;;">
                 <div><span class="titre1">histoire personnelle</span></div>
                 <div class="alig decal">
                     <span class="titre2">origine</span>
@@ -61,7 +61,10 @@
                     <input type="text" spellcheck="false" class="fright" name="attr_integration" title="Intégration" placeholder="Intégration" />
                 </div>
                 <div>
-                    <span class="titre1">motivations</span>
+                    <div class="alig">
+                        <span class="titre1">motivations</span>
+                        <input type="checkbox" class="chkcomp" name="attr_rolmotiv" title="Cocher pour utiliser une motivation sur le prochain jet" /><span></span>
+                    </div>
                     <div class="autoex">
                         <span name="attr_motivations"></span>
                         <textarea spellcheck="false" name="attr_motivations" title="Une fois par séance de jeu, relancer tous les 1 et les 2 sur un jet." placeholder="Motivations"></textarea>
@@ -82,7 +85,7 @@
                 <div class="alig">
                     <div class="fleft" title="Une fois par séance de jeu, votre personnage utilise les règlements administratifs en sa faveur ou trouve des raccourcis.">
                         <input type="checkbox" class="chkcomp" name="attr_comp_administration" /><span></span>
-                        <span class="titre2">administration</span>
+                        <button type="roll" class="myrol titre2" name="JetCompAdministration" value="3d10">administration</button>
                     </div>
                     <div class="fcenter"><img style="width: 60px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep2_min.png" /></div>
                     <div class="fright" title="Une fois par séance de jeu, posez une question au meneur de jeu à propos d’une connaissance réservée ou secrète.">

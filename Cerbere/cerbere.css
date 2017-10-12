@@ -4,6 +4,7 @@
  gris moyen #505050
  gris hérité #404040
  bleu nuit : 25,25,112 / MidnightBlue / #191970
+ rouge carmin : #960018
 */
 div,
 button,
@@ -109,6 +110,7 @@ div.sheet-mycol{
     color: black;
     font-weight: bold;
     font-size: 18px;
+    line-height: 40px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -518,5 +520,34 @@ input.sheet-tab2:checked + span{
     border-top-color: gray;
     border-right-color: gray;
     border-bottom-color: white;
+}
+/* ===== BOUTONS ===== */
+button[type="roll"].sheet-myrol{
+    text-align: center;
+    text-decoration: none;
+    background:none;
+    background-image:none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    text-align: left;
+    font-family: 'Contrail One';
+    vertical-align: middle;
+    transition: 0.3s;
+}
+button[type="roll"].sheet-myrol:hover{
+    color: #960018;
+    text-shadow: 0px 0px 2px #FB667E;
+}
+button[type="roll"].sheet-myrol:before{
+    content: none;
+}
+button[type="roll"].sheet-titre2{
+    color: #505050;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 /* ===== TEMPLATE ===== */
