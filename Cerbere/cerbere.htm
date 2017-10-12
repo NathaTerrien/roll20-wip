@@ -1,6 +1,6 @@
 <div class="bgmain">
-    <input type="radio" name="attr_tabs" class="tab1" value="1" /><span>Personnage</span>
-    <input type="radio" name="attr_tabs" class="tab2" value="2" checked /><span>Aide</span>
+    <input type="radio" name="attr_tabs" class="tab1" value="1" checked /><span>Personnage</span>
+    <input type="radio" name="attr_tabs" class="tab2" value="2" /><span>Aide</span>
     <div class="tab1">
         <div class="mylig">
             <div class="mycol brdright sepbas maxcol centrer" style="min-height:212px;">
@@ -41,7 +41,7 @@
                 <div class="alig centrer">
                     <input type="number" spellcheck="false" class="mednum brdbracleft" name="attr_exeperience" value="0" title="Points d'expérience à dépenser" />
                     <div class="centrer inlblk" style="width: 110px;">
-                        <span class="titre1" title="Obtenir un 10 sur un dé Regagner 5 points de vie">expérience</span>
+                        <span class="titre1">expérience</span>
                     </div>
                     <input type="number" spellcheck="false" class="mednum brdbracright" name="attr_exeperience_max" value="0" title="Points d'expériences cumulés" />
                 </div>
@@ -206,9 +206,10 @@
                 </div>
             </div>
             <div class="mycol brdleft sepbas maxcol" style="min-height: 264px;">
-                <div class="alig" style="margin-left: 30px;">
+                <div class="alig">
                     <span class="titre2">protection</span>
-                    <input type="number" spellcheck="false" class="smlnum" name="attr_protection" value="0" />
+                    <input type="number" spellcheck="false" class="smlnum" name="attr_protection" value="3" />
+                    <input type="text" spellcheck="false" style="width: 100%;" name="attr_protection_type" placeholder="Protection" value="Combinaison de Sécurité" />
                 </div>
                 <span class="titre2">ceinture multiusage</span>
                 <div class="autoex">

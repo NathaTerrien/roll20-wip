@@ -1,0 +1,11 @@
+Automatisme :
+- invalidité coché => 3 blessures
+- 3 blessures => invalidité cochée
+
+Jets :
+- xD + av/dés
+  * compétences : 1+coché dés
+  * relations : rang dés
+  * Motivation "coché" : relancé 1 et 2 r2 (r<3)
+- Blessures
+- Dégâts et soin

@@ -71,16 +71,17 @@ div.sheet-mycol{
     max-width: 300px;
 }
 .sheet-maxht{
-    height: 400px;
+    height: 300px;
     max-height: 400px;
     overflow-y: auto;
     text-align: justify;
     font-family: 'Verdana';
-    font-size: 12px;
+    font-size: 11px;
     white-space: pre-line;
     border-bottom: 2px dotted gray;
     margin-bottom: 4px;
     padding: 2px;
+    line-height: 15px;
 }
 .sheet-sepbas{
     padding-bottom: 30px;
@@ -152,6 +153,9 @@ div.sheet-mycol{
     white-space: pre-wrap;
     display: block;
     line-height: inherit;
+    font-family: 'Shadows Into Light';
+    font-size: 18px;
+    letter-spacing: 0.03em;
 }
 .sheet-autoex textarea {
     position: absolute;
@@ -175,6 +179,8 @@ div.sheet-mycol{
     line-height: inherit;
     padding: 0px 2px 2px 2px;
     overflow: hidden;
+    white-space: pre-wrap;
+
 }
 /* FIN AUTO EXPAND */
 input, textarea{
