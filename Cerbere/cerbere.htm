@@ -1,4 +1,5 @@
 <div class="bgmain">
+    <input type="hidden" name="attr_baseroll" value="1d1@{rolmotiv}" disabled />
     <input type="radio" name="attr_tabs" class="tab1" value="1" checked /><span>Personnage</span>
     <input type="radio" name="attr_tabs" class="tab2" value="2" /><span>Aide</span>
     <div class="tab1">
@@ -63,7 +64,7 @@
                 <div>
                     <div class="alig">
                         <span class="titre1">motivations</span>
-                        <input type="checkbox" class="chkcomp" name="attr_rolmotiv" title="Cocher pour utiliser une motivation sur le prochain jet" /><span></span>
+                        <input type="checkbox" class="chkcomp" name="attr_rolmotiv" value="0r<2" title="Cocher pour utiliser une motivation sur le prochain jet" /><span></span>
                     </div>
                     <div class="autoex">
                         <span name="attr_motivations"></span>
@@ -85,7 +86,7 @@
                 <div class="alig">
                     <div class="fleft" title="Une fois par séance de jeu, votre personnage utilise les règlements administratifs en sa faveur ou trouve des raccourcis.">
                         <input type="checkbox" class="chkcomp" name="attr_comp_administration" /><span></span>
-                        <button type="roll" class="myrol titre2 dotright" name="JetCompAdministration" value="/r 3d10">administration</button>
+                        <button type="roll" class="myrol titre2 dotright" name="JetCompAdministration" value="&{template:tmpl} {{pc=@{character_name}}} {{rolltype=Compétence}} {{name=administration}} {{roll1=[[@{baseroll}]]}} {{roll2=[[@{baseroll}]]}} {{roll3=[[@{baseroll}]]}}">administration</button>
                     </div>
                     <div class="fcenter"><img style="width: 60px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_sep2_min.png" /></div>
                     <div class="fright" title="Une fois par séance de jeu, posez une question au meneur de jeu à propos d’une connaissance réservée ou secrète.">
@@ -376,3 +377,37 @@
         </div>  <!-- FIN LIGNE 2 -->
     </div> <!-- FIN TAB2 2 -->
 </div> <!-- FIN FDP -->
+<rolltemplate class="sheet-rolltemplate-tmpl">
+    <div class="tplmain">
+        <div class="head">
+            {{#rolltype}}
+                <span class="head jetype">{{rolltype}}</span>
+            {{/rolltype}}
+            <span class="jetnom">{{name}}</span>
+        </div>
+        <div style="display: table;">
+            <div style="display: table-row;">
+                {{#roll1}}
+                    <div class="jet"><span class="10dice">a</span></div>
+                    <div class="jet">{{roll1}}</div>
+                {{/roll1}}
+            </div>
+            <div style="display: table-row;">
+                {{#roll2}}
+                    <div class="jet"><span class="10dice">b</span></div>
+                    <div class="jet">{{roll2}}</div>
+                {{/roll2}}
+            </div>
+            <div style="display: table-row;">
+                {{#roll3}}
+                    <div class="jet"><span class="10dice">c</span></div>
+                    <div class="jet">{{roll3}}</div>
+                {{/roll3}}
+            </div>
+        </div>
+        {{#desc}}
+            <div class="desc bordtop">{{desc}}</div>
+        {{/desc}}
+        <div class="head pc">{{pc}}</div>
+    </div>
+</rolltemplate>

@@ -563,3 +563,104 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     text-transform: uppercase;
 }
 /* ===== TEMPLATE ===== */
+.sheet-rolltemplate-tmpl div{
+    vertical-align: middle;
+    border: none;
+    box-sizing: border-box;
+}
+.sheet-rolltemplate-tmpl span{
+    padding: 0px;
+    margin: 0px;
+}
+.sheet-rolltemplate-tmpl div.sheet-tplmain{
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #404040;
+    width: fit-content;
+}
+.sheet-rolltemplate-tmpl .sheet-head{
+    background-color: #404040;
+    padding: 4px;
+}
+.sheet-rolltemplate-tmpl .sheet-jetype{
+    display: block;
+    color: #CCC;
+    font-family: 'Verdana';
+    font-style: italic;
+}
+.sheet-rolltemplate-tmpl .sheet-jetnom{
+    display: block;
+    color: white;
+    font-size: 15px;
+    font-family: 'Contrail One';
+    text-transform: uppercase;
+}
+.sheet-rolltemplate-tmpl .sheet-pc{
+    display: block;
+    color: white;
+    font-family: 'Shadows Into Light';
+    font-size: 18px;
+    letter-spacing: 0.03em;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet{
+    background-color: transparent;
+    padding: 6px;
+    display: table-cell;
+    font-family: 'Shadows Into Light';
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.sheet-rolltemplate-tmpl div.sheet-bordleft{
+    border-left: 1px dotted #404040;
+}
+.sheet-rolltemplate-tmpl div.sheet-bordtop{
+    border-top: 1px dotted #404040;
+}
+.sheet-rolltemplate-tmpl div.sheet-borderd{
+    border-right: 2px solid #404040;
+}
+.sheet-rolltemplate-tmpl div.sheet-desc{
+    text-align: left;
+    font-family: 'Verdana';
+    font-size: inherit;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: transparent;
+    color: #505050;
+}
+.sheet-rolltemplate-tmpl .sheet-10dice{
+    font-family: dicefontd10;
+    font-size: 200%
+}
+.sheet-rolltemplate-tmpl .inlinerollresult {
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 18px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmpl .sheet-success{
+    color: black;;
+}
+.sheet-rolltemplate-tmpl .sheet-failure{
+    color: black;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult.fullcrit{
+    border: none;
+    color: black;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult.importantroll{
+    border: none;
+    color: black;
+}
+.sheet-rolltemplate-tmpl .inlinerollresult.fullfail{
+    border: none;
+    color: black;
+}
