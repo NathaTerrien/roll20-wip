@@ -568,10 +568,6 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     border: none;
     box-sizing: border-box;
 }
-.sheet-rolltemplate-tmpl span{
-    padding: 0px;
-    margin: 0px;
-}
 .sheet-rolltemplate-tmpl div.sheet-tplmain{
     background-color: white;
     border-width: 1px;
@@ -588,6 +584,7 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     color: #CCC;
     font-family: 'Verdana';
     font-style: italic;
+    padding: 0px;
 }
 .sheet-rolltemplate-tmpl .sheet-jetnom{
     display: block;
@@ -595,6 +592,7 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     font-size: 15px;
     font-family: 'Contrail One';
     text-transform: uppercase;
+    padding: 0px;
 }
 .sheet-rolltemplate-tmpl .sheet-pc{
     display: block;
@@ -602,6 +600,7 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     font-family: 'Shadows Into Light';
     font-size: 18px;
     letter-spacing: 0.03em;
+    padding: 0px;
 }
 .sheet-rolltemplate-tmpl div.sheet-jet{
     background-color: transparent;
@@ -613,6 +612,16 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet.sheet-des{
+    color: red;
+    font-size: 18px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmpl div.sheet-jet.sheet-av{
+    color: green;
+    font-size: 18px;
+    font-family: 'Candal';
 }
 .sheet-rolltemplate-tmpl div.sheet-bordleft{
     border-left: 1px dotted #404040;
@@ -633,8 +642,9 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     color: #505050;
 }
 .sheet-rolltemplate-tmpl .sheet-10dice{
-    font-family: dicefontd10;
-    font-size: 200%
+    font-family: 'dicefontd10';
+    font-size: 200%;
+    font-weight: normal;
 }
 .sheet-rolltemplate-tmpl .inlinerollresult {
     background-color: transparent;
