@@ -23,7 +23,7 @@
                     <input type="radio" spellcheck="false" class="bigbulles" name="attr_blessures" value="1" title="1 Blessure" /><span></span>
                     <input type="radio" spellcheck="false" class="bigbulles" name="attr_blessures" value="2" title="2 Blessures" /><span></span>
                     <input type="radio" spellcheck="false" class="bigbulles" name="attr_blessures" value="3" title="3 Blessures" /><span></span>
-                    <input type="checkbox" spellcheck="false" class="bigchk" name="attr_invalidite" value="0" title="Invalidité" /><span></span>
+                    <input type="checkbox" spellcheck="false" class="bigchk" name="attr_invalidite" value="1" title="Invalidité" /><span></span>
                     <span class="titre2">invalidité</span>
                 </div>
                 <div class="alig centrer">
@@ -395,6 +395,8 @@
     </div> <!-- FIN TAB2 2 -->
 </div> <!-- FIN FDP -->
 <rolltemplate class="sheet-rolltemplate-tmpl">
+<div style="white-space: nowrap;">
+    <img style="width: 16px;display: inline-block; vertical-align: top;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/Cerbere/cerbere_signet.png" />
     <div class="tplmain">
         <div class="head">
             <span class="jetnom">{{name}}{{#typecheck}}{{#rollGreater() typecheck 0}} ✔{{/rollGreater() typecheck 0}}{{/typecheck}}</span>
@@ -601,6 +603,7 @@
         {{/desc}}
         <div class="head"><span class="pc">{{pc}}</span></div>
     </div>
+</div>
 </rolltemplate>
 <script type="text/worker">
     on("change:comp_administration", function(eventinfo){
@@ -650,5 +653,19 @@
     });
     on("change:comp_volonte", function(eventinfo){
         setAttrs({comp_volonte_de:1+parseInt(eventinfo.newValue) || 0});
+    });
+    on("change:blessures", function(eventinfo){
+        if (eventinfo.sourceType == 'player'){
+            if((parseInt(eventinfo.newValue) || 0 ) == 3){
+                setAttrs({invalidite:1});
+            }
+        }
+    });
+    on("change:invalidite", function(eventinfo){
+        if (eventinfo.sourceType == 'player'){
+            if((parseInt(eventinfo.newValue) || 0 ) == 1){
+                setAttrs({blessures:3});
+            }
+        }
     });
 </script>

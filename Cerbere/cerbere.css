@@ -576,6 +576,7 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     box-sizing: border-box;
 }
 .sheet-rolltemplate-tmpl div.sheet-tplmain{
+    display: inline-block;
     background-color: white;
     border-width: 1px;
     border-style: solid;
