@@ -18,7 +18,7 @@
                     <input type="number" spellcheck="false" class="bignum radtopright" name="attr_vie_max" value="10" title="Points de Vie maximums" />
                 </div>
                 <div class="alig centrer">
-                    <span class="titre1" title="Une blessure inflige un désavantage à tous les jets.">blessures</span>
+                    <button type="roll" name="JetBlessures" class="myrol titre1 dotleft" title="Une blessure inflige un désavantage à tous les jets."  value="&{template:tmpl} {{pc=@{character_name}}} {{name=blessure}} {{blessure=1}} {{roll1=[[@{baseroll}]]}}">blessures</button>
                     <input type="radio" spellcheck="false" class="bigbulles zero" name="attr_blessures" value="0" title="0 Blessure" checked /><span></span>
                     <input type="radio" spellcheck="false" class="bigbulles" name="attr_blessures" value="1" title="1 Blessure" /><span></span>
                     <input type="radio" spellcheck="false" class="bigbulles" name="attr_blessures" value="2" title="2 Blessures" /><span></span>
@@ -401,9 +401,15 @@
                 <span class="head jetype">{{rolltype}}{{#typecheck}}{{#rollGreater() typecheck 0}}✔{{/rollGreater() typecheck 0}}{{/typecheck}}</span>
             {{/rolltype}}
         </div>
-        <div style="display: table;">
+        <div class="mytab">
             {{#nbdice}}
-                <div style="display: table-row;">
+                <div class="brdbot">
+                    <div class="jet" title="Type et n° du dé lancé">Dé</div>
+                    <div class="jet" title="Résultat brut du dé">Rés.</div>
+                    <div class="jet" title="Résultat du dé avec Désavantage">-Dés.</div>
+                    <div class="jet" title="Résultat du dé avec Avantage">+Av.</div>
+                </div>
+                <div class="brdbot">
                     {{#roll1}}
                         <div class="jet"><span class="10dice">a</span></div>
                         <div class="jet">{{roll1}}</div>
@@ -450,103 +456,102 @@
                     {{/roll1}}
                 </div>
                 {{#rollGreater() nbdice 1}}
-                    <div style="display: table-row;">
-                        {{#roll2}}
-                            <div class="jet"><span class="10dice">b</span></div>
-                            <div class="jet">{{roll2}}</div>
-                            {{#rollTotal() roll2 1}}
-                                <div class="jet des">-1</div>
-                                <div class="jet av">3</div>
-                            {{/rollTotal() roll2 1}}
-                            {{#rollTotal() roll2 2}}
-                                <div class="jet des">0</div>
-                                <div class="jet av">4</div>
-                            {{/rollTotal() roll2 2}}
-                            {{#rollTotal() roll2 3}}
-                                <div class="jet des">1</div>
-                                <div class="jet av">5</div>
-                            {{/rollTotal() roll2 3}}
-                            {{#rollTotal() roll2 4}}
-                                <div class="jet des">2</div>
-                                <div class="jet av">6</div>
-                            {{/rollTotal() roll2 4}}
-                            {{#rollTotal() roll2 5}}
-                                <div class="jet des">3</div>
-                                <div class="jet av">7</div>
-                            {{/rollTotal() roll2 5}}
-                            {{#rollTotal() roll2 6}}
-                                <div class="jet des">4</div>
-                                <div class="jet av">8</div>
-                            {{/rollTotal() roll2 6}}
-                            {{#rollTotal() roll2 7}}
-                                <div class="jet des">5</div>
-                                <div class="jet av">9</div>
-                            {{/rollTotal() roll2 7}}
-                            {{#rollTotal() roll2 8}}
-                                <div class="jet des">6</div>
-                                <div class="jet av">10</div>
-                            {{/rollTotal() roll2 8}}
-                            {{#rollTotal() roll2 9}}
-                                <div class="jet des">7</div>
-                                <div class="jet av">11</div>
-                            {{/rollTotal() roll2 9}}
-                            {{#rollTotal() roll2 10}}
-                                <div class="jet des">8</div>
-                                <div class="jet av">12</div>
-                            {{/rollTotal() roll2 10}}
-                        {{/roll2}}
+                    <div class="brdbot">
+                        <div class="jet"><span class="10dice">b</span></div>
+                        <div class="jet">{{roll2}}</div>
+                        {{#rollTotal() roll2 1}}
+                            <div class="jet des">-1</div>
+                            <div class="jet av">3</div>
+                        {{/rollTotal() roll2 1}}
+                        {{#rollTotal() roll2 2}}
+                            <div class="jet des">0</div>
+                            <div class="jet av">4</div>
+                        {{/rollTotal() roll2 2}}
+                        {{#rollTotal() roll2 3}}
+                            <div class="jet des">1</div>
+                            <div class="jet av">5</div>
+                        {{/rollTotal() roll2 3}}
+                        {{#rollTotal() roll2 4}}
+                            <div class="jet des">2</div>
+                            <div class="jet av">6</div>
+                        {{/rollTotal() roll2 4}}
+                        {{#rollTotal() roll2 5}}
+                            <div class="jet des">3</div>
+                            <div class="jet av">7</div>
+                        {{/rollTotal() roll2 5}}
+                        {{#rollTotal() roll2 6}}
+                            <div class="jet des">4</div>
+                            <div class="jet av">8</div>
+                        {{/rollTotal() roll2 6}}
+                        {{#rollTotal() roll2 7}}
+                            <div class="jet des">5</div>
+                            <div class="jet av">9</div>
+                        {{/rollTotal() roll2 7}}
+                        {{#rollTotal() roll2 8}}
+                            <div class="jet des">6</div>
+                            <div class="jet av">10</div>
+                        {{/rollTotal() roll2 8}}
+                        {{#rollTotal() roll2 9}}
+                            <div class="jet des">7</div>
+                            <div class="jet av">11</div>
+                        {{/rollTotal() roll2 9}}
+                        {{#rollTotal() roll2 10}}
+                            <div class="jet des">8</div>
+                            <div class="jet av">12</div>
+                        {{/rollTotal() roll2 10}}
                     </div>
                 {{/rollGreater() nbdice 1}}
                 {{#rollGreater() nbdice 2}}
-                    <div style="display: table-row;">
-                        {{#roll3}}
-                            <div class="jet"><span class="10dice">c</span></div>
-                            <div class="jet">{{roll3}}</div>
-                            {{#rollTotal() roll3 1}}
-                                <div class="jet des">-1</div>
-                                <div class="jet av">3</div>
-                            {{/rollTotal() roll3 1}}
-                            {{#rollTotal() roll3 2}}
-                                <div class="jet des">0</div>
-                                <div class="jet av">4</div>
-                            {{/rollTotal() roll3 2}}
-                            {{#rollTotal() roll3 3}}
-                                <div class="jet des">1</div>
-                                <div class="jet av">5</div>
-                            {{/rollTotal() roll3 3}}
-                            {{#rollTotal() roll3 4}}
-                                <div class="jet des">2</div>
-                                <div class="jet av">6</div>
-                            {{/rollTotal() roll3 4}}
-                            {{#rollTotal() roll3 5}}
-                                <div class="jet des">3</div>
-                                <div class="jet av">7</div>
-                            {{/rollTotal() roll3 5}}
-                            {{#rollTotal() roll3 6}}
-                                <div class="jet des">4</div>
-                                <div class="jet av">8</div>
-                            {{/rollTotal() roll3 6}}
-                            {{#rollTotal() roll3 7}}
-                                <div class="jet des">5</div>
-                                <div class="jet av">9</div>
-                            {{/rollTotal() roll3 7}}
-                            {{#rollTotal() roll3 8}}
-                                <div class="jet des">6</div>
-                                <div class="jet av">10</div>
-                            {{/rollTotal() roll3 8}}
-                            {{#rollTotal() roll3 9}}
-                                <div class="jet des">7</div>
-                                <div class="jet av">11</div>
-                            {{/rollTotal() roll3 9}}
-                            {{#rollTotal() roll3 10}}
-                                <div class="jet des">8</div>
-                                <div class="jet av">12</div>
-                            {{/rollTotal() roll3 10}}
-                        {{/roll3}}
+                    <div class="brdbot">
+                        <div class="jet"><span class="10dice">c</span></div>
+                        <div class="jet">{{roll3}}</div>
+                        {{#rollTotal() roll3 1}}
+                            <div class="jet des">-1</div>
+                            <div class="jet av">3</div>
+                        {{/rollTotal() roll3 1}}
+                        {{#rollTotal() roll3 2}}
+                            <div class="jet des">0</div>
+                            <div class="jet av">4</div>
+                        {{/rollTotal() roll3 2}}
+                        {{#rollTotal() roll3 3}}
+                            <div class="jet des">1</div>
+                            <div class="jet av">5</div>
+                        {{/rollTotal() roll3 3}}
+                        {{#rollTotal() roll3 4}}
+                            <div class="jet des">2</div>
+                            <div class="jet av">6</div>
+                        {{/rollTotal() roll3 4}}
+                        {{#rollTotal() roll3 5}}
+                            <div class="jet des">3</div>
+                            <div class="jet av">7</div>
+                        {{/rollTotal() roll3 5}}
+                        {{#rollTotal() roll3 6}}
+                            <div class="jet des">4</div>
+                            <div class="jet av">8</div>
+                        {{/rollTotal() roll3 6}}
+                        {{#rollTotal() roll3 7}}
+                            <div class="jet des">5</div>
+                            <div class="jet av">9</div>
+                        {{/rollTotal() roll3 7}}
+                        {{#rollTotal() roll3 8}}
+                            <div class="jet des">6</div>
+                            <div class="jet av">10</div>
+                        {{/rollTotal() roll3 8}}
+                        {{#rollTotal() roll3 9}}
+                            <div class="jet des">7</div>
+                            <div class="jet av">11</div>
+                        {{/rollTotal() roll3 9}}
+                        {{#rollTotal() roll3 10}}
+                            <div class="jet des">8</div>
+                            <div class="jet av">12</div>
+                        {{/rollTotal() roll3 10}}
                     </div>
                 {{/rollGreater() nbdice 2}}
             {{/nbdice}}
         </div>
+        {{#blessure}}
+
+        {{/blessure}}
         {{#desc}}
             <div class="desc bordtop">{{desc}}</div>
         {{/desc}}

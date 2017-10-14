@@ -556,6 +556,12 @@ button[type="roll"].sheet-myrol.sheet-dotleft:before{
     font-size: 14px;
     padding-right: 2px;
 }
+button[type="roll"].sheet-myrol.sheet-titre1{
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+}
 button[type="roll"].sheet-myrol.sheet-titre2{
     color: #505050;
     font-weight: bold;
@@ -573,11 +579,59 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     border-width: 1px;
     border-style: solid;
     border-color: #404040;
+    border-radius: 0px 12px 12px 0px;
     width: fit-content;
+}
+.sheet-rolltemplate-tmpl div.sheet-mytab{
+    display: table;
+    border-collapse: collapse;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet{
+    background-color: transparent;
+    padding: 6px;
+    display: table-cell;
+    font-family: 'Shadows Into Light';
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet.sheet-des{
+    color: red;
+    font-size: 18px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmpl div.sheet-jet.sheet-av{
+    color: green;
+    font-size: 18px;
+    font-family: 'Candal';
+}
+.sheet-rolltemplate-tmpl div.sheet-desc{
+    text-align: left;
+    font-family: 'Verdana';
+    font-size: inherit;
+    max-height: 180px;
+    overflow-y: auto;
+    background-color: transparent;
+    color: #505050;
+}
+.sheet-rolltemplate-tmpl div.sheet-brdbot{
+    display: table-row;
+    border-bottom: 1px dotted #404040;
+}
+.sheet-rolltemplate-tmpl div.sheet-brdbot:last-child{
+    border-bottom: none;
 }
 .sheet-rolltemplate-tmpl .sheet-head{
     background-color: #404040;
     padding: 4px;
+}
+.sheet-rolltemplate-tmpl .sheet-head:first-child{
+    border-radius: 0px 12px 0px 0px;
+}
+.sheet-rolltemplate-tmpl .sheet-head:last-child{
+    border-radius: 0px 0px 12px 0px;
 }
 .sheet-rolltemplate-tmpl .sheet-jetype{
     display: block;
@@ -601,45 +655,6 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     font-size: 18px;
     letter-spacing: 0.03em;
     padding: 0px;
-}
-.sheet-rolltemplate-tmpl div.sheet-jet{
-    background-color: transparent;
-    padding: 6px;
-    display: table-cell;
-    font-family: 'Shadows Into Light';
-    font-size: large;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-.sheet-rolltemplate-tmpl div.sheet-jet.sheet-des{
-    color: red;
-    font-size: 18px;
-    font-family: 'Candal';
-}
-.sheet-rolltemplate-tmpl div.sheet-jet.sheet-av{
-    color: green;
-    font-size: 18px;
-    font-family: 'Candal';
-}
-.sheet-rolltemplate-tmpl div.sheet-bordleft{
-    border-left: 1px dotted #404040;
-}
-.sheet-rolltemplate-tmpl div.sheet-bordtop{
-    border-top: 1px dotted #404040;
-}
-.sheet-rolltemplate-tmpl div.sheet-borderd{
-    border-right: 2px solid #404040;
-}
-.sheet-rolltemplate-tmpl div.sheet-desc{
-    text-align: left;
-    font-family: 'Verdana';
-    font-size: inherit;
-    max-height: 180px;
-    overflow-y: auto;
-    background-color: transparent;
-    color: #505050;
 }
 .sheet-rolltemplate-tmpl .sheet-10dice{
     font-family: 'dicefontd10';
