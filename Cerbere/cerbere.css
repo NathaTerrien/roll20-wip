@@ -5,6 +5,7 @@
  gris hérité #404040
  bleu nuit : 25,25,112 / MidnightBlue / #191970
  rouge carmin : #960018
+ vert : #007600
 */
 div,
 button,
@@ -581,6 +582,7 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     border-color: #404040;
     border-radius: 0px 12px 12px 0px;
     width: fit-content;
+    max-width: 260px;
 }
 .sheet-rolltemplate-tmpl div.sheet-mytab{
     display: table;
@@ -597,15 +599,17 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     vertical-align: middle;
     white-space: nowrap;
 }
-.sheet-rolltemplate-tmpl div.sheet-jet.sheet-des{
-    color: red;
-    font-size: 18px;
+.sheet-rolltemplate-tmpl div.sheet-jet.sheet-brut{
+    color: #808080;
+    font-size: 12px;
     font-family: 'Candal';
+    font-weight: normal;
+}
+.sheet-rolltemplate-tmpl div.sheet-jet.sheet-des{
+    color: #960018;
 }
 .sheet-rolltemplate-tmpl div.sheet-jet.sheet-av{
-    color: green;
-    font-size: 18px;
-    font-family: 'Candal';
+    color: #007600;
 }
 .sheet-rolltemplate-tmpl div.sheet-desc{
     text-align: left;
@@ -660,6 +664,10 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     font-family: 'dicefontd10';
     font-size: 200%;
     font-weight: normal;
+}
+.sheet-rolltemplate-tmpl .sheet-res{
+    font-size: 18px;
+    font-family: 'Candal';
 }
 .sheet-rolltemplate-tmpl .inlinerollresult {
     background-color: transparent;
