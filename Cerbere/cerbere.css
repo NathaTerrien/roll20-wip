@@ -539,7 +539,6 @@ button[type="roll"].sheet-myrol{
     transition: 0.3s;
 }
 button[type="roll"].sheet-myrol:hover{
-    color: #960018;
     text-shadow: 0px 0px 2px #FB667E;
 }
 button[type="roll"].sheet-myrol:before{
@@ -568,6 +567,10 @@ button[type="roll"].sheet-myrol.sheet-titre2{
     font-weight: bold;
     font-size: 13px;
     text-transform: uppercase;
+}
+button[type="roll"].sheet-myrol.sheet-titre1:hover,
+button[type="roll"].sheet-myrol.sheet-titre2:hover{
+    color: #960018;
 }
 /* ===== TEMPLATE ===== */
 .sheet-rolltemplate-tmpl div{

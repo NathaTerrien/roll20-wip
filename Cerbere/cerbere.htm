@@ -190,7 +190,7 @@
             </div>
             <div class="mycol sepbas maxcol" style="min-height: 264px;">
                 <span class="titre1">crédit</span>
-                <button type="roll" class="myrol titre2 dotleft dotright fright" name="JetCompAdministration" value="&{template:tmpl} {{pc=@{character_name}}} {{name=contact}} {{nbdice=[[?{d10|1}]]}} {{roll1=[[@{baseroll}]]}} {{roll2=[[@{baseroll}]]}} {{roll3=[[@{baseroll}]]}}">contact</button>
+                <button type="roll" class="myrol titre2 dotleft dotright fright" name="JetCompAdministration" value="&{template:tmpl} {{pc=@{character_name}}} {{name=contact}} {{nbdice=[[?{d10|1}]]}} {{roll1=[[@{baseroll}]]}} {{roll2=[[@{baseroll}]]}} {{roll3=[[@{baseroll}]]}}" title="Jet pour trouver un contact local temporaire">contact</button>
                 <div class="alig decal">
                     <span class="titre2" style="width: 100px;">autorités</span>
                     <input type="number" spellcheck="false" class="smlnum" name="attr_credit_autorite" value="0" title="Crédit courant" />
@@ -248,7 +248,7 @@
                         <input type="radio" spellcheck="false" class="bulles" name="attr_rang" value="1" title="Rang 1" checked /><span></span>
                         <input type="radio" spellcheck="false" class="bulles" name="attr_rang" value="2" title="Rang 2" /><span></span>
                         <input type="radio" spellcheck="false" class="bulles" name="attr_rang" value="3" title="Rang 3" /><span></span>
-                        <button type="roll" class="myrol titre2 dotleft dotright" name="JetRelation" value="&{template:tmpl} {{pc=@{character_name}}} {{rolltype=Relation (@{rang})}} {{typecheck=[[@{comp_eloquence}]]}} {{name=@{rel_nom}}} {{nbdice=[[@{rang}]]}} {{roll1=[[@{baseroll}]]}} {{roll2=[[@{baseroll}]]}} {{roll3=[[@{baseroll}]]}}">Jet</button>
+                        <button type="roll" class="myrol titre2 dotleft dotright" name="JetRelation" title="Déterminer si la relation est en mesure d’aider ou non" value="&{template:tmpl} {{pc=@{character_name}}} {{rolltype=Relation (@{rang})}} {{typecheck=[[@{comp_eloquence}]]}} {{name=@{rel_nom}}} {{nbdice=[[@{rang}]]}} {{roll1=[[@{baseroll}]]}} {{roll2=[[@{baseroll}]]}} {{roll3=[[@{baseroll}]]}}">Jet</button>
                         <div class="autoex" style="display: inline-block;width:350px;">
                             <span name="attr_rel_aspect"></span>
                             <textarea spellcheck="false" name="attr_rel_aspect" placeholder="Aspect, notes ..."></textarea>
@@ -656,8 +656,11 @@
     });
     on("change:blessures", function(eventinfo){
         if (eventinfo.sourceType == 'player'){
-            if((parseInt(eventinfo.newValue) || 0 ) == 3){
+            var bless = parseInt(eventinfo.newValue) || 0 ;
+            if(bless == 3){
                 setAttrs({invalidite:1});
+            } else if (bless == 0) {
+                setAttrs({invalidite:0});
             }
         }
     });
