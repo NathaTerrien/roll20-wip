@@ -3,8 +3,8 @@
     on('sheet:opened',function(){
         // **** Gestion transition de version
         getAttrs(["VERSION"], function(values) {
-            var verfdp = parseInt(values.VERSION) || 0;
-            if (verfdp == 0) {
+            var verfdp = parseFloat(values.VERSION) || 0.0;
+            if (verfdp == 0.0) {
                 // Version 1.6 vers 1.7
                 getAttrs(["FOR_SUP","DEX_SUP","CON_SUP","INT_SUP","SAG_SUP","CHA_SUP"], function(jets) {
                     var sfor, sdex, scon, sint, ssag, scha = "";
@@ -49,7 +49,23 @@
                     });
                 });
             }
+            if (verfdp < 1.8) {
+                getAttrs(["cha"], function(values) {
+                    setAttrs({
+                        pc_max: 3+(parseInt(values.cha) || 0),
+                        VERSION: "1.8"
+                    });
+                });
+            }
         });
+    });
+    on("change:cha",function(eventinfo){
+        if (eventinfo.sourceType == 'player'){
+            getAttrs(["pc_max"], function(values) {
+                var newpc = (parseInt(values.pc_max) || 0) - (parseInt(eventinfo.previousValue) || 0) + (parseInt(eventinfo.newValue) || 0);
+                setAttrs({pc_max: newpc});
+            });
+        }
     });
 </script>
 <div class="sheet-mainBg"> <!-- FDP -->
@@ -399,11 +415,14 @@
                             <td class="sheet-boxinputleft">
                                 <input type="number" style="width:32px;" name="attr_armedmnbde" value="1" title="Nombre de dés de dommage" />
                                 <select class="sheet-carac"  style="width:47px;" name="attr_armedmde" size="1" title="Dé de dommage">
+                                    <option value="2">d2</option>
+                                    <option value="3">d3</option>
                                     <option value="4" selected>d4</option>
                                     <option value="6">d6</option>
                                     <option value="8">d8</option>
                                     <option value="10">d10</option>
                                     <option value="12">d12</option>
+                                    <option value="20">d20</option>
                                 </select>+<select class="sheet-carac" style="width:52px;" name="attr_armedmcar" size="1" title="Modificateur aux dommages">
                                     <option value="0">-</option>
                                     <option value="@{FOR}" selected>FOR</option>
@@ -607,7 +626,7 @@
                         <td class="sheet-boxtitre">Épuisement</td>
                     </tr>
                     <tr>
-                        <td class="sheet-boxinputlight"><input type="number" name="attr_PC_max" value="3+@{CHA}" title="Points de Chance MAX (page 79)" disabled /></td>
+                        <td class="sheet-boxinputlight"><input type="number" name="attr_PC_max" value="0" title="Points de Chance MAX (page 79)" /></td>
                         <td class="sheet-boxinput">
                            <input type="checkbox" name="attr_PR1" value="1" title="Point de Récupération 1 (page 80)" />
                            <input type="checkbox" name="attr_PR2" value="1" title="Point de Récupération 2 (page 80)" />
