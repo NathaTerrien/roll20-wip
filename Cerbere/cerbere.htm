@@ -93,7 +93,7 @@
                     <div class="fright" title="Une fois par séance de jeu, posez une question au meneur de jeu à propos d’une connaissance réservée ou secrète.">
                         <button type="roll" class="myrol titre2 dotleft" name="JetCompErudition"  value="&{template:tmpl} {{pc=@{character_name}}} {{rolltype=Compétence}} {{typecheck=[[@{comp_erudition}]]}} {{name=érudition}} {{nbdice=[[?{D10|@{comp_erudition_de}}]]}} {{roll1=[[@{baseroll}]]}} {{roll2=[[@{baseroll}]]}} {{roll3=[[@{baseroll}]]}}">érudition</button>
                         <input type="checkbox" class="chkcomp" name="attr_comp_erudition" value="1" /><span></span>
-                        <input type="hidden" name="attr_comp_administration_de" value="[[1+@{comp_administration_de}]]" disabled />
+                        <input type="hidden" name="attr_comp_erudition_de" value="1" />
                     </div>
                 </div>
                 <div class="alig">
