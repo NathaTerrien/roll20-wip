@@ -2,7 +2,7 @@
 Character sheets and API scripts for the [Roll20](http://roll20.net) Virtual Table Top.  
 [Roll20 profile](https://app.roll20.net/users/75857/natha)
 
-_Updated 2017-09-17 (Chroniques Oubliées & Galactique bug fix)._
+_Updated 2017-10-17 (Le Métal Froid des Anneaux de Cerbère)._
 
 # You like my work and want to support me?
 
