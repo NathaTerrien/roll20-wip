@@ -193,6 +193,20 @@ Création.
 * [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/INS-MV_5E)
 
 #### Todo
+___
+![Cerbere banner](/_banners/cerbere_banner.jpg)
+### Le Métal Froid des Anneaux de Cerbères (french)
+Site officiel : [Le Métal Froid des Anneaux de Cerbères](http://legrumph.org/Terrier/?Chibi/Le-metal-froid-des-anneaux-de-cerbere), french
+
+Création.
+
+#### Sources
+* [WIP](https://github.com/NathaTerrien/roll20-wip/tree/master/Cerbere)
+* [Fork](https://github.com/NathaTerrien/roll20-character-sheets/tree/master/Cerbere)
+* [Official](https://github.com/Roll20/roll20-character-sheets/tree/master/Cerbere)
+
+### Todo
+* In game testing
 
 ___
 ![macchiato banner](/_banners/macchiato_banner.jpg)
