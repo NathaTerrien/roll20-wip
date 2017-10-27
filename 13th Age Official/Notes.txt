@@ -1,0 +1,59 @@
+- 13th age / sheet-worker
+  - + (Help) The Strange
+  => Sheet workers
+- Pathfinder (+Val) =>
+ + Compendium (?)
+ => StarFinder
+-
+
+---------
+13A-002
+---------
+STR-mod
+(floor((@{STR-base}-10)/2))
+
+CON-mod
+(floor((@{CON-base}-10)/2))
+
+DEX-mod
+(floor((@{DEX-base}-10)/2))
+
+INT-mod
+(floor((@{INT-base}-10)/2))
+
+WIS-mod
+(floor((@{WIS-base}-10)/2))
+
+CHA-mod
+(floor((@{CHA-base}-10)/2))
+
+--------
+13A-004
+--------
+AC-base
+AC = @{AC-base}+@{level}+(@{CON-mod})+(@{DEX-mod})+(@{WIS-mod})-(@{AC-max-con-dex-wis})-(@{AC-min-con-dex-wis})
+AC-max-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) + abs((@{CON-mod}) - (@{DEX-mod}))) / 2)
+AC-max-con-dex-wis = (((@{AC-max-con-dex}) + (@{WIS-mod}) + abs((@{AC-max-con-dex}) - (@{WIS-mod}))) / 2)
+AC-min-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod}))) / 2)
+AC-min-con-dex-wis = (((@{AC-min-con-dex}) + (@{WIS-mod}) - abs((@{AC-min-con-dex}) - (@{WIS-mod}))) / 2)
+
+updateAc()
+
+--------
+13A-020
+--------
+PD-base
+PD =
+@{PD-base}+@{level}+(@{CON-mod})+(@{DEX-mod})+(@{STR-mod})-(@{PD-max-con-dex-str})-(@{PD-min-con-dex-str})
+
+--------
+13A-021
+--------
+MD-base
+MD =
+@{MD-base}+@{level}+(@{INT-mod})+(@{WIS-mod})+(@{CHA-mod})-(@{MD-max-int-wis-cha})-(@{MD-min-int-wis-cha})
+
+--------
+13A-022
+--------
+HP-base

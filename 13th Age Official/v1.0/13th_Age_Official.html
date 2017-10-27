@@ -1,5 +1,5 @@
 <div class="container">
-    <input type="hidden" name="attr_sheet-version" value="1.0" />
+    
     <input class="options-check" type="checkbox" name="attr_options-check" checked="checked"><span></span>
     <div class="options">
         <span class="row" style="font-size: 20px; margin-bottom: 10px;">
@@ -12,41 +12,41 @@
             <span class="row">
                 <span>Base PD from class</span><input type="number" name="attr_PD-base" value="10" title="@{PD-base}">
             </span>
-            <span class="row">
+            <span class="row">    
                 <span>Base MD from class</span><input type="number" name="attr_MD-base" value="10" title="@{MC-base}">
             </span>
-            <span class="row">
+            <span class="row">    
                 <span>Base HP from class</span><input type="number" name="attr_HP-base" value="7" title="@{HP-base}">
             </span>
-            <span class="row">
+            <span class="row">    
                 <span>Melee Basic Attack Based On</span>
                     <select name="attr_M-BAMOD">
                         <option value="@{STR-mod}" selected="selected">STR</option>
                         <option value="@{DEX-mod}">DEX</option>
                     </select>
             </span>
-            <span class="row">
+            <span class="row">    
                 <span>Damage on Melee Miss</span>
                     <select name="attr_M-MISS">
                         <option value="0">-</option>
                         <option value="@{level}" selected="selected">Level</option>
                     </select>
             </span>
-            <span class="row">
+            <span class="row">    
                 <span>Ranged Basic Attack Based On</span>
                     <select name="attr_R-BAMOD">
                         <option value="@{STR-mod}">STR</option>
                         <option value="@{DEX-mod}" selected="selected">DEX</option>
                     </select>
             </span>
-            <span class="row">
+            <span class="row">    
                 <span>Damage on Ranged Miss</span>
                     <select name="attr_R-MISS">
                         <option value="0" selected="selected">-</option>
                         <option value="@{level}">Level</option>
                     </select>
             </span>
-            <span class="row">
+            <span class="row">  
                 <span>Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}">
             </span>
         </div>
@@ -56,14 +56,14 @@
             </span>
         </div>
     </div>
-    <div class="header">
+    <div class="header"> 
         <div class="meta">
             <div class="metacontainer">
-                <div class="label">Name</div>
+                <div class="label">Name</div> 
                 <input type="text" name="attr_character_name" title="@{character_name}">
             </div>
             <div class="metacontainer">
-                <div class="label">Race</div>
+                <div class="label">Race</div> 
                 <input type="text" name="attr_race" title="@{race}">
             </div>
             <div class="metacontainer">
@@ -71,50 +71,50 @@
                 <input type="text" name="attr_class" title="@{class}">
             </div>
             <div class="metacontainer">
-                <div class="label">Level</div>
+                <div class="label">Level</div> 
                 <input type="number" name="attr_level" value="1" title="@{level}">
             </div>
         </div>
         <div class="attributes">
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_STR-base" value="10" title="@{STR-base}">
+                <input class="attrbase" type="text" name="attr_STR-base" value="10" title="@{STR-base}"> 
                 <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=Strength}} {{attr_abr=STR}} {{attr_bonus=[[[[@{STR-mod}]][STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{STR-mod}]][STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">STR</button>
-                <input class="attrmod" type="text" name="attr_STR-mod" value="0" title="@{STR-mod}" readonly="readonly" />
+                <input class="attrmod" type="text" name="attr_STR-mod" value="(floor((@{STR-base}-10)/2))" title="@{STR-mod}" disabled="true">
             </div>
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_CON-base" value="10" title="@{CON-base}">
+                <input class="attrbase" type="text" name="attr_CON-base" value="10" title="@{CON-base}"> 
                 <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=Constitution}} {{attr_abr=CON}} {{attr_bonus=[[[[@{CON-mod}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CON-mod}]][CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">CON</button>
-                <input class="attrmod" type="text" name="attr_CON-mod" value="0" title="@{CON-mod}" readonly="readonly" />
+                <input class="attrmod" type="text" name="attr_CON-mod" value="(floor((@{CON-base}-10)/2))" title="@{CON-mod}" disabled="true">
             </div>
             <div class="attrcontainer" style="position: absolute;">
-                <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}">
+                <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}"> 
                 <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">DEX</button>
-                <input class="attrmod" type="text" name="attr_DEX-mod" value="0" title="@{DEX-mod}" readonly="readonly" />
+                <input class="attrmod" type="text" name="attr_DEX-mod" value="(floor((@{DEX-base}-10)/2))" title="@{DEX-mod}" disabled="true">
                 <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] &{tracker}]]}}">INITIATIVE</button>
             </div>
         </div>
         <div class="attributes">
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_INT-base" value="10" title="@{INT-base}">
+                <input class="attrbase" type="text" name="attr_INT-base" value="10" title="@{INT-base}"> 
                 <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=Intelligence}} {{attr_abr=INT}} {{attr_bonus=[[[[@{INT-mod}]][INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{INT-mod}]][INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">INT</button>
-                <input class="attrmod" type="text" name="attr_INT-mod" value="0" title="@{INT-mod}"  readonly="readonly" />
+                <input class="attrmod" type="text" name="attr_INT-mod" value="(floor((@{INT-base}-10)/2))" title="@{INT-mod}" disabled="true">
             </div>
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_WIS-base" value="10" title="@{WIS-base}">
+                <input class="attrbase" type="text" name="attr_WIS-base" value="10" title="@{WIS-base}"> 
                 <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=Wisdom}} {{attr_abr=WIS}} {{attr_bonus=[[[[@{WIS-mod}]][WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{WIS-mod}]][WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">WIS</button>
-                <input class="attrmod" type="text" name="attr_WIS-mod" value="0" title="@{WIS-mod}"  readonly="readonly" />
+                <input class="attrmod" type="text" name="attr_WIS-mod" value="(floor((@{WIS-base}-10)/2))" title="@{WIS-mod}" disabled="true">
             </div>
             <div class="attrcontainer" style="position: relative;">
-                <input class="attrbase" type="text" name="attr_CHA-base" value="10" title="@{CHA-base}">
+                <input class="attrbase" type="text" name="attr_CHA-base" value="10" title="@{CHA-base}"> 
                 <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=Charisma}} {{attr_abr=CHA}} {{attr_bonus=[[[[@{CHA-mod}]][CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CHA-mod}]][CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">CHA</button>
-                <input class="attrmod" type="text" name="attr_CHA-mod" value="0" title="@{CHA-mod}"  readonly="readonly" />
+                <input class="attrmod" type="text" name="attr_CHA-mod" value="(floor((@{CHA-base}-10)/2))" title="@{CHA-mod}" disabled="true">
                 <div class="deathsavecontainer">
                     <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{result=[[1d20]]}}">DEATH SAVE</button>
                     <input type="checkbox" name="attr_DEATHSAVE1">
                     <input type="checkbox" name="attr_DEATHSAVE2">
                     <input type="checkbox" name="attr_DEATHSAVE3">
                     <input type="checkbox" name="attr_DEATHSAVE4">
-                </div>
+                </div>    
             </div>
         </div>
         <div class="derived">
@@ -160,7 +160,7 @@
                     <option value="12">d12</option>
                 </select>
                 <span class="derlabel" style="width: 10px; padding-right:0; margin-left:-5px; border-left:0px; border-right:0px;">+</span>
-                <input class="recovery" type="text" style="width:32px;" name="attr_REC-bonus" title="@{REC-bonus}" value="0">
+                <input class="recovery" type="text" style="width:32px;" name="attr_REC-bonus" title="@{REC-bonus}">
                 <span class="derlabel" style="width: 7px; margin-left: -9px;">Max</span>
                 <input class="recovery recmax" type="text" style="border-left:0px; width:31px;" name="attr_REC_max" value="8" title="@{REC_max}">
                 <span class="recoverycontainer">
@@ -178,7 +178,7 @@
                     <input type="radio" class="sheet-normal 10" name="attr_REC" value="10" /><span></span>
                 </span>
             </div>
-
+            
         </div>
     </div>
 
@@ -333,7 +333,7 @@
                     <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK10}+0]][BCK]]]}} {{back=@{BACK-name10}}} {{back_bonus=@{back10}}}">
                     <input type="text" class="title" name="attr_BACK-name10">
                     <input type="text" class="background" name="attr_BACK10">
-                </div>
+                </div> 
             </div>
             <div class="bodycontainer">
                 <div class="header">Melee Weapons</div>
@@ -440,7 +440,7 @@
                     <span class="row">
                         <span class="left"><b>Target:</b> One creature</span>
                         <span class="right ba-attack">
-                            <b>Attack:</b>
+                            <b>Attack:</b> 
                             <input class="stat" type="text" name="attr_MBA-attackvs" value="" title="@{HP_MBA-attackbonus}" style="pointer-events: none;">
                         </span>
                     </span>
@@ -471,7 +471,7 @@
                     <span class="row">
                         <span class="left"><b>Target:</b> One creature</span>
                         <span class="right ba-attack">
-                            <b>Attack:</b>
+                            <b>Attack:</b> 
                             <input class="stat" type="text" name="attr_RBA-attackvs" value="" title="@{RBA-attackbonus}" style="pointer-events: none;">
                         </span>
                     </span>
@@ -487,9 +487,9 @@
                     </span>
                 </div>
             </div>
-
-
-
+            
+            
+            
             <fieldset class="repeating_power">
                 <div class="power">
                     <!-- OPTIONS -->
@@ -544,7 +544,7 @@
                             <option value="@{range-custom}">Custom</option>
                         </select>
                         <input class="suboption rangeoptions title" type="text" name="attr_range-custom" style="width:55px;" placeholder="Custom">
-                        <span class="poption spacer"></span>
+                        <span class="poption spacer"></span>  
                     <input class="poption Target" type="checkbox" name="attr_target" value="{{target=@{target-type}}}"><span class="poption">Target:</span>
                         <input class="suboption targetoptions title" type="text" name="attr_target-type" style="width:160px;">
                         <span class="poption spacer"></span>
@@ -574,7 +574,7 @@
                             <option value="@{attack-vscustom}">Custom</option>
                         </select>
                         <input class="suboption attackoptions title" type="text" name="attr_attack-vscustom" style="width:55px;" placeholder="Custom">
-                        <span class="poption spacer"></span>
+                        <span class="poption spacer"></span>  
                     <input class="poption Cust1" type="checkbox" name="attr_cust1" value="{{cust1=1}} {{@{cust1-type}-1=1}} @{cust1-subcust1} @{cust1-subcust2} @{cust1-subcust3} @{cust1-subcust4}"><span class="poption">Custom 1</span>
                         <span class="spacer suboption cust1options"></span>
                         <input class="suboption cust1options cust1-hit" type="radio" name="attr_cust1-type" value="Hit"><span class="suboption cust1options">Hit</span>
@@ -698,12 +698,12 @@
                     </div>
                 </div>
             </fieldset>
-
-
-
+            
+            
+            
         </div>
     </div>
-
+    
 <!-- HIDDEN FIELDS USED FOR CALCULATIONS -->
 <input type="hidden" disabled="true" name="attr_AC-max-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) + abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
 <input type="hidden" disabled="true" name="attr_AC-max-con-dex-wis" value="(((@{AC-max-con-dex}) + (@{WIS-mod}) + abs((@{AC-max-con-dex}) - (@{WIS-mod}))) / 2)" />
@@ -712,7 +712,7 @@
 <input type="hidden" disabled="true" name="attr_PD-max-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) + abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
 <input type="hidden" disabled="true" name="attr_PD-max-con-dex-str" value="(((@{PD-max-con-dex}) + (@{STR-mod}) + abs((@{PD-max-con-dex}) - (@{STR-mod}))) / 2)" />
 <input type="hidden" disabled="true" name="attr_PD-min-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_PD-min-con-dex-str" value="(((@{PD-min-con-dex}) + (@{STR-mod}) - abs((@{PD-min-con-dex}) - (@{STR-mod}))) / 2)" />
+<input type="hidden" disabled="true" name="attr_PD-min-con-dex-str" value="(((@{PD-min-con-dex}) + (@{STR-mod}) - abs((@{PD-min-con-dex}) - (@{STR-mod}))) / 2)" />    
 <input type="hidden" disabled="true" name="attr_MD-max-int-wis" value="((((@{INT-mod}) + (@{WIS-mod})) + abs((@{INT-mod}) - (@{WIS-mod}))) / 2)" />
 <input type="hidden" disabled="true" name="attr_MD-max-int-wis-cha" value="(((@{MD-max-int-wis}) + (@{CHA-mod}) + abs((@{MD-max-int-wis}) - (@{CHA-mod}))) / 2)" />
 <input type="hidden" disabled="true" name="attr_MD-min-int-wis" value="((((@{INT-mod}) + (@{WIS-mod})) - abs((@{INT-mod}) - (@{WIS-mod}))) / 2)" />
@@ -750,26 +750,26 @@
             <span class="partlabel">LVL</span>
             <span class="partnumber">{{level}}</span>
         </div>
-        {{#back}}
+        {{#back}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">BCK</span>
                 <span class="partnumber">{{back_bonus}}</span>
-            </div>
+            </div> 
         {{/back}}
-        {{#rollGreater() mod 0}}
+        {{#rollGreater() mod 0}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">MOD</span>
                 <span class="partnumber">{{mod}}</span>
-            </div>
+            </div> 
         {{/rollGreater() mod 0}}
-        {{#rollLess() mod 0}}
+        {{#rollLess() mod 0}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">MOD</span>
                 <span class="partnumber">{{mod}}</span>
-            </div>
+            </div> 
         {{/rollLess() mod 0}}
         <div class="partspacer">=</div>
         <div class="result">{{result}}</div>
@@ -792,19 +792,19 @@
             <span class="partlabel">LVL</span>
             <span class="partnumber">{{level}}</span>
         </div>
-        {{#rollGreater() mod 0}}
+        {{#rollGreater() mod 0}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">MOD</span>
                 <span class="partnumber">{{mod}}</span>
-            </div>
+            </div> 
         {{/rollGreater() mod 0}}
-        {{#rollLess() mod 0}}
+        {{#rollLess() mod 0}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">MOD</span>
                 <span class="partnumber">{{mod}}</span>
-            </div>
+            </div> 
         {{/rollLess() mod 0}}
         <div class="partspacer">=</div>
         <div class="result">{{result}}</div>
@@ -819,23 +819,23 @@
         <div class="partspacer"> </div>
         <div class="result">{{result}}</div>
         <div class="partspacer"> </div>
-        {{#rollWasCrit() result}}
+        {{#rollWasCrit() result}} 
             <div class="part">
                 <span class="partlabel">CRITICAL SUCCESS</span>
                 <span class="partnumber">Use a recovery and take an action!</span>
-            </div>
+            </div> 
         {{/rollWasCrit() result}}
-        {{#rollBetween() result 16 19}}
+        {{#rollBetween() result 16 19}} 
             <div class="part">
                 <span class="partlabel">SUCCESS</span>
                 <span class="partnumber">Use a recovery!</span>
-            </div>
+            </div> 
         {{/rollBetween() result 16 19}}
-        {{#rollLess() result 16}}
+        {{#rollLess() result 16}} 
             <div class="part">
                 <span class="partlabel">FAILURE</span>
                 <span class="partnumber">Mark a step toward death!</span>
-            </div>
+            </div> 
         {{/rollLess() result 16}}
     </div>
 </rolltemplate>
@@ -849,10 +849,10 @@
     <div class="body">
         {{#rollGreater() iconlvl 0}}
             <div class="part">
-                {{#rollTotal() icon1 5}}
+                {{#rollTotal() icon1 5}} 
                     <span class="partlabel">e</span>
                 {{/rollTotal() icon1 5}}
-                {{#rollTotal() icon1 6}}
+                {{#rollTotal() icon1 6}} 
                     <span class="partlabel">k</span>
                 {{/rollTotal() icon1 6}}
                 <span class="partnumber">{{icon1}}</span>
@@ -861,10 +861,10 @@
         {{#rollGreater() iconlvl 1}}
             <div class="partspacer">j</div>
             <div class="part">
-                {{#rollTotal() icon2 5}}
+                {{#rollTotal() icon2 5}} 
                     <span class="partlabel">e</span>
                 {{/rollTotal() icon2 5}}
-                {{#rollTotal() icon2 6}}
+                {{#rollTotal() icon2 6}} 
                     <span class="partlabel">k</span>
                 {{/rollTotal() icon2 6}}
                 <span class="partnumber">{{icon2}}</span>
@@ -873,10 +873,10 @@
         {{#rollGreater() iconlvl 2}}
             <div class="partspacer">j</div>
             <div class="part">
-                {{#rollTotal() icon3 5}}
+                {{#rollTotal() icon3 5}} 
                     <span class="partlabel">e</span>
                 {{/rollTotal() icon3 5}}
-                {{#rollTotal() icon3 6}}
+                {{#rollTotal() icon3 6}} 
                     <span class="partlabel">k</span>
                 {{/rollTotal() icon3 6}}
                 <span class="partnumber">{{icon3}}</span>
@@ -885,10 +885,10 @@
         {{#rollGreater() iconlvl 3}}
             <div class="partspacer">j</div>
             <div class="part">
-                {{#rollTotal() icon4 5}}
+                {{#rollTotal() icon4 5}} 
                     <span class="partlabel">e</span>
                 {{/rollTotal() icon4 5}}
-                {{#rollTotal() icon4 6}}
+                {{#rollTotal() icon4 6}} 
                     <span class="partlabel">k</span>
                 {{/rollTotal() icon4 6}}
                 <span class="partnumber">{{icon4}}</span>
@@ -916,19 +916,19 @@
             <span class="partlabel">CON</span>
             <span class="partnumber">{{con_bonus}}</span>
         </div>
-        {{#rollGreater() mod 0}}
+        {{#rollGreater() mod 0}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">MOD</span>
                 <span class="partnumber">{{mod}}</span>
-            </div>
+            </div> 
         {{/rollGreater() mod 0}}
-        {{#rollLess() mod 0}}
+        {{#rollLess() mod 0}} 
             <div class="partspacer">+</div>
             <div class="part">
                 <span class="partlabel">MOD</span>
                 <span class="partnumber">{{mod}}</span>
-            </div>
+            </div> 
         {{/rollLess() mod 0}}
         <div class="partspacer">=</div>
         <div class="result">{{result}}</div>
@@ -1161,103 +1161,29 @@
 
 <!-- WORKERS -->
 <script type="text/worker">
-    // Version handling
-    on("sheet:opened", function() {
-        getAttrs(["sheet-version"], function(v) {
-            var vrs = parseFloat(v["sheet-version"]) || 1.0;
-            if (vrs < 2.0) {
-                // Ability mods to sheet-worker
-                getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(v) {
-                    var conmod = Math.floor((parseInt(v["CON-base"],10) - 10) / 2);
-                    setAttrs({
-                       "STR-mod": Math.floor((parseInt(v["STR-base"],10) - 10) / 2),
-                       "CON-mod": conmod,
-                       "REC-bonus": conmod,
-                       "DEX-mod": Math.floor((parseInt(v["DEX-base"],10) - 10) / 2),
-                       "INT-mod": Math.floor((parseInt(v["INT-base"],10) - 10) / 2),
-                       "WIS-mod": Math.floor((parseInt(v["WIS-base"],10) - 10) / 2),
-                       "CHA-mod": Math.floor((parseInt(v["CHA-base"],10) - 10) / 2),
-                       "sheet-version": 2.0
-                    });
-                });
-            }
-        });
+
+    on("change:repeating_power:name change:repeating_power:type change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function() {
+        updatePower();
     });
 
-    // Abilities
-    on("change:str-base", function(e) {
-        setAttrs({
-            "STR-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
-        });
+    on("change:mweap-final change:mweap-mod1 change:mweap-mod2 change:mweap-mod3 change:mweap1 change:mweap2 change:mweap3 change:mweap3 change:rweap-final change:rweap-mod1 change:rweap-mod2 change:rweap-mod3 change:rweap1 change:rweap2 change:rweap3 change:m-bamod change:r-bamod", function() {
+        updateWeapons();
     });
-    on("change:con-base", function(e) {
-        var mod = Math.floor((parseInt(e.newValue,10) - 10) / 2);
-        setAttrs({
-            "CON-mod": mod,
-            "REC-bonus": mod
-        });
-    });
-    on("change:dex-base", function(e) {
-        setAttrs({
-            "DEX-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
-        });
-    });
-    on("change:int-base", function(e) {
-        setAttrs({
-            "INT-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
-        });
-    });
-    on("change:wis-base", function(e) {
-        setAttrs({
-            "WIS-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
-        });
-    });
-    on("change:cha-base", function(e) {
-        setAttrs({
-            "CHA-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
-        });
-    });
-
-    // AC
-
-    // Recovery
-    on("change:rec_max", function(e) {
-        /* BUG: eventInfo.newValue=NaN on rec_max
-            console.log("eventInfo new value = " + e.newValue);
-            getAttrs(["REC_max"], function(v) {
-                console.log("getAttrs value = " + v.REC_max);
-            });
+    
+    on("change:con-base", function() {
+        getAttrs(["CON-base"], function(v) {
             setAttrs({
-               "rec_flag": e.newValue
+               "REC-bonus": Math.floor((parseInt(v["CON-base"],10) - 10) / 2)
             });
-        */
+        });
+    });
+
+    on("change:rec_max", function() {
         getAttrs(["REC_max"], function(v) {
             setAttrs({
                "rec_flag": v.REC_max
             });
         });
-    });
-    // TEST
-    on("change:rec", function(e) {
-        console.log("REC eventInfo new value = " + e.newValue);
-        getAttrs(["REC"], function(v) {
-            console.log("REC getAttrs value = " + v.REC_max);
-        });
-        /*
-        setAttrs({
-           "rec_flag": e.newValue
-        });
-        */
-    });
-
-    // Powers
-    on("change:repeating_power:name change:repeating_power:type change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function() {
-        updatePower();
-    });
-
-    // Weapons
-    on("change:mweap-final change:mweap-mod1 change:mweap-mod2 change:mweap-mod3 change:mweap1 change:mweap2 change:mweap3 change:mweap3 change:rweap-final change:rweap-mod1 change:rweap-mod2 change:rweap-mod3 change:rweap1 change:rweap2 change:rweap3 change:m-bamod change:r-bamod", function() {
-        updateWeapons();
     });
 
     on("change:icon1-5 change:icon2-5 change:icon3-5 change:icon4-5 change:icon5-5 change:icon1-6 change:icon2-6 change:icon3-6 change:icon4-6 change:icon5-6", function() {
