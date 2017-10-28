@@ -6,15 +6,15 @@
             if (vrs < 2.0) {
                 // Ability mods to sheet-worker
                 getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(v) {
-                    var conmod = Math.floor((parseInt(v["CON-base"],10) - 10) / 2);
+                    var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
                     setAttrs({
-                       "STR-mod": Math.floor((parseInt(v["STR-base"],10) - 10) / 2),
+                       "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
                        "CON-mod": conmod,
                        "REC-bonus": conmod,
-                       "DEX-mod": Math.floor((parseInt(v["DEX-base"],10) - 10) / 2),
-                       "INT-mod": Math.floor((parseInt(v["INT-base"],10) - 10) / 2),
-                       "WIS-mod": Math.floor((parseInt(v["WIS-base"],10) - 10) / 2),
-                       "CHA-mod": Math.floor((parseInt(v["CHA-base"],10) - 10) / 2),
+                       "DEX-mod": Math.floor((parseInt(v["DEX-base"]) - 10) / 2),
+                       "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
+                       "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
+                       "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
                        "sheet-version": 2.0
                     });
                 });
@@ -25,11 +25,11 @@
     // Abilities
     on("change:str-base", function(e) {
         setAttrs({
-            "STR-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
+            "STR-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
         });
     });
     on("change:con-base", function(e) {
-        var mod = Math.floor((parseInt(e.newValue,10) - 10) / 2);
+        var mod = Math.floor((parseInt(e.newValue) - 10) / 2);
         setAttrs({
             "CON-mod": mod,
             "REC-bonus": mod
@@ -37,22 +37,22 @@
     });
     on("change:dex-base", function(e) {
         setAttrs({
-            "DEX-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
+            "DEX-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
         });
     });
     on("change:int-base", function(e) {
         setAttrs({
-            "INT-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
+            "INT-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
         });
     });
     on("change:wis-base", function(e) {
         setAttrs({
-            "WIS-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
+            "WIS-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
         });
     });
     on("change:cha-base", function(e) {
         setAttrs({
-            "CHA-mod": Math.floor((parseInt(e.newValue,10) - 10) / 2)
+            "CHA-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
         });
     });
 
@@ -130,11 +130,17 @@
     /* === FUNCTIONS === */
     // Level
     var updateLVL = function(e) {
-        console.log("**TEST Level = " + e.sourceAttribute);
+        var mlt = 1;
+        if (e.newValue > 7) {mlt=3;}
+        else if (e.newValue > 4) {mlt=2;}
+        setAttrs({"LVL-multiplier": mlt});
     };
     // AC
     var updateAC = function(e) {
-        console.log("**TEST AC = " + e.sourceAttribute);
+        getAttrs(['level','AC-base','CON-mod','DEX-mod','WIS-mod'], function(v){
+            var modarr = _.sortBy([parseInt(v["CON-mod"]),parseInt(v["DEX-mod"]),parseInt(v["WIS-mod"])], function(num) {return num;});
+            setAttrs({"AC": parseInt(v["AC-base"])+parseInt(v["level"])+modarr[1]});
+        });
     };
     // PD
     var updatePD = function(e) {
