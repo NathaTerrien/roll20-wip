@@ -38,22 +38,51 @@ AC-min-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod
 AC-min-con-dex-wis = (((@{AC-min-con-dex}) + (@{WIS-mod}) - abs((@{AC-min-con-dex}) - (@{WIS-mod}))) / 2)
 
 updateAc()
+Déclencheurs : AC-base level CON-mod DEX-mod WIS-mod
 
 --------
 13A-020
 --------
 PD-base
-PD =
-@{PD-base}+@{level}+(@{CON-mod})+(@{DEX-mod})+(@{STR-mod})-(@{PD-max-con-dex-str})-(@{PD-min-con-dex-str})
+PD = @{PD-base}+@{level}+(@{CON-mod})+(@{DEX-mod})+(@{STR-mod})-(@{PD-max-con-dex-str})-(@{PD-min-con-dex-str})
+PD-max-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) + abs((@{CON-mod}) - (@{DEX-mod}))) / 2)
+PD-max-con-dex-str = (((@{PD-max-con-dex}) + (@{STR-mod}) + abs((@{PD-max-con-dex}) - (@{STR-mod}))) / 2)
+PD-min-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod}))) / 2)
+PD-min-con-dex-str = (((@{PD-min-con-dex}) + (@{STR-mod}) - abs((@{PD-min-con-dex}) - (@{STR-mod}))) / 2)
+
+updatePD()
+Déclencheurs : PD-base level CON-mod DEX-mod STR-mod
 
 --------
 13A-021
 --------
 MD-base
-MD =
-@{MD-base}+@{level}+(@{INT-mod})+(@{WIS-mod})+(@{CHA-mod})-(@{MD-max-int-wis-cha})-(@{MD-min-int-wis-cha})
+MD = @{MD-base}+@{level}+(@{INT-mod})+(@{WIS-mod})+(@{CHA-mod})-(@{MD-max-int-wis-cha})-(@{MD-min-int-wis-cha})
+MD-max-int-wis = ((((@{INT-mod}) + (@{WIS-mod})) + abs((@{INT-mod}) - (@{WIS-mod}))) / 2)
+MD-max-int-wis-cha = (((@{MD-max-int-wis}) + (@{CHA-mod}) + abs((@{MD-max-int-wis}) - (@{CHA-mod}))) / 2)
+MD-min-int-wis = ((((@{INT-mod}) + (@{WIS-mod})) - abs((@{INT-mod}) - (@{WIS-mod}))) / 2)
+MD-min-int-wis-cha = (((@{MD-min-int-wis}) + (@{CHA-mod}) - abs((@{MD-min-int-wis}) - (@{CHA-mod}))) / 2)
+
+
+updateMD()
+Déclencheurs : MD-base level INT-mod WIS-mod CHA-mod
 
 --------
 13A-022
 --------
 HP-base
+HP_max =
+HP-5-7 = ceil(((((@{level}-4) + (0)) + abs((@{level}-4) - (0))) / 2)/1000000)*(@{level}-4)
+HP-8-10 = ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000)*2*(@{level}-7)
+HP-multiplier = @{level}+2+@{HP-5-7}+@{HP-8-10}
+
+updateHP()
+Déclencheurs : HP-base level
+
+--------
+13A-024
+--------
+LVL-multiplier = (1+ceil(((((@{level}-4) + (0)) + abs((@{level}-4) - (0))) / 2)/1000000)+ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000))
+
+updateLvl()
+Déclencheurs : level

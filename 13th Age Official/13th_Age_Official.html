@@ -1161,6 +1161,7 @@
 
 <!-- WORKERS -->
 <script type="text/worker">
+    /* === EVENTS === */
     // Version handling
     on("sheet:opened", function() {
         getAttrs(["sheet-version"], function(v) {
@@ -1218,7 +1219,14 @@
         });
     });
 
-    // AC
+    // Level / AC / PD / MD / HP
+    on("change:AC-base change:STR-mod change:CON-mod change:DEX-mod change:INT-mod change:WIS-mod change:CHA-mod change:PD-base change:MD-base change:HP-base change:HP-mod change:level",function(e){
+        if (['level'].includes(e.sourceAttribute)) {updateLVL(e);}
+        if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAC(e);}
+        if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePD(e);}
+        if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMD(e);}
+        if (['level','hp-base','hp-mod'].includes(e.sourceAttribute)) {updateHP(e);}
+    });
 
     // Recovery
     on("change:rec_max", function(e) {
@@ -1237,18 +1245,7 @@
             });
         });
     });
-    // TEST
-    on("change:rec", function(e) {
-        console.log("REC eventInfo new value = " + e.newValue);
-        getAttrs(["REC"], function(v) {
-            console.log("REC getAttrs value = " + v.REC_max);
-        });
-        /*
-        setAttrs({
-           "rec_flag": e.newValue
-        });
-        */
-    });
+
 
     // Powers
     on("change:repeating_power:name change:repeating_power:type change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function() {
@@ -1260,6 +1257,7 @@
         updateWeapons();
     });
 
+    // Icons
     on("change:icon1-5 change:icon2-5 change:icon3-5 change:icon4-5 change:icon5-5 change:icon1-6 change:icon2-6 change:icon3-6 change:icon4-6 change:icon5-6", function() {
         getAttrs(["icon1-5","icon2-5","icon3-5","icon4-5","icon5-5","icon1-6","icon2-6","icon3-6","icon4-6","icon5-6","icon1-5-count","icon2-5-count","icon3-5-count","icon4-5-count","icon5-5-count","icon1-6-count","icon2-6-count","icon3-6-count","icon4-6-count","icon5-6-count"], function(v) {
             var setAttrsObj = {};
@@ -1271,7 +1269,6 @@
             setAttrs(setAttrsObj);
         });
     });
-
     on("change:icon1-5-count change:icon2-5-count change:icon3-5-count change:icon4-5-count change:icon5-5-count change:icon1-6-count change:icon2-6-count change:icon3-6-count change:icon4-6-count change:icon5-6-count", function() {
         getAttrs(["icon1-5-count","icon2-5-count","icon3-5-count","icon4-5-count","icon5-5-count","icon1-6-count","icon2-6-count","icon3-6-count","icon4-6-count","icon5-6-count"], function(v) {
             var setAttrsObj = {},
@@ -1293,6 +1290,29 @@
         });
     });
 
+    /* === FUNCTIONS === */
+    // Level
+    var updateLVL = function(e) {
+        console.log("**TEST Level = " + e.sourceAttribute);
+    };
+    // AC
+    var updateAC = function(e) {
+        console.log("**TEST AC = " + e.sourceAttribute);
+    };
+    // PD
+    var updatePD = function(e) {
+        console.log("**TEST PD = " + e.sourceAttribute);
+    };
+    // MD
+    var updateMD = function(e) {
+        console.log("**TEST MD = " + e.sourceAttribute);
+    };
+    // HP
+    var updateHP = function(e) {
+        console.log("**TEST HP = " + e.sourceAttribute);
+    };
+
+    // Powers
     var updatePower = function() {
         getAttrs(["STR-base","DEX-base","CON-base","INT-base","CHA-base","WIS-base","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
             str = Math.floor((parseInt(v["STR-base"],10) - 10) / 2);
@@ -1377,7 +1397,7 @@
              });
         });
     };
-
+    // Weapons
     var updateWeapons = function() {
         getAttrs(["STR-base","DEX-base","level","MWEAP-final","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","MWEAP1","MWEAP2","MWEAP3","RWEAP-final","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","RWEAP1","RWEAP2","RWEAP3","M-BAMOD","R-BAMOD"], function(v) {
             str = Math.floor((parseInt(v["STR-base"],10) - 10) / 2);
