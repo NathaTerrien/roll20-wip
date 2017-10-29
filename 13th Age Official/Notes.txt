@@ -83,7 +83,7 @@ Déclencheurs : level MD-base INT-mod WIS-mod CHA-mod
 'level','md-base','int-mod','wis-mod','cha-mod'
 
 --------
-13A-022
+XXX 13A-022
 --------
 HP-base
 HP_max = ((@{HP-base}+@{CON-mod})*(@{HP-multiplier}))+(@{HP-mod})
@@ -95,3 +95,4 @@ HP-multiplier = @{level}+2+@{HP-5-7}+@{HP-8-10}
 updateHP()
 Déclencheurs : level HP-base HP-mod
 'level','hp-base','hp-mod'
+

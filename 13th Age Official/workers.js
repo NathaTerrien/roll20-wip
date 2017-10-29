@@ -159,7 +159,17 @@
     };
     // HP
     var updateHP = function(e) {
-        console.log("**TEST HP = " + e.sourceAttribute);
+        getAttrs(['level','HP-base','HP-mod','CON-mod'], function(v){
+            var lvl = 0, mod4 = 0, hpmulti = 0, hpmax = 0;
+            lvl = parseInt(v["level"]) || 1;
+            mod4 = lvl % 4;
+            hpmulti = lvl + 2 + (Math.floor(lvl/4) * mod4) + (Math.floor(lvl/8) * (6 + mod4));
+            hpmax = ((parseInt(v["HP-base"])+parseInt(v["CON-mod"])) * hpmulti) + parseInt(v["HP-mod"]);
+            setAttrs({
+                "HP_max": hpmax,
+                "HP-staggered": Math.floor(hpmax/2)
+            });
+        });
     };
 
     // Powers

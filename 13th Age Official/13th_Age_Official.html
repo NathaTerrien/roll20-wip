@@ -134,9 +134,9 @@
         <div class="derived">
             <div class="dercontainer">
                 <span class="derlabel hp">Max HP</span>
-                <input class="derived" type="text" name="attr_HP_max" value="((@{HP-base}+@{CON-mod})*(@{HP-multiplier}))+(@{HP-mod})" title="@{HP_max}" disabled="true">
+                <input class="derived" type="text" name="attr_HP_max" value="0" title="@{HP_max}" readonly="readonly">
                 <span class="derlabel hp stag">Staggered</span>
-                <input class="derived" type="text" name="attr_HP-staggered" value="(floor((@{HP_max})/2))" title="@{HP-staggered}" disabled="true">
+                <input class="derived" type="text" name="attr_HP-staggered" value="0" title="@{HP-staggered}" readonly="readonly">
             </div>
             <div class="dercontainer">
                 <div class="hpbox">
@@ -705,21 +705,6 @@
     </div>
 
 <!-- HIDDEN FIELDS USED FOR CALCULATIONS -->
-<input type="hidden" disabled="true" name="attr_AC-max-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) + abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_AC-max-con-dex-wis" value="(((@{AC-max-con-dex}) + (@{WIS-mod}) + abs((@{AC-max-con-dex}) - (@{WIS-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_AC-min-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_AC-min-con-dex-wis" value="(((@{AC-min-con-dex}) + (@{WIS-mod}) - abs((@{AC-min-con-dex}) - (@{WIS-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_PD-max-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) + abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_PD-max-con-dex-str" value="(((@{PD-max-con-dex}) + (@{STR-mod}) + abs((@{PD-max-con-dex}) - (@{STR-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_PD-min-con-dex" value="((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_PD-min-con-dex-str" value="(((@{PD-min-con-dex}) + (@{STR-mod}) - abs((@{PD-min-con-dex}) - (@{STR-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_MD-max-int-wis" value="((((@{INT-mod}) + (@{WIS-mod})) + abs((@{INT-mod}) - (@{WIS-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_MD-max-int-wis-cha" value="(((@{MD-max-int-wis}) + (@{CHA-mod}) + abs((@{MD-max-int-wis}) - (@{CHA-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_MD-min-int-wis" value="((((@{INT-mod}) + (@{WIS-mod})) - abs((@{INT-mod}) - (@{WIS-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_MD-min-int-wis-cha" value="(((@{MD-min-int-wis}) + (@{CHA-mod}) - abs((@{MD-min-int-wis}) - (@{CHA-mod}))) / 2)" />
-<input type="hidden" disabled="true" name="attr_HP-5-7" value="ceil(((((@{level}-4) + (0)) + abs((@{level}-4) - (0))) / 2)/1000000)*(@{level}-4)" />
-<input type="hidden" disabled="true" name="attr_HP-8-10" value="ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000)*2*(@{level}-7)" />
-<input type="hidden" disabled="true" name="attr_HP-multiplier" value="@{level}+2+@{HP-5-7}+@{HP-8-10}" />
 <input type="hidden" name="attr_LVL-multiplier" value="1" />
 <input type="hidden" disabled="true" name="attr_E-DIE" value="[[&{noerror}(((((@{tracker|Escalation Die}+0) + (6)) - abs((@{tracker|Escalation Die}+0) - (6))) / 2))]][E-DIE]" />
 
@@ -1168,12 +1153,13 @@
             var vrs = parseFloat(v["sheet-version"]) || 1.0;
             if (vrs < 2.0) {
                 // Ability mods to sheet-worker
-                getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(v) {
+                getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
                     var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
+                    // TODO Level / AC / PD / MD / HP
                     setAttrs({
                        "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
                        "CON-mod": conmod,
-                       "REC-bonus": conmod,
+                       "REC-bonus": Math.max(conmod, parseInt(v["REC-bonus"]) || 0),
                        "DEX-mod": Math.floor((parseInt(v["DEX-base"]) - 10) / 2),
                        "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
                        "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
@@ -1321,7 +1307,18 @@
     };
     // HP
     var updateHP = function(e) {
-        console.log("**TEST HP = " + e.sourceAttribute);
+        getAttrs(['level','HP-base','HP-mod','CON-mod'], function(v){
+            var lvl = 0, mod4 = 0, hpmulti = 0, hpmax = 0;
+            lvl = parseInt(v["level"]) || 1;
+            mod4 = lvl % 4;
+            hpmulti = lvl + 2 + (Math.floor(lvl/4) * mod4) + (Math.floor(lvl/8) * (6 + mod4));
+            console.log("**TEST HP hpmulti = " + hpmulti);
+            hpmax = ((parseInt(v["HP-base"])+parseInt(v["CON-mod"])) * hpmulti) + parseInt(v["HP-mod"]);
+            setAttrs({
+                "HP_max": hpmax,
+                "HP-staggered": Math.floor(hpmax/2)
+            });
+        });
     };
 
     // Powers
@@ -1457,5 +1454,6 @@
             });
         });
     };
+
 
 </script>
