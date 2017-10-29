@@ -144,11 +144,17 @@
     };
     // PD
     var updatePD = function(e) {
-        console.log("**TEST PD = " + e.sourceAttribute);
+        getAttrs(['level','PD-base','STR-mod','CON-mod','DEX-mod'], function(v){
+            var modarr = _.sortBy([parseInt(v["STR-mod"]),parseInt(v["CON-mod"]),parseInt(v["DEX-mod"])], function(num) {return num;});
+            setAttrs({"PD": parseInt(v["PD-base"])+parseInt(v["level"])+modarr[1]});
+        });
     };
     // MD
     var updateMD = function(e) {
-        console.log("**TEST MD = " + e.sourceAttribute);
+        getAttrs(['level','MD-base','INT-mod','WIS-mod','CHA-mod'], function(v){
+            var modarr = _.sortBy([parseInt(v["INT-mod"]),parseInt(v["WIS-mod"]),parseInt(v["CHA-mod"])], function(num) {return num;});
+            setAttrs({"MD": parseInt(v["MD-base"])+parseInt(v["level"])+modarr[1]});
+        });
     };
     // HP
     var updateHP = function(e) {

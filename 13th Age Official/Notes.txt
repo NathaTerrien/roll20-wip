@@ -7,7 +7,7 @@
 -
 
 ---------
-13A-002
+XXX 13A-002
 ---------
 STR-mod
 (floor((@{STR-base}-10)/2))
@@ -28,7 +28,19 @@ CHA-mod
 (floor((@{CHA-base}-10)/2))
 
 --------
-13A-004
+XXX 13A-024
+--------
+LVL-multiplier = (1+ceil(((((@{level}-4) + (0)) + abs((@{level}-4) - (0))) / 2)/1000000)+ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000))
+LVL-multiplier = (1 + Math.ceil(((((e.newValue-4) + (0)) + Math.abs((e.newValue-4) - (0))) / 2)/1000000) + Math.ceil(((((e.newValue-7) + (0)) + Math.abs((e.newValue-7) - (0))) / 2)/1000000))
+updateLvl()
+Déclencheurs : level
+
+1-4 = 1
+5-7 = 2
+8-10 = 3
+
+--------
+XXX 13A-004
 --------
 AC-base
 AC = @{AC-base}+@{level}+(@{CON-mod})+(@{DEX-mod})+(@{WIS-mod})-(@{AC-max-con-dex-wis})-(@{AC-min-con-dex-wis})
@@ -38,10 +50,11 @@ AC-min-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod
 AC-min-con-dex-wis = (((@{AC-min-con-dex}) + (@{WIS-mod}) - abs((@{AC-min-con-dex}) - (@{WIS-mod}))) / 2)
 
 updateAc()
-Déclencheurs : AC-base level CON-mod DEX-mod WIS-mod
+Déclencheurs : level AC-base CON-mod DEX-mod WIS-mod
+['level','ac-base','con-mod','dex-mod','wis-mod']
 
 --------
-13A-020
+XXX 13A-020
 --------
 PD-base
 PD = @{PD-base}+@{level}+(@{CON-mod})+(@{DEX-mod})+(@{STR-mod})-(@{PD-max-con-dex-str})-(@{PD-min-con-dex-str})
@@ -51,10 +64,11 @@ PD-min-con-dex = ((((@{CON-mod}) + (@{DEX-mod})) - abs((@{CON-mod}) - (@{DEX-mod
 PD-min-con-dex-str = (((@{PD-min-con-dex}) + (@{STR-mod}) - abs((@{PD-min-con-dex}) - (@{STR-mod}))) / 2)
 
 updatePD()
-Déclencheurs : PD-base level CON-mod DEX-mod STR-mod
+Déclencheurs : level PD-base STR-mod CON-mod DEX-mod
+'level','pd-base','str-mod','con-mod','dex-mod'
 
 --------
-13A-021
+XXX 13A-021
 --------
 MD-base
 MD = @{MD-base}+@{level}+(@{INT-mod})+(@{WIS-mod})+(@{CHA-mod})-(@{MD-max-int-wis-cha})-(@{MD-min-int-wis-cha})
@@ -65,24 +79,19 @@ MD-min-int-wis-cha = (((@{MD-min-int-wis}) + (@{CHA-mod}) - abs((@{MD-min-int-wi
 
 
 updateMD()
-Déclencheurs : MD-base level INT-mod WIS-mod CHA-mod
+Déclencheurs : level MD-base INT-mod WIS-mod CHA-mod
+'level','md-base','int-mod','wis-mod','cha-mod'
 
 --------
 13A-022
 --------
 HP-base
-HP_max =
+HP_max = ((@{HP-base}+@{CON-mod})*(@{HP-multiplier}))+(@{HP-mod})
+HP-staggered = (floor((@{HP_max})/2))
 HP-5-7 = ceil(((((@{level}-4) + (0)) + abs((@{level}-4) - (0))) / 2)/1000000)*(@{level}-4)
 HP-8-10 = ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000)*2*(@{level}-7)
 HP-multiplier = @{level}+2+@{HP-5-7}+@{HP-8-10}
 
 updateHP()
-Déclencheurs : HP-base level
-
---------
-13A-024
---------
-LVL-multiplier = (1+ceil(((((@{level}-4) + (0)) + abs((@{level}-4) - (0))) / 2)/1000000)+ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000))
-
-updateLvl()
-Déclencheurs : level
+Déclencheurs : level HP-base HP-mod
+'level','hp-base','hp-mod'
