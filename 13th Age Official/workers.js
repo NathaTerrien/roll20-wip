@@ -5,12 +5,13 @@
             var vrs = parseFloat(v["sheet-version"]) || 1.0;
             if (vrs < 2.0) {
                 // Ability mods to sheet-worker
-                getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(v) {
+                getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
                     var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
+                    // TODO Level / AC / PD / MD / HP
                     setAttrs({
                        "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
                        "CON-mod": conmod,
-                       "REC-bonus": conmod,
+                       "REC-bonus": Math.max(conmod, parseInt(v["REC-bonus"]) || 0),
                        "DEX-mod": Math.floor((parseInt(v["DEX-base"]) - 10) / 2),
                        "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
                        "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
