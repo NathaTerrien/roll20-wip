@@ -93,6 +93,10 @@ HP-8-10 = ceil(((((@{level}-7) + (0)) + abs((@{level}-7) - (0))) / 2)/1000000)*2
 HP-multiplier = @{level}+2+@{HP-5-7}+@{HP-8-10}
 
 updateHP()
+HP-multiplier = level + 2 + (Math.floor(level/4) * mod4(level)) + (Math.floor(level/8) * (6 + mod4(level)))
+HP-max = ( (HP-base + CON-mod) * HP-multiplier) + HP-mod
+HP-staggered = Math.floor(HP_max)/2)
+
 Déclencheurs : level HP-base HP-mod
 'level','hp-base','hp-mod'
 
