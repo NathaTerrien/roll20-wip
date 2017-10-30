@@ -7,7 +7,7 @@
                 // Ability mods to sheet-worker
                 getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
                     var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
-                    // TODO Level / AC / PD / MD / HP
+                    // TODO waiting message for update?
                     setAttrs({
                        "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
                        "CON-mod": conmod,
@@ -17,6 +17,13 @@
                        "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
                        "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
                        "sheet-version": 2.0
+                    },{silent: true},function(){
+                        // silent KO ???
+                        getAttrs(["level"],function(v) { updateLvl(v.level); });
+                        updateAc();
+                        updatePd();
+                        updateMd();
+                        updateHp();
                     });
                 });
             }
@@ -59,11 +66,11 @@
 
     // Level / AC / PD / MD / HP
     on("change:AC-base change:STR-mod change:CON-mod change:DEX-mod change:INT-mod change:WIS-mod change:CHA-mod change:PD-base change:MD-base change:HP-base change:HP-mod change:level",function(e){
-        if (['level'].includes(e.sourceAttribute)) {updateLVL(e);}
-        if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAC(e);}
-        if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePD(e);}
-        if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMD(e);}
-        if (['level','hp-base','hp-mod'].includes(e.sourceAttribute)) {updateHP(e);}
+        if (['level'].includes(e.sourceAttribute)) {updateLvl(e.newValue);}
+        if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAc();}
+        if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
+        if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
+        if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
     });
 
     // Recovery
@@ -130,35 +137,40 @@
 
     /* === FUNCTIONS === */
     // Level
-    var updateLVL = function(e) {
-        var mlt = 1;
-        if (e.newValue > 7) {mlt=3;}
-        else if (e.newValue > 4) {mlt=2;}
+    var updateLvl = function(newlvl) {
+        console.log("*** DEBUG updateLvl called");
+        var mlt = 1, lvl = parseInt(newlvl) || 1;
+        if (newlvl > 7) {mlt=3;}
+        else if (newlvl > 4) {mlt=2;}
         setAttrs({"LVL-multiplier": mlt});
     };
     // AC
-    var updateAC = function(e) {
+    var updateAc = function() {
+        console.log("*** DEBUG updateAc called");
         getAttrs(['level','AC-base','CON-mod','DEX-mod','WIS-mod'], function(v){
             var modarr = _.sortBy([parseInt(v["CON-mod"]),parseInt(v["DEX-mod"]),parseInt(v["WIS-mod"])], function(num) {return num;});
             setAttrs({"AC": parseInt(v["AC-base"])+parseInt(v["level"])+modarr[1]});
         });
     };
     // PD
-    var updatePD = function(e) {
+    var updatePd = function() {
+        console.log("*** DEBUG updatePd called");
         getAttrs(['level','PD-base','STR-mod','CON-mod','DEX-mod'], function(v){
             var modarr = _.sortBy([parseInt(v["STR-mod"]),parseInt(v["CON-mod"]),parseInt(v["DEX-mod"])], function(num) {return num;});
             setAttrs({"PD": parseInt(v["PD-base"])+parseInt(v["level"])+modarr[1]});
         });
     };
     // MD
-    var updateMD = function(e) {
+    var updateMd = function() {
+        console.log("*** DEBUG updateMd called");
         getAttrs(['level','MD-base','INT-mod','WIS-mod','CHA-mod'], function(v){
             var modarr = _.sortBy([parseInt(v["INT-mod"]),parseInt(v["WIS-mod"]),parseInt(v["CHA-mod"])], function(num) {return num;});
             setAttrs({"MD": parseInt(v["MD-base"])+parseInt(v["level"])+modarr[1]});
         });
     };
     // HP
-    var updateHP = function(e) {
+    var updateHp = function() {
+        console.log("*** DEBUG updateHp called");
         getAttrs(['level','HP-base','HP-mod','CON-mod'], function(v){
             var lvl = 0, mod4 = 0, hpmulti = 0, hpmax = 0;
             lvl = parseInt(v["level"]) || 1;

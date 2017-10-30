@@ -97,6 +97,6 @@ HP-multiplier = level + 2 + (Math.floor(level/4) * mod4(level)) + (Math.floor(le
 HP-max = ( (HP-base + CON-mod) * HP-multiplier) + HP-mod
 HP-staggered = Math.floor(HP_max)/2)
 
-Déclencheurs : level HP-base HP-mod
-'level','hp-base','hp-mod'
+Déclencheurs : level HP-base HP-mod CON-mod
+'level','hp-base','hp-mod','con-mod'
 
