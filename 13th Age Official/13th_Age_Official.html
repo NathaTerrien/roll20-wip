@@ -79,17 +79,17 @@
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_STR-base" value="10" title="@{STR-base}">
                 <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=Strength}} {{attr_abr=STR}} {{attr_bonus=[[[[@{STR-mod}]][STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{STR-mod}]][STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">STR</button>
-                <input class="attrmod" type="text" name="attr_STR-mod" value="0" title="@{STR-mod}" readonly="readonly" />
+                <span class="attrmod" name="attr_STR-mod" title="@{STR-mod}"></span>
             </div>
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_CON-base" value="10" title="@{CON-base}">
                 <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=Constitution}} {{attr_abr=CON}} {{attr_bonus=[[[[@{CON-mod}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CON-mod}]][CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">CON</button>
-                <input class="attrmod" type="text" name="attr_CON-mod" value="0" title="@{CON-mod}" readonly="readonly" />
+                <span class="attrmod" name="attr_CON-mod" title="@{CON-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: absolute;">
                 <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}">
                 <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">DEX</button>
-                <input class="attrmod" type="text" name="attr_DEX-mod" value="0" title="@{DEX-mod}" readonly="readonly" />
+                <span class="attrmod" name="attr_DEX-mod" title="@{DEX-mod}"></span>
                 <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] &{tracker}]]}}">INITIATIVE</button>
             </div>
         </div>
@@ -97,17 +97,17 @@
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_INT-base" value="10" title="@{INT-base}">
                 <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=Intelligence}} {{attr_abr=INT}} {{attr_bonus=[[[[@{INT-mod}]][INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{INT-mod}]][INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">INT</button>
-                <input class="attrmod" type="text" name="attr_INT-mod" value="0" title="@{INT-mod}"  readonly="readonly" />
+                <span class="attrmod" name="attr_INT-mod" title="@{INT-mod}"></span>
             </div>
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_WIS-base" value="10" title="@{WIS-base}">
                 <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=Wisdom}} {{attr_abr=WIS}} {{attr_bonus=[[[[@{WIS-mod}]][WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{WIS-mod}]][WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">WIS</button>
-                <input class="attrmod" type="text" name="attr_WIS-mod" value="0" title="@{WIS-mod}"  readonly="readonly" />
+                <span class="attrmod" name="attr_WIS-mod" title="@{WIS-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: relative;">
                 <input class="attrbase" type="text" name="attr_CHA-base" value="10" title="@{CHA-base}">
                 <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=Charisma}} {{attr_abr=CHA}} {{attr_bonus=[[[[@{CHA-mod}]][CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CHA-mod}]][CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">CHA</button>
-                <input class="attrmod" type="text" name="attr_CHA-mod" value="0" title="@{CHA-mod}"  readonly="readonly" />
+                <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
                     <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{result=[[1d20]]}}">DEATH SAVE</button>
                     <input type="checkbox" name="attr_DEATHSAVE1">

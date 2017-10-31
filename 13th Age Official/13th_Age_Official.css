@@ -1,9 +1,9 @@
 .sheet-container {
-    width: 750px;   
+    width: 750px;
 }
 
 .sheet-options-check {
-    opacity: 0;    
+    opacity: 0;
     position: absolute;
     top: 60px;
     right: 110px;
@@ -38,7 +38,7 @@
 }
 
 .sheet-options-check:checked ~ .sheet-options {
-    display: block;    
+    display: block;
 }
 
 .sheet-options input {
@@ -69,8 +69,8 @@ input {
     margin-bottom: 10px;
 }
 
-.sheet-meta, 
-.sheet-attributes, 
+.sheet-meta,
+.sheet-attributes,
 .sheet-derived {
     display: inline-block;
     height: 100px;
@@ -79,7 +79,7 @@ input {
 
 .sheet-metacontainer {
     line-height: 24px;
-    font-size: 14px;  
+    font-size: 14px;
 }
 
 .sheet-meta {
@@ -92,7 +92,7 @@ input {
 }
 
 .sheet-meta input {
-    border-bottom: 1px solid black;  
+    border-bottom: 1px solid black;
     width: 135px;
     display: inline-block;
     font-size: 14px;
@@ -198,13 +198,17 @@ input {
 
 .sheet-attributes .sheet-attrmod {
     border: 5px solid #014A89;
-    font-size: 12px;
     text-align: center;
     font-size: 14px;
     vertical-align: top;
     width: 30px;
     margin-left: -5px;
     border-radius: 0px;
+}
+.sheet-attributes span.sheet-attrmod{
+    display: inline-block;
+    width: 20px;
+    height: 18px;
 }
 
 .sheet-derived .sheet-derlabel {
@@ -260,7 +264,7 @@ input {
     border-left: 5px solid #014A89;
     border-right: 5px solid #014A89;
     border-bottom: 5px solid #014A89;
-    margin-top: -1px; 
+    margin-top: -1px;
 }
 
 .sheet-derived .sheet-hpbox span {
@@ -320,11 +324,11 @@ input[type="radio"].sheet-normal + span::before {
     text-align: middle;
     display: inline-block;
     vertical-align: middle;
-    
+
     -moz-box-shadow: 0 0 0px #000;
     -webkit-box-shadow: 0 0 0px #000;
     box-shadow: 0 0 0px #000;
-    
+
     background: #000000;
     background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
     background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
@@ -341,14 +345,14 @@ input[type="radio"].sheet-normal + span::before {
     font-family: "Arial";
     text-indent: -2px;
     font-weight: normal;
-    
+
     -webkit-font-smoothing: antialiased;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
 
-input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {    
+input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     content: "";
 }
 
@@ -407,7 +411,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     appearance: none;
     padding: 0px;
     border: 0px;
-    height: 18px;   
+    height: 18px;
 }
 
 .sheet-iconrelationship .sheet-short {
@@ -538,7 +542,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 }
 
 .sheet-poweroptions-check {
-    opacity: 0;    
+    opacity: 0;
     position: absolute;
     top: -8px;
     right: -18px;
@@ -550,7 +554,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-power:hover .sheet-poweroptions-check + span,
 .sheet-power .sheet-poweroptions-check:checked + span
 {
-    display: block;    
+    display: block;
 }
 
 .sheet-power .sheet-poweroptions-check + span {
@@ -572,7 +576,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 }
 
 .sheet-poption {
-    display: none;    
+    display: none;
 }
 
 .sheet-power .sheet-topspacer {
@@ -583,7 +587,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 }
 
 .sheet-power .sheet-poweroptions-check:checked + span ~ .sheet-poption {
-    display: inline-block;    
+    display: inline-block;
 }
 
 .sheet-power .sheet-poweroptions-check:checked + span ~ .sheet-spacer,
@@ -704,7 +708,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 }
 
 .sheet-header .sheet-right span span.sheet-typelabel {
-    display: none;    
+    display: none;
 }
 
 .sheet-At-Will:checked ~ .sheet-header .sheet-right span span.sheet-typelabel.sheet-At-Will,
@@ -764,11 +768,11 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 }
 
 .sheet-power .sheet-repbody .sheet-bold {
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 .sheet-power .sheet-repbody span {
-    display: none;    
+    display: none;
 }
 
 .sheet-power .sheet-full {
@@ -776,7 +780,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     width: 205px;
 }
 
-.sheet-power .sheet-repbody .sheet-left input.sheet-fuller 
+.sheet-power .sheet-repbody .sheet-left input.sheet-fuller
 {
     margin-left: 0px;
     width: 215px;
@@ -855,13 +859,13 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-Attack:checked ~ .sheet-repbody .sheet-attack,
 .sheet-Hit:checked ~ .sheet-repbody .sheet-hit-miss
 {
-    display: block;    
+    display: block;
 }
 
 .sheet-Action:checked ~ .sheet-repbody .sheet-action,
 .sheet-Range:checked ~ .sheet-repbody .sheet-range
 {
-    display: inline;    
+    display: inline;
 }
 
 .sheet-Target:checked ~ .sheet-repbody .sheet-target,
@@ -908,12 +912,12 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-cust3subcust3,
 .sheet-cust3subcust4
 {
-    display: none;   
+    display: none;
 }
 
-.sheet-rolltemplate-attr .sheet-header, 
-.sheet-rolltemplate-rec .sheet-header, 
-.sheet-rolltemplate-icon .sheet-header, 
+.sheet-rolltemplate-attr .sheet-header,
+.sheet-rolltemplate-rec .sheet-header,
+.sheet-rolltemplate-icon .sheet-header,
 .sheet-rolltemplate-init .sheet-header,
 .sheet-rolltemplate-deathsave .sheet-header
 {
@@ -927,9 +931,9 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     height: 16px;
 }
 
-.withoutavatars .sheet-rolltemplate-attr .sheet-header, 
-.withoutavatars .sheet-rolltemplate-rec .sheet-header, 
-.withoutavatars .sheet-rolltemplate-icon .sheet-header, 
+.withoutavatars .sheet-rolltemplate-attr .sheet-header,
+.withoutavatars .sheet-rolltemplate-rec .sheet-header,
+.withoutavatars .sheet-rolltemplate-icon .sheet-header,
 .withoutavatars .sheet-rolltemplate-init .sheet-header,
 .withoutavatars .sheet-rolltemplate-deathsave .sheet-header,
 .withoutavatars .sheet-rolltemplate-power .sheet-header,
@@ -942,7 +946,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-rolltemplate-rec .sheet-headerlabel,
 .sheet-rolltemplate-icon .sheet-headerlabel,
 .sheet-rolltemplate-init .sheet-headerlabel,
-.sheet-rolltemplate-deathsave .sheet-headerlabel 
+.sheet-rolltemplate-deathsave .sheet-headerlabel
 {
     color: white;
 }
@@ -1004,11 +1008,11 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     margin-right: -5px;
 }
 
-.sheet-rolltemplate-attr .sheet-body .sheet-part:not(:first-child), 
-.sheet-rolltemplate-rec .sheet-body .sheet-part:not(:first-child), 
-.sheet-rolltemplate-icon .sheet-body .sheet-part:not(:first-child), 
+.sheet-rolltemplate-attr .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-rec .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-icon .sheet-body .sheet-part:not(:first-child),
 .sheet-rolltemplate-init .sheet-body .sheet-part:not(:first-child),
-.sheet-rolltemplate-deathsave .sheet-body .sheet-part:not(:first-child) 
+.sheet-rolltemplate-deathsave .sheet-body .sheet-part:not(:first-child)
 {
     margin-left: -5px;
 }
@@ -1027,7 +1031,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-rolltemplate-rec .sheet-body .sheet-part .inlinerollresult,
 .sheet-rolltemplate-icon .sheet-body .sheet-part .inlinerollresult,
 .sheet-rolltemplate-init .sheet-body .sheet-part .inlinerollresult,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-part .inlinerollresult 
+.sheet-rolltemplate-deathsave .sheet-body .sheet-part .inlinerollresult
 {
     background-color: inherit;
     border: 0px;
@@ -1041,7 +1045,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-rolltemplate-rec .sheet-body .sheet-partspacer,
 .sheet-rolltemplate-icon .sheet-body .sheet-partspacer,
 .sheet-rolltemplate-init .sheet-body .sheet-partspacer,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-partspacer 
+.sheet-rolltemplate-deathsave .sheet-body .sheet-partspacer
 {
     display: inline-block;
 }
@@ -1050,7 +1054,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-rolltemplate-rec .sheet-body .sheet-result,
 .sheet-rolltemplate-icon .sheet-body .sheet-result,
 .sheet-rolltemplate-init .sheet-body .sheet-result,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-result 
+.sheet-rolltemplate-deathsave .sheet-body .sheet-result
 {
     display: inline-block;
     position: relative;
@@ -1059,7 +1063,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 
 .sheet-rolltemplate-icon .sheet-body .sheet-partspacer,
 .sheet-rolltemplate-icon .sheet-body .sheet-partlabel {
-    font-family: pictos;   
+    font-family: pictos;
 }
 
 .sheet-rolltemplate-power .sheet-body {
