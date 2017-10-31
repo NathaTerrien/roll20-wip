@@ -7,7 +7,9 @@
                 // Ability mods to sheet-worker
                 getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
                     var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
-                    // TODO waiting message for update?
+                    /* TODO
+                      - waiting message for update?
+                    */
                     setAttrs({
                        "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
                        "CON-mod": conmod,
@@ -24,6 +26,7 @@
                         updatePd();
                         updateMd();
                         updateHp();
+                        updateBckgrd(1);
                     });
                 });
             }
@@ -65,12 +68,17 @@
     });
 
     // Level / AC / PD / MD / HP
-    on("change:AC-base change:STR-mod change:CON-mod change:DEX-mod change:INT-mod change:WIS-mod change:CHA-mod change:PD-base change:MD-base change:HP-base change:HP-mod change:level",function(e){
+    on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level",function(e){
         if (['level'].includes(e.sourceAttribute)) {updateLvl(e.newValue);}
         if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAc();}
         if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
         if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
         if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
+    });
+
+    // Background selection
+    on("change:back-sel", function(e){
+        updateBckgrd(parseInt(e.newValue) || 1);
     });
 
     // Recovery
@@ -181,6 +189,13 @@
                 "HP_max": hpmax,
                 "HP-staggered": Math.floor(hpmax/2)
             });
+        });
+    };
+    // Background
+    var updateBckgrd = function(bcknb) {
+        getAttrs(['BACK'+bcknb,'BACK-name'+bcknb], function (v) {
+            var backval = parseInt(v['BACK'+bcknb]) || 0;
+            setAttrs({"BACK-final": '[[' + backval + ']][BCK]]]}} {{back=' + v['BACK-name'+bcknb] + '}} {{back_bonus='+ backval + '}}'});
         });
     };
 

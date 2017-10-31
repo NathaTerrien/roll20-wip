@@ -285,52 +285,52 @@
             <div class="bodycontainer">
                 <div class="header">Backgrounds</div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK1}+0]][BCK]]]}} {{back=@{BACK-name1}}} {{back_bonus=@{back1}}}" checked="checked" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="1" checked="checked" />
                     <input type="text" class="title" name="attr_BACK-name1" placeholder="Assassin" />
                     <input type="text" class="background" name="attr_BACK1" placeholder="2" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK2}+0]][BCK]]]}} {{back=@{BACK-name2}}} {{back_bonus=@{back2}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="2" />
                     <input type="text" class="title" name="attr_BACK-name2" />
                     <input type="text" class="background" name="attr_BACK2" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK3}+0]][BCK]]]}} {{back=@{BACK-name3}}} {{back_bonus=@{back3}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="3" />
                     <input type="text" class="title" name="attr_BACK-name3" />
                     <input type="text" class="background" name="attr_BACK3" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK4}+0]][BCK]]]}} {{back=@{BACK-name4}}} {{back_bonus=@{back4}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="4" />
                     <input type="text" class="title" name="attr_BACK-name4" />
                     <input type="text" class="background" name="attr_BACK4" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK5}+0]][BCK]]]}} {{back=@{BACK-name5}}} {{back_bonus=@{back5}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="5" />
                     <input type="text" class="title" name="attr_BACK-name5" />
                     <input type="text" class="background" name="attr_BACK5" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK6}+0]][BCK]]]}} {{back=@{BACK-name6}}} {{back_bonus=@{back6}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="6" />
                     <input type="text" class="title" name="attr_BACK-name6" />
                     <input type="text" class="background" name="attr_BACK6" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK7}+0]][BCK]]]}} {{back=@{BACK-name7}}} {{back_bonus=@{back7}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="7" />
                     <input type="text" class="title" name="attr_BACK-name7" />
                     <input type="text" class="background" name="attr_BACK7" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK8}+0]][BCK]]]}} {{back=@{BACK-name8}}} {{back_bonus=@{back8}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="8" />
                     <input type="text" class="title" name="attr_BACK-name8" />
                     <input type="text" class="background" name="attr_BACK8" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK9}+0]][BCK]]]}} {{back=@{BACK-name9}}} {{back_bonus=@{back9}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="9" />
                     <input type="text" class="title" name="attr_BACK-name9" />
                     <input type="text" class="background" name="attr_BACK9" />
                 </div>
                 <div class="background">
-                    <input type="radio" class="background" name="attr_BACK-final" value="[[@{BACK10}+0]][BCK]]]}} {{back=@{BACK-name10}}} {{back_bonus=@{back10}}}" />
+                    <input type="radio" class="background" name="attr_BACK-sel" value="10" />
                     <input type="text" class="title" name="attr_BACK-name10" />
                     <input type="text" class="background" name="attr_BACK10" />
                 </div>
@@ -1155,7 +1155,9 @@
                 // Ability mods to sheet-worker
                 getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
                     var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
-                    // TODO waiting message for update?
+                    /* TODO
+                      - waiting message for update?
+                    */
                     setAttrs({
                        "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
                        "CON-mod": conmod,
@@ -1166,12 +1168,13 @@
                        "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
                        "sheet-version": 2.0
                     },{silent: true},function(){
-                        // KO ... ???
+                        // silent KO ???
                         getAttrs(["level"],function(v) { updateLvl(v.level); });
                         updateAc();
                         updatePd();
                         updateMd();
                         updateHp();
+                        updateBckgrd(1);
                     });
                 });
             }
@@ -1213,12 +1216,17 @@
     });
 
     // Level / AC / PD / MD / HP
-    on("change:AC-base change:STR-mod change:CON-mod change:DEX-mod change:INT-mod change:WIS-mod change:CHA-mod change:PD-base change:MD-base change:HP-base change:HP-mod change:level",function(e){
+    on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level",function(e){
         if (['level'].includes(e.sourceAttribute)) {updateLvl(e.newValue);}
         if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAc();}
         if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
         if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
         if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
+    });
+
+    // Background selection
+    on("change:back-sel", function(e){
+        updateBckgrd(parseInt(e.newValue) || 1);
     });
 
     // Recovery
@@ -1329,6 +1337,13 @@
                 "HP_max": hpmax,
                 "HP-staggered": Math.floor(hpmax/2)
             });
+        });
+    };
+    // Background
+    var updateBckgrd = function(bcknb) {
+        getAttrs(['BACK'+bcknb,'BACK-name'+bcknb], function (v) {
+            var backval = parseInt(v['BACK'+bcknb]) || 0;
+            setAttrs({"BACK-final": '[[' + backval + ']][BCK]]]}} {{back=' + v['BACK-name'+bcknb] + '}} {{back_bonus='+ backval + '}}'});
         });
     };
 
