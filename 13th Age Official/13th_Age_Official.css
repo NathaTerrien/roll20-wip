@@ -19,13 +19,13 @@
     white-space: nowrap;
     width: 18px;
     height: 18px;
-    background:url(http://i.imgur.com/KaX7Y7u.png) left top no-repeat;
+    background:url(http://i.imgur.com/KaX7Y7u.png) left top no-repeat;  /* gear_gray.png */
     background-size: contain;
     cursor: pointer;
 }
 
 .sheet-options-check:checked + span {
-    background:url(http://i.imgur.com/f4zmPUQ.png) left top no-repeat;
+    background:url(http://i.imgur.com/f4zmPUQ.png) left top no-repeat; /* gear_black.png */
     background-size: contain;
 }
 
@@ -61,7 +61,7 @@ input {
 }
 
 .sheet-logo {
-    background:url(http://i.imgur.com/o7O88Ta.jpg) left top no-repeat;
+    background:url(http://i.imgur.com/o7O88Ta.jpg) left top no-repeat; /* 13th_Age_Official_logo.jpg */
     background-size: contain;
     width: 238px;
     height: 238px;
@@ -1188,14 +1188,16 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     margin-right: -3px;
 }
 
-.sheet-ba-attack input.sheet-stat {
+.sheet-ba-attack input.sheet-stat,
+.sheet-ba-attack span.sheet-stat {
+    display: inline-block;
     width: 60px;
     margin-left: -3px;
     overflow: visible;
     right: -3px;
     position: relative;
     pointer-events: none;
-    text-align: left
+    text-align: left;
 }
 
 .sheet-ba-hit input.sheet-stat {

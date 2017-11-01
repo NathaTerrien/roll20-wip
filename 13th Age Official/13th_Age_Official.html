@@ -441,13 +441,13 @@
                         <span class="left"><b>Target:</b> One creature</span>
                         <span class="right ba-attack">
                             <b>Attack:</b>
-                            <input class="stat" type="text" name="attr_MBA-attackvs" value="" title="@{HP_MBA-attackbonus}" style="pointer-events: none;" />
+                            <span class="stat" name="attr_MBA-attackvs"  title="@{MBA-attackvs}"></span>
                         </span>
                     </span>
                     <span class="row">
                         <span class="left ba-hit">
                             <b>Hit:</b>
-                            <input class="stat" type="text" name="attr_MBA-hit" value="" title="@{MBA-numdice}" style="pointer-events: none;" />
+                            <input class="stat" type="text" name="attr_MBA-hit" value="" title="@{MBA-hit}" style="pointer-events: none;" />
                         </span>
                         <span class="right">
                             <b>Miss:</b>
@@ -705,7 +705,6 @@
     </div>
 
 <!-- HIDDEN FIELDS USED FOR CALCULATIONS -->
-<input type="hidden" name="attr_LVL-multiplier" value="1" />
 <input type="hidden" disabled="true" name="attr_E-DIE" value="[[&{noerror}(((((@{tracker|Escalation Die}+0) + (6)) - abs((@{tracker|Escalation Die}+0) - (6))) / 2))]][E-DIE]" />
 
 </div>
