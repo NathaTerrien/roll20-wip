@@ -209,6 +209,7 @@ input {
     display: inline-block;
     width: 20px;
     height: 18px;
+    cursor: default;
 }
 
 .sheet-derived .sheet-derlabel {
@@ -227,6 +228,7 @@ input {
     display: inline-block;
     width: 25px;
     height: 18px;
+    cursor: default;
 }
 
 .sheet-derived .sheet-derbubble {
@@ -247,6 +249,7 @@ input {
     width: 32px;
     height: 22px;
     line-height: 22px;
+    cursor: default;
 }
 
 .sheet-derived .sheet-derlabel.sheet-hp {
@@ -518,6 +521,10 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-power .sheet-stat {
     width: 14px;
     text-align: center;
+}
+.sheet-power span.sheet-stat {
+    display: inline-block;
+    cursor: default;
 }
 
 .sheet-power button[type=roll].sheet-powerroll {
@@ -1188,7 +1195,6 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     margin-right: -3px;
 }
 
-.sheet-ba-attack input.sheet-stat,
 .sheet-ba-attack span.sheet-stat {
     display: inline-block;
     width: 60px;
@@ -1196,14 +1202,15 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     overflow: visible;
     right: -3px;
     position: relative;
-    pointer-events: none;
+    cursor: default;
     text-align: left;
 }
 
-.sheet-ba-hit input.sheet-stat {
+.sheet-ba-hit span.sheet-stat {
+    display: inline-block;
     width: 100px;
     text-align: left;
-    pointer-events: none;
+    cursor: default;
 }
 
 .sheet-iconrelationship input[type=radio]:checked ~ input,

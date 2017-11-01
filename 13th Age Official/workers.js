@@ -21,7 +21,7 @@
                        "sheet-version": 2.0
                     },{silent: true},function(){
                         // silent KO ???
-                        getAttrs(["level"],function(v) { updateLvl(v.level); });
+                        updateLvl();
                         updateAc();
                         updatePd();
                         updateMd();
@@ -68,8 +68,8 @@
     });
 
     // Level / AC / PD / MD / HP
-    on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level",function(e){
-        if (['level'].includes(e.sourceAttribute)) {updateLvl(e.newValue);}
+    on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level change:m-miss change:r-miss",function(e){
+        if (['level','m-miss','r-miss'].includes(e.sourceAttribute)) {updateLvl();}
         if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAc();}
         if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
         if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
@@ -145,12 +145,20 @@
 
     /* === FUNCTIONS === */
     // Level
-    var updateLvl = function(newlvl) {
+    var updateLvl = function() {
         console.log("*** DEBUG updateLvl called");
-        var mlt = 1, lvl = parseInt(newlvl) || 1;
-        if (newlvl > 7) {mlt=3;}
-        else if (newlvl > 4) {mlt=2;}
-        setAttrs({"LVL-multiplier": mlt});
+        getAttrs(['level','M-MISS','R-MISS'], function (v) {
+            var mlt = 1, mmiss = 0, rmiss = 0, newlvl = parseInt(v['level']) || 1;
+            if (newlvl > 7) {mlt=3;}
+            else if (newlvl > 4) {mlt=2;}
+            if (v['M-MISS'] != '0') {mmiss = newlvl;}
+            if (v['R-MISS'] != '0') {rmiss = newlvl;}
+            setAttrs({
+                "LVL-multiplier": mlt,
+                "MBA-miss": mmiss,
+                "RBA-miss": rmiss
+            });
+        });
     };
     // AC
     var updateAc = function() {
