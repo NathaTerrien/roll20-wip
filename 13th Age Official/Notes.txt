@@ -99,4 +99,3 @@ HP-staggered = Math.floor(HP_max)/2)
 
 Déclencheurs : level HP-base HP-mod CON-mod
 'level','hp-base','hp-mod','con-mod'
-
