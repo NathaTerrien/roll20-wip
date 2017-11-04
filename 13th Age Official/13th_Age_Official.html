@@ -1,58 +1,66 @@
 <div class="container">
-    <input class="options-check" type="checkbox" name="attr_options-check" checked="checked" /><span></span>
+    <input class="options-check" type="checkbox" name="attr_options-check" checked="checked" title="Show/hide options" /><span></span>
     <div class="options">
         <span class="row" style="font-size: 20px; margin-bottom: 10px;">
             Options
         </span>
-        <div style="width: 250px; display: inline-block;">
-            <span class="row">
-                <span>Base AC from class</span><input type="number" name="attr_AC-base" value="10" title="@{AC-base}" />
-            </span>
-            <span class="row">
-                <span>Base PD from class</span><input type="number" name="attr_PD-base" value="10" title="@{PD-base}" />
-            </span>
-            <span class="row">
-                <span>Base MD from class</span><input type="number" name="attr_MD-base" value="10" title="@{MC-base}" />
-            </span>
-            <span class="row">
-                <span>Base HP from class</span><input type="number" name="attr_HP-base" value="7" title="@{HP-base}" />
-            </span>
-            <span class="row">
-                <span>Melee Basic Attack Based On</span>
-                    <select name="attr_M-BAMOD">
-                        <option value="@{STR-mod}" selected="selected">STR</option>
-                        <option value="@{DEX-mod}">DEX</option>
-                    </select>
-            </span>
-            <span class="row">
-                <span>Damage on Melee Miss</span>
-                    <select name="attr_M-MISS">
-                        <option value="0">-</option>
-                        <option value="@{level}" selected="selected">Level</option>
-                    </select>
-            </span>
-            <span class="row">
-                <span>Ranged Basic Attack Based On</span>
-                    <select name="attr_R-BAMOD">
-                        <option value="@{STR-mod}">STR</option>
-                        <option value="@{DEX-mod}" selected="selected">DEX</option>
-                    </select>
-            </span>
-            <span class="row">
-                <span>Damage on Ranged Miss</span>
-                    <select name="attr_R-MISS">
-                        <option value="0" selected="selected">-</option>
-                        <option value="@{level}">Level</option>
-                    </select>
-            </span>
-            <span class="row">
-                <span>Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}" />
-            </span>
+        <div>
+            <div style="width: 250px; margin-bottom: 4px;display: inline-block;">
+                <span class="row">
+                    <span>Base AC from class</span><input type="number" name="attr_AC-base" value="10" title="@{AC-base}" />
+                </span>
+                <span class="row">
+                    <span>Base PD from class</span><input type="number" name="attr_PD-base" value="10" title="@{PD-base}" />
+                </span>
+                <span class="row">
+                    <span>Base MD from class</span><input type="number" name="attr_MD-base" value="10" title="@{MC-base}" />
+                </span>
+            </div>
+            <div style="width: 450px; display: inline-block; vertical-align: top;color: #666;">
+                <span class="row">
+                    These are base numbers necessary for the automatic calculations below to work. After you've input these numbers you're encouraged to click on the gear icon in the upper right hand corner to hide this section.
+                </span>
+            </div>
         </div>
-        <div style="width: 450px; display: inline-block; vertical-align: top; color: #666;">
-            <span class="row" style="">
-                These are base numbers necessary for the automatic calculations below to work. After you've input these numbers you're encouraged to click on the gear icon in the upper right hand corner to hide this section.
-            </span>
+        <div>
+            <div style="width: 250px; margin-bottom: 4px;display: inline-block;">
+                <span class="row">
+                    <span class="lib">Base HP from class</span><input type="number" name="attr_HP-base" value="7" title="@{HP-base}" />
+                </span>
+                <span class="row">
+                    <span class="lib">Melee Basic Attack Based On</span>
+                        <select name="attr_M-BAMOD">
+                            <option value="@{STR-mod}" selected="selected">STR</option>
+                            <option value="@{DEX-mod}">DEX</option>
+                        </select>
+                </span>
+                <span class="row">
+                    <span class="lib">Ranged Basic Attack Based On</span>
+                        <select name="attr_R-BAMOD">
+                            <option value="@{STR-mod}">STR</option>
+                            <option value="@{DEX-mod}" selected="selected">DEX</option>
+                        </select>
+                </span>
+            </div>
+            <div style="width: 450px; display: inline-block; vertical-align: top;">
+                <span class="row">
+                    <span class="lib">Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}" />
+                </span>
+                <span class="row">
+                    <span class="lib">Damage on Melee Miss</span>
+                        <select name="attr_M-MISS">
+                            <option value="0">-</option>
+                            <option value="@{level}" selected="selected">Level</option>
+                        </select>
+                </span>
+                <span class="row">
+                    <span class="lib">Damage on Ranged Miss</span>
+                        <select name="attr_R-MISS">
+                            <option value="0" selected="selected">-</option>
+                            <option value="@{level}">Level</option>
+                        </select>
+                </span>
+            </div>
         </div>
     </div>
     <div class="header">
@@ -644,53 +652,53 @@
                     <!-- TEMPLATE -->
                     <div class="header">
                         <button class="powerlabel" type="roll" name="roll_power" value="&{template:power} {{name=@{name}}} @{type} @{action} @{range} @{target} @{attack} @{cust1} @{cust2} @{cust3}">
-                            <input class="label" type="text" name="attr_powname-display" value="" />
+                            <span class="label" name="attr_powname-display"></span>
                         </button>
                         <div style="position: absolute; top: 5px; right: -8px;">
                             <input class="1" type="checkbox" name="attr_uses1" />
                             <input class="2" type="checkbox" name="attr_uses2" />
                             <input class="3" type="checkbox" name="attr_uses3" />
                             <input class="4" type="checkbox" name="attr_uses4" />
-                            <input class="typelabel" type="text" name="attr_type-display" value="" />
+                            <span class="label" name="attr_type-display"></span>
                         </div>
                     </div>
                     <div class="repbody">
                         <span class="action-range">
                             <span class="left action">
-                                <input class="label bold" type="text" name="attr_action-display" value="" />
+                                <span class="label bold" name="attr_action-display"></span>
                             </span>
                             <span class="right range">
-                                <input class="label bold" type="text" name="attr_range-display" value="" />
+                                <span class="label bold" name="attr_range-display"></span>
                             </span>
                         </span>
                         <span class="left target">
                             <b>Target:</b>
-                            <input class="label" type="text" name="attr_target-display" value="" style="width: 180px;" />
+                            <span class="label" name="attr_target-display" style="width: 180px;"></span>
                         </span>
                         <span class="left attack">
                             <b>Attack:</b>
-                            <input class="label" type="text" name="attr_attack-display" value="" style="width: 115px; text-align: left;" />
+                            <span class="label" name="attr_attack-display" style="width: 115px; text-align: left;"></span>
                         </span>
                         <span class="left cust1">
-                            <input class="label bold toplineleft" type="text" name="attr_cust1-display" value="" />
-                            <input class="cust1subcust1 toplineright" type="text" name="attr_cust1-subcust1-display" value="" />
-                            <input class="cust1subcust2 fuller" type="text" name="attr_cust1-subcust2-display" value="" />
-                            <input class="cust1subcust3 fuller" type="text" name="attr_cust1-subcust3-display" value="" />
-                            <input class="cust1subcust4 fuller" type="text" name="attr_cust1-subcust4-display" value="" />
+                            <span class="label bold toplineleft" name="attr_cust1-display"></span>
+                            <span class="cust1subcust1 toplineright" name="attr_cust1-subcust1-display"></span>
+                            <span class="cust1subcust2 fuller" name="attr_cust1-subcust2-display"></span>
+                            <span class="cust1subcust3 fuller" name="attr_cust1-subcust3-display"></span>
+                            <span class="cust1subcust4 fuller" name="attr_cust1-subcust4-display"></span>
                         </span>
                         <span class="left cust2">
-                            <input class="label bold toplineleft" type="text" name="attr_cust2-display" value="" />
-                            <input class="cust2subcust1 toplineright" type="text" name="attr_cust2-subcust1-display" value="" />
-                            <input class="cust2subcust2 fuller" type="text" name="attr_cust2-subcust2-display" value="" />
-                            <input class="cust2subcust3 fuller" type="text" name="attr_cust2-subcust3-display" value="" />
-                            <input class="cust2subcust4 fuller" type="text" name="attr_cust2-subcust4-display" value="" />
+                            <span class="label bold toplineleft" name="attr_cust2-display"></span>
+                            <span class="cust2subcust1 toplineright" name="attr_cust2-subcust1-display"></span>
+                            <span class="cust2subcust2 fuller" name="attr_cust2-subcust2-display"></span>
+                            <span class="cust2subcust3 fuller" name="attr_cust2-subcust3-display"></span>
+                            <span class="cust2subcust4 fuller" name="attr_cust2-subcust4-display"></span>
                         </span>
                         <span class="left cust3">
-                            <input class="label bold toplineleft" type="text" name="attr_cust3-display" value="" />
-                            <input class="cust3subcust1 toplineright" type="text" name="attr_cust3-subcust1-display" value="" />
-                            <input class="cust3subcust2 fuller" type="text" name="attr_cust3-subcust2-display" value="" />
-                            <input class="cust3subcust3 fuller" type="text" name="attr_cust3-subcust3-display" value="" />
-                            <input class="cust3subcust4 fuller" type="text" name="attr_cust3-subcust4-display" value="" />
+                            <span class="label bold toplineleft" name="attr_cust3-display"></span>
+                            <span class="cust3subcust1 toplineright" name="attr_cust3-subcust1-display"></span>
+                            <span class="cust3subcust2 fuller" name="attr_cust3-subcust2-display"></span>
+                            <span class="cust3subcust3 fuller" name="attr_cust3-subcust3-display"></span>
+                            <span class="cust3subcust4 fuller" name="attr_cust3-subcust4-display"></span>
                         </span>
                     </div>
                 </div>
