@@ -1,5 +1,4 @@
 <div class="container">
-    <input type="hidden" name="attr_sheet-version" value="1.0" />
     <input class="options-check" type="checkbox" name="attr_options-check" checked="checked" /><span></span>
     <div class="options">
         <span class="row" style="font-size: 20px; margin-bottom: 10px;">
@@ -1145,37 +1144,8 @@
 <script type="text/worker">
     /* === EVENTS === */
     // Version handling
-    on("sheet:opened", function() {
-        getAttrs(["sheet-version"], function(v) {
-            var vrs = parseFloat(v["sheet-version"]) || 1.0;
-            if (vrs < 2.0) {
-                // Ability mods to sheet-worker
-                getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
-                    var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
-                    /* TODO
-                      - waiting message for update?
-                    */
-                    setAttrs({
-                       "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
-                       "CON-mod": conmod,
-                       "REC-bonus": Math.max(conmod, parseInt(v["REC-bonus"]) || 0),
-                       "DEX-mod": Math.floor((parseInt(v["DEX-base"]) - 10) / 2),
-                       "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
-                       "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
-                       "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
-                       "sheet-version": 2.0
-                    },{silent: true},function(){
-                        // silent KO ???
-                        updateLvl();
-                        updateAc();
-                        updatePd();
-                        updateMd();
-                        updateHp();
-                        updateBckgrd(1);
-                    });
-                });
-            }
-        });
+    on("sheet:opened", function(eventinfo) {
+        versioning();
     });
 
     // Abilities
@@ -1221,9 +1191,14 @@
         if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
     });
 
-    // Background selection
+    // Background
     on("change:back-sel", function(e){
         updateBckgrd(parseInt(e.newValue) || 1);
+    });
+    on("change:BACK-name1 change:BACK1 change:BACK-name2 change:BACK2 change:BACK-name3 change:BACK3 change:BACK-name4 change:BACK4 change:BACK-name5 change:BACK5 change:BACK-name6 change:BACK6 change:BACK-name7 change:BACK7 change:BACK-name8 change:BACK8 change:BACK-name9 change:BACK9 change:BACK-name10 change:BACK10", function(e){
+        getAttrs(["BACK-sel"], function(v){
+            if((e.sourceAttribute == "back-name"+v["BACK-sel"]) || (e.sourceAttribute == "back"+v["BACK-sel"])){updateBckgrd(parseInt(v["BACK-sel"]) || 1);}
+        });
     });
 
     // Recovery
@@ -1291,7 +1266,6 @@
     /* === FUNCTIONS === */
     // Level
     var updateLvl = function() {
-        console.log("*** DEBUG updateLvl called");
         getAttrs(['level','M-MISS','R-MISS'], function (v) {
             var mlt = 1, mmiss = 0, rmiss = 0, newlvl = parseInt(v['level']) || 1;
             if (newlvl > 7) {mlt=3;}
@@ -1307,7 +1281,6 @@
     };
     // AC
     var updateAc = function() {
-        console.log("*** DEBUG updateAc called");
         getAttrs(['level','AC-base','CON-mod','DEX-mod','WIS-mod'], function(v){
             var modarr = _.sortBy([parseInt(v["CON-mod"]),parseInt(v["DEX-mod"]),parseInt(v["WIS-mod"])], function(num) {return num;});
             setAttrs({"AC": parseInt(v["AC-base"])+parseInt(v["level"])+modarr[1]});
@@ -1315,7 +1288,6 @@
     };
     // PD
     var updatePd = function() {
-        console.log("*** DEBUG updatePd called");
         getAttrs(['level','PD-base','STR-mod','CON-mod','DEX-mod'], function(v){
             var modarr = _.sortBy([parseInt(v["STR-mod"]),parseInt(v["CON-mod"]),parseInt(v["DEX-mod"])], function(num) {return num;});
             setAttrs({"PD": parseInt(v["PD-base"])+parseInt(v["level"])+modarr[1]});
@@ -1323,7 +1295,6 @@
     };
     // MD
     var updateMd = function() {
-        console.log("*** DEBUG updateMd called");
         getAttrs(['level','MD-base','INT-mod','WIS-mod','CHA-mod'], function(v){
             var modarr = _.sortBy([parseInt(v["INT-mod"]),parseInt(v["WIS-mod"]),parseInt(v["CHA-mod"])], function(num) {return num;});
             setAttrs({"MD": parseInt(v["MD-base"])+parseInt(v["level"])+modarr[1]});
@@ -1331,7 +1302,6 @@
     };
     // HP
     var updateHp = function() {
-        console.log("*** DEBUG updateHp called");
         getAttrs(['level','HP-base','HP-mod','CON-mod'], function(v){
             var lvl = 0, mod4 = 0, hpmulti = 0, hpmax = 0;
             lvl = parseInt(v["level"]) || 1;
@@ -1352,22 +1322,22 @@
         });
     };
 
-    // Powers
+    // Powers -- how to: multinlingual handling ?
     var updatePower = function() {
-        getAttrs(["STR-base","DEX-base","CON-base","INT-base","CHA-base","WIS-base","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
-            str = Math.floor((parseInt(v["STR-base"],10) - 10) / 2);
-            dex = Math.floor((parseInt(v["DEX-base"],10) - 10) / 2);
-            con = Math.floor((parseInt(v["CON-base"],10) - 10) / 2);
-            int = Math.floor((parseInt(v["INT-base"],10) - 10) / 2);
-            cha = Math.floor((parseInt(v["CHA-base"],10) - 10) / 2);
-            wis = Math.floor((parseInt(v["WIS-base"],10) - 10) / 2);
-            mweap1 = v["MWEAP-mod1"] && isNaN(v["MWEAP-mod1"]) === false ? parseInt(v["MWEAP-mod1"], 10) : 0;
-            mweap2 = v["MWEAP-mod2"] && isNaN(v["MWEAP-mod2"]) === false ? parseInt(v["MWEAP-mod2"], 10) : 0;
-            mweap3 = v["MWEAP-mod3"] && isNaN(v["MWEAP-mod3"]) === false ? parseInt(v["MWEAP-mod3"], 10) : 0;
-            rweap1 = v["RWEAP-mod1"] && isNaN(v["RWEAP-mod1"]) === false ? parseInt(v["RWEAP-mod1"], 10) : 0;
-            rweap2 = v["RWEAP-mod2"] && isNaN(v["RWEAP-mod2"]) === false ? parseInt(v["RWEAP-mod2"], 10) : 0;
-            rweap3 = v["RWEAP-mod3"] && isNaN(v["RWEAP-mod3"]) === false ? parseInt(v["RWEAP-mod3"], 10) : 0;
-            level = parseInt(v["level"], 10);
+        getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
+            str = parseInt(v["STR-mod"]) || 0;
+            dex = parseInt(v["DEX-mod"]) || 0;
+            con = parseInt(v["CON-mod"]) || 0;
+            int = parseInt(v["INT-mod"]) || 0;
+            wis = parseInt(v["WIS-mod"]) || 0;
+            cha = parseInt(v["CHA-mod"]) || 0;
+            mweap1 = parseInt(v["MWEAP-mod1"]) || 0;
+            mweap2 = parseInt(v["MWEAP-mod2"]) || 0;
+            mweap3 = parseInt(v["MWEAP-mod3"]) || 0;
+            rweap1 = parseInt(v["RWEAP-mod1"]) || 0;
+            rweap2 = parseInt(v["RWEAP-mod2"]) || 0;
+            rweap3 = parseInt(v["RWEAP-mod3"]) || 0;
+            level = parseInt(v["level"]) || 1;
             // TYPE
             if(v.repeating_power_type === "{{typecustom=1}} {{type=@{type-custom}}}") {type = v["repeating_power_type-custom"];}
             else if(v.repeating_power_type === "{{atwill=1}} {{type=At-Will}}") {type = "At-Will";}
@@ -1381,10 +1351,10 @@
             else {type = ""};
             // ACTION
             if(v["repeating_power_action-type"] === "@{action-custom}") {action = v["repeating_power_action-custom"]}
-            else{action = v["repeating_power_action-type"]}
+            else {action = v["repeating_power_action-type"]}
             // RANGE
             if(v["repeating_power_range-type"] === "@{range-custom}") {range = v["repeating_power_range-custom"]}
-            else{range = v["repeating_power_range-type"]}
+            else {range = v["repeating_power_range-type"]}
             // ATTACK
             if(v["repeating_power_attack-type"] === "[[@{STR-mod}]][STR]+@{level}[LVL]") {attack = str + level}
             else if(v["repeating_power_attack-type"] === "[[@{DEX-mod}]][DEX]+@{level}[LVL]") {attack = dex + level}
@@ -1409,7 +1379,7 @@
             // CUSTOM 2
             if(v["repeating_power_cust2-type"] === "@{cust2-custom}") {cust2type = v["repeating_power_cust2-custom"] + ":"}
             else {cust2type = v["repeating_power_cust2-type"] + ":"}
-            // CUSTOM 1
+            // CUSTOM 3
             if(v["repeating_power_cust3-type"] === "@{cust3-custom}") {cust3type = v["repeating_power_cust3-custom"] + ":"}
             else {cust3type = v["repeating_power_cust3-type"] + ":"}
             setAttrs({
@@ -1437,18 +1407,19 @@
              });
         });
     };
-    // Weapons
+    // Weapons -- how to: multinlingual handling ?
     var updateWeapons = function() {
-        getAttrs(["STR-base","DEX-base","level","MWEAP-final","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","MWEAP1","MWEAP2","MWEAP3","RWEAP-final","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","RWEAP1","RWEAP2","RWEAP3","M-BAMOD","R-BAMOD"], function(v) {
-            str = Math.floor((parseInt(v["STR-base"],10) - 10) / 2);
-            dex = Math.floor((parseInt(v["DEX-base"],10) - 10) / 2);
-            mweap1 = v["MWEAP-mod1"] && isNaN(v["MWEAP-mod1"]) === false ? parseInt(v["MWEAP-mod1"], 10) : 0;
-            mweap2 = v["MWEAP-mod2"] && isNaN(v["MWEAP-mod2"]) === false ? parseInt(v["MWEAP-mod2"], 10) : 0;
-            mweap3 = v["MWEAP-mod3"] && isNaN(v["MWEAP-mod3"]) === false ? parseInt(v["MWEAP-mod3"], 10) : 0;
-            rweap1 = v["RWEAP-mod1"] && isNaN(v["RWEAP-mod1"]) === false ? parseInt(v["RWEAP-mod1"], 10) : 0;
-            rweap2 = v["RWEAP-mod2"] && isNaN(v["RWEAP-mod2"]) === false ? parseInt(v["RWEAP-mod2"], 10) : 0;
-            rweap3 = v["RWEAP-mod3"] && isNaN(v["RWEAP-mod3"]) === false ? parseInt(v["RWEAP-mod3"], 10) : 0;
-            level = parseInt(v["level"], 10);
+        getAttrs(["level","MWEAP-final","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","MWEAP1","MWEAP2","MWEAP3","RWEAP-final","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","RWEAP1","RWEAP2","RWEAP3","M-BAMOD","R-BAMOD","STR-mod","DEX-mod","LVL-multiplier"], function(v) {
+            str = parseInt(v["STR-mod"]) || 0;
+            dex = parseInt(v["DEX-mod"]) || 0;
+            mweap1 = parseInt(v["MWEAP-mod1"]) || 0;
+            mweap2 = parseInt(v["MWEAP-mod2"]) || 0;
+            mweap3 = parseInt(v["MWEAP-mod3"]) || 0;
+            rweap1 = parseInt(v["RWEAP-mod1"]) || 0;
+            rweap2 = parseInt(v["RWEAP-mod2"]) || 0;
+            rweap3 = parseInt(v["RWEAP-mod3"]) || 0;
+            level = parseInt(v["level"]) || 1;
+            lvlmultiplier = parseInt(v["LVL-multiplier"]) || 1;
             if(level < 5) {lvlmultiplier = 1} else if(level < 8) {lvlmultiplier = 2} else{lvlmultiplier = 3};
             mattmod = v["M-BAMOD"] === "@{STR-mod}" ? str : dex;
             rattmod = v["R-BAMOD"] === "@{STR-mod}" ? str : dex;
@@ -1485,5 +1456,49 @@
             });
         });
     };
+
+    //Version and updating
+    var upgrade_to_2_0 = function(doneupdating) {
+        // Ability mods to sheet-worker
+        getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base","REC-bonus"], function(v) {
+            var callback = function() {
+                updateLvl();
+                updateAc();
+                updatePd();
+                updateMd();
+                updateHp();
+                updateBckgrd(1);
+            };
+            var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
+            setAttrs({
+               "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
+               "CON-mod": conmod,
+               "REC-bonus": Math.max(conmod, parseInt(v["REC-bonus"]) || 0),
+               "DEX-mod": Math.floor((parseInt(v["DEX-base"]) - 10) / 2),
+               "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
+               "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
+               "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
+                },{silent: true},callback);
+            doneupdating();
+        });
+    };
+
+    var versioning = function() {
+        getAttrs(["version"], function(v) {
+            var vrs = parseFloat(v["version"]) || 1.0;
+            if (vrs == 2.0) {
+                console.log("13th Age by Roll20 v" + vrs);
+                return;
+            }
+            else if (vrs < 2.0) {
+                console.log("UPGRADING TO v2.0");
+                upgrade_to_2_0(function() {
+                    setAttrs({"version": "2.0"});
+                    versioning();
+                });
+            }
+        });
+    };
+
 
 </script>

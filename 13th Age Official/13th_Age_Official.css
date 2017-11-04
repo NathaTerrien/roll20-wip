@@ -525,6 +525,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 .sheet-power span.sheet-stat {
     display: inline-block;
     cursor: default;
+    white-space: nowrap;
 }
 
 .sheet-power button[type=roll].sheet-powerroll {
@@ -1204,6 +1205,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     position: relative;
     cursor: default;
     text-align: left;
+    white-space: nowrap;
 }
 
 .sheet-ba-hit span.sheet-stat {
@@ -1211,6 +1213,7 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     width: 100px;
     text-align: left;
     cursor: default;
+    white-space: nowrap;
 }
 
 .sheet-iconrelationship input[type=radio]:checked ~ input,
