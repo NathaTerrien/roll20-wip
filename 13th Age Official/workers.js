@@ -38,7 +38,7 @@
         });
     });
 
-    // Level / AC / PD / MD / HP
+    // Level / AC / PD / MD / HP / Weapons (mods level) / Powers (mods level)
     on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level change:m-miss change:r-miss",function(e){
         if (['level','m-miss','r-miss'].includes(e.sourceAttribute)) {updateLvl();}
         if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAc();}
@@ -179,6 +179,10 @@
     };
 
     // Powers -- how to: multinlingual handling ?
+    var updateAllPowers = function() {
+        //TODO
+        return;
+    };
     var updatePower = function() {
         getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
             str = parseInt(v["STR-mod"]) || 0;
@@ -228,7 +232,7 @@
             else {attack = ""};
             if(v["repeating_power_attack-vstype"] === "@{attack-vscustom}") {vs = v["repeating_power_attack-vscustom"]}
             else{vs = v["repeating_power_attack-vstype"]};
-            attackvs = "+" + attack + " vs " + vs;
+            attackvs = (attack < 0 ? "" : "+") + attack + " vs " + vs;
             // CUSTOM 1
             if(v["repeating_power_cust1-type"] === "@{cust1-custom}") {cust1type = v["repeating_power_cust1-custom"] + ":"}
             else {cust1type = v["repeating_power_cust1-type"] + ":"}
@@ -276,33 +280,32 @@
             rweap3 = parseInt(v["RWEAP-mod3"]) || 0;
             level = parseInt(v["level"]) || 1;
             lvlmultiplier = parseInt(v["LVL-multiplier"]) || 1;
-            if(level < 5) {lvlmultiplier = 1} else if(level < 8) {lvlmultiplier = 2} else{lvlmultiplier = 3};
             mattmod = v["M-BAMOD"] === "@{STR-mod}" ? str : dex;
             rattmod = v["R-BAMOD"] === "@{STR-mod}" ? str : dex;
             console.log(v["RWEAP-final"]);
             if(v["MWEAP-final"] === "{{wname=@{MWEAP-name1}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod1}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP1}]]+@{MWEAP-mod1}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                mattackvs = "+" + (level + mattmod + mweap1) + " vs AC";
-                mhit = level + "d" + v["MWEAP1"] + "+" + ((mattmod*lvlmultiplier)+mweap1);
+                mattackvs = ((level + mattmod + mweap1) < 0 ? "" : "+") + (level + mattmod + mweap1) + " vs AC";
+                mhit = level + "d" + v["MWEAP1"] + (((mattmod*lvlmultiplier)+mweap1) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap1);
             }
             else if(v["MWEAP-final"] === "{{wname=@{MWEAP-name2}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod2}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP2}]]+@{MWEAP-mod2}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                mattackvs = "+" + (level + mattmod + mweap2) + " vs AC";
-                mhit = level + "d" + v["MWEAP2"] + "+" + ((mattmod*lvlmultiplier)+mweap2);
+                mattackvs = ((level + mattmod + mweap2) < 0 ? "" : "+") + (level + mattmod + mweap2) + " vs AC";
+                mhit = level + "d" + v["MWEAP2"] + (((mattmod*lvlmultiplier)+mweap2) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap2);
             }
             else if(v["MWEAP-final"] === "{{wname=@{MWEAP-name3}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod3}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP3}]]+@{MWEAP-mod3}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                mattackvs = "+" + (level + mattmod + mweap3) + " vs AC";
-                mhit = level + "d" + v["MWEAP3"] + "+" + ((mattmod*lvlmultiplier)+mweap3);
+                mattackvs = ((level + mattmod + mweap3) < 0 ? "" : "+") + (level + mattmod + mweap3) + " vs AC";
+                mhit = level + "d" + v["MWEAP3"] + (((mattmod*lvlmultiplier)+mweap3) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap3);
             };
             if(v["RWEAP-final"] === "{{wname=@{RWEAP-name1}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod1}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP1}]]+@{RWEAP-mod1}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                rattackvs = "+" + (level + rattmod + rweap1) + " vs AC";
-                rhit = level + "d" + v["RWEAP1"] + "+" + ((rattmod*lvlmultiplier)+rweap1);
+                rattackvs = ((level + mattmod + rweap1) < 0 ? "" : "+") + (level + rattmod + rweap1) + " vs AC";
+                rhit = level + "d" + v["RWEAP1"] + (((rattmod*lvlmultiplier)+rweap1) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap1);
             }
             else if(v["RWEAP-final"] === "{{wname=@{RWEAP-name2}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod2}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP2}]]+@{RWEAP-mod2}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                rattackvs = "+" + (level + rattmod + rweap2) + " vs AC";
-                rhit = level + "d" + v["RWEAP2"] + "+" + ((rattmod*lvlmultiplier)+rweap2);
+                rattackvs = ((level + mattmod + rweap2) < 0 ? "" : "+") + (level + rattmod + rweap2) + " vs AC";
+                rhit = level + "d" + v["RWEAP2"] + (((rattmod*lvlmultiplier)+rweap2) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap2);
             }
             else if(v["RWEAP-final"] === "{{wname=@{RWEAP-name3}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod3}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP3}]]+@{RWEAP-mod3}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                rattackvs = "+" + (level + rattmod + rweap3) + " vs AC";
-                rhit = level + "d" + v["RWEAP3"] + "+" + ((rattmod*lvlmultiplier)+rweap3);
+                rattackvs = ((level + mattmod + rweap3) < 0 ? "" : "+") + (level + rattmod + rweap3) + " vs AC";
+                rhit = level + "d" + v["RWEAP3"] + (((rattmod*lvlmultiplier)+rweap3) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap3);
             };
             setAttrs({
                 "MBA-attackvs": mattackvs,
@@ -324,6 +327,7 @@
                 updateMd();
                 updateHp();
                 updateBckgrd(1);
+                updateWeapons();
             };
             var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
             setAttrs({
