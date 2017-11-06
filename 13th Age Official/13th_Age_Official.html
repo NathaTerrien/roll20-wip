@@ -42,7 +42,7 @@
                         </select>
                 </span>
             </div>
-            <div style="width: 450px; display: inline-block; vertical-align: top;">
+            <div style="width: 250px; display: inline-block; vertical-align: top;">
                 <span class="row">
                     <span class="lib">Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}" />
                 </span>
@@ -59,6 +59,11 @@
                             <option value="0" selected="selected">-</option>
                             <option value="@{level}">Level</option>
                         </select>
+                </span>
+            </div>
+            <div style="width: 200px; display: inline-block; vertical-align: top;">
+                <span class="row">
+                    <span class="lib">Flat Initiative Mod</span><input type="number" name="attr_INIT-mod" value="0" title="@{INIT-mod}" />
                 </span>
             </div>
         </div>
@@ -97,7 +102,7 @@
                 <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}" />
                 <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">DEX</button>
                 <span class="attrmod" name="attr_DEX-mod" title="@{DEX-mod}"></span>
-                <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] &{tracker}]]}}">INITIATIVE</button>
+                <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}">INITIATIVE</button>
             </div>
         </div>
         <div class="attributes">
