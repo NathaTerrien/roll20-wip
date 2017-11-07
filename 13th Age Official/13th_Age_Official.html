@@ -350,9 +350,9 @@
             <div class="bodycontainer">
                 <div class="header">Melee Weapons</div>
                 <div class="weapon">
-                    <input type="radio" class="weapon" name="attr_MWEAP-final" value="{{wname=@{MWEAP-name1}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod1}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP1}]]+@{MWEAP-mod1}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}" checked="checked" />
+                    <input type="radio" class="weapon" name="attr_MWEAP-final" value="{{wname=@{MWEAP-name1}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+(@{MWEAP-mod1})[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP1}]]+@{MWEAP-mod1}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}" checked="checked" />
                     <input type="text" class="title" name="attr_MWEAP-name1" placeholder="Rapier" />
-                    <input type="text" class="weapon" name="attr_MWEAP-mod1" placeholder="0" />
+                    <input type="text" class="weapon" name="attr_MWEAP-mod1" value="0" />
                     <select class="weapon" name="attr_MWEAP1" title="@{MWEAP1}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -365,7 +365,7 @@
                 <div class="weapon">
                     <input type="radio" class="weapon" name="attr_MWEAP-final" value="{{wname=@{MWEAP-name2}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod2}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP2}]]+@{MWEAP-mod2}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}" />
                     <input type="text" class="title" name="attr_MWEAP-name2" />
-                    <input type="text" class="weapon" name="attr_MWEAP-mod2" />
+                    <input type="text" class="weapon" name="attr_MWEAP-mod2" value="0" />
                     <select class="weapon" name="attr_MWEAP2" title="@{MWEAP2}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -378,7 +378,7 @@
                 <div class="weapon">
                     <input type="radio" class="weapon" name="attr_MWEAP-final" value="{{wname=@{MWEAP-name3}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod3}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP3}]]+@{MWEAP-mod3}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}" />
                     <input type="text" class="title" name="attr_MWEAP-name3" />
-                    <input type="text" class="weapon" name="attr_MWEAP-mod3" />
+                    <input type="text" class="weapon" name="attr_MWEAP-mod3" value="0" />
                     <select class="weapon" name="attr_MWEAP3" title="@{MWEAP3}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -394,7 +394,7 @@
                 <div class="weapon">
                     <input type="radio" class="weapon" name="attr_RWEAP-final" value="{{wname=@{RWEAP-name1}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod1}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP1}]]+@{RWEAP-mod1}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}" checked="checked" />
                     <input type="text" class="title" name="attr_RWEAP-name1" />
-                    <input type="text" class="weapon" name="attr_RWEAP-mod1" />
+                    <input type="text" class="weapon" name="attr_RWEAP-mod1" value="0" />
                     <select class="weapon" name="attr_RWEAP1" title="@{RWEAP1}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -407,7 +407,7 @@
                 <div class="weapon">
                     <input type="radio" class="weapon" name="attr_RWEAP-final" value="{{wname=@{RWEAP-name2}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod2}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP2}]]+@{RWEAP-mod2}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}">
                     <input type="text" class="title" name="attr_RWEAP-name2" />
-                    <input type="text" class="weapon" name="attr_RWEAP-mod2" />
+                    <input type="text" class="weapon" name="attr_RWEAP-mod2" value="0" />
                     <select class="weapon" name="attr_RWEAP2" title="@{RWEAP2}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -420,7 +420,7 @@
                 <div class="weapon">
                     <input type="radio" class="weapon" name="attr_RWEAP-final" value="{{wname=@{RWEAP-name3}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod3}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP3}]]+@{RWEAP-mod3}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}" />
                     <input type="text" class="title" name="attr_RWEAP-name3" />
-                    <input type="text" class="weapon" name="attr_RWEAP-mod3" />
+                    <input type="text" class="weapon" name="attr_RWEAP-mod3" value="0" />
                     <select class="weapon" name="attr_RWEAP3" title="@{RWEAP3}">
                         <option value=""></option>
                         <option value="4">d4</option>
@@ -1163,36 +1163,22 @@
 
     // Abilities
     on("change:str-base", function(e) {
-        setAttrs({
-            "STR-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"STR-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:con-base", function(e) {
-        var mod = Math.floor((parseInt(e.newValue) - 10) / 2);
-        setAttrs({
-            "CON-mod": mod,
-            "REC-bonus": mod
-        });
+        setAttrs({"CON-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:dex-base", function(e) {
-        setAttrs({
-            "DEX-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"DEX-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:int-base", function(e) {
-        setAttrs({
-            "INT-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"INT-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:wis-base", function(e) {
-        setAttrs({
-            "WIS-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"WIS-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:cha-base", function(e) {
-        setAttrs({
-            "CHA-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"CHA-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
 
     // Level / AC / PD / MD / HP / Weapons (mods level) / Powers (mods level)
@@ -1202,6 +1188,7 @@
         if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
         if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
         if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
+        if (['level','con-mod'].includes(e.sourceAttribute)) {updateRec()};
     });
 
     // Background
@@ -1324,6 +1311,16 @@
                 "HP_max": hpmax,
                 "HP-staggered": Math.floor(hpmax/2)
             });
+        });
+    };
+    // Recovery
+    var updateRec = function () {
+        getAttrs(['level','CON-mod','REC-bonus'], function(v){
+            var newrec = 0, mlt = 1, lvl = parseInt(v['level']) || 1, oldrec = parseInt(v['REC-bonus']) || 0;
+            if (lvl > 7) {mlt=3;}
+            else if (lvl > 4) {mlt=2;}
+            newrec = (parseInt(v["CON-mod"]) || 0) * mlt;
+            if (Math.abs(newrec) > Math.abs(oldrec)) {setAttrs({"REC-bonus": newrec});}
         });
     };
     // Background
@@ -1480,6 +1477,7 @@
                 updateHp();
                 updateBckgrd(1);
                 updateWeapons();
+                updateRec();
             };
             var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
             setAttrs({
@@ -1511,5 +1509,4 @@
             }
         });
     };
-
 </script>

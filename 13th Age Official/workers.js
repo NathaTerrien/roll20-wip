@@ -6,36 +6,22 @@
 
     // Abilities
     on("change:str-base", function(e) {
-        setAttrs({
-            "STR-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"STR-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:con-base", function(e) {
-        var mod = Math.floor((parseInt(e.newValue) - 10) / 2);
-        setAttrs({
-            "CON-mod": mod,
-            "REC-bonus": mod
-        });
+        setAttrs({"CON-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:dex-base", function(e) {
-        setAttrs({
-            "DEX-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"DEX-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:int-base", function(e) {
-        setAttrs({
-            "INT-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"INT-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:wis-base", function(e) {
-        setAttrs({
-            "WIS-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"WIS-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
     on("change:cha-base", function(e) {
-        setAttrs({
-            "CHA-mod": Math.floor((parseInt(e.newValue) - 10) / 2)
-        });
+        setAttrs({"CHA-mod": Math.floor((parseInt(e.newValue) - 10) / 2)});
     });
 
     // Level / AC / PD / MD / HP / Weapons (mods level) / Powers (mods level)
@@ -45,6 +31,7 @@
         if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
         if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
         if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
+        if (['level','con-mod'].includes(e.sourceAttribute)) {updateRec()};
     });
 
     // Background
@@ -167,6 +154,16 @@
                 "HP_max": hpmax,
                 "HP-staggered": Math.floor(hpmax/2)
             });
+        });
+    };
+    // Recovery
+    var updateRec = function () {
+        getAttrs(['level','CON-mod','REC-bonus'], function(v){
+            var newrec = 0, mlt = 1, lvl = parseInt(v['level']) || 1, oldrec = parseInt(v['REC-bonus']) || 0;
+            if (lvl > 7) {mlt=3;}
+            else if (lvl > 4) {mlt=2;}
+            newrec = (parseInt(v["CON-mod"]) || 0) * mlt;
+            if (Math.abs(newrec) > Math.abs(oldrec)) {setAttrs({"REC-bonus": newrec});}
         });
     };
     // Background
@@ -323,6 +320,7 @@
                 updateHp();
                 updateBckgrd(1);
                 updateWeapons();
+                updateRec();
             };
             var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
             setAttrs({
