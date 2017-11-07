@@ -19,13 +19,13 @@
     white-space: nowrap;
     width: 18px;
     height: 18px;
-    background:url(http://i.imgur.com/KaX7Y7u.png) left top no-repeat;  /* gear_gray.png */
+    background:url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/13th%20Age%20Official/images/gear_gray.png) left top no-repeat;
     background-size: contain;
     cursor: pointer;
 }
 
 .sheet-options-check:checked + span {
-    background:url(http://i.imgur.com/f4zmPUQ.png) left top no-repeat; /* gear_black.png */
+    background:url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/13th%20Age%20Official/images/gear_black.png) left top no-repeat;
     background-size: contain;
 }
 
@@ -77,7 +77,7 @@ input {
 }
 
 .sheet-logo {
-    background:url(http://i.imgur.com/o7O88Ta.jpg) left top no-repeat; /* 13th_Age_Official_logo.jpg */
+    background:url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/13th%20Age%20Official/images/13th_Age_Official_logo.jpg.jpg) left top no-repeat;
     background-size: contain;
     width: 238px;
     height: 238px;
@@ -602,14 +602,14 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     white-space: nowrap;
     width: 18px;
     height: 18px;
-    background:url(http://i.imgur.com/KaX7Y7u.png) left top no-repeat;
+    background:url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/13th%20Age%20Official/images/gear_gray.png) left top no-repeat;
     background-size: contain;
     cursor: pointer;
     display: none;
 }
 
 .sheet-power .sheet-poweroptions-check:checked + span {
-    background:url(http://i.imgur.com/f4zmPUQ.png) left top no-repeat;
+    background:url(https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/13th%20Age%20Official/images/gear_black.png) left top no-repeat;
     background-size: contain;
 }
 

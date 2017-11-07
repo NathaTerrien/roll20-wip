@@ -229,13 +229,13 @@
             else{vs = v["repeating_power_attack-vstype"]};
             attackvs = (attack < 0 ? "" : "+") + attack + " vs " + vs;
             // CUSTOM 1
-            if(v["repeating_power_cust1-type"] === "@{cust1-custom}") {cust1type = v["repeating_power_cust1-custom"] + ":"}
+            if(v["repeating_power_cust1-type"] === "typecustom") {cust1type = v["repeating_power_cust1-custom"] + ":"}
             else {cust1type = v["repeating_power_cust1-type"] + ":"}
             // CUSTOM 2
-            if(v["repeating_power_cust2-type"] === "@{cust2-custom}") {cust2type = v["repeating_power_cust2-custom"] + ":"}
+            if(v["repeating_power_cust2-type"] === "typecustom") {cust2type = v["repeating_power_cust2-custom"] + ":"}
             else {cust2type = v["repeating_power_cust2-type"] + ":"}
             // CUSTOM 3
-            if(v["repeating_power_cust3-type"] === "@{cust3-custom}") {cust3type = v["repeating_power_cust3-custom"] + ":"}
+            if(v["repeating_power_cust3-type"] === "typecustom") {cust3type = v["repeating_power_cust3-custom"] + ":"}
             else {cust3type = v["repeating_power_cust3-type"] + ":"}
             setAttrs({
                 "repeating_power_powname-display": v["repeating_power_name"],

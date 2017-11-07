@@ -99,3 +99,10 @@ HP-staggered = Math.floor(HP_max)/2)
 
 Déclencheurs : level HP-base HP-mod CON-mod
 'level','hp-base','hp-mod','con-mod'
+
+---------
+13A-037
+---------
+Changement de version
+Pour tous pouvoirs :
+Si valeur  de cust3-type = @{cust1-custom} => typecustom
