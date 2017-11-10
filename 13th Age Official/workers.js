@@ -332,8 +332,9 @@
                 updateMd();
                 updateHp();
                 updateBckgrd(1);
-                updateWeapons(1);
                 updateRec();
+                updateMeleeWeapon(1);
+                updateRangeWeapon(1);
             };
             var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
             setAttrs({
