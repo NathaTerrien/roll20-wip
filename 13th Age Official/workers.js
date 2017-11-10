@@ -26,12 +26,18 @@
 
     // Level / AC / PD / MD / HP / Weapons (mods level) / Powers (mods level)
     on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level change:m-miss change:r-miss",function(e){
-        if (['level','m-miss','r-miss'].includes(e.sourceAttribute)) {updateLvl();}
-        if (['level','ac-base','con-mod','dex-mod','wis-mod'].includes(e.sourceAttribute)) {updateAc();}
-        if (['level','pd-base','str-mod','con-mod','dex-mod'].includes(e.sourceAttribute)) {updatePd();}
-        if (['level','md-base','int-mod','wis-mod','cha-mod'].includes(e.sourceAttribute)) {updateMd();}
-        if (['level','hp-base','hp-mod','con-mod'].includes(e.sourceAttribute)) {updateHp();}
-        if (['level','con-mod'].includes(e.sourceAttribute)) {updateRec()};
+        if (["level","m-miss","r-miss"].includes(e.sourceAttribute)) {updateLvl();}
+        if (["level","ac-base","con-mod","dex-mod","wis-mod"].includes(e.sourceAttribute)) {updateAc();}
+        if (["level","pd-base","str-mod","con-mod","dex-mod"].includes(e.sourceAttribute)) {updatePd();}
+        if (["level","md-base","int-mod","wis-mod","cha-mod"].includes(e.sourceAttribute)) {updateMd();}
+        if (["level","hp-base","hp-mod","con-mod"].includes(e.sourceAttribute)) {updateHp();}
+        if (["level","con-mod"].includes(e.sourceAttribute)) {updateRec()};
+        if (["level","str-mod","dex-mod"].includes(e.sourceAttribute)) {
+            getAttrs(["MWEAP-sel","RWEAP-sel"], function(v){
+                updateMeleeWeapon(parseInt(v["MWEAP-sel"]) || 1);
+                updateRangeWeapon(parseInt(v["RWEAP-sel"]) || 1);
+            });
+        }
     });
 
     // Background
@@ -46,15 +52,6 @@
 
     // Recovery
     on("change:rec_max", function(e) {
-        /* BUG: eventInfo.newValue=NaN on rec_max
-            console.log("eventInfo new value = " + e.newValue);
-            getAttrs(["REC_max"], function(v) {
-                console.log("getAttrs value = " + v.REC_max);
-            });
-            setAttrs({
-               "rec_flag": e.newValue
-            });
-        */
         getAttrs(["REC_max"], function(v) {
             setAttrs({
                "rec_flag": v.REC_max
@@ -63,13 +60,27 @@
     });
 
     // Powers
-    on("change:repeating_power:name change:repeating_power:type change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function() {
-        updatePower();
+    on("change:repeating_power:name change:repeating_power:type change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
+        updatePower(e);
     });
 
-    // Weapons
-    on("change:mweap-final change:mweap-mod1 change:mweap-mod2 change:mweap-mod3 change:mweap1 change:mweap2 change:mweap3 change:mweap3 change:rweap-final change:rweap-mod1 change:rweap-mod2 change:rweap-mod3 change:rweap1 change:rweap2 change:rweap3 change:m-bamod change:r-bamod", function() {
-        updateWeapons();
+    // Selected Melee Weapon
+    on("change:mweap-sel", function(e){
+        updateMeleeWeapon(parseInt(e.newValue) || 1);
+    });
+    on("change:mweap-mod1 change:mweap-mod2 change:mweap-mod3 change:mweap1 change:mweap2 change:mweap3 change:m-bamod", function(e) {
+        getAttrs(["MWEAP-sel"], function(v){
+            if((e.sourceAttribute == "m-bamod") || (e.sourceAttribute == "mweap-mod"+v["MWEAP-sel"]) || (e.sourceAttribute == "mweap"+v["MWEAP-sel"])){updateMeleeWeapon(parseInt(v["MWEAP-sel"]) || 1);}
+        });
+    });
+    //Selected Range Weapon
+    on("change:rweap-sel", function(e){
+        updateRangeWeapon(parseInt(e.newValue) || 1);
+    });
+    on("change:rweap-mod1 change:rweap-mod2 change:rweap-mod3 change:rweap1 change:rweap2 change:rweap3 change:r-bamod", function(e) {
+        getAttrs(["RWEAP-sel"], function(v){
+            if((e.sourceAttribute == "r-bamod") || (e.sourceAttribute == "rweap-mod"+v["RWEAP-sel"]) || (e.sourceAttribute == "rweap"+v["RWEAP-sel"])){updateRangeWeapon(parseInt(v["RWEAP-sel"]) || 1);}
+        });
     });
 
     // Icons
@@ -77,7 +88,7 @@
         getAttrs(["icon1-5","icon2-5","icon3-5","icon4-5","icon5-5","icon1-6","icon2-6","icon3-6","icon4-6","icon5-6","icon1-5-count","icon2-5-count","icon3-5-count","icon4-5-count","icon5-5-count","icon1-6-count","icon2-6-count","icon3-6-count","icon4-6-count","icon5-6-count"], function(v) {
             var setAttrsObj = {};
             for(var input in v) {
-                if(v[input] == "0" && typeof v[input+"-count"] !== 'undefined' && (""+v[input+"-count"]).trim() !== "") {
+                if(v[input] == "0" && typeof v[input+"-count"] !== "undefined" && (""+v[input+"-count"]).trim() !== "") {
                     setAttrsObj[input+"-count"] = 0;
                 }
             }
@@ -89,15 +100,15 @@
             var setAttrsObj = {},
                 inputs = ["icon1-5-count","icon2-5-count","icon3-5-count","icon4-5-count","icon5-5-count","icon1-6-count","icon2-6-count","icon3-6-count","icon4-6-count","icon5-6-count"];
             _.each(inputs, function(input) {
-                if(typeof v[input] === 'undefined' || (""+v[input]).trim() === "") {
-                    setAttrsObj[input.substr(0, input.indexOf('-count'))] = "0";
+                if(typeof v[input] === "undefined" || (""+v[input]).trim() === "") {
+                    setAttrsObj[input.substr(0, input.indexOf("-count"))] = "0";
                 }
                 else if(v[input] && isNaN(v[input]) === false && (""+v[input]).trim() !== "0") {
-                    setAttrsObj[input.substr(0, input.indexOf('-count'))] = 'on';
+                    setAttrsObj[input.substr(0, input.indexOf("-count"))] = "on";
                     setAttrsObj[input] = (typeof v[input] === "String") ? v[input].trim() : v[input];
                 }
                 else {
-                    setAttrsObj[input.substr(0, input.indexOf('-count'))] = "0";
+                    setAttrsObj[input.substr(0, input.indexOf("-count"))] = "0";
                     setAttrsObj[input] = 0;
                 }
             });
@@ -108,12 +119,12 @@
     /* === FUNCTIONS === */
     // Level
     var updateLvl = function() {
-        getAttrs(['level','M-MISS','R-MISS'], function (v) {
-            var mlt = 1, mmiss = 0, rmiss = 0, newlvl = parseInt(v['level']) || 1;
+        getAttrs(["level","M-MISS","R-MISS"], function (v) {
+            var mlt = 1, mmiss = 0, rmiss = 0, newlvl = parseInt(v["level"]) || 1;
             if (newlvl > 7) {mlt=3;}
             else if (newlvl > 4) {mlt=2;}
-            if (v['M-MISS'] != '0') {mmiss = newlvl;}
-            if (v['R-MISS'] != '0') {rmiss = newlvl;}
+            if (v["M-MISS"] != "0") {mmiss = newlvl;}
+            if (v["R-MISS"] != "0") {rmiss = newlvl;}
             setAttrs({
                 "LVL-multiplier": mlt,
                 "MBA-miss": mmiss,
@@ -123,28 +134,28 @@
     };
     // AC
     var updateAc = function() {
-        getAttrs(['level','AC-base','CON-mod','DEX-mod','WIS-mod'], function(v){
+        getAttrs(["level","AC-base","CON-mod","DEX-mod","WIS-mod"], function(v){
             var modarr = _.sortBy([parseInt(v["CON-mod"]),parseInt(v["DEX-mod"]),parseInt(v["WIS-mod"])], function(num) {return num;});
             setAttrs({"AC": parseInt(v["AC-base"])+parseInt(v["level"])+modarr[1]});
         });
     };
     // PD
     var updatePd = function() {
-        getAttrs(['level','PD-base','STR-mod','CON-mod','DEX-mod'], function(v){
+        getAttrs(["level","PD-base","STR-mod","CON-mod","DEX-mod"], function(v){
             var modarr = _.sortBy([parseInt(v["STR-mod"]),parseInt(v["CON-mod"]),parseInt(v["DEX-mod"])], function(num) {return num;});
             setAttrs({"PD": parseInt(v["PD-base"])+parseInt(v["level"])+modarr[1]});
         });
     };
     // MD
     var updateMd = function() {
-        getAttrs(['level','MD-base','INT-mod','WIS-mod','CHA-mod'], function(v){
+        getAttrs(["level","MD-base","INT-mod","WIS-mod","CHA-mod"], function(v){
             var modarr = _.sortBy([parseInt(v["INT-mod"]),parseInt(v["WIS-mod"]),parseInt(v["CHA-mod"])], function(num) {return num;});
             setAttrs({"MD": parseInt(v["MD-base"])+parseInt(v["level"])+modarr[1]});
         });
     };
     // HP
     var updateHp = function() {
-        getAttrs(['level','HP-base','HP-mod','CON-mod'], function(v){
+        getAttrs(["level","HP-base","HP-mod","CON-mod"], function(v){
             var lvl = 0, mod4 = 0, hpmulti = 0, hpmax = 0;
             lvl = parseInt(v["level"]) || 1;
             mod4 = lvl % 4;
@@ -158,8 +169,8 @@
     };
     // Recovery
     var updateRec = function () {
-        getAttrs(['level','CON-mod','REC-bonus'], function(v){
-            var newrec = 0, mlt = 1, lvl = parseInt(v['level']) || 1, oldrec = parseInt(v['REC-bonus']) || 0;
+        getAttrs(["level","CON-mod","REC-bonus"], function(v){
+            var newrec = 0, mlt = 1, lvl = parseInt(v["level"]) || 1, oldrec = parseInt(v["REC-bonus"]) || 0;
             if (lvl > 7) {mlt=3;}
             else if (lvl > 4) {mlt=2;}
             newrec = (parseInt(v["CON-mod"]) || 0) * mlt;
@@ -168,14 +179,17 @@
     };
     // Background
     var updateBckgrd = function(bcknb) {
-        getAttrs(['BACK'+bcknb,'BACK-name'+bcknb], function (v) {
-            var backval = parseInt(v['BACK'+bcknb]) || 0;
-            setAttrs({"BACK-final": '[[' + backval + ']][BCK]]]}} {{back=' + v['BACK-name'+bcknb] + '}} {{back_bonus='+ backval + '}}'});
+        getAttrs(["BACK"+bcknb,"BACK-name"+bcknb], function (v) {
+            var backval = parseInt(v["BACK"+bcknb]) || 0;
+            setAttrs({"BACK-final": "[[" + backval + "]][BCK]]]}} {{back=" + v["BACK-name"+bcknb] + "}} {{back_bonus="+ backval + "}}"});
         });
     };
 
     // Powers -- how to: multinlingual handling ?
-    var updatePower = function() {
+    var updatePower = function(e) {
+        /*if (typeof e !== "undefined") {
+            console.log("*** DEBUG updatePower " + e.sourceAttribute);
+        }*/
         getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
             str = parseInt(v["STR-mod"]) || 0;
             dex = parseInt(v["DEX-mod"]) || 0;
@@ -259,54 +273,53 @@
              });
         });
     };
+
     // Weapons -- how to: multinlingual handling ?
-    var updateWeapons = function() {
-        getAttrs(["level","MWEAP-final","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","MWEAP1","MWEAP2","MWEAP3","RWEAP-final","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","RWEAP1","RWEAP2","RWEAP3","M-BAMOD","R-BAMOD","STR-mod","DEX-mod","LVL-multiplier"], function(v) {
-            str = parseInt(v["STR-mod"]) || 0;
-            dex = parseInt(v["DEX-mod"]) || 0;
-            mweap1 = parseInt(v["MWEAP-mod1"]) || 0;
-            mweap2 = parseInt(v["MWEAP-mod2"]) || 0;
-            mweap3 = parseInt(v["MWEAP-mod3"]) || 0;
-            rweap1 = parseInt(v["RWEAP-mod1"]) || 0;
-            rweap2 = parseInt(v["RWEAP-mod2"]) || 0;
-            rweap3 = parseInt(v["RWEAP-mod3"]) || 0;
-            level = parseInt(v["level"]) || 1;
-            lvlmultiplier = parseInt(v["LVL-multiplier"]) || 1;
-            mattmod = v["M-BAMOD"] === "@{STR-mod}" ? str : dex;
-            rattmod = v["R-BAMOD"] === "@{STR-mod}" ? str : dex;
-            console.log(v["RWEAP-final"]);
-            if(v["MWEAP-final"] === "{{wname=@{MWEAP-name1}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod1}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP1}]]+@{MWEAP-mod1}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                mattackvs = ((level + mattmod + mweap1) < 0 ? "" : "+") + (level + mattmod + mweap1) + " vs AC";
-                mhit = level + "d" + v["MWEAP1"] + (((mattmod*lvlmultiplier)+mweap1) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap1);
-            }
-            else if(v["MWEAP-final"] === "{{wname=@{MWEAP-name2}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod2}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP2}]]+@{MWEAP-mod2}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                mattackvs = ((level + mattmod + mweap2) < 0 ? "" : "+") + (level + mattmod + mweap2) + " vs AC";
-                mhit = level + "d" + v["MWEAP2"] + (((mattmod*lvlmultiplier)+mweap2) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap2);
-            }
-            else if(v["MWEAP-final"] === "{{wname=@{MWEAP-name3}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod3}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP3}]]+@{MWEAP-mod3}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                mattackvs = ((level + mattmod + mweap3) < 0 ? "" : "+") + (level + mattmod + mweap3) + " vs AC";
-                mhit = level + "d" + v["MWEAP3"] + (((mattmod*lvlmultiplier)+mweap3) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap3);
-            };
-            if(v["RWEAP-final"] === "{{wname=@{RWEAP-name1}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod1}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP1}]]+@{RWEAP-mod1}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                rattackvs = ((level + mattmod + rweap1) < 0 ? "" : "+") + (level + rattmod + rweap1) + " vs AC";
-                rhit = level + "d" + v["RWEAP1"] + (((rattmod*lvlmultiplier)+rweap1) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap1);
-            }
-            else if(v["RWEAP-final"] === "{{wname=@{RWEAP-name2}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod2}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP2}]]+@{RWEAP-mod2}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                rattackvs = ((level + mattmod + rweap2) < 0 ? "" : "+") + (level + rattmod + rweap2) + " vs AC";
-                rhit = level + "d" + v["RWEAP2"] + (((rattmod*lvlmultiplier)+rweap2) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap2);
-            }
-            else if(v["RWEAP-final"] === "{{wname=@{RWEAP-name3}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod3}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP3}]]+@{RWEAP-mod3}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}") {
-                rattackvs = ((level + mattmod + rweap3) < 0 ? "" : "+") + (level + rattmod + rweap3) + " vs AC";
-                rhit = level + "d" + v["RWEAP3"] + (((rattmod*lvlmultiplier)+rweap3) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap3);
-            };
+    var updateMeleeWeapon = function(i) {
+        var mwsel = parseInt(i) || 1;
+        getAttrs(["level","MWEAP-mod"+mwsel,"MWEAP"+mwsel,"M-BAMOD","STR-mod","DEX-mod","LVL-multiplier"], function(v) {
+            var str = parseInt(v["STR-mod"]) || 0,
+                dex = parseInt(v["DEX-mod"]) || 0,
+                mweap = parseInt(v["MWEAP-mod"+mwsel]) || 0,
+                level = parseInt(v["level"]) || 1,
+                lvlmultiplier = parseInt(v["LVL-multiplier"]) || 1,
+                mattmod = v["M-BAMOD"] === "@{STR-mod}" ? str : dex,
+                mattackvs = "",
+                mhit = "",
+                mfinal = "";
+            mfinal = "{{wname=@{MWEAP-name"+mwsel+"}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod"+mwsel+"}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP"+mwsel+"}]]+@{MWEAP-mod"+mwsel+"}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}";
+            mattackvs = (parseInt(level + mattmod + mweap) < 0 ? "" : "+") + (level + mattmod + mweap) + " vs AC";
+            mhit = level + "d" + v["MWEAP"+mwsel] + (((mattmod*lvlmultiplier)+mweap) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap);
             setAttrs({
+                "MWEAP-final": mfinal,
                 "MBA-attackvs": mattackvs,
                 "MBA-hit": mhit,
+            });
+        });
+    };
+    var updateRangeWeapon = function(i) {
+        var rwsel = parseInt(i) || 1;
+        getAttrs(["level","RWEAP-mod"+rwsel,"RWEAP"+rwsel,"R-BAMOD","STR-mod","DEX-mod","LVL-multiplier"], function(v) {
+            var str = parseInt(v["STR-mod"]) || 0,
+                dex = parseInt(v["DEX-mod"]) || 0,
+                rweap = parseInt(v["RWEAP-mod"+rwsel]) || 0,
+                level = parseInt(v["level"]) || 1,
+                lvlmultiplier = parseInt(v["LVL-multiplier"]) || 1,
+                rattmod = v["R-BAMOD"] === "@{STR-mod}" ? str : dex,
+                rattackvs = "",
+                rhit = "",
+                rfinal = "";
+            rfinal = "{{wname=@{RWEAP-name"+rwsel+"}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod"+rwsel+"}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP"+rwsel+"}]]+@{RWEAP-mod"+rwsel+"}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}";
+            rattackvs = (parseInt(level + rattmod + rweap) < 0 ? "" : "+") + (level + rattmod + rweap) + " vs AC";
+            rhit = level + "d" + v["RWEAP"+rwsel] + (parseInt((rattmod*lvlmultiplier)+rweap) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap);
+            setAttrs({
+                "RWEAP-final": rfinal,
                 "RBA-attackvs": rattackvs,
                 "RBA-hit": rhit
             });
         });
     };
+
 
     //Version and updating
     var upgrade_to_2_0 = function(doneupdating) {
@@ -319,7 +332,7 @@
                 updateMd();
                 updateHp();
                 updateBckgrd(1);
-                updateWeapons();
+                updateWeapons(1);
                 updateRec();
             };
             var conmod = Math.floor((parseInt(v["CON-base"]) - 10) / 2);
