@@ -1,11 +1,3 @@
-- 13th age / sheet-worker
-  - + (Help) The Strange
-  => Sheet workers
-- Pathfinder (+Val) =>
- + Compendium (?)
- => StarFinder
--
-
 ---------
 XXX 13A-002
 ---------
@@ -106,3 +98,36 @@ Déclencheurs : level HP-base HP-mod CON-mod
 Changement de version
 Pour tous pouvoirs :
 Si valeur  de cust3-type = @{cust1-custom} => typecustom
+
+------------
+13A-007
+------------
+type (radio)
+    atwill : {{atwill=1}} {{type=At-Will}}
+    class : {{class=1}} {{type=@{classtype}}}
+    racial : {{racial-encounter=1}} {{type=@{race}}}
+    encounter : {{racial-encounter=1}} {{type=Encounter}}
+    recharge : {{recharge-daily=1}} {{type=@{rechargerate}+}}
+    daily : {{recharge-daily=1}} {{type=Daily}}
+    spell : {{spell=1}} {{type=Spell}}
+    magicitem : {{magicitem=1}} {{type=Magic Item}}
+    custom : {{typecustom=1}} {{type=@{type-custom}}}
+type-custom (text)
+classtype (radio)
+	Talent
+	Feature
+	Power
+	Battle Cry
+	Domain
+rechargerate (number/text)
+uses (checkbox) = @{uses-type}
+	uses-type (radio) : 1/2/3/4
+action (checkbox) = 1 : {{action-range-flag=1}} {{action=@{action-type}}}
+	action-type (select)
+		Standard Action
+		Move Action
+		Quick Action
+		Free Action
+		Flexible Action
+		@{action-custom}
+	action-custom (text)

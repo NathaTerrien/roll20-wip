@@ -60,7 +60,7 @@
     });
 
     // Powers
-    on("change:repeating_power:name change:repeating_power:type change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
+    on("change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
         updatePower(e);
     });
 
@@ -79,7 +79,9 @@
     });
     on("change:rweap-mod1 change:rweap-mod2 change:rweap-mod3 change:rweap1 change:rweap2 change:rweap3 change:r-bamod", function(e) {
         getAttrs(["RWEAP-sel"], function(v){
-            if((e.sourceAttribute == "r-bamod") || (e.sourceAttribute == "rweap-mod"+v["RWEAP-sel"]) || (e.sourceAttribute == "rweap"+v["RWEAP-sel"])){updateRangeWeapon(parseInt(v["RWEAP-sel"]) || 1);}
+            if((e.sourceAttribute == "r-bamod") || (e.sourceAttribute == "rweap-mod"+v["RWEAP-sel"]) || (e.sourceAttribute == "rweap"+v["RWEAP-sel"])){
+                updateRangeWeapon(parseInt(v["RWEAP-sel"]) || 1);
+            }
         });
     });
 
@@ -191,23 +193,37 @@
             console.log("*** DEBUG updatePower " + e.sourceAttribute);
         }*/
         getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
-            str = parseInt(v["STR-mod"]) || 0;
-            dex = parseInt(v["DEX-mod"]) || 0;
-            con = parseInt(v["CON-mod"]) || 0;
-            int = parseInt(v["INT-mod"]) || 0;
-            wis = parseInt(v["WIS-mod"]) || 0;
-            cha = parseInt(v["CHA-mod"]) || 0;
-            mweap1 = parseInt(v["MWEAP-mod1"]) || 0;
-            mweap2 = parseInt(v["MWEAP-mod2"]) || 0;
-            mweap3 = parseInt(v["MWEAP-mod3"]) || 0;
-            rweap1 = parseInt(v["RWEAP-mod1"]) || 0;
-            rweap2 = parseInt(v["RWEAP-mod2"]) || 0;
-            rweap3 = parseInt(v["RWEAP-mod3"]) || 0;
-            level = parseInt(v["level"]) || 1;
+            var str = parseInt(v["STR-mod"]) || 0
+                dex = parseInt(v["DEX-mod"]) || 0,
+                con = parseInt(v["CON-mod"]) || 0,
+                int = parseInt(v["INT-mod"]) || 0,
+                wis = parseInt(v["WIS-mod"]) || 0,
+                cha = parseInt(v["CHA-mod"]) || 0,
+                mweap1 = parseInt(v["MWEAP-mod1"]) || 0,
+                mweap2 = parseInt(v["MWEAP-mod2"]) || 0,
+                mweap3 = parseInt(v["MWEAP-mod3"]) || 0,
+                rweap1 = parseInt(v["RWEAP-mod1"]) || 0,
+                rweap2 = parseInt(v["RWEAP-mod2"]) || 0,
+                rweap3 = parseInt(v["RWEAP-mod3"]) || 0,
+                level = parseInt(v["level"]) || 1
+                type = "",
+                action = "",
+                range = "",
+                attack = 0
+                attackvs = "",
+                cust1type = "",
+                cust2type = "",
+                cust3type = "";
+            // === Power Roll
+
+            // === Power display
             // TYPE
+            console.log("*** DEBUG updatePower Type " + v.repeating_power_type + " " + v.repeating_power_classtype);
             if(v.repeating_power_type === "{{typecustom=1}} {{type=@{type-custom}}}") {type = v["repeating_power_type-custom"];}
             else if(v.repeating_power_type === "{{atwill=1}} {{type=At-Will}}") {type = "At-Will";}
-            else if(v.repeating_power_type === "{{class=1}} {{type=@{classtype}}}") {type = v["repeating_power_classtype"];}
+            else if(v.repeating_power_type === "{{class=1}} {{type=@{classtype}}}") {
+                type = v["repeating_power_classtype"];
+            }
             else if(v.repeating_power_type === "{{racial-encounter=1}} {{type=@{race}}}") {type = v["race"];}
             else if(v.repeating_power_type === "{{racial-encounter=1}} {{type=Encounter}}") {type = "Encounter";}
             else if(v.repeating_power_type === "{{recharge-daily=1}} {{type=@{rechargerate}+}}") {type = "Recharge+" + v["repeating_power_rechargerate"];}
@@ -270,7 +286,7 @@
                 "repeating_power_cust3-subcust2-display": v["repeating_power_cust3-subcust2-desc"],
                 "repeating_power_cust3-subcust3-display": v["repeating_power_cust3-subcust3-desc"],
                 "repeating_power_cust3-subcust4-display": v["repeating_power_cust3-subcust4-desc"]
-             });
+            });
         });
     };
 
