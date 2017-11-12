@@ -192,14 +192,20 @@
     var updateAllPowers = function() {
         getSectionIDs("repeating_power", function(idarray) {
             console.log("*** DEBUG updateAllPowers");
-            var flag = "";
+            var flag = "", attrs = [];
             for(var i=0; i < idarray.length; i++) {
                 //TODO : Doesn't trigger, have to really change the value (date time ?)
                 //Set a flag to trigger the power full update (updatePower())
+                attrs = [];
                 flag = "repeating_power_" + idarray[i] + "_flag";
-                var obj = {};
-                obj[flag] = 1;
-                setAttrs(obj);
+                attrs.push(flag)
+                console.log("*** DEBUG updateAllPowers flag id " + flag);
+                getAttrs(attrs, function (v){
+                    console.log("*** DEBUG updateAllPowers flag value " + v[flag]);
+                    var obj = {};
+                    obj[flag] = (parseInt(v[flag]) || 0) + 1;
+                    setAttrs(obj);
+                });
             }
         });
     };
