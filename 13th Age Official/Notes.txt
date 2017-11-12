@@ -102,7 +102,17 @@ Si valeur  de cust3-type = @{cust1-custom} => typecustom
 ------------
 13A-007
 ------------
-type (radio)
+power-roll : &{template:power} {{name=@{name}}}
+            @{type}
+            @{action}
+            @{range}
+            @{target}
+            @{attack}
+            @{cust1}
+            @{cust2}
+            @{cust3}
+
+XXX type (radio)
     atwill : {{atwill=1}} {{type=At-Will}}
     class : {{class=1}} {{type=@{classtype}}}
     racial : {{racial-encounter=1}} {{type=@{race}}}
@@ -122,12 +132,122 @@ classtype (radio)
 rechargerate (number/text)
 uses (checkbox) = @{uses-type}
 	uses-type (radio) : 1/2/3/4
-action (checkbox) = 1 : {{action-range-flag=1}} {{action=@{action-type}}}
+
+XXX action (checkbox) = 1 : {{action-range-flag=1}} {{action=@{action-type}}}
 	action-type (select)
 		Standard Action
 		Move Action
 		Quick Action
 		Free Action
 		Flexible Action
-		@{action-custom}
+		Custom : @{action-custom}
 	action-custom (text)
+
+XXX range (checkbox) = 1 : {{action-range-flag=1}} {{range=@{range-type}}}
+    range-type (select)
+        Engaged
+        Nearby
+        Far Away
+        Line of Sight
+        Custom : @{range-custom}
+    range-custom (text)
+
+XXX target (checkbox) = 1 : {{target=@{target-type}}}
+    target-type (text)
+
+XXX attack (checkbox) = 1 : {{attack=1}} {{attbonus=[[1d20+@{attack-type}+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{vstype=@{attack-vstype}}}
+    attack-type (select)
+        STR : [[@{STR-mod}]][STR]+@{level}[LVL]
+        DEX : [[@{DEX-mod}]][DEX]+@{level}[LVL]
+        INT : [[@{INT-mod}]][INT]+@{level}[LVL]
+        CHA : [[@{CHA-mod}]][CHA]+@{level}[LVL]
+        WIS : [[@{WIS-mod}]][WIS]+@{level}[LVL]
+        CON : [[@{CON-mod}]][CON]+@{level}[LVL]
+        MWEAP1 : [[@{STR-mod}]][STR]+@{level}[LVL]+@{MWEAP-mod1}[WEAP]
+        MWEAP2 : [[@{STR-mod}]][STR]+@{level}[LVL]+@{MWEAP-mod2}[WEAP]
+        MWPEA3 : [[@{STR-mod}]][STR]+@{level}[LVL]+@{MWEAP-mod3}[WEAP]
+        RWEAP1 : [[@{DEX-mod}]][DEX]+@{level}[LVL]+@{RWEAP-mod1}[WEAP]
+        RWEAP2 : [[@{DEX-mod}]][DEX]+@{level}[LVL]+@{RWEAP-mod2}[WEAP]
+        RWEAP3 : [[@{DEX-mod}]][DEX]+@{level}[LVL]+@{RWEAP-mod3}[WEAP]
+        CUSTOM : @{attack-custom}
+    attack-custom (text)
+    ---
+    XXX attack-vstype (select)
+        AC
+        PD
+        MD
+        CUSTOM : @{attack-vscustom}
+    attack-vscustom (text)
+
+XXX cust1 (checkbox) = 1 : {{cust1=1}}
+                       {{@{cust1-type}-1=1}}
+                       {{custype1=@{cust1-custom}}}
+                       @{cust1-subcust1} @{cust1-subcust2} @{cust1-subcust3} @{cust1-subcust4}
+    cust1-type (radio)
+        Hit
+        Miss
+        Trigger
+        Effect
+        Improved
+        Sustain
+        Special
+        Opening-Sustaining-Effect
+        Final-Verse
+        Details
+        typecustom
+    cust1-custom (text)
+    cust1-subcust1 (checkbox) = 1 : {{cust1-subcust1=1}} {{cust1-subcust1-desc=@{cust1-subcust1-desc}}}
+        cust1-subcust1-desc (text)
+    cust1-subcust2 (checkbox) = 1 : {{cust1-subcust2=1}} {{cust1-subcust2-desc=@{cust1-subcust2-desc}}}
+        cust1-subcust2-desc (text)
+    cust1-subcust3 (checkbox) = 1 : {{cust1-subcust3=1}} {{cust1-subcust3-desc=@{cust1-subcust3-desc}}}
+        cust1-subcust3-desc (text)
+    cust1-subcust4 (checkbox) = 1 : {{cust1-subcust4=1}} {{cust1-subcust4-desc=@{cust1-subcust4-desc}}}
+        cust1-subcust4-desc (text)
+
+XXX cust2 (checkbox) = 1 : {{cust2=1}} {{@{cust2-type}-2=1}} {{custype2=@{cust2-custom}}} @{cust2-subcust1} @{cust2-subcust2} @{cust2-subcust3} @{cust2-subcust4}
+    cust2-type (radio)
+        Hit
+        Miss
+        Trigger
+        Effect
+        Improved
+        Sustain
+        Special
+        Opening-Sustaining-Effect
+        Final-Verse
+        Details
+        typecustom
+    cust2-custom (text)
+    cust2-subcust1 (checkbox) = 1 : {{cust2-subcust1=1}} {{cust2-subcust1-desc=@{cust2-subcust1-desc}}}
+        cust2-subcust1-desc (text)
+    cust2-subcust2 (checkbox) = 1 : {{cust2-subcust2=1}} {{cust2-subcust2-desc=@{cust2-subcust2-desc}}}
+        cust2-subcust2-desc (text)
+    cust2-subcust3 (checkbox) = 1 : {{cust2-subcust3=1}} {{cust2-subcust3-desc=@{cust2-subcust3-desc}}}
+        cust2-subcust3-desc (text)
+    cust2-subcust4 (checkbox) = 1 : {{cust2-subcust4=1}} {{cust2-subcust4-desc=@{cust2-subcust4-desc}}}
+        cust2-subcust4-desc (text)
+
+XXX cust3 (checkbox) = 1 : {{cust3=1}} {{@{cust3-type}-3=1}} {{custype3=@{cust3-custom}}} @{cust3-subcust1} @{cust3-subcust2} @{cust3-subcust3} @{cust3-subcust4}
+    cust3-type (radio)
+        Hit
+        Miss
+        Trigger
+        Effect
+        Improved
+        Sustain
+        Special
+        Opening-Sustaining-Effect
+        Final-Verse
+        Details
+        typecustom
+    cust3-custom (text)
+    cust3-subcust1 (checkbox) = 1 : {{cust3-subcust1=1}} {{cust3-subcust1-desc=@{cust3-subcust1-desc}}}
+        cust3-subcust1-desc (text)
+    cust3-subcust2 (checkbox) = 1 : {{cust3-subcust2=1}} {{cust3-subcust2-desc=@{cust3-subcust2-desc}}}
+        cust3-subcust2-desc (text)
+    cust3-subcust3 (checkbox) = 1 : {{cust3-subcust3=1}} {{cust3-subcust3-desc=@{cust3-subcust3-desc}}}
+        cust3-subcust3-desc (text)
+    cust3-subcust4 (checkbox) = 1 : {{cust3-subcust4=1}} {{cust3-subcust4-desc=@{cust3-subcust4-desc}}}
+        cust3-subcust4-desc (text)
+

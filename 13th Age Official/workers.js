@@ -38,6 +38,7 @@
                 updateRangeWeapon(parseInt(v["RWEAP-sel"]) || 1);
             });
         }
+        //TODO : update all the powers
     });
 
     // Background
@@ -60,7 +61,7 @@
     });
 
     // Powers
-    on("change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
+    on("change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:rechargerate change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
         updatePower(e);
     });
 
@@ -209,62 +210,364 @@
                 type = "",
                 action = "",
                 range = "",
-                attack = 0
+                attack = 0,
                 attackvs = "",
+                vs = "",
                 cust1type = "",
                 cust2type = "",
-                cust3type = "";
-            // === Power Roll
-
-            // === Power display
+                cust3type = "",
+                roll = "&{template:power} {{name=" + v.repeating_power_name + "}}";
+            // === Power Roll & Display
             // TYPE
-            console.log("*** DEBUG updatePower Type " + v.repeating_power_type + " " + v.repeating_power_classtype);
-            if(v.repeating_power_type === "{{typecustom=1}} {{type=@{type-custom}}}") {type = v["repeating_power_type-custom"];}
-            else if(v.repeating_power_type === "{{atwill=1}} {{type=At-Will}}") {type = "At-Will";}
-            else if(v.repeating_power_type === "{{class=1}} {{type=@{classtype}}}") {
-                type = v["repeating_power_classtype"];
+            switch(v.repeating_power_type) {
+                case "atwill":
+                    type = "At-Will"; //to translate
+                    roll += " {{atwill=1}} {{type=At-Will}}";
+                    break;
+                case "class":
+                    switch(v.repeating_power_classtype) {
+                        case "Talent":
+                            type = "Talent"; //to translate
+                            break;
+                        case "Feature":
+                            type = "Feature"; //to translate
+                            break;
+                        case "Power":
+                            type = "Power"; //to translate
+                            break;
+                        case "Battle Cry":
+                            type = "Battle Cry"; //to translate
+                            break;
+                        case "Domain":
+                            type = "Domain"; //to translate
+                            break;
+                    }
+                    roll += " {{class=1}} {{type=" + type + "}}";
+                    break;
+                case "racial":
+                    type = v.race;
+                    roll += " {{racial-encounter=1}} {{type=" + v.race + "}}";
+                    break;
+                case "encounter":
+                    type = "Encounter"; //to translate
+                    roll += " {{racial-encounter=1}} {{type=" + type + "}}";
+                    break;
+                case "recharge":
+                    type = "Recharge+" + v.repeating_power_rechargerate; //to translate
+                    roll += " {{recharge-daily=1}} {{type=" + v["repeating_power_rechargerate"] + "+}}";
+                    break;
+                case "daily":
+                    type = "Daily"; //to translate
+                    roll += " {{recharge-daily=1}} {{type=" + type + "}}";
+                    break;
+                case "spell":
+                    type = "Spell"; //to translate
+                    roll += " {{spell=1}} {{type=" + type + "}}";
+                    break;
+                case "magicitem":
+                    type = "Magic Item"; //to translate
+                    roll += " {{magicitem=1}} {{type=" + type + "}}";
+                    break;
+                case "custom":
+                    type = v["repeating_power_type-custom"];
+                    roll += " {{typecustom=1}} {{type=" + type + "}}";
+                    break;
             }
-            else if(v.repeating_power_type === "{{racial-encounter=1}} {{type=@{race}}}") {type = v["race"];}
-            else if(v.repeating_power_type === "{{racial-encounter=1}} {{type=Encounter}}") {type = "Encounter";}
-            else if(v.repeating_power_type === "{{recharge-daily=1}} {{type=@{rechargerate}+}}") {type = "Recharge+" + v["repeating_power_rechargerate"];}
-            else if(v.repeating_power_type === "{{recharge-daily=1}} {{type=Daily}}") {type = "Daily";}
-            else if(v.repeating_power_type === "{{spell=1}} {{type=Spell}}") {type = "Spell";}
-            else if(v.repeating_power_type === "{{magicitem=1}} {{type=Magic Item}}") {type = "Magic Item";}
-            else {type = ""};
+            // Action and/or Range roll template line
+            if ((v.repeating_power_action == "1") || (v.repeating_power_range == "1")) {
+                roll +=" {{action-range-flag=1}}";
+            }
             // ACTION
-            if(v["repeating_power_action-type"] === "@{action-custom}") {action = v["repeating_power_action-custom"]}
-            else {action = v["repeating_power_action-type"]}
+            if (v.repeating_power_action == "1") {
+                switch(v["repeating_power_action-type"]) {
+                    case "Standard Action":
+                        action = "Standard Action"; //to translate
+                        break;
+                    case "Move Action":
+                        action = "Move Action"; //to translate
+                        break;
+                    case "Quick Action":
+                        action = "Quick Action"; //to translate
+                        break;
+                    case "Free Action":
+                        action = "Free Action"; //to translate
+                        break;
+                    case "Flexible Action":
+                        action = "Flexible Action"; //to translate
+                        break;
+                    case "Custom":
+                        action = v["repeating_power_action-custom"];
+                        break;
+                }
+                roll += " {{action=" + action + "}}";
+            }
             // RANGE
-            if(v["repeating_power_range-type"] === "@{range-custom}") {range = v["repeating_power_range-custom"]}
-            else {range = v["repeating_power_range-type"]}
+            if(v.repeating_power_range == "1") {
+                switch(v["repeating_power_range-type"]) {
+                    case "Engaged":
+                        range = "Engaged"; //to translate
+                        break;
+                    case "Nearby":
+                        range = "Nearby"; //to translate
+                        break;
+                    case "Far Away":
+                        range = "Far Away"; //to translate
+                        break;
+                    case "Line of Sight":
+                        range = "Line of Sight"; //to translate
+                        break;
+                    case "Custom":
+                        range = v["repeating_power_range-custom"];
+                        break;
+                }
+                roll += " {{range=" + range + "}}";
+            }
+            //TARGET
+            if(v.repeating_power_target == "1") {
+               roll += " {{target=" + v["repeating_power_target-type"] + "}}";
+            }
             // ATTACK
-            if(v["repeating_power_attack-type"] === "[[@{STR-mod}]][STR]+@{level}[LVL]") {attack = str + level}
-            else if(v["repeating_power_attack-type"] === "[[@{DEX-mod}]][DEX]+@{level}[LVL]") {attack = dex + level}
-            else if(v["repeating_power_attack-type"] === "[[@{CON-mod}]][CON]+@{level}[LVL]") {attack = con + level}
-            else if(v["repeating_power_attack-type"] === "[[@{INT-mod}]][INT]+@{level}[LVL]") {attack = int + level}
-            else if(v["repeating_power_attack-type"] === "[[@{CHA-mod}]][CHA]+@{level}[LVL]") {attack = cha + level}
-            else if(v["repeating_power_attack-type"] === "[[@{WIS-mod}]][WIS]+@{level}[LVL]") {attack = wis + level}
-            else if(v["repeating_power_attack-type"] === "[[@{STR-mod}]][STR]+@{level}[LVL]+@{MWEAP-mod1}[WEAP]") {attack = str + level + mweap1}
-            else if(v["repeating_power_attack-type"] === "[[@{STR-mod}]][STR]+@{level}[LVL]+@{MWEAP-mod2}[WEAP]") {attack = str + level + mweap2}
-            else if(v["repeating_power_attack-type"] === "[[@{STR-mod}]][STR]+@{level}[LVL]+@{MWEAP-mod3}[WEAP]") {attack = str + level + mweap3}
-            else if(v["repeating_power_attack-type"] === "[[@{DEX-mod}]][DEX]+@{level}[LVL]+@{RWEAP-mod1}[WEAP]") {attack = dex + level + rweap1}
-            else if(v["repeating_power_attack-type"] === "[[@{DEX-mod}]][DEX]+@{level}[LVL]+@{RWEAP-mod2}[WEAP]") {attack = dex + level + rweap2}
-            else if(v["repeating_power_attack-type"] === "[[@{DEX-mod}]][DEX]+@{level}[LVL]+@{RWEAP-mod3}[WEAP]") {attack = dex + level + rweap3}
-            else if(v["repeating_power_attack-type"] === "@{attack-custom}") {attack = v["repeating_power_attack-custom"]}
-            else {attack = ""};
-            if(v["repeating_power_attack-vstype"] === "@{attack-vscustom}") {vs = v["repeating_power_attack-vscustom"]}
-            else{vs = v["repeating_power_attack-vstype"]};
-            attackvs = (attack < 0 ? "" : "+") + attack + " vs " + vs;
+            if(v.repeating_power_attack == "1") {
+                roll += " {{attack=1}} {{attbonus=[[1d20+";
+                switch(v["repeating_power_attack-type"]) {
+                    case "STR":
+                        attack = str + level;
+                        roll += "" + str + "[STR]+" + level + "[LVL]"; //to translate
+                        break;
+                    case "CON":
+                        attack = con + level;
+                        roll += "" + con + "[CON]+" + level + "[LVL]"; //to translate
+                        break;
+                    case "DEX":
+                        attack = dex + level;
+                        roll += "" + dex + "[DEX]+" + level + "[LVL]"; //to translate
+                        break;
+                    case "INT":
+                        attack = int + level;
+                        roll += "" + int + "[INT]+" + level + "[LVL]"; //to translate
+                        break;
+                    case "WIS":
+                        attack = wis + level
+                        roll += "" + wis + "[WIS]+" + level + "[LVL]"; //to translate
+                        break;
+                    case "CHA":
+                        attack = cha + level;
+                        roll += "" + cha + "[CHA]+" + level + "[LVL]"; //to translate
+                        break;
+                    case "MWEAP1":
+                        attack = str + level + mweap1;
+                        roll += "" + str + "[STR]+" + level + "[LVL]+" + mweap1 + "[WEAP]"; //to translate
+                        break;
+                    case "MWEAP2":
+                        attack = str + level + mweap2;
+                        roll += "" + str + "[STR]+" + level + "[LVL]+" + mweap2 + "[WEAP]"; //to translate
+                        break;
+                    case "MWPEA3":
+                        attack = str + level + mweap3;
+                        roll += "" + str + "[STR]+" + level + "[LVL]+" + mweap3 + "[WEAP]"; //to translate
+                        break;
+                    case "RWEAP1":
+                        attack = dex + level + rweap1;
+                        roll += "" + dex + "[DEX]+" + level + "[LVL]+" + rweap1 + "[WEAP]"; //to translate
+                        break;
+                    case "RWEAP2":
+                        attack = dex + level + rweap2;
+                        roll += "" + dex + "[DEX]+" + level + "[LVL]+" + rweap2 + "[WEAP]"; //to translate
+                        break;
+                    case "RWEAP3":
+                        attack = dex + level + rweap3;
+                        roll += "" + dex + "[DEX]+" + level + "[LVL]+" + rweap3 + "[WEAP]"; //to translate
+                        break;
+                    case "CUSTOM":
+                        attack = parseInt(v["repeating_power_attack-custom"]) || 0;
+                        roll += v["repeating_power_attack-custom"];
+                        break;
+                    default:
+                        roll += "0[UNKNOW]"; //to translate
+                        break;
+                }
+                roll += "+?{Modifiers|0}[MOD]+@{E-DIE}]]}}"; //to translate
+                // VS
+                switch(v["repeating_power_attack-vstype"]) {
+                    case "AC":
+                        vs = "AC"; // to translate
+                        break;
+                    case "PD":
+                        vs = "PD"; // to translate
+                        break;
+                    case "MD":
+                        vs = "MD"; // to translate
+                        break;
+                    case "CUSTOM":
+                        vs = v["repeating_power_attack-vscustom"];
+                        break;
+                }
+                roll +=" {{vstype=" + vs + "}}";
+                attackvs = (attack < 0 ? "" : "+") + attack + " vs " + vs; // to translate
+            }
             // CUSTOM 1
-            if(v["repeating_power_cust1-type"] === "typecustom") {cust1type = v["repeating_power_cust1-custom"] + ":"}
-            else {cust1type = v["repeating_power_cust1-type"] + ":"}
+            if(v.repeating_power_cust1 == "1") {
+                roll += " {{cust1=1}} {{" + v["repeating_power_cust1-type"] + "-1=1}}";
+                switch(v["repeating_power_cust1-type"]) {
+                    case "Hit":
+                        cust1type = "Hit"; //to translate
+                        break;
+                    case "Miss":
+                        cust1type = "Miss"; //to translate
+                        break;
+                    case "Trigger":
+                        cust1type = "Trigger"; //to translate
+                        break;
+                    case "Effect":
+                        cust1type = "Effect"; //to translate
+                        break;
+                    case "Improved":
+                        cust1type = "Improved"; //to translate
+                        break;
+                    case "Sustain":
+                        cust1type = "Sustain"; //to translate
+                        break;
+                    case "Special":
+                        cust1type = "Special"; //to translate
+                        break;
+                    case "Opening-Sustaining-Effect":
+                        cust1type = "Opening-Sustaining-Effect"; //to translate
+                        break;
+                    case "Final-Verse":
+                        cust1type = "Final-Verse"; //to translate
+                        break;
+                    case "Details":
+                        cust1type = "Details"; //to translate
+                        break;
+                    case "typecustom":
+                        cust1type = v["repeating_power_cust1-custom"];
+                        roll += " {{custype1=" + cust1type + "}}";
+                        break;
+                }
+                cust1type += ":";
+                if(v["repeating_power_cust1-subcust1"] == "1") {
+                    roll += " {{cust1-subcust1=1}} {{cust1-subcust1-desc=" + v["repeating_power_cust1-subcust1-desc"] + "}}";
+                }
+                if(v["repeating_power_cust1-subcust2"] == "1") {
+                    roll += " {{cust1-subcust2=1}} {{cust1-subcust2-desc=" + v["repeating_power_cust1-subcust2-desc"] + "}}";
+                }
+                if(v["repeating_power_cust1-subcust3"] == "1") {
+                    roll += " {{cust1-subcust3=1}} {{cust1-subcust3-desc=" + v["repeating_power_cust1-subcust3-desc"] + "}}";
+                }
+                if(v["repeating_power_cust1-subcust4"] == "1") {
+                    roll += " {{cust1-subcust4=1}} {{cust1-subcust4-desc=" + v["repeating_power_cust1-subcust4-desc"] + "}}";
+                }
+            }
             // CUSTOM 2
-            if(v["repeating_power_cust2-type"] === "typecustom") {cust2type = v["repeating_power_cust2-custom"] + ":"}
-            else {cust2type = v["repeating_power_cust2-type"] + ":"}
+            if(v.repeating_power_cust2 == "1") {
+                roll += " {{cust2=1}} {{" + v["repeating_power_cust2-type"] + "-1=1}}";
+                switch(v["repeating_power_cust2-type"]) {
+                    case "Hit":
+                        cust2type = "Hit"; //to translate
+                        break;
+                    case "Miss":
+                        cust2type = "Miss"; //to translate
+                        break;
+                    case "Trigger":
+                        cust2type = "Trigger"; //to translate
+                        break;
+                    case "Effect":
+                        cust2type = "Effect"; //to translate
+                        break;
+                    case "Improved":
+                        cust2type = "Improved"; //to translate
+                        break;
+                    case "Sustain":
+                        cust2type = "Sustain"; //to translate
+                        break;
+                    case "Special":
+                        cust2type = "Special"; //to translate
+                        break;
+                    case "Opening-Sustaining-Effect":
+                        cust2type = "Opening-Sustaining-Effect"; //to translate
+                        break;
+                    case "Final-Verse":
+                        cust2type = "Final-Verse"; //to translate
+                        break;
+                    case "Details":
+                        cust2type = "Details"; //to translate
+                        break;
+                    case "typecustom":
+                        cust2type = v["repeating_power_cust2-custom"];
+                        roll += " {{custype1=" + cust2type + "}}";
+                        break;
+                }
+                cust2type += ":";
+                if(v["repeating_power_cust2-subcust1"] == "1") {
+                    roll += " {{cust2-subcust1=1}} {{cust2-subcust1-desc=" + v["repeating_power_cust2-subcust1-desc"] + "}}";
+                }
+                if(v["repeating_power_cust2-subcust2"] == "1") {
+                    roll += " {{cust2-subcust2=1}} {{cust2-subcust2-desc=" + v["repeating_power_cust2-subcust2-desc"] + "}}";
+                }
+                if(v["repeating_power_cust2-subcust3"] == "1") {
+                    roll += " {{cust2-subcust3=1}} {{cust2-subcust3-desc=" + v["repeating_power_cust2-subcust3-desc"] + "}}";
+                }
+                if(v["repeating_power_cust2-subcust4"] == "1") {
+                    roll += " {{cust2-subcust4=1}} {{cust2-subcust4-desc=" + v["repeating_power_cust2-subcust4-desc"] + "}}";
+                }
+            }
             // CUSTOM 3
-            if(v["repeating_power_cust3-type"] === "typecustom") {cust3type = v["repeating_power_cust3-custom"] + ":"}
-            else {cust3type = v["repeating_power_cust3-type"] + ":"}
+            if(v.repeating_power_cust3 == "1") {
+                roll += " {{cust3=1}} {{" + v["repeating_power_cust3-type"] + "-1=1}}";
+                switch(v["repeating_power_cust3-type"]) {
+                    case "Hit":
+                        cust3type = "Hit"; //to translate
+                        break;
+                    case "Miss":
+                        cust3type = "Miss"; //to translate
+                        break;
+                    case "Trigger":
+                        cust3type = "Trigger"; //to translate
+                        break;
+                    case "Effect":
+                        cust3type = "Effect"; //to translate
+                        break;
+                    case "Improved":
+                        cust3type = "Improved"; //to translate
+                        break;
+                    case "Sustain":
+                        cust3type = "Sustain"; //to translate
+                        break;
+                    case "Special":
+                        cust3type = "Special"; //to translate
+                        break;
+                    case "Opening-Sustaining-Effect":
+                        cust3type = "Opening-Sustaining-Effect"; //to translate
+                        break;
+                    case "Final-Verse":
+                        cust3type = "Final-Verse"; //to translate
+                        break;
+                    case "Details":
+                        cust3type = "Details"; //to translate
+                        break;
+                    case "typecustom":
+                        cust3type = v["repeating_power_cust3-custom"];
+                        roll += " {{custype1=" + cust3type + "}}";
+                        break;
+                }
+                cust3type += ":";
+                if(v["repeating_power_cust3-subcust1"] == "1") {
+                    roll += " {{cust3-subcust1=1}} {{cust3-subcust1-desc=" + v["repeating_power_cust3-subcust1-desc"] + "}}";
+                }
+                if(v["repeating_power_cust3-subcust2"] == "1") {
+                    roll += " {{cust3-subcust2=1}} {{cust3-subcust2-desc=" + v["repeating_power_cust3-subcust2-desc"] + "}}";
+                }
+                if(v["repeating_power_cust3-subcust3"] == "1") {
+                    roll += " {{cust3-subcust3=1}} {{cust3-subcust3-desc=" + v["repeating_power_cust3-subcust3-desc"] + "}}";
+                }
+                if(v["repeating_power_cust3-subcust4"] == "1") {
+                    roll += " {{cust3-subcust4=1}} {{cust3-subcust4-desc=" + v["repeating_power_cust3-subcust4-desc"] + "}}";
+                }
+            }
+            // UPDATE
+            console.log("*** DEBUG power roll:" + roll);
             setAttrs({
+                "repeating_power_power-roll" : roll,
                 "repeating_power_powname-display": v["repeating_power_name"],
                 "repeating_power_type-display": type,
                 "repeating_power_action-display": action,
