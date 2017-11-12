@@ -26,19 +26,19 @@
 
     // Level / AC / PD / MD / HP / Weapons (mods level) / Powers (mods level)
     on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level change:m-miss change:r-miss",function(e){
-        if (["level","m-miss","r-miss"].includes(e.sourceAttribute)) {updateLvl();}
-        if (["level","ac-base","con-mod","dex-mod","wis-mod"].includes(e.sourceAttribute)) {updateAc();}
-        if (["level","pd-base","str-mod","con-mod","dex-mod"].includes(e.sourceAttribute)) {updatePd();}
-        if (["level","md-base","int-mod","wis-mod","cha-mod"].includes(e.sourceAttribute)) {updateMd();}
-        if (["level","hp-base","hp-mod","con-mod"].includes(e.sourceAttribute)) {updateHp();}
-        if (["level","con-mod"].includes(e.sourceAttribute)) {updateRec()};
+        if (["level","m-miss","r-miss"].includes(e.sourceAttribute)) {updateLvl()}
+        if (["level","ac-base","con-mod","dex-mod","wis-mod"].includes(e.sourceAttribute)) {updateAc()}
+        if (["level","pd-base","str-mod","con-mod","dex-mod"].includes(e.sourceAttribute)) {updatePd()}
+        if (["level","md-base","int-mod","wis-mod","cha-mod"].includes(e.sourceAttribute)) {updateMd()}
+        if (["level","hp-base","hp-mod","con-mod"].includes(e.sourceAttribute)) {updateHp()}
+        if (["level","con-mod"].includes(e.sourceAttribute)) {updateRec()}
         if (["level","str-mod","dex-mod"].includes(e.sourceAttribute)) {
             getAttrs(["MWEAP-sel","RWEAP-sel"], function(v){
                 updateMeleeWeapon(parseInt(v["MWEAP-sel"]) || 1);
                 updateRangeWeapon(parseInt(v["RWEAP-sel"]) || 1);
             });
         }
-        //TODO : update all the powers
+        if (["level","str-mod","con-mod","dex-mod","int-mod","wis-mod","cha-mod"].includes(e.sourceAttribute)) {updateAllPowers()}
     });
 
     // Background
@@ -61,7 +61,7 @@
     });
 
     // Powers
-    on("change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:rechargerate change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
+    on("change:repeating_power:flag change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:rechargerate change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
         updatePower(e);
     });
 
@@ -188,7 +188,21 @@
         });
     };
 
-    // Powers -- how to: multinlingual handling ?
+    // Powers
+    var updateAllPowers = function() {
+        getSectionIDs("repeating_power", function(idarray) {
+            console.log("*** DEBUG updateAllPowers");
+            var flag = "";
+            for(var i=0; i < idarray.length; i++) {
+                //TODO : Doesn't trigger, have to really change the value (date time ?)
+                //Set a flag to trigger the power full update (updatePower())
+                flag = "repeating_power_" + idarray[i] + "_flag";
+                var obj = {};
+                obj[flag] = 1;
+                setAttrs(obj);
+            }
+        });
+    };
     var updatePower = function(e) {
         /*if (typeof e !== "undefined") {
             console.log("*** DEBUG updatePower " + e.sourceAttribute);
@@ -460,7 +474,7 @@
             }
             // CUSTOM 2
             if(v.repeating_power_cust2 == "1") {
-                roll += " {{cust2=1}} {{" + v["repeating_power_cust2-type"] + "-1=1}}";
+                roll += " {{cust2=1}} {{" + v["repeating_power_cust2-type"] + "-2=1}}";
                 switch(v["repeating_power_cust2-type"]) {
                     case "Hit":
                         cust2type = "Hit"; //to translate
@@ -494,7 +508,7 @@
                         break;
                     case "typecustom":
                         cust2type = v["repeating_power_cust2-custom"];
-                        roll += " {{custype1=" + cust2type + "}}";
+                        roll += " {{custype2=" + cust2type + "}}";
                         break;
                 }
                 cust2type += ":";
@@ -513,7 +527,7 @@
             }
             // CUSTOM 3
             if(v.repeating_power_cust3 == "1") {
-                roll += " {{cust3=1}} {{" + v["repeating_power_cust3-type"] + "-1=1}}";
+                roll += " {{cust3=1}} {{" + v["repeating_power_cust3-type"] + "-3=1}}";
                 switch(v["repeating_power_cust3-type"]) {
                     case "Hit":
                         cust3type = "Hit"; //to translate
@@ -547,7 +561,7 @@
                         break;
                     case "typecustom":
                         cust3type = v["repeating_power_cust3-custom"];
-                        roll += " {{custype1=" + cust3type + "}}";
+                        roll += " {{custype3=" + cust3type + "}}";
                         break;
                 }
                 cust3type += ":";
