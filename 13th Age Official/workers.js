@@ -199,6 +199,7 @@
     // === Powers
     // All Powers
     var updateAllPowers = function() {
+        console.log('*** DEBUG updateAllPowers');
         // Update a useless attribute (_flag) on all powers to trigger an invidual total update (updatePower())
         getSectionIDs("repeating_power", function(idarray) {
             var attrs = [];
@@ -210,12 +211,14 @@
                 _.each(attrs, function(attr) {
                     setAttrsObj[attr] = (parseInt(v[attr]) || 0) + 1;
                 });
-                setAttrs(setAttrsObj);
+                console.log('*** DEBUG updateAllPowers setAttrsObj:' + JSON.stringify(setAttrsObj));
+                setAttrs(setAttrsObj,{"silent": false});
             });
         });
     };
     // Single Power
     var updatePower = function(e) {
+        console.log('*** DEBUG updatePower');
         getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
             var str = parseInt(v["STR-mod"]) || 0
                 dex = parseInt(v["DEX-mod"]) || 0,
@@ -588,6 +591,7 @@
                 }
             }
             // UPDATE
+            console.log('*** DEBUG updatePower roll : ' + roll);
             setAttrs({
                 "repeating_power_power-roll" : roll,
                 "repeating_power_powname-display": v["repeating_power_name"],
@@ -667,9 +671,11 @@
     var upgrade_to_2_0 = function(doneupdating) {
         getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(v) {
             var transformPowers = function () {
+                console.log('*** DEBUG transformPowers');
                 getSectionIDs("repeating_power", function(idarray) {
                     var attrs = [];
                     _.each(idarray, function(pid) {
+                        attrs.push("repeating_power_" + pid + "_flag");
                         attrs.push("repeating_power_" + pid + "_type");
                         attrs.push("repeating_power_" + pid + "_action");
                         attrs.push("repeating_power_" + pid + "_action-type");
@@ -680,16 +686,19 @@
                         attrs.push("repeating_power_" + pid + "_attack-type");
                         attrs.push("repeating_power_" + pid + "_attack-vstype");
                         attrs.push("repeating_power_" + pid + "_cust1");
+                        attrs.push("repeating_power_" + pid + "_cust1-type");
                         attrs.push("repeating_power_" + pid + "_cust1-subcust1");
                         attrs.push("repeating_power_" + pid + "_cust1-subcust2");
                         attrs.push("repeating_power_" + pid + "_cust1-subcust3");
                         attrs.push("repeating_power_" + pid + "_cust1-subcust4");
                         attrs.push("repeating_power_" + pid + "_cust2");
+                        attrs.push("repeating_power_" + pid + "_cust2-type");
                         attrs.push("repeating_power_" + pid + "_cust2-subcust1");
                         attrs.push("repeating_power_" + pid + "_cust2-subcust2");
                         attrs.push("repeating_power_" + pid + "_cust2-subcust3");
                         attrs.push("repeating_power_" + pid + "_cust2-subcust4");
                         attrs.push("repeating_power_" + pid + "_cust3");
+                        attrs.push("repeating_power_" + pid + "_cust3-type");
                         attrs.push("repeating_power_" + pid + "_cust3-subcust1");
                         attrs.push("repeating_power_" + pid + "_cust3-subcust2");
                         attrs.push("repeating_power_" + pid + "_cust3-subcust3");
@@ -699,7 +708,11 @@
                         var setAttrsObj = {}, endat = "";
                         _.each(attrs, function(attr) {
                             endat = attr.substr(attr.lastIndexOf("_")+1,attr.length-attr.lastIndexOf("_")+1);
+                            console.log('*** DEBUG transformPowers attr : ' + attr + ' ,endat : ' + endat);
                             switch(endat) {
+                                case "flag":
+                                    setAttrsObj[attr] = "0";
+                                    break;
                                 case "type":
                                     switch(v[attr]){
                                         case "{{atwill=1}} {{type=At-Will}}":
@@ -795,6 +808,9 @@
                                 case "cust1":
                                     if(v[attr] == "{{cust1=1}} {{@{cust1-type}-1=1}} @{cust1-subcust1} @{cust1-subcust2} @{cust1-subcust3} @{cust1-subcust4}") {setAttrsObj[attr] = "1"}
                                     break;
+                                case "cust1-type":
+                                    if(v[attr] == "@{cust1-custom}") {setAttrsObj[attr] = "typecustom"}
+                                    break;
                                 case "cust1-subcust1":
                                     if(v[attr] == "{{cust1-subcust1=1}} {{cust1-subcust1-desc=@{cust1-subcust1-desc}}}") {setAttrsObj[attr] = "1"}
                                     break;
@@ -809,6 +825,9 @@
                                     break;
                                 case "cust2":
                                     if(v[attr] == "{{cust2=1}} {{@{cust2-type}-2=1}} @{cust2-subcust1} @{cust2-subcust2} @{cust2-subcust3} @{cust2-subcust4}") {setAttrsObj[attr] = "1"}
+                                    break;
+                                case "cust2-type":
+                                    if(v[attr] == "@{cust2-custom}") {setAttrsObj[attr] = "typecustom"}
                                     break;
                                 case "cust2-subcust1":
                                     if(v[attr] == "{{cust2-subcust1=1}} {{cust2-subcust1-desc=@{cust2-subcust1-desc}}}") {setAttrsObj[attr] = "1"}
@@ -825,6 +844,9 @@
                                 case "cust3":
                                     if(v[attr] == "{{cust3=1}} {{@{cust3-type}-3=1}} @{cust3-subcust1} @{cust3-subcust2} @{cust3-subcust3} @{cust3-subcust4}") {setAttrsObj[attr] = "1"}
                                     break;
+                                case "cust3-type":
+                                    if(v[attr] == "@{cust3-custom}") {setAttrsObj[attr] = "typecustom"}
+                                    break;
                                 case "cust3-subcust1":
                                     if(v[attr] == "{{cust3-subcust1=1}} {{cust3-subcust1-desc=@{cust3-subcust1-desc}}}") {setAttrsObj[attr] = "1"}
                                     break;
@@ -839,7 +861,8 @@
                                     break;
                             }
                         });
-                        setAttrs(setAttrsObj,{silent: true},updateAllPowers());
+                        console.log('*** DEBUG transformPowers setAttrsObj : ' + JSON.stringify(setAttrsObj));
+                        setAttrs(setAttrsObj,{"silent": true},updateAllPowers());
                     });
                 });
             };
@@ -862,7 +885,7 @@
                "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
                "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
                "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
-                },{silent: true},callback);
+                },{"silent": true},callback);
             doneupdating();
         });
     };
@@ -873,8 +896,7 @@
             if (vrs == 2.0) {
                 console.log("13th Age by Roll20 v" + vrs);
                 return;
-            }
-            else if (vrs < 2.0) {
+            } else if (vrs < 2.0) {
                 console.log("UPGRADING TO v2.0");
                 upgrade_to_2_0(function() {
                     setAttrs({"version": "2.0"});
