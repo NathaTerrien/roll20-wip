@@ -1,7 +1,7 @@
     /* === EVENTS === */
 
     // === Version handling
-    on("sheet:opened", function(eventinfo) {
+    on("sheet:opened", function() {
         versioning();
     });
 
@@ -62,7 +62,7 @@
     });
 
     // === Powers
-    on("change:repeating_power:flag change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:rechargerate change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
+    on("change:repeating_power:updateflag change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:rechargerate change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
         updatePower(e);
     });
 
@@ -200,11 +200,11 @@
     // All Powers
     var updateAllPowers = function() {
         console.log('*** DEBUG updateAllPowers');
-        // Update a useless attribute (_flag) on all powers to trigger an invidual total update (updatePower())
+        // Update a useless attribute (_updateflag) on all powers to trigger an invidual total update (updatePower())
         getSectionIDs("repeating_power", function(idarray) {
             var attrs = [];
             _.each(idarray, function(pid) {
-                attrs.push("repeating_power_" + pid + "_flag");
+                attrs.push("repeating_power_" + pid + "_updateflag");
             });
             getAttrs(attrs, function (v){
                 var setAttrsObj = {};
@@ -212,7 +212,7 @@
                     setAttrsObj[attr] = (parseInt(v[attr]) || 0) + 1;
                 });
                 console.log('*** DEBUG updateAllPowers setAttrsObj:' + JSON.stringify(setAttrsObj));
-                setAttrs(setAttrsObj,{"silent": false});
+                setAttrs(setAttrsObj,{silent: false});
             });
         });
     };
@@ -675,7 +675,7 @@
                 getSectionIDs("repeating_power", function(idarray) {
                     var attrs = [];
                     _.each(idarray, function(pid) {
-                        attrs.push("repeating_power_" + pid + "_flag");
+                        attrs.push("repeating_power_" + pid + "_updateflag");
                         attrs.push("repeating_power_" + pid + "_type");
                         attrs.push("repeating_power_" + pid + "_action");
                         attrs.push("repeating_power_" + pid + "_action-type");
@@ -710,7 +710,7 @@
                             endat = attr.substr(attr.lastIndexOf("_")+1,attr.length-attr.lastIndexOf("_")+1);
                             console.log('*** DEBUG transformPowers attr : ' + attr + ' ,endat : ' + endat);
                             switch(endat) {
-                                case "flag":
+                                case "updateflag":
                                     setAttrsObj[attr] = "0";
                                     break;
                                 case "type":
@@ -862,11 +862,11 @@
                             }
                         });
                         console.log('*** DEBUG transformPowers setAttrsObj : ' + JSON.stringify(setAttrsObj));
-                        setAttrs(setAttrsObj,{"silent": true},updateAllPowers());
+                        setAttrs(setAttrsObj,{silent: true},updateAllPowers());
                     });
                 });
             };
-            var callback = function() {
+            var callback = function(doneupdating) {
                 updateLvl();
                 updateAc();
                 updatePd();
@@ -877,6 +877,7 @@
                 updateMeleeWeapon(1);
                 updateRangeWeapon(1);
                 transformPowers();
+                doneupdating();
             };
             setAttrs({
                "STR-mod": Math.floor((parseInt(v["STR-base"]) - 10) / 2),
@@ -885,8 +886,7 @@
                "INT-mod": Math.floor((parseInt(v["INT-base"]) - 10) / 2),
                "WIS-mod": Math.floor((parseInt(v["WIS-base"]) - 10) / 2),
                "CHA-mod": Math.floor((parseInt(v["CHA-base"]) - 10) / 2),
-                },{"silent": true},callback);
-            doneupdating();
+                },{silent: true},callback(doneupdating));
         });
     };
 
