@@ -251,3 +251,4 @@ XXX cust3 (checkbox) = 1 : {{cust3=1}} {{@{cust3-type}-3=1}} {{custype3=@{cust3-
     cust3-subcust4 (checkbox) = 1 : {{cust3-subcust4=1}} {{cust3-subcust4-desc=@{cust3-subcust4-desc}}}
         cust3-subcust4-desc (text)
 
+id.substr(id.length - 5)
