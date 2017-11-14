@@ -387,6 +387,50 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     content: "";
 }
 
+input[type="radio"].sheet-blueradio {
+    position: absolute;
+    opacity: 0.0;
+    width: 15px;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 5px;
+}
+
+input[type="radio"].sheet-blueradio + span::before {
+    display: inline-block;
+    border: solid 1px #000000;
+    line-height: 11px;
+    text-align: middle;
+    display: inline-block;
+    vertical-align: middle;
+
+    -moz-box-shadow: 0 0 0px #000;
+    -webkit-box-shadow: 0 0 0px #000;
+    box-shadow: 0 0 0px #000;
+
+    background: #000000;
+    background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -o-radial-gradient(#f6f6f6, #dfdfdf);
+    background: radial-gradient(#f6f6f6, #dfdfdf);
+    width: 10px;
+    height: 10px;
+    font-size: 41.9px;
+    font-family: "Arial";
+    text-indent: -2px;
+    font-weight: normal;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+input[type="radio"].sheet-blueradio:checked + span::before {
+    content: "•";
+}
+
 .sheet-body {
     margin-top: 30px;
 }
