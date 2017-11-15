@@ -390,14 +390,17 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
 input[type="radio"].sheet-blueradio {
     position: absolute;
     opacity: 0.0;
-    width: 15px;
+    width: 20px;
     cursor: pointer;
     z-index: 10;
     margin-top: 5px;
 }
-
-input[type="radio"].sheet-blueradio + span::before {
+input[type="radio"].sheet-blueradio + span{
     display: inline-block;
+    width: 16px;
+    margin-left: 4px;
+}
+input[type="radio"].sheet-blueradio + span::before {
     border: solid 1px #000000;
     line-height: 11px;
     text-align: middle;
@@ -414,6 +417,8 @@ input[type="radio"].sheet-blueradio + span::before {
     background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
     background: -o-radial-gradient(#f6f6f6, #dfdfdf);
     background: radial-gradient(#f6f6f6, #dfdfdf);
+    color: transparent;
+    content: "•";
     width: 10px;
     height: 10px;
     font-size: 41.9px;
@@ -426,9 +431,56 @@ input[type="radio"].sheet-blueradio + span::before {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
-
 input[type="radio"].sheet-blueradio:checked + span::before {
+    color: #014A89;
+}
+
+input[type="checkbox"].sheet-whitecheck {
+    position: absolute;
+    opacity: 0.0;
+    width: 20px;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 5px;
+}
+input[type="checkbox"].sheet-whitecheck + span{
+    display: inline-block;
+    width: 16px;
+    margin-left: 4px;
+}
+input[type="checkbox"].sheet-whitecheck + span::before {
+    border: solid 1px #000000;
+    line-height: 11px;
+    text-align: middle;
+    display: inline-block;
+    vertical-align: middle;
+
+    -moz-box-shadow: 0 0 0px #000;
+    -webkit-box-shadow: 0 0 0px #000;
+    box-shadow: 0 0 0px #000;
+
+    background: #000000;
+    background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
+    background: -o-radial-gradient(#f6f6f6, #dfdfdf);
+    background: radial-gradient(#f6f6f6, #dfdfdf);
+    color: transparent;
     content: "•";
+    width: 10px;
+    height: 10px;
+    font-size: 41.9px;
+    font-family: "Arial";
+    text-indent: -2px;
+    font-weight: normal;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+input[type="checkbox"].sheet-whitecheck:checked + span::before {
+    color: #014A89;
 }
 
 .sheet-body {
