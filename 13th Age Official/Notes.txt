@@ -252,3 +252,9 @@ XXX cust3 (checkbox) = 1 : {{cust3=1}} {{@{cust3-type}-3=1}} {{custype3=@{cust3-
         cust3-subcust4-desc (text)
 
 id.substr(id.length - 5)
+
+------------
+13A-011
+------------
+If I may, a neat addition (IMHO) to sheet workers functions would be a version of getTranslationByKey([key]) but its only parameter would be an array of key strings (instead of one key string), and it would return an object of key/string pairs. Still synchronous/without callback. Would be useful to set "global translation variables", used in the various sheet workers events/functions, without calling the current function once per key.
+
