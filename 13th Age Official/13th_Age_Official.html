@@ -1,5 +1,5 @@
 <div class="container">
-    <input class="options-check" type="checkbox" name="attr_options-check" checked="checked" title="Show/hide options" /><span></span>
+    <input class="options-check" type="checkbox" name="attr_options-check" checked="checked" data-i18n-title="show-hide-options" title="Show/hide options" /><span></span>
     <div class="options">
         <span class="row" style="font-size: 20px; margin-bottom: 10px;">
             Options
@@ -7,63 +7,61 @@
         <div>
             <div style="width: 250px; margin-bottom: 4px;display: inline-block;">
                 <span class="row">
-                    <span>Base AC from class</span><input type="number" name="attr_AC-base" value="10" title="@{AC-base}" />
+                    <span data-i18n="base-ac-from-class">Base AC from class</span><input type="number" name="attr_AC-base" value="10" title="@{AC-base}" />
                 </span>
                 <span class="row">
-                    <span>Base PD from class</span><input type="number" name="attr_PD-base" value="10" title="@{PD-base}" />
+                    <span data-i18n="base-pd-from-class">Base PD from class</span><input type="number" name="attr_PD-base" value="10" title="@{PD-base}" />
                 </span>
                 <span class="row">
-                    <span>Base MD from class</span><input type="number" name="attr_MD-base" value="10" title="@{MC-base}" />
+                    <span data-i18n="base-md-from-class">Base MD from class</span><input type="number" name="attr_MD-base" value="10" title="@{MC-base}" />
                 </span>
             </div>
             <div style="width: 450px; display: inline-block; vertical-align: top;color: #666;">
-                <span class="row">
-                    These are base numbers necessary for the automatic calculations below to work. After you've input these numbers you're encouraged to click on the gear icon in the upper right hand corner to hide this section.
-                </span>
+                <span class="row" data-i18n="help-options">These are base numbers necessary for the automatic calculations below to work. After you've input these numbers you're encouraged to click on the gear icon in the upper right hand corner to hide this section.</span>
             </div>
         </div>
         <div>
             <div style="width: 250px; margin-bottom: 4px;display: inline-block;">
                 <span class="row">
-                    <span class="lib">Base HP from class</span><input type="number" name="attr_HP-base" value="7" title="@{HP-base}" />
+                    <span class="lib" data-i18n="base-hp-from-class">Base HP from class</span><input type="number" name="attr_HP-base" value="7" title="@{HP-base}" />
                 </span>
                 <span class="row">
-                    <span class="lib">Melee Basic Attack Based On</span>
+                    <span class="lib" data-i18n="melee-basic-attack-based-on">Melee Basic Attack Based On</span>
                         <select name="attr_M-BAMOD">
-                            <option value="@{STR-mod}" selected="selected">STR</option>
-                            <option value="@{DEX-mod}">DEX</option>
+                            <option value="@{STR-mod}" data-i18n="str-u" selected="selected">STR</option>
+                            <option value="@{DEX-mod}" data-i18n="dex-u">DEX</option>
                         </select>
                 </span>
                 <span class="row">
-                    <span class="lib">Ranged Basic Attack Based On</span>
+                    <span class="lib" data-i18n="ranged-basic-attack-based-on">Ranged Basic Attack Based On</span>
                         <select name="attr_R-BAMOD">
-                            <option value="@{STR-mod}">STR</option>
-                            <option value="@{DEX-mod}" selected="selected">DEX</option>
+                            <option value="@{STR-mod}" data-i18n="str-u">STR</option>
+                            <option value="@{DEX-mod}" data-i18n="dex-u" selected="selected">DEX</option>
                         </select>
                 </span>
             </div>
             <div style="width: 250px; display: inline-block; vertical-align: top;">
                 <span class="row">
-                    <span class="lib">Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}" />
+                    <span class="lib" data-i18n="flat-hp-mod-from-magic-items">Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}" />
                 </span>
                 <span class="row">
-                    <span class="lib">Damage on Melee Miss</span>
+                    <span class="lib" data-i18n="damage-on-melee-miss">Damage on Melee Miss</span>
                         <select name="attr_M-MISS">
                             <option value="0">-</option>
-                            <option value="@{level}" selected="selected">Level</option>
+                            <option value="@{level}" selected="selected" data-i18n="level">Level</option>
                         </select>
                 </span>
                 <span class="row">
-                    <span class="lib">Damage on Ranged Miss</span>
+                    <span class="lib" data-i18n="damage-on-ranged-miss">Damage on Ranged Miss</span>
                         <select name="attr_R-MISS">
                             <option value="0" selected="selected">-</option>
-                            <option value="@{level}">Level</option>
+                            <option value="@{level}" data-i18n="level">Level</option>
                         </select>
                 </span>
             </div>
             <div style="width: 200px; display: inline-block; vertical-align: top;">
                 <span class="row">
-                    <span class="lib">Flat Initiative Mod</span><input type="number" name="attr_INIT-mod" value="0" title="@{INIT-mod}" />
+                    <span class="lib" data-i18n="flat initiative mod">Flat Initiative Mod</span><input type="number" name="attr_INIT-mod" value="0" title="@{INIT-mod}" />
                 </span>
             </div>
         </div>
@@ -71,57 +69,57 @@
     <div class="header">
         <div class="meta">
             <div class="metacontainer">
-                <div class="label">Name</div>
+                <div class="label"><span data-i18n="name">Name</span></div>
                 <input type="text" name="attr_character_name" title="@{character_name}" />
             </div>
             <div class="metacontainer">
-                <div class="label">Race</div>
+                <div class="label"><span data-i18n="race">Race</span></div>
                 <input type="text" name="attr_race" title="@{race}" />
             </div>
             <div class="metacontainer">
-                <div class="label">Class</div>
+                <div class="label"><span data-i18n="class">Class</span></div>
                 <input type="text" name="attr_class" title="@{class}" />
             </div>
             <div class="metacontainer">
-                <div class="label">Level</div>
+                <div class="label"><span data-i18n="leve">Level</span></div>
                 <input type="number" name="attr_level" value="1" title="@{level}" />
             </div>
         </div>
         <div class="attributes">
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_STR-base" value="10" title="@{STR-base}" />
-                <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=Strength}} {{attr_abr=STR}} {{attr_bonus=[[[[@{STR-mod}]][STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{STR-mod}]][STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">STR</button>
+                <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=Strength}} {{attr_abr=STR}} {{attr_bonus=[[[[@{STR-mod}]][STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{STR-mod}]][STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="str-u">STR</span></button>
                 <span class="attrmod" name="attr_STR-mod" title="@{STR-mod}"></span>
             </div>
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_CON-base" value="10" title="@{CON-base}" />
-                <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=Constitution}} {{attr_abr=CON}} {{attr_bonus=[[[[@{CON-mod}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CON-mod}]][CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">CON</button>
+                <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=Constitution}} {{attr_abr=CON}} {{attr_bonus=[[[[@{CON-mod}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CON-mod}]][CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="con-u">CON</span></button>
                 <span class="attrmod" name="attr_CON-mod" title="@{CON-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: absolute;">
                 <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}" />
-                <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">DEX</button>
+                <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="dex-u">DEX</span></button>
                 <span class="attrmod" name="attr_DEX-mod" title="@{DEX-mod}"></span>
-                <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}">INITIATIVE</button>
+                <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}"><span data-i18n="initiative-u">INITIATIVE</span></button>
             </div>
         </div>
         <div class="attributes">
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_INT-base" value="10" title="@{INT-base}" />
-                <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=Intelligence}} {{attr_abr=INT}} {{attr_bonus=[[[[@{INT-mod}]][INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{INT-mod}]][INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">INT</button>
+                <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=Intelligence}} {{attr_abr=INT}} {{attr_bonus=[[[[@{INT-mod}]][INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{INT-mod}]][INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="int-u">INT</span></button>
                 <span class="attrmod" name="attr_INT-mod" title="@{INT-mod}"></span>
             </div>
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_WIS-base" value="10" title="@{WIS-base}" />
-                <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=Wisdom}} {{attr_abr=WIS}} {{attr_bonus=[[[[@{WIS-mod}]][WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{WIS-mod}]][WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">WIS</button>
+                <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=Wisdom}} {{attr_abr=WIS}} {{attr_bonus=[[[[@{WIS-mod}]][WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{WIS-mod}]][WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="wis-u">WIS</span></button>
                 <span class="attrmod" name="attr_WIS-mod" title="@{WIS-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: relative;">
                 <input class="attrbase" type="text" name="attr_CHA-base" value="10" title="@{CHA-base}" />
-                <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=Charisma}} {{attr_abr=CHA}} {{attr_bonus=[[[[@{CHA-mod}]][CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CHA-mod}]][CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}">CHA</button>
+                <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=Charisma}} {{attr_abr=CHA}} {{attr_bonus=[[[[@{CHA-mod}]][CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CHA-mod}]][CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="cha">CHA</span></button>
                 <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
-                    <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{result=[[1d20]]}}">DEATH SAVE</button>
+                    <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{result=[[1d20]]}}"><span data-i18n="death-save-u">DEATH SAVE</span></button>
                     <input type="checkbox" name="attr_DEATHSAVE1" />
                     <input type="checkbox" name="attr_DEATHSAVE2" />
                     <input type="checkbox" name="attr_DEATHSAVE3" />
@@ -131,39 +129,39 @@
         </div>
         <div class="derived">
             <div class="dercontainer">
-                <button class="derlabel" type="roll" name="roll_AC" value="">AC</button>
+                <button class="derlabel" type="roll" name="roll_AC" value=""><span data-i18n="ac-u">AC</span></button>
                 <span class="derbubble" name="attr_AC" title="@{AC}"></span>
             </div>
             <div class="dercontainer">
-                <button class="derlabel" type="roll" name="roll_PD" value="">PD</button>
+                <button class="derlabel" type="roll" name="roll_PD" value=""><span data-i18n="pd-u">PD</span></button>
                 <span class="derbubble" name="attr_PD" title="@{PD}"></span>
             </div>
             <div class="dercontainer">
-                <button class="derlabel" type="roll" name="roll_MD" value="">MD</button>
+                <button class="derlabel" type="roll" name="roll_MD" value=""><span data-i18n="md-u">MD</span></button>
                 <span class="derbubble" name="attr_MD" title="@{MD}"></span>
             </div>
         </div>
         <div class="derived">
             <div class="dercontainer">
-                <span class="derlabel hp">Max HP</span>
+                <span class="derlabel hp" data-i18n="max-hp">Max HP</span>
                 <span class="derived" name="attr_HP_max" title="@{HP_max}"></span>
-                <span class="derlabel hp stag">Staggered</span>
+                <span class="derlabel hp stag" data-i18n="staggered">Staggered</span>
                 <span class="derived" name="attr_HP-staggered" title="@{HP-staggered}"></span>
             </div>
             <div class="dercontainer">
                 <div class="hpbox">
                     <div class="left subbox">
                         <input type="text" name="attr_HP" title="@{HP}" />
-                        <span>Current HP</span>
+                        <span data-i18n="current-hp">Current HP</span>
                     </div>
                     <div class="right subbox">
                         <input type="text" name="attr_HP-temp" title="@{HP-temp}" />
-                        <span>Temp HP</span>
+                        <span data-i18n="temp-hp">Temp HP</span>
                     </div>
                 </div>
             </div>
             <div class="dercontainer" style="margin-top:-5px;">
-                <button class="derlabel recovery" type="roll" name="roll_recovery" value="&{template:rec} {{name=@{character_name}}} {{rec_die=@{REC-die}}} {{con_bonus=[[[[@{REC-bonus}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[@{level}d@{REC-die}+[[@{REC-bonus}]]+?{Modifiers|0}]]}}">Recovery</button>
+                <button class="derlabel recovery" type="roll" name="roll_recovery" value="&{template:rec} {{name=@{character_name}}} {{rec_die=@{REC-die}}} {{con_bonus=[[[[@{REC-bonus}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[@{level}d@{REC-die}+[[@{REC-bonus}]]+?{Modifiers|0}]]}}"><span data-i18n="recovery">Recovery</span></button>
                 <select class="recovery" type="text" name="attr_REC-die" title="@{REC-die}">
                     <option value="4">d4</option>
                     <option value="6">d6</option>
@@ -173,7 +171,7 @@
                 </select>
                 <span class="derlabel" style="width: 10px; padding-right:0; margin-left:-5px; border-left:0px; border-right:0px;">+</span>
                 <input class="recovery" type="text" style="width:32px;" name="attr_REC-bonus" title="@{REC-bonus}" value="0" />
-                <span class="derlabel" style="width: 7px; margin-left: -9px;">Max</span>
+                <span class="derlabel" style="width: 7px; margin-left: -9px;" data-i18n="max">Max</span>
                 <input class="recovery recmax" type="text" style="border-left:0px; width:31px;" name="attr_REC_max" value="8" title="@{REC_max}" />
                 <span class="recoverycontainer">
                     <input class="recflag" name="attr_rec_flag" type="hidden" value="8" />
@@ -200,22 +198,22 @@
                 <div class="logo"></div>
             </div>
             <div class="bodycontainer">
-                <div class="header">One Unique Thing</div>
+                <div class="header"><span data-i18n="one-unique-thing">One Unique Thing</span></div>
                 <textarea name="attr_OUT"></textarea>
             </div>
             <div class="bodycontainer" style="margin-bottom: 10px;">
                 <div class="header">
-                    <button class="attrlabel" type="roll" name="roll_icon" value="&{template:icon} {{icon1=[[1d6cf5]]}} {{icon2=[[1d6cf5]]}} {{icon3=[[1d6cf5]]}} {{icon4=[[1d6cf5]]}} {{charname=@{character_name}}} @{icon-final}">Icon Relationships</button>
+                    <button class="attrlabel" type="roll" name="roll_icon" value="&{template:icon} {{icon1=[[1d6cf5]]}} {{icon2=[[1d6cf5]]}} {{icon3=[[1d6cf5]]}} {{icon4=[[1d6cf5]]}} {{charname=@{character_name}}} @{icon-final}"><span data-i18n="icon-relationships">Icon Relationships</span></button>
                 </div>
                 <div class="iconrelationship">
                     <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name1}}} {{relationship=@{icon-type1}}} {{iconlvl=[[@{icon1}]]}} {{iconrow=1}}" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_icon-name1" placeholder="Orc Lord" title="@{icon-name1}" />
+                    <input type="text" class="title" name="attr_icon-name1" data-i18n-placeholder="orc-lord" placeholder="Orc Lord" title="@{icon-name1}" />
                     <input type="text" class="iconrelationship short" name="attr_icon1" placeholder="1" title="@{icon1}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type1" title="@{icon-type1}">
-                            <option value="Positive">Positive</option>
-                            <option value="Conflicted">Conflicted</option>
-                            <option value="Negative">Negative</option>
+                            <option value="Positive" data-i18n="positive">Positive</option>
+                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon1-5-count" title="@{icon1-5-count}" />
                         <input type="checkbox" name="attr_icon1-5" /><span class="pictos">e</span>
@@ -229,9 +227,9 @@
                     <input type="text" class="iconrelationship short" name="attr_icon2" title="@{icon2}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type2" title="@{icon-type2}">
-                            <option value="Positive">Positive</option>
-                            <option value="Conflicted">Conflicted</option>
-                            <option value="Negative">Negative</option>
+                            <option value="Positive" data-i18n="positive">Positive</option>
+                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon2-5-count" title="@{icon2-5-count}" />
                         <input type="checkbox" name="attr_icon2-5" /><span class="pictos">e</span>
@@ -245,9 +243,9 @@
                     <input type="text" class="iconrelationship short" name="attr_icon3" title="@{icon3}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type3" title="@{icon-type3}">
-                            <option value="Positive">Positive</option>
-                            <option value="Conflicted">Conflicted</option>
-                            <option value="Negative">Negative</option>
+                            <option value="Positive" data-i18n="positive">Positive</option>
+                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon3-5-count" title="@{icon3-5-count}" />
                         <input type="checkbox" name="attr_icon3-5" /><span class="pictos">e</span>
@@ -261,9 +259,9 @@
                     <input type="text" class="iconrelationship short" name="attr_icon4" title="@{icon4}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type4" title="@{icon-type4}">
-                            <option value="Positive">Positive</option>
-                            <option value="Conflicted">Conflicted</option>
-                            <option value="Negative">Negative</option>
+                            <option value="Positive" data-i18n="positive">Positive</option>
+                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon4-5-count" title="@{icon4-5-count}" />
                         <input type="checkbox" name="attr_icon4-5" /><span class="pictos">e</span>
@@ -277,9 +275,9 @@
                     <input type="text" class="iconrelationship short" name="attr_icon5" title="@{icon5}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type5" title="@{icon-type5}">
-                            <option value="Positive">Positive</option>
-                            <option value="Conflicted">Conflicted</option>
-                            <option value="Negative">Negative</option>
+                            <option value="Positive" data-i18n="positive">Positive</option>
+                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon5-5-count" title="@{icon5-5-count}" />
                         <input type="checkbox" name="attr_icon5-5" /><span class="pictos">e</span>
@@ -289,16 +287,16 @@
                 </div>
             </div>
             <div class="bodycontainer">
-                <div class="header">Equipment</div>
+                <div class="header"><span data-i18n="equipment">Equipment</span></div>
                 <textarea name="attr_EQUIP" style="height:205px;"></textarea>
             </div>
         </div>
         <div class="col column2">
             <div class="bodycontainer">
-                <div class="header">Backgrounds</div>
+                <div class="header"><span data-i18n="backgrounds">Backgrounds</span></div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="1" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name1" placeholder="Assassin" title="@{BACK-name1}" />
+                    <input type="text" class="title" name="attr_BACK-name1" data-i18n-placeholder="assassin" placeholder="Assassin" title="@{BACK-name1}" />
                     <input type="text" class="background" name="attr_BACK1" placeholder="2" title="@{BACK1}" />
                 </div>
                 <div class="background">
@@ -348,10 +346,10 @@
                 </div>
             </div>
             <div class="bodycontainer">
-                <div class="header">Melee Weapons</div>
+                <div class="header"><span data-i18n="melee-weapons">Melee Weapons</span></div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_MWEAP-sel" value="1" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_MWEAP-name1" placeholder="Rapier" title="@{MWEAP-name1}" />
+                    <input type="text" class="title" name="attr_MWEAP-name1" data-i18n-placeholder="rapier" placeholder="Rapier" title="@{MWEAP-name1}" />
                     <input type="text" class="weapon" name="attr_MWEAP-mod1" value="0" title="@{MWEAP-mod1}" />
                     <select class="weapon" name="attr_MWEAP1" title="@{MWEAP1}">
                         <option value="0"></option>
@@ -390,7 +388,7 @@
                 </div>
             </div>
             <div class="bodycontainer">
-                <div class="header">Ranged Weapons</div>
+                <div class="header"><span data-i18n="ranged-weapons">Ranged Weapons</span></div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_RWEAP-sel" value="1" checked="checked" /><span></span>
                     <input type="text" class="title" name="attr_RWEAP-name1" title="@{RWEAP-name1}" />
@@ -432,37 +430,37 @@
                 </div>
             </div>
             <div class="bodycontainer">
-                <div class="header">Talents & Features</div>
+                <div class="header"><span data-i18n="talents-and-features">Talents & Features</span></div>
                 <textarea name="attr_TAL-FEA" style="height:345px;"></textarea>
             </div>
         </div>
         <div class="col column3">
             <div class="power">
                 <div class="header atwill">
-                    <button class="powerlabel" type="roll" name="roll_MBA" value="&{template:ba} {{range=Nearby}} {{miss=@{MBA-miss}}} @{MWEAP-final}">Melee Basic Attack</button>
+                    <button class="powerlabel" type="roll" name="roll_MBA" value="&{template:ba} {{range=Nearby}} {{miss=@{MBA-miss}}} @{MWEAP-final}"><span data-i18n="melee-basic-attack">Melee Basic Attack</span></button>
                     <span class="right">
-                        <span>At-Will</span>
+                        <span data-i18n="at-will">At-Will</span>
                     </span>
                 </div>
                 <div class="body">
                     <span class="row">
-                        <span class="left bold">Standard Action</span>
-                        <span class="right bold">Nearby</span>
+                        <span class="left bold" data-i18n="standard-action">Standard Action</span>
+                        <span class="right bold" data-i18n="nearby">Nearby</span>
                     </span>
                     <span class="row">
-                        <span class="left"><b>Target:</b> One creature</span>
+                        <span class="left"><b><span data-i18n="target">Target</span>:</b> <span data-i18n="one-creature">One creature</span></span>
                         <span class="right ba-attack">
-                            <b>Attack:</b>
+                            <b><span data-i18n="attack">Attack</span>:</b>
                             <span class="stat" name="attr_MBA-attackvs" title="@{MBA-attackvs}"></span>
                         </span>
                     </span>
                     <span class="row">
                         <span class="left ba-hit">
-                            <b>Hit:</b>
+                            <b><span data-i18n="hit">Hit</span>:</b>
                             <span class="stat" name="attr_MBA-hit" title="@{MBA-hit}"></span>
                         </span>
                         <span class="right">
-                            <b>Miss:</b>
+                            <b><span data-i18n="miss">Miss</span>:</b>
                             <span class="stat" name="attr_MBA-miss" title="@{MBA-miss}"></span>
                         </span>
                     </span>
@@ -470,30 +468,30 @@
             </div>
             <div class="power">
                 <div class="header atwill">
-                    <button class="powerlabel" type="roll" name="roll_RBA" value="&{template:ba} {{range=One enemy}} {{miss=@{RBA-miss}}} @{RWEAP-final}">Ranged Basic Attack</button>
+                    <button class="powerlabel" type="roll" name="roll_RBA" value="&{template:ba} {{range=One enemy}} {{miss=@{RBA-miss}}} @{RWEAP-final}"><span data-i18n="ranged-basic-attack">Ranged Basic Attack</span></button>
                     <span class="right">
-                        <span>At-Will</span>
+                        <span data-i18n="at-will">At-Will</span>
                     </span>
                 </div>
                 <div class="body">
                     <span class="row">
-                        <span class="left bold">Standard Action</span>
-                        <span class="right bold">One enemy</span>
+                        <span class="left bold" data-i18n="standard-action">Standard Action</span>
+                        <span class="right bold" data-i18n="one-enemy">One enemy</span>
                     </span>
                     <span class="row">
-                        <span class="left"><b>Target:</b> One creature</span>
+                        <span class="left"><b><span data-i18n="target">Target</span>:</b> <span data-i18n="one-creature">One creature</span></span>
                         <span class="right ba-attack">
-                            <b>Attack:</b>
+                            <b><span data-i18n="attack">Attack</span>:</b>
                             <span class="stat" name="attr_RBA-attackvs" title="@{RBA-attackvs}"></span>
                         </span>
                     </span>
                     <span class="row">
                         <span class="left ba-hit">
-                            <b>Hit:</b>
+                            <b><span data-i18n="hit">Hit</span>:</b>
                             <span class="stat" name="attr_RBA-hit" title="@{RBA-hit}"></span>
                         </span>
                         <span class="right">
-                            <b>Miss:</b>
+                            <b><span data-i18n="miss">Miss</span>:</b>
                             <span class="stat" name="attr_RBA-miss" title="@{RBA-miss}"></span>
                         </span>
                     </span>
@@ -504,101 +502,101 @@
                 <div class="power">
                     <!-- OPTIONS -->
                     <input class="poweroptions-check" type="checkbox" name="attr_poweroptions-check" checked="checked" /><span></span>
-                    <span class="poption topspacer">Options</span>
-                    <span class="poption">Name:</span>
+                    <span class="poption topspacer" data-i18n="options">Options</span>
+                    <span class="poption"><span data-i18n="name">Name</span>:</span>
                     <input class="poption title" type="text" name="attr_name" />
                         <span class="poption spacer"></span>
-                    <span class="poption">Type:</span>
-                        <input class="poption At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span class="poption">At-Will</span>
-                        <input class="poption Class" type="radio" name="attr_type" value="class" /><span class="poption">Class</span>
-                        <input class="poption Racial" type="radio" name="attr_type" value="racial" /><span class="poption">Racial</span>
-                        <input class="poption Encounter" type="radio" name="attr_type" value="encounter" /><span class="poption">Encounter</span>
-                        <input class="poption Recharge" type="radio" name="attr_type" value="recharge" /><span class="poption">Recharge</span>
-                        <input class="poption Daily" type="radio" name="attr_type" value="daily" /><span class="poption">Daily</span>
-                        <input class="poption Spell" type="radio" name="attr_type" value="spell" /><span class="poption">Spell</span>
-                        <input class="poption Magic-Item" type="radio" name="attr_type" value="magicitem" /><span class="poption">Magic Item</span>
-                        <input class="poption Custom" type="radio" name="attr_type" value="custom" /><span class="poption">Custom</span>
-                        <input class="poption title full" type="text" name="attr_type-custom" placeholder="Custom" />
+                    <span class="poption"><span data-i18n="type">Type</span>:</span>
+                        <input class="poption At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span class="poption" data-i18n="at-will">At-Will</span>
+                        <input class="poption Class" type="radio" name="attr_type" value="class" /><span class="poption" data-i18n="class">Class</span>
+                        <input class="poption Racial" type="radio" name="attr_type" value="racial" /><span class="poption" data-i18n="racial">Racial</span>
+                        <input class="poption Encounter" type="radio" name="attr_type" value="encounter" /><span class="poption" data-i18n="encounter">Encounter</span>
+                        <input class="poption Recharge" type="radio" name="attr_type" value="recharge" /><span class="poption" data-i18n="recharge">Recharge</span>
+                        <input class="poption Daily" type="radio" name="attr_type" value="daily" /><span class="poption" data-i18n="daily">Daily</span>
+                        <input class="poption Spell" type="radio" name="attr_type" value="spell" /><span class="poption" data-i18n="spell">Spell</span>
+                        <input class="poption Magic-Item" type="radio" name="attr_type" value="magicitem" /><span class="poption" data-i18n="magic-item">Magic Item</span>
+                        <input class="poption Custom" type="radio" name="attr_type" value="custom" /><span class="poption" data-i18n="custom">Custom</span>
+                        <input class="poption title full" type="text" name="attr_type-custom" data-i18n-placeholder="custom" placeholder="Custom" />
                             <span class="spacer suboption classtype"></span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span class="suboption classtype">Talent</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Feature" /><span class="suboption classtype">Feature</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Power" /><span class="suboption classtype">Power</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Battle Cry" /><span class="suboption classtype">Battle Cry</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Domain" /><span class="suboption classtype">Domain</span>
-                            <span class="suboption rechargerate">Recharge Rate</span><input class="suboption rechargerate num" type="text" name="attr_rechargerate" />
+                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span class="suboption classtype" data-i18n="talent">Talent</span>
+                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Feature" /><span class="suboption classtype" data-i18n="feature">Feature</span>
+                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Power" /><span class="suboption classtype" data-i18n="power">Power</span>
+                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Battle Cry" /><span class="suboption classtype" data-i18n="battle-cry">Battle Cry</span>
+                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Domain" /><span class="suboption classtype" data-i18n="domain">Domain</span>
+                            <span class="suboption rechargerate" data-i18n="recharge-rate">Recharge Rate</span><input class="suboption rechargerate num" type="text" name="attr_rechargerate" />
                         <span class="poption spacer"></span>
-                    <input class="poption Uses" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption">Uses:</span>
+                    <input class="poption Uses" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption"><span data-i18n="uses">Uses</span>:</span>
                         <input class="suboption usesoptions 1" type="radio" name="attr_uses-type" value="1" /><span class="suboption usesoptions">1</span>
                         <input class="suboption usesoptions 2" type="radio" name="attr_uses-type" value="2" /><span class="suboption usesoptions">2</span>
                         <input class="suboption usesoptions 3" type="radio" name="attr_uses-type" value="3" /><span class="suboption usesoptions">3</span>
                         <input class="suboption usesoptions 4" type="radio" name="attr_uses-type" value="4" /><span class="suboption usesoptions">4</span>
                         <span class="poption spacer"></span>
-                    <input class="poption Action" type="checkbox" name="attr_action" value="1" /><span class="poption">Action:</span>
+                    <input class="poption Action" type="checkbox" name="attr_action" value="1" /><span class="poption"><span data-i18n="action">Action</span>:</span>
                         <select class="suboption actionoptions" name="attr_action-type">
-                            <option value="Standard Action">Standard Action</option>
-                            <option value="Move Action">Move Action</option>
-                            <option value="Quick Action">Quick Action</option>
-                            <option value="Free Action">Free Action</option>
-                            <option value="Flexible Action">Flexible Action</option>
-                            <option value="Custom">Custom</option>
+                            <option value="Standard Action" data-i18n="standard-action">Standard Action</option>
+                            <option value="Move Action" data-i18n="move-action">Move Action</option>
+                            <option value="Quick Action" data-i18n="quick-action">Quick Action</option>
+                            <option value="Free Action" data-i18n="free-action">Free Action</option>
+                            <option value="Flexible Action" data-i18n="flexible-action">Flexible Action</option>
+                            <option value="Custom" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption actionoptions title" type="text" name="attr_action-custom" style="width:55px;" placeholder="Custom" />
+                        <input class="suboption actionoptions title" type="text" name="attr_action-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Range" type="checkbox" name="attr_range" value="1" /><span class="poption">Range:</span>
+                    <input class="poption Range" type="checkbox" name="attr_range" value="1" /><span class="poption"><span data-i18n="range">Range</span>:</span>
                         <select class="suboption rangeoptions" name="attr_range-type">
-                            <option value="Engaged">Engaged</option>
-                            <option value="Nearby">Nearby</option>
-                            <option value="Far Away">Far Away</option>
-                            <option value="Intercepting">Intercepting</option>
-                            <option value="Line of Sight">Line of Sight</option>
-                            <option value="Custom">Custom</option>
+                            <option value="Engaged" data-i18n="engaged">Engaged</option>
+                            <option value="Nearby" data-i18n="nearby">Nearby</option>
+                            <option value="Far Away" data-i18n="far-away">Far Away</option>
+                            <option value="Intercepting" data-i18n="intercepting">Intercepting</option>
+                            <option value="Line of Sight" data-i18n="line-of-sight">Line of Sight</option>
+                            <option value="Custom" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption rangeoptions title" type="text" name="attr_range-custom" style="width:55px;" placeholder="Custom" />
+                        <input class="suboption rangeoptions title" type="text" name="attr_range-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Target" type="checkbox" name="attr_target" value="1" /><span class="poption">Target:</span>
+                    <input class="poption Target" type="checkbox" name="attr_target" value="1" /><span class="poption"><span data-i18n="target">Target</span>:</span>
                         <input class="suboption targetoptions title" type="text" name="attr_target-type" style="width:160px;" />
                         <span class="poption spacer"></span>
-                    <input class="poption Attack" type="checkbox" name="attr_attack" value="1" /><span class="poption">Attack:</span>
+                    <input class="poption Attack" type="checkbox" name="attr_attack" value="1" /><span class="poption"><span data-i18n="attack">Attack</span>:</span>
                         <select class="suboption attackoptions" name="attr_attack-type">
-                            <option value="STR">Melee(STR)</option>
-                            <option value="DEX">Ranged(DEX)</option>
-                            <option value="INT">Intelligence based</option>
-                            <option value="CHA">Charisma based</option>
-                            <option value="WIS">Wisdom based</option>
-                            <option value="CON">Constitution based</option>
-                            <option value="MWEAP1">Melee Weapon 1</option>
-                            <option value="MWEAP2">Melee Weapon 2</option>
-                            <option value="MWEAP3">Melee Weapon 3</option>
-                            <option value="RWEAP1">Ranged Weapon 1</option>
-                            <option value="RWEAP2">Ranged Weapon 2</option>
-                            <option value="RWEAP3">Ranged Weapon 3</option>
-                            <option value="CUSTOM">Custom</option>
+                            <option value="STR" data-i18n="melee-str">Melee(STR)</option>
+                            <option value="DEX" data-i18n="ranged-dex">Ranged(DEX)</option>
+                            <option value="INT" data-i18n="intelligence-based">Intelligence based</option>
+                            <option value="CHA" data-i18n="charisma-based">Charisma based</option>
+                            <option value="WIS" data-i18n="wisdom-based">Wisdom based</option>
+                            <option value="CON" data-i18n="constitution-based">Constitution based</option>
+                            <option value="MWEAP1" data-i18n="melee-weapon-1">Melee Weapon 1</option>
+                            <option value="MWEAP2" data-i18n="melee-weapon-2">Melee Weapon 2</option>
+                            <option value="MWEAP3" data-i18n="melee-weapon-3">Melee Weapon 3</option>
+                            <option value="RWEAP1" data-i18n="ranged-weapon-1">Ranged Weapon 1</option>
+                            <option value="RWEAP2" data-i18n="ranged-weapon-2">Ranged Weapon 2</option>
+                            <option value="RWEAP3" data-i18n="ranged-weapon-3">Ranged Weapon 3</option>
+                            <option value="CUSTOM" data-i18n="custom">Custom</option>
                         </select>
                         <input class="suboption attackoptions title" type="text" name="attr_attack-custom" style="width:55px;" placeholder="3" />
                         <span class="spacer suboption attackoptions" style="height: 1px;"></span>
-                        <span class="suboption attackoptions" style="margin-left: 20px;">VS:</span>
+                        <span class="suboption attackoptions" style="margin-left: 20px;"><span data-i18n="vs-u">VS</span>:</span>
                         <select class="suboption attackoptions" name="attr_attack-vstype">
-                            <option value="AC">AC</option>
-                            <option value="PD">PD</option>
-                            <option value="MD">MD</option>
-                            <option value="CUSTOM">Custom</option>
+                            <option value="AC" data-i18n="ac-u">AC</option>
+                            <option value="PD" data-i18n="pd-u">PD</option>
+                            <option value="MD" data-i18n="md-u">MD</option>
+                            <option value="CUSTOM" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption attackoptions title" type="text" name="attr_attack-vscustom" style="width:55px;" placeholder="Custom" />
+                        <input class="suboption attackoptions title" type="text" name="attr_attack-vscustom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Cust1" type="checkbox" name="attr_cust1" value="1" /><span class="poption">Custom 1</span>
+                    <input class="poption Cust1" type="checkbox" name="attr_cust1" value="1" /><span class="poption" data-i18n="custom-1">Custom 1</span>
                         <span class="spacer suboption cust1options"></span>
-                        <input class="suboption cust1options cust1-hit" type="radio" name="attr_cust1-type" value="Hit" /><span class="suboption cust1options">Hit</span>
-                        <input class="suboption cust1options cust1-miss" type="radio" name="attr_cust1-type" value="Miss" /><span class="suboption cust1options">Miss</span>
-                        <input class="suboption cust1options cust1-trigger" type="radio" name="attr_cust1-type" value="Trigger" /><span class="suboption cust1options">Trigger</span>
-                        <input class="suboption cust1options cust1-effect" type="radio" name="attr_cust1-type" value="Effect" /><span class="suboption cust1options">Effect</span>
-                        <input class="suboption cust1options cust1-improved" type="radio" name="attr_cust1-type" value="Improved" /><span class="suboption cust1options">Improved</span>
-                        <input class="suboption cust1options cust1-sustain" type="radio" name="attr_cust1-type" value="Sustain" /><span class="suboption cust1options">Sustain</span>
-                        <input class="suboption cust1options cust1-special" type="radio" name="attr_cust1-type" value="Special" /><span class="suboption cust1options">Special</span>
-                        <input class="suboption cust1options cust1-opening-sustaining-effect" type="radio" name="attr_cust1-type" value="Opening-Sustaining-Effect" /><span class="suboption cust1options" style="width:190px;">Opening-Sustaining-Effect</span>
-                        <input class="suboption cust1options cust1-final-verse" type="radio" name="attr_cust1-type" value="Final-Verse" /><span class="suboption cust1options">Final-Verse</span>
-                        <input class="suboption cust1options cust1-details" type="radio" name="attr_cust1-type" value="Details" /><span class="suboption cust1options" style="width:100px;">Details</span>
-                        <input class="suboption cust1options cust1-attackcustom" type="radio" name="attr_cust1-type" value="typecustom" /><span class="suboption cust1options">Custom</span>
-                        <input class="suboption cust1options title" type="text" name="attr_cust1-custom" style="width:75px;" placeholder="Custom" />
+                        <input class="suboption cust1options cust1-hit" type="radio" name="attr_cust1-type" value="Hit" /><span class="suboption cust1options" data-i18n="hit">Hit</span>
+                        <input class="suboption cust1options cust1-miss" type="radio" name="attr_cust1-type" value="Miss" /><span class="suboption cust1options" data-i18n="miss">Miss</span>
+                        <input class="suboption cust1options cust1-trigger" type="radio" name="attr_cust1-type" value="Trigger" /><span class="suboption cust1options" data-i18n="trigger">Trigger</span>
+                        <input class="suboption cust1options cust1-effect" type="radio" name="attr_cust1-type" value="Effect" /><span class="suboption cust1options" data-i18n="effect">Effect</span>
+                        <input class="suboption cust1options cust1-improved" type="radio" name="attr_cust1-type" value="Improved" /><span class="suboption cust1options" data-i18n="improved">Improved</span>
+                        <input class="suboption cust1options cust1-sustain" type="radio" name="attr_cust1-type" value="Sustain" /><span class="suboption cust1options" data-i18n="sustain">Sustain</span>
+                        <input class="suboption cust1options cust1-special" type="radio" name="attr_cust1-type" value="Special" /><span class="suboption cust1options" data-i18n="special">Special</span>
+                        <input class="suboption cust1options cust1-opening-sustaining-effect" type="radio" name="attr_cust1-type" value="Opening-Sustaining-Effect" /><span class="suboption cust1options" style="width:190px;" data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span>
+                        <input class="suboption cust1options cust1-final-verse" type="radio" name="attr_cust1-type" value="Final-Verse" /><span class="suboption cust1options" data-i18n="final-verse">Final-Verse</span>
+                        <input class="suboption cust1options cust1-details" type="radio" name="attr_cust1-type" value="Details" /><span class="suboption cust1options" style="width:100px;" data-i18n="details">Details</span>
+                        <input class="suboption cust1options cust1-attackcustom" type="radio" name="attr_cust1-type" value="typecustom" /><span class="suboption cust1options" data-i18n="custom">Custom</span>
+                        <input class="suboption cust1options title" type="text" name="attr_cust1-custom" style="width:75px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust1options"></span>
                         <input class="suboption cust1options cust1subcust1" type="checkbox" name="attr_cust1-subcust1" value="1" />
                             <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust1-desc" />
@@ -608,20 +606,20 @@
                             <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust3-desc" />
                         <input class="suboption cust1options cust1subcust4" type="checkbox" name="attr_cust1-subcust4" value="1" />
                             <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust4-desc" />
-                    <input class="poption Cust2" type="checkbox" name="attr_cust2" value="1" /><span class="poption">Custom 2</span>
+                    <input class="poption Cust2" type="checkbox" name="attr_cust2" value="1" /><span class="poption" data-i18n="custom-2">Custom 2</span>
                         <span class="spacer suboption cust2options"></span>
-                        <input class="suboption cust2options cust2-hit" type="radio" name="attr_cust2-type" value="Hit" /><span class="suboption cust2options">Hit</span>
-                        <input class="suboption cust2options cust2-miss" type="radio" name="attr_cust2-type" value="Miss" /><span class="suboption cust2options">Miss</span>
-                        <input class="suboption cust2options cust2-trigger" type="radio" name="attr_cust2-type" value="Trigger" /><span class="suboption cust2options">Trigger</span>
-                        <input class="suboption cust2options cust2-effect" type="radio" name="attr_cust2-type" value="Effect" /><span class="suboption cust2options">Effect</span>
-                        <input class="suboption cust2options cust2-improved" type="radio" name="attr_cust2-type" value="Improved" /><span class="suboption cust2options">Improved</span>
-                        <input class="suboption cust2options cust2-sustain" type="radio" name="attr_cust2-type" value="Sustain" /><span class="suboption cust2options">Sustain</span>
-                        <input class="suboption cust2options cust2-special" type="radio" name="attr_cust2-type" value="Special" /><span class="suboption cust2options">Special</span>
-                        <input class="suboption cust2options cust2-opening-sustaining-effect" type="radio" name="attr_cust2-type" value="Opening-Sustaining-Effect" /><span class="suboption cust2options" style="width:190px;">Opening-Sustaining-Effect</span>
-                        <input class="suboption cust2options cust2-final-verse" type="radio" name="attr_cust2-type" value="Final-Verse" /><span class="suboption cust2options">Final-Verse</span>
-                        <input class="suboption cust2options cust2-details" type="radio" name="attr_cust2-type" value="Details" /><span class="suboption cust2options" style="width:100px;">Details</span>
+                        <input class="suboption cust2options cust2-hit" type="radio" name="attr_cust2-type" value="Hit" /><span class="suboption cust2options" data-i18n="hit">Hit</span>
+                        <input class="suboption cust2options cust2-miss" type="radio" name="attr_cust2-type" value="Miss" /><span class="suboption cust2options" data-i18n="miss">Miss</span>
+                        <input class="suboption cust2options cust2-trigger" type="radio" name="attr_cust2-type" value="Trigger" /><span class="suboption cust2options" data-i18n="trigger">Trigger</span>
+                        <input class="suboption cust2options cust2-effect" type="radio" name="attr_cust2-type" value="Effect" /><span class="suboption cust2options" data-i18n="effect">Effect</span>
+                        <input class="suboption cust2options cust2-improved" type="radio" name="attr_cust2-type" value="Improved" /><span class="suboption cust2options" data-i18n="improved">Improved</span>
+                        <input class="suboption cust2options cust2-sustain" type="radio" name="attr_cust2-type" value="Sustain" /><span class="suboption cust2options" data-i18n="sustain">Sustain</span>
+                        <input class="suboption cust2options cust2-special" type="radio" name="attr_cust2-type" value="Special" /><span class="suboption cust2options" data-i18n="special">Special</span>
+                        <input class="suboption cust2options cust2-opening-sustaining-effect" type="radio" name="attr_cust2-type" value="Opening-Sustaining-Effect" /><span class="suboption cust2options" style="width:190px;" data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span>
+                        <input class="suboption cust2options cust2-final-verse" type="radio" name="attr_cust2-type" value="Final-Verse" /><span class="suboption cust2options" data-i18n="final-verse">Final-Verse</span>
+                        <input class="suboption cust2options cust2-details" type="radio" name="attr_cust2-type" value="Details" /><span class="suboption cust2options" style="width:100px;" data-i18n="details">Details</span>
                         <input class="suboption cust2options cust2-attackcustom" type="radio" name="attr_cust2-type" value="typecustom" /><span class="suboption cust2options">Custom</span>
-                        <input class="suboption cust2options title" type="text" name="attr_cust2-custom" style="width:55px;" placeholder="Custom" />
+                        <input class="suboption cust2options title" type="text" name="attr_cust2-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust2options"></span>
                         <input class="suboption cust2options cust2subcust1" type="checkbox" name="attr_cust2-subcust1" value="1" />
                             <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust1-desc" />
@@ -631,20 +629,20 @@
                             <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust3-desc" />
                         <input class="suboption cust2options cust2subcust4" type="checkbox" name="attr_cust2-subcust4" value="1" />
                             <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust4-desc" />
-                    <input class="poption Cust3" type="checkbox" name="attr_cust3" value="1" /><span class="poption">Custom 3</span>
+                    <input class="poption Cust3" type="checkbox" name="attr_cust3" value="1" /><span class="poption" data-i18n="custom-3">Custom 3</span>
                         <span class="spacer suboption cust3options"></span>
-                        <input class="suboption cust3options cust3-hit" type="radio" name="attr_cust3-type" value="Hit" /><span class="suboption cust3options">Hit</span>
-                        <input class="suboption cust3options cust3-miss" type="radio" name="attr_cust3-type" value="Miss" /><span class="suboption cust3options">Miss</span>
-                        <input class="suboption cust3options cust3-trigger" type="radio" name="attr_cust3-type" value="Trigger" /><span class="suboption cust3options">Trigger</span>
-                        <input class="suboption cust3options cust3-effect" type="radio" name="attr_cust3-type" value="Effect" /><span class="suboption cust3options">Effect</span>
-                        <input class="suboption cust3options cust3-improved" type="radio" name="attr_cust3-type" value="Improved" /><span class="suboption cust3options">Improved</span>
-                        <input class="suboption cust3options cust3-sustain" type="radio" name="attr_cust3-type" value="Sustain" /><span class="suboption cust3options">Sustain</span>
-                        <input class="suboption cust3options cust3-special" type="radio" name="attr_cust3-type" value="Special" /><span class="suboption cust3options">Special</span>
-                        <input class="suboption cust3options cust3-opening-sustaining-effect" type="radio" name="attr_cust3-type" value="Opening-Sustaining-Effect" /><span class="suboption cust3options" style="width:190px;">Opening-Sustaining-Effect</span>
-                        <input class="suboption cust3options cust3-final-verse" type="radio" name="attr_cust3-type" value="Final-Verse" /><span class="suboption cust3options">Final-Verse</span>
-                        <input class="suboption cust3options cust3-details" type="radio" name="attr_cust3-type" value="Details" /><span class="suboption cust3options" style="width:100px;">Details</span>
-                        <input class="suboption cust3options cust3-attackcustom" type="radio" name="attr_cust3-type" value="typecustom" /><span class="suboption cust3options">Custom</span>
-                        <input class="suboption cust3options title" type="text" name="attr_cust3-custom" style="width:55px;" placeholder="Custom" />
+                        <input class="suboption cust3options cust3-hit" type="radio" name="attr_cust3-type" value="Hit" /><span class="suboption cust3options" data-i18n="hit">Hit</span>
+                        <input class="suboption cust3options cust3-miss" type="radio" name="attr_cust3-type" value="Miss" /><span class="suboption cust3options" data-i18n="miss">Miss</span>
+                        <input class="suboption cust3options cust3-trigger" type="radio" name="attr_cust3-type" value="Trigger" /><span class="suboption cust3options" data-i18n="trigger">Trigger</span>
+                        <input class="suboption cust3options cust3-effect" type="radio" name="attr_cust3-type" value="Effect" /><span class="suboption cust3options" data-i18n="effect">Effect</span>
+                        <input class="suboption cust3options cust3-improved" type="radio" name="attr_cust3-type" value="Improved" /><span class="suboption cust3options" data-i18n="improved">Improved</span>
+                        <input class="suboption cust3options cust3-sustain" type="radio" name="attr_cust3-type" value="Sustain" /><span class="suboption cust3options" data-i18n="sustain">Sustain</span>
+                        <input class="suboption cust3options cust3-special" type="radio" name="attr_cust3-type" value="Special" /><span class="suboption cust3options" data-i18n="special">Special</span>
+                        <input class="suboption cust3options cust3-opening-sustaining-effect" type="radio" name="attr_cust3-type" value="Opening-Sustaining-Effect" /><span class="suboption cust3options" style="width:190px;" data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span>
+                        <input class="suboption cust3options cust3-final-verse" type="radio" name="attr_cust3-type" value="Final-Verse" /><span class="suboption cust3options" data-i18n="final-verse">Final-Verse</span>
+                        <input class="suboption cust3options cust3-details" type="radio" name="attr_cust3-type" value="Details" /><span class="suboption cust3options" style="width:100px;" data-i18n="details">Details</span>
+                        <input class="suboption cust3options cust3-attackcustom" type="radio" name="attr_cust3-type" value="typecustom" /><span class="suboption cust3options" data-i18n="custom">Custom</span>
+                        <input class="suboption cust3options title" type="text" name="attr_cust3-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust3options"></span>
                         <input class="suboption cust3options cust3subcust1" type="checkbox" name="attr_cust3-subcust1" value="1" />
                             <input class="suboption cust3options title full" type="text" name="attr_cust3-subcust1-desc" />
@@ -679,11 +677,11 @@
                             </span>
                         </span>
                         <span class="left target">
-                            <b>Target:</b>
+                            <b><span data-i18n="target">Target</span>:</b>
                             <span class="label" name="attr_target-display" style="width: 180px;"></span>
                         </span>
                         <span class="left attack">
-                            <b>Attack:</b>
+                            <b><span data-i18n="attack">Attack</span>:</b>
                             <span class="label" name="attr_attack-display" style="width: 115px; text-align: left;"></span>
                         </span>
                         <span class="left cust1">
@@ -711,8 +709,6 @@
                 </div>
             </fieldset>
 
-
-
         </div>
     </div>
 
@@ -723,7 +719,7 @@
 
 <div class="footer" style="font-size: 10px; color: rgb(165, 165, 165);">
     <span>
-        &copy;2015 Pelgrane Press Ltd.  Published by Pelgrane Press Ltd. under license from Fire Opal Media. The 13th Age is a trademarks of Fire Opal Media, Inc.
+        &copy;<span data-i18n="copyright">2015 Pelgrane Press Ltd.  Published by Pelgrane Press Ltd. under license from Fire Opal Media. The 13th Age is a trademarks of Fire Opal Media, Inc.</span>
     </span>
 </div>
 
@@ -743,27 +739,27 @@
         </div>
         <div class="partspacer">+</div>
         <div class="part">
-            <span class="partlabel">LVL</span>
+            <span class="partlabel" data-i18n="lvl-u">LVL</span>
             <span class="partnumber">{{level}}</span>
         </div>
         {{#back}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">BCK</span>
+                <span class="partlabel" data-i18n="bck-u">BCK</span>
                 <span class="partnumber">{{back_bonus}}</span>
             </div>
         {{/back}}
         {{#rollGreater() mod 0}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">MOD</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
                 <span class="partnumber">{{mod}}</span>
             </div>
         {{/rollGreater() mod 0}}
         {{#rollLess() mod 0}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">MOD</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
                 <span class="partnumber">{{mod}}</span>
             </div>
         {{/rollLess() mod 0}}
@@ -774,31 +770,31 @@
 
 <rolltemplate class="sheet-rolltemplate-init">
     <div class="header">
-        <span class="headerlabel">Initiative</span>
+        <span class="headerlabel" data-i18n="initiative">Initiative</span>
         <span class="headerdivider">]</span>
         <span class="headerlabel">{{name}}</span>
     </div>
     <div class="body">
         <div class="part">
-            <span class="partlabel">DEX</span>
+            <span class="partlabel" data-i18n="dex-u">DEX</span>
             <span class="partnumber">{{dex_bonus}}</span>
         </div>
         <div class="partspacer">+</div>
         <div class="part">
-            <span class="partlabel">LVL</span>
+            <span class="partlabel" data-i18n="lvl-u">LVL</span>
             <span class="partnumber">{{level}}</span>
         </div>
         {{#rollGreater() mod 0}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">MOD</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
                 <span class="partnumber">{{mod}}</span>
             </div>
         {{/rollGreater() mod 0}}
         {{#rollLess() mod 0}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">MOD</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
                 <span class="partnumber">{{mod}}</span>
             </div>
         {{/rollLess() mod 0}}
@@ -809,7 +805,7 @@
 
 <rolltemplate class="sheet-rolltemplate-deathsave">
     <div class="header">
-        <span class="headerlabel">Death Save</span>
+        <span class="headerlabel" data-i18n="death-save">Death Save</span>
     </div>
     <div class="body">
         <div class="partspacer"> </div>
@@ -817,20 +813,20 @@
         <div class="partspacer"> </div>
         {{#rollWasCrit() result}}
             <div class="part">
-                <span class="partlabel">CRITICAL SUCCESS</span>
-                <span class="partnumber">Use a recovery and take an action!</span>
+                <span class="partlabel" data-i18n="critical-success-u">CRITICAL SUCCESS</span>
+                <span class="partnumber" data-i18n="use-recovery-action">Use a recovery and take an action!</span>
             </div>
         {{/rollWasCrit() result}}
         {{#rollBetween() result 16 19}}
             <div class="part">
-                <span class="partlabel">SUCCESS</span>
-                <span class="partnumber">Use a recovery!</span>
+                <span class="partlabel" data-i18n="success-u">SUCCESS</span>
+                <span class="partnumber" data-i18n="use-recovery">Use a recovery!</span>
             </div>
         {{/rollBetween() result 16 19}}
         {{#rollLess() result 16}}
             <div class="part">
-                <span class="partlabel">FAILURE</span>
-                <span class="partnumber">Mark a step toward death!</span>
+                <span class="partlabel" data-i18n="failure-u">FAILURE</span>
+                <span class="partnumber" data-i18n="step-toward-death">Mark a step toward death!</span>
             </div>
         {{/rollLess() result 16}}
     </div>
@@ -895,34 +891,34 @@
 
 <rolltemplate class="sheet-rolltemplate-rec">
     <div class="header">
-        <span class="headerlabel">Recovery</span>
+        <span class="headerlabel" data-i18n="recovery">Recovery</span>
     </div>
     <div class="body">
         <div class="part">
-            <span class="partlabel">LVL</span>
+            <span class="partlabel" data-i18n="lvl-u">LVL</span>
             <span class="partnumber">{{level}}</span>
         </div>
         <div class="partspacer">d</div>
         <div class="part">
-            <span class="partlabel">REC</span>
+            <span class="partlabel" data-i18n="rec-u">REC</span>
             <span class="partnumber">{{rec_die}}</span>
         </div>
         <div class="partspacer">+</div>
         <div class="part">
-            <span class="partlabel">CON</span>
+            <span class="partlabel" data-i18n="con-u">CON</span>
             <span class="partnumber">{{con_bonus}}</span>
         </div>
         {{#rollGreater() mod 0}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">MOD</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
                 <span class="partnumber">{{mod}}</span>
             </div>
         {{/rollGreater() mod 0}}
         {{#rollLess() mod 0}}
             <div class="partspacer">+</div>
             <div class="part">
-                <span class="partlabel">MOD</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
                 <span class="partnumber">{{mod}}</span>
             </div>
         {{/rollLess() mod 0}}
@@ -934,22 +930,22 @@
 <rolltemplate class="sheet-rolltemplate-ba">
     <div class="header atwill">
         <span class="headerlabel left">{{wname}}</span>
-        <span class="headerlabel right">At-Will</span>
+        <span class="headerlabel right" data-i18n="at-will">At-Will</span>
     </div>
     <div class="body">
         <div class="row">
-            <span class="left bold">Standard Action</span>
+            <span class="left bold" data-i18n="standard-action">Standard Action</span>
             <span class="right bold">{{range}}</span>
         </div>
         <div class="row">
-            <span class="left"><b>Target:</b> One Creature</span>
+            <span class="left"><b><span data-i18n="target">Target</span>:</b> <span data-i18n="one-creature">One Creature</span></span>
         </div>
         <div class="row">
-            <span class="left"><b>Attack:</b> {{attbonus}} vs AC</span>
+            <span class="left"><b><span data-i18n="attack">Attack</span>:</b> {{attbonus}} <span data-i18n="vs">vs</span> <span data-i18n="ac-u">AC</span></span>
         </div>
         <div class="row" style="margin-bottom: 5px;">
-            <span class="left"><b>Hit:</b> {{damage}}</span>
-            <span class="right"><b>Miss:</b> {{miss}}</span>
+            <span class="left"><b><span data-i18n="hit">Hit</span>:</b> {{damage}}</span>
+            <span class="right"><b><span data-i18n="miss">Miss</span>:</b> {{miss}}</span>
         </div>
     </div>
 </rolltemplate>
@@ -988,45 +984,45 @@
         {{/action-range-flag}}
         {{#target}}
         <div class="row">
-            <span class="left"><b>Target:</b> {{target}}</span>
+            <span class="left"><b><span data-i18n="target">Target</span>:</b> {{target}}</span>
         </div>
         {{/target}}
         {{#attack}}
         <div class="row">
-            <span class="left"><b>Attack:</b> {{attbonus}} vs {{vstype}}</span>
+            <span class="left"><b><span data-i18n="attack">Attack</span>:</b> {{attbonus}} <span data-i18n="vs">vs</span> {{vstype}}</span>
         </div>
         {{/attack}}
         {{#cust1}}
             <div class="row">
                 {{#Hit-1}}
-                    <span class="bold left">Hit: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="hit">Hit</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Hit-1}}
                 {{#Miss-1}}
-                    <span class="bold left">Miss: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="miss">Miss</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Miss-1}}
                 {{#Trigger-1}}
-                    <span class="bold left">Trigger: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="trigger">Trigger</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Trigger-1}}
                 {{#Effect-1}}
-                    <span class="bold left">Effect: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="effect">Effect</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Effect-1}}
                 {{#Sustain-1}}
-                    <span class="bold left">Sustain: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="sustain">Sustain</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Sustain-1}}
                 {{#Improved-1}}
-                    <span class="bold left">Improved: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="improved">Improved</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Improved-1}}
                 {{#Opening-Sustaining-Effect-1}}
-                    <span class="bold left">Opening/Sustaining Effect: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="opening-sustaining-effect">Opening/Sustaining Effect</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Opening-Sustaining-Effect-1}}
                 {{#Final-Verse-1}}
-                    <span class="bold left">Final Verse: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="final-verse">Final Verse</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Final-Verse-1}}
                 {{#Special-1}}
-                    <span class="bold left">Special: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="special">Special</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Special-1}}
                 {{#Details-1}}
-                    <span class="bold left">Details: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="details">Details</span>: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
                 {{/Details-1}}
                 {{#typecustom-1}}
                     <span class="bold left">{{custype1}}: </span><span style="width:10px;">{{cust1-subcust1-desc}}</span>
@@ -1051,34 +1047,34 @@
         {{#cust2}}
             <div class="row">
                 {{#Hit-2}}
-                    <span class="bold left">Hit: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="hit">Hit</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Hit-2}}
                 {{#Miss-2}}
-                    <span class="bold left">Miss: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="miss">Miss</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Miss-2}}
                 {{#Trigger-2}}
-                    <span class="bold left">Trigger: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="trigger">Trigger</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Trigger-2}}
                 {{#Effect-2}}
-                    <span class="bold left">Effect: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="effect">Effect</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Effect-2}}
                 {{#Sustain-2}}
-                    <span class="bold left">Sustain: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="sustain">Sustain</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Sustain-2}}
                 {{#Improved-2}}
-                    <span class="bold left">Improved: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="improved">Improved</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Improved-2}}
                 {{#Opening-Sustaining-Effect-2}}
-                    <span class="bold left">Opening/Sustaining Effect: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="opening-sustaining-effect">Opening/Sustaining Effect</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Opening-Sustaining-Effect-2}}
                 {{#Final-Verse-2}}
-                    <span class="bold left">Final Verse: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="final-verse">Final Verse</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Final-Verse-2}}
                 {{#Special-2}}
-                    <span class="bold left">Special: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="special">Special</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Special-2}}
                 {{#Details-2}}
-                    <span class="bold left">Details: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="details">Details</span>: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
                 {{/Details-2}}
                 {{#typecustom-2}}
                     <span class="bold left">{{custype2}}: </span><span style="width:10px;">{{cust2-subcust1-desc}}</span>
@@ -1103,34 +1099,34 @@
         {{#cust3}}
             <div class="row">
                 {{#Hit-3}}
-                    <span class="bold left">Hit: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="hit">Hit</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Hit-3}}
                 {{#Miss-3}}
-                    <span class="bold left">Miss: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="miss">Miss</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Miss-3}}
                 {{#Trigger-3}}
-                    <span class="bold left">Trigger: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="trigger">Trigger</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Trigger-3}}
                 {{#Effect-3}}
-                    <span class="bold left">Effect: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="effect">Effect</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Effect-3}}
                 {{#Sustain-3}}
-                    <span class="bold left">Sustain: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="sustain">Sustain</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Sustain-3}}
                 {{#Improved-3}}
-                    <span class="bold left">Improved: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="improved">Improved</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Improved-3}}
                 {{#Opening-Sustaining-Effect-3}}
-                    <span class="bold left">Opening/Sustaining Effect: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="opening-sustaining-effect">Opening/Sustaining Effect</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Opening-Sustaining-Effect-3}}
                 {{#Final-Verse-3}}
-                    <span class="bold left">Final Verse: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="final-verse">Final Verse</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Final-Verse-3}}
                 {{#Special-3}}
-                    <span class="bold left">Special: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="special">Special</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Special-3}}
                 {{#Details-3}}
-                    <span class="bold left">Details: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
+                    <span class="bold left"><span data-i18n="details">Details</span>: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>
                 {{/Details-3}}
                 {{#typecustom-3}}
                     <span class="bold left">{{custype3}}: </span><span style="width:10px;">{{cust3-subcust1-desc}}</span>

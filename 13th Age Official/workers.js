@@ -1,3 +1,6 @@
+    /* === GLOBAL VARIABLES === */
+    var str_at-will = getTranslationByKey('at-will');
+
     /* === EVENTS === */
 
     // === Version handling
