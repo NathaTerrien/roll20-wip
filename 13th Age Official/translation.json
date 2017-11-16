@@ -31,6 +31,7 @@
     "details": "Details",
     "dex-u": "DEX",
     "domain": "Domain",
+    "escalation-die": "Escalation Die",
     "effect": "Effect",
     "encounter": "Encounter",
     "engaged": "Engaged",
@@ -69,6 +70,7 @@
     "melee-weapons": "Melee Weapons",
     "miss": "Miss",
     "mod-u": "MOD",
+    "modifiers": "Modifiers",
     "move-action": "Move Action",
     "name": "Name",
     "nearby": "Nearby",
@@ -113,10 +115,12 @@
     "temp-hp": "Temp HP",
     "trigger": "Trigger",
     "type": "Type",
+    "unknown-u": "UNKNOWN",
     "use-recovery": "Use a recovery!",
     "uses": "Uses",
     "vs": "vs",
     "vs-u": "VS",
+    "weap-u": "WEAP",
     "wis-u": "WIS",
     "wisdom-based": "Wisdom based"
 }

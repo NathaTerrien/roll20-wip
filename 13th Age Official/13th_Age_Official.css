@@ -2,6 +2,11 @@
     width: 750px;
 }
 
+span.sheet-i18n {
+    display: inline-block;
+    width: auto;
+}
+
 .sheet-options-check {
     opacity: 0;
     position: absolute;

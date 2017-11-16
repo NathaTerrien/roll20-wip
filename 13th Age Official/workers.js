@@ -1,5 +1,50 @@
     /* === GLOBAL VARIABLES === */
-    var str_at-will = getTranslationByKey('at-will');
+    var i18n_atwill = getTranslationByKey("at-will"),
+        i18n_talent = getTranslationByKey("talent"),
+        i18n_feature = getTranslationByKey("feature"),
+        i18n_power = getTranslationByKey("power"),
+        i18n_battlecry = getTranslationByKey("battle-cry"),
+        i18n_domain = getTranslationByKey("domain"),
+        i18n_encounter = getTranslationByKey("encounter"),
+        i18n_recharge = getTranslationByKey("recharge"),
+        i18n_daily = getTranslationByKey("daily"),
+        i18n_spell = getTranslationByKey("spell"),
+        i18n_magicitem = getTranslationByKey("magic-item"),
+        i18n_standardaction = getTranslationByKey("standard-action"),
+        i18n_moveaction = getTranslationByKey("move-action"),
+        i18n_quickaction = getTranslationByKey("quick-action"),
+        i18n_freeaction = getTranslationByKey("free-action"),
+        i18n_flexibleaction = getTranslationByKey("flexible-action"),
+        i18n_engaged = getTranslationByKey("engaged"),
+        i18n_nearby = getTranslationByKey("nearby"),
+        i18n_faraway = getTranslationByKey("far-away"),
+        i18n_lineofsight = getTranslationByKey("line-of-sight"),
+        i18n_lvlu = getTranslationByKey("lvl-u"),
+        i18n_stru = getTranslationByKey("str-u"),
+        i18n_conu = getTranslationByKey("con-u"),
+        i18n_dexu = getTranslationByKey("dex-u"),
+        i18n_intu = getTranslationByKey("int-u"),
+        i18n_wisu = getTranslationByKey("wis-u"),
+        i18n_chau = getTranslationByKey("cha-u"),
+        i18n_weapu = getTranslationByKey("weap-u"),
+        i18n_unknownu = getTranslationByKey("unknown-u"),
+        i18n_modifiers = getTranslationByKey("modifiers"),
+        i18n_modu = getTranslationByKey("mod-u"),
+        i18n_acu = getTranslationByKey("ac-u"),
+        i18n_pdu = getTranslationByKey("pd-u"),
+        i18n_mdu = getTranslationByKey("md-u"),
+        i18n_vs = getTranslationByKey("vs"),
+        i18n_hit = getTranslationByKey("hit"),
+        i18n_miss = getTranslationByKey("miss"),
+        i18n_trigger = getTranslationByKey("trigger"),
+        i18n_effect = getTranslationByKey("effect"),
+        i18n_improved = getTranslationByKey("improved"),
+        i18n_sustain = getTranslationByKey("sustain"),
+        i18n_special = getTranslationByKey("special"),
+        i18n_opening = getTranslationByKey("opening-sustaining-effect"),
+        i18n_finalverse = getTranslationByKey("final-verse"),
+        i18n_details = getTranslationByKey("details")
+        ;
 
     /* === EVENTS === */
 
@@ -202,7 +247,7 @@
     // === Powers
     // All Powers
     var updateAllPowers = function() {
-        console.log('*** DEBUG updateAllPowers');
+        console.log("*** DEBUG updateAllPowers");
         // Update a useless attribute (_updateflag) on all powers to trigger an invidual total update (updatePower())
         getSectionIDs("repeating_power", function(idarray) {
             var attrs = [];
@@ -214,14 +259,14 @@
                 _.each(attrs, function(attr) {
                     setAttrsObj[attr] = (parseInt(v[attr]) || 0) + 1;
                 });
-                console.log('*** DEBUG updateAllPowers setAttrsObj:' + JSON.stringify(setAttrsObj));
+                console.log("*** DEBUG updateAllPowers setAttrsObj:" + JSON.stringify(setAttrsObj));
                 setAttrs(setAttrsObj,{silent: false});
             });
         });
     };
     // Single Power
     var updatePower = function(e) {
-        console.log('*** DEBUG updatePower');
+        console.log("*** DEBUG updatePower");
         getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
             var str = parseInt(v["STR-mod"]) || 0
                 dex = parseInt(v["DEX-mod"]) || 0,
@@ -250,25 +295,25 @@
             // TYPE
             switch(v.repeating_power_type) {
                 case "atwill":
-                    type = "At-Will"; //to translate
+                    type = i18n_atwill;
                     roll += " {{atwill=1}} {{type=At-Will}}";
                     break;
                 case "class":
                     switch(v.repeating_power_classtype) {
                         case "Talent":
-                            type = "Talent"; //to translate
+                            type = i18n_talent;
                             break;
                         case "Feature":
-                            type = "Feature"; //to translate
+                            type = i18n_feature;
                             break;
                         case "Power":
-                            type = "Power"; //to translate
+                            type = i18n_power;
                             break;
                         case "Battle Cry":
-                            type = "Battle Cry"; //to translate
+                            type = i18n_battlecry;
                             break;
                         case "Domain":
-                            type = "Domain"; //to translate
+                            type = i18n_domain;
                             break;
                     }
                     roll += " {{class=1}} {{type=" + type + "}}";
@@ -278,23 +323,23 @@
                     roll += " {{racial-encounter=1}} {{type=" + v.race + "}}";
                     break;
                 case "encounter":
-                    type = "Encounter"; //to translate
+                    type = i18n_encounter;
                     roll += " {{racial-encounter=1}} {{type=" + type + "}}";
                     break;
                 case "recharge":
-                    type = "Recharge+" + v.repeating_power_rechargerate; //to translate
+                    type = i18n_recharge + " +" + v.repeating_power_rechargerate;
                     roll += " {{recharge-daily=1}} {{type=" + v["repeating_power_rechargerate"] + "+}}";
                     break;
                 case "daily":
-                    type = "Daily"; //to translate
+                    type = i18n_daily;
                     roll += " {{recharge-daily=1}} {{type=" + type + "}}";
                     break;
                 case "spell":
-                    type = "Spell"; //to translate
+                    type = i18n_spell;
                     roll += " {{spell=1}} {{type=" + type + "}}";
                     break;
                 case "magicitem":
-                    type = "Magic Item"; //to translate
+                    type = i18n_magicitem;
                     roll += " {{magicitem=1}} {{type=" + type + "}}";
                     break;
                 case "custom":
@@ -310,19 +355,19 @@
             if (v.repeating_power_action == "1") {
                 switch(v["repeating_power_action-type"]) {
                     case "Standard Action":
-                        action = "Standard Action"; //to translate
+                        action = i18n_standardaction;
                         break;
                     case "Move Action":
-                        action = "Move Action"; //to translate
+                        action = i18n_moveaction;
                         break;
                     case "Quick Action":
-                        action = "Quick Action"; //to translate
+                        action = i18n_quickaction;
                         break;
                     case "Free Action":
-                        action = "Free Action"; //to translate
+                        action = i18n_freeaction;
                         break;
                     case "Flexible Action":
-                        action = "Flexible Action"; //to translate
+                        action = i18n_flexibleaction;
                         break;
                     case "Custom":
                         action = v["repeating_power_action-custom"];
@@ -334,16 +379,16 @@
             if(v.repeating_power_range == "1") {
                 switch(v["repeating_power_range-type"]) {
                     case "Engaged":
-                        range = "Engaged"; //to translate
+                        range = i18n_engaged;
                         break;
                     case "Nearby":
-                        range = "Nearby"; //to translate
+                        range = i18n_nearby;
                         break;
                     case "Far Away":
-                        range = "Far Away"; //to translate
+                        range = i18n_faraway;
                         break;
                     case "Line of Sight":
-                        range = "Line of Sight"; //to translate
+                        range = i18n_lineofsight;
                         break;
                     case "Custom":
                         range = v["repeating_power_range-custom"];
@@ -361,112 +406,112 @@
                 switch(v["repeating_power_attack-type"]) {
                     case "STR":
                         attack = str + level;
-                        roll += "" + str + "[STR]+" + level + "[LVL]"; //to translate
+                        roll += "" + str + "[" + i18n_stru +"]+" + level + "["+ i18n_lvlu + "]";
                         break;
                     case "CON":
                         attack = con + level;
-                        roll += "" + con + "[CON]+" + level + "[LVL]"; //to translate
+                        roll += "" + con + "[" + i18n_conu + "]+" + level + "["+ i18n_lvlu + "]";
                         break;
                     case "DEX":
                         attack = dex + level;
-                        roll += "" + dex + "[DEX]+" + level + "[LVL]"; //to translate
+                        roll += "" + dex + "[" + i18n_dexu + "]+" + level + "["+ i18n_lvlu + "]";
                         break;
                     case "INT":
                         attack = int + level;
-                        roll += "" + int + "[INT]+" + level + "[LVL]"; //to translate
+                        roll += "" + int + "[" + i18n_intu + "]+" + level + "["+ i18n_lvlu + "]";
                         break;
                     case "WIS":
                         attack = wis + level
-                        roll += "" + wis + "[WIS]+" + level + "[LVL]"; //to translate
+                        roll += "" + wis + "[" + i18n_wisu + "]+" + level + "["+ i18n_lvlu + "]";
                         break;
                     case "CHA":
                         attack = cha + level;
-                        roll += "" + cha + "[CHA]+" + level + "[LVL]"; //to translate
+                        roll += "" + cha + "[" + i18n_chau + "]+" + level + "["+ i18n_lvlu + "]";
                         break;
                     case "MWEAP1":
                         attack = str + level + mweap1;
-                        roll += "" + str + "[STR]+" + level + "[LVL]+" + mweap1 + "[WEAP]"; //to translate
+                        roll += "" + str + "[" + i18n_stru +"]+" + level + "["+ i18n_lvlu + "]+" + mweap1 + "[" + i18n_weapu + "]";
                         break;
                     case "MWEAP2":
                         attack = str + level + mweap2;
-                        roll += "" + str + "[STR]+" + level + "[LVL]+" + mweap2 + "[WEAP]"; //to translate
+                        roll += "" + str + "[" + i18n_stru +"]+" + level + "["+ i18n_lvlu + "]+" + mweap2 + "[" + i18n_weapu + "]";
                         break;
                     case "MWPEA3":
                         attack = str + level + mweap3;
-                        roll += "" + str + "[STR]+" + level + "[LVL]+" + mweap3 + "[WEAP]"; //to translate
+                        roll += "" + str + "[" + i18n_stru +"]+" + level + "["+ i18n_lvlu + "]+" + mweap3 + "[" + i18n_weapu + "]";
                         break;
                     case "RWEAP1":
                         attack = dex + level + rweap1;
-                        roll += "" + dex + "[DEX]+" + level + "[LVL]+" + rweap1 + "[WEAP]"; //to translate
+                        roll += "" + dex + "[" + i18n_dexu + "]+" + level + "["+ i18n_lvlu + "]+" + rweap1 + "[" + i18n_weapu + "]";
                         break;
                     case "RWEAP2":
                         attack = dex + level + rweap2;
-                        roll += "" + dex + "[DEX]+" + level + "[LVL]+" + rweap2 + "[WEAP]"; //to translate
+                        roll += "" + dex + "[" + i18n_dexu + "]+" + level + "["+ i18n_lvlu + "]+" + rweap2 + "[" + i18n_weapu + "]";
                         break;
                     case "RWEAP3":
                         attack = dex + level + rweap3;
-                        roll += "" + dex + "[DEX]+" + level + "[LVL]+" + rweap3 + "[WEAP]"; //to translate
+                        roll += "" + dex + "[" + i18n_dexu + "]+" + level + "["+ i18n_lvlu + "]+" + rweap3 + "[" + i18n_weapu + "]";
                         break;
                     case "CUSTOM":
                         attack = parseInt(v["repeating_power_attack-custom"]) || 0;
                         roll += v["repeating_power_attack-custom"];
                         break;
                     default:
-                        roll += "0[UNKNOW]"; //to translate
+                        roll += "0[" + i18n_unknownu + "]";
                         break;
                 }
-                roll += "+?{Modifiers|0}[MOD]+@{E-DIE}]]}}"; //to translate
+                roll += "+?{" + i18n_modifiers + "|0}[" + i18n_modu + "]+@{E-DIE}]]}}";
                 // VS
                 switch(v["repeating_power_attack-vstype"]) {
                     case "AC":
-                        vs = "AC"; // to translate
+                        vs = i18n_acu;
                         break;
                     case "PD":
-                        vs = "PD"; // to translate
+                        vs = i18n_pdu;
                         break;
                     case "MD":
-                        vs = "MD"; // to translate
+                        vs = i18n_mdu;
                         break;
                     case "CUSTOM":
                         vs = v["repeating_power_attack-vscustom"];
                         break;
                 }
                 roll +=" {{vstype=" + vs + "}}";
-                attackvs = (attack < 0 ? "" : "+") + attack + " vs " + vs; // to translate
+                attackvs = (attack < 0 ? "" : "+") + attack + " " + i18n_vs + " " + vs;
             }
             // CUSTOM 1
             if(v.repeating_power_cust1 == "1") {
                 roll += " {{cust1=1}} {{" + v["repeating_power_cust1-type"] + "-1=1}}";
                 switch(v["repeating_power_cust1-type"]) {
                     case "Hit":
-                        cust1type = "Hit"; //to translate
+                        cust1type = i18n_hit;
                         break;
                     case "Miss":
-                        cust1type = "Miss"; //to translate
+                        cust1type = i18n_miss;
                         break;
                     case "Trigger":
-                        cust1type = "Trigger"; //to translate
+                        cust1type = i18n_trigger;
                         break;
                     case "Effect":
-                        cust1type = "Effect"; //to translate
+                        cust1type = i18n_effect;
                         break;
                     case "Improved":
-                        cust1type = "Improved"; //to translate
+                        cust1type = i18n_improved;
                         break;
                     case "Sustain":
-                        cust1type = "Sustain"; //to translate
+                        cust1type = i18n_sustain;
                         break;
                     case "Special":
-                        cust1type = "Special"; //to translate
+                        cust1type = i18n_special;
                         break;
                     case "Opening-Sustaining-Effect":
-                        cust1type = "Opening-Sustaining-Effect"; //to translate
+                        cust1type = i18n_opening;
                         break;
                     case "Final-Verse":
-                        cust1type = "Final-Verse"; //to translate
+                        cust1type = i18n_finalverse;
                         break;
                     case "Details":
-                        cust1type = "Details"; //to translate
+                        cust1type = i18n_details;
                         break;
                     case "typecustom":
                         cust1type = v["repeating_power_cust1-custom"];
@@ -492,34 +537,34 @@
                 roll += " {{cust2=1}} {{" + v["repeating_power_cust2-type"] + "-2=1}}";
                 switch(v["repeating_power_cust2-type"]) {
                     case "Hit":
-                        cust2type = "Hit"; //to translate
+                        cust2type = i18n_hit;
                         break;
                     case "Miss":
-                        cust2type = "Miss"; //to translate
+                        cust2type = i18n_miss;
                         break;
                     case "Trigger":
-                        cust2type = "Trigger"; //to translate
+                        cust2type = i18n_trigger;
                         break;
                     case "Effect":
-                        cust2type = "Effect"; //to translate
+                        cust2type = i18n_effect;
                         break;
                     case "Improved":
-                        cust2type = "Improved"; //to translate
+                        cust2type = i18n_improved;
                         break;
                     case "Sustain":
-                        cust2type = "Sustain"; //to translate
+                        cust2type = i18n_sustain;
                         break;
                     case "Special":
-                        cust2type = "Special"; //to translate
+                        cust2type = i18n_special;
                         break;
                     case "Opening-Sustaining-Effect":
-                        cust2type = "Opening-Sustaining-Effect"; //to translate
+                        cust2type = i18n_opening;
                         break;
                     case "Final-Verse":
-                        cust2type = "Final-Verse"; //to translate
+                        cust2type = i18n_finalverse;
                         break;
                     case "Details":
-                        cust2type = "Details"; //to translate
+                        cust2type = i18n_details;
                         break;
                     case "typecustom":
                         cust2type = v["repeating_power_cust2-custom"];
@@ -545,34 +590,34 @@
                 roll += " {{cust3=1}} {{" + v["repeating_power_cust3-type"] + "-3=1}}";
                 switch(v["repeating_power_cust3-type"]) {
                     case "Hit":
-                        cust3type = "Hit"; //to translate
+                        cust3type = i18n_hit;
                         break;
                     case "Miss":
-                        cust3type = "Miss"; //to translate
+                        cust3type = i18n_miss;
                         break;
                     case "Trigger":
-                        cust3type = "Trigger"; //to translate
+                        cust3type = i18n_trigger;
                         break;
                     case "Effect":
-                        cust3type = "Effect"; //to translate
+                        cust3type = i18n_effect;
                         break;
                     case "Improved":
-                        cust3type = "Improved"; //to translate
+                        cust3type = i18n_improved;
                         break;
                     case "Sustain":
-                        cust3type = "Sustain"; //to translate
+                        cust3type = i18n_sustain;
                         break;
                     case "Special":
-                        cust3type = "Special"; //to translate
+                        cust3type = i18n_special;
                         break;
                     case "Opening-Sustaining-Effect":
-                        cust3type = "Opening-Sustaining-Effect"; //to translate
+                        cust3type = i18n_opening;
                         break;
                     case "Final-Verse":
-                        cust3type = "Final-Verse"; //to translate
+                        cust3type = i18n_finalverse;
                         break;
                     case "Details":
-                        cust3type = "Details"; //to translate
+                        cust3type = i18n_details;
                         break;
                     case "typecustom":
                         cust3type = v["repeating_power_cust3-custom"];
@@ -594,7 +639,7 @@
                 }
             }
             // UPDATE
-            console.log('*** DEBUG updatePower roll : ' + roll);
+            console.log("*** DEBUG updatePower roll : " + roll);
             setAttrs({
                 "repeating_power_power-roll" : roll,
                 "repeating_power_powname-display": v["repeating_power_name"],
@@ -637,7 +682,7 @@
                 mhit = "",
                 mfinal = "";
             mfinal = "{{wname=@{MWEAP-name"+mwsel+"}}} {{attbonus=[[1d20+[[@{M-BAMOD}]][MMOD]+@{level}[LVL]+@{MWEAP-mod"+mwsel+"}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{MWEAP"+mwsel+"}]]+@{MWEAP-mod"+mwsel+"}[WEAP]+[[(@{M-BAMOD}*@{LVL-multiplier})]]]]}}";
-            mattackvs = (parseInt(level + mattmod + mweap) < 0 ? "" : "+") + (level + mattmod + mweap) + " vs AC";
+            mattackvs = (parseInt(level + mattmod + mweap) < 0 ? "" : "+") + (level + mattmod + mweap) + " " + i18n_vs + " " + i18n_acu;
             mhit = level + "d" + v["MWEAP"+mwsel] + (((mattmod*lvlmultiplier)+mweap) < 0 ? "" : "+") + ((mattmod*lvlmultiplier)+mweap);
             setAttrs({
                 "MWEAP-final": mfinal,
@@ -660,7 +705,7 @@
                 rhit = "",
                 rfinal = "";
             rfinal = "{{wname=@{RWEAP-name"+rwsel+"}}} {{attbonus=[[1d20+[[@{R-BAMOD}]][RMOD]+@{level}[LVL]+@{RWEAP-mod"+rwsel+"}[WEAP]+?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{damage=[[@{level}d[[@{RWEAP"+rwsel+"}]]+@{RWEAP-mod"+rwsel+"}[WEAP]+[[(@{R-BAMOD}*@{LVL-multiplier})]]]]}}";
-            rattackvs = (parseInt(level + rattmod + rweap) < 0 ? "" : "+") + (level + rattmod + rweap) + " vs AC";
+            rattackvs = (parseInt(level + rattmod + rweap) < 0 ? "" : "+") + (level + rattmod + rweap) + " " + i18n_vs + " " + i18n_acu;
             rhit = level + "d" + v["RWEAP"+rwsel] + (parseInt((rattmod*lvlmultiplier)+rweap) < 0 ? "" : "+") + ((rattmod*lvlmultiplier)+rweap);
             setAttrs({
                 "RWEAP-final": rfinal,
@@ -672,7 +717,7 @@
 
     // === Version and updating
     var upgrade_to_2_0 = function(doneupdating) {
-        console.log('*** DEBUG upgrade_to_2_0');
+        console.log("*** DEBUG upgrade_to_2_0");
         getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(vat) {
             var setAttrsObj = {};
             setAttrsObj["STR-mod"] = Math.floor((parseInt(vat["STR-base"]) - 10) / 2);
@@ -717,7 +762,7 @@
                     var endat = "";
                     _.each(attrs, function(attr) {
                         endat = attr.substr(attr.lastIndexOf("_")+1,attr.length-attr.lastIndexOf("_")+1);
-                        // console.log('*** DEBUG transformPowers attr : ' + attr + ' ,endat : ' + endat);
+                        // console.log("*** DEBUG transformPowers attr : " + attr + " ,endat : " + endat);
                         switch(endat) {
                             case "updateflag":
                                 setAttrsObj[attr] = "0";
@@ -870,9 +915,9 @@
                                 break;
                         }
                     });
-                    console.log('*** DEBUG transformPowers setAttrsObj : ' + JSON.stringify(setAttrsObj));
+                    console.log("*** DEBUG transformPowers setAttrsObj : " + JSON.stringify(setAttrsObj));
                     setAttrs(setAttrsObj,{silent: true},function() {
-                        console.log('*** DEBUG upgrade callback');
+                        console.log("*** DEBUG upgrade callback");
                         updateLvl();
                         updateAc();
                         updatePd();
