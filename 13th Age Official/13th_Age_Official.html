@@ -120,10 +120,10 @@
                 <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
                     <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{result=[[1d20]]}}"><span data-i18n="death-save-u">DEATH SAVE</span></button>
-                    <input type="checkbox" name="attr_DEATHSAVE1" />
-                    <input type="checkbox" name="attr_DEATHSAVE2" />
-                    <input type="checkbox" name="attr_DEATHSAVE3" />
-                    <input type="checkbox" name="attr_DEATHSAVE4" />
+                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE1" /><span class="mleft"></span>
+                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE2" /><span class="mleft"></span>
+                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE3" /><span class="mleft"></span>
+                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE4" /><span class="mleft"></span>
                 </div>
             </div>
         </div>
@@ -525,13 +525,13 @@
                             <input class="suboption classtype" type="radio" name="attr_classtype" value="Domain" /><span class="suboption classtype" data-i18n="domain">Domain</span>
                             <span class="suboption rechargerate" data-i18n="recharge-rate">Recharge Rate</span><input class="suboption rechargerate num" type="text" name="attr_rechargerate" />
                         <span class="poption spacer"></span>
-                    <input class="poption Uses" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption"><span data-i18n="uses">Uses</span>:</span>
+                    <input class="poption Uses pseudocheck 13thblue" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption mleft"></span><span class="poption"><span data-i18n="uses">Uses</span>:</span>
                         <input class="suboption usesoptions 1" type="radio" name="attr_uses-type" value="1" /><span class="suboption usesoptions">1</span>
                         <input class="suboption usesoptions 2" type="radio" name="attr_uses-type" value="2" /><span class="suboption usesoptions">2</span>
                         <input class="suboption usesoptions 3" type="radio" name="attr_uses-type" value="3" /><span class="suboption usesoptions">3</span>
                         <input class="suboption usesoptions 4" type="radio" name="attr_uses-type" value="4" /><span class="suboption usesoptions">4</span>
                         <span class="poption spacer"></span>
-                    <input class="poption Action" type="checkbox" name="attr_action" value="1" /><span class="poption"><span data-i18n="action">Action</span>:</span>
+                    <input class="poption Action pseudocheck 13thblue" type="checkbox" name="attr_action" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="action">Action</span>:</span>
                         <select class="suboption actionoptions" name="attr_action-type">
                             <option value="Standard Action" data-i18n="standard-action">Standard Action</option>
                             <option value="Move Action" data-i18n="move-action">Move Action</option>
@@ -542,7 +542,7 @@
                         </select>
                         <input class="suboption actionoptions title" type="text" name="attr_action-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Range" type="checkbox" name="attr_range" value="1" /><span class="poption"><span data-i18n="range">Range</span>:</span>
+                    <input class="poption Range pseudocheck 13thblue" type="checkbox" name="attr_range" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="range">Range</span>:</span>
                         <select class="suboption rangeoptions" name="attr_range-type">
                             <option value="Engaged" data-i18n="engaged">Engaged</option>
                             <option value="Nearby" data-i18n="nearby">Nearby</option>
@@ -553,10 +553,10 @@
                         </select>
                         <input class="suboption rangeoptions title" type="text" name="attr_range-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Target" type="checkbox" name="attr_target" value="1" /><span class="poption"><span data-i18n="target">Target</span>:</span>
+                    <input class="poption Target pseudocheck 13thblue" type="checkbox" name="attr_target" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="target">Target</span>:</span>
                         <input class="suboption targetoptions title" type="text" name="attr_target-type" style="width:160px;" />
                         <span class="poption spacer"></span>
-                    <input class="poption Attack" type="checkbox" name="attr_attack" value="1" /><span class="poption"><span data-i18n="attack">Attack</span>:</span>
+                    <input class="poption Attack pseudocheck 13thblue" type="checkbox" name="attr_attack" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="attack">Attack</span>:</span>
                         <select class="suboption attackoptions" name="attr_attack-type">
                             <option value="STR" data-i18n="melee-str">Melee(STR)</option>
                             <option value="DEX" data-i18n="ranged-dex">Ranged(DEX)</option>
@@ -583,7 +583,7 @@
                         </select>
                         <input class="suboption attackoptions title" type="text" name="attr_attack-vscustom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Cust1" type="checkbox" name="attr_cust1" value="1" /><span class="poption" data-i18n="custom-1">Custom 1</span>
+                    <input class="poption Cust1 pseudocheck 13thblue" type="checkbox" name="attr_cust1" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-1">Custom 1</span>
                         <span class="spacer suboption cust1options"></span>
                         <input class="suboption cust1options cust1-hit" type="radio" name="attr_cust1-type" value="Hit" /><span class="suboption cust1options" data-i18n="hit">Hit</span>
                         <input class="suboption cust1options cust1-miss" type="radio" name="attr_cust1-type" value="Miss" /><span class="suboption cust1options" data-i18n="miss">Miss</span>
@@ -606,7 +606,7 @@
                             <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust3-desc" />
                         <input class="suboption cust1options cust1subcust4" type="checkbox" name="attr_cust1-subcust4" value="1" />
                             <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust4-desc" />
-                    <input class="poption Cust2" type="checkbox" name="attr_cust2" value="1" /><span class="poption" data-i18n="custom-2">Custom 2</span>
+                    <input class="poption Cust2 pseudocheck 13thblue" type="checkbox" name="attr_cust2" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-2">Custom 2</span>
                         <span class="spacer suboption cust2options"></span>
                         <input class="suboption cust2options cust2-hit" type="radio" name="attr_cust2-type" value="Hit" /><span class="suboption cust2options" data-i18n="hit">Hit</span>
                         <input class="suboption cust2options cust2-miss" type="radio" name="attr_cust2-type" value="Miss" /><span class="suboption cust2options" data-i18n="miss">Miss</span>
@@ -629,7 +629,7 @@
                             <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust3-desc" />
                         <input class="suboption cust2options cust2subcust4" type="checkbox" name="attr_cust2-subcust4" value="1" />
                             <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust4-desc" />
-                    <input class="poption Cust3" type="checkbox" name="attr_cust3" value="1" /><span class="poption" data-i18n="custom-3">Custom 3</span>
+                    <input class="poption Cust3 pseudocheck 13thblue" type="checkbox" name="attr_cust3" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-3">Custom 3</span>
                         <span class="spacer suboption cust3options"></span>
                         <input class="suboption cust3options cust3-hit" type="radio" name="attr_cust3-type" value="Hit" /><span class="suboption cust3options" data-i18n="hit">Hit</span>
                         <input class="suboption cust3options cust3-miss" type="radio" name="attr_cust3-type" value="Miss" /><span class="suboption cust3options" data-i18n="miss">Miss</span>
@@ -660,11 +660,11 @@
                             <span class="label" name="attr_powname-display"></span>
                         </button>
                         <div style="position: absolute; top: 5px; right: -8px;">
-                            <input class="1 whitecheck" type="checkbox" name="attr_uses1" /><span></span>
-                            <input class="2 whitecheck" type="checkbox" name="attr_uses2" /><span></span>
-                            <input class="3 whitecheck" type="checkbox" name="attr_uses3" /><span></span>
-                            <input class="4 whitecheck" type="checkbox" name="attr_uses4" /><span></span>
-                            <span class="label" name="attr_type-display"></span>
+                            <input class="1 pseudocheck white" type="checkbox" name="attr_uses1" /><span class="mright"></span>
+                            <input class="2 pseudocheck white" type="checkbox" name="attr_uses2" /><span class="mright"></span>
+                            <input class="3 pseudocheck white" type="checkbox" name="attr_uses3" /><span class="mright"></span>
+                            <input class="4 pseudocheck white" type="checkbox" name="attr_uses4" /><span class="mright"></span>
+                            <span class="label" style="margin-right: 2px;" name="attr_type-display"></span>
                         </div>
                     </div>
                     <div class="repbody">
@@ -677,11 +677,11 @@
                             </span>
                         </span>
                         <span class="left target">
-                            <b><span class="i18n" data-i18n="target">Target</span>:</b>
+                            <b><span class="label i18n" data-i18n="target">Target</span>:</b>
                             <span class="label" name="attr_target-display" style="width: 180px;"></span>
                         </span>
                         <span class="left attack">
-                            <b><span class="i18n" data-i18n="attack">Attack</span>:</b>
+                            <b><span class="label i18n" data-i18n="attack">Attack</span>:</b>
                             <span class="label" name="attr_attack-display" style="width: 115px; text-align: left;"></span>
                         </span>
                         <span class="left cust1">

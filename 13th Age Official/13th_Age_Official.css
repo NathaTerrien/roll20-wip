@@ -2,11 +2,6 @@
     width: 750px;
 }
 
-span.sheet-i18n {
-    display: inline-block;
-    width: auto;
-}
-
 .sheet-options-check {
     opacity: 0;
     position: absolute;
@@ -440,54 +435,6 @@ input[type="radio"].sheet-blueradio:checked + span::before {
     color: #014A89;
 }
 
-input[type="checkbox"].sheet-whitecheck {
-    position: absolute;
-    opacity: 0.0;
-    width: 20px;
-    cursor: pointer;
-    z-index: 10;
-    margin-top: 5px;
-}
-input[type="checkbox"].sheet-whitecheck + span{
-    display: inline-block;
-    width: 16px;
-    margin-left: 4px;
-}
-input[type="checkbox"].sheet-whitecheck + span::before {
-    border: solid 1px #000000;
-    line-height: 11px;
-    text-align: middle;
-    display: inline-block;
-    vertical-align: middle;
-
-    -moz-box-shadow: 0 0 0px #000;
-    -webkit-box-shadow: 0 0 0px #000;
-    box-shadow: 0 0 0px #000;
-
-    background: #000000;
-    background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
-    background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
-    background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
-    background: -o-radial-gradient(#f6f6f6, #dfdfdf);
-    background: radial-gradient(#f6f6f6, #dfdfdf);
-    color: transparent;
-    content: "•";
-    width: 10px;
-    height: 10px;
-    font-size: 41.9px;
-    font-family: "Arial";
-    text-indent: -2px;
-    font-weight: normal;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-}
-input[type="checkbox"].sheet-whitecheck:checked + span::before {
-    color: #014A89;
-}
-
 .sheet-body {
     margin-top: 30px;
 }
@@ -866,32 +813,80 @@ input[type="checkbox"].sheet-whitecheck:checked + span::before {
     top: 0px;
 }
 
-.sheet-power .sheet-header input[type=checkbox] {
-    width: 13px;
+.sheet-power .sheet-header input[type=checkbox],
+.sheet-power .sheet-header input[type=checkbox] + span {
     display: none;
     float: right;
-    margin-top: 3px;
 }
 
-.sheet-Uses:checked ~ .sheet-1:checked ~ .sheet-header input[type=checkbox].sheet-1 {
+input[type="checkbox"].sheet-pseudocheck {
+    opacity: 0.0;
+    width: 13px;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 5px;
+}
+input[type="checkbox"].sheet-pseudocheck + span{
+    margin-top: 2px;
+}
+input[type="checkbox"].sheet-pseudocheck + span.sheet-mright{
+    margin-right: -13px;
+}
+input[type="checkbox"].sheet-pseudocheck + span.sheet-mleft{
+    margin-left: -13px;
+}
+input[type="checkbox"].sheet-pseudocheck + span::before {
+    text-align: middle;
+    display: inline-block;
+    vertical-align: middle;
+    -moz-box-shadow: 0 0 0px #000;
+    -webkit-box-shadow: 0 0 0px #000;
+    box-shadow: 0 0 0px #000;
+    background: transparent;
+    content: "☐";
+    line-height: 18px;
+    font-size: 18px;
+}
+.sheet-white{
+    color: white;
+}
+.sheet-13thblue{
+    color: #014A89;
+}
+
+input[type="checkbox"].sheet-pseudocheck:checked + span::before {
+    content: "☑";
+}
+
+.sheet-Uses:checked ~ .sheet-1:checked ~ .sheet-header input[type=checkbox].sheet-1,
+.sheet-Uses:checked ~ .sheet-1:checked ~ .sheet-header input[type=checkbox].sheet-1 + span {
     display: inline-block;
 }
 
 .sheet-Uses:checked ~ .sheet-2:checked ~ .sheet-header input[type=checkbox].sheet-1,
-.sheet-Uses:checked ~ .sheet-2:checked ~ .sheet-header input[type=checkbox].sheet-2 {
+.sheet-Uses:checked ~ .sheet-2:checked ~ .sheet-header input[type=checkbox].sheet-1 + span,
+.sheet-Uses:checked ~ .sheet-2:checked ~ .sheet-header input[type=checkbox].sheet-2,
+.sheet-Uses:checked ~ .sheet-2:checked ~ .sheet-header input[type=checkbox].sheet-2 + span {
     display: inline-block;
 }
 
 .sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-1,
+.sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-1 + span,
 .sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-2,
-.sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-3 {
+.sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-2 + span,
+.sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-3,
+.sheet-Uses:checked ~ .sheet-3:checked ~ .sheet-header input[type=checkbox].sheet-3 + span {
     display: inline-block;
 }
 
 .sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-1,
+.sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-1 + span,
 .sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-2,
+.sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-2 + span,
 .sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-3,
-.sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-4 {
+.sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-3 + span,
+.sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-4,
+.sheet-Uses:checked ~ .sheet-4:checked ~ .sheet-header input[type=checkbox].sheet-4 + span {
     display: inline-block;
 }
 
@@ -905,6 +900,9 @@ input[type="checkbox"].sheet-whitecheck:checked + span::before {
 
 .sheet-power .sheet-repbody .sheet-left span {
     width: 115px;
+}
+.sheet-power .sheet-repbody .sheet-left span.sheet-i18n {
+    width: auto;
 }
 
 .sheet-power .sheet-repbody .sheet-right span {
