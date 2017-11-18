@@ -103,7 +103,8 @@
                 <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}" />
                 <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="dex-u">DEX</span></button>
                 <span class="attrmod" name="attr_DEX-mod" title="@{DEX-mod}"></span>
-                <button class="init" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}"><span data-i18n="initiative-u">INITIATIVE</span></button>
+                <button class="init" style="display: block;" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}"><span data-i18n="initiative-u">INITIATIVE</span></button>
+                <button class="init" type="roll" name="roll_SAVE" value="&{template:save} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20+?{Modifiers|0}]]}}"><span data-i18n="save-u">SAVE</span></button>
             </div>
         </div>
         <div class="attributes">
@@ -122,7 +123,7 @@
                 <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=Charisma}} {{attr_abr=CHA}} {{attr_bonus=[[[[@{CHA-mod}]][CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CHA-mod}]][CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="cha-u">CHA</span></button>
                 <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
-                    <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{result=[[1d20]]}}"><span data-i18n="death-save-u">DEATH SAVE</span></button>
+                    <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20+?{Modifiers|0}]]}}"><span data-i18n="death-save-u">DEATH SAVE</span></button>
                     <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE1" /><span class="mleft"></span>
                     <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE2" /><span class="mleft"></span>
                     <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE3" /><span class="mleft"></span>
@@ -164,7 +165,7 @@
                 </div>
             </div>
             <div class="dercontainer" style="margin-top:-5px;">
-                <button class="derlabel recovery" type="roll" name="roll_recovery" value="&{template:rec} {{name=@{character_name}}} {{rec_die=@{REC-die}}} {{con_bonus=[[[[@{REC-bonus}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[@{level}d@{REC-die}+[[@{REC-bonus}]]+?{Modifiers|0}]]}}"><span data-i18n="recovery">Recovery</span></button>
+                <button class="derlabel recovery" type="roll" name="roll_recovery" value="&{template:rec} {{name=@{character_name}}} {{rec_die=@{REC-die}}} {{rec_bonus=[[@{REC-bonus}]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[@{level}d@{REC-die}+@{REC-bonus}[REC]+?{Modifiers|0}[MOD]]]}}"><span data-i18n="recovery">Recovery</span></button>
                 <select class="recovery" type="text" name="attr_REC-die" title="@{REC-die}">
                     <option value="4">d4</option>
                     <option value="6">d6</option>
@@ -173,8 +174,7 @@
                     <option value="12">d12</option>
                 </select>
                 <span class="derlabel" style="width: 10px; padding-right:0; margin-left:-5px; border-left:0px; border-right:0px;">+</span>
-                <!-- <input class="recovery" type="text" style="width:32px;" name="attr_REC-bonus" title="@{REC-bonus}" value="0" /> -->
-                <span class="derived recovery" name="attr_REC-bonus" title="@{REC-bonus}"></span>
+                <span class="derived recovery" name="attr_REC-bonus" style="width:22px;" title="@{REC-bonus}"></span>
                 <span class="derlabel" style="width: 7px; margin-left: -9px;" data-i18n="max">Max</span>
                 <input class="recovery recmax" type="text" style="border-left:0px; width:31px;" name="attr_REC_max" value="8" title="@{REC_max}" />
                 <span class="recoverycontainer">
@@ -812,27 +812,94 @@
         <span class="headerlabel" data-i18n="death-save">Death Save</span>
     </div>
     <div class="body">
-        <div class="partspacer"> </div>
-        <div class="result">{{result}}</div>
-        <div class="partspacer"> </div>
-        {{#rollWasCrit() result}}
+        <div>
+            <div class="partspacer"> </div>
             <div class="part">
-                <span class="partlabel" data-i18n="critical-success-u">CRITICAL SUCCESS</span>
-                <span class="partnumber" data-i18n="use-recovery-action">Use a recovery and take an action!</span>
+                <span class="partlabel" data-i18n="dice-u">DICE</span>
+                <span class="partnumber">1d20</span>
             </div>
-        {{/rollWasCrit() result}}
-        {{#rollBetween() result 16 19}}
+            <div class="partspacer"> + </div>
             <div class="part">
-                <span class="partlabel" data-i18n="success-u">SUCCESS</span>
-                <span class="partnumber" data-i18n="use-recovery">Use a recovery!</span>
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
+                <span class="partnumber">{{mod}}</span>
             </div>
-        {{/rollBetween() result 16 19}}
-        {{#rollLess() result 16}}
+            <div class="partspacer"> = </div>
+            <div class="result">{{result}}</div>
+        </div>
+        <div class="row">
+            {{#rollWasCrit() result}}
+                <div class="part">
+                    <span class="partlabel" data-i18n="critical-success-u">CRITICAL SUCCESS</span>
+                    <span class="partnumber" data-i18n="use-recovery-action">Use a recovery and take an action!</span>
+                </div>
+            {{/rollWasCrit() result}}
+            {{#rollBetween() result 16 19}}
+                <div class="part">
+                    <span class="partlabel" data-i18n="success-u">SUCCESS</span>
+                    <span class="partnumber" data-i18n="use-recovery">Use a recovery!</span>
+                </div>
+            {{/rollBetween() result 16 19}}
+            {{#rollLess() result 16}}
+                <div class="part">
+                    <span class="partlabel" data-i18n="failure-u">FAILURE</span>
+                    <span class="partnumber" data-i18n="step-toward-death">Mark a step toward death!</span>
+                </div>
+            {{/rollLess() result 16}}
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-save">
+    <div class="header">
+        <span class="headerlabel" data-i18n="save">Save</span>
+    </div>
+    <div class="body">
+        <div>
             <div class="part">
-                <span class="partlabel" data-i18n="failure-u">FAILURE</span>
-                <span class="partnumber" data-i18n="step-toward-death">Mark a step toward death!</span>
+                <span class="partlabel" data-i18n="dice-u">DICE</span>
+                <span class="partnumber">1d20</span>
             </div>
-        {{/rollLess() result 16}}
+            <div class="partspacer"> + </div>
+            <div class="part">
+                <span class="partlabel" data-i18n="mod-u">MOD</span>
+                <span class="partnumber">{{mod}}</span>
+            </div>
+            <div class="partspacer"> = </div>
+            <div class="result">{{result}}</div>
+        </div>
+        <div class="row">
+            <div class="part">
+                <span class="lib" data-i18n="easy-6">Easy (6+)</span>:
+                {{#rollGreater() result 5}}
+                    <span class="libres" data-i18n="success-u">SUCCESS</span>
+                {{/rollGreater() result 5}}
+                {{#rollLess() result 6}}
+                    <span class="libres" data-i18n="failure-u">FAILURE</span>
+                {{/rollLess() result 6}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="part">
+                <span class="lib" data-i18n="normal-11">Normal (11+)</span>:
+                {{#rollGreater() result 10}}
+                    <span class="libres" data-i18n="success-u">SUCCESS</span>
+                {{/rollGreater() result 10}}
+                {{#rollLess() result 11}}
+                    <span class="libres" data-i18n="failure-u">FAILURE</span>
+                {{/rollLess() result 11}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="part">
+                <span class="lib" data-i18n="hard-16">Hard (16+)</span>:
+                {{#rollGreater() result 15}}
+                    <span class="libres" data-i18n="success-u">SUCCESS</span>
+                {{/rollGreater() result 15}}
+                {{#rollLess() result 16}}
+                    <span class="libres" data-i18n="failure-u">FAILURE</span>
+                {{/rollLess() result 16}}
+            </div>
+        </div>
     </div>
 </rolltemplate>
 
@@ -904,13 +971,13 @@
         </div>
         <div class="partspacer">d</div>
         <div class="part">
-            <span class="partlabel" data-i18n="rec-u">REC</span>
+            <span class="partlabel" data-i18n="dice-u">DICE</span>
             <span class="partnumber">{{rec_die}}</span>
         </div>
         <div class="partspacer">+</div>
         <div class="part">
-            <span class="partlabel" data-i18n="con-u">CON</span>
-            <span class="partnumber">{{con_bonus}}</span>
+            <span class="partlabel" data-i18n="rec-u">REC</span>
+            <span class="partnumber">{{rec_bonus}}</span>
         </div>
         {{#rollGreater() mod 0}}
             <div class="partspacer">+</div>

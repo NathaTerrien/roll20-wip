@@ -64,7 +64,7 @@
 
 .sheet-options span.sheet-lib {
     display: inline-block;
-    width: 185px;
+    width: 184px;
     text-align: right;
 }
 
@@ -184,16 +184,16 @@ input {
     font-size: 9px;
     width: 60px;
     background-image: none;
-    text-shadow:none;
-    box-shadow:none;
-    border-radius:10px;
-    padding-top:0px;
-    padding-right:0px;
-    padding-bottom:0px;
+    text-shadow: none;
+    box-shadow: none;
+    border-radius: 10px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
     margin: 0px;
     position: relative;
-    top: 18px;
-    right: 75px;
+    top: 0px;
+    left: 52px;
     line-height: 8px;
 }
 
@@ -1060,257 +1060,6 @@ input[type="checkbox"].sheet-pseudocheck:checked + span::before {
     display: none;
 }
 
-.sheet-rolltemplate-attr .sheet-header,
-.sheet-rolltemplate-rec .sheet-header,
-.sheet-rolltemplate-icon .sheet-header,
-.sheet-rolltemplate-init .sheet-header,
-.sheet-rolltemplate-deathsave .sheet-header
-{
-    width: 230px;
-    margin-left: -30px;
-    background-color: #014A89;
-    display: inline-block;
-    text-align: center;
-    border-top: 5px solid #014A89;
-    border-bottom: 5px solid #014A89;
-    height: 16px;
-}
-
-.withoutavatars .sheet-rolltemplate-attr .sheet-header,
-.withoutavatars .sheet-rolltemplate-rec .sheet-header,
-.withoutavatars .sheet-rolltemplate-icon .sheet-header,
-.withoutavatars .sheet-rolltemplate-init .sheet-header,
-.withoutavatars .sheet-rolltemplate-deathsave .sheet-header,
-.withoutavatars .sheet-rolltemplate-power .sheet-header,
-.withoutavatars .sheet-rolltemplate-ba .sheet-header
-{
-    margin-left: 0px;
-}
-
-.sheet-rolltemplate-attr .sheet-headerlabel,
-.sheet-rolltemplate-rec .sheet-headerlabel,
-.sheet-rolltemplate-icon .sheet-headerlabel,
-.sheet-rolltemplate-init .sheet-headerlabel,
-.sheet-rolltemplate-deathsave .sheet-headerlabel
-{
-    color: white;
-}
-
-.sheet-rolltemplate-attr .sheet-headerdivider,
-.sheet-rolltemplate-rec .sheet-headerdivider,
-.sheet-rolltemplate-icon .sheet-headerdivider,
-.sheet-rolltemplate-init .sheet-headerdivider,
-.sheet-rolltemplate-deathsave .sheet-headerdivider
-{
-    font-family: pictos;
-    color: white;
-}
-
-.sheet-rolltemplate-attr .sheet-body,
-.sheet-rolltemplate-rec .sheet-body,
-.sheet-rolltemplate-icon .sheet-body,
-.sheet-rolltemplate-init .sheet-body,
-.sheet-rolltemplate-deathsave .sheet-body,
-.sheet-rolltemplate-ba .sheet-body,
-.sheet-rolltemplate-power .sheet-body
-{
-    width: 228px;
-    margin-left: -30px;
-    background-color: white;
-    border: 1px solid black;
-}
-
-.withoutavatars .sheet-rolltemplate-attr .sheet-body,
-.withoutavatars .sheet-rolltemplate-rec .sheet-body,
-.withoutavatars .sheet-rolltemplate-icon .sheet-body,
-.withoutavatars .sheet-rolltemplate-init .sheet-body,
-.withoutavatars .sheet-rolltemplate-deathsave .sheet-body,
-.withoutavatars .sheet-rolltemplate-ba .sheet-body,
-.withoutavatars .sheet-rolltemplate-power .sheet-body
-{
-    margin-left: 0px;
-}
-
-.sheet-rolltemplate-ba .sheet-body {
-    position: relative;
-}
-
-.sheet-rolltemplate-attr .sheet-body .sheet-part,
-.sheet-rolltemplate-rec .sheet-body .sheet-part,
-.sheet-rolltemplate-icon .sheet-body .sheet-part,
-.sheet-rolltemplate-init .sheet-body .sheet-part
-{
-    width: 34px;
-    display: inline-block;
-    font-weight: bold;
-    margin-right: -5px;
-}
-
-.sheet-rolltemplate-deathsave .sheet-body .sheet-part {
-    width: 190px;
-    display: inline-block;
-    font-weight: bold;
-    margin-right: -5px;
-}
-
-.sheet-rolltemplate-attr .sheet-body .sheet-part:not(:first-child),
-.sheet-rolltemplate-rec .sheet-body .sheet-part:not(:first-child),
-.sheet-rolltemplate-icon .sheet-body .sheet-part:not(:first-child),
-.sheet-rolltemplate-init .sheet-body .sheet-part:not(:first-child),
-.sheet-rolltemplate-deathsave .sheet-body .sheet-part:not(:first-child)
-{
-    margin-left: -5px;
-}
-
-.sheet-rolltemplate-attr .sheet-body .sheet-part span,
-.sheet-rolltemplate-rec .sheet-body .sheet-part span,
-.sheet-rolltemplate-icon .sheet-body .sheet-part span,
-.sheet-rolltemplate-init .sheet-body .sheet-part span,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-part span
-{
-    text-align: center;
-    display: block;
-}
-
-.sheet-rolltemplate-attr .sheet-body .sheet-part .inlinerollresult,
-.sheet-rolltemplate-rec .sheet-body .sheet-part .inlinerollresult,
-.sheet-rolltemplate-icon .sheet-body .sheet-part .inlinerollresult,
-.sheet-rolltemplate-init .sheet-body .sheet-part .inlinerollresult,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-part .inlinerollresult
-{
-    background-color: inherit;
-    border: 0px;
-    padding: 0px;
-    font-weight: inherit;
-    cursor: inherit;
-    font-size: 1em;
-}
-
-.sheet-rolltemplate-attr .sheet-body .sheet-partspacer,
-.sheet-rolltemplate-rec .sheet-body .sheet-partspacer,
-.sheet-rolltemplate-icon .sheet-body .sheet-partspacer,
-.sheet-rolltemplate-init .sheet-body .sheet-partspacer,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-partspacer
-{
-    display: inline-block;
-}
-
-.sheet-rolltemplate-attr .sheet-body .sheet-result,
-.sheet-rolltemplate-rec .sheet-body .sheet-result,
-.sheet-rolltemplate-icon .sheet-body .sheet-result,
-.sheet-rolltemplate-init .sheet-body .sheet-result,
-.sheet-rolltemplate-deathsave .sheet-body .sheet-result
-{
-    display: inline-block;
-    position: relative;
-    top: -7px;
-}
-
-.sheet-rolltemplate-icon .sheet-body .sheet-partspacer,
-.sheet-rolltemplate-icon .sheet-body .sheet-partlabel {
-    font-family: pictos;
-}
-
-.sheet-rolltemplate-power .sheet-body {
-    padding-bottom: 5px;
-    position: relative;
-}
-
-.sheet-rolltemplate-ba .sheet-header
-{
-    width: 230px;
-    margin-left: -30px;
-    background-color: #028401;
-    display: inline-block;
-    text-align: left;
-    border-top: 5px solid #028401;
-    border-bottom: 5px solid #028401;
-    height: 16px;
-    color: white;
-    position: relative;
-}
-
-.sheet-rolltemplate-ba .sheet-left,
-.sheet-rolltemplate-power .sheet-left
-{
-    margin-left: 5px;
-}
-
-.sheet-rolltemplate-ba .sheet-right,
-.sheet-rolltemplate-power .sheet-right
-{
-    float: right;
-    margin-right: 5px;
-    position: absolute;
-    right: 0px;
-}
-
-.sheet-rolltemplate-ba .sheet-bold,
-.sheet-rolltemplate-power .sheet-bold
-{
-    font-weight: bold;
-}
-
-.sheet-rolltemplate-ba .sheet-row,
-.sheet-rolltemplate-power .sheet-row
-{
-    display: block;
-    white-space: nowrap;
-}
-
-.sheet-rolltemplate-power .sheet-header
-{
-    width: 225px;
-    margin-left: -30px;
-    display: inline-block;
-    text-align: left;
-    height: 16px;
-    color: white;
-    position: relative;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-atwill {
-    background-color: #028401;
-    border: 5px solid #028401;
-    border-left: 0px;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-class {
-    background-color: #A06D39;
-    border: 5px solid #A06D39;
-    border-left: 0px;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-racial-encounter {
-    background-color: #891101;
-    border: 5px solid #891101;
-    border-left: 0px;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-recharge-daily {
-    background-color: #000000;
-    border: 5px solid #000000;
-    border-left: 0px;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-spell {
-    background-color: #014A89;
-    border: 5px solid #014A89;
-    border-left: 0px;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-magicitem {
-    background-color: #D58C1A;
-    border: 5px solid #D58C1A;
-    border-left: 0px;
-}
-
-.sheet-rolltemplate-power .sheet-header.sheet-custom {
-    background-color: #7f2e7e;
-    border: 5px solid #7f2e7e;
-    border-left: 0px;
-}
-
 .sheet-ba-attack {
     margin-right: -3px;
 }
@@ -1407,4 +1156,284 @@ button[type=roll]:hover *
 
 .sheet-deathsavecontainer input[type=checkbox] {
     width: 12px;
+}
+
+.sheet-rolltemplate-attr .sheet-header,
+.sheet-rolltemplate-rec .sheet-header,
+.sheet-rolltemplate-icon .sheet-header,
+.sheet-rolltemplate-init .sheet-header,
+.sheet-rolltemplate-deathsave .sheet-header,
+.sheet-rolltemplate-save .sheet-header
+{
+    width: 230px;
+    margin-left: -30px;
+    background-color: #014A89;
+    display: inline-block;
+    text-align: center;
+    border-top: 5px solid #014A89;
+    border-bottom: 5px solid #014A89;
+    height: 16px;
+}
+
+.withoutavatars .sheet-rolltemplate-attr .sheet-header,
+.withoutavatars .sheet-rolltemplate-rec .sheet-header,
+.withoutavatars .sheet-rolltemplate-icon .sheet-header,
+.withoutavatars .sheet-rolltemplate-init .sheet-header,
+.withoutavatars .sheet-rolltemplate-deathsave .sheet-header,
+.withoutavatars .sheet-rolltemplate-save .sheet-header,
+.withoutavatars .sheet-rolltemplate-power .sheet-header,
+.withoutavatars .sheet-rolltemplate-ba .sheet-header
+{
+    margin-left: 0px;
+}
+
+.sheet-rolltemplate-attr .sheet-headerlabel,
+.sheet-rolltemplate-rec .sheet-headerlabel,
+.sheet-rolltemplate-icon .sheet-headerlabel,
+.sheet-rolltemplate-init .sheet-headerlabel,
+.sheet-rolltemplate-deathsave .sheet-headerlabel,
+.sheet-rolltemplate-save .sheet-headerlabel
+{
+    color: white;
+}
+
+.sheet-rolltemplate-attr .sheet-headerdivider,
+.sheet-rolltemplate-rec .sheet-headerdivider,
+.sheet-rolltemplate-icon .sheet-headerdivider,
+.sheet-rolltemplate-init .sheet-headerdivider,
+.sheet-rolltemplate-deathsave .sheet-headerdivider,
+.sheet-rolltemplate-save .sheet-headerdivider
+{
+    font-family: pictos;
+    color: white;
+}
+
+.sheet-rolltemplate-attr .sheet-body,
+.sheet-rolltemplate-rec .sheet-body,
+.sheet-rolltemplate-icon .sheet-body,
+.sheet-rolltemplate-init .sheet-body,
+.sheet-rolltemplate-deathsave .sheet-body,
+.sheet-rolltemplate-save .sheet-body,
+.sheet-rolltemplate-ba .sheet-body,
+.sheet-rolltemplate-power .sheet-body
+{
+    width: 228px;
+    margin-left: -30px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.withoutavatars .sheet-rolltemplate-attr .sheet-body,
+.withoutavatars .sheet-rolltemplate-rec .sheet-body,
+.withoutavatars .sheet-rolltemplate-icon .sheet-body,
+.withoutavatars .sheet-rolltemplate-init .sheet-body,
+.withoutavatars .sheet-rolltemplate-deathsave .sheet-body,
+.withoutavatars .sheet-rolltemplate-save .sheet-body,
+.withoutavatars .sheet-rolltemplate-ba .sheet-body,
+.withoutavatars .sheet-rolltemplate-power .sheet-body
+{
+    margin-left: 0px;
+}
+
+.sheet-rolltemplate-ba .sheet-body {
+    position: relative;
+}
+
+.sheet-rolltemplate-attr .sheet-body .sheet-part,
+.sheet-rolltemplate-rec .sheet-body .sheet-part,
+.sheet-rolltemplate-icon .sheet-body .sheet-part,
+.sheet-rolltemplate-init .sheet-body .sheet-part
+{
+    width: 34px;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: -5px;
+}
+
+.sheet-rolltemplate-deathsave .sheet-body .sheet-part,
+.sheet-rolltemplate-save .sheet-body .sheet-part {
+    padding-left: 5px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-save .sheet-body .sheet-part span.sheet-lib {
+    display: inline-block;
+    font-weight: normal;
+    text-align: left;
+}
+
+.sheet-rolltemplate-save .sheet-body .sheet-part span.sheet-libres {
+    display: inline-block;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.sheet-rolltemplate-attr .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-rec .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-icon .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-init .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-deathsave .sheet-body .sheet-part:not(:first-child),
+.sheet-rolltemplate-save .sheet-body .sheet-part:not(:first-child)
+{
+    margin-left: -5px;
+}
+
+.sheet-rolltemplate-attr .sheet-body .sheet-part span,
+.sheet-rolltemplate-rec .sheet-body .sheet-part span,
+.sheet-rolltemplate-icon .sheet-body .sheet-part span,
+.sheet-rolltemplate-init .sheet-body .sheet-part span,
+.sheet-rolltemplate-deathsave .sheet-body .sheet-part span,
+.sheet-rolltemplate-save .sheet-body .sheet-part span
+{
+    text-align: center;
+    display: block;
+}
+
+.sheet-rolltemplate-attr .sheet-body .sheet-part .inlinerollresult,
+.sheet-rolltemplate-rec .sheet-body .sheet-part .inlinerollresult,
+.sheet-rolltemplate-icon .sheet-body .sheet-part .inlinerollresult,
+.sheet-rolltemplate-init .sheet-body .sheet-part .inlinerollresult,
+.sheet-rolltemplate-deathsave .sheet-body .sheet-part .inlinerollresult,
+.sheet-rolltemplate-save .sheet-body .sheet-part .inlinerollresult
+{
+    background-color: inherit;
+    border: 0px;
+    padding: 0px;
+    font-weight: inherit;
+    cursor: inherit;
+    font-size: 1em;
+}
+
+.sheet-rolltemplate-attr .sheet-body .sheet-partspacer,
+.sheet-rolltemplate-rec .sheet-body .sheet-partspacer,
+.sheet-rolltemplate-icon .sheet-body .sheet-partspacer,
+.sheet-rolltemplate-init .sheet-body .sheet-partspacer,
+.sheet-rolltemplate-deathsave .sheet-body .sheet-partspacer,
+.sheet-rolltemplate-save .sheet-body .sheet-partspacer
+{
+    display: inline-block;
+}
+
+.sheet-rolltemplate-attr .sheet-body .sheet-result,
+.sheet-rolltemplate-rec .sheet-body .sheet-result,
+.sheet-rolltemplate-icon .sheet-body .sheet-result,
+.sheet-rolltemplate-init .sheet-body .sheet-result,
+.sheet-rolltemplate-deathsave .sheet-body .sheet-result,
+.sheet-rolltemplate-save .sheet-body .sheet-result
+{
+    display: inline-block;
+    position: relative;
+    top: -7px;
+}
+
+.sheet-rolltemplate-icon .sheet-body .sheet-partspacer,
+.sheet-rolltemplate-icon .sheet-body .sheet-partlabel {
+    font-family: pictos;
+}
+
+.sheet-rolltemplate-power .sheet-body {
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.sheet-rolltemplate-ba .sheet-header
+{
+    width: 230px;
+    margin-left: -30px;
+    background-color: #028401;
+    display: inline-block;
+    text-align: left;
+    border-top: 5px solid #028401;
+    border-bottom: 5px solid #028401;
+    height: 16px;
+    color: white;
+    position: relative;
+}
+
+.sheet-rolltemplate-ba .sheet-left,
+.sheet-rolltemplate-power .sheet-left
+{
+    margin-left: 5px;
+}
+
+.sheet-rolltemplate-ba .sheet-right,
+.sheet-rolltemplate-power .sheet-right
+{
+    float: right;
+    margin-right: 5px;
+    position: absolute;
+    right: 0px;
+}
+
+.sheet-rolltemplate-ba .sheet-bold,
+.sheet-rolltemplate-power .sheet-bold
+{
+    font-weight: bold;
+}
+
+.sheet-rolltemplate-ba .sheet-row,
+.sheet-rolltemplate-power .sheet-row
+{
+    display: block;
+    white-space: nowrap;
+}
+
+.sheet-rolltemplate-deathsave .sheet-row,
+.sheet-rolltemplate-save .sheet-row {
+    display: block;
+    text-align: center;
+}
+
+.sheet-rolltemplate-power .sheet-header
+{
+    width: 225px;
+    margin-left: -30px;
+    display: inline-block;
+    text-align: left;
+    height: 16px;
+    color: white;
+    position: relative;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-atwill {
+    background-color: #028401;
+    border: 5px solid #028401;
+    border-left: 0px;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-class {
+    background-color: #A06D39;
+    border: 5px solid #A06D39;
+    border-left: 0px;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-racial-encounter {
+    background-color: #891101;
+    border: 5px solid #891101;
+    border-left: 0px;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-recharge-daily {
+    background-color: #000000;
+    border: 5px solid #000000;
+    border-left: 0px;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-spell {
+    background-color: #014A89;
+    border: 5px solid #014A89;
+    border-left: 0px;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-magicitem {
+    background-color: #D58C1A;
+    border: 5px solid #D58C1A;
+    border-left: 0px;
+}
+
+.sheet-rolltemplate-power .sheet-header.sheet-custom {
+    background-color: #7f2e7e;
+    border: 5px solid #7f2e7e;
+    border-left: 0px;
 }
