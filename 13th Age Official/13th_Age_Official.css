@@ -62,6 +62,12 @@
     appearance: none;
 }
 
+.sheet-options span.sheet-lib {
+    display: inline-block;
+    width: 185px;
+    text-align: right;
+}
+
 .sheet-col {
     width: 230px;
     margin-right: 20px;

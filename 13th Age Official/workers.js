@@ -74,13 +74,13 @@
     });
 
     // === Level / AC / PD / MD / HP / Recovery (mod) / Weapons (mods level) / Powers (mods level)
-    on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:level change:m-miss change:r-miss",function(e){
+    on("change:ac-base change:str-mod change:con-mod change:dex-mod change:int-mod change:wis-mod change:cha-mod change:pd-base change:md-base change:hp-base change:hp-mod change:rec-mod change:level change:m-miss change:r-miss",function(e){
         if (["level","m-miss","r-miss"].includes(e.sourceAttribute)) {updateLvl()}
         if (["level","ac-base","con-mod","dex-mod","wis-mod"].includes(e.sourceAttribute)) {updateAc()}
         if (["level","pd-base","str-mod","con-mod","dex-mod"].includes(e.sourceAttribute)) {updatePd()}
         if (["level","md-base","int-mod","wis-mod","cha-mod"].includes(e.sourceAttribute)) {updateMd()}
         if (["level","hp-base","hp-mod","con-mod"].includes(e.sourceAttribute)) {updateHp()}
-        if (["level","con-mod"].includes(e.sourceAttribute)) {updateRec()}
+        if (["level","con-mod","rec-mod"].includes(e.sourceAttribute)) {updateRec()}
         if (["level","str-mod","dex-mod"].includes(e.sourceAttribute)) {
             getAttrs(["MWEAP-sel","RWEAP-sel"], function(v){
                 updateMeleeWeapon(parseInt(v["MWEAP-sel"]) || 1);
@@ -228,12 +228,11 @@
     };
     // === Recovery
     var updateRec = function () {
-        getAttrs(["level","CON-mod","REC-bonus"], function(v){
-            var newrec = 0, mlt = 1, lvl = parseInt(v["level"]) || 1, oldrec = parseInt(v["REC-bonus"]) || 0;
+        getAttrs(["level","CON-mod","REC-bonus","REC-mod"], function(v){
+            var mlt = 1, lvl = parseInt(v["level"]) || 1, oldrec = parseInt(v["REC-bonus"]) || 0;
             if (lvl > 7) {mlt=3;}
             else if (lvl > 4) {mlt=2;}
-            newrec = (parseInt(v["CON-mod"]) || 0) * mlt;
-            if (Math.abs(newrec) > Math.abs(oldrec)) {setAttrs({"REC-bonus": newrec});}
+            setAttrs({"REC-bonus": (parseInt(v["CON-mod"]) || 0) * mlt + (parseInt(v["REC-mod"]) || 0)});
         });
     };
     // === Background
@@ -718,10 +717,17 @@
     // === Version and updating
     var upgrade_to_2_0 = function(doneupdating) {
         console.log("*** DEBUG upgrade_to_2_0");
-        getAttrs(["STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(vat) {
-            var setAttrsObj = {};
+        getAttrs(["level","REC-bonus","STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(vat) {
+            var setAttrsObj = {},
+                conmod = Math.floor((parseInt(vat["CON-base"]) - 10) / 2),
+                mlt = 1,
+                lvl = parseInt(vat["level"]) || 1,
+                oldrec = parseInt(vat["REC-bonus"]) || 0;
+            if (lvl > 7) {mlt=3;}
+            else if (lvl > 4) {mlt=2;}
+            setAttrsObj["REC-mod"] = Math.max(oldrec - (conmod * mlt),0);
             setAttrsObj["STR-mod"] = Math.floor((parseInt(vat["STR-base"]) - 10) / 2);
-            setAttrsObj["CON-mod"] = Math.floor((parseInt(vat["CON-base"]) - 10) / 2);
+            setAttrsObj["CON-mod"] = conmod;
             setAttrsObj["DEX-mod"] = Math.floor((parseInt(vat["DEX-base"]) - 10) / 2);
             setAttrsObj["INT-mod"] = Math.floor((parseInt(vat["INT-base"]) - 10) / 2);
             setAttrsObj["WIS-mod"] = Math.floor((parseInt(vat["WIS-base"]) - 10) / 2);
