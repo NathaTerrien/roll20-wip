@@ -1,5 +1,5 @@
     /* === GLOBAL VARIABLES === */
-    var i18n_atwill = getTranslationByKey("at-will"),
+    const i18n_atwill = getTranslationByKey("at-will"),
         i18n_talent = getTranslationByKey("talent"),
         i18n_feature = getTranslationByKey("feature"),
         i18n_power = getTranslationByKey("power"),
