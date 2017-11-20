@@ -6,13 +6,13 @@
         </span>
         <div>
             <div style="width: 250px; margin-bottom: 4px;display: inline-block;">
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="base-ac-from-class">Base AC from class</span><input type="number" name="attr_AC-base" value="10" title="@{AC-base}" />
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="base-pd-from-class">Base PD from class</span><input type="number" name="attr_PD-base" value="10" title="@{PD-base}" />
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="base-md-from-class">Base MD from class</span><input type="number" name="attr_MD-base" value="10" title="@{MC-base}" />
                 </span>
             </div>
@@ -22,17 +22,17 @@
         </div>
         <div>
             <div style="width: 250px; margin-bottom: 4px;display: inline-block;">
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="base-hp-from-class">Base HP from class</span><input type="number" name="attr_HP-base" value="7" title="@{HP-base}" />
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="melee-basic-attack-based-on">Melee Basic Attack Based On</span>
                         <select name="attr_M-BAMOD">
                             <option value="@{STR-mod}" data-i18n="str-u" selected="selected">STR</option>
                             <option value="@{DEX-mod}" data-i18n="dex-u">DEX</option>
                         </select>
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="ranged-basic-attack-based-on">Ranged Basic Attack Based On</span>
                         <select name="attr_R-BAMOD">
                             <option value="@{STR-mod}" data-i18n="str-u">STR</option>
@@ -41,17 +41,17 @@
                 </span>
             </div>
             <div style="width: 250px; display: inline-block; vertical-align: top;">
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="flat-hp-mod-from-magic-items">Flat HP Mod from Magic Items</span><input type="number" name="attr_HP-mod" value="0" title="@{HP-mod}" />
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="damage-on-melee-miss">Damage on Melee Miss</span>
                         <select name="attr_M-MISS">
                             <option value="0">-</option>
                             <option value="@{level}" selected="selected" data-i18n="level">Level</option>
                         </select>
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="damage-on-ranged-miss">Damage on Ranged Miss</span>
                         <select name="attr_R-MISS">
                             <option value="0" selected="selected">-</option>
@@ -60,10 +60,10 @@
                 </span>
             </div>
             <div style="display: inline-block; vertical-align: top;">
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="flat-recovery-mod">Flat Recovery Mod</span><input type="number" name="attr_REC-mod" value="0" title="@{REC-mod}" />
                 </span>
-                <span class="row">
+                <span class="row nowrap">
                     <span class="lib" data-i18n="flat-initiative-mod">Flat Initiative Mod</span><input type="number" name="attr_INIT-mod" value="0" title="@{INIT-mod}" />
                 </span>
             </div>
@@ -84,43 +84,43 @@
                 <input type="text" name="attr_class" title="@{class}" />
             </div>
             <div class="metacontainer">
-                <div class="label"><span data-i18n="leve">Level</span></div>
+                <div class="label"><span data-i18n="level">Level</span></div>
                 <input type="number" name="attr_level" value="1" title="@{level}" />
             </div>
         </div>
         <div class="attributes">
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_STR-base" value="10" title="@{STR-base}" />
-                <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=Strength}} {{attr_abr=STR}} {{attr_bonus=[[[[@{STR-mod}]][STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{STR-mod}]][STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="str-u">STR</span></button>
+                <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=^{strength}}} {{attr_abr=^{str-u}}} {{attr_bonus=[[@{STR-mod}[STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{STR-mod}[STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="str-u">STR</span></button>
                 <span class="attrmod" name="attr_STR-mod" title="@{STR-mod}"></span>
             </div>
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_CON-base" value="10" title="@{CON-base}" />
-                <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=Constitution}} {{attr_abr=CON}} {{attr_bonus=[[[[@{CON-mod}]][CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CON-mod}]][CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="con-u">CON</span></button>
+                <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=^{constitution}}} {{attr_abr=^{con-u}}} {{attr_bonus=[[@{CON-mod}[CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{CON-mod}[CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="con-u">CON</span></button>
                 <span class="attrmod" name="attr_CON-mod" title="@{CON-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: absolute;">
                 <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}" />
-                <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=Dexterity}} {{attr_abr=DEX}} {{attr_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="dex-u">DEX</span></button>
+                <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=^{dexterity}}} {{attr_abr=^{dex-u}}} {{attr_bonus=[[@{DEX-mod}[DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{DEX-mod}[DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="dex-u">DEX</span></button>
                 <span class="attrmod" name="attr_DEX-mod" title="@{DEX-mod}"></span>
-                <button class="init" style="display: block;" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[[[@{DEX-mod}]][DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + [[@{DEX-mod}]][DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}"><span data-i18n="initiative-u">INITIATIVE</span></button>
+                <button class="init" style="display: block;" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[@{DEX-mod}[DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + @{DEX-mod}[DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}"><span data-i18n="initiative-u">INITIATIVE</span></button>
                 <button class="init" type="roll" name="roll_SAVE" value="&{template:save} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20+?{Modifiers|0}]]}}"><span data-i18n="save-u">SAVE</span></button>
             </div>
         </div>
         <div class="attributes">
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_INT-base" value="10" title="@{INT-base}" />
-                <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=Intelligence}} {{attr_abr=INT}} {{attr_bonus=[[[[@{INT-mod}]][INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{INT-mod}]][INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="int-u">INT</span></button>
+                <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=^{intelligence}}} {{attr_abr=^{int-u}}} {{attr_bonus=[[@{INT-mod}[INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{INT-mod}[INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="int-u">INT</span></button>
                 <span class="attrmod" name="attr_INT-mod" title="@{INT-mod}"></span>
             </div>
             <div class="attrcontainer">
                 <input class="attrbase" type="text" name="attr_WIS-base" value="10" title="@{WIS-base}" />
-                <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=Wisdom}} {{attr_abr=WIS}} {{attr_bonus=[[[[@{WIS-mod}]][WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{WIS-mod}]][WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="wis-u">WIS</span></button>
+                <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=^{wisdom}}} {{attr_abr=^{wis-u}}} {{attr_bonus=[[@{WIS-mod}[WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{WIS-mod}[WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="wis-u">WIS</span></button>
                 <span class="attrmod" name="attr_WIS-mod" title="@{WIS-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: relative;">
                 <input class="attrbase" type="text" name="attr_CHA-base" value="10" title="@{CHA-base}" />
-                <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=Charisma}} {{attr_abr=CHA}} {{attr_bonus=[[[[@{CHA-mod}]][CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + [[@{CHA-mod}]][CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="cha-u">CHA</span></button>
+                <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=^{charisma}}} {{attr_abr=^{cha-u}}} {{attr_bonus=[[@{CHA-mod}[CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{CHA-mod}[CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="cha-u">CHA</span></button>
                 <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
                     <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20+?{Modifiers|0}]]}}"><span data-i18n="death-save-u">DEATH SAVE</span></button>
@@ -210,14 +210,14 @@
                     <button class="attrlabel" type="roll" name="roll_icon" value="&{template:icon} {{icon1=[[1d6cf5]]}} {{icon2=[[1d6cf5]]}} {{icon3=[[1d6cf5]]}} {{icon4=[[1d6cf5]]}} {{charname=@{character_name}}} @{icon-final}"><span data-i18n="icon-relationships">Icon Relationships</span></button>
                 </div>
                 <div class="iconrelationship">
-                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name1}}} {{relationship=@{icon-type1}}} {{iconlvl=[[@{icon1}]]}} {{iconrow=1}}" checked="checked" /><span></span>
+                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name1}}} {{relationship=^{@{icon-type1}}}} {{iconlvl=[[@{icon1}]]}} {{iconrow=1}}" checked="checked" /><span></span>
                     <input type="text" class="title" name="attr_icon-name1" data-i18n-placeholder="orc-lord" placeholder="Orc Lord" title="@{icon-name1}" />
                     <input type="text" class="iconrelationship short" name="attr_icon1" placeholder="1" title="@{icon1}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type1" title="@{icon-type1}">
-                            <option value="Positive" data-i18n="positive">Positive</option>
-                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
-                            <option value="Negative" data-i18n="negative">Negative</option>
+                            <option value="Positive" data-i18n="Positive">Positive</option>
+                            <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon1-5-count" title="@{icon1-5-count}" />
                         <input type="checkbox" name="attr_icon1-5" /><span class="pictos">e</span>
@@ -226,14 +226,14 @@
                     </div>
                 </div>
                 <div class="iconrelationship">
-                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name2}}} {{relationship=@{icon-type2}}} {{iconlvl=[[@{icon2}]]}} {{iconrow=2}}" /><span></span>
+                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name2}}} {{relationship=^{@{icon-type2}}}} {{iconlvl=[[@{icon2}]]}} {{iconrow=2}}" /><span></span>
                     <input type="text" class="title" name="attr_icon-name2" title="@{icon-name2}" />
                     <input type="text" class="iconrelationship short" name="attr_icon2" title="@{icon2}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type2" title="@{icon-type2}">
-                            <option value="Positive" data-i18n="positive">Positive</option>
-                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
-                            <option value="Negative" data-i18n="negative">Negative</option>
+                            <option value="Positive" data-i18n="Positive">Positive</option>
+                            <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon2-5-count" title="@{icon2-5-count}" />
                         <input type="checkbox" name="attr_icon2-5" /><span class="pictos">e</span>
@@ -242,14 +242,14 @@
                     </div>
                 </div>
                 <div class="iconrelationship">
-                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name3}}} {{relationship=@{icon-type3}}} {{iconlvl=[[@{icon3}]]}} {{iconrow=3}}" /><span></span>
+                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name3}}} {{relationship=^{@{icon-type3}}}} {{iconlvl=[[@{icon3}]]}} {{iconrow=3}}" /><span></span>
                     <input type="text" class="title" name="attr_icon-name3" title="@{icon-name3}" />
                     <input type="text" class="iconrelationship short" name="attr_icon3" title="@{icon3}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type3" title="@{icon-type3}">
-                            <option value="Positive" data-i18n="positive">Positive</option>
-                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
-                            <option value="Negative" data-i18n="negative">Negative</option>
+                            <option value="Positive" data-i18n="Positive">Positive</option>
+                            <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon3-5-count" title="@{icon3-5-count}" />
                         <input type="checkbox" name="attr_icon3-5" /><span class="pictos">e</span>
@@ -258,14 +258,14 @@
                     </div>
                 </div>
                 <div class="iconrelationship">
-                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name4}}} {{relationship=@{icon-type4}}} {{iconlvl=[[@{icon4}]]}} {{iconrow=4}}" /><span></span>
+                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name4}}} {{relationship=^{@{icon-type4}}}} {{iconlvl=[[@{icon4}]]}} {{iconrow=4}}" /><span></span>
                     <input type="text" class="title" name="attr_icon-name4" title="@{icon-name4}" />
                     <input type="text" class="iconrelationship short" name="attr_icon4" title="@{icon4}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type4" title="@{icon-type4}">
-                            <option value="Positive" data-i18n="positive">Positive</option>
-                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
-                            <option value="Negative" data-i18n="negative">Negative</option>
+                            <option value="Positive" data-i18n="Positive">Positive</option>
+                            <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon4-5-count" title="@{icon4-5-count}" />
                         <input type="checkbox" name="attr_icon4-5" /><span class="pictos">e</span>
@@ -274,14 +274,14 @@
                     </div>
                 </div>
                 <div class="iconrelationship">
-                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name5}}} {{relationship=@{icon-type5}}} {{iconlvl=[[@{icon5}]]}} {{iconrow=5}}" /><span></span>
+                    <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name5}}} {{relationship=^{@{icon-type5}}}} {{iconlvl=[[@{icon5}]]}} {{iconrow=5}}" /><span></span>
                     <input type="text" class="title" name="attr_icon-name5" title="@{icon-name5}" />
                     <input type="text" class="iconrelationship short" name="attr_icon5" title="@{icon5}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type5" title="@{icon-type5}">
-                            <option value="Positive" data-i18n="positive">Positive</option>
-                            <option value="Conflicted" data-i18n="conflicted">Conflicted</option>
-                            <option value="Negative" data-i18n="negative">Negative</option>
+                            <option value="Positive" data-i18n="Positive">Positive</option>
+                            <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
+                            <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
                         <input type="text" class="iconrelationship symbolcount" name="attr_icon5-5-count" title="@{icon5-5-count}" />
                         <input type="checkbox" name="attr_icon5-5" /><span class="pictos">e</span>
@@ -441,7 +441,7 @@
         <div class="col column3">
             <div class="power">
                 <div class="header atwill">
-                    <button class="powerlabel" type="roll" name="roll_MBA" value="&{template:ba} {{range=Nearby}} {{miss=@{MBA-miss}}} @{MWEAP-final}"><span data-i18n="melee-basic-attack">Melee Basic Attack</span></button>
+                    <button class="powerlabel" type="roll" name="roll_MBA" value="&{template:ba} {{range=^{nearby}}} {{miss=@{MBA-miss}}} @{MWEAP-final}"><span data-i18n="melee-basic-attack">Melee Basic Attack</span></button>
                     <span class="right">
                         <span data-i18n="at-will">At-Will</span>
                     </span>
@@ -472,7 +472,7 @@
             </div>
             <div class="power">
                 <div class="header atwill">
-                    <button class="powerlabel" type="roll" name="roll_RBA" value="&{template:ba} {{range=One enemy}} {{miss=@{RBA-miss}}} @{RWEAP-final}"><span data-i18n="ranged-basic-attack">Ranged Basic Attack</span></button>
+                    <button class="powerlabel" type="roll" name="roll_RBA" value="&{template:ba} {{range=^{one-enemy}}} {{miss=@{RBA-miss}}} @{RWEAP-final}"><span data-i18n="ranged-basic-attack">Ranged Basic Attack</span></button>
                     <span class="right">
                         <span data-i18n="at-will">At-Will</span>
                     </span>
