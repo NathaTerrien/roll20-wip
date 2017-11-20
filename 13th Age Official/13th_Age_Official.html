@@ -73,15 +73,15 @@
         <div class="meta">
             <div class="metacontainer">
                 <div class="label"><span data-i18n="name">Name</span></div>
-                <input type="text" name="attr_character_name" title="@{character_name}" />
+                <input type="text" spellcheck="false" name="attr_character_name" title="@{character_name}" />
             </div>
             <div class="metacontainer">
                 <div class="label"><span data-i18n="race">Race</span></div>
-                <input type="text" name="attr_race" title="@{race}" />
+                <input type="text" spellcheck="false" name="attr_race" title="@{race}" />
             </div>
             <div class="metacontainer">
                 <div class="label"><span data-i18n="class">Class</span></div>
-                <input type="text" name="attr_class" title="@{class}" />
+                <input type="text" spellcheck="false" name="attr_class" title="@{class}" />
             </div>
             <div class="metacontainer">
                 <div class="label"><span data-i18n="level">Level</span></div>
@@ -90,17 +90,17 @@
         </div>
         <div class="attributes">
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_STR-base" value="10" title="@{STR-base}" />
+                <input class="attrbase" type="text" spellcheck="false" name="attr_STR-base" value="10" title="@{STR-base}" />
                 <button class="attrlabel" type="roll" name="roll_STR" value="&{template:attr} {{attr=^{strength}}} {{attr_abr=^{str-u}}} {{attr_bonus=[[@{STR-mod}[STR]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{STR-mod}[STR] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="str-u">STR</span></button>
                 <span class="attrmod" name="attr_STR-mod" title="@{STR-mod}"></span>
             </div>
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_CON-base" value="10" title="@{CON-base}" />
+                <input class="attrbase" type="text" spellcheck="false" name="attr_CON-base" value="10" title="@{CON-base}" />
                 <button class="attrlabel" type="roll" name="roll_CON" value="&{template:attr} {{attr=^{constitution}}} {{attr_abr=^{con-u}}} {{attr_bonus=[[@{CON-mod}[CON]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{CON-mod}[CON] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="con-u">CON</span></button>
                 <span class="attrmod" name="attr_CON-mod" title="@{CON-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: absolute;">
-                <input class="attrbase" type="text" name="attr_DEX-base" value="10" title="@{DEX-base}" />
+                <input class="attrbase" type="text" spellcheck="false" name="attr_DEX-base" value="10" title="@{DEX-base}" />
                 <button class="attrlabel" type="roll" name="roll_DEX" value="&{template:attr} {{attr=^{dexterity}}} {{attr_abr=^{dex-u}}} {{attr_bonus=[[@{DEX-mod}[DEX]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{DEX-mod}[DEX] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="dex-u">DEX</span></button>
                 <span class="attrmod" name="attr_DEX-mod" title="@{DEX-mod}"></span>
                 <button class="init" style="display: block;" type="roll" name="roll_INIT" value="&{template:init} {{name=@{selected|token_name}}} {{dex_bonus=[[@{DEX-mod}[DEX]]]}} {{level=@{level}}} {{mod=[[@{INIT-mod}+?{Modifiers|0}]]}} {{result=[[1d20 + @{DEX-mod}[DEX] + @{level}[LVL] + @{INIT-mod} + ?{Modifiers|0}[MOD] &{tracker}]]}}"><span data-i18n="initiative-u">INITIATIVE</span></button>
@@ -109,17 +109,17 @@
         </div>
         <div class="attributes">
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_INT-base" value="10" title="@{INT-base}" />
+                <input class="attrbase" type="text" spellcheck="false" name="attr_INT-base" value="10" title="@{INT-base}" />
                 <button class="attrlabel" type="roll" name="roll_INT" value="&{template:attr} {{attr=^{intelligence}}} {{attr_abr=^{int-u}}} {{attr_bonus=[[@{INT-mod}[INT]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{INT-mod}[INT] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="int-u">INT</span></button>
                 <span class="attrmod" name="attr_INT-mod" title="@{INT-mod}"></span>
             </div>
             <div class="attrcontainer">
-                <input class="attrbase" type="text" name="attr_WIS-base" value="10" title="@{WIS-base}" />
+                <input class="attrbase" type="text" spellcheck="false" name="attr_WIS-base" value="10" title="@{WIS-base}" />
                 <button class="attrlabel" type="roll" name="roll_WIS" value="&{template:attr} {{attr=^{wisdom}}} {{attr_abr=^{wis-u}}} {{attr_bonus=[[@{WIS-mod}[WIS]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{WIS-mod}[WIS] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="wis-u">WIS</span></button>
                 <span class="attrmod" name="attr_WIS-mod" title="@{WIS-mod}"></span>
             </div>
             <div class="attrcontainer" style="position: relative;">
-                <input class="attrbase" type="text" name="attr_CHA-base" value="10" title="@{CHA-base}" />
+                <input class="attrbase" type="text" spellcheck="false" name="attr_CHA-base" value="10" title="@{CHA-base}" />
                 <button class="attrlabel" type="roll" name="roll_CHA" value="&{template:attr} {{attr=^{charisma}}} {{attr_abr=^{cha-u}}} {{attr_bonus=[[@{CHA-mod}[CHA]]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}[MOD]+@{E-DIE}]]}} {{result=[[1d20 + @{CHA-mod}[CHA] + @{level}[LVL] + ?{Modifiers|0}[MOD] + @{BACK-final}"><span data-i18n="cha-u">CHA</span></button>
                 <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
@@ -155,18 +155,18 @@
             <div class="dercontainer">
                 <div class="hpbox">
                     <div class="left subbox">
-                        <input type="text" name="attr_HP" title="@{HP}" />
+                        <input type="text" spellcheck="false" name="attr_HP" title="@{HP}" />
                         <span data-i18n="current-hp">Current HP</span>
                     </div>
                     <div class="right subbox">
-                        <input type="text" name="attr_HP-temp" title="@{HP-temp}" />
+                        <input type="text" spellcheck="false" name="attr_HP-temp" title="@{HP-temp}" />
                         <span data-i18n="temp-hp">Temp HP</span>
                     </div>
                 </div>
             </div>
             <div class="dercontainer" style="margin-top:-5px;">
                 <button class="derlabel recovery" type="roll" name="roll_recovery" value="&{template:rec} {{name=@{character_name}}} {{rec_die=@{REC-die}}} {{rec_bonus=[[@{REC-bonus}]]}} {{level=@{level}}} {{mod=[[?{Modifiers|0}]]}} {{result=[[@{level}d@{REC-die}+@{REC-bonus}[REC]+?{Modifiers|0}[MOD]]]}}"><span data-i18n="recovery">Recovery</span></button>
-                <select class="recovery" type="text" name="attr_REC-die" title="@{REC-die}">
+                <select class="recovery" type="text" spellcheck="false" name="attr_REC-die" title="@{REC-die}">
                     <option value="4">d4</option>
                     <option value="6">d6</option>
                     <option value="8" selected="selected">d8</option>
@@ -176,7 +176,7 @@
                 <span class="derlabel" style="width: 10px; padding-right:0; margin-left:-5px; border-left:0px; border-right:0px;">+</span>
                 <span class="derived recovery" name="attr_REC-bonus" style="width:22px;" title="@{REC-bonus}"></span>
                 <span class="derlabel" style="width: 7px; margin-left: -9px;" data-i18n="max">Max</span>
-                <input class="recovery recmax" type="text" style="border-left:0px; width:31px;" name="attr_REC_max" value="8" title="@{REC_max}" />
+                <input class="recovery recmax" type="text" spellcheck="false" style="border-left:0px; width:31px;" name="attr_REC_max" value="8" title="@{REC_max}" />
                 <span class="recoverycontainer">
                     <input class="recflag" name="attr_rec_flag" type="hidden" value="8" />
                     <input type="radio" class="sheet-normal 0" name="attr_REC" value="0" /><span></span>
@@ -211,82 +211,82 @@
                 </div>
                 <div class="iconrelationship">
                     <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name1}}} {{relationship=^{@{icon-type1}}}} {{iconlvl=[[@{icon1}]]}} {{iconrow=1}}" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_icon-name1" data-i18n-placeholder="orc-lord" placeholder="Orc Lord" title="@{icon-name1}" />
-                    <input type="text" class="iconrelationship short" name="attr_icon1" placeholder="1" title="@{icon1}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_icon-name1" data-i18n-placeholder="orc-lord" placeholder="Orc Lord" title="@{icon-name1}" />
+                    <input type="text" spellcheck="false" class="iconrelationship short" name="attr_icon1" placeholder="1" title="@{icon1}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type1" title="@{icon-type1}">
                             <option value="Positive" data-i18n="Positive">Positive</option>
                             <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
                             <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon1-5-count" title="@{icon1-5-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon1-5-count" title="@{icon1-5-count}" />
                         <input type="checkbox" name="attr_icon1-5" /><span class="pictos">e</span>
                         <input type="checkbox" name="attr_icon1-6" /><span class="pictos">k</span>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon1-6-count" title="@{icon1-6-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon1-6-count" title="@{icon1-6-count}" />
                     </div>
                 </div>
                 <div class="iconrelationship">
                     <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name2}}} {{relationship=^{@{icon-type2}}}} {{iconlvl=[[@{icon2}]]}} {{iconrow=2}}" /><span></span>
-                    <input type="text" class="title" name="attr_icon-name2" title="@{icon-name2}" />
-                    <input type="text" class="iconrelationship short" name="attr_icon2" title="@{icon2}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_icon-name2" title="@{icon-name2}" />
+                    <input type="text" spellcheck="false" class="iconrelationship short" name="attr_icon2" title="@{icon2}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type2" title="@{icon-type2}">
                             <option value="Positive" data-i18n="Positive">Positive</option>
                             <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
                             <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon2-5-count" title="@{icon2-5-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon2-5-count" title="@{icon2-5-count}" />
                         <input type="checkbox" name="attr_icon2-5" /><span class="pictos">e</span>
                         <input type="checkbox" name="attr_icon2-6" /><span class="pictos">k</span>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon2-6-count" title="@{icon2-6-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon2-6-count" title="@{icon2-6-count}" />
                     </div>
                 </div>
                 <div class="iconrelationship">
                     <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name3}}} {{relationship=^{@{icon-type3}}}} {{iconlvl=[[@{icon3}]]}} {{iconrow=3}}" /><span></span>
-                    <input type="text" class="title" name="attr_icon-name3" title="@{icon-name3}" />
-                    <input type="text" class="iconrelationship short" name="attr_icon3" title="@{icon3}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_icon-name3" title="@{icon-name3}" />
+                    <input type="text" spellcheck="false" class="iconrelationship short" name="attr_icon3" title="@{icon3}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type3" title="@{icon-type3}">
                             <option value="Positive" data-i18n="Positive">Positive</option>
                             <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
                             <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon3-5-count" title="@{icon3-5-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon3-5-count" title="@{icon3-5-count}" />
                         <input type="checkbox" name="attr_icon3-5" /><span class="pictos">e</span>
                         <input type="checkbox" name="attr_icon3-6" /><span class="pictos">k</span>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon3-6-count" title="@{icon3-6-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon3-6-count" title="@{icon3-6-count}" />
                     </div>
                 </div>
                 <div class="iconrelationship">
                     <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name4}}} {{relationship=^{@{icon-type4}}}} {{iconlvl=[[@{icon4}]]}} {{iconrow=4}}" /><span></span>
-                    <input type="text" class="title" name="attr_icon-name4" title="@{icon-name4}" />
-                    <input type="text" class="iconrelationship short" name="attr_icon4" title="@{icon4}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_icon-name4" title="@{icon-name4}" />
+                    <input type="text" spellcheck="false" class="iconrelationship short" name="attr_icon4" title="@{icon4}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type4" title="@{icon-type4}">
                             <option value="Positive" data-i18n="Positive">Positive</option>
                             <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
                             <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon4-5-count" title="@{icon4-5-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon4-5-count" title="@{icon4-5-count}" />
                         <input type="checkbox" name="attr_icon4-5" /><span class="pictos">e</span>
                         <input type="checkbox" name="attr_icon4-6" /><span class="pictos">k</span>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon4-6-count" title="@{icon4-6-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon4-6-count" title="@{icon4-6-count}" />
                     </div>
                 </div>
                 <div class="iconrelationship">
                     <input type="radio" class="iconrelationship blueradio" name="attr_icon-final" value="{{name=@{icon-name5}}} {{relationship=^{@{icon-type5}}}} {{iconlvl=[[@{icon5}]]}} {{iconrow=5}}" /><span></span>
-                    <input type="text" class="title" name="attr_icon-name5" title="@{icon-name5}" />
-                    <input type="text" class="iconrelationship short" name="attr_icon5" title="@{icon5}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_icon-name5" title="@{icon-name5}" />
+                    <input type="text" spellcheck="false" class="iconrelationship short" name="attr_icon5" title="@{icon5}" />
                     <div class="subicon">
                         <select class="iconrelationship" name="attr_icon-type5" title="@{icon-type5}">
                             <option value="Positive" data-i18n="Positive">Positive</option>
                             <option value="Conflicted" data-i18n="Conflicted">Conflicted</option>
                             <option value="Negative" data-i18n="Negative">Negative</option>
                         </select>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon5-5-count" title="@{icon5-5-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon5-5-count" title="@{icon5-5-count}" />
                         <input type="checkbox" name="attr_icon5-5" /><span class="pictos">e</span>
                         <input type="checkbox" name="attr_icon5-6" /><span class="pictos">k</span>
-                        <input type="text" class="iconrelationship symbolcount" name="attr_icon5-6-count" title="@{icon5-6-count}" />
+                        <input type="text" spellcheck="false" class="iconrelationship symbolcount" name="attr_icon5-6-count" title="@{icon5-6-count}" />
                     </div>
                 </div>
             </div>
@@ -300,61 +300,61 @@
                 <div class="header"><span data-i18n="backgrounds">Backgrounds</span></div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="1" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name1" data-i18n-placeholder="assassin" placeholder="Assassin" title="@{BACK-name1}" />
-                    <input type="text" class="background" name="attr_BACK1" placeholder="2" title="@{BACK1}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name1" data-i18n-placeholder="assassin" placeholder="Assassin" title="@{BACK-name1}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK1" placeholder="2" title="@{BACK1}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="2" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name2" title="@{BACK-name2}" />
-                    <input type="text" class="background" name="attr_BACK2" title="@{BACK2}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name2" title="@{BACK-name2}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK2" title="@{BACK2}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="3" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name3" title="@{BACK-name3}" />
-                    <input type="text" class="background" name="attr_BACK3" title="@{BACK3}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name3" title="@{BACK-name3}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK3" title="@{BACK3}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="4" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name4" title="@{BACK-name4}" />
-                    <input type="text" class="background" name="attr_BACK4" title="@{BACK4}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name4" title="@{BACK-name4}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK4" title="@{BACK4}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="5" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name5" title="@{BACK-name5}" />
-                    <input type="text" class="background" name="attr_BACK5" title="@{BACK5}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name5" title="@{BACK-name5}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK5" title="@{BACK5}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="6" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name6" title="@{BACK-name6}" />
-                    <input type="text" class="background" name="attr_BACK6" title="@{BACK6}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name6" title="@{BACK-name6}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK6" title="@{BACK6}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="7" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name7" title="@{BACK-name7}" />
-                    <input type="text" class="background" name="attr_BACK7" title="@{BACK7}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name7" title="@{BACK-name7}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK7" title="@{BACK7}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="8" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name8" title="@{BACK-name8}" />
-                    <input type="text" class="background" name="attr_BACK8" title="@{BACK8}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name8" title="@{BACK-name8}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK8" title="@{BACK8}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="9" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name9" title="@{BACK-name9}" />
-                    <input type="text" class="background" name="attr_BACK9" title="@{BACK9}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name9" title="@{BACK-name9}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK9" title="@{BACK9}" />
                 </div>
                 <div class="background">
                     <input type="radio" class="background blueradio" name="attr_BACK-sel" value="10" /><span></span>
-                    <input type="text" class="title" name="attr_BACK-name10" title="@{BACK-name10}" />
-                    <input type="text" class="background" name="attr_BACK10" title="@{BACK10}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_BACK-name10" title="@{BACK-name10}" />
+                    <input type="text" spellcheck="false" class="background" name="attr_BACK10" title="@{BACK10}" />
                 </div>
             </div>
             <div class="bodycontainer">
                 <div class="header"><span data-i18n="melee-weapons">Melee Weapons</span></div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_MWEAP-sel" value="1" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_MWEAP-name1" data-i18n-placeholder="rapier" placeholder="Rapier" title="@{MWEAP-name1}" />
-                    <input type="text" class="weapon" name="attr_MWEAP-mod1" value="0" title="@{MWEAP-mod1}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_MWEAP-name1" data-i18n-placeholder="rapier" placeholder="Rapier" title="@{MWEAP-name1}" />
+                    <input type="text" spellcheck="false" class="weapon" name="attr_MWEAP-mod1" value="0" title="@{MWEAP-mod1}" />
                     <select class="weapon" name="attr_MWEAP1" title="@{MWEAP1}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -366,8 +366,8 @@
                 </div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_MWEAP-sel" value="2" /><span></span>
-                    <input type="text" class="title" name="attr_MWEAP-name2" title="@{MWEAP-name2}" />
-                    <input type="text" class="weapon" name="attr_MWEAP-mod2" value="0" title="@{MWEAP-mod2}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_MWEAP-name2" title="@{MWEAP-name2}" />
+                    <input type="text" spellcheck="false" class="weapon" name="attr_MWEAP-mod2" value="0" title="@{MWEAP-mod2}" />
                     <select class="weapon" name="attr_MWEAP2" title="@{MWEAP2}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -379,8 +379,8 @@
                 </div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_MWEAP-sel" value="3" /><span></span>
-                    <input type="text" class="title" name="attr_MWEAP-name3" title="@{MWEAP-name3}" />
-                    <input type="text" class="weapon" name="attr_MWEAP-mod3" value="0" title="@{MWEAP-mod3}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_MWEAP-name3" title="@{MWEAP-name3}" />
+                    <input type="text" spellcheck="false" class="weapon" name="attr_MWEAP-mod3" value="0" title="@{MWEAP-mod3}" />
                     <select class="weapon" name="attr_MWEAP3" title="@{MWEAP3}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -395,8 +395,8 @@
                 <div class="header"><span data-i18n="ranged-weapons">Ranged Weapons</span></div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_RWEAP-sel" value="1" checked="checked" /><span></span>
-                    <input type="text" class="title" name="attr_RWEAP-name1" title="@{RWEAP-name1}" />
-                    <input type="text" class="weapon" name="attr_RWEAP-mod1" value="0" title="@{RWEAP-mod1}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_RWEAP-name1" title="@{RWEAP-name1}" />
+                    <input type="text" spellcheck="false" class="weapon" name="attr_RWEAP-mod1" value="0" title="@{RWEAP-mod1}" />
                     <select class="weapon" name="attr_RWEAP1" title="@{RWEAP1}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -408,8 +408,8 @@
                 </div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_RWEAP-sel" value="2"><span></span>
-                    <input type="text" class="title" name="attr_RWEAP-name2" title="@{RWEAP-name2}" />
-                    <input type="text" class="weapon" name="attr_RWEAP-mod2" value="0" title="@{RWEAP-mod2}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_RWEAP-name2" title="@{RWEAP-name2}" />
+                    <input type="text" spellcheck="false" class="weapon" name="attr_RWEAP-mod2" value="0" title="@{RWEAP-mod2}" />
                     <select class="weapon" name="attr_RWEAP2" title="@{RWEAP2}">
                         <option value="0"></option>
                         <option value="4">d4</option>
@@ -421,8 +421,8 @@
                 </div>
                 <div class="weapon">
                     <input type="radio" class="weapon blueradio" name="attr_RWEAP-sel" value="3" /><span></span>
-                    <input type="text" class="title" name="attr_RWEAP-name3" title="@{RWEAP-name3}" />
-                    <input type="text" class="weapon" name="attr_RWEAP-mod3" value="0" title="@{RWEAP-mod3}" />
+                    <input type="text" spellcheck="false" class="title" name="attr_RWEAP-name3" title="@{RWEAP-name3}" />
+                    <input type="text" spellcheck="false" class="weapon" name="attr_RWEAP-mod3" value="0" title="@{RWEAP-mod3}" />
                     <select class="weapon" name="attr_RWEAP3" title="@{RWEAP3}">
                         <option value=""></option>
                         <option value="4">d4</option>
@@ -508,7 +508,7 @@
                     <input class="poweroptions-check" type="checkbox" name="attr_poweroptions-check" checked="checked" /><span></span>
                     <span class="poption topspacer" data-i18n="options">Options</span>
                     <span class="poption"><span data-i18n="name">Name</span>:</span>
-                    <input class="poption title" type="text" name="attr_name" />
+                    <input class="poption title" type="text" spellcheck="false" name="attr_name" />
                         <span class="poption spacer"></span>
                     <span class="poption"><span data-i18n="type">Type</span>:</span>
                         <input class="poption At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span class="poption" data-i18n="at-will">At-Will</span>
@@ -520,14 +520,14 @@
                         <input class="poption Spell" type="radio" name="attr_type" value="spell" /><span class="poption" data-i18n="spell">Spell</span>
                         <input class="poption Magic-Item" type="radio" name="attr_type" value="magicitem" /><span class="poption" data-i18n="magic-item">Magic Item</span>
                         <input class="poption Custom" type="radio" name="attr_type" value="custom" /><span class="poption" data-i18n="custom">Custom</span>
-                        <input class="poption title full" type="text" name="attr_type-custom" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="poption title full" type="text" spellcheck="false" name="attr_type-custom" data-i18n-placeholder="custom" placeholder="Custom" />
                             <span class="spacer suboption classtype"></span>
                             <input class="suboption classtype" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span class="suboption classtype" data-i18n="talent">Talent</span>
                             <input class="suboption classtype" type="radio" name="attr_classtype" value="Feature" /><span class="suboption classtype" data-i18n="feature">Feature</span>
                             <input class="suboption classtype" type="radio" name="attr_classtype" value="Power" /><span class="suboption classtype" data-i18n="power">Power</span>
                             <input class="suboption classtype" type="radio" name="attr_classtype" value="Battle Cry" /><span class="suboption classtype" data-i18n="battle-cry">Battle Cry</span>
                             <input class="suboption classtype" type="radio" name="attr_classtype" value="Domain" /><span class="suboption classtype" data-i18n="domain">Domain</span>
-                            <span class="suboption rechargerate" data-i18n="recharge-rate">Recharge Rate</span><input class="suboption rechargerate num" type="text" name="attr_rechargerate" />
+                            <span class="suboption rechargerate" data-i18n="recharge-rate">Recharge Rate</span><input class="suboption rechargerate num" type="text" spellcheck="false" name="attr_rechargerate" />
                         <span class="poption spacer"></span>
                     <input class="poption Uses pseudocheck 13thblue" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption mleft"></span><span class="poption"><span data-i18n="uses">Uses</span>:</span>
                         <input class="suboption usesoptions 1" type="radio" name="attr_uses-type" value="1" /><span class="suboption usesoptions">1</span>
@@ -544,7 +544,7 @@
                             <option value="Flexible Action" data-i18n="flexible-action">Flexible Action</option>
                             <option value="Custom" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption actionoptions title" type="text" name="attr_action-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="suboption actionoptions title" type="text" spellcheck="false" name="attr_action-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
                     <input class="poption Range pseudocheck 13thblue" type="checkbox" name="attr_range" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="range">Range</span>:</span>
                         <select class="suboption rangeoptions" name="attr_range-type">
@@ -555,10 +555,10 @@
                             <option value="Line of Sight" data-i18n="line-of-sight">Line of Sight</option>
                             <option value="Custom" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption rangeoptions title" type="text" name="attr_range-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="suboption rangeoptions title" type="text" spellcheck="false" name="attr_range-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
                     <input class="poption Target pseudocheck 13thblue" type="checkbox" name="attr_target" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="target">Target</span>:</span>
-                        <input class="suboption targetoptions title" type="text" name="attr_target-type" style="width:160px;" />
+                        <input class="suboption targetoptions title" type="text" spellcheck="false" name="attr_target-type" style="width:160px;" />
                         <span class="poption spacer"></span>
                     <input class="poption Attack pseudocheck 13thblue" type="checkbox" name="attr_attack" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="attack">Attack</span>:</span>
                         <select class="suboption attackoptions" name="attr_attack-type">
@@ -576,7 +576,7 @@
                             <option value="RWEAP3" data-i18n="ranged-weapon-3">Ranged Weapon 3</option>
                             <option value="CUSTOM" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption attackoptions title" type="text" name="attr_attack-custom" style="width:55px;" placeholder="3" />
+                        <input class="suboption attackoptions title" type="text" spellcheck="false" name="attr_attack-custom" style="width:55px;" placeholder="3" />
                         <span class="spacer suboption attackoptions" style="height: 1px;"></span>
                         <span class="suboption attackoptions" style="margin-left: 20px;"><span data-i18n="vs-u">VS</span>:</span>
                         <select class="suboption attackoptions" name="attr_attack-vstype">
@@ -585,7 +585,7 @@
                             <option value="MD" data-i18n="md-u">MD</option>
                             <option value="CUSTOM" data-i18n="custom">Custom</option>
                         </select>
-                        <input class="suboption attackoptions title" type="text" name="attr_attack-vscustom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="suboption attackoptions title" type="text" spellcheck="false" name="attr_attack-vscustom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
                     <input class="poption Cust1 pseudocheck 13thblue" type="checkbox" name="attr_cust1" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-1">Custom 1</span>
                         <span class="spacer suboption cust1options"></span>
@@ -600,16 +600,16 @@
                         <input class="suboption cust1options cust1-final-verse" type="radio" name="attr_cust1-type" value="Final-Verse" /><span class="suboption cust1options" data-i18n="final-verse">Final-Verse</span>
                         <input class="suboption cust1options cust1-details" type="radio" name="attr_cust1-type" value="Details" /><span class="suboption cust1options" style="width:100px;" data-i18n="details">Details</span>
                         <input class="suboption cust1options cust1-attackcustom" type="radio" name="attr_cust1-type" value="typecustom" /><span class="suboption cust1options" data-i18n="custom">Custom</span>
-                        <input class="suboption cust1options title" type="text" name="attr_cust1-custom" style="width:75px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="suboption cust1options title" type="text" spellcheck="false" name="attr_cust1-custom" style="width:75px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust1options"></span>
                         <input class="suboption cust1options cust1subcust1" type="checkbox" name="attr_cust1-subcust1" value="1" />
-                            <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust1-desc" />
+                            <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust1-desc" />
                         <input class="suboption cust1options cust1subcust2" type="checkbox" name="attr_cust1-subcust2" value="1" />
-                            <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust2-desc" />
+                            <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust2-desc" />
                         <input class="suboption cust1options cust1subcust3" type="checkbox" name="attr_cust1-subcust3" value="1" />
-                            <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust3-desc" />
+                            <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust3-desc" />
                         <input class="suboption cust1options cust1subcust4" type="checkbox" name="attr_cust1-subcust4" value="1" />
-                            <input class="suboption cust1options title full" type="text" name="attr_cust1-subcust4-desc" />
+                            <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust4-desc" />
                     <input class="poption Cust2 pseudocheck 13thblue" type="checkbox" name="attr_cust2" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-2">Custom 2</span>
                         <span class="spacer suboption cust2options"></span>
                         <input class="suboption cust2options cust2-hit" type="radio" name="attr_cust2-type" value="Hit" /><span class="suboption cust2options" data-i18n="hit">Hit</span>
@@ -623,16 +623,16 @@
                         <input class="suboption cust2options cust2-final-verse" type="radio" name="attr_cust2-type" value="Final-Verse" /><span class="suboption cust2options" data-i18n="final-verse">Final-Verse</span>
                         <input class="suboption cust2options cust2-details" type="radio" name="attr_cust2-type" value="Details" /><span class="suboption cust2options" style="width:100px;" data-i18n="details">Details</span>
                         <input class="suboption cust2options cust2-attackcustom" type="radio" name="attr_cust2-type" value="typecustom" /><span class="suboption cust2options">Custom</span>
-                        <input class="suboption cust2options title" type="text" name="attr_cust2-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="suboption cust2options title" type="text" spellcheck="false" name="attr_cust2-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust2options"></span>
                         <input class="suboption cust2options cust2subcust1" type="checkbox" name="attr_cust2-subcust1" value="1" />
-                            <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust1-desc" />
+                            <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust1-desc" />
                         <input class="suboption cust2options cust2subcust2" type="checkbox" name="attr_cust2-subcust2" value="1" />
-                            <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust2-desc" />
+                            <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust2-desc" />
                         <input class="suboption cust2options cust2subcust3" type="checkbox" name="attr_cust2-subcust3" value="1" />
-                            <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust3-desc" />
+                            <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust3-desc" />
                         <input class="suboption cust2options cust2subcust4" type="checkbox" name="attr_cust2-subcust4" value="1" />
-                            <input class="suboption cust2options title full" type="text" name="attr_cust2-subcust4-desc" />
+                            <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust4-desc" />
                     <input class="poption Cust3 pseudocheck 13thblue" type="checkbox" name="attr_cust3" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-3">Custom 3</span>
                         <span class="spacer suboption cust3options"></span>
                         <input class="suboption cust3options cust3-hit" type="radio" name="attr_cust3-type" value="Hit" /><span class="suboption cust3options" data-i18n="hit">Hit</span>
@@ -646,16 +646,16 @@
                         <input class="suboption cust3options cust3-final-verse" type="radio" name="attr_cust3-type" value="Final-Verse" /><span class="suboption cust3options" data-i18n="final-verse">Final-Verse</span>
                         <input class="suboption cust3options cust3-details" type="radio" name="attr_cust3-type" value="Details" /><span class="suboption cust3options" style="width:100px;" data-i18n="details">Details</span>
                         <input class="suboption cust3options cust3-attackcustom" type="radio" name="attr_cust3-type" value="typecustom" /><span class="suboption cust3options" data-i18n="custom">Custom</span>
-                        <input class="suboption cust3options title" type="text" name="attr_cust3-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="suboption cust3options title" type="text" spellcheck="false" name="attr_cust3-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust3options"></span>
                         <input class="suboption cust3options cust3subcust1" type="checkbox" name="attr_cust3-subcust1" value="1" />
-                            <input class="suboption cust3options title full" type="text" name="attr_cust3-subcust1-desc" />
+                            <input class="suboption cust3options title full" type="text" spellcheck="false" name="attr_cust3-subcust1-desc" />
                         <input class="suboption cust3options cust3subcust2" type="checkbox" name="attr_cust3-subcust2" value="1" />
-                            <input class="suboption cust3options title full" type="text" name="attr_cust3-subcust2-desc" />
+                            <input class="suboption cust3options title full" type="text" spellcheck="false" name="attr_cust3-subcust2-desc" />
                         <input class="suboption cust3options cust3subcust3" type="checkbox" name="attr_cust3-subcust3" value="1" />
-                            <input class="suboption cust3options title full" type="text" name="attr_cust3-subcust3-desc" />
+                            <input class="suboption cust3options title full" type="text" spellcheck="false" name="attr_cust3-subcust3-desc" />
                         <input class="suboption cust3options cust3subcust4" type="checkbox" name="attr_cust3-subcust4" value="1" />
-                            <input class="suboption cust3options title full" type="text" name="attr_cust3-subcust4-desc" />
+                            <input class="suboption cust3options title full" type="text" spellcheck="false" name="attr_cust3-subcust4-desc" />
                     <!-- TEMPLATE -->
                     <input type="hidden" name="attr_updateflag" value="0" />
                     <input type="hidden" name="attr_power-roll" value="" />
