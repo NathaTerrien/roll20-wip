@@ -187,7 +187,6 @@ input {
     color: white;
     border: 1px solid #014A89;
     font-size: 9px;
-    width: auto;
     background-image: none;
     text-shadow: none;
     box-shadow: none;
@@ -197,7 +196,8 @@ input {
     position: relative;
     top: 0px;
     left: 52px;
-    line-height: 8px;
+    line-height: 12px;
+    min-width: 60px;
 }
 
 .sheet-derived button[type=roll].sheet-derlabel {
@@ -334,7 +334,7 @@ input {
 
 .sheet-derived select.sheet-recovery,
 .sheet-weapon select.sheet-weapon {
-    line-height: 10px;
+    line-height: 18px;
     width: 42px;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -440,6 +440,13 @@ input[type="radio"].sheet-blueradio + span::before {
     border-radius: 50%;
 }
 input[type="radio"].sheet-blueradio:checked + span::before {
+    content: "✗";
+    width: 10px;
+    height: 10px;
+    font-size: 20px;
+    font-family: "Arial";
+    text-indent: -4px;
+    font-weight: bold;
     color: #014A89;
 }
 
@@ -1440,4 +1447,84 @@ button[type=roll]:hover *
     background-color: #7f2e7e;
     border: 5px solid #7f2e7e;
     border-left: 0px;
+}
+
+.repcontrol {
+    min-height: 27px;
+}
+
+.repcontrol .btn {
+    /*visibility: hidden;*/
+    border: medium none;
+    color: white !important;
+    background: none;
+    box-shadow: none;
+}
+
+.repcontrol .btn:focus {
+    outline: 0;
+}
+
+.repcontrol .repcontrol_edit:after {
+    content: '(';
+    visibility: visible;
+    font-family: pictos;
+    background-color: #014A89;
+    border-radius: 50%;
+    font-size: 15px;
+    height: 12px;
+    width: 12px;
+    padding: 4px;
+    color: white;
+    display: inline-block;
+    line-height: 11px;
+}
+
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: ')';
+}
+
+.repcontrol .repcontrol_add:before {
+    content: '&';
+visibility: visible;
+    font-family: pictos;
+    background-color: #014A89;
+    border-radius: 50%;
+    font-size: 15px;
+    height: 12px;
+    width: 12px;
+    padding: 4px;
+    color: white;
+    display: inline-block;
+    line-height: 12px;
+}
+
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    color: gold;
+}
+
+.sheet-resources .repcontrol {
+    margin-top: -10px;
+}
+
+.itemcontrol {
+    z-index: 10;
+}
+
+.itemcontrol .repcontrol_del {
+    font-size: 10px;
+    margin-top: 3px;
+    padding: 0px;
+    height: 18px;
+    width: 18px;
+}
+
+.itemcontrol .repcontrol_move {
+    font-size: 10px;
+    margin-top: 3px;
+    padding: 0px;
+    height: 18px;
+    width: 18px;
 }
