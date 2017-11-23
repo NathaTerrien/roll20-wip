@@ -506,29 +506,34 @@
                 <div class="power">
                     <!-- OPTIONS -->
                     <input class="poweroptions-check" type="checkbox" name="attr_poweroptions-check" checked="checked" /><span></span>
-                    <span class="poption topspacer" data-i18n="options">Options</span>
-                    <span class="poption"><span data-i18n="name">Name</span>:</span>
+                    <div class="poption topspacer" data-i18n="options">Options</div>
+                    <div class="poption"><span data-i18n="name">Name</span>:</div>
                     <input class="poption title" type="text" spellcheck="false" name="attr_name" />
-                        <span class="poption spacer"></span>
-                    <span class="poption"><span data-i18n="type">Type</span>:</span>
-                        <input class="poption At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span class="poption" data-i18n="at-will">At-Will</span>
-                        <input class="poption Class" type="radio" name="attr_type" value="class" /><span class="poption" data-i18n="class">Class</span>
-                        <input class="poption Racial" type="radio" name="attr_type" value="racial" /><span class="poption" data-i18n="racial">Racial</span>
-                        <input class="poption Encounter" type="radio" name="attr_type" value="encounter" /><span class="poption" data-i18n="encounter">Encounter</span>
-                        <input class="poption Recharge" type="radio" name="attr_type" value="recharge" /><span class="poption" data-i18n="recharge">Recharge</span>
-                        <input class="poption Daily" type="radio" name="attr_type" value="daily" /><span class="poption" data-i18n="daily">Daily</span>
-                        <input class="poption Spell" type="radio" name="attr_type" value="spell" /><span class="poption" data-i18n="spell">Spell</span>
-                        <input class="poption Magic-Item" type="radio" name="attr_type" value="magicitem" /><span class="poption" data-i18n="magic-item">Magic Item</span>
-                        <input class="poption Custom" type="radio" name="attr_type" value="custom" /><span class="poption" data-i18n="custom">Custom</span>
-                        <input class="poption title full" type="text" spellcheck="false" name="attr_type-custom" data-i18n-placeholder="custom" placeholder="Custom" />
-                            <span class="spacer suboption classtype"></span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span class="suboption classtype" data-i18n="talent">Talent</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Feature" /><span class="suboption classtype" data-i18n="feature">Feature</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Power" /><span class="suboption classtype" data-i18n="power">Power</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Battle Cry" /><span class="suboption classtype" data-i18n="battle-cry">Battle Cry</span>
-                            <input class="suboption classtype" type="radio" name="attr_classtype" value="Domain" /><span class="suboption classtype" data-i18n="domain">Domain</span>
-                            <span class="suboption rechargerate" data-i18n="recharge-rate">Recharge Rate</span><input class="suboption rechargerate num" type="text" spellcheck="false" name="attr_rechargerate" />
-                        <span class="poption spacer"></span>
+                        <div class="poption spacer"></div>
+                    <div class="poption"><span data-i18n="type">Type</span>:
+                        <input class="bluelib At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span data-i18n="at-will">At-Will</span>
+                        <input class="bluelib Class" type="radio" name="attr_type" value="class" /><span data-i18n="class">Class</span>
+                        <input class="bluelib Racial" type="radio" name="attr_type" value="racial" /><span data-i18n="racial">Racial</span>
+                        <input class="bluelib Encounter" type="radio" name="attr_type" value="encounter" /><span data-i18n="encounter">Encounter</span>
+                        <input class="bluelib Recharge" type="radio" name="attr_type" value="recharge" /><span data-i18n="recharge">Recharge</span>
+                        <input class="bluelib Daily" type="radio" name="attr_type" value="daily" /><span data-i18n="daily">Daily</span>
+                        <input class="bluelib Spell" type="radio" name="attr_type" value="spell" /><span data-i18n="spell">Spell</span>
+                        <input class="bluelib Magic-Item" type="radio" name="attr_type" value="magicitem" /><span data-i18n="magic-item">Magic Item</span>
+                        <input class="bluelib Custom" type="radio" name="attr_type" value="custom" /><span data-i18n="custom">Custom</span>
+                        <input class="title full" type="text" spellcheck="false" name="attr_type-custom" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <div class="suboption classtype">
+                            <span class="spacer"></span>
+                            <input class="bluelib" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span data-i18n="talent">Talent</span>
+                            <input class="bluelib" type="radio" name="attr_classtype" value="Feature" /><span data-i18n="feature">Feature</span>
+                            <input class="bluelib" type="radio" name="attr_classtype" value="Power" /><span data-i18n="power">Power</span>
+                            <input class="bluelib" type="radio" name="attr_classtype" value="Battle Cry" /><span data-i18n="battle-cry">Battle Cry</span>
+                            <input class="bluelib" type="radio" name="attr_classtype" value="Domain" /><span data-i18n="domain">Domain</span>
+                        </div>
+                        <div class="suboption rechargerate">
+                            <span class="" data-i18n="recharge-rate">Recharge Rate</span><input class="num" type="text" spellcheck="false" name="attr_rechargerate" />
+                        </div>
+                    </div>
+                    <div class="poption spacer"></div>
                     <input class="poption Uses pseudocheck 13thblue" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption mleft"></span><span class="poption"><span data-i18n="uses">Uses</span>:</span>
                         <input class="suboption usesoptions 1" type="radio" name="attr_uses-type" value="1" /><span class="suboption usesoptions">1</span>
                         <input class="suboption usesoptions 2" type="radio" name="attr_uses-type" value="2" /><span class="suboption usesoptions">2</span>

@@ -395,6 +395,27 @@ input[type="radio"].sheet-normal:checked ~ input[type="radio"] + span::before {
     content: "";
 }
 
+input[type="radio"].sheet-bluelib {
+    opacity: 0.0;
+    width: 50px;
+    cursor: pointer;
+    z-index: 10;
+}
+input[type="radio"].sheet-bluelib + span{
+    display: inline-block;
+    min-width: 50px;
+    margin-left: -50px;
+    text-align: center;
+    padding: 0px 4px 0px 4px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+input[type="radio"].sheet-bluelib:checked + span {
+    border: 1px solid #014A8B;
+    color: #014A89;
+}
+
 input[type="radio"].sheet-blueradio {
     position: absolute;
     opacity: 0.0;
@@ -405,7 +426,7 @@ input[type="radio"].sheet-blueradio {
 }
 input[type="radio"].sheet-blueradio + span{
     display: inline-block;
-    width: 16px;
+    min-width: 16px;
     margin-left: 4px;
 }
 input[type="radio"].sheet-blueradio + span::before {
@@ -769,8 +790,8 @@ input[type="radio"].sheet-blueradio:checked + span::before {
     display: none;
 }
 
-.sheet-poweroptions-check:checked ~ .sheet-Class:checked ~ .sheet-classtype,
-.sheet-poweroptions-check:checked ~ .sheet-Recharge:checked ~ .sheet-rechargerate,
+.sheet-poweroptions-check:checked ~ div.sheet-poption .sheet-Class:checked ~ .sheet-classtype,
+.sheet-poweroptions-check:checked ~ div.sheet-poption .sheet-Recharge:checked ~ .sheet-rechargerate,
 .sheet-poweroptions-check:checked ~ .sheet-Uses:checked ~ .sheet-usesoptions,
 .sheet-poweroptions-check:checked ~ .sheet-Action:checked ~ .sheet-actionoptions,
 .sheet-poweroptions-check:checked ~ .sheet-Range:checked ~ .sheet-rangeoptions,
