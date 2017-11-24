@@ -124,10 +124,10 @@
                 <span class="attrmod" name="attr_CHA-mod" title="@{CHA-mod}"></span>
                 <div class="deathsavecontainer">
                     <button class="init" type="roll" name="roll_DEATHSAVE" value="&{template:deathsave} {{mod=[[?{Modifiers|0}]]}} {{result=[[1d20+?{Modifiers|0}]]}}"><span data-i18n="death-save-u">DEATH SAVE</span></button>
-                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE1" /><span class="mleft"></span>
-                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE2" /><span class="mleft"></span>
-                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE3" /><span class="mleft"></span>
-                    <input class="pseudocheck 13thblue" type="checkbox" name="attr_DEATHSAVE4" /><span class="mleft"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_DEATHSAVE1" /><span class="mleft"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_DEATHSAVE2" /><span class="mleft"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_DEATHSAVE3" /><span class="mleft"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_DEATHSAVE4" /><span class="mleft"></span>
                 </div>
             </div>
         </div>
@@ -506,41 +506,44 @@
                 <div class="power">
                     <!-- OPTIONS -->
                     <input class="poweroptions-check" type="checkbox" name="attr_poweroptions-check" checked="checked" /><span></span>
-                    <div class="poption topspacer" data-i18n="options">Options</div>
-                    <div class="poption"><span data-i18n="name">Name</span>:</div>
+                    <div class="poption topspacer" class="bold" data-i18n="options">Options</div>
+                    <div class="poption"><span class="bold" data-i18n="name">Name</span>:</div>
                     <input class="poption title" type="text" spellcheck="false" name="attr_name" />
-                        <div class="poption spacer"></div>
-                    <div class="poption"><span data-i18n="type">Type</span>:
-                        <input class="bluelib At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span data-i18n="at-will">At-Will</span>
-                        <input class="bluelib Class" type="radio" name="attr_type" value="class" /><span data-i18n="class">Class</span>
-                        <input class="bluelib Racial" type="radio" name="attr_type" value="racial" /><span data-i18n="racial">Racial</span>
-                        <input class="bluelib Encounter" type="radio" name="attr_type" value="encounter" /><span data-i18n="encounter">Encounter</span>
-                        <input class="bluelib Recharge" type="radio" name="attr_type" value="recharge" /><span data-i18n="recharge">Recharge</span>
-                        <input class="bluelib Daily" type="radio" name="attr_type" value="daily" /><span data-i18n="daily">Daily</span>
-                        <input class="bluelib Spell" type="radio" name="attr_type" value="spell" /><span data-i18n="spell">Spell</span>
-                        <input class="bluelib Magic-Item" type="radio" name="attr_type" value="magicitem" /><span data-i18n="magic-item">Magic Item</span>
-                        <input class="bluelib Custom" type="radio" name="attr_type" value="custom" /><span data-i18n="custom">Custom</span>
+                    <div class="poption spacer"></div>
+                    <div class="poption">
+                        <span class="bold" data-i18n="type">Type</span>:
+                        <span class="nowrap"><input class="bluelib At-Will" type="radio" name="attr_type" value="atwill" checked="checked" /><span data-i18n="at-will">At-Will</span></span>
+                        <span class="nowrap"><input class="bluelib Class" type="radio" name="attr_type" value="class" /><span data-i18n="class">Class</span></span>
+                        <span class="nowrap"><input class="bluelib Racial" type="radio" name="attr_type" value="racial" /><span data-i18n="racial">Racial</span></span>
+                        <span class="nowrap"><input class="bluelib Encounter" type="radio" name="attr_type" value="encounter" /><span data-i18n="encounter">Encounter</span></span>
+                        <span class="nowrap"><input class="bluelib Recharge" type="radio" name="attr_type" value="recharge" /><span data-i18n="recharge">Recharge</span></span>
+                        <span class="nowrap"><input class="bluelib Daily" type="radio" name="attr_type" value="daily" /><span data-i18n="daily">Daily</span></span>
+                        <span class="nowrap"><input class="bluelib Spell" type="radio" name="attr_type" value="spell" /><span data-i18n="spell">Spell</span></span>
+                        <span class="nowrap"><input class="bluelib Magic-Item" type="radio" name="attr_type" value="magicitem" /><span data-i18n="magic-item">Magic Item</span></span>
+                        <span class="nowrap"><input class="bluelib Custom" type="radio" name="attr_type" value="custom" /><span data-i18n="custom">Custom</span></span>
                         <input class="title full" type="text" spellcheck="false" name="attr_type-custom" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <input class="invisible Class" type="checkbox" name="attr_type" value="class" />
                         <div class="suboption classtype">
                             <span class="spacer"></span>
-                            <input class="bluelib" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span data-i18n="talent">Talent</span>
-                            <input class="bluelib" type="radio" name="attr_classtype" value="Feature" /><span data-i18n="feature">Feature</span>
-                            <input class="bluelib" type="radio" name="attr_classtype" value="Power" /><span data-i18n="power">Power</span>
-                            <input class="bluelib" type="radio" name="attr_classtype" value="Battle Cry" /><span data-i18n="battle-cry">Battle Cry</span>
-                            <input class="bluelib" type="radio" name="attr_classtype" value="Domain" /><span data-i18n="domain">Domain</span>
+                            <span class="nowrap"><input class="bluelib" type="radio" name="attr_classtype" value="Talent" checked="checked" /><span data-i18n="talent">Talent</span></span>
+                            <span class="nowrap"><input class="bluelib" type="radio" name="attr_classtype" value="Feature" /><span data-i18n="feature">Feature</span></span>
+                            <span class="nowrap"><input class="bluelib" type="radio" name="attr_classtype" value="Power" /><span data-i18n="power">Power</span></span>
+                            <span class="nowrap"><input class="bluelib" type="radio" name="attr_classtype" value="Battle Cry" /><span data-i18n="battle-cry">Battle Cry</span></span>
+                            <span class="nowrap"><input class="bluelib" type="radio" name="attr_classtype" value="Domain" /><span data-i18n="domain">Domain</span></span>
                         </div>
+                        <input class="invisible Recharge" type="checkbox" name="attr_type" value="recharge" />
                         <div class="suboption rechargerate">
-                            <span class="" data-i18n="recharge-rate">Recharge Rate</span><input class="num" type="text" spellcheck="false" name="attr_rechargerate" />
+                            <span data-i18n="recharge-rate">Recharge Rate</span><input class="num" type="text" spellcheck="false" name="attr_rechargerate" />
                         </div>
                     </div>
                     <div class="poption spacer"></div>
-                    <input class="poption Uses pseudocheck 13thblue" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption mleft"></span><span class="poption"><span data-i18n="uses">Uses</span>:</span>
+                    <input class="poption Uses pseudocheck" type="checkbox" name="attr_uses" value="@{uses-type}" /><span class="poption mleft"></span><span class="poption"><span class="bold" data-i18n="uses">Uses</span>:</span>
                         <input class="suboption usesoptions 1" type="radio" name="attr_uses-type" value="1" /><span class="suboption usesoptions">1</span>
                         <input class="suboption usesoptions 2" type="radio" name="attr_uses-type" value="2" /><span class="suboption usesoptions">2</span>
                         <input class="suboption usesoptions 3" type="radio" name="attr_uses-type" value="3" /><span class="suboption usesoptions">3</span>
                         <input class="suboption usesoptions 4" type="radio" name="attr_uses-type" value="4" /><span class="suboption usesoptions">4</span>
                         <span class="poption spacer"></span>
-                    <input class="poption Action pseudocheck 13thblue" type="checkbox" name="attr_action" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="action">Action</span>:</span>
+                    <input class="poption Action pseudocheck" type="checkbox" name="attr_action" value="1" /><span class="poption mleft"></span><span class="poption"><span class="bold" data-i18n="action">Action</span>:</span>
                         <select class="suboption actionoptions" name="attr_action-type">
                             <option value="Standard Action" data-i18n="standard-action">Standard Action</option>
                             <option value="Move Action" data-i18n="move-action">Move Action</option>
@@ -551,7 +554,7 @@
                         </select>
                         <input class="suboption actionoptions title" type="text" spellcheck="false" name="attr_action-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Range pseudocheck 13thblue" type="checkbox" name="attr_range" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="range">Range</span>:</span>
+                    <input class="poption Range pseudocheck" type="checkbox" name="attr_range" value="1" /><span class="poption mleft"></span><span class="poption"><span class="bold" data-i18n="range">Range</span>:</span>
                         <select class="suboption rangeoptions" name="attr_range-type">
                             <option value="Engaged" data-i18n="engaged">Engaged</option>
                             <option value="Nearby" data-i18n="nearby">Nearby</option>
@@ -562,10 +565,10 @@
                         </select>
                         <input class="suboption rangeoptions title" type="text" spellcheck="false" name="attr_range-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Target pseudocheck 13thblue" type="checkbox" name="attr_target" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="target">Target</span>:</span>
+                    <input class="poption Target pseudocheck" type="checkbox" name="attr_target" value="1" /><span class="poption mleft"></span><span class="poption"><span class="bold" data-i18n="target">Target</span>:</span>
                         <input class="suboption targetoptions title" type="text" spellcheck="false" name="attr_target-type" style="width:160px;" />
                         <span class="poption spacer"></span>
-                    <input class="poption Attack pseudocheck 13thblue" type="checkbox" name="attr_attack" value="1" /><span class="poption mleft"></span><span class="poption"><span data-i18n="attack">Attack</span>:</span>
+                    <input class="poption Attack pseudocheck" type="checkbox" name="attr_attack" value="1" /><span class="poption mleft"></span><span class="poption"><span class="bold" data-i18n="attack">Attack</span>:</span>
                         <select class="suboption attackoptions" name="attr_attack-type">
                             <option value="STR" data-i18n="melee-str">Melee(STR)</option>
                             <option value="DEX" data-i18n="ranged-dex">Ranged(DEX)</option>
@@ -592,20 +595,22 @@
                         </select>
                         <input class="suboption attackoptions title" type="text" spellcheck="false" name="attr_attack-vscustom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="poption spacer"></span>
-                    <input class="poption Cust1 pseudocheck 13thblue" type="checkbox" name="attr_cust1" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-1">Custom 1</span>
-                        <span class="spacer suboption cust1options"></span>
-                        <input class="suboption cust1options cust1-hit" type="radio" name="attr_cust1-type" value="Hit" /><span class="suboption cust1options" data-i18n="hit">Hit</span>
-                        <input class="suboption cust1options cust1-miss" type="radio" name="attr_cust1-type" value="Miss" /><span class="suboption cust1options" data-i18n="miss">Miss</span>
-                        <input class="suboption cust1options cust1-trigger" type="radio" name="attr_cust1-type" value="Trigger" /><span class="suboption cust1options" data-i18n="trigger">Trigger</span>
-                        <input class="suboption cust1options cust1-effect" type="radio" name="attr_cust1-type" value="Effect" /><span class="suboption cust1options" data-i18n="effect">Effect</span>
-                        <input class="suboption cust1options cust1-improved" type="radio" name="attr_cust1-type" value="Improved" /><span class="suboption cust1options" data-i18n="improved">Improved</span>
-                        <input class="suboption cust1options cust1-sustain" type="radio" name="attr_cust1-type" value="Sustain" /><span class="suboption cust1options" data-i18n="sustain">Sustain</span>
-                        <input class="suboption cust1options cust1-special" type="radio" name="attr_cust1-type" value="Special" /><span class="suboption cust1options" data-i18n="special">Special</span>
-                        <input class="suboption cust1options cust1-opening-sustaining-effect" type="radio" name="attr_cust1-type" value="Opening-Sustaining-Effect" /><span class="suboption cust1options" style="width:190px;" data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span>
-                        <input class="suboption cust1options cust1-final-verse" type="radio" name="attr_cust1-type" value="Final-Verse" /><span class="suboption cust1options" data-i18n="final-verse">Final-Verse</span>
-                        <input class="suboption cust1options cust1-details" type="radio" name="attr_cust1-type" value="Details" /><span class="suboption cust1options" style="width:100px;" data-i18n="details">Details</span>
-                        <input class="suboption cust1options cust1-attackcustom" type="radio" name="attr_cust1-type" value="typecustom" /><span class="suboption cust1options" data-i18n="custom">Custom</span>
-                        <input class="suboption cust1options title" type="text" spellcheck="false" name="attr_cust1-custom" style="width:75px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                    <input class="poption Cust1 pseudocheck" type="checkbox" name="attr_cust1" value="1" /><span class="poption mleft"></span><span class="poption bold" data-i18n="custom-1">Custom 1</span>
+                        <span class="spacer cust1options"></span>
+                        <div class="suboption cust1options">
+                            <span class="nowrap"><input class="bluelib cust1-hit" type="radio" name="attr_cust1-type" value="Hit" /><span data-i18n="hit">Hit</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-miss" type="radio" name="attr_cust1-type" value="Miss" /><span data-i18n="miss">Miss</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-trigger" type="radio" name="attr_cust1-type" value="Trigger" /><span data-i18n="trigger">Trigger</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-effect" type="radio" name="attr_cust1-type" value="Effect" /><span data-i18n="effect">Effect</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-improved" type="radio" name="attr_cust1-type" value="Improved" /><span data-i18n="improved">Improved</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-sustain" type="radio" name="attr_cust1-type" value="Sustain" /><span data-i18n="sustain">Sustain</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-special" type="radio" name="attr_cust1-type" value="Special" /><span data-i18n="special">Special</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-opening-sustaining-effect" type="radio" name="attr_cust1-type" value="Opening-Sustaining-Effect" /><span data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-final-verse" type="radio" name="attr_cust1-type" value="Final-Verse" /><span data-i18n="final-verse">Final-Verse</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-details" type="radio" name="attr_cust1-type" value="Details" /><span data-i18n="details">Details</span></span>
+                            <span class="nowrap"><input class="bluelib cust1-attackcustom" type="radio" name="attr_cust1-type" value="typecustom" /><span data-i18n="custom">Custom</span></span>
+                        </div>
+                        <input class="suboption cust1options title" type="text" spellcheck="false" name="attr_cust1-custom" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust1options"></span>
                         <input class="suboption cust1options cust1subcust1" type="checkbox" name="attr_cust1-subcust1" value="1" />
                             <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust1-desc" />
@@ -615,20 +620,22 @@
                             <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust3-desc" />
                         <input class="suboption cust1options cust1subcust4" type="checkbox" name="attr_cust1-subcust4" value="1" />
                             <input class="suboption cust1options title full" type="text" spellcheck="false" name="attr_cust1-subcust4-desc" />
-                    <input class="poption Cust2 pseudocheck 13thblue" type="checkbox" name="attr_cust2" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-2">Custom 2</span>
+                    <input class="poption Cust2 pseudocheck" type="checkbox" name="attr_cust2" value="1" /><span class="poption mleft"></span><span class="poption bold" data-i18n="custom-2">Custom 2</span>
                         <span class="spacer suboption cust2options"></span>
-                        <input class="suboption cust2options cust2-hit" type="radio" name="attr_cust2-type" value="Hit" /><span class="suboption cust2options" data-i18n="hit">Hit</span>
-                        <input class="suboption cust2options cust2-miss" type="radio" name="attr_cust2-type" value="Miss" /><span class="suboption cust2options" data-i18n="miss">Miss</span>
-                        <input class="suboption cust2options cust2-trigger" type="radio" name="attr_cust2-type" value="Trigger" /><span class="suboption cust2options" data-i18n="trigger">Trigger</span>
-                        <input class="suboption cust2options cust2-effect" type="radio" name="attr_cust2-type" value="Effect" /><span class="suboption cust2options" data-i18n="effect">Effect</span>
-                        <input class="suboption cust2options cust2-improved" type="radio" name="attr_cust2-type" value="Improved" /><span class="suboption cust2options" data-i18n="improved">Improved</span>
-                        <input class="suboption cust2options cust2-sustain" type="radio" name="attr_cust2-type" value="Sustain" /><span class="suboption cust2options" data-i18n="sustain">Sustain</span>
-                        <input class="suboption cust2options cust2-special" type="radio" name="attr_cust2-type" value="Special" /><span class="suboption cust2options" data-i18n="special">Special</span>
-                        <input class="suboption cust2options cust2-opening-sustaining-effect" type="radio" name="attr_cust2-type" value="Opening-Sustaining-Effect" /><span class="suboption cust2options" style="width:190px;" data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span>
-                        <input class="suboption cust2options cust2-final-verse" type="radio" name="attr_cust2-type" value="Final-Verse" /><span class="suboption cust2options" data-i18n="final-verse">Final-Verse</span>
-                        <input class="suboption cust2options cust2-details" type="radio" name="attr_cust2-type" value="Details" /><span class="suboption cust2options" style="width:100px;" data-i18n="details">Details</span>
-                        <input class="suboption cust2options cust2-attackcustom" type="radio" name="attr_cust2-type" value="typecustom" /><span class="suboption cust2options">Custom</span>
-                        <input class="suboption cust2options title" type="text" spellcheck="false" name="attr_cust2-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <div class="suboption cust2options">
+                            <span class="nowrap"><input class="bluelib cust2-hit" type="radio" name="attr_cust2-type" value="Hit" /><span data-i18n="hit">Hit</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-miss" type="radio" name="attr_cust2-type" value="Miss" /><span data-i18n="miss">Miss</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-trigger" type="radio" name="attr_cust2-type" value="Trigger" /><span data-i18n="trigger">Trigger</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-effect" type="radio" name="attr_cust2-type" value="Effect" /><span data-i18n="effect">Effect</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-improved" type="radio" name="attr_cust2-type" value="Improved" /><span data-i18n="improved">Improved</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-sustain" type="radio" name="attr_cust2-type" value="Sustain" /><span data-i18n="sustain">Sustain</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-special" type="radio" name="attr_cust2-type" value="Special" /><span data-i18n="special">Special</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-opening-sustaining-effect" type="radio" name="attr_cust2-type" value="Opening-Sustaining-Effect" /><span data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-final-verse" type="radio" name="attr_cust2-type" value="Final-Verse" /><span data-i18n="final-verse">Final-Verse</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-details" type="radio" name="attr_cust2-type" value="Details" /><span data-i18n="details">Details</span></span>
+                            <span class="nowrap"><input class="bluelib cust2-attackcustom" type="radio" name="attr_cust2-type" value="typecustom" /><span>Custom</span></span>
+                        </div>
+                        <input class="suboption cust2options title" type="text" spellcheck="false" name="attr_cust2-custom" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust2options"></span>
                         <input class="suboption cust2options cust2subcust1" type="checkbox" name="attr_cust2-subcust1" value="1" />
                             <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust1-desc" />
@@ -638,20 +645,22 @@
                             <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust3-desc" />
                         <input class="suboption cust2options cust2subcust4" type="checkbox" name="attr_cust2-subcust4" value="1" />
                             <input class="suboption cust2options title full" type="text" spellcheck="false" name="attr_cust2-subcust4-desc" />
-                    <input class="poption Cust3 pseudocheck 13thblue" type="checkbox" name="attr_cust3" value="1" /><span class="poption mleft"></span><span class="poption" data-i18n="custom-3">Custom 3</span>
+                    <input class="poption Cust3 pseudocheck" type="checkbox" name="attr_cust3" value="1" /><span class="poption mleft"></span><span class="poption bold" data-i18n="custom-3">Custom 3</span>
                         <span class="spacer suboption cust3options"></span>
-                        <input class="suboption cust3options cust3-hit" type="radio" name="attr_cust3-type" value="Hit" /><span class="suboption cust3options" data-i18n="hit">Hit</span>
-                        <input class="suboption cust3options cust3-miss" type="radio" name="attr_cust3-type" value="Miss" /><span class="suboption cust3options" data-i18n="miss">Miss</span>
-                        <input class="suboption cust3options cust3-trigger" type="radio" name="attr_cust3-type" value="Trigger" /><span class="suboption cust3options" data-i18n="trigger">Trigger</span>
-                        <input class="suboption cust3options cust3-effect" type="radio" name="attr_cust3-type" value="Effect" /><span class="suboption cust3options" data-i18n="effect">Effect</span>
-                        <input class="suboption cust3options cust3-improved" type="radio" name="attr_cust3-type" value="Improved" /><span class="suboption cust3options" data-i18n="improved">Improved</span>
-                        <input class="suboption cust3options cust3-sustain" type="radio" name="attr_cust3-type" value="Sustain" /><span class="suboption cust3options" data-i18n="sustain">Sustain</span>
-                        <input class="suboption cust3options cust3-special" type="radio" name="attr_cust3-type" value="Special" /><span class="suboption cust3options" data-i18n="special">Special</span>
-                        <input class="suboption cust3options cust3-opening-sustaining-effect" type="radio" name="attr_cust3-type" value="Opening-Sustaining-Effect" /><span class="suboption cust3options" style="width:190px;" data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span>
-                        <input class="suboption cust3options cust3-final-verse" type="radio" name="attr_cust3-type" value="Final-Verse" /><span class="suboption cust3options" data-i18n="final-verse">Final-Verse</span>
-                        <input class="suboption cust3options cust3-details" type="radio" name="attr_cust3-type" value="Details" /><span class="suboption cust3options" style="width:100px;" data-i18n="details">Details</span>
-                        <input class="suboption cust3options cust3-attackcustom" type="radio" name="attr_cust3-type" value="typecustom" /><span class="suboption cust3options" data-i18n="custom">Custom</span>
-                        <input class="suboption cust3options title" type="text" spellcheck="false" name="attr_cust3-custom" style="width:55px;" data-i18n-placeholder="custom" placeholder="Custom" />
+                        <div class="suboption cust3options">
+                            <span class="nowrap"><input class="bluelib cust3-hit" type="radio" name="attr_cust3-type" value="Hit" /><span data-i18n="hit">Hit</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-miss" type="radio" name="attr_cust3-type" value="Miss" /><span data-i18n="miss">Miss</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-trigger" type="radio" name="attr_cust3-type" value="Trigger" /><span data-i18n="trigger">Trigger</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-effect" type="radio" name="attr_cust3-type" value="Effect" /><span data-i18n="effect">Effect</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-improved" type="radio" name="attr_cust3-type" value="Improved" /><span data-i18n="improved">Improved</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-sustain" type="radio" name="attr_cust3-type" value="Sustain" /><span data-i18n="sustain">Sustain</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-special" type="radio" name="attr_cust3-type" value="Special" /><span data-i18n="special">Special</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-opening-sustaining-effect" type="radio" name="attr_cust3-type" value="Opening-Sustaining-Effect" /><span data-i18n="opening-sustaining-effect">Opening-Sustaining-Effect</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-final-verse" type="radio" name="attr_cust3-type" value="Final-Verse" /><span data-i18n="final-verse">Final-Verse</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-details" type="radio" name="attr_cust3-type" value="Details" /><span data-i18n="details">Details</span></span>
+                            <span class="nowrap"><input class="bluelib cust3-attackcustom" type="radio" name="attr_cust3-type" value="typecustom" /><span data-i18n="custom">Custom</span></span>
+                        </div>
+                        <input class="suboption cust3options title" type="text" spellcheck="false" name="attr_cust3-custom" data-i18n-placeholder="custom" placeholder="Custom" />
                         <span class="spacer subption cust3options"></span>
                         <input class="suboption cust3options cust3subcust1" type="checkbox" name="attr_cust3-subcust1" value="1" />
                             <input class="suboption cust3options title full" type="text" spellcheck="false" name="attr_cust3-subcust1-desc" />
@@ -664,15 +673,24 @@
                     <!-- TEMPLATE -->
                     <input type="hidden" name="attr_updateflag" value="0" />
                     <input type="hidden" name="attr_power-roll" value="" />
+                    <input class="invisible At-Will" type="checkbox" name="attr_type" value="atwill" checked="checked" />
+                    <input class="invisible Class" type="checkbox" name="attr_type" value="class" />
+                    <input class="invisible Racial" type="checkbox" name="attr_type" value="racial" />
+                    <input class="invisible Encounter" type="checkbox" name="attr_type" value="encounter" />
+                    <input class="invisible Recharge" type="checkbox" name="attr_type" value="recharge" />
+                    <input class="invisible Daily" type="checkbox" name="attr_type" value="daily" />
+                    <input class="invisible Spell" type="checkbox" name="attr_type" value="spell" />
+                    <input class="invisible Magic-Item" type="checkbox" name="attr_type" value="magicitem" />
+                    <input class="invisible Custom" type="checkbox" name="attr_type" value="custom" />
                     <div class="header">
                         <button class="powerlabel" type="roll" name="roll_power" value="@{power-roll}">
                             <span class="label" name="attr_powname-display"></span>
                         </button>
                         <div style="position: absolute; top: 5px; right: -8px;">
-                            <input class="1 pseudocheck white" type="checkbox" name="attr_uses1" /><span class="mright"></span>
-                            <input class="2 pseudocheck white" type="checkbox" name="attr_uses2" /><span class="mright"></span>
-                            <input class="3 pseudocheck white" type="checkbox" name="attr_uses3" /><span class="mright"></span>
-                            <input class="4 pseudocheck white" type="checkbox" name="attr_uses4" /><span class="mright"></span>
+                            <input class="1 pseudocheck" type="checkbox" name="attr_uses1" /><span class="mright"></span>
+                            <input class="2 pseudocheck" type="checkbox" name="attr_uses2" /><span class="mright"></span>
+                            <input class="3 pseudocheck" type="checkbox" name="attr_uses3" /><span class="mright"></span>
+                            <input class="4 pseudocheck" type="checkbox" name="attr_uses4" /><span class="mright"></span>
                             <span class="label" style="margin-right: 2px;" name="attr_type-display"></span>
                         </div>
                     </div>
@@ -1249,6 +1267,7 @@
         i18n_engaged = getTranslationByKey("engaged"),
         i18n_nearby = getTranslationByKey("nearby"),
         i18n_faraway = getTranslationByKey("far-away"),
+        i18n_intercepting = getTranslationByKey("intercepting"),
         i18n_lineofsight = getTranslationByKey("line-of-sight"),
         i18n_lvlu = getTranslationByKey("lvl-u"),
         i18n_stru = getTranslationByKey("str-u"),
@@ -1616,6 +1635,9 @@
                         break;
                     case "Far Away":
                         range = i18n_faraway;
+                        break;
+                    case "Intercepting":
+                        range = i18n_intercepting;
                         break;
                     case "Line of Sight":
                         range = i18n_lineofsight;

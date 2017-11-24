@@ -18,6 +18,7 @@
         i18n_engaged = getTranslationByKey("engaged"),
         i18n_nearby = getTranslationByKey("nearby"),
         i18n_faraway = getTranslationByKey("far-away"),
+        i18n_intercepting = getTranslationByKey("intercepting"),
         i18n_lineofsight = getTranslationByKey("line-of-sight"),
         i18n_lvlu = getTranslationByKey("lvl-u"),
         i18n_stru = getTranslationByKey("str-u"),
@@ -385,6 +386,9 @@
                         break;
                     case "Far Away":
                         range = i18n_faraway;
+                        break;
+                    case "Intercepting":
+                        range = i18n_intercepting;
                         break;
                     case "Line of Sight":
                         range = i18n_lineofsight;

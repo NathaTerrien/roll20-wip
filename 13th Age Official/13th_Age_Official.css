@@ -4,6 +4,11 @@
 
 .sheet-nowrap {
     white-space: nowrap;
+    display: inline-block;
+}
+
+.sheet-invisible {
+    display: none;
 }
 
 .sheet-options-check {
@@ -408,12 +413,18 @@ input[type="radio"].sheet-bluelib + span{
     text-align: center;
     padding: 0px 4px 0px 4px;
     box-sizing: border-box;
-    border: 1px solid transparent;
-    border-radius: 4px;
+}
+input[type="radio"].sheet-bluelib:hover + span {
+    color: #014A89;
 }
 input[type="radio"].sheet-bluelib:checked + span {
-    border: 1px solid #014A8B;
     color: #014A89;
+    font-weight: bold;
+}
+input[type="radio"].sheet-bluelib:checked + span::before {
+    color: #014A89;
+    font-weight: bold;
+    content: "•";
 }
 
 input[type="radio"].sheet-blueradio {
@@ -883,13 +894,6 @@ input[type="checkbox"].sheet-pseudocheck + span::before {
     line-height: 18px;
     font-size: 18px;
 }
-.sheet-white{
-    color: white;
-}
-.sheet-13thblue{
-    color: #014A89;
-}
-
 input[type="checkbox"].sheet-pseudocheck:checked + span::before {
     content: "☑";
 }
@@ -961,72 +965,10 @@ input[type="checkbox"].sheet-pseudocheck:checked + span::before {
     width: 215px;
 }
 
-.sheet-Cust1:checked ~ .sheet-cust1-hit:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-hit:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-miss:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-miss:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-trigger:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-trigger:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-effect:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-effect:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-improved:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-improved:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-sustain:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-sustain:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-opening-sustaining-effect:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-opening-sustaining-effect:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-final-verse:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-final-verse:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-special:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-special:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-details:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-details:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust1:checked ~ .sheet-cust1-attackcustom:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineleft,
-.sheet-Cust1:checked ~ .sheet-cust1-attackcustom:checked ~ .sheet-repbody .sheet-cust1 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-hit:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-hit:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-miss:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-miss:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-trigger:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-trigger:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-effect:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-effect:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-improved:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-improved:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-sustain:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-sustain:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-opening-sustaining-effect:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-opening-sustaining-effect:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-final-verse:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-final-verse:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-special:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-special:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-details:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-details:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust2:checked ~ .sheet-cust2-attackcustom:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineleft,
-.sheet-Cust2:checked ~ .sheet-cust2-attackcustom:checked ~ .sheet-repbody .sheet-cust2 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-hit:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-hit:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-miss:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-miss:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-trigger:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-trigger:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-effect:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-effect:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-improved:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-improved:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-sustain:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-sustain:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-opening-sustaining-effect:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-opening-sustaining-effect:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-final-verse:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-final-verse:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-special:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-special:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-details:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-details:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright,
-.sheet-Cust3:checked ~ .sheet-cust3-attackcustom:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineleft,
-.sheet-Cust3:checked ~ .sheet-cust3-attackcustom:checked ~ .sheet-repbody .sheet-cust3 span.sheet-toplineright {
+.sheet-power .sheet-repbody .sheet-left span.sheet-toplineleft {
+    width: auto;
+}
+.sheet-power .sheet-repbody .sheet-left span.sheet-toplineright {
     width: auto;
 }
 
