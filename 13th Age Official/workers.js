@@ -112,7 +112,7 @@
 
     // === Powers
     on("change:repeating_power:updateflag change:repeating_power:name change:repeating_power:type change:repeating_power:classtype change:repeating_power:type-custom change:repeating_power:rechargerate change:repeating_power:uses change:repeating_power:action change:repeating_power:action-type change:repeating_power:action-custom change:repeating_power:range change:repeating_power:range-type change:repeating_power:range-custom change:repeating_power:target change:repeating_power:target-type change:repeating_power:attack change:repeating_power:attack-type change:repeating_power:attack-custom change:repeating_power:attack-vstype change:repeating_power:attack-vscustom change:repeating_power:cust1 change:repeating_power:cust1-type change:repeating_power:cust1-custom change:repeating_power:cust1-subcust1 change:repeating_power:cust1-subcust2 change:repeating_power:cust1-subcust3 change:repeating_power:cust1-subcust4 change:repeating_power:cust1-subcust1-desc change:repeating_power:cust1-subcust2-desc change:repeating_power:cust1-subcust3-desc change:repeating_power:cust1-subcust4-desc change:repeating_power:cust2 change:repeating_power:cust2-type change:repeating_power:cust2-custom change:repeating_power:cust2-subcust1 change:repeating_power:cust2-subcust2 change:repeating_power:cust2-subcust3 change:repeating_power:cust2-subcust4 change:repeating_power:cust2-subcust1-desc change:repeating_power:cust2-subcust2-desc change:repeating_power:cust2-subcust3-desc change:repeating_power:cust2-subcust4-desc change:repeating_power:cust3 change:repeating_power:cust3-type change:repeating_power:cust3-custom change:repeating_power:cust3-subcust1 change:repeating_power:cust3-subcust2 change:repeating_power:cust3-subcust3 change:repeating_power:cust3-subcust4 change:repeating_power:cust3-subcust1-desc change:repeating_power:cust3-subcust2-desc change:repeating_power:cust3-subcust3-desc change:repeating_power:cust3-subcust4-desc", function(e) {
-        updatePower(e);
+        updatePower();
     });
 
     // === Weapons
@@ -247,27 +247,19 @@
     // === Powers
     // All Powers
     var updateAllPowers = function() {
-        console.log("*** DEBUG updateAllPowers");
-        // Update a useless attribute (_updateflag) on all powers to trigger an invidual total update (updatePower())
         getSectionIDs("repeating_power", function(idarray) {
-            var attrs = [];
             _.each(idarray, function(pid) {
-                attrs.push("repeating_power_" + pid + "_updateflag");
-            });
-            getAttrs(attrs, function (v){
-                var setAttrsObj = {};
-                _.each(attrs, function(attr) {
-                    setAttrsObj[attr] = (parseInt(v[attr]) || 0) + 1;
-                });
-                console.log("*** DEBUG updateAllPowers setAttrsObj:" + JSON.stringify(setAttrsObj));
-                setAttrs(setAttrsObj,{silent: false});
+                updatePower(pid);
             });
         });
     };
     // Single Power
-    var updatePower = function(e) {
-        console.log("*** DEBUG updatePower");
-        getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power_name","repeating_power_type","repeating_power_type-custom","repeating_power_uses","repeating_power_action","repeating_power_action-type","repeating_power_action-custom","repeating_power_range","repeating_power_range-type","repeating_power_range-custom","repeating_power_target","repeating_power_target-type","repeating_power_attack","repeating_power_attack-type","repeating_power_attack-custom","repeating_power_attack-vstype","repeating_power_attack-vscustom","repeating_power_cust1","repeating_power_cust1-type","repeating_power_cust1-custom","repeating_power_cust1-subcust1","repeating_power_cust1-subcust2","repeating_power_cust1-subcust3","repeating_power_cust1-subcust4","repeating_power_cust1-subcust1-desc","repeating_power_cust1-subcust2-desc","repeating_power_cust1-subcust3-desc","repeating_power_cust1-subcust4-desc","repeating_power_cust2","repeating_power_cust2-type","repeating_power_cust2-custom","repeating_power_cust2-subcust1","repeating_power_cust2-subcust2","repeating_power_cust2-subcust3","repeating_power_cust2-subcust4","repeating_power_cust2-subcust1-desc","repeating_power_cust2-subcust2-desc","repeating_power_cust2-subcust3-desc","repeating_power_cust2-subcust4-desc","repeating_power_cust3","repeating_power_cust3-type","repeating_power_cust3-custom","repeating_power_cust3-subcust1","repeating_power_cust3-subcust2","repeating_power_cust3-subcust3","repeating_power_cust3-subcust4","repeating_power_cust3-subcust1-desc","repeating_power_cust3-subcust2-desc","repeating_power_cust3-subcust3-desc","repeating_power_cust3-subcust4-desc","repeating_power_classtype","race","repeating_power_rechargerate"], function(v) {
+    var updatePower = function(pid) {
+        var vid = "";
+        if (typeof pid !== "undefined") {
+            vid = "_" + pid;
+        }
+        getAttrs(["STR-mod","DEX-mod","CON-mod","INT-mod","CHA-mod","WIS-mod","level","MWEAP-mod1","MWEAP-mod2","MWEAP-mod3","RWEAP-mod1","RWEAP-mod2","RWEAP-mod3","repeating_power"+vid+"_name","repeating_power"+vid+"_type","repeating_power"+vid+"_type-custom","repeating_power"+vid+"_uses","repeating_power"+vid+"_action","repeating_power"+vid+"_action-type","repeating_power"+vid+"_action-custom","repeating_power"+vid+"_range","repeating_power"+vid+"_range-type","repeating_power"+vid+"_range-custom","repeating_power"+vid+"_target","repeating_power"+vid+"_target-type","repeating_power"+vid+"_attack","repeating_power"+vid+"_attack-type","repeating_power"+vid+"_attack-custom","repeating_power"+vid+"_attack-vstype","repeating_power"+vid+"_attack-vscustom","repeating_power"+vid+"_cust1","repeating_power"+vid+"_cust1-type","repeating_power"+vid+"_cust1-custom","repeating_power"+vid+"_cust1-subcust1","repeating_power"+vid+"_cust1-subcust2","repeating_power"+vid+"_cust1-subcust3","repeating_power"+vid+"_cust1-subcust4","repeating_power"+vid+"_cust1-subcust1-desc","repeating_power"+vid+"_cust1-subcust2-desc","repeating_power"+vid+"_cust1-subcust3-desc","repeating_power"+vid+"_cust1-subcust4-desc","repeating_power"+vid+"_cust2","repeating_power"+vid+"_cust2-type","repeating_power"+vid+"_cust2-custom","repeating_power"+vid+"_cust2-subcust1","repeating_power"+vid+"_cust2-subcust2","repeating_power"+vid+"_cust2-subcust3","repeating_power"+vid+"_cust2-subcust4","repeating_power"+vid+"_cust2-subcust1-desc","repeating_power"+vid+"_cust2-subcust2-desc","repeating_power"+vid+"_cust2-subcust3-desc","repeating_power"+vid+"_cust2-subcust4-desc","repeating_power"+vid+"_cust3","repeating_power"+vid+"_cust3-type","repeating_power"+vid+"_cust3-custom","repeating_power"+vid+"_cust3-subcust1","repeating_power"+vid+"_cust3-subcust2","repeating_power"+vid+"_cust3-subcust3","repeating_power"+vid+"_cust3-subcust4","repeating_power"+vid+"_cust3-subcust1-desc","repeating_power"+vid+"_cust3-subcust2-desc","repeating_power"+vid+"_cust3-subcust3-desc","repeating_power"+vid+"_cust3-subcust4-desc","repeating_power"+vid+"_classtype","race","repeating_power"+vid+"_rechargerate"], function(v) {
             var str = parseInt(v["STR-mod"]) || 0
                 dex = parseInt(v["DEX-mod"]) || 0,
                 con = parseInt(v["CON-mod"]) || 0,
@@ -290,16 +282,16 @@
                 cust1type = "",
                 cust2type = "",
                 cust3type = "",
-                roll = "&{template:power} {{name=" + v.repeating_power_name + "}}";
+                roll = "&{template:power} {{name=" + v["repeating_power"+vid+"_name"] + "}}";
             // === Power Roll & Display
             // TYPE
-            switch(v.repeating_power_type) {
+            switch(v["repeating_power"+vid+"_type"]) {
                 case "atwill":
                     type = i18n_atwill;
                     roll += " {{atwill=1}} {{type=At-Will}}";
                     break;
                 case "class":
-                    switch(v.repeating_power_classtype) {
+                    switch(v["repeating_power"+vid+"_classtype"]) {
                         case "Talent":
                             type = i18n_talent;
                             break;
@@ -327,8 +319,8 @@
                     roll += " {{racial-encounter=1}} {{type=" + type + "}}";
                     break;
                 case "recharge":
-                    type = i18n_recharge + " +" + v.repeating_power_rechargerate;
-                    roll += " {{recharge-daily=1}} {{type=" + v["repeating_power_rechargerate"] + "+}}";
+                    type = i18n_recharge + " +" + v["repeating_power"+vid+"_rechargerate"];
+                    roll += " {{recharge-daily=1}} {{type=" + v["repeating_power"+vid+"_rechargerate"] + "+}}";
                     break;
                 case "daily":
                     type = i18n_daily;
@@ -343,17 +335,20 @@
                     roll += " {{magicitem=1}} {{type=" + type + "}}";
                     break;
                 case "custom":
-                    type = v["repeating_power_type-custom"];
+                    type = v["repeating_power"+vid+"_type-custom"];
                     roll += " {{typecustom=1}} {{type=" + type + "}}";
                     break;
+                default:
+                    type = i18n_atwill;
+                    roll += " {{atwill=1}} {{type=At-Will}}";
             }
             // Action and/or Range roll template line
-            if ((v.repeating_power_action == "1") || (v.repeating_power_range == "1")) {
+            if ((v["repeating_power"+vid+"_action"] == "1") || (v["repeating_power"+vid+"_range"] == "1")) {
                 roll +=" {{action-range-flag=1}}";
             }
             // ACTION
-            if (v.repeating_power_action == "1") {
-                switch(v["repeating_power_action-type"]) {
+            if (v["repeating_power"+vid+"_action"] == "1") {
+                switch(v["repeating_power"+vid+"_action-type"]) {
                     case "Standard Action":
                         action = i18n_standardaction;
                         break;
@@ -370,14 +365,16 @@
                         action = i18n_flexibleaction;
                         break;
                     case "Custom":
-                        action = v["repeating_power_action-custom"];
+                        action = v["repeating_power"+vid+"_action-custom"];
                         break;
+                    default:
+                        action = i18n_standardaction;
                 }
                 roll += " {{action=" + action + "}}";
             }
             // RANGE
-            if(v.repeating_power_range == "1") {
-                switch(v["repeating_power_range-type"]) {
+            if(v["repeating_power"+vid+"_range"] == "1") {
+                switch(v["repeating_power"+vid+"_range-type"]) {
                     case "Engaged":
                         range = i18n_engaged;
                         break;
@@ -394,19 +391,21 @@
                         range = i18n_lineofsight;
                         break;
                     case "Custom":
-                        range = v["repeating_power_range-custom"];
+                        range = v["repeating_power"+vid+"_range-custom"];
                         break;
+                    default:
+                        range = i18n_engaged;
                 }
                 roll += " {{range=" + range + "}}";
             }
             //TARGET
-            if(v.repeating_power_target == "1") {
-               roll += " {{target=" + v["repeating_power_target-type"] + "}}";
+            if(v["repeating_power"+vid+"_target"] == "1") {
+               roll += " {{target=" + v["repeating_power"+vid+"_target-type"] + "}}";
             }
             // ATTACK
-            if(v.repeating_power_attack == "1") {
+            if(v["repeating_power"+vid+"_attack"] == "1") {
                 roll += " {{attack=1}} {{attbonus=[[1d20+";
-                switch(v["repeating_power_attack-type"]) {
+                switch(v["repeating_power"+vid+"_attack-type"]) {
                     case "STR":
                         attack = str + level;
                         roll += "" + str + "[" + i18n_stru +"]+" + level + "["+ i18n_lvlu + "]";
@@ -456,8 +455,8 @@
                         roll += "" + dex + "[" + i18n_dexu + "]+" + level + "["+ i18n_lvlu + "]+" + rweap3 + "[" + i18n_weapu + "]";
                         break;
                     case "CUSTOM":
-                        attack = parseInt(v["repeating_power_attack-custom"]) || 0;
-                        roll += v["repeating_power_attack-custom"];
+                        attack = parseInt(v["repeating_power"+vid+"_attack-custom"]) || 0;
+                        roll += v["repeating_power"+vid+"_attack-custom"];
                         break;
                     default:
                         roll += "0[" + i18n_unknownu + "]";
@@ -465,7 +464,7 @@
                 }
                 roll += "+?{" + i18n_modifiers + "|0}[" + i18n_modu + "]+@{E-DIE}]]}}";
                 // VS
-                switch(v["repeating_power_attack-vstype"]) {
+                switch(v["repeating_power"+vid+"_attack-vstype"]) {
                     case "AC":
                         vs = i18n_acu;
                         break;
@@ -476,16 +475,18 @@
                         vs = i18n_mdu;
                         break;
                     case "CUSTOM":
-                        vs = v["repeating_power_attack-vscustom"];
+                        vs = v["repeating_power"+vid+"_attack-vscustom"];
                         break;
+                    default:
+                        vs = i18n_acu;
                 }
                 roll +=" {{vstype=" + vs + "}}";
                 attackvs = (attack < 0 ? "" : "+") + attack + " " + i18n_vs + " " + vs;
             }
             // CUSTOM 1
-            if(v.repeating_power_cust1 == "1") {
-                roll += " {{cust1=1}} {{" + v["repeating_power_cust1-type"] + "-1=1}}";
-                switch(v["repeating_power_cust1-type"]) {
+            if(v["repeating_power"+vid+"_cust1"] == "1") {
+                roll += " {{cust1=1}} {{" + v["repeating_power"+vid+"_cust1-type"] + "-1=1}}";
+                switch(v["repeating_power"+vid+"_cust1-type"]) {
                     case "Hit":
                         cust1type = i18n_hit;
                         break;
@@ -517,28 +518,30 @@
                         cust1type = i18n_details;
                         break;
                     case "typecustom":
-                        cust1type = v["repeating_power_cust1-custom"];
+                        cust1type = v["repeating_power"+vid+"_cust1-custom"];
                         roll += " {{custype1=" + cust1type + "}}";
                         break;
+                    default:
+                        cust1type = i18n_hit;
                 }
                 cust1type += ":";
-                if(v["repeating_power_cust1-subcust1"] == "1") {
-                    roll += " {{cust1-subcust1=1}} {{cust1-subcust1-desc=" + v["repeating_power_cust1-subcust1-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust1-subcust1"] == "1") {
+                    roll += " {{cust1-subcust1=1}} {{cust1-subcust1-desc=" + v["repeating_power"+vid+"_cust1-subcust1-desc"] + "}}";
                 }
-                if(v["repeating_power_cust1-subcust2"] == "1") {
-                    roll += " {{cust1-subcust2=1}} {{cust1-subcust2-desc=" + v["repeating_power_cust1-subcust2-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust1-subcust2"] == "1") {
+                    roll += " {{cust1-subcust2=1}} {{cust1-subcust2-desc=" + v["repeating_power"+vid+"_cust1-subcust2-desc"] + "}}";
                 }
-                if(v["repeating_power_cust1-subcust3"] == "1") {
-                    roll += " {{cust1-subcust3=1}} {{cust1-subcust3-desc=" + v["repeating_power_cust1-subcust3-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust1-subcust3"] == "1") {
+                    roll += " {{cust1-subcust3=1}} {{cust1-subcust3-desc=" + v["repeating_power"+vid+"_cust1-subcust3-desc"] + "}}";
                 }
-                if(v["repeating_power_cust1-subcust4"] == "1") {
-                    roll += " {{cust1-subcust4=1}} {{cust1-subcust4-desc=" + v["repeating_power_cust1-subcust4-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust1-subcust4"] == "1") {
+                    roll += " {{cust1-subcust4=1}} {{cust1-subcust4-desc=" + v["repeating_power"+vid+"_cust1-subcust4-desc"] + "}}";
                 }
             }
             // CUSTOM 2
-            if(v.repeating_power_cust2 == "1") {
-                roll += " {{cust2=1}} {{" + v["repeating_power_cust2-type"] + "-2=1}}";
-                switch(v["repeating_power_cust2-type"]) {
+            if(v["repeating_power"+vid+"_cust2"] == "1") {
+                roll += " {{cust2=1}} {{" + v["repeating_power"+vid+"_cust2-type"] + "-2=1}}";
+                switch(v["repeating_power"+vid+"_cust2-type"]) {
                     case "Hit":
                         cust2type = i18n_hit;
                         break;
@@ -570,28 +573,30 @@
                         cust2type = i18n_details;
                         break;
                     case "typecustom":
-                        cust2type = v["repeating_power_cust2-custom"];
+                        cust2type = v["repeating_power"+vid+"_cust2-custom"];
                         roll += " {{custype2=" + cust2type + "}}";
                         break;
+                    default:
+                        cust2type = i18n_hit;
                 }
                 cust2type += ":";
-                if(v["repeating_power_cust2-subcust1"] == "1") {
-                    roll += " {{cust2-subcust1=1}} {{cust2-subcust1-desc=" + v["repeating_power_cust2-subcust1-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust2-subcust1"] == "1") {
+                    roll += " {{cust2-subcust1=1}} {{cust2-subcust1-desc=" + v["repeating_power"+vid+"_cust2-subcust1-desc"] + "}}";
                 }
-                if(v["repeating_power_cust2-subcust2"] == "1") {
-                    roll += " {{cust2-subcust2=1}} {{cust2-subcust2-desc=" + v["repeating_power_cust2-subcust2-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust2-subcust2"] == "1") {
+                    roll += " {{cust2-subcust2=1}} {{cust2-subcust2-desc=" + v["repeating_power"+vid+"_cust2-subcust2-desc"] + "}}";
                 }
-                if(v["repeating_power_cust2-subcust3"] == "1") {
-                    roll += " {{cust2-subcust3=1}} {{cust2-subcust3-desc=" + v["repeating_power_cust2-subcust3-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust2-subcust3"] == "1") {
+                    roll += " {{cust2-subcust3=1}} {{cust2-subcust3-desc=" + v["repeating_power"+vid+"_cust2-subcust3-desc"] + "}}";
                 }
-                if(v["repeating_power_cust2-subcust4"] == "1") {
-                    roll += " {{cust2-subcust4=1}} {{cust2-subcust4-desc=" + v["repeating_power_cust2-subcust4-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust2-subcust4"] == "1") {
+                    roll += " {{cust2-subcust4=1}} {{cust2-subcust4-desc=" + v["repeating_power"+vid+"_cust2-subcust4-desc"] + "}}";
                 }
             }
             // CUSTOM 3
-            if(v.repeating_power_cust3 == "1") {
-                roll += " {{cust3=1}} {{" + v["repeating_power_cust3-type"] + "-3=1}}";
-                switch(v["repeating_power_cust3-type"]) {
+            if(v["repeating_power"+vid+"_cust3"] == "1") {
+                roll += " {{cust3=1}} {{" + v["repeating_power"+vid+"_cust3-type"] + "-3=1}}";
+                switch(v["repeating_power"+vid+"_cust3-type"]) {
                     case "Hit":
                         cust3type = i18n_hit;
                         break;
@@ -623,50 +628,51 @@
                         cust3type = i18n_details;
                         break;
                     case "typecustom":
-                        cust3type = v["repeating_power_cust3-custom"];
+                        cust3type = v["repeating_power"+vid+"_cust3-custom"];
                         roll += " {{custype3=" + cust3type + "}}";
                         break;
+                    default:
+                        cust3type = i18n_hit;
                 }
                 cust3type += ":";
-                if(v["repeating_power_cust3-subcust1"] == "1") {
-                    roll += " {{cust3-subcust1=1}} {{cust3-subcust1-desc=" + v["repeating_power_cust3-subcust1-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust3-subcust1"] == "1") {
+                    roll += " {{cust3-subcust1=1}} {{cust3-subcust1-desc=" + v["repeating_power"+vid+"_cust3-subcust1-desc"] + "}}";
                 }
-                if(v["repeating_power_cust3-subcust2"] == "1") {
-                    roll += " {{cust3-subcust2=1}} {{cust3-subcust2-desc=" + v["repeating_power_cust3-subcust2-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust3-subcust2"] == "1") {
+                    roll += " {{cust3-subcust2=1}} {{cust3-subcust2-desc=" + v["repeating_power"+vid+"_cust3-subcust2-desc"] + "}}";
                 }
-                if(v["repeating_power_cust3-subcust3"] == "1") {
-                    roll += " {{cust3-subcust3=1}} {{cust3-subcust3-desc=" + v["repeating_power_cust3-subcust3-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust3-subcust3"] == "1") {
+                    roll += " {{cust3-subcust3=1}} {{cust3-subcust3-desc=" + v["repeating_power"+vid+"_cust3-subcust3-desc"] + "}}";
                 }
-                if(v["repeating_power_cust3-subcust4"] == "1") {
-                    roll += " {{cust3-subcust4=1}} {{cust3-subcust4-desc=" + v["repeating_power_cust3-subcust4-desc"] + "}}";
+                if(v["repeating_power"+vid+"_cust3-subcust4"] == "1") {
+                    roll += " {{cust3-subcust4=1}} {{cust3-subcust4-desc=" + v["repeating_power"+vid+"_cust3-subcust4-desc"] + "}}";
                 }
             }
             // UPDATE
-            console.log("*** DEBUG updatePower roll : " + roll);
-            setAttrs({
-                "repeating_power_power-roll" : roll,
-                "repeating_power_powname-display": v["repeating_power_name"],
-                "repeating_power_type-display": type,
-                "repeating_power_action-display": action,
-                "repeating_power_range-display": range,
-                "repeating_power_target-display": v["repeating_power_target-type"],
-                "repeating_power_attack-display": attackvs,
-                "repeating_power_cust1-display": cust1type,
-                "repeating_power_cust1-subcust1-display": v["repeating_power_cust1-subcust1-desc"],
-                "repeating_power_cust1-subcust2-display": v["repeating_power_cust1-subcust2-desc"],
-                "repeating_power_cust1-subcust3-display": v["repeating_power_cust1-subcust3-desc"],
-                "repeating_power_cust1-subcust4-display": v["repeating_power_cust1-subcust4-desc"],
-                "repeating_power_cust2-display": cust2type,
-                "repeating_power_cust2-subcust1-display": v["repeating_power_cust2-subcust1-desc"],
-                "repeating_power_cust2-subcust2-display": v["repeating_power_cust2-subcust2-desc"],
-                "repeating_power_cust2-subcust3-display": v["repeating_power_cust2-subcust3-desc"],
-                "repeating_power_cust2-subcust4-display": v["repeating_power_cust2-subcust4-desc"],
-                "repeating_power_cust3-display": cust3type,
-                "repeating_power_cust3-subcust1-display": v["repeating_power_cust3-subcust1-desc"],
-                "repeating_power_cust3-subcust2-display": v["repeating_power_cust3-subcust2-desc"],
-                "repeating_power_cust3-subcust3-display": v["repeating_power_cust3-subcust3-desc"],
-                "repeating_power_cust3-subcust4-display": v["repeating_power_cust3-subcust4-desc"]
-            });
+            var obj = {};
+            obj["repeating_power"+vid+"_power-roll"] = roll;
+            obj["repeating_power"+vid+"_powname-display"] = v["repeating_power"+vid+"_name"];
+            obj["repeating_power"+vid+"_type-display"] = type;
+            obj["repeating_power"+vid+"_action-display"] = action;
+            obj["repeating_power"+vid+"_range-display"] = range;
+            obj["repeating_power"+vid+"_target-display"] = v["repeating_power"+vid+"_target-type"];
+            obj["repeating_power"+vid+"_attack-display"] = attackvs;
+            obj["repeating_power"+vid+"_cust1-display"] = cust1type;
+            obj["repeating_power"+vid+"_cust1-subcust1-display"] = v["repeating_power"+vid+"_cust1-subcust1-desc"];
+            obj["repeating_power"+vid+"_cust1-subcust2-display"] = v["repeating_power"+vid+"_cust1-subcust2-desc"];
+            obj["repeating_power"+vid+"_cust1-subcust3-display"] = v["repeating_power"+vid+"_cust1-subcust3-desc"];
+            obj["repeating_power"+vid+"_cust1-subcust4-display"] = v["repeating_power"+vid+"_cust1-subcust4-desc"];
+            obj["repeating_power"+vid+"_cust2-display"] = cust2type;
+            obj["repeating_power"+vid+"_cust2-subcust1-display"] = v["repeating_power"+vid+"_cust2-subcust1-desc"];
+            obj["repeating_power"+vid+"_cust2-subcust2-display"] = v["repeating_power"+vid+"_cust2-subcust2-desc"];
+            obj["repeating_power"+vid+"_cust2-subcust3-display"] = v["repeating_power"+vid+"_cust2-subcust3-desc"];
+            obj["repeating_power"+vid+"_cust2-subcust4-display"] = v["repeating_power"+vid+"_cust2-subcust4-desc"];
+            obj["repeating_power"+vid+"_cust3-display"] = cust3type;
+            obj["repeating_power"+vid+"_cust3-subcust1-display"] = v["repeating_power"+vid+"_cust3-subcust1-desc"];
+            obj["repeating_power"+vid+"_cust3-subcust2-display"] = v["repeating_power"+vid+"_cust3-subcust2-desc"];
+            obj["repeating_power"+vid+"_cust3-subcust3-display"] = v["repeating_power"+vid+"_cust3-subcust3-desc"];
+            obj["repeating_power"+vid+"_cust3-subcust4-display"] = v["repeating_power"+vid+"_cust3-subcust4-desc"];
+            setAttrs(obj);
         });
     };
 
@@ -720,7 +726,6 @@
 
     // === Version and updating
     var upgrade_to_2_0 = function(doneupdating) {
-        console.log("*** DEBUG upgrade_to_2_0");
         getAttrs(["level","REC-bonus","STR-base","CON-base","DEX-base","INT-base","WIS-base","CHA-base"], function(vat) {
             var setAttrsObj = {},
                 conmod = Math.floor((parseInt(vat["CON-base"]) - 10) / 2),
@@ -772,7 +777,6 @@
                     var endat = "";
                     _.each(attrs, function(attr) {
                         endat = attr.substr(attr.lastIndexOf("_")+1,attr.length-attr.lastIndexOf("_")+1);
-                        // console.log("*** DEBUG transformPowers attr : " + attr + " ,endat : " + endat);
                         switch(endat) {
                             case "updateflag":
                                 setAttrsObj[attr] = "0";
@@ -806,6 +810,8 @@
                                     case "{{typecustom=1}} {{type=@{type-custom}}}":
                                         setAttrsObj[attr] = "custom";
                                         break;
+                                    default:
+                                        setAttrsObj[attr] = "atwill";
                                 }
                                 break;
                             case "action":
@@ -867,6 +873,8 @@
                                     case "@{attack-custom}":
                                         setAttrsObj[attr] = "CUSTOM";
                                         break;
+                                    default:
+                                        setAttrsObj[attr] = "STR";
                                 }
                                 break;
                             case "cust1":
@@ -925,9 +933,7 @@
                                 break;
                         }
                     });
-                    console.log("*** DEBUG transformPowers setAttrsObj : " + JSON.stringify(setAttrsObj));
                     setAttrs(setAttrsObj,{silent: true},function() {
-                        console.log("*** DEBUG upgrade callback");
                         updateLvl();
                         updateAc();
                         updatePd();

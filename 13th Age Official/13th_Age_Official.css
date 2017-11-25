@@ -1350,7 +1350,6 @@ button[type=roll]:hover *
 .sheet-rolltemplate-power .sheet-row
 {
     display: block;
-    white-space: nowrap;
 }
 
 .sheet-rolltemplate-deathsave .sheet-row,
