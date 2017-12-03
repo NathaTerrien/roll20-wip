@@ -1,0 +1,18 @@
+{
+    "content": " **Longsword**: This sword is about 3-1/2 feet in length. ",
+    "data": {
+        "Category": "Items",
+        "Cost": "1 PA",
+        "Critical": "19–20/×2",
+        "Double-Handed Damage": "1d8",
+        "Range": "—",
+        "Single-Handed Damage": "1d6",
+        "Source": "pathfinder_core",
+        "Special": "—",
+        "Type": "S",
+        "Weight": "4 lbs."
+    },
+    "htmlcontent": "<p><strong>Longsword</strong>: This sword is about 3-1/2 feet in length.</p>",
+    "id": 2908,
+    "name": "Longsword"
+}
