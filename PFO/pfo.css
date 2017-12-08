@@ -9,6 +9,8 @@
  brown logo: #3C2517 rgba(60,37,23)
 
  logo: https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/logo.png
+ left border: https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png
+ right border: https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png
 */
 div,
 button,
@@ -19,4 +21,59 @@ select,
 img,
 label{
     box-sizing: border-box;
+}
+.sheet-debug{
+    border: 1px solid red;
+}
+div.sheet-main{
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+    text-align: center;
+    width: 850px;
+    background-color: white;
+}
+div.sheet-col2{
+    display: inline-block;
+    margin: 0px;
+    padding: 2px;
+    vertical-align: top;
+    width: 415px;
+}
+div.sheet-blacklabel{
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    text-align: left;
+    vertical-align: top;
+    height: 30px;
+    font-family: 'Times New Roman';
+    text-transform: uppercase;
+    border: none;
+}
+div.sheet-blacklabel .sheet-blackbgrd{
+    display: inline-block;
+    background-color: black;
+    height: inherit;
+    vertical-align: top;
+    text-align: center;
+}
+div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
+    display: block;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 0px 4px 0px 4px;
+}
+div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
+    display: block;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+img.sheet-brdleft,
+img.sheet-brdright {
+    display: inline-block;
+    height: inherit;
+    margin: 0px;
+    padding: 0px;
 }
