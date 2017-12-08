@@ -22,29 +22,50 @@ img,
 label{
     box-sizing: border-box;
 }
+div{
+    margin: 0px;
+    padding: 0px;
+}
+img{
+    margin: 0px;
+    padding: 0px;
+}
 .sheet-debug{
     border: 1px solid red;
 }
 div.sheet-main{
-    margin: 0px;
-    padding: 0px;
     vertical-align: top;
     text-align: center;
     width: 850px;
+    max-width: 850px;
     background-color: white;
 }
-div.sheet-col2{
+div.sheet-myrow{
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 1px 0px 1px 0px;
+}
+div.sheet-colhalf{
     display: inline-block;
-    margin: 0px;
-    padding: 2px;
     vertical-align: top;
     width: 415px;
 }
+div.sheet-col1third{
+    display: inline-block;
+    vertical-align: top;
+    width: 280px;
+}
+div.sheet-col2third{
+    display: inline-block;
+    vertical-align: top;
+    width: 560px;
+}
 div.sheet-blacklabel{
     display: inline-block;
-    background-color: transparent;
+    background-color: black;
     color: white;
-    text-align: left;
+    text-align: center;
     vertical-align: top;
     height: 30px;
     font-family: 'Times New Roman';
@@ -53,27 +74,77 @@ div.sheet-blacklabel{
 }
 div.sheet-blacklabel .sheet-blackbgrd{
     display: inline-block;
-    background-color: black;
-    height: inherit;
     vertical-align: top;
     text-align: center;
+    padding: 2px 4px 0px 4px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
-    display: block;
-    font-size: 16px;
+    display: inline-block;
+    font-size: 18px;
     line-height: 18px;
-    padding: 0px 4px 0px 4px;
+}
+div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
+    padding-top: 3px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
     display: block;
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 8px;
+    line-height: 4px;
+    letter-spacing: 1px;
 }
 
 img.sheet-brdleft,
 img.sheet-brdright {
     display: inline-block;
     height: inherit;
-    margin: 0px;
-    padding: 0px;
+}
+.sheet-ability div.sheet-blacklabel{
+    width: 80px;
+}
+.sheet-ability .sheet-lab{
+    display: inline-block;
+    width: 55px;
+    text-align: center;
+    vertical-align: bottom;
+    font-family: 'Times New Roman';
+    font-size: 9px;
+    line-height: 9px;
+    text-transform: uppercase;
+    white-space: pre-line;
+}
+.sheet-ability .sheet-lab:first-child{
+    width: 80px;
+}
+.sheet-skills div.sheet-blacklabel .sheet-blackbgrd{
+    width: 350px;
+}
+
+/* ===== BUTTONS ===== */
+button[type="roll"].sheet-myrol{
+    text-align: center;
+    text-decoration: none;
+    background:none;
+    background-image:none;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    padding: inherit;
+    margin: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-transform: inherit;
+    text-align: inherit;
+    vertical-align: inherit;
+}
+button[type="roll"].sheet-myrol:hover{
+    color: #BE202E;
+}
+button[type="roll"].sheet-myrol:before{
+    content: none;
+}
+div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
+    margin-top: -2px;
+    margin-bottom: 2px;
 }

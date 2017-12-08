@@ -1,15 +1,97 @@
 <div class="main">
-    <div class="col2"> <!-- tab1 col1 -->
-        <img style="width: 200px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/logo.png" />
-    </div>  <!-- END tab1 col1 -->
-    <div class="col2"> <!-- tab1 col1 -->
-        <div class="blacklabel">
-            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-            <div class="blackbgrd">
-                <span class="big">initiative</span>
-                <span class="sml">modifier</span>
+    <div class="myrow">
+        <div class="col1third">
+            <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/logo.png" />
+        </div>
+        <div class="col2third">
+            <input type="text" class="" name="attr_character_name" />
+        </div>
+    </div>
+    <div class="colhalf"> <!-- tab1 col1 -->
+        <div class="ability"> <!-- abilities -->
+            <div class="myrow">
+                <span class="lab" data-i18n="ability-name">ability name</span>
+                <span class="lab" data-i18n="ability-score">ability score</span>
+                <span class="lab" data-i18n="ability-modifier">ability modifier</span>
+                <span class="lab" data-i18n="temp-adjustment">temp adjustment</span>
+                <span class="lab" data-i18n="temp-modifier">temp modifier</span>
             </div>
-            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+            <div class="myrow"> <!-- strength -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="/r 1d20"><span data-i18n="str">str</span></button>
+                        <span class="sml" data-i18n="strength">strength</span>
+                    </div>
+                </div>
+            </div> <!-- END strength -->
+            <div class="myrow"> <!-- dexterity -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="/r 1d20"><span data-i18n="dex">dex</span></button>
+                        <span class="sml" data-i18n="dexterity">dexterity</span>
+                    </div>
+                </div>
+            </div> <!-- END dexterity -->
+            <div class="myrow"> <!-- constitution -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="/r 1d20"><span data-i18n="con">con</span></button>
+                        <span class="sml" data-i18n="constitution">constitution</span>
+                    </div>
+                </div>
+            </div> <!-- END constitution -->
+            <div class="myrow"> <!-- intelligence -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="/r 1d20"><span data-i18n="int">int</span></button>
+                        <span class="sml" data-i18n="intelligence">intelligence</span>
+                    </div>
+                </div>
+            </div> <!-- END intelligence -->
+            <div class="myrow"> <!-- wisdom -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="/r 1d20"><span data-i18n="wis">wis</span></button>
+                        <span class="sml" data-i18n="wisdom">wisdom</span>
+                    </div>
+                </div>
+            </div> <!-- END wisdom -->
+            <div class="myrow"> <!-- charisma -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="/r 1d20"><span data-i18n="cha">cha</span></button>
+                        <span class="sml" data-i18n="charisma">charisma</span>
+                    </div>
+                </div>
+            </div> <!-- END charisma -->
+        </div>
+        <div class="myrow">
+            <div class="blacklabel">
+                <div class="blackbgrd">
+                    <span class="big" data-i18n="flat-footed">flat-footed</span>
+                    <span class="sml" data-i18n="armor-class">armor class</span>
+                </div>
+            </div>
+        </div> <!-- END abilities -->
+        <div class="myrow">
+            <div class="blacklabel">
+                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                <div class="blackbgrd">
+                    <span class="big only" data-i18n="base-attack-bonus">base attack bonus</span>
+                </div>
+                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+            </div>
         </div>
     </div>  <!-- END tab1 col1 -->
+    <div class="colhalf"> <!-- tab1 col2 -->
+        <div class="myrow skills">
+            <div class="blacklabel">
+                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                <div class="blackbgrd">
+                    <span class="big only" data-i18n="skills">skills</span>
+                </div>
+                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+            </div>
+        </div>
+    </div>  <!-- END tab1 col2 -->
 </div>
