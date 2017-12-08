@@ -1,0 +1,10 @@
+{
+    "content": " You've learned to use your quickness in place of brute force when performing combat maneuvers.  Benefit: You add your Dexterity bonus to your base attack bonus and size bonus when determining your Combat Maneuver Bonus (see Combat) instead of your Strength bonus.  Normal: You add your Strength bonus to your base attack bonus and size bonus when determining your Combat Maneuver Bonus. ",
+    "data": {
+        "Category": "Feats",
+        "Source": "pathfinder_core"
+    },
+    "htmlcontent": "<p>You've learned to use your quickness in place of brute force when performing combat maneuvers.</p><p><b>Benefit:</b> You add your Dexterity bonus to your base attack bonus and size bonus when determining your Combat Maneuver Bonus (see Combat) instead of your Strength bonus.</p><p><b>Normal:</b> You add your Strength bonus to your base attack bonus and size bonus when determining your Combat Maneuver Bonus.</p>",
+    "id": 2716,
+    "name": "Agile Maneuvers (Combat)"
+}
