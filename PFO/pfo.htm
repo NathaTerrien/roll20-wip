@@ -1,97 +1,137 @@
 <div class="main">
-    <div class="myrow">
-        <div class="col1third">
+    <div class="myrow"> <!-- top row -->
+        <div class="col1third"> <!-- logo -->
             <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/logo.png" />
         </div>
-        <div class="col2third">
-            <input type="text" class="" name="attr_character_name" />
-        </div>
-    </div>
-    <div class="colhalf"> <!-- tab1 col1 -->
-        <div class="ability"> <!-- abilities -->
+        <div class="col2third" style="padding-top: 4px;"> <!-- identity -->
+            <div class="identity">
+                <input type="text" name="attr_character_name" class="underlined" spellcheck="false" title="@{character_name}" />
+                <span data-i18n="character-name">character name</span>
+            </div>
+            <div class="identity">
+                <select class="alignment underlined" name="attr_alignment" title="@{alignment}">
+                    <option value="lawful good" data-i18n="lawful-good">lawful good</option>
+                    <option value="neutral good" data-i18n="neutral-good">neutral good</option>
+                    <option value="chaotic good" data-i18n="chaotic-good">chaotic good</option>
+                    <option value="lawful neutral" data-i18n="lawful-neutral">lawful neutral</option>
+                    <option value="neutral" data-i18n="neutral" selected="selected">neutral</option>
+                    <option value="chaotic neutral" data-i18n="chaotic-neutral">chaotic neutral</option>
+                    <option value="lawful evil" data-i18n="lawful-evil">lawful evil</option>
+                    <option value="neutral evil" data-i18n="neutral-evil">neutral evil</option>
+                    <option value="chaotic evil" data-i18n="chaotic-evil">chaotic evil</option>
+                </select>
+                <span data-i18n="alignment">alignment</span>
+            </div>
+        </div> <!-- END identity -->
+    </div> <!-- END top row -->
+    <!-- PSEUDO TABS -->
+    <input type="radio" name="attr_tabcurrent" class="tabmain" value="tabmain" checked /><span data-i18n="tab-main">Main</span>
+    <input type="radio" name="attr_tabcurrent" class="tabadd" value="2" /><span data-i18n="tab-additional">Additional</span>
+    <input type="radio" name="attr_tabcurrent" class="tabconf" value="2" /><span data-i18n="tab-configuration">Configuration</span>
+    <div class="tabmain"> <!-- TAB MAIN -->
+        <div class="colhalf"> <!-- tab1 col1 -->
+            <div class="ability"> <!-- abilities -->
+                <div class="myrow">
+                    <span class="lab" data-i18n="ability-name">ability name</span>
+                    <span class="lab" data-i18n="ability-score">ability score</span>
+                    <span class="lab" data-i18n="ability-modifier">ability modifier</span>
+                    <span class="lab" data-i18n="temp-adjustment">temp adjustment</span>
+                </div>
+                <div class="myrow"> <!-- strength -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="/r 1d20"><span data-i18n="str">str</span></button>
+                            <span class="sml" data-i18n="strength">strength</span>
+                        </div>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_strength_base" value="10" class="sheet-baseattr" title="@{strength}" />
+                        <input name="attr_strength" value="10" type="hidden" />
+                        <input name="attr_strength_flag" value="0" type="hidden" />
+                        <span name="attr_strength" class="sheet-finalattr"></span>
+                    </div>
+                    <div class="boxed">
+                        <span name="attr_strength_mod" title="@{strength_mod}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_strength_bonus" class="boxed" value="0" title="@{strength_bonus}" />
+                    </div>
+                </div> <!-- END strength -->
+                <div class="myrow"> <!-- dexterity -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="/r 1d20"><span data-i18n="dex">dex</span></button>
+                            <span class="sml" data-i18n="dexterity">dexterity</span>
+                        </div>
+                    </div>
+                </div> <!-- END dexterity -->
+                <div class="myrow"> <!-- constitution -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="/r 1d20"><span data-i18n="con">con</span></button>
+                            <span class="sml" data-i18n="constitution">constitution</span>
+                        </div>
+                    </div>
+                </div> <!-- END constitution -->
+                <div class="myrow"> <!-- intelligence -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="/r 1d20"><span data-i18n="int">int</span></button>
+                            <span class="sml" data-i18n="intelligence">intelligence</span>
+                        </div>
+                    </div>
+                </div> <!-- END intelligence -->
+                <div class="myrow"> <!-- wisdom -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="/r 1d20"><span data-i18n="wis">wis</span></button>
+                            <span class="sml" data-i18n="wisdom">wisdom</span>
+                        </div>
+                    </div>
+                </div> <!-- END wisdom -->
+                <div class="myrow"> <!-- charisma -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="/r 1d20"><span data-i18n="cha">cha</span></button>
+                            <span class="sml" data-i18n="charisma">charisma</span>
+                        </div>
+                    </div>
+                </div> <!-- END charisma -->
+            </div>
             <div class="myrow">
-                <span class="lab" data-i18n="ability-name">ability name</span>
-                <span class="lab" data-i18n="ability-score">ability score</span>
-                <span class="lab" data-i18n="ability-modifier">ability modifier</span>
-                <span class="lab" data-i18n="temp-adjustment">temp adjustment</span>
-                <span class="lab" data-i18n="temp-modifier">temp modifier</span>
-            </div>
-            <div class="myrow"> <!-- strength -->
                 <div class="blacklabel">
                     <div class="blackbgrd">
-                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="/r 1d20"><span data-i18n="str">str</span></button>
-                        <span class="sml" data-i18n="strength">strength</span>
+                        <span class="big" data-i18n="flat-footed">flat-footed</span>
+                        <span class="sml" data-i18n="armor-class">armor class</span>
                     </div>
                 </div>
-            </div> <!-- END strength -->
-            <div class="myrow"> <!-- dexterity -->
+            </div> <!-- END abilities -->
+            <div class="myrow">
                 <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                     <div class="blackbgrd">
-                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="/r 1d20"><span data-i18n="dex">dex</span></button>
-                        <span class="sml" data-i18n="dexterity">dexterity</span>
+                        <span class="big only" data-i18n="base-attack-bonus">base attack bonus</span>
                     </div>
-                </div>
-            </div> <!-- END dexterity -->
-            <div class="myrow"> <!-- constitution -->
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="/r 1d20"><span data-i18n="con">con</span></button>
-                        <span class="sml" data-i18n="constitution">constitution</span>
-                    </div>
-                </div>
-            </div> <!-- END constitution -->
-            <div class="myrow"> <!-- intelligence -->
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="/r 1d20"><span data-i18n="int">int</span></button>
-                        <span class="sml" data-i18n="intelligence">intelligence</span>
-                    </div>
-                </div>
-            </div> <!-- END intelligence -->
-            <div class="myrow"> <!-- wisdom -->
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="/r 1d20"><span data-i18n="wis">wis</span></button>
-                        <span class="sml" data-i18n="wisdom">wisdom</span>
-                    </div>
-                </div>
-            </div> <!-- END wisdom -->
-            <div class="myrow"> <!-- charisma -->
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="/r 1d20"><span data-i18n="cha">cha</span></button>
-                        <span class="sml" data-i18n="charisma">charisma</span>
-                    </div>
-                </div>
-            </div> <!-- END charisma -->
-        </div>
-        <div class="myrow">
-            <div class="blacklabel">
-                <div class="blackbgrd">
-                    <span class="big" data-i18n="flat-footed">flat-footed</span>
-                    <span class="sml" data-i18n="armor-class">armor class</span>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
             </div>
-        </div> <!-- END abilities -->
-        <div class="myrow">
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="base-attack-bonus">base attack bonus</span>
+        </div>  <!-- END tab1 col1 -->
+        <div class="colhalf"> <!-- tab1 col2 -->
+            <div class="myrow skills">
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="skills">skills</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
-        </div>
-    </div>  <!-- END tab1 col1 -->
-    <div class="colhalf"> <!-- tab1 col2 -->
-        <div class="myrow skills">
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="skills">skills</span>
-                </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-            </div>
-        </div>
-    </div>  <!-- END tab1 col2 -->
+        </div>  <!-- END tab1 col2 -->
+    </div> <!-- END TAB MAIN -->
+    <div class="tabadd"> <!-- TAB ADDITIONNAL -->
+        ADDITIONNAL INFORMATION TODO
+    </div> <!-- END TAB ADDITIONNAL -->
+    <div class="tabconf"> <!-- TAB CONFIGURATION -->
+        CONFIGURATION TODO
+    </div> <!-- END TAB CONFIGURATION -->
 </div>
