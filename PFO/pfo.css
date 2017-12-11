@@ -30,12 +30,30 @@ img{
     margin: 0px;
     padding: 0px;
 }
+/* ==== CLASSES ==== */
 .sheet-debug{
     border: 1px solid red;
 }
 .sheet-underlined{
     border-bottom: 1px solid black;
 }
+.sheet-bordered{
+    border: 1px solid black;
+    margin-bottom: 4px;
+}
+.sheet-titled{
+    margin-top: -16px;
+    padding-top: 20px;
+}
+.sheet-block{
+    display: block;
+}
+.sheet-inbox{
+    padding-left:2px;
+    padding-bottom: 2px;
+    text-align: left;
+}
+/* ==== DIVS ==== */
 div.sheet-main{
     vertical-align: top;
     text-align: left;
@@ -85,6 +103,7 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
     display: inline-block;
     font-size: 18px;
     line-height: 18px;
+    font-weight: bold;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
     padding-top: 3px;
@@ -164,6 +183,7 @@ input[type="number"]{
 }
 div.sheet-boxed input[type="number"]{
     width: 36px;
+    height: 18px;
     margin-top: 2px;
 }
 input[type="number"]::-webkit-inner-spin-button,
@@ -184,6 +204,48 @@ select {
 select.sheet-alignment{
     width: 110px;
 }
+span.sheet-pseudoattr{
+    display: inline-block;
+    font-family: 'Patrick Hand';
+    font-size: 16px;
+    line-height: 16px;
+    margin-top: 3px;
+    height: 18px;
+    vertical-align: bottom;
+}
+/* ===== ABILITIES ===== */
+.sheet-baseattr {
+    opacity: 0;
+    height: 0px;
+    width: 0px;
+    pointer-events: none;
+    display: inline;
+    position: absolute;
+}
+.sheet-finalattr {
+    display: inline-block;
+}
+.sheet-boxed:hover .sheet-baseattr,
+.sheet-boxed .sheet-baseattr:focus {
+    opacity: 1;
+    width: 36px;
+    height: 18px;
+    pointer-events: auto;
+    position: static;
+}
+.sheet-boxed:hover .sheet-finalattr,
+.sheet-boxed .sheet-baseattr:focus ~ .sheet-finalattr {
+    display: none;
+}
+.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr{
+    color: #501414;
+}
+.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr:after{
+    content: '*';
+    font-size: 15px;
+    position: absolute;
+}
+
 /* ===== BUTTONS ===== */
 button[type="roll"].sheet-myrol{
     text-align: center;
@@ -213,9 +275,46 @@ div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
     margin-top: -2px;
     margin-bottom: 2px;
 }
+/* ===== PSEUDO CHECKS ===== */
+input[type="checkbox"].sheet-pseudocheck {
+    opacity: 0.3;
+    width: 13px;
+    cursor: pointer;
+    z-index: 10;
+    margin-top: 3px;
+    line-height: 13px;
+}
+input[type="checkbox"].sheet-pseudocheck + span{
+    font-size: 13px;
+    line-height: 13px;
+}
+input[type="checkbox"].sheet-pseudocheck + span.sheet-mright{
+    margin-right: -13px;
+    margin-left: 2px;
+}
+input[type="checkbox"].sheet-pseudocheck + span.sheet-mleft{
+    margin-left: -13px;
+    margin-right: 2px;
+}
+input[type="checkbox"].sheet-pseudocheck + span::before {
+    text-align: middle;
+    display: inline-block;
+    vertical-align: middle;
+    -moz-box-shadow: 0 0 0px #000;
+    -webkit-box-shadow: 0 0 0px #000;
+    box-shadow: 0 0 0px #000;
+    background: transparent;
+    content: "☐";
+    line-height: 18px;
+    font-size: 18px;
+}
+input[type="checkbox"].sheet-pseudocheck:checked + span::before {
+    content: "☑";
+}
 /* ===== PSEUDO TABS ===== */
 div.sheet-tabmain,
 div.sheet-tabadd,
+div.sheet-tabspell,
 div.sheet-tabconf {
     display: none;
     text-align: center;
@@ -229,11 +328,15 @@ input.sheet-tabmain:checked ~ div.sheet-tabmain{
 input.sheet-tabadd:checked ~ div.sheet-tabadd{
     display: block;
 }
+input.sheet-tabspell:checked ~ div.sheet-tabspell{
+    display: block;
+}
 input.sheet-tabconf:checked ~ div.sheet-tabconf{
     display: block;
 }
 input.sheet-tabmain,
 input.sheet-tabadd,
+input.sheet-tabspell,
 input.sheet-tabconf{
     margin: 0;
     margin-top: -4px;
@@ -247,6 +350,7 @@ input.sheet-tabconf{
 }
 input.sheet-tabmain + span,
 input.sheet-tabadd + span,
+input.sheet-tabspell + span,
 input.sheet-tabconf + span{
     color: #666666;
     background-color: #BBBBBB;
@@ -267,6 +371,7 @@ input.sheet-tabconf + span{
 }
 input.sheet-tabmain:checked + span,
 input.sheet-tabadd:checked + span,
+input.sheet-tabspell:checked + span,
 input.sheet-tabconf:checked + span{
     font-weight: bold;
     color: black;
