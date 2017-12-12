@@ -31,31 +31,37 @@
     <input type="radio" name="attr_tabcurrent" class="tabconf" value="tabconf" /><span data-i18n="tab-configuration">Configuration</span>
     <div class="tabmain"> <!-- TAB MAIN -->
         <div class="colhalf"> <!-- tab1 col1 -->
-            <div class="ability"> <!-- abilities -->
+            <div class="abilities"> <!-- abilities -->
                 <div class="myrow">
                     <span class="lab" data-i18n="ability-name">ability name</span>
                     <span class="lab" data-i18n="ability-score">ability score</span>
                     <span class="lab" data-i18n="ability-modifier">ability modifier</span>
                     <span class="lab" data-i18n="temp-adjustment">temp adjustment</span>
                 </div>
-                <div class="myrow"> <!-- strength -->
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="&{template:default} {{name=^{strength} (@{character_name})}} {{Roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{Note=This is some note content}}"><span data-i18n="str">str</span></button>
-                            <span class="sml" data-i18n="strength">strength</span>
+                <div class="ability"> <!-- strength -->
+                    <input class="sheet-options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength} (@{character_name})}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="str">str</span></button>
+                                <span class="sml" data-i18n="strength">strength</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_strength_base" value="10" class="baseattr" title="@{strength}" />
+                            <input type="hidden" name="attr_strength" value="10" />
+                            <input type="hidden" name="attr_strength_flag" value="0" class="attr-flag" />
+                            <span name="attr_strength" class="pseudoattr finalattr"></span>
+                        </div>
+                        <div class="boxed">
+                            <span name="attr_strength_mod" class="pseudoattr" title="@{strength_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_strength_bonus" class="boxed" value="0" title="@{strength_bonus}" />
                         </div>
                     </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_strength_base" value="10" class="baseattr" title="@{strength}" />
-                        <input type="hidden" name="attr_strength" value="10" />
-                        <input type="hidden" name="attr_strength_flag" value="0" class="attr-flag" />
-                        <span name="attr_strength" class="pseudoattr finalattr"></span>
-                    </div>
-                    <div class="boxed">
-                        <span name="attr_strength_mod" class="pseudoattr" title="@{strength_mod}"></span>
-                    </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_strength_bonus" class="boxed" value="0" title="@{strength_bonus}" />
+                    <div class="options">
+                        <textarea name="attr_strength_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
                     </div>
                 </div> <!-- END strength -->
                 <div class="myrow"> <!-- dexterity -->
@@ -145,12 +151,26 @@
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
+                <div class="myrow">
+                    <span data-i18n="whisp-rolls-gm:">Whisper Rolls to GM:</span>
+                    <select name="attr_whispertype" title="@{whispertype}">
+                        <option value="" data-i18n="never-whisper-roll" selected="selected">Never Whisper Rolls</option>
+                        <!-- <option value="@{whispertoggle}" data-i18n="toggle-roll-whisper">Whisper Toggle</option> -->
+                        <option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }" data-i18n="query-whisper-roll">Query Whisper</option>
+                        <option value="/w gm " data-i18n="always-whisper-roll">Always Whisper Rolls</option>
+                    </select>
+                </div>
                 <span class="block" data-i18n="query-modifier">Query modifier for:</span>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_rollmod_ability" value="?{Modifier|0}" title="@{rollmod_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_rollmod_save" value="?{Modifier|0}" title="@{rollmod_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_rollmod_skill" value="?{Modifier|0}" title="@{rollmod_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_rollmod_attack" value="?{Modifier|0}" title="@{rollmod_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_rollmod_damage" value="?{Modifier|0}" title="@{rollmod_damage}" /><span class="mleft"></span><span data-i18n="damage-rolls">Damage Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_ability" value="?{Modifier|0}" title="@{rollmod_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_save" value="?{Modifier|0}" title="@{rollmod_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_skill" value="?{Modifier|0}" title="@{rollmod_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_attack" value="?{Modifier|0}" title="@{rollmod_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_damage" value="?{Modifier|0}" title="@{rollmod_damage}" /><span class="mleft"></span><span data-i18n="damage-rolls">Damage Rolls</span></div>
+                <span class="block" data-i18n="show-notes-in">Show Notes in:</span>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_ability" value="1" title="@{rollnotes_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_save" value="1" title="@{rollnotes_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_skill" value="1" title="@{rollnotes_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_attack" value="1" title="@{rollnotes_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
             </div>
         </div>
         <div class="col1third">

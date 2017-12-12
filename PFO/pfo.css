@@ -53,6 +53,12 @@ img{
     padding-bottom: 2px;
     text-align: left;
 }
+.sheet-indent{
+    text-indent: 10px;
+}
+.sheet-padindent{
+    padding-left: 10px;
+}
 /* ==== DIVS ==== */
 div.sheet-main{
     vertical-align: top;
@@ -137,10 +143,10 @@ div.sheet-boxed {
     margin-left: 2px;
     text-transform: capitalize;
 }
-.sheet-ability div.sheet-blacklabel{
+.sheet-abilities div.sheet-blacklabel{
     width: 80px;
 }
-.sheet-ability .sheet-lab{
+.sheet-abilities .sheet-lab{
     display: inline-block;
     width: 50px;
     text-align: center;
@@ -150,11 +156,11 @@ div.sheet-boxed {
     text-transform: uppercase;
     white-space: pre-line;
 }
-.sheet-ability div.sheet-boxed{
+.sheet-abilities div.sheet-boxed{
     margin-left: 5px;
     margin-right: 5px;
 }
-.sheet-ability .sheet-lab:first-child{
+.sheet-abilities .sheet-lab:first-child{
     width: 80px;
 }
 .sheet-skills div.sheet-blacklabel .sheet-blackbgrd{
@@ -214,6 +220,9 @@ span.sheet-pseudoattr{
     vertical-align: bottom;
 }
 /* ===== ABILITIES ===== */
+div.sheet-abilities{
+    width: 260px;
+}
 .sheet-baseattr {
     opacity: 0;
     height: 0px;
@@ -245,7 +254,9 @@ span.sheet-pseudoattr{
     font-size: 15px;
     position: absolute;
 }
-
+div.sheet-ability{
+    position: relative;
+}
 /* ===== BUTTONS ===== */
 button[type="roll"].sheet-myrol{
     text-align: center;
@@ -277,7 +288,7 @@ div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
 }
 /* ===== PSEUDO CHECKS ===== */
 input[type="checkbox"].sheet-pseudocheck {
-    opacity: 0.3;
+    opacity: 0;
     width: 13px;
     cursor: pointer;
     z-index: 10;
@@ -287,6 +298,7 @@ input[type="checkbox"].sheet-pseudocheck {
 input[type="checkbox"].sheet-pseudocheck + span{
     font-size: 13px;
     line-height: 13px;
+    white-space: nowrap;
 }
 input[type="checkbox"].sheet-pseudocheck + span.sheet-mright{
     margin-right: -13px;
@@ -380,4 +392,54 @@ input.sheet-tabconf:checked + span{
     border-top-color: black;
     border-right-color: black;
     border-bottom-color: white;
+}
+/* ===== OPTIONS ===== */
+.sheet-abilities .sheet-options-flag {
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+    z-index: 2;
+}
+.sheet-abilities .sheet-options-flag + span {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    white-space: nowrap;
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    font-family: pictos;
+    color: #BBBBBB;
+    cursor: pointer;
+    margin-top: 0px;
+    display: none;
+}
+.sheet-abilities .sheet-options-flag:hover + span {
+    color: #E6DD94;
+    display: block;
+}
+.sheet-abilities .sheet-options-flag:checked + span {
+    color: #E6DD94;
+    display: block;
+}
+.sheet-abilities .sheet-ability:hover .sheet-options-flag + span {
+    display: block;
+}
+.sheet-options{
+    display: none;
+    border-bottom: 2px dotted #C3996B;
+}
+.sheet-abilities .sheet-options textarea{
+    height: 40px;
+    font-size: 14px;
+    resize: vertical;
+}
+.sheet-abilities .sheet-options-flag:checked ~ .sheet-options {
+    display: inherit;
+}
+.sheet-abilities .sheet{
+    display: none;
 }
