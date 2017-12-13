@@ -39,11 +39,11 @@
                     <span class="lab" data-i18n="temp-adjustment">temp adjustment</span>
                 </div>
                 <div class="ability"> <!-- strength -->
-                    <input class="sheet-options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="sheet-options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength} (@{character_name})}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="str">str</span></button>
+                                <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="str">str</span></button>
                                 <span class="sml" data-i18n="strength">strength</span>
                             </div>
                         </div>
@@ -61,58 +61,189 @@
                         </div>
                     </div>
                     <div class="options">
-                        <textarea name="attr_strength_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
+                        <div class="autoex">
+                            <span name="attr_strength_notes"></span>
+                            <textarea name="attr_strength_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
+                        </div>
                     </div>
                 </div> <!-- END strength -->
-                <div class="myrow"> <!-- dexterity -->
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="/r 1d20"><span data-i18n="dex">dex</span></button>
-                            <span class="sml" data-i18n="dexterity">dexterity</span>
+                <div class="ability"> <!-- dexterity -->
+                    <input class="sheet-options-flag" name="attr_options-flag-dex" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:default} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{dexterity_notes}}}"><span data-i18n="dex">dex</span></button>
+                                <span class="sml" data-i18n="dexterity">dexterity</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_dexterity_base" value="10" class="baseattr" title="@{dexterity}" />
+                            <input type="hidden" name="attr_dexterity" value="10" />
+                            <input type="hidden" name="attr_dexterity_flag" value="0" class="attr-flag" />
+                            <span name="attr_dexterity" class="pseudoattr finalattr"></span>
+                        </div>
+                        <div class="boxed">
+                            <span name="attr_dexterity_mod" class="pseudoattr" title="@{dexterity_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_dexterity_bonus" class="boxed" value="0" title="@{dexterity_bonus}" />
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="autoex">
+                            <span name="attr_dexterity_notes"></span>
+                            <textarea name="attr_dexterity_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
                         </div>
                     </div>
                 </div> <!-- END dexterity -->
-                <div class="myrow"> <!-- constitution -->
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="/r 1d20"><span data-i18n="con">con</span></button>
-                            <span class="sml" data-i18n="constitution">constitution</span>
+                <div class="ability"> <!-- constitution -->
+                    <input class="sheet-options-flag" name="attr_options-flag-con" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:default} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{constitution_notes}}}"><span data-i18n="con">con</span></button>
+                                <span class="sml" data-i18n="constitution">constitution</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_constitution_base" value="10" class="baseattr" title="@{constitution}" />
+                            <input type="hidden" name="attr_constitution" value="10" />
+                            <input type="hidden" name="attr_constitution_flag" value="0" class="attr-flag" />
+                            <span name="attr_constitution" class="pseudoattr finalattr"></span>
+                        </div>
+                        <div class="boxed">
+                            <span name="attr_constitution_mod" class="pseudoattr" title="@{constitution_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_constitution_bonus" class="boxed" value="0" title="@{constitution_bonus}" />
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="autoex">
+                            <span name="attr_constitution_notes"></span>
+                            <textarea name="attr_constitution_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
                         </div>
                     </div>
                 </div> <!-- END constitution -->
-                <div class="myrow"> <!-- intelligence -->
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="/r 1d20"><span data-i18n="int">int</span></button>
-                            <span class="sml" data-i18n="intelligence">intelligence</span>
+                <div class="ability"> <!-- intelligence -->
+                    <input class="sheet-options-flag" name="attr_options-flag-int" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:default} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{intelligence_notes}}}"><span data-i18n="int">int</span></button>
+                                <span class="sml" data-i18n="intelligence">intelligence</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_intelligence_base" value="10" class="baseattr" title="@{intelligence}" />
+                            <input type="hidden" name="attr_intelligence" value="10" />
+                            <input type="hidden" name="attr_intelligence_flag" value="0" class="attr-flag" />
+                            <span name="attr_intelligence" class="pseudoattr finalattr"></span>
+                        </div>
+                        <div class="boxed">
+                            <span name="attr_intelligence_mod" class="pseudoattr" title="@{intelligence_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_intelligence_bonus" class="boxed" value="0" title="@{intelligence_bonus}" />
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="autoex">
+                            <span name="attr_intelligence_notes"></span>
+                            <textarea name="attr_intelligence_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
                         </div>
                     </div>
                 </div> <!-- END intelligence -->
-                <div class="myrow"> <!-- wisdom -->
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="/r 1d20"><span data-i18n="wis">wis</span></button>
-                            <span class="sml" data-i18n="wisdom">wisdom</span>
+                <div class="ability"> <!-- wisdom -->
+                    <input class="sheet-options-flag" name="attr_options-flag-wis" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="@{whispertype} &{template:default} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{wisdom_notes}}}"><span data-i18n="wis">wis</span></button>
+                                <span class="sml" data-i18n="wisdom">wisdom</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_wisdom_base" value="10" class="baseattr" title="@{wisdom}" />
+                            <input type="hidden" name="attr_wisdom" value="10" />
+                            <input type="hidden" name="attr_wisdom_flag" value="0" class="attr-flag" />
+                            <span name="attr_wisdom" class="pseudoattr finalattr"></span>
+                        </div>
+                        <div class="boxed">
+                            <span name="attr_wisdom_mod" class="pseudoattr" title="@{wisdom_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_wisdom_bonus" class="boxed" value="0" title="@{wisdom_bonus}" />
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="autoex">
+                            <span name="attr_wisdom_notes"></span>
+                            <textarea name="attr_wisdom_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
                         </div>
                     </div>
                 </div> <!-- END wisdom -->
-                <div class="myrow"> <!-- charisma -->
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="/r 1d20"><span data-i18n="cha">cha</span></button>
-                            <span class="sml" data-i18n="charisma">charisma</span>
+                <div class="ability"> <!-- charisma -->
+                    <input class="sheet-options-flag" name="attr_options-flag-cha" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="@{whispertype} &{template:default} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{charisma_notes}}}"><span data-i18n="cha">cha</span></button>
+                                <span class="sml" data-i18n="charisma">charisma</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_charisma_base" value="10" class="baseattr" title="@{charisma}" />
+                            <input type="hidden" name="attr_charisma" value="10" />
+                            <input type="hidden" name="attr_charisma_flag" value="0" class="attr-flag" />
+                            <span name="attr_charisma" class="pseudoattr finalattr"></span>
+                        </div>
+                        <div class="boxed">
+                            <span name="attr_charisma_mod" class="pseudoattr" title="@{charisma_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_charisma_bonus" class="boxed" value="0" title="@{charisma_bonus}" />
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="autoex">
+                            <span name="attr_charisma_notes"></span>
+                            <textarea name="attr_charisma_notes" spellcheck="false" data-i18n-placeholder="notes-ability-placeholder" placeholder="Notes: +2 racial, +1 magic item..."></textarea>
                         </div>
                     </div>
                 </div> <!-- END charisma -->
-            </div>
-            <div class="myrow">
+            </div>  <!-- END abilities -->
+            <div class="myrow"> <!-- AC -->
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="ac-u">AC</span>
+                    </div>
+                </div>
+                <div class="boxed">
+                    <span name="attr_ac" class="pseudoattr" title="@{ac}"></span>
+                </div>
+                <div class="boxed">
+                    <input type="number" name="attr_ac_bonus" class="boxed" value="0" title="@{ac_bonus}" />
+                </div>
+                <div class="blacklabel">
+                    <div class="blackbgrd">
+                        <span class="big" data-i18n="touch">touch</span>
+                        <span class="sml" data-i18n="armor-class">armor class</span>
+                    </div>
+                </div>
+                <div class="boxed">
+                    <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
+                </div>
                 <div class="blacklabel">
                     <div class="blackbgrd">
                         <span class="big" data-i18n="flat-footed">flat-footed</span>
                         <span class="sml" data-i18n="armor-class">armor class</span>
                     </div>
                 </div>
-            </div> <!-- END abilities -->
+                <div class="boxed">
+                    <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
+                </div>
+            </div>  <!-- END AC -->
             <div class="myrow">
                 <div class="blacklabel">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -151,6 +282,7 @@
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
+                <input class="pseudocheck" type="checkbox" name="attr_rollshowchar" value="[[1]]" title="@{rollshowchar}" checked="checked" /><span class="mleft"></span><span data-i18n="show-character-name">Show character name</span>
                 <div class="myrow">
                     <span data-i18n="whisp-rolls-gm:">Whisper Rolls to GM:</span>
                     <select name="attr_whispertype" title="@{whispertype}">
@@ -213,13 +345,43 @@
     on("change:strength", function() {
         update_mod("strength");
     });
+    on("change:dexterity_base change:dexterity_bonus", function() {
+        update_attr("dexterity");
+    });
+    on("change:dexterity", function() {
+        update_mod("dexterity");
+    });
+    on("change:constitution_base change:constitution_bonus", function() {
+        update_attr("constitution");
+    });
+    on("change:constitution", function() {
+        update_mod("constitution");
+    });
+    on("change:intelligence_base change:intelligence_bonus", function() {
+        update_attr("intelligence");
+    });
+    on("change:intelligence", function() {
+        update_mod("intelligence");
+    });
+    on("change:wisdom_base change:wisdom_bonus", function() {
+        update_attr("wisdom");
+    });
+    on("change:wisdom", function() {
+        update_mod("wisdom");
+    });
+    on("change:charisma_base change:charisma_bonus", function() {
+        update_attr("charisma");
+    });
+    on("change:charisma", function() {
+        update_mod("charisma");
+    });
     var update_attr = function(attr) {
         var update = {};
         var attr_fields = [attr + "_base",attr + "_bonus"];
         getAttrs(attr_fields, function(v) {
             var base = parseInt(v[attr + "_base"]) || 10;
             var bonus = parseInt(v[attr + "_bonus"]) || 0;
-            update[attr + "_flag"] = bonus > 0 ? 1 : 0;
+            update[attr + "_flag"] = bonus != 0 ? 1 : 0;
             update[attr] = base + bonus;
             setAttrs(update);
         });
