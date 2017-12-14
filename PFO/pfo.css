@@ -59,6 +59,10 @@ img{
 .sheet-padindent{
     padding-left: 10px;
 }
+.sheet-spacer{
+    display: block;
+    height: 15px;
+}
 /* ==== DIVS ==== */
 div.sheet-main{
     vertical-align: top;
