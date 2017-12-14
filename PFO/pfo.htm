@@ -33,10 +33,10 @@
         <div class="colhalf"> <!-- tab1 col1 -->
             <div class="abilities"> <!-- abilities -->
                 <div class="myrow">
-                    <span class="lab" data-i18n="ability-name">ability name</span>
-                    <span class="lab" data-i18n="ability-score">ability score</span>
-                    <span class="lab" data-i18n="ability-modifier">ability modifier</span>
-                    <span class="lab" data-i18n="temp-adjustment">temp adjustment</span>
+                    <span class="lab" data-i18n="ability-name" data-i18n-title="ability-name" title="Ability Name">Ability Name</span>
+                    <span class="lab" data-i18n="ability-score" data-i18n-title="ability-score" title="Ability Score">Ability Score</span>
+                    <span class="lab" data-i18n="ability-modifier" data-i18n-title="ability-modifier" title="Ability Modifier">Ability Modifier</span>
+                    <span class="lab" data-i18n="temp-adjustment" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp Adjustment</span>
                 </div>
                 <div class="ability"> <!-- strength -->
                     <input class="sheet-options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
@@ -44,7 +44,7 @@
                         <div class="blacklabel">
                             <div class="blackbgrd">
                                 <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="str">str</span></button>
-                                <span class="sml" data-i18n="strength">strength</span>
+                                <span class="sml" data-i18n="strength" data-i18n-title="strength" title="Strength">Strength</span>
                             </div>
                         </div>
                         <div class="boxed">
@@ -73,7 +73,7 @@
                         <div class="blacklabel">
                             <div class="blackbgrd">
                                 <button class="myrol big" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:default} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{dexterity_notes}}}"><span data-i18n="dex">dex</span></button>
-                                <span class="sml" data-i18n="dexterity">dexterity</span>
+                                <span class="sml" data-i18n="dexterity" data-i18n-title="dexterity" title="Dexterity">Dexterity</span>
                             </div>
                         </div>
                         <div class="boxed">
@@ -102,7 +102,7 @@
                         <div class="blacklabel">
                             <div class="blackbgrd">
                                 <button class="myrol big" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:default} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{constitution_notes}}}"><span data-i18n="con">con</span></button>
-                                <span class="sml" data-i18n="constitution">constitution</span>
+                                <span class="sml" data-i18n="constitution" data-i18n-title="constitution" title="Constitution">Constitution</span>
                             </div>
                         </div>
                         <div class="boxed">
@@ -131,7 +131,7 @@
                         <div class="blacklabel">
                             <div class="blackbgrd">
                                 <button class="myrol big" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:default} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{intelligence_notes}}}"><span data-i18n="int">int</span></button>
-                                <span class="sml" data-i18n="intelligence">intelligence</span>
+                                <span class="sml" data-i18n="intelligence" data-i18n-title="intelligence" title="Intelligence">Intelligence</span>
                             </div>
                         </div>
                         <div class="boxed">
@@ -160,7 +160,7 @@
                         <div class="blacklabel">
                             <div class="blackbgrd">
                                 <button class="myrol big" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="@{whispertype} &{template:default} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{wisdom_notes}}}"><span data-i18n="wis">wis</span></button>
-                                <span class="sml" data-i18n="wisdom">wisdom</span>
+                                <span class="sml" data-i18n="wisdom" data-i18n-title="wisdom" title="Wisdom">Wisdom</span>
                             </div>
                         </div>
                         <div class="boxed">
@@ -189,7 +189,7 @@
                         <div class="blacklabel">
                             <div class="blackbgrd">
                                 <button class="myrol big" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="@{whispertype} &{template:default} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{charisma_notes}}}"><span data-i18n="cha">cha</span></button>
-                                <span class="sml" data-i18n="charisma">charisma</span>
+                                <span class="sml" data-i18n="charisma" data-i18n-title="charisma" title="Charisma">Charisma</span>
                             </div>
                         </div>
                         <div class="boxed">
@@ -213,36 +213,65 @@
                     </div>
                 </div> <!-- END charisma -->
             </div>  <!-- END abilities -->
+            <div class="hpvalues"> <!-- HP -->
+                <div class="myrow">
+                    <span class="lab">&nbsp;</span>
+                    <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
+                    <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
+                </div>
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-dice-roll" title="Hit Dice roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="hp-u">HP</span></button>
+                            <span class="sml" data-i18n="hit-points" data-i18n-title="hit-points" title="Hit Points">Hit Points</span>
+                        </div>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_hp" class="boxed" value="0" title="@{hp}" />
+                    </div>
+                    <span class="big">/</span>
+                    <div class="boxed">
+                        <input type="number" name="attr_hp_max" class="boxed" value="0" title="@{hp_max}" />
+                    </div>
+            </div> <!-- END HP -->
             <div class="spacer"></div>
-            <div class="myrow"> <!-- AC -->
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="ac-u">AC</span>
+            <div class="acvalues">
+                <input class="sheet-options-flag" name="attr_options-flag-ac" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="myrow"> <!-- AC -->
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="ac-u" data-i18n-title="armor-class" title="Armor Class">AC</span>
+                        </div>
+                    </div>
+                    <div class="boxed">
+                        <span name="attr_ac" class="pseudoattr" title="@{ac}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_ac_bonus" class="boxed" value="0" title="@{ac_bonus}" />
+                    </div>
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <span class="big" data-i18n="touch">Touch</span>
+                            <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
+                        </div>
+                    </div>
+                    <div class="boxed">
+                        <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
+                    </div>
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <span class="big" data-i18n="flat-footed">Flat-footed</span>
+                            <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
+                        </div>
+                    </div>
+                    <div class="boxed">
+                        <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
                 </div>
-                <div class="boxed">
-                    <span name="attr_ac" class="pseudoattr" title="@{ac}"></span>
-                </div>
-                <div class="boxed">
-                    <input type="number" name="attr_ac_bonus" class="boxed" value="0" title="@{ac_bonus}" />
-                </div>
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <span class="big" data-i18n="touch">touch</span>
-                        <span class="sml" data-i18n="armor-class">armor class</span>
+                <div class="options">
+                    <div class="autoex">
+                        <span name="attr_ac_notes"></span>
+                        <textarea name="attr_ac_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
                     </div>
-                </div>
-                <div class="boxed">
-                    <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
-                </div>
-                <div class="blacklabel">
-                    <div class="blackbgrd">
-                        <span class="big" data-i18n="flat-footed">flat-footed</span>
-                        <span class="sml" data-i18n="armor-class">armor class</span>
-                    </div>
-                </div>
-                <div class="boxed">
-                    <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                 </div>
             </div>  <!-- END AC -->
             <div class="spacer"></div>
