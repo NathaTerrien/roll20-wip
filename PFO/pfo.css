@@ -71,6 +71,7 @@ div.sheet-main{
     max-width: 850px;
     background-color: white;
     font-family: 'Times New Roman';
+    color: black;
 }
 div.sheet-myrow{
     display: block;
@@ -163,16 +164,21 @@ div.sheet-hpvalues {
     font-size: 1.03em;
     color: black;
 }
+.sheet-identity input[type=text].sheet-medium {
+    width: 139px;
+}
+.sheet-identity input[type=text].sheet-small {
+    width: 46px;
+}
 .sheet-abilities div.sheet-blacklabel {
     width: 80px;
 }
 .sheet-hpvalues div.sheet-blacklabel {
-    width: 65px;
+    width: 70px;
 }
 .sheet-abilities .sheet-lab,
 .sheet-hpvalues .sheet-lab {
     display: inline-block;
-    width: 50px;
     text-align: center;
     vertical-align: bottom;
     font-family: sans-serif;
@@ -182,11 +188,17 @@ div.sheet-hpvalues {
     white-space: pre-line;
     color: black;
 }
+.sheet-abilities .sheet-lab {
+    width: 50px;
+}
+.sheet-hpvalues .sheet-lab {
+    width: 40px;
+}
 .sheet-abilities .sheet-lab:first-child{
     width: 80px;
 }
 .sheet-hpvalues .sheet-lab:first-child{
-    width: 60px;
+    width: 70px;
 }
 .sheet-abilities div.sheet-boxed{
     margin-left: 5px;
@@ -203,6 +215,7 @@ input, textarea, select{
     margin: 0px 0px 0px 0px;
     font-family: 'Patrick Hand';
     font-size: 1.2em;
+    color: rgb(85, 85, 85);
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -238,6 +251,9 @@ select {
 }
 select.sheet-alignment {
     width: 110px;
+}
+select.sheet-size {
+    width: 80px;
 }
 span.sheet-pseudoattr {
     display: inline-block;

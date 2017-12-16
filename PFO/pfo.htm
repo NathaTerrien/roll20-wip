@@ -4,23 +4,91 @@
             <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/logo.png" />
         </div>
         <div class="col2third" style="padding-top: 4px;"> <!-- identity -->
-            <div class="identity">
-                <input type="text" name="attr_character_name" class="underlined" spellcheck="false" title="@{character_name}" />
-                <span data-i18n="character-name">character name</span>
+            <div class="myrow">
+                <div class="identity">
+                    <input type="text" name="attr_character_name" class="underlined" spellcheck="false" title="@{character_name}" />
+                    <span data-i18n="character-name">character name</span>
+                </div>
+                <div class="identity">
+                    <select class="alignment underlined" name="attr_alignment" title="@{alignment}">
+                        <option value="lawful good" data-i18n="lawful-good">lawful good</option>
+                        <option value="neutral good" data-i18n="neutral-good">neutral good</option>
+                        <option value="chaotic good" data-i18n="chaotic-good">chaotic good</option>
+                        <option value="lawful neutral" data-i18n="lawful-neutral">lawful neutral</option>
+                        <option value="neutral" data-i18n="neutral" selected="selected">neutral</option>
+                        <option value="chaotic neutral" data-i18n="chaotic-neutral">chaotic neutral</option>
+                        <option value="lawful evil" data-i18n="lawful-evil">lawful evil</option>
+                        <option value="neutral evil" data-i18n="neutral-evil">neutral evil</option>
+                        <option value="chaotic evil" data-i18n="chaotic-evil">chaotic evil</option>
+                    </select>
+                    <span data-i18n="alignment">alignment</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_player" class="underlined" spellcheck="false" title="@{player}" />
+                    <span data-i18n="player">player</span>
+                </div>
             </div>
-            <div class="identity">
-                <select class="alignment underlined" name="attr_alignment" title="@{alignment}">
-                    <option value="lawful good" data-i18n="lawful-good">lawful good</option>
-                    <option value="neutral good" data-i18n="neutral-good">neutral good</option>
-                    <option value="chaotic good" data-i18n="chaotic-good">chaotic good</option>
-                    <option value="lawful neutral" data-i18n="lawful-neutral">lawful neutral</option>
-                    <option value="neutral" data-i18n="neutral" selected="selected">neutral</option>
-                    <option value="chaotic neutral" data-i18n="chaotic-neutral">chaotic neutral</option>
-                    <option value="lawful evil" data-i18n="lawful-evil">lawful evil</option>
-                    <option value="neutral evil" data-i18n="neutral-evil">neutral evil</option>
-                    <option value="chaotic evil" data-i18n="chaotic-evil">chaotic evil</option>
-                </select>
-                <span data-i18n="alignment">alignment</span>
+            <div class="myrow">
+                <div class="identity">
+                    <input type="text" name="attr_class" class="underlined" spellcheck="false" title="@{class}" />
+                    <span data-i18n="class">Class</span>
+                </div>
+                <div class="identity">
+                    <input type="number" name="attr_level" value="1" class="underlined" style="max-width:35px;" title="@{level}" />
+                    <span data-i18n="level">Level</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_deity" class="underlined medium" spellcheck="false" title="@{deity}" />
+                    <span data-i18n="deity">Deity</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_homeland" class="underlined medium" spellcheck="false" title="@{homeland}" />
+                    <span data-i18n="homeland">Homeland</span>
+                </div>
+            </div>
+            <div class="myrow">
+                <div class="identity">
+                    <input type="text" name="attr_race" class="underlined medium" spellcheck="false" title="@{race}" />
+                    <span data-i18n="race">Race</span>
+                </div>
+                <div class="identity">
+                    <select class="size underlined" name="attr_size" title="@{size}">
+                        <option value="fine" data-i18n="fine">Fine</option>
+                        <option value="diminutive" data-i18n="diminutive">Diminutive</option>
+                        <option value="tiny" data-i18n="tiny">Tiny</option>
+                        <option value="small" data-i18n="small">Small</option>
+                        <option value="medium" data-i18n="medium" selected="selected">Medium</option>
+                        <option value="large" data-i18n="large">Large</option>
+                        <option value="huge" data-i18n="huge">Huge</option>
+                        <option value="gargantuan" data-i18n="gargantuan">Gargantuan</option>
+                        <option value="colossal" data-i18n="colossal">Colossal</option>
+                    </select>
+                    <span data-i18n="size">Size</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_gender" class="underlined small" spellcheck="false" title="@{gender}" />
+                    <span data-i18n="gender">Gender</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_age" class="underlined small" spellcheck="false" title="@{age}" />
+                    <span data-i18n="age">Age</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_height" class="underlined small" spellcheck="false" title="@{height}" />
+                    <span data-i18n="height-char">Height</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_weight" class="underlined small" spellcheck="false" title="@{weight}" />
+                    <span data-i18n="weight-char">Weight</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_hair" class="underlined small" spellcheck="false" title="@{hair}" />
+                    <span data-i18n="hair">Hair</span>
+                </div>
+                <div class="identity">
+                    <input type="text" name="attr_eyes" class="underlined small" spellcheck="false" title="@{eyes}" />
+                    <span data-i18n="eyes">Eyes</span>
+                </div>
             </div>
         </div> <!-- END identity -->
     </div> <!-- END top row -->
@@ -219,19 +287,34 @@
                     <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
                     <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
                 </div>
+                <div class="myrow">
                     <div class="blacklabel">
                         <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-dice-roll" title="Hit Dice roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="hp-u">HP</span></button>
+                            <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:default} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hp-u">HP</span></button>
                             <span class="sml" data-i18n="hit-points" data-i18n-title="hit-points" title="Hit Points">Hit Points</span>
                         </div>
                     </div>
                     <div class="boxed">
                         <input type="number" name="attr_hp" class="boxed" value="0" title="@{hp}" />
                     </div>
-                    <span class="big">/</span>
                     <div class="boxed">
                         <input type="number" name="attr_hp_max" class="boxed" value="0" title="@{hp_max}" />
                     </div>
+                </div>
+                <div class="myrow">
+                    <span class="lab">&nbsp;</span>
+                    <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonleth</span>
+                    <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
+                </div>
+                <div class="myrow">
+                    <span class="lab">&nbsp;</span>
+                    <div class="boxed">
+                        <input type="number" name="attr_nonlethaldmg" class="boxed" value="0" title="@{nonlethaldmg}" />
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_dr" class="boxed" value="0" title="@{dr}" />
+                    </div>
+                </div>
             </div> <!-- END HP -->
             <div class="spacer"></div>
             <div class="acvalues">
@@ -308,6 +391,25 @@
             <div class="blacklabel">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                 <div class="blackbgrd">
+                    <span class="big only" data-i18n="class">class</span>
+                </div>
+                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+            </div>
+            <div class="bordered titled inbox">
+                <span data-i18n="hit-die">Hit Die</span>:
+                <select name="attr_hitdietype">
+                    <option value="4">D4</option>
+                    <option value="6">D6</option>
+                    <option value="8" selected="selected">D8</option>
+                    <option value="10">D10</option>
+                    <option value="12">D12</option>
+                </select>
+            </div>
+        </div>
+        <div class="col1third">
+            <div class="blacklabel">
+                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                <div class="blackbgrd">
                     <span class="big only" data-i18n="rolls">rolls</span>
                 </div>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
@@ -337,9 +439,6 @@
             </div>
         </div>
         <div class="col1third">
-            Some configuration stuff
-        </div>
-        <div class="col1third">
             <div class="myrow"  style="text-align: right;">
                 <span class="block">Version 0.0a</span>
             </div>
@@ -347,16 +446,6 @@
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                 <div class="blackbgrd">
                     <span class="big only">some other stuff</span>
-                </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-            </div>
-            <div class="bordered titled inbox">
-                <span class="block">Some configuration stuff</span>
-            </div>
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only">and more stuff</span>
                 </div>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
