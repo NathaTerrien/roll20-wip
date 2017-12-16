@@ -121,7 +121,7 @@
                             <input type="hidden" name="attr_strength_flag" value="0" class="attr-flag" />
                             <span name="attr_strength" class="pseudoattr finalattr"></span>
                         </div>
-                        <div class="boxed">
+                        <div class="boxed greybg">
                             <span name="attr_strength_mod" class="pseudoattr" title="@{strength_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -150,7 +150,7 @@
                             <input type="hidden" name="attr_dexterity_flag" value="0" class="attr-flag" />
                             <span name="attr_dexterity" class="pseudoattr finalattr"></span>
                         </div>
-                        <div class="boxed">
+                        <div class="boxed greybg">
                             <span name="attr_dexterity_mod" class="pseudoattr" title="@{dexterity_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -179,7 +179,7 @@
                             <input type="hidden" name="attr_constitution_flag" value="0" class="attr-flag" />
                             <span name="attr_constitution" class="pseudoattr finalattr"></span>
                         </div>
-                        <div class="boxed">
+                        <div class="boxed greybg">
                             <span name="attr_constitution_mod" class="pseudoattr" title="@{constitution_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -208,7 +208,7 @@
                             <input type="hidden" name="attr_intelligence_flag" value="0" class="attr-flag" />
                             <span name="attr_intelligence" class="pseudoattr finalattr"></span>
                         </div>
-                        <div class="boxed">
+                        <div class="boxed greybg">
                             <span name="attr_intelligence_mod" class="pseudoattr" title="@{intelligence_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -237,7 +237,7 @@
                             <input type="hidden" name="attr_wisdom_flag" value="0" class="attr-flag" />
                             <span name="attr_wisdom" class="pseudoattr finalattr"></span>
                         </div>
-                        <div class="boxed">
+                        <div class="boxed greybg">
                             <span name="attr_wisdom_mod" class="pseudoattr" title="@{wisdom_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -266,7 +266,7 @@
                             <input type="hidden" name="attr_charisma_flag" value="0" class="attr-flag" />
                             <span name="attr_charisma" class="pseudoattr finalattr"></span>
                         </div>
-                        <div class="boxed">
+                        <div class="boxed greybg">
                             <span name="attr_charisma_mod" class="pseudoattr" title="@{charisma_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -304,7 +304,7 @@
                     </div>
                     <div class="myrow">
                         <span class="lab">&nbsp;</span>
-                        <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonleth</span>
+                        <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonlethal</span>
                         <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
                     </div>
                     <div class="myrow">
@@ -319,12 +319,45 @@
                 </div> <!-- END HP -->
                 <div class="spacer"></div>
                 <div class="initiative"> <!-- INITIATIVE -->
+                    <input class="sheet-options-flag" name="attr_options-flag-initiative" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative_mod}[MOD]]]}}"><span data-i18n="initiative">Init</span></button>
+                                <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative_mod}[MOD]]]}}"><span data-i18n="init">Init</span></button>
                                 <span class="sml" data-i18n="initiative" data-i18n-title="initiative" title="Initiative">Initiative</span>
                             </div>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_initiative_mod" class="pseudoattr" title="@{initiative_mod}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_initiative_bonus" class="boxed" value="0" title="@{initiative_bonus}" />
+                        </div>
+                    </div>
+                    <div class="myrow">
+                        <span class="lab" style="margin-left: 73px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                        <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                    </div>
+                    <div class="options">
+                        <div class="myrow">
+                            <span class="spacer">=</span>
+                            <div class="boxed greybg">
+                                <span name="attr_dexterity_mod" class="pseudoattr" title="@{dexterity_mod}"></span>
+                            </div>
+                            <span class="spacer">+</span>
+                            <div class="boxed">
+                                <input type="number" name="attr_initiative_misc" class="boxed" value="0" title="@{initiative_misc}" />
+                            </div>
+                        </div>
+                        <div class="myrow">
+                            <span class="spacer"></span>
+                            <span class="lab" data-i18n="dex" data-i18n-title="dexterity-modifier" title="Dexterity Modifier">dex</span>
+                            <span class="spacer"></span>
+                            <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                        </div>
+                        <div class="autoex">
+                            <span name="attr_initiative_notes"></span>
+                            <textarea name="attr_initiative_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{initiative_notes}"></textarea>
                         </div>
                     </div>
                 </div><!-- END initiative -->
@@ -338,7 +371,7 @@
                             <span class="big only" data-i18n="ac-u" data-i18n-title="armor-class" title="Armor Class">AC</span>
                         </div>
                     </div>
-                    <div class="boxed">
+                    <div class="boxed greybg">
                         <span name="attr_ac" class="pseudoattr" title="@{ac}"></span>
                     </div>
                     <div class="boxed">
@@ -350,7 +383,7 @@
                             <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
                         </div>
                     </div>
-                    <div class="boxed">
+                    <div class="boxed greybg">
                         <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
                     </div>
                     <div class="blacklabel">
@@ -359,14 +392,14 @@
                             <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
                         </div>
                     </div>
-                    <div class="boxed">
+                    <div class="boxed greybg">
                         <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
                 </div>
                 <div class="options">
                     <div class="autoex">
                         <span name="attr_ac_notes"></span>
-                        <textarea name="attr_ac_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+                        <textarea name="attr_ac_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{ac_notes}"></textarea>
                     </div>
                 </div>
             </div>  <!-- END AC -->
@@ -471,6 +504,7 @@
 
 <!-- WORKERS -->
 <script type="text/worker">
+    // ==== EVENTS ===
     // ABILITIES
     on("change:strength_base change:strength_bonus", function() {
         update_attr("strength");
@@ -508,6 +542,13 @@
     on("change:charisma", function() {
         update_mod("charisma");
     });
+    // MODS
+    on("change:dexterity_mod change:initiative_misc change:initiative_bonus", function() {
+        update_initiative();
+    });
+
+    // ==== FUNCTIONS ===
+    // ABILITIES and MODS
     var update_attr = function(attr) {
         var update = {};
         var attr_fields = [attr + "_base",attr + "_bonus"];
@@ -525,6 +566,12 @@
             var update = {};
             update[attr + "_mod"] = mod;
             setAttrs(update);
+        });
+    };
+    // INITIATIVE
+    var update_initiative = function () {
+        getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
+            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
         });
     };
 </script>

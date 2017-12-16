@@ -59,9 +59,8 @@ img{
 .sheet-padindent{
     padding-left: 10px;
 }
-.sheet-spacer{
-    display: block;
-    height: 15px;
+.sheet-greybg{
+    background-color: #DDD;
 }
 /* ==== DIVS ==== */
 div.sheet-main{
@@ -77,6 +76,12 @@ div.sheet-myrow{
     display: block;
     width: 100%;
     text-align: left;
+}
+div.sheet-spacer{
+    display: block;
+    height: 15px;
+}
+.sheet-abilities div.sheet-myrow {
     margin: 1px 0px 1px 0px;
 }
 div.sheet-colhalf{
@@ -149,7 +154,8 @@ div.sheet-boxed {
     margin-top: 3px;
 }
 div.sheet-ability,
-div.sheet-acvalues {
+div.sheet-acvalues,
+div.sheet-initiative {
     position: relative;
 }
 div.sheet-abilities,
@@ -197,8 +203,9 @@ div.sheet-initiative {
 .sheet-abilities .sheet-lab {
     width: 50px;
 }
-.sheet-hpvalues .sheet-lab {
-    width: 40px;
+.sheet-hpvalues .sheet-lab,
+.sheet-initiative .sheet-lab {
+    width: 45px;
 }
 .sheet-abilities .sheet-lab:first-child{
     width: 80px;
@@ -210,8 +217,18 @@ div.sheet-initiative {
     margin-left: 5px;
     margin-right: 5px;
 }
+.sheet-initiative div.sheet-boxed,
+.sheet-hpvalues div.sheet-boxed {
+    margin-left: 5px;
+}
 .sheet-skills div.sheet-blacklabel .sheet-blackbgrd{
     width: 350px;
+}
+/* ===== SPAN ===== */
+span.sheet-spacer{
+    display: inline-block;
+    width: 10px;
+    text-align: center;
 }
 /* ===== INPUTS ===== */
 input, textarea, select{
@@ -445,16 +462,14 @@ input.sheet-tabconf:checked + span{
     border-bottom-color: white;
 }
 /* ===== OPTIONS ===== */
-.sheet-abilities .sheet-options-flag,
-.sheet-acvalues .sheet-options-flag {
+.sheet-options-flag {
     opacity: 0;
     position: absolute;
     width: 16px;
     height: 16px;
     z-index: 2;
 }
-.sheet-abilities .sheet-options-flag + span,
-.sheet-acvalues .sheet-options-flag + span {
+.sheet-options-flag + span {
     position: absolute;
     white-space: nowrap;
     width: 16px;
@@ -466,6 +481,11 @@ input.sheet-tabconf:checked + span{
     margin-top: 0px;
     display: none;
 }
+.sheet-options-flag:hover + span,
+.sheet-options-flag:checked + span {
+    color: #C3996B;
+    display: block;
+}
 .sheet-abilities .sheet-options-flag,
 .sheet-abilities .sheet-options-flag + span{
     top: -2px;
@@ -476,26 +496,16 @@ input.sheet-tabconf:checked + span{
     top: -2px;
     left: -1px;
 }
-.sheet-abilities .sheet-options-flag:hover + span,
-.sheet-acvalues .sheet-options-flag:hover + span {
-    color: #C3996B; /* #E6DD94; */
-    display: block;
-}
-.sheet-abilities .sheet-options-flag:checked + span,
-.sheet-acvalues .sheet-options-flag:checked + span {
-    color: #C3996B; /* #E6DD94; */
-    display: block;
-}
 .sheet-abilities .sheet-ability:hover .sheet-options-flag + span,
-.sheet-acvalues:hover .sheet-options-flag + span {
+.sheet-acvalues:hover .sheet-options-flag + span,
+.sheet-initiative:hover .sheet-options-flag + span{
     display: block;
 }
 .sheet-options{
     display: none;
     border-bottom: 2px dotted #C3996B;
 }
-.sheet-abilities .sheet-options-flag:checked ~ .sheet-options,
-.sheet-acvalues .sheet-options-flag:checked ~ .sheet-options {
+.sheet-options-flag:checked ~ .sheet-options {
     display: inherit;
 }
 /* ===== AUTO EXPAND TEXTAREA ===== */
