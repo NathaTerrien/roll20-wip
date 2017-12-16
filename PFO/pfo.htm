@@ -281,41 +281,54 @@
                     </div>
                 </div> <!-- END charisma -->
             </div>  <!-- END abilities -->
-            <div class="hpvalues"> <!-- HP -->
-                <div class="myrow">
-                    <span class="lab">&nbsp;</span>
-                    <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
-                    <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
-                </div>
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:default} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hp-u">HP</span></button>
-                            <span class="sml" data-i18n="hit-points" data-i18n-title="hit-points" title="Hit Points">Hit Points</span>
+            <div class="subcol">
+                <div class="hpvalues"> <!-- HP -->
+                    <div class="myrow">
+                        <span class="lab">&nbsp;</span>
+                        <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
+                        <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
+                    </div>
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:default} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hp-u">HP</span></button>
+                                <span class="sml" data-i18n="hit-points" data-i18n-title="hit-points" title="Hit Points">Hit Points</span>
+                            </div>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_hp" class="boxed" value="0" title="@{hp}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_hp_max" class="boxed" value="0" title="@{hp_max}" />
                         </div>
                     </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_hp" class="boxed" value="0" title="@{hp}" />
+                    <div class="myrow">
+                        <span class="lab">&nbsp;</span>
+                        <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonleth</span>
+                        <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
                     </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_hp_max" class="boxed" value="0" title="@{hp_max}" />
+                    <div class="myrow">
+                        <span class="lab">&nbsp;</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_nonlethaldmg" class="boxed" value="0" title="@{nonlethaldmg}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_dr" class="boxed" value="0" title="@{dr}" />
+                        </div>
                     </div>
-                </div>
-                <div class="myrow">
-                    <span class="lab">&nbsp;</span>
-                    <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonleth</span>
-                    <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
-                </div>
-                <div class="myrow">
-                    <span class="lab">&nbsp;</span>
-                    <div class="boxed">
-                        <input type="number" name="attr_nonlethaldmg" class="boxed" value="0" title="@{nonlethaldmg}" />
+                </div> <!-- END HP -->
+                <div class="spacer"></div>
+                <div class="initiative"> <!-- INITIATIVE -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative_mod}[MOD]]]}}"><span data-i18n="initiative">Init</span></button>
+                                <span class="sml" data-i18n="initiative" data-i18n-title="initiative" title="Initiative">Initiative</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_dr" class="boxed" value="0" title="@{dr}" />
-                    </div>
-                </div>
-            </div> <!-- END HP -->
+                </div><!-- END initiative -->
+            </div>
             <div class="spacer"></div>
             <div class="acvalues">
                 <input class="sheet-options-flag" name="attr_options-flag-ac" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>

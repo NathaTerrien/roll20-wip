@@ -153,9 +153,13 @@ div.sheet-acvalues {
     position: relative;
 }
 div.sheet-abilities,
-div.sheet-hpvalues {
+div.sheet-subcol {
     display: inline-block;
     vertical-align: top;
+}
+div.sheet-hpvalues,
+div.sheet-initiative {
+    display: block;
 }
 .sheet-identity span{
     display: block;
@@ -173,11 +177,13 @@ div.sheet-hpvalues {
 .sheet-abilities div.sheet-blacklabel {
     width: 80px;
 }
-.sheet-hpvalues div.sheet-blacklabel {
+.sheet-hpvalues div.sheet-blacklabel,
+.sheet-initiative div.sheet-blacklabel {
     width: 70px;
 }
 .sheet-abilities .sheet-lab,
-.sheet-hpvalues .sheet-lab {
+.sheet-hpvalues .sheet-lab,
+.sheet-initiative .sheet-lab {
     display: inline-block;
     text-align: center;
     vertical-align: bottom;
