@@ -187,9 +187,7 @@ div.sheet-initiative {
 .sheet-initiative div.sheet-blacklabel {
     width: 70px;
 }
-.sheet-abilities .sheet-lab,
-.sheet-hpvalues .sheet-lab,
-.sheet-initiative .sheet-lab {
+.sheet-lab {
     display: inline-block;
     text-align: center;
     vertical-align: bottom;
@@ -212,6 +210,12 @@ div.sheet-initiative {
 }
 .sheet-hpvalues .sheet-lab:first-child{
     width: 70px;
+}
+.sheet-acvalues .sheet-lab {
+    width: 40px;
+}
+.sheet-acvalues div.sheet-blacklabel:first-child {
+    width: 40px;
 }
 .sheet-abilities div.sheet-boxed{
     margin-left: 5px;
@@ -466,7 +470,7 @@ input.sheet-tabconf:checked + span{
     opacity: 0;
     position: absolute;
     width: 16px;
-    height: 16px;
+    min-height: 16px;
     z-index: 2;
 }
 .sheet-options-flag + span {
@@ -487,14 +491,13 @@ input.sheet-tabconf:checked + span{
     display: block;
 }
 .sheet-abilities .sheet-options-flag,
-.sheet-abilities .sheet-options-flag + span{
-    top: -2px;
-    right: -1px;
-}
+.sheet-abilities .sheet-options-flag + span,
 .sheet-acvalues .sheet-options-flag,
-.sheet-acvalues .sheet-options-flag + span {
+.sheet-acvalues .sheet-options-flag + span,
+.sheet-initiative .sheet-options-flag,
+.sheet-initiative .sheet-options-flag + span {
     top: -2px;
-    left: -1px;
+    left: 0px;
 }
 .sheet-abilities .sheet-ability:hover .sheet-options-flag + span,
 .sheet-acvalues:hover .sheet-options-flag + span,

@@ -102,9 +102,9 @@
             <div class="abilities"> <!-- abilities -->
                 <div class="myrow">
                     <span class="lab" data-i18n="ability-name" data-i18n-title="ability-name" title="Ability Name">Ability Name</span>
-                    <span class="lab" data-i18n="ability-score" data-i18n-title="ability-score" title="Ability Score">Ability Score</span>
-                    <span class="lab" data-i18n="ability-modifier" data-i18n-title="ability-modifier" title="Ability Modifier">Ability Modifier</span>
-                    <span class="lab" data-i18n="temp-adjustment" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp Adjustment</span>
+                    <span class="lab" data-i18n="score" data-i18n-title="ability-score" title="Score">Score</span>
+                    <span class="lab" data-i18n="modifier" data-i18n-title="ability-modifier" title="Modifier">Modifier</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
                 <div class="ability"> <!-- strength -->
                     <input class="sheet-options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
@@ -397,6 +397,56 @@
                     </div>
                 </div>
                 <div class="options">
+                    <div class="myrow">
+                        <span class="spacer">=</span>
+                        <span class="spacer">10</span>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_armor" class="pseudoattr" title="@{ac_armor}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_ability" class="pseudoattr" title="@{ac_ability}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_size" class="pseudoattr" title="@{ac_size}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_ac_natural" class="boxed" value="0" title="@{ac_natural}" />
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_ac_deflection" class="boxed" value="0" title="@{ac_deflection}" />
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_ac_misc" class="boxed" value="0" title="@{ac_misc}" />
+                        </div>
+                    </div>
+                    <div class="myrow">
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="armor" data-i18n-title="armor-bonus" title="Armor Bonus">Armor</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="shield" data-i18n-title="shield-bonus" title="Shield Bonus">Shield</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="size" data-i18n-title="size-modifier" title="Size Modifier">Size</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="natural" data-i18n-title="natural-armor" title="Natural Armor">Natural</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="deflection" data-i18n-title="deflection-modifier" title="Deflection Modifier">Deflection</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-bonus" title="Misc Bonus">Misc</span>
+                    </div>
                     <div class="autoex">
                         <span name="attr_ac_notes"></span>
                         <textarea name="attr_ac_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{ac_notes}"></textarea>
