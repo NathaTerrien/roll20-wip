@@ -77,6 +77,9 @@ div.sheet-myrow{
     width: 100%;
     text-align: left;
 }
+div.sheet-myrow.sheet-right{
+    text-align: right;
+}
 div.sheet-spacer{
     display: block;
     height: 15px;
@@ -255,6 +258,10 @@ input:focus, input:hover, textarea:focus, textarea:hover, select:hover, select:f
 input[type="number"]{
     text-align: center;
     vertical-align: middle;
+
+}
+input[type="number"].sheet-sml{
+    width: 30px;
 }
 div.sheet-boxed input[type="number"]{
     width: 36px;
