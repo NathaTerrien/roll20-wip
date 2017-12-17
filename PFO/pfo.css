@@ -84,14 +84,17 @@ div.sheet-spacer{
     display: block;
     height: 15px;
 }
+div.sheet-abilities{
+    width: 250px;
+    max-width: 250px;
+}
 .sheet-abilities div.sheet-myrow {
     margin: 1px 0px 1px 0px;
 }
 div.sheet-colhalf{
     display: inline-block;
     vertical-align: top;
-    width: 420px;
-    margin: 1px;
+    width: 49.8%;
     text-align: left;
 }
 div.sheet-col1third{
@@ -132,6 +135,11 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
     padding-top: 4px;
 }
+div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
+    display: block;
+    font-size: 0.80em;
+    line-height: 0.85em;
+}
 div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
     display: block;
     font-size: 0.65em;
@@ -165,6 +173,10 @@ div.sheet-abilities,
 div.sheet-subcol {
     display: inline-block;
     vertical-align: top;
+}
+div.sheet-subcol.sheet-hpinit {
+    width: 170px;
+    max-width: 170px;
 }
 div.sheet-hpvalues,
 div.sheet-initiative {
@@ -230,6 +242,10 @@ div.sheet-initiative {
 }
 .sheet-skills div.sheet-blacklabel .sheet-blackbgrd{
     width: 350px;
+}
+.sheet-acitems div.sheet-blackbgrd {
+    width: 50px;
+    padding: 2px 0px 0px 0px;
 }
 /* ===== SPAN ===== */
 span.sheet-spacer{
@@ -302,9 +318,6 @@ div.sheet-boxed span.sheet-pseudoattr {
     min-width: 36px;
 }
 /* ===== ABILITIES ===== */
-div.sheet-abilities{
-    width: 250px;
-}
 .sheet-baseattr {
     opacity: 0;
     height: 0px;

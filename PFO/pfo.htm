@@ -281,7 +281,7 @@
                     </div>
                 </div> <!-- END charisma -->
             </div>  <!-- END abilities -->
-            <div class="subcol">
+            <div class="subcol hpinit">
                 <div class="hpvalues"> <!-- HP -->
                     <div class="myrow">
                         <span class="lab">&nbsp;</span>
@@ -323,7 +323,7 @@
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative_mod}[MOD]]]}}"><span data-i18n="init">Init</span></button>
+                                <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative_mod}[MOD]+@{rollmod_initiative}[BONUS] &{tracker}]]}} {{shownotes=@{rollnotes_initiative}}} {{notes=@{initiative_notes}}}"><span data-i18n="init">Init</span></button>
                                 <span class="sml" data-i18n="initiative" data-i18n-title="initiative" title="Initiative">Initiative</span>
                             </div>
                         </div>
@@ -477,7 +477,41 @@
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
     <div class="tabadd"> <!-- TAB ADDITIONNAL -->
-        ADDITIONNAL INFORMATION TODO
+        <div class="acitems">
+            <div class="blacklabel">
+                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                <div class="blackbgrd" style="width: 85px;" >
+                    <span class="big only" data-i18n="ac-items">AC Items</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="eq.">EQ.</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="ac-bonus">AC Bonus</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="flat-footed-bonus">Flat-footed Bonus</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="touch-bonus">Touch Bonus</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="type">Type</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="check-penalty">Check Penalty</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="max-dex-bonus">Max Dex Bonus</span>
+                </div>
+                <div class="blackbgrd">
+                    <span class="med" data-i18n="spell-failure">Spell Failure</span>
+                </div>
+                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+            </div>
+            <div class="bordered titled inbox">
+            </div>
+        </div>
     </div> <!-- END TAB ADDITIONNAL -->
     <div class="tabspell"> <!-- TAB SPELLS -->
         SPELLS AND MAGIC
@@ -550,12 +584,14 @@
                 </div>
                 <span class="block" data-i18n="query-modifier">Query modifier for:</span>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_ability" value="?{Modifier|0}" title="@{rollmod_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_initiative" value="?{Modifier|0}" title="@{rollmod_initiative}" /><span class="mleft"></span><span data-i18n="initiative-rolls">Initiative Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_save" value="?{Modifier|0}" title="@{rollmod_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_skill" value="?{Modifier|0}" title="@{rollmod_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_attack" value="?{Modifier|0}" title="@{rollmod_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_damage" value="?{Modifier|0}" title="@{rollmod_damage}" /><span class="mleft"></span><span data-i18n="damage-rolls">Damage Rolls</span></div>
                 <span class="block" data-i18n="show-notes-in">Show Notes in:</span>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_ability" value="1" title="@{rollnotes_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_initiative" value="1" title="@{rollnotes_initiative}" /><span class="mleft"></span><span data-i18n="initiative-rolls">Initiative Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_save" value="1" title="@{rollnotes_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_skill" value="1" title="@{rollnotes_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_attack" value="1" title="@{rollnotes_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
@@ -669,7 +705,7 @@
     on("change:ac_ability_primary change:ac_ability_secondary", function(){
         update_ac_ability("");
     });
-    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_noflatflooted change:ac_touchshield", function(){
+    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
     });
 
@@ -780,7 +816,7 @@
     };
     var update_ac = function() {
         var update = {};
-        getAttrs(["ac_bonus","ac_ability","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_noflatflooted","ac_touchshield"], function(v) {
+        getAttrs(["ac_bonus","ac_ability","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
             var base = 10,
                 ac = 0,
                 actouch = 0,
@@ -794,13 +830,17 @@
                 deflection = parseInt(v.ac_deflection) || 0,
                 misc = parseInt(v.ac_misc) || 0,
                 dodge = parseInt(v.ac_dodge) || 0,
+                touch_bonus = parseInt(v.ac_touch_bonus) || 0,
+                flatfooted_bonus = parseInt(v.ac_flatfooted_bonus) || 0,
                 noflatflooted = parseInt(v.ac_noflatflooted) || 0,
                 touchshield = parseInt(v.ac_touchshield) || 0;
             ac = base + bonus + ability + armor + shield + size + natural + deflection + misc + dodge;
             if (noflatflooted == 1) {acff = ac;}
             else {acff = base + bonus + armor + shield + size + natural + deflection + misc;}
+            acff += flatfooted_bonus;
             actouch = base + bonus + ability + size + deflection + misc + dodge;
-            if (touchshield == 1) {actouch +=shield;}
+            if (touchshield == 1) {actouch += shield;}
+            actouch += touch_bonus;
             setAttrs({
                 "ac": ac,
                 "ac_touch": actouch,

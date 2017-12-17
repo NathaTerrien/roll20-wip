@@ -1,0 +1,23 @@
+{
+    "content": "**Shield, Heavy Wooden**: You strap a shield to your forearm and grip it with your hand. A light shield's weight lets you carry other items in that hand, although you cannot use weapons with it.\n\nWooden or Steel: Wooden and steel shields offer the same basic protection, though they respond differently to some spells and effects.\n\nShield Bash Attacks: You can bash an opponent with a light shield. If you use your shield as a weapon, you lose its AC bonus until your next turn. An enhancement bonus on a shield does not improve the effectiveness of a shield bash made with it, but the shield can be made into a magic weapon in its own right.",
+    "data": {
+        "Arcane Spell Failure Chance": "15%",
+        "Armor Category": "Shield",
+        "Armor Check Penalty": "-2",
+        "Armor/Shield Bonus": "+2",
+        "Category": "Items",
+        "Cost": "7 gp",
+        "Critical Damage": "x2",
+        "Damage (Medium)": "1d4",
+        "Damage (Small)": "1d3",
+        "Damage Type": "Bludgeoning",
+        "Source": "pathfinder_core",
+        "Weapon Category": "One-Handed Melee",
+        "Weapon Type": "Martial",
+        "Weight": "10",
+        "data-List": "false"
+    },
+    "htmlcontent": "<strong>Shield, Heavy Wooden</strong>: You strap a shield to your forearm and grip it with your hand. A light shield's weight lets you carry other items in that hand, although you cannot use weapons with it.<br><br><em>Wooden or Steel</em>: Wooden and steel shields offer the same basic protection, though they respond differently to some spells and effects.<br><br><em>Shield Bash Attacks</em>: You can bash an opponent with a light shield. If you use your shield as a weapon, you lose its AC bonus until your next turn. An enhancement bonus on a shield does not improve the effectiveness of a shield bash made with it, but the shield can be made into a magic weapon in its own right.",
+    "id": 14501,
+    "name": "Shield, Heavy Wooden"
+}

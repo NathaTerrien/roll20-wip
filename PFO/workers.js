@@ -80,7 +80,7 @@
     on("change:ac_ability_primary change:ac_ability_secondary", function(){
         update_ac_ability("");
     });
-    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_noflatflooted change:ac_touchshield", function(){
+    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
     });
 
@@ -191,7 +191,7 @@
     };
     var update_ac = function() {
         var update = {};
-        getAttrs(["ac_bonus","ac_ability","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_noflatflooted","ac_touchshield"], function(v) {
+        getAttrs(["ac_bonus","ac_ability","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
             var base = 10,
                 ac = 0,
                 actouch = 0,
@@ -205,13 +205,17 @@
                 deflection = parseInt(v.ac_deflection) || 0,
                 misc = parseInt(v.ac_misc) || 0,
                 dodge = parseInt(v.ac_dodge) || 0,
+                touch_bonus = parseInt(v.ac_touch_bonus) || 0,
+                flatfooted_bonus = parseInt(v.ac_flatfooted_bonus) || 0,
                 noflatflooted = parseInt(v.ac_noflatflooted) || 0,
                 touchshield = parseInt(v.ac_touchshield) || 0;
             ac = base + bonus + ability + armor + shield + size + natural + deflection + misc + dodge;
             if (noflatflooted == 1) {acff = ac;}
             else {acff = base + bonus + armor + shield + size + natural + deflection + misc;}
+            acff += flatfooted_bonus;
             actouch = base + bonus + ability + size + deflection + misc + dodge;
-            if (touchshield == 1) {actouch +=shield;}
+            if (touchshield == 1) {actouch += shield;}
+            actouch += touch_bonus;
             setAttrs({
                 "ac": ac,
                 "ac_touch": actouch,
