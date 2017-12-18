@@ -254,7 +254,7 @@ span.sheet-spacer{
     text-align: center;
 }
 /* ===== INPUTS ===== */
-input, textarea, select{
+input, textarea{
     background-color: transparent;
     display: inline-block;
     padding: 0px 0px 0px 0px;
@@ -289,15 +289,27 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     appearance: none;
 }
+input[type=number] {
+    -moz-appearance:textfield;
+}
 select {
     width: auto;
-    height: 18px;
-    line-height: 18px;
+    height: 1.3em;
+    line-height: 1.0em;
     cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     text-transform: capitalize;
+    vertical-align: bottom;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    font-size: 1.0em;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    resize: none;
 }
 select.sheet-alignment {
     width: 110px;
