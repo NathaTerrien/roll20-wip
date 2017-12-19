@@ -108,7 +108,6 @@ div.sheet-col2third{
     display: inline-block;
     vertical-align: top;
     width: 560px;
-    margin: 1px;
 }
 div.sheet-blacklabel{
     display: inline-block;
@@ -140,6 +139,9 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
     font-size: 0.80em;
     line-height: 0.85em;
 }
+div.sheet-blacklabel .sheet-blackbgrd .sheet-med.sheet-only{
+    padding-top: 15px;
+}
 div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
     display: block;
     font-size: 0.65em;
@@ -166,7 +168,8 @@ div.sheet-boxed {
 }
 div.sheet-ability,
 div.sheet-acvalues,
-div.sheet-initiative {
+div.sheet-initiative,
+div.sheet-acitem {
     position: relative;
 }
 div.sheet-abilities,
@@ -243,9 +246,12 @@ div.sheet-initiative {
 .sheet-skills div.sheet-blacklabel .sheet-blackbgrd{
     width: 350px;
 }
-.sheet-acitems div.sheet-blackbgrd {
-    width: 50px;
-    padding: 2px 0px 0px 0px;
+div.sheet-acitems {
+    width: 550px;
+    text-align: left;
+}
+.sheet-acitem div.sheet-myrow {
+    padding-left: 16px;
 }
 /* ===== SPAN ===== */
 span.sheet-spacer{
@@ -284,6 +290,9 @@ div.sheet-boxed input[type="number"]{
     height: 18px;
     margin-top: 2px;
 }
+.sheet-acitem input[type="number"]{
+    width: 35px;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -316,6 +325,9 @@ select.sheet-alignment {
 }
 select.sheet-size {
     width: 80px;
+}
+.sheet-acitem select{
+    width: 60px;
 }
 span.sheet-pseudoattr {
     display: inline-block;
@@ -533,7 +545,8 @@ input.sheet-tabconf:checked + span{
 }
 .sheet-abilities .sheet-ability:hover .sheet-options-flag + span,
 .sheet-acvalues:hover .sheet-options-flag + span,
-.sheet-initiative:hover .sheet-options-flag + span{
+.sheet-initiative:hover .sheet-options-flag + span,
+.sheet-acitem:hover .sheet-options-flag + span{
     display: block;
 }
 .sheet-options{
@@ -578,4 +591,81 @@ input.sheet-tabconf:checked + span{
     white-space: pre-wrap;
     text-align: inherit;
     padding: 2px;
+}
+/* ===== REPEATING SECTIONS CTRL ===== */
+.repcontrol {
+    min-height: 27px;
+}
+
+.repcontrol .btn {
+    /*visibility: hidden;*/
+    border: medium none;
+    color: white !important;
+    background: none;
+    box-shadow: none;
+}
+
+.repcontrol .btn:focus {
+    outline: 0;
+}
+
+.repcontrol .repcontrol_edit:after {
+    content: '(';
+    visibility: visible;
+    font-family: pictos;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 14px;
+    height: 12px;
+    width: 12px;
+    padding: 4px;
+    display: inline-block;
+    line-height: 12px;
+}
+
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: ')';
+}
+
+.repcontrol .repcontrol_add:before {
+    content: '&';
+    visibility: visible;
+    font-family: pictos;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 14px;
+    height: 12px;
+    width: 12px;
+    padding: 4px;
+    display: inline-block;
+    line-height: 12px;
+}
+
+.repcontrol .repcontrol_edit:hover:after,
+.repcontrol .repcontrol_add:hover:before
+{
+    color: #C3996B;
+    border-color: #C3996B;
+}
+
+.itemcontrol {
+    z-index: 10;
+}
+
+.itemcontrol .repcontrol_del {
+    font-size: 10px;
+    margin-top: 3px;
+    padding: 0px;
+    height: 18px;
+    width: 18px;
+}
+
+.itemcontrol .repcontrol_move {
+    font-size: 10px;
+    margin-top: 3px;
+    padding: 0px;
+    height: 18px;
+    width: 18px;
 }

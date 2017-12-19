@@ -477,41 +477,71 @@
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
     <div class="tabadd"> <!-- TAB ADDITIONNAL -->
-        <div class="acitems">
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd" style="width: 85px;" >
-                    <span class="big only" data-i18n="ac-items">AC Items</span>
+        <div class="col2third acitems"> <!-- AC ITEMS -->
+            <div class="myrow">
+                <span class="spacer"></span>
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd" style="width: 185px;" >
+                        <span class="big only" data-i18n="ac-items">AC Items</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 16px;">
+                        <span class="med only" data-i18n="eq" data-i18n-title="equipped" title="Equipped">Eq</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 35px;">
+                        <span class="med only" data-i18n="ac-u" data-i18n-title="ac-bonus" title="AC Bonus">AC</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 35px;">
+                        <span class="med only" data-i18n="flat" data-i18n-title="flat-footed-bonus" title="Flat-footed Bonus">Flat</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 35px;">
+                        <span class="med only" data-i18n="touch" data-i18n-title="touch-bonus" title="Touch Bonus">Touch</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 60px;">
+                        <span class="med only" data-i18n="type">Type</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 35px;">
+                        <span class="med only" data-i18n="check" data-i18n-title="check-penalty" title="Check Penalty">Check</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 35px;">
+                        <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Maximum Dex Bonus">Dex</span>
+                    </div>
+                    <div class="blackbgrd" style="width: 45px;">
+                        <span class="med only" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
+                    </div>
                 </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="eq.">EQ.</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="ac-bonus">AC Bonus</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="flat-footed-bonus">Flat-footed Bonus</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="touch-bonus">Touch Bonus</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="type">Type</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="check-penalty">Check Penalty</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="max-dex-bonus">Max Dex Bonus</span>
-                </div>
-                <div class="blackbgrd">
-                    <span class="med" data-i18n="spell-failure">Spell Failure</span>
-                </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
+                <fieldset class="repeating_acitems">
+                    <div class="acitem">
+                        <input class="sheet-options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                        <div class="myrow">
+                            <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_name}" data-i18n-placeholder="item" placeholder="Item" />
+                            <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_equipped}" /><span class="mleft"></span>
+                            <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_ac_bonus}" />
+                            <input type="number" name="attr_flatfooted_bonus" value="0" class="underlined" title="@{repeating_acitems_flatfooted_bonus}" />
+                            <input type="number" name="attr_touch_bonus" value="0" class="underlined" title="@{repeating_acitems_touch_bonus}" />
+                            <select name="attr_type" title="@{repeating_acitems_type}">
+                                <option value="light" data-i18n="light">Light</option>
+                                <option value="medium" data-i18n="medium" selected="selected">Medium</option>
+                                <option value="heavy" data-i18n="heavy">Heavy</option>
+                                <option value="shield" data-i18n="shield">Shield</option>
+                            </select>
+                            <input type="number" name="attr_check_penalty" value="0" class="underlined" title="@{repeating_acitems_check_penalty}" />
+                            <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_max_dex_bonus}" />
+                            <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_spell_failure}" />
+                        </div>
+                        <div class="options">
+                            <div class="autoex">
+                                <span name="attr_notes"></span>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-        </div>
+        </div> <!-- END AC ITEMS -->
+        <div class="col1third">stuff</div>
     </div> <!-- END TAB ADDITIONNAL -->
     <div class="tabspell"> <!-- TAB SPELLS -->
         SPELLS AND MAGIC
