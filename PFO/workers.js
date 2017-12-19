@@ -83,6 +83,10 @@
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
     });
+    // AC Items
+    on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus spell_failure", function(){
+        update_ac_items();
+    });
 
     /* === FUNCTIONS === */
     // === ABILITIES and MODS
@@ -177,6 +181,55 @@
         });
     };
     // === AC
+    var update_ac_items = function() {
+        var update = {};
+        var attrs = [];
+        getSectionIDs("repeating_acitems", function(idarray) {
+            _.each(idarray, function(itemid) {
+                attrs.push("repeating_acitems_" + itemid + "_equipped");
+                attrs.push("repeating_acitems_" + itemid + "_ac_bonus");
+                attrs.push("repeating_acitems_" + itemid + "_flatfooted_bonus");
+                attrs.push("repeating_acitems_" + itemid + "_touch_bonus");
+                attrs.push("repeating_acitems_" + itemid + "_type");
+                attrs.push("repeating_acitems_" + itemid + "_check_penalty");
+                attrs.push("repeating_acitems_" + itemid + "_max_dex_bonus");
+                attrs.push("repeating_acitems_" + itemid + "_spell_failure");
+
+            });
+            getAttrs(attrs, function(v) {
+                var bonusarmor = 0,
+                    bonusshield = 0,
+                    bonusff = 0,
+                    bonustouch = 0,
+                    checkpen = 0,
+                    maxdex = 0,
+                    spellf = 0;
+                _.each(idarray, function(itemid) {
+                    if ( (parseInt(v["repeating_acitems_" + itemid + "_equipped"]) || 0) == 1 ) {
+                        if ( v["repeating_acitems_" + itemid + "_type"] == "shield") {
+                            bonusshield += parseInt(v["repeating_acitems_" + itemid + "_ac_bonus"]) || 0;
+                        } else {
+                            bonusarmor += parseInt(v["repeating_acitems_" + itemid + "_ac_bonus"]) || 0;
+                        }
+                        bonusff += parseInt(v["repeating_acitems_" + itemid + "_flatfooted_bonus"]) || 0;
+                        bonustouch += parseInt(v["repeating_acitems_" + itemid + "_touch_bonus"]) || 0;
+                        checkpen += parseInt(v["repeating_acitems_" + itemid + "_check_penalty"]) || 0;
+                        maxdex = Math.max(maxdex, parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 0);
+                        spellf += parseInt(v["repeating_acitems_" + itemid + "_spell_failure"]) || 0;
+                    }
+                });
+                setAttrs({
+                    "ac_armor": bonusarmor,
+                    "ac_shield": bonusshield,
+                    "ac_flatfooted_bonus": bonusff,
+                    "ac_touch_bonus": bonustouch,
+                    "dexterity_maxmod": maxdex,
+                    "armor_check_penalty": checkpen,
+                    "armor_spell_failure": spellf
+                });
+            });
+        });
+    };
     var update_ac_ability = function(attr) {
         getAttrs(["ac_ability_primary","ac_ability_secondary"], function(v) {
             if( (attr == "") || (attr == v.ac_ability_primary) || (attr == v.ac_ability_secondary) ) {
