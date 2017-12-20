@@ -65,6 +65,9 @@ img{
 .sheet-bold{
     font-weight: bold;
 }
+.sheet-center{
+    text-align: center;
+}
 /* ==== DIVS ==== */
 div.sheet-main{
     vertical-align: top;
@@ -82,6 +85,9 @@ div.sheet-myrow{
 }
 div.sheet-myrow.sheet-right{
     text-align: right;
+}
+div.sheet-myrow.sheet-center{
+    text-align: center;
 }
 div.sheet-spacer{
     display: block;
@@ -122,6 +128,11 @@ div.sheet-blacklabel{
     text-transform: uppercase;
     border: none;
 }
+div.sheet-blacklabel::after{
+    content: "";
+    clear: both;
+    display: table;
+}
 div.sheet-blacklabel .sheet-blackbgrd{
     display: inline-block;
     vertical-align: top;
@@ -155,6 +166,14 @@ img.sheet-brdleft,
 img.sheet-brdright {
     display: inline-block;
     height: inherit;
+}
+img.sheet-brdleft {
+    float: left;
+    clear: left;
+}
+img.sheet-brdright {
+    float: right;
+    clear: right;
 }
 div.sheet-identity{
     display: inline-block;
@@ -246,8 +265,8 @@ div.sheet-initiative {
 .sheet-hpvalues div.sheet-boxed {
     margin-left: 5px;
 }
-.sheet-skills div.sheet-blacklabel .sheet-blackbgrd{
-    width: 350px;
+.sheet-skills div.sheet-blacklabel {
+    width: 95%;
 }
 div.sheet-acitems {
     width: 550px;
