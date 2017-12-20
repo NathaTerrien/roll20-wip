@@ -366,7 +366,7 @@
             <div class="acvalues">
                 <input class="sheet-options-flag" name="attr_options-flag-ac" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow"> <!-- AC -->
-                    <div class="blacklabel">
+                    <div class="blacklabel ac">
                         <div class="blackbgrd">
                             <span class="big only" data-i18n="ac-u" data-i18n-title="armor-class" title="Armor Class">AC</span>
                         </div>
@@ -377,7 +377,7 @@
                     <div class="boxed">
                         <input type="number" name="attr_ac_bonus" class="boxed" value="0" title="@{ac_bonus}" />
                     </div>
-                    <div class="blacklabel">
+                    <div class="blacklabel touch">
                         <div class="blackbgrd">
                             <span class="big" data-i18n="touch">Touch</span>
                             <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
@@ -386,7 +386,7 @@
                     <div class="boxed greybg">
                         <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
                     </div>
-                    <div class="blacklabel">
+                    <div class="blacklabel flatfooted">
                         <div class="blackbgrd">
                             <span class="big" data-i18n="flat-footed">Flat-footed</span>
                             <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
@@ -453,6 +453,53 @@
                     </div>
                 </div>
             </div>  <!-- END AC -->
+            <div class="spacer"></div>
+            <div class="saves"> <!-- SAVING THROWS -->
+                <input class="sheet-options-flag fortitude" name="attr_options-flag-save" type="radio" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="save fortitude">
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <span class="big" data-i18n="fort-u">FORT</span>
+                            <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_fortitude" class="pseudoattr" title="@{fortitude}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_fortitude_bonus" class="boxed" value="0" title="@{fortitude_bonus}" />
+                    </div>
+                </div>
+                <div class="save reflex">
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <span class="big" data-i18n="ref-u">REF</span>
+                            <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_reflex" class="pseudoattr" title="@{reflex}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_reflex_bonus" class="boxed" value="0" title="@{reflex_bonus}" />
+                    </div>
+                </div>
+                <div class="save will">
+                    <div class="blacklabel">
+                        <div class="blackbgrd">
+                            <span class="big" data-i18n="will-u">WILL</span>
+                            <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_will" class="pseudoattr" title="@{will}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_will_bonus" class="boxed" value="0" title="@{will_bonus}" />
+                    </div>
+                </div>
+
+            </div> <!-- END SAVING THROWS -->
             <div class="spacer"></div>
             <div class="myrow"> <!-- BAB -->
                 <div class="blacklabel">
@@ -584,7 +631,7 @@
                             <span name="attr_armor_check_penalty" class="pseudoattr" title="@{armor_check_penalty}"></span>
                         </div>
                         <div class="boxed greybg">
-                            <span name="attr_dexterity_maxmod" class="pseudoattr" title="@{ac_dexterity_maxmod}"></span>
+                            <span name="attr_ac_ability_maximum" class="pseudoattr" title="@{ac_ability_maximum}"></span>
                         </div>
                         <div class="boxed greybg">
                             <span name="attr_armor_spell_failure" class="pseudoattr" title="@{armor_spell_failure}"></span>
@@ -783,14 +830,14 @@
     });
 
     // === AC
-    on("change:ac_ability_primary change:ac_ability_secondary", function(){
+    on("change:ac_ability_primary change:ac_ability_secondary change:ac_ability_maximum", function(){
         update_ac_ability("");
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
     });
     // AC Items
-    on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus spell_failure", function(){
+    on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
         update_ac_items();
     });
 
@@ -908,8 +955,9 @@
                     bonusff = 0,
                     bonustouch = 0,
                     checkpen = 0,
-                    maxdex = 0,
-                    spellf = 0;
+                    maxdex = 99,
+                    spellf = 0,
+                    maxab = "-";
                 _.each(idarray, function(itemid) {
                     if ( (parseInt(v["repeating_acitems_" + itemid + "_equipped"]) || 0) == 1 ) {
                         if ( v["repeating_acitems_" + itemid + "_type"] == "shield") {
@@ -920,16 +968,21 @@
                         bonusff += parseInt(v["repeating_acitems_" + itemid + "_flatfooted_bonus"]) || 0;
                         bonustouch += parseInt(v["repeating_acitems_" + itemid + "_touch_bonus"]) || 0;
                         checkpen += parseInt(v["repeating_acitems_" + itemid + "_check_penalty"]) || 0;
-                        maxdex = Math.max(maxdex, parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 0);
+                        if ((parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 99) != 0) {
+                            maxdex = Math.min(maxdex, parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 99);
+                        }
                         spellf += parseInt(v["repeating_acitems_" + itemid + "_spell_failure"]) || 0;
                     }
                 });
+                if (maxdex < 99) {
+                    maxab = maxdex;
+                }
                 setAttrs({
                     "ac_armor": bonusarmor,
                     "ac_shield": bonusshield,
                     "ac_flatfooted_bonus": bonusff,
                     "ac_touch_bonus": bonustouch,
-                    "dexterity_maxmod": maxdex,
+                    "ac_ability_maximum": maxab,
                     "armor_check_penalty": checkpen,
                     "armor_spell_failure": spellf
                 });
@@ -937,13 +990,15 @@
         });
     };
     var update_ac_ability = function(attr) {
-        getAttrs(["ac_ability_primary","ac_ability_secondary"], function(v) {
+        getAttrs(["ac_ability_primary","ac_ability_secondary","ac_ability_maximum"], function(v) {
             if( (attr == "") || (attr == v.ac_ability_primary) || (attr == v.ac_ability_secondary) ) {
                 var attr_fields = [v.ac_ability_primary + "_mod",v.ac_ability_secondary + "_mod"];
                 getAttrs(attr_fields, function(modz) {
                     var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0,
-                        secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0;
-                    setAttrs({"ac_ability": primary + secondary});
+                        secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0,
+                        maxmod = parseInt(v.ac_ability_maximum) || 99;
+
+                    setAttrs({"ac_ability": Math.min(primary + secondary,maxmod)});
                 });
             }
         });

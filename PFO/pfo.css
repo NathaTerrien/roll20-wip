@@ -191,7 +191,8 @@ div.sheet-boxed {
 div.sheet-ability,
 div.sheet-acvalues,
 div.sheet-initiative,
-div.sheet-acitem {
+div.sheet-acitem,
+div.sheet-save {
     position: relative;
 }
 div.sheet-abilities,
@@ -254,8 +255,14 @@ div.sheet-initiative {
 .sheet-acvalues .sheet-lab {
     width: 40px;
 }
-.sheet-acvalues div.sheet-blacklabel:first-child {
+.sheet-acvalues div.sheet-blacklabel.sheet-ac {
     width: 40px;
+}
+.sheet-acvalues div.sheet-blacklabel.sheet-touch {
+    width: 72px;
+}
+.sheet-acvalues div.sheet-blacklabel.sheet-flatfooted {
+    width: 131px;
 }
 .sheet-abilities div.sheet-boxed{
     margin-left: 5px;
@@ -274,6 +281,18 @@ div.sheet-acitems {
 }
 .sheet-acitem div.sheet-myrow {
     padding-left: 16px;
+}
+div.sheet-save {
+    display: inline-block;
+}
+.sheet-fortitude div.sheet-blacklabel{
+    width: 58px;
+}
+.sheet-reflex div.sheet-blacklabel{
+    width: 44px;
+}
+.sheet-will div.sheet-blacklabel{
+    width: 55px;
 }
 /* ===== SPAN ===== */
 span.sheet-spacer{
