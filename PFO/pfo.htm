@@ -1228,7 +1228,14 @@
             });
         }
     };
-    var update_save = function(attr) {};
+    var update_save = function(attr) {
+        var attr_fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(attr_fields, function(v) {
+            var update = {};
+            update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            setAttrs(update);
+        });
+    };
 
     // === Version and updating
     var versioning = function() {
