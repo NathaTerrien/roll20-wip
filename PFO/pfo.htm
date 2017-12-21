@@ -523,7 +523,7 @@
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed greybg">
-                            <span name="attr_fortitude_ability" class="pseudoattr" title="@{fortitude_ability}"></span>
+                            <span name="attr_fortitude_ability_mod" class="pseudoattr" title="@{fortitude_ability_mod}"></span>
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed">
@@ -553,7 +553,7 @@
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed greybg">
-                            <span name="attr_reflex_ability" class="pseudoattr" title="@{reflex_ability}"></span>
+                            <span name="attr_reflex_ability_mod" class="pseudoattr" title="@{reflex_ability_mod}"></span>
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed">
@@ -583,7 +583,7 @@
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed greybg">
-                            <span name="attr_will_ability" class="pseudoattr" title="@{will_ability}"></span>
+                            <span name="attr_will_ability_mod" class="pseudoattr" title="@{will_ability_mod}"></span>
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed">
@@ -760,40 +760,77 @@
             </div>
             <div class="bordered titled inbox">
                 <span data-i18n="hit-die">Hit Die</span>:
-                <select name="attr_hitdietype">
-                    <option value="4">D4</option>
-                    <option value="6">D6</option>
-                    <option value="8" selected="selected">D8</option>
-                    <option value="10">D10</option>
-                    <option value="12">D12</option>
-                </select>
+                    <select name="attr_hitdietype" title="@{hitdietype}">
+                        <option value="4">D4</option>
+                        <option value="6">D6</option>
+                        <option value="8" selected="selected">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                    </select>
                 <span class="block" data-i18n="armor-class:">Armor Class:</span>
-                <div class="myrow padindent">
-                    <span data-i18n="primary-ability-modifier">Primary ability modifier</span>:
-                    <select name="attr_ac_ability_primary">
-                        <option value="strength" data-i18n="strength">Strength</option>
-                        <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
-                        <option value="constitution" data-i18n="constitution">Constitution</option>
-                        <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                        <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                        <option value="charisma" data-i18n="charisma">Charisma</option>
-                    </select>
-                </div>
-                <div class="myrow padindent">
-                    <span data-i18n="secondary-ability-modifier">Secondary ability modifier</span>:
-                    <select name="attr_ac_ability_secondary">
-                        <option value="none" data-i18n="none" selected="selected">None</option>
-                        <option value="strength" data-i18n="strength">Strength</option>
-                        <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                        <option value="constitution" data-i18n="constitution">Constitution</option>
-                        <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                        <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                        <option value="charisma" data-i18n="charisma">Charisma</option>
-                    </select>
-                </div>
-                <div class="myrow padindent"><span data-i18n="dodge-bonus">Dodge bonus</span>:<input type="number" name="attr_ac_dodge" value="0" class="sml" /></div>
-                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_noflatflooted" value="1" title="@{ac_noflatflooted}" /><span class="mleft"></span><span data-i18n="cannot-be-caught-flat-footed">Cannot be caught Flat-Footed</span></div>
-                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_touchshield" value="1" title="@{ac_touchshield}" /><span class="mleft"></span><span data-i18n="shield-bonus-added-to-touch-ac">Shield bonus added to Touch AC</span></div>
+                    <div class="myrow padindent">
+                        <span data-i18n="primary-ability-modifier">Primary ability modifier</span>:
+                        <select name="attr_ac_ability_primary" title="@{ac_ability_primary}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent">
+                        <span data-i18n="secondary-ability-modifier">Secondary ability modifier</span>:
+                        <select name="attr_ac_ability_secondary" title="@{ac_ability_secondary}">
+                            <option value="none" data-i18n="none" selected="selected">None</option>
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent"><span data-i18n="dodge-bonus">Dodge bonus</span>:<input type="number" name="attr_ac_dodge" value="0" class="sml" title="@{ac_dodge}" /></div>
+                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_noflatflooted" value="1" title="@{ac_noflatflooted}" /><span class="mleft"></span><span data-i18n="cannot-be-caught-flat-footed">Cannot be caught Flat-Footed</span></div>
+                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_touchshield" value="1" title="@{ac_touchshield}" /><span class="mleft"></span><span data-i18n="shield-bonus-added-to-touch-ac">Shield bonus added to Touch AC</span></div>
+                <span class="block" data-i18n="saving-throws:">Saving Throws:</span>
+                    <div class="myrow padindent"><span data-i18n="base-fortitude">Base Fortitude</span>:<input type="number" name="attr_fortitude_base" value="0" class="sml" title="@{fortitude_base}" /></div>
+                    <div class="myrow padindent">
+                        <span data-i18n="fortitude-ability">Fortitude Ability</span>:
+                        <select name="attr_fortitude_ability" title="@{fortitude_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution" selected="selected">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent"><span data-i18n="base-reflex">Base Reflex</span>:<input type="number" name="attr_reflex_base" value="0" class="sml" title="@{reflex_base}" /></div>
+                    <div class="myrow padindent">
+                        <span data-i18n="reflex-ability">Reflex Ability</span>:
+                        <select name="attr_reflex_ability" title="@{reflex_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent"><span data-i18n="base-will">Base Will</span>:<input type="number" name="attr_will_base" value="0" class="sml" title="@{will_base}" /></div>
+                    <div class="myrow padindent">
+                        <span data-i18n="will-ability">Will Ability</span>:
+                        <select name="attr_will_ability" title="@{will_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom" selected="selected">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
             </div>
         </div>
         <div class="col1third">
@@ -911,22 +948,28 @@
     // === Mods
     on("change:strength_mod", function() {
         update_ac_ability("strength");
+        update_saves_ability("strength");
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
+        update_saves_ability("dexterity");
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
+        update_saves_ability("dexterity");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
+        update_saves_ability("dexterity");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
+        update_saves_ability("dexterity");
     });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
+        update_saves_ability("dexterity");
     });
 
     // === Initiative
@@ -944,6 +987,20 @@
     // AC Items
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
         update_ac_items();
+    });
+
+    // === SAVES
+    on("change:fortitude_ability change:reflex_ability change:will_ability", function(){
+        update_saves_ability("");
+    });
+    on("change:fortitude_base change:fortitude_ability_mod change:fortitude_misc change:fortitude_bonus", function(){
+        update_save("fortitude");
+    });
+    on("change:reflex_base change:reflex_ability_mod change:reflex_misc change:reflex_bonus", function(){
+        update_save("reflex");
+    });
+    on("change:will_base change:will_ability_mod change:will_misc change:will_bonus", function(){
+        update_save("will");
     });
 
     /* === FUNCTIONS === */
@@ -1036,6 +1093,12 @@
             "cmb_size": cmb,
             "fly_size": fly,
             "stealth_size": stealth
+        });
+    };
+    // === INITIATIVE
+    var update_initiative = function () {
+        getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
+            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
         });
     };
     // === AC
@@ -1142,12 +1205,9 @@
             });
         });
     };
-    // === INITIATIVE
-    var update_initiative = function () {
-        getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
-            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
-        });
-    };
+    // === SAVES
+    var update_saves_ability = function(attr) {};
+    var update_save = function(attr) {};
 
     // === Version and updating
     var versioning = function() {

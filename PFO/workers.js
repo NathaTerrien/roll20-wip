@@ -53,22 +53,28 @@
     // === Mods
     on("change:strength_mod", function() {
         update_ac_ability("strength");
+        update_saves_ability("strength");
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
+        update_saves_ability("dexterity");
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
+        update_saves_ability("dexterity");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
+        update_saves_ability("dexterity");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
+        update_saves_ability("dexterity");
     });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
+        update_saves_ability("dexterity");
     });
 
     // === Initiative
@@ -86,6 +92,20 @@
     // AC Items
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
         update_ac_items();
+    });
+
+    // === SAVES
+    on("change:fortitude_ability change:reflex_ability change:will_ability", function(){
+        update_saves_ability("");
+    });
+    on("change:fortitude_base change:fortitude_ability_mod change:fortitude_misc change:fortitude_bonus", function(){
+        update_save("fortitude");
+    });
+    on("change:reflex_base change:reflex_ability_mod change:reflex_misc change:reflex_bonus", function(){
+        update_save("reflex");
+    });
+    on("change:will_base change:will_ability_mod change:will_misc change:will_bonus", function(){
+        update_save("will");
     });
 
     /* === FUNCTIONS === */
@@ -178,6 +198,12 @@
             "cmb_size": cmb,
             "fly_size": fly,
             "stealth_size": stealth
+        });
+    };
+    // === INITIATIVE
+    var update_initiative = function () {
+        getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
+            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
         });
     };
     // === AC
@@ -284,12 +310,9 @@
             });
         });
     };
-    // === INITIATIVE
-    var update_initiative = function () {
-        getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
-            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
-        });
-    };
+    // === SAVES
+    var update_saves_ability = function(attr) {};
+    var update_save = function(attr) {};
 
     // === Version and updating
     var versioning = function() {
