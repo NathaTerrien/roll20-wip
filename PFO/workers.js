@@ -53,28 +53,28 @@
     // === Mods
     on("change:strength_mod", function() {
         update_ac_ability("strength");
-        update_saves_ability("strength");
+        update_saves_ability("strength","");
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
-        update_saves_ability("dexterity");
+        update_saves_ability("dexterity","");
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
-        update_saves_ability("dexterity");
+        update_saves_ability("constitution","");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
-        update_saves_ability("dexterity");
+        update_saves_ability("intelligence","");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
-        update_saves_ability("dexterity");
+        update_saves_ability("wisdom","");
     });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
-        update_saves_ability("dexterity");
+        update_saves_ability("charisma","");
     });
 
     // === Initiative
@@ -84,7 +84,7 @@
 
     // === AC
     on("change:ac_ability_primary change:ac_ability_secondary change:ac_ability_maximum", function(){
-        update_ac_ability("");
+        update_ac_ability();
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
@@ -95,8 +95,8 @@
     });
 
     // === SAVES
-    on("change:fortitude_ability change:reflex_ability change:will_ability", function(){
-        update_saves_ability("");
+    on("change:fortitude_ability change:reflex_ability change:will_ability", function(e){
+        update_saves_ability(e.newValue,e.sourceAttribute);
     });
     on("change:fortitude_base change:fortitude_ability_mod change:fortitude_misc change:fortitude_bonus", function(){
         update_save("fortitude");
@@ -311,7 +311,28 @@
         });
     };
     // === SAVES
-    var update_saves_ability = function(attr) {};
+    var update_saves_ability = function(attr,saveab) {
+        var update = {},
+            modz = [];
+            modz.push(attr + "_mod");
+        if (String(attr) && String(saveab)) {
+            getAttrs(modz, function(v) {
+                update[saveab + "_mod"] = v[attr + "_mod"];
+                setAttrs(update);
+            });
+        } else {
+            getAttrs(["fortitude_ability","reflex_ability","will_ability"], function(savez) {
+                if( (attr == savez.fortitude_ability) || (attr == savez.reflex_ability) || (attr == savez.will_ability) ) {
+                    getAttrs(modz, function(v) {
+                        if(attr == savez.fortitude_ability) {update["fortitude_ability_mod"] = v[attr + "_mod"];}
+                        if(attr == savez.reflex_ability) {update["reflex_ability_mod"] = v[attr + "_mod"];}
+                        if(attr == savez.will_ability) {update["will_ability_mod"] = v[attr + "_mod"];}
+                        setAttrs(update);
+                    });
+                }
+            });
+        }
+    };
     var update_save = function(attr) {};
 
     // === Version and updating
