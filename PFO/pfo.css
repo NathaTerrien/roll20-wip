@@ -192,7 +192,7 @@ div.sheet-ability,
 div.sheet-acvalues,
 div.sheet-initiative,
 div.sheet-acitem,
-div.sheet-save {
+div.sheet-saves {
     position: relative;
 }
 div.sheet-abilities,
@@ -252,7 +252,8 @@ div.sheet-initiative {
 .sheet-hpvalues .sheet-lab:first-child{
     width: 70px;
 }
-.sheet-acvalues .sheet-lab {
+.sheet-acvalues .sheet-lab,
+.sheet-saves .sheet-lab {
     width: 40px;
 }
 .sheet-acvalues div.sheet-blacklabel.sheet-ac {
@@ -294,10 +295,13 @@ div.sheet-save {
 .sheet-will div.sheet-blacklabel{
     width: 55px;
 }
+.sheet-invisible {
+    opacity: 0;
+}
 /* ===== SPAN ===== */
 span.sheet-spacer{
     display: inline-block;
-    width: 10px;
+    min-width: 10px;
     text-align: center;
 }
 /* ===== INPUTS ===== */
@@ -586,21 +590,40 @@ input.sheet-tabconf:checked + span{
 .sheet-acvalues .sheet-options-flag,
 .sheet-acvalues .sheet-options-flag + span,
 .sheet-initiative .sheet-options-flag,
-.sheet-initiative .sheet-options-flag + span {
+.sheet-initiative .sheet-options-flag + span,
+.sheet-saves .sheet-options-flag.sheet-fortitude,
+.sheet-saves .sheet-options-flag.sheet-fortitude + span {
     top: -2px;
     left: 0px;
+}
+.sheet-saves .sheet-options-flag.sheet-reflex,
+.sheet-saves .sheet-options-flag.sheet-reflex + span {
+    top: -2px;
+    left: 148px;
+}
+.sheet-saves .sheet-options-flag.sheet-will,
+.sheet-saves .sheet-options-flag.sheet-will + span {
+    top: -2px;
+    left: 281px;
 }
 .sheet-abilities .sheet-ability:hover .sheet-options-flag + span,
 .sheet-acvalues:hover .sheet-options-flag + span,
 .sheet-initiative:hover .sheet-options-flag + span,
-.sheet-acitem:hover .sheet-options-flag + span{
+.sheet-acitem:hover .sheet-options-flag + span,
+.sheet-saves:hover .sheet-options-flag + span {
     display: block;
 }
-.sheet-options{
+.sheet-options,
+.sheet-options-fortitude,
+.sheet-options-reflex,
+.sheet-options-will {
     display: none;
     border-bottom: 2px dotted #C3996B;
 }
-.sheet-options-flag:checked ~ .sheet-options {
+.sheet-options-flag:checked ~ .sheet-options,
+.sheet-options-flag.sheet-fortitude:checked ~ .sheet-options-fortitude,
+.sheet-options-flag.sheet-reflex:checked ~ .sheet-options-reflex,
+.sheet-options-flag.sheet-will:checked ~ .sheet-options-will {
     display: inherit;
 }
 /* ===== AUTO EXPAND TEXTAREA ===== */

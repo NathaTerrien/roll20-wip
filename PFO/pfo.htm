@@ -107,7 +107,7 @@
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
                 <div class="ability"> <!-- strength -->
-                    <input class="sheet-options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -136,7 +136,7 @@
                     </div>
                 </div> <!-- END strength -->
                 <div class="ability"> <!-- dexterity -->
-                    <input class="sheet-options-flag" name="attr_options-flag-dex" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-dex" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -165,7 +165,7 @@
                     </div>
                 </div> <!-- END dexterity -->
                 <div class="ability"> <!-- constitution -->
-                    <input class="sheet-options-flag" name="attr_options-flag-con" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-con" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -194,7 +194,7 @@
                     </div>
                 </div> <!-- END constitution -->
                 <div class="ability"> <!-- intelligence -->
-                    <input class="sheet-options-flag" name="attr_options-flag-int" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-int" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -223,7 +223,7 @@
                     </div>
                 </div> <!-- END intelligence -->
                 <div class="ability"> <!-- wisdom -->
-                    <input class="sheet-options-flag" name="attr_options-flag-wis" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-wis" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -252,7 +252,7 @@
                     </div>
                 </div> <!-- END wisdom -->
                 <div class="ability"> <!-- charisma -->
-                    <input class="sheet-options-flag" name="attr_options-flag-cha" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-cha" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -319,7 +319,7 @@
                 </div> <!-- END HP -->
                 <div class="spacer"></div>
                 <div class="initiative"> <!-- INITIATIVE -->
-                    <input class="sheet-options-flag" name="attr_options-flag-initiative" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                    <input class="options-flag" name="attr_options-flag-initiative" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -364,7 +364,7 @@
             </div>
             <div class="spacer"></div>
             <div class="acvalues">
-                <input class="sheet-options-flag" name="attr_options-flag-ac" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag" name="attr_options-flag-ac" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow"> <!-- AC -->
                     <div class="blacklabel ac">
                         <div class="blackbgrd">
@@ -395,6 +395,10 @@
                     <div class="boxed greybg">
                         <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
+                </div>
+                <div class="myrow">
+                    <span class="lab" style="margin-left: 43px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
                 <div class="options">
                     <div class="myrow">
@@ -455,50 +459,151 @@
             </div>  <!-- END AC -->
             <div class="spacer"></div>
             <div class="saves"> <!-- SAVING THROWS -->
-                <input class="sheet-options-flag fortitude" name="attr_options-flag-save" type="radio" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
-                <div class="save fortitude">
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <span class="big" data-i18n="fort-u">FORT</span>
-                            <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
+                <input class="options-flag fortitude" name="attr_options-flag-fortitude" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag reflex" name="attr_options-flag-reflex" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag will" name="attr_options-flag-will" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="myrow">
+                    <div class="save fortitude">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <span class="big" data-i18n="fort-u">FORT</span>
+                                <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
+                            </div>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_fortitude" class="pseudoattr" title="@{fortitude}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_fortitude_bonus" class="boxed" value="0" title="@{fortitude_bonus}" />
                         </div>
                     </div>
-                    <div class="boxed greybg">
-                        <span name="attr_fortitude" class="pseudoattr" title="@{fortitude}"></span>
-                    </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_fortitude_bonus" class="boxed" value="0" title="@{fortitude_bonus}" />
-                    </div>
-                </div>
-                <div class="save reflex">
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <span class="big" data-i18n="ref-u">REF</span>
-                            <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
+                    <div class="save reflex">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <span class="big" data-i18n="ref-u">REF</span>
+                                <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
+                            </div>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_reflex" class="pseudoattr" title="@{reflex}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_reflex_bonus" class="boxed" value="0" title="@{reflex_bonus}" />
                         </div>
                     </div>
-                    <div class="boxed greybg">
-                        <span name="attr_reflex" class="pseudoattr" title="@{reflex}"></span>
-                    </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_reflex_bonus" class="boxed" value="0" title="@{reflex_bonus}" />
-                    </div>
-                </div>
-                <div class="save will">
-                    <div class="blacklabel">
-                        <div class="blackbgrd">
-                            <span class="big" data-i18n="will-u">WILL</span>
-                            <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
+                    <div class="save will">
+                        <div class="blacklabel">
+                            <div class="blackbgrd">
+                                <span class="big" data-i18n="will-u">WILL</span>
+                                <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
+                            </div>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_will" class="pseudoattr" title="@{will}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_will_bonus" class="boxed" value="0" title="@{will_bonus}" />
                         </div>
                     </div>
-                    <div class="boxed greybg">
-                        <span name="attr_will" class="pseudoattr" title="@{will}"></span>
+                </div>
+                <div class="myrow">
+                    <span class="lab" style="margin-left: 61px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                    <span class="lab" style="margin-left: 47px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                    <span class="lab" style="margin-left: 58px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                </div>
+                <div class="options-fortitude">
+                    <div class="myrow">
+                        <span class="spacer" data-i18n="fort-u" data-i18n-title="fortitude" title="Fortitude">FORT</span>
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_fortitude_base" class="pseudoattr" title="@{fortitude_base}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_fortitude_ability" class="pseudoattr" title="@{fortitude_ability}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_fortitude_misc" class="boxed" value="0" title="@{fortitude_misc}" />
+                        </div>
                     </div>
-                    <div class="boxed">
-                        <input type="number" name="attr_will_bonus" class="boxed" value="0" title="@{will_bonus}" />
+                    <div class="myrow">
+                        <span class="spacer invisible" data-i18n="fort-u" data-i18n-title="fortitude" title="Fortitude">FORT</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_fortitude_notes"></span>
+                        <textarea name="attr_fortitude_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{fortitude_notes}"></textarea>
                     </div>
                 </div>
-
+                <div class="options-reflex">
+                    <div class="myrow center">
+                        <span class="spacer" data-i18n="ref-u" data-i18n-title="reflex" title="Reflex">REF</span>
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_reflex_base" class="pseudoattr" title="@{reflex_base}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_reflex_ability" class="pseudoattr" title="@{reflex_ability}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_reflex_misc" class="boxed" value="0" title="@{reflex_misc}" />
+                        </div>
+                    </div>
+                    <div class="myrow center">
+                        <span class="spacer invisible" data-i18n="ref-u" data-i18n-title="reflex" title="Reflex">REF</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_reflex_notes"></span>
+                        <textarea name="attr_reflex_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{reflex_notes}"></textarea>
+                    </div>
+                </div>
+                <div class="options-will">
+                    <div class="myrow right">
+                        <span class="spacer" data-i18n="will-u" data-i18n-title="will" title="Will">WILL</span>
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_will_base" class="pseudoattr" title="@{will_base}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_will_ability" class="pseudoattr" title="@{will_ability}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_will_misc" class="boxed" value="0" title="@{will_misc}" />
+                        </div>
+                    </div>
+                    <div class="myrow right">
+                        <span class="spacer invisible" data-i18n="will-u" data-i18n-title="will" title="Will">WILL</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_will_notes"></span>
+                        <textarea name="attr_will_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{will_notes}"></textarea>
+                    </div>
+                </div>
             </div> <!-- END SAVING THROWS -->
             <div class="spacer"></div>
             <div class="myrow"> <!-- BAB -->
@@ -584,7 +689,7 @@
             <div class="bordered titled inbox">
                 <fieldset class="repeating_acitems">
                     <div class="acitem">
-                        <input class="sheet-options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                         <div class="myrow">
                             <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_name}" data-i18n-placeholder="item" placeholder="Item" />
                             <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_equipped}" /><span class="mleft"></span>
