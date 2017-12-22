@@ -686,12 +686,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="bordered titled inbox">
+                <div class="bordered titled inboxright">
                     <div class="myrow"> <!-- REPEATING AC ITEMS -->
                         <fieldset class="repeating_acitems">
-                            <div class="acitem">
+                            <div class="acitem right">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
-                                <div class="myrow">
+                                <div class="myrow right">
                                     <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_name}" data-i18n-placeholder="item" placeholder="Item" />
                                     <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_equipped}" /><span class="mleft"></span>
                                     <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_ac_bonus}" />
@@ -708,7 +708,7 @@
                                     <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_max_dex_bonus}" />
                                     <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_spell_failure}" />
                                 </div>
-                                <div class="options">
+                                <div class="options right">
                                     <div class="autoex">
                                         <span name="attr_notes"></span>
                                         <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
@@ -717,32 +717,32 @@
                             </div>
                         </fieldset>
                     </div> <!-- END REPEATING AC ITEMS -->
-                    <div class="myrow"> <!-- Ac Items Totals -->
-                            <span class="lab bold totals" data-i18n="totals-u">TOTALS</span>
-                            <span class="lab shield" data-i18n="shield">Shield</span>
-                            <div class="boxed greybg">
-                                <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
-                            </div>
-                            <span class="lab armor" data-i18n="armor">Armor</span>
-                            <div class="boxed greybg">
-                                <span name="attr_ac_armor" class="pseudoattr" title="@{ac_armor}"></span>
-                            </div>
-                            <div class="boxed greybg">
-                                <span name="attr_ac_flatfooted_bonus" class="pseudoattr" title="@{ac_flatfooted_bonus}"></span>
-                            </div>
-                            <div class="boxed greybg">
-                                <span name="attr_ac_touch_bonus" class="pseudoattr" title="@{ac_touch_bonus}"></span>
-                            </div>
-                            <span class="spacer type"></span>
-                            <div class="boxed greybg">
-                                <span name="attr_armor_check_penalty" class="pseudoattr" title="@{armor_check_penalty}"></span>
-                            </div>
-                            <div class="boxed greybg">
-                                <span name="attr_ac_ability_maximum" class="pseudoattr" title="@{ac_ability_maximum}"></span>
-                            </div>
-                            <div class="boxed greybg">
-                                <span name="attr_armor_spell_failure" class="pseudoattr" title="@{armor_spell_failure}"></span>
-                            </div>
+                    <div class="myrow right" style="margin-top: 3px;"> <!-- Ac Items Totals -->
+                        <span class="lab bold totals" data-i18n="totals-u">TOTALS</span>
+                        <span class="lab shield" data-i18n="shield">Shield</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
+                        </div>
+                        <span class="lab armor" data-i18n="armor">Armor</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_armor" class="pseudoattr" title="@{ac_armor}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_flatfooted_bonus" class="pseudoattr" title="@{ac_flatfooted_bonus}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_touch_bonus" class="pseudoattr" title="@{ac_touch_bonus}"></span>
+                        </div>
+                        <span class="spacer type"></span>
+                        <div class="boxed greybg">
+                            <span name="attr_armor_check_penalty" class="pseudoattr" title="@{armor_check_penalty}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_ability_maximum" class="pseudoattr" title="@{ac_ability_maximum}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_armor_spell_failure" class="pseudoattr" title="@{armor_spell_failure}"></span>
+                        </div>
                     </div> <!-- End Ac Items Totals -->
                 </div>
             </div> <!-- END AC ITEMS -->

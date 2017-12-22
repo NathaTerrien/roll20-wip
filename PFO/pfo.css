@@ -53,6 +53,11 @@ img{
     padding-bottom: 2px;
     text-align: left;
 }
+.sheet-inboxright{
+    padding-right: 2px;
+    padding-bottom: 2px;
+    text-align: right;
+}
 .sheet-indent{
     text-indent: 10px;
 }
@@ -285,7 +290,6 @@ div.sheet-initiative {
 
 div.sheet-acitems {
     width: 550px;
-    text-align: left;
 }
 .sheet-acitems .sheet-blackbgrd.sheet-item {width: 190px;}
 .sheet-acitems .sheet-blackbgrd.sheet-equipped {width: 16px;}
@@ -296,8 +300,8 @@ div.sheet-acitems {
 .sheet-acitems .sheet-blackbgrd.sheet-max {width: 35px;}
 .sheet-acitems .sheet-spacer.sheet-type,
 .sheet-acitems .sheet-blackbgrd.sheet-type {width: 60px;}
-.sheet-acitems .sheet-blackbgrd.sheet-spell {width: 45px;}
-.sheet-acitems .sheet-lab.sheet-totals {width: 102px;}
+.sheet-acitems .sheet-blackbgrd.sheet-spell {width: 38px;}
+.sheet-acitems .sheet-lab.sheet-totals {width: 90px;}
 .sheet-acitems .sheet-lab.sheet-shield,
  .sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
 
@@ -640,7 +644,7 @@ input.sheet-tabconf:checked + span{
 .sheet-options-reflex,
 .sheet-options-will {
     display: none;
-    background-color: rgba(230,221,148,0.2);
+    background-color: rgb(250,250,250);
     margin-top: 2px;
     border-top: 1px dotted rgba(195,153,107,0.2);
     border-bottom: 2px dotted #C3996B;
@@ -698,6 +702,7 @@ input.sheet-tabconf:checked + span{
     color: white !important;
     background: none;
     box-shadow: none;
+    padding: 4px 4px 4px 4px;
 }
 
 .repcontrol .btn:focus {
@@ -751,7 +756,6 @@ input.sheet-tabconf:checked + span{
 
 .itemcontrol .repcontrol_del {
     font-size: 10px;
-    margin-top: 3px;
     padding: 0px;
     height: 18px;
     width: 18px;
@@ -759,7 +763,6 @@ input.sheet-tabconf:checked + span{
 
 .itemcontrol .repcontrol_move {
     font-size: 10px;
-    margin-top: 3px;
     padding: 0px;
     height: 18px;
     width: 18px;
