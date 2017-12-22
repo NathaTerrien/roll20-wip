@@ -59,14 +59,14 @@ img{
 .sheet-padindent{
     padding-left: 10px;
 }
-.sheet-greybg{
-    background-color: #DDD;
-}
 .sheet-bold{
     font-weight: bold;
 }
 .sheet-center{
     text-align: center;
+}
+.sheet-labline{
+    line-height: 1em;
 }
 /* ==== DIVS ==== */
 div.sheet-main{
@@ -137,7 +137,7 @@ div.sheet-blacklabel .sheet-blackbgrd{
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    padding: 2px 4px 0px 4px;
+    padding: 2px 0px 0px 0px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
     display: inline-block;
@@ -146,7 +146,7 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
     font-weight: bold;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
-    padding-top: 4px;
+    padding-top: 5px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
     display: block;
@@ -170,10 +170,12 @@ img.sheet-brdright {
 img.sheet-brdleft {
     float: left;
     clear: left;
+    margin-right: 6px;
 }
 img.sheet-brdright {
     float: right;
     clear: right;
+    margin-left: 6px;
 }
 div.sheet-identity{
     display: inline-block;
@@ -187,6 +189,10 @@ div.sheet-boxed {
     vertical-align: top;
     text-align: center;
     margin-top: 3px;
+    background-color: white;
+}
+div.sheet-boxed.sheet-greybg{
+    background-color: #DDD;
 }
 div.sheet-ability,
 div.sheet-acvalues,
@@ -276,10 +282,25 @@ div.sheet-initiative {
 .sheet-skills div.sheet-blacklabel {
     width: 95%;
 }
+
 div.sheet-acitems {
     width: 550px;
     text-align: left;
 }
+.sheet-acitems .sheet-blackbgrd.sheet-item {width: 190px;}
+.sheet-acitems .sheet-blackbgrd.sheet-equipped {width: 16px;}
+.sheet-acitems .sheet-blackbgrd.sheet-ac ,
+.sheet-acitems .sheet-blackbgrd.sheet-flat ,
+.sheet-acitems .sheet-blackbgrd.sheet-touch ,
+.sheet-acitems .sheet-blackbgrd.sheet-check ,
+.sheet-acitems .sheet-blackbgrd.sheet-max {width: 35px;}
+.sheet-acitems .sheet-spacer.sheet-type,
+.sheet-acitems .sheet-blackbgrd.sheet-type {width: 60px;}
+.sheet-acitems .sheet-blackbgrd.sheet-spell {width: 45px;}
+.sheet-acitems .sheet-lab.sheet-totals {width: 102px;}
+.sheet-acitems .sheet-lab.sheet-shield,
+ .sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
+
 .sheet-acitem div.sheet-myrow {
     padding-left: 16px;
 }
@@ -325,7 +346,6 @@ input:focus, input:hover, textarea:focus, textarea:hover, select:hover, select:f
 input[type="number"]{
     text-align: center;
     vertical-align: middle;
-
 }
 input[type="number"].sheet-sml{
     width: 30px;
@@ -335,6 +355,8 @@ div.sheet-boxed input[type="number"]{
     height: 18px;
     margin-top: 2px;
 }
+
+.sheet-identity input[type="number"],
 .sheet-acitem input[type="number"]{
     width: 35px;
 }
@@ -618,6 +640,9 @@ input.sheet-tabconf:checked + span{
 .sheet-options-reflex,
 .sheet-options-will {
     display: none;
+    background-color: rgba(230,221,148,0.2);
+    margin-top: 2px;
+    border-top: 1px dotted rgba(195,153,107,0.2);
     border-bottom: 2px dotted #C3996B;
 }
 .sheet-options-flag:checked ~ .sheet-options,

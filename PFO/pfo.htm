@@ -34,7 +34,7 @@
                     <span data-i18n="class">Class</span>
                 </div>
                 <div class="identity">
-                    <input type="number" name="attr_level" value="1" class="underlined" style="max-width:35px;" title="@{level}" />
+                    <input type="number" name="attr_level" value="1" class="underlined" title="@{level}" />
                     <span data-i18n="level">Level</span>
                 </div>
                 <div class="identity">
@@ -100,7 +100,7 @@
     <div class="tabmain"> <!-- TAB MAIN -->
         <div class="colhalf"> <!-- tab1 col1 -->
             <div class="abilities"> <!-- abilities -->
-                <div class="myrow">
+                <div class="myrow labline">
                     <span class="lab" data-i18n="ability-name" data-i18n-title="ability-name" title="Ability Name">Ability Name</span>
                     <span class="lab" data-i18n="score" data-i18n-title="ability-score" title="Score">Score</span>
                     <span class="lab" data-i18n="modifier" data-i18n-title="ability-modifier" title="Modifier">Modifier</span>
@@ -283,7 +283,7 @@
             </div>  <!-- END abilities -->
             <div class="subcol hpinit">
                 <div class="hpvalues"> <!-- HP -->
-                    <div class="myrow">
+                    <div class="myrow labline">
                         <span class="lab">&nbsp;</span>
                         <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
                         <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
@@ -302,7 +302,7 @@
                             <input type="number" name="attr_hp_max" class="boxed" value="0" title="@{hp_max}" />
                         </div>
                     </div>
-                    <div class="myrow">
+                    <div class="myrow labline">
                         <span class="lab">&nbsp;</span>
                         <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonlethal</span>
                         <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
@@ -334,7 +334,7 @@
                             <input type="number" name="attr_initiative_bonus" class="boxed" value="0" title="@{initiative_bonus}" />
                         </div>
                     </div>
-                    <div class="myrow">
+                    <div class="myrow labline">
                         <span class="lab" style="margin-left: 73px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                         <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                     </div>
@@ -349,7 +349,7 @@
                                 <input type="number" name="attr_initiative_misc" class="boxed" value="0" title="@{initiative_misc}" />
                             </div>
                         </div>
-                        <div class="myrow">
+                        <div class="myrow labline">
                             <span class="spacer"></span>
                             <span class="lab" data-i18n="dex" data-i18n-title="dexterity-modifier" title="Dexterity Modifier">dex</span>
                             <span class="spacer"></span>
@@ -396,7 +396,7 @@
                         <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
                 </div>
-                <div class="myrow">
+                <div class="myrow labline">
                     <span class="lab" style="margin-left: 43px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
@@ -433,7 +433,7 @@
                             <input type="number" name="attr_ac_misc" class="boxed" value="0" title="@{ac_misc}" />
                         </div>
                     </div>
-                    <div class="myrow">
+                    <div class="myrow labline">
                         <span class="spacer"></span>
                         <span class="spacer"></span>
                         <span class="spacer"></span>
@@ -466,7 +466,7 @@
                     <div class="save fortitude">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <span class="big" data-i18n="fort-u">FORT</span>
+                                <button class="myrol big" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{fortitude_notes}}}"><span data-i18n="fort-u">FORT</span></button>
                                 <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
                             </div>
                         </div>
@@ -480,7 +480,7 @@
                     <div class="save reflex">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <span class="big" data-i18n="ref-u">REF</span>
+                                <button class="myrol big" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{reflex_notes}}}"><span data-i18n="ref-u">REF</span></button>
                                 <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
                             </div>
                         </div>
@@ -494,7 +494,7 @@
                     <div class="save will">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <span class="big" data-i18n="will-u">WILL</span>
+                                <button class="myrol big" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{will_notes}}}"><span data-i18n="will-u">WILL</span></button>
                                 <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
                             </div>
                         </div>
@@ -506,7 +506,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="myrow">
+                <div class="myrow labline">
                     <span class="lab" style="margin-left: 61px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                     <span class="lab" style="margin-left: 47px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
@@ -530,7 +530,7 @@
                             <input type="number" name="attr_fortitude_misc" class="boxed" value="0" title="@{fortitude_misc}" />
                         </div>
                     </div>
-                    <div class="myrow">
+                    <div class="myrow labline">
                         <span class="spacer invisible" data-i18n="fort-u" data-i18n-title="fortitude" title="Fortitude">FORT</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
@@ -560,7 +560,7 @@
                             <input type="number" name="attr_reflex_misc" class="boxed" value="0" title="@{reflex_misc}" />
                         </div>
                     </div>
-                    <div class="myrow center">
+                    <div class="myrow center labline">
                         <span class="spacer invisible" data-i18n="ref-u" data-i18n-title="reflex" title="Reflex">REF</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
@@ -590,7 +590,7 @@
                             <input type="number" name="attr_will_misc" class="boxed" value="0" title="@{will_misc}" />
                         </div>
                     </div>
-                    <div class="myrow right">
+                    <div class="myrow right labline">
                         <span class="spacer invisible" data-i18n="will-u" data-i18n-title="will" title="Will">WILL</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
@@ -652,98 +652,101 @@
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
     <div class="tabadd"> <!-- TAB ADDITIONNAL -->
-        <div class="col2third acitems"> <!-- AC ITEMS -->
-            <div class="myrow">
-                <span class="spacer"></span>
-                <div class="blacklabel">
-                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd" style="width: 185px;" >
-                        <span class="big only" data-i18n="ac-items">AC Items</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 16px;">
-                        <span class="med only" data-i18n="eq" data-i18n-title="equipped" title="Equipped">Eq</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 35px;">
-                        <span class="med only" data-i18n="ac-u" data-i18n-title="ac-bonus" title="AC Bonus">AC</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 35px;">
-                        <span class="med only" data-i18n="flat" data-i18n-title="flat-footed-bonus" title="Flat-footed Bonus">Flat</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 35px;">
-                        <span class="med only" data-i18n="touch" data-i18n-title="touch-bonus" title="Touch Bonus">Touch</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 60px;">
-                        <span class="med only" data-i18n="type">Type</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 35px;">
-                        <span class="med only" data-i18n="check" data-i18n-title="check-penalty" title="Check Penalty">Check</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 35px;">
-                        <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Maximum Dex Bonus">Dex</span>
-                    </div>
-                    <div class="blackbgrd" style="width: 45px;">
-                        <span class="med only" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
+        <div class="col2third">
+            <div class="acitems"> <!-- AC ITEMS -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd item">
+                            <span class="big only" data-i18n="ac-items">AC Items</span>
+                        </div>
+                        <div class="blackbgrd equipped">
+                            <span class="med only" data-i18n="eq" data-i18n-title="equipped" title="Equipped">Eq</span>
+                        </div>
+                        <div class="blackbgrd ac">
+                            <span class="med only" data-i18n="ac-u" data-i18n-title="ac-bonus" title="AC Bonus">AC</span>
+                        </div>
+                        <div class="blackbgrd flat">
+                            <span class="med only" data-i18n="flat" data-i18n-title="flat-footed-bonus" title="Flat-footed Bonus">Flat</span>
+                        </div>
+                        <div class="blackbgrd touch">
+                            <span class="med only" data-i18n="touch" data-i18n-title="touch-bonus" title="Touch Bonus">Touch</span>
+                        </div>
+                        <div class="blackbgrd type">
+                            <span class="med only" data-i18n="type">Type</span>
+                        </div>
+                        <div class="blackbgrd check">
+                            <span class="med only" data-i18n="check" data-i18n-title="check-penalty" title="Check Penalty">Check</span>
+                        </div>
+                        <div class="blackbgrd max">
+                            <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Maximum Dex Bonus">Dex</span>
+                        </div>
+                        <div class="blackbgrd spell">
+                            <span class="med only" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="bordered titled inbox">
-                <fieldset class="repeating_acitems">
-                    <div class="acitem">
-                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
-                        <div class="myrow">
-                            <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_name}" data-i18n-placeholder="item" placeholder="Item" />
-                            <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_equipped}" /><span class="mleft"></span>
-                            <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_ac_bonus}" />
-                            <input type="number" name="attr_flatfooted_bonus" value="0" class="underlined" title="@{repeating_acitems_flatfooted_bonus}" />
-                            <input type="number" name="attr_touch_bonus" value="0" class="underlined" title="@{repeating_acitems_touch_bonus}" />
-                            <select name="attr_type" title="@{repeating_acitems_type}">
-                                <option value="light" data-i18n="light">Light</option>
-                                <option value="medium" data-i18n="medium" selected="selected">Medium</option>
-                                <option value="heavy" data-i18n="heavy">Heavy</option>
-                                <option value="shield" data-i18n="shield">Shield</option>
-                                <option value="misc" data-i18n="misc">Misc</option>
-                            </select>
-                            <input type="number" name="attr_check_penalty" value="0" class="underlined" title="@{repeating_acitems_check_penalty}" />
-                            <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_max_dex_bonus}" />
-                            <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_spell_failure}" />
-                        </div>
-                        <div class="options">
-                            <div class="autoex">
-                                <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+                <div class="bordered titled inbox">
+                    <div class="myrow"> <!-- REPEATING AC ITEMS -->
+                        <fieldset class="repeating_acitems">
+                            <div class="acitem">
+                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                                <div class="myrow">
+                                    <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_name}" data-i18n-placeholder="item" placeholder="Item" />
+                                    <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_equipped}" /><span class="mleft"></span>
+                                    <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_ac_bonus}" />
+                                    <input type="number" name="attr_flatfooted_bonus" value="0" class="underlined" title="@{repeating_acitems_flatfooted_bonus}" />
+                                    <input type="number" name="attr_touch_bonus" value="0" class="underlined" title="@{repeating_acitems_touch_bonus}" />
+                                    <select name="attr_type" title="@{repeating_acitems_type}">
+                                        <option value="light" data-i18n="light">Light</option>
+                                        <option value="medium" data-i18n="medium" selected="selected">Medium</option>
+                                        <option value="heavy" data-i18n="heavy">Heavy</option>
+                                        <option value="shield" data-i18n="shield">Shield</option>
+                                        <option value="misc" data-i18n="misc">Misc</option>
+                                    </select>
+                                    <input type="number" name="attr_check_penalty" value="0" class="underlined" title="@{repeating_acitems_check_penalty}" />
+                                    <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_max_dex_bonus}" />
+                                    <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_spell_failure}" />
+                                </div>
+                                <div class="options">
+                                    <div class="autoex">
+                                        <span name="attr_notes"></span>
+                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <div class="myrow"> <!-- Ac Items Totals -->
-                        <span class="lab bold" style="width: 102px;" data-i18n="totals-u">TOTALS</span>
-                        <span class="lab" style="width:50px;" data-i18n="shield">Shield</span>
-                        <div class="boxed greybg">
-                            <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
-                        </div>
-                        <span class="lab" style="width:50px;" data-i18n="armor">Armor</span>
-                        <div class="boxed greybg">
-                            <span name="attr_ac_armor" class="pseudoattr" title="@{ac_armor}"></span>
-                        </div>
-                        <div class="boxed greybg">
-                            <span name="attr_ac_flatfooted_bonus" class="pseudoattr" title="@{ac_flatfooted_bonus}"></span>
-                        </div>
-                        <div class="boxed greybg">
-                            <span name="attr_ac_touch_bonus" class="pseudoattr" title="@{ac_touch_bonus}"></span>
-                        </div>
-                        <span class="spacer" style="width:60px;"></span>
-                        <div class="boxed greybg">
-                            <span name="attr_armor_check_penalty" class="pseudoattr" title="@{armor_check_penalty}"></span>
-                        </div>
-                        <div class="boxed greybg">
-                            <span name="attr_ac_ability_maximum" class="pseudoattr" title="@{ac_ability_maximum}"></span>
-                        </div>
-                        <div class="boxed greybg">
-                            <span name="attr_armor_spell_failure" class="pseudoattr" title="@{armor_spell_failure}"></span>
-                        </div>
-                </div> <!-- End Ac Items Totals -->
-            </div>
-        </div> <!-- END AC ITEMS -->
+                        </fieldset>
+                    </div> <!-- END REPEATING AC ITEMS -->
+                    <div class="myrow"> <!-- Ac Items Totals -->
+                            <span class="lab bold totals" data-i18n="totals-u">TOTALS</span>
+                            <span class="lab shield" data-i18n="shield">Shield</span>
+                            <div class="boxed greybg">
+                                <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
+                            </div>
+                            <span class="lab armor" data-i18n="armor">Armor</span>
+                            <div class="boxed greybg">
+                                <span name="attr_ac_armor" class="pseudoattr" title="@{ac_armor}"></span>
+                            </div>
+                            <div class="boxed greybg">
+                                <span name="attr_ac_flatfooted_bonus" class="pseudoattr" title="@{ac_flatfooted_bonus}"></span>
+                            </div>
+                            <div class="boxed greybg">
+                                <span name="attr_ac_touch_bonus" class="pseudoattr" title="@{ac_touch_bonus}"></span>
+                            </div>
+                            <span class="spacer type"></span>
+                            <div class="boxed greybg">
+                                <span name="attr_armor_check_penalty" class="pseudoattr" title="@{armor_check_penalty}"></span>
+                            </div>
+                            <div class="boxed greybg">
+                                <span name="attr_ac_ability_maximum" class="pseudoattr" title="@{ac_ability_maximum}"></span>
+                            </div>
+                            <div class="boxed greybg">
+                                <span name="attr_armor_spell_failure" class="pseudoattr" title="@{armor_spell_failure}"></span>
+                            </div>
+                    </div> <!-- End Ac Items Totals -->
+                </div>
+            </div> <!-- END AC ITEMS -->
+        </div>
         <div class="col1third">stuff</div>
     </div> <!-- END TAB ADDITIONNAL -->
     <div class="tabspell"> <!-- TAB SPELLS -->
