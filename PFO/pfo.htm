@@ -606,15 +606,178 @@
                 </div>
             </div> <!-- END SAVING THROWS -->
             <div class="spacer"></div>
-            <div class="myrow"> <!-- BAB -->
-                <div class="blacklabel">
-                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="base-attack-bonus">base attack bonus</span>
+            <div class="babs"> <!-- BABS -->
+                <input class="options-flag bab" name="attr_options-flag-bab" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag cmb" name="attr_options-flag-cmb" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="myrow">
+                    <div class="blacklabel bab">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="base-attack-bonus">Base Attack Bonus</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
-                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    <div class="boxed">
+                        <input type="number" name="attr_bab" class="boxed" value="0" title="@{bab}" />
+                    </div>
+                    <div class="blacklabel cmb">
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="cmb-u" data-i18n-bonus="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_cmb" class="pseudoattr" title="@{cmb}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_cmb_bonus" class="boxed" value="0" title="@{cmb_bonus}" />
+                    </div>
                 </div>
-            </div> <!-- END BAB -->
+                <div class="options-bab">
+                    <div class="autoex">
+                        <span name="attr_bab_notes"></span>
+                        <textarea name="attr_bab_notes" spellcheck="false" data-i18n-placeholder="bab-notes" placeholder="BAB Notes" title="@{bab_notes}"></textarea>
+                    </div>
+                </div>
+                <div class="options-cmb">
+                    <div class="myrow right">
+                        <span class="spacer" data-i18n="cmb-u" data-i18n-bonus="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span>
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_bab" class="pseudoattr" title="@{bab}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_cmb_ability_mod" class="pseudoattr" title="@{cmb_ability_mod}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_cmb_size" class="pseudoattr" title="@{cmb_size}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_cmb_misc" class="boxed" value="0" title="@{cmb_misc}" />
+                        </div>
+                    </div>
+                    <div class="myrow right labline">
+                        <span class="spacer invisible" data-i18n="cmb-u" data-i18n-bonus="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="size" data-i18n-title="size-modifier" title="Size Modifier">Size</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_cmb_notes"></span>
+                        <textarea name="attr_cmb_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{cmb_notes}"></textarea>
+                    </div>
+                </div>
+            </div> <!-- END BABS -->
+            <div class="spacer"></div>
+            <div class="attackmods"> <!-- ATTACK MODS (MELEE RANGED) -->
+                <input class="options-flag melee" name="attr_options-flag-melee" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag ranged" name="attr_options-flag-ranged" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="myrow">
+                    <div class="blacklabel melee">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="melee">Melee</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_melee" class="pseudoattr" title="@{melee}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_melee_bonus" class="boxed" value="0" title="@{melee_bonus}" />
+                    </div>
+                    <div class="blacklabel ranged">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="ranged">Ranged</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_ranged" class="pseudoattr" title="@{ranged}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_ranged_bonus" class="boxed" value="0" title="@{ranged_bonus}" />
+                    </div>
+                </div>
+                <div class="options-melee">
+                    <div class="myrow">
+                        <span class="spacer" data-i18n="melee">Melee</span>
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_bab" class="pseudoattr" title="@{bab}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_melee_ability_mod" class="pseudoattr" title="@{melee_ability_mod}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_bab_size" class="pseudoattr" title="@{bab_size}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_melee_misc" class="boxed" value="0" title="@{melee_misc}" />
+                        </div>
+                    </div>
+                    <div class="myrow labline">
+                        <span class="spacer invisible" data-i18n="melee">Melee</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="size" data-i18n-title="size-modifier" title="Size Modifier">Size</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_melee_notes"></span>
+                        <textarea name="attr_melee_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{melee_notes}"></textarea>
+                    </div>
+                </div>
+                <div class="options-ranged">
+                    <div class="myrow right">
+                        <span class="spacer" data-i18n="ranged">Ranged</span>
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_bab" class="pseudoattr" title="@{bab}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ranged_ability_mod" class="pseudoattr" title="@{ranged_ability_mod}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_bab_size" class="pseudoattr" title="@{bab_size}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_ranged_misc" class="boxed" value="0" title="@{ranged_misc}" />
+                        </div>
+                    </div>
+                    <div class="myrow right labline">
+                        <span class="spacer invisible" data-i18n="ranged">Ranged</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="size" data-i18n-title="size-modifier" title="Size Modifier">Size</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_ranged_notes"></span>
+                        <textarea name="attr_ranged_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{ranged_notes}"></textarea>
+                    </div>
+                </div>
+            </div>  <!-- END ATTACK MODS (MELEE RANGED) -->
         </div>  <!-- END tab1 col1 -->
         <div class="colhalf"> <!-- tab1 col2 -->
             <div class="myrow center skills">

@@ -73,6 +73,9 @@ img{
 .sheet-labline{
     line-height: 1em;
 }
+.sheet-invisible {
+    opacity: 0;
+}
 /* ==== DIVS ==== */
 div.sheet-main{
     vertical-align: top;
@@ -203,7 +206,9 @@ div.sheet-ability,
 div.sheet-acvalues,
 div.sheet-initiative,
 div.sheet-acitem,
-div.sheet-saves {
+div.sheet-saves,
+div.sheet-babs,
+div.sheet-attackmods {
     position: relative;
 }
 div.sheet-abilities,
@@ -235,9 +240,79 @@ div.sheet-initiative {
 .sheet-abilities div.sheet-blacklabel {
     width: 80px;
 }
+.sheet-abilities div.sheet-boxed{
+    margin-left: 5px;
+    margin-right: 5px;
+}
 .sheet-hpvalues div.sheet-blacklabel,
 .sheet-initiative div.sheet-blacklabel {
     width: 70px;
+}
+.sheet-initiative div.sheet-boxed,
+.sheet-hpvalues div.sheet-boxed {
+    margin-left: 5px;
+}
+.sheet-acvalues div.sheet-blacklabel.sheet-ac {
+    width: 40px;
+}
+.sheet-acvalues div.sheet-blacklabel.sheet-touch {
+    width: 72px;
+}
+.sheet-acvalues div.sheet-blacklabel.sheet-flatfooted {
+    width: 131px;
+}
+div.sheet-save {
+    display: inline-block;
+}
+.sheet-fortitude div.sheet-blacklabel{
+    width: 58px;
+}
+.sheet-reflex div.sheet-blacklabel{
+    width: 44px;
+}
+.sheet-will div.sheet-blacklabel{
+    width: 55px;
+}
+.sheet-babs div.sheet-blacklabel.sheet-bab {
+    width: 245px;
+}
+.sheet-babs div.sheet-blacklabel.sheet-cmb {
+    width: 45px;
+}
+.sheet-attackmods div.sheet-blacklabel.sheet-melee,
+.sheet-attackmods div.sheet-blacklabel.sheet-ranged {
+    width: 123px;
+}
+
+.sheet-skills div.sheet-blacklabel {
+    width: 95%;
+}
+
+div.sheet-acitems {
+    width: 550px;
+}
+.sheet-acitems .sheet-blackbgrd.sheet-item {width: 190px;}
+.sheet-acitems .sheet-blackbgrd.sheet-equipped {width: 16px;}
+.sheet-acitems .sheet-blackbgrd.sheet-ac ,
+.sheet-acitems .sheet-blackbgrd.sheet-flat ,
+.sheet-acitems .sheet-blackbgrd.sheet-touch ,
+.sheet-acitems .sheet-blackbgrd.sheet-check ,
+.sheet-acitems .sheet-blackbgrd.sheet-max {width: 35px;}
+.sheet-acitems .sheet-spacer.sheet-type,
+.sheet-acitems .sheet-blackbgrd.sheet-type {width: 60px;}
+.sheet-acitems .sheet-blackbgrd.sheet-spell {width: 38px;}
+.sheet-acitems .sheet-lab.sheet-totals {width: 90px;}
+.sheet-acitems .sheet-lab.sheet-shield,
+.sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
+.sheet-acitem div.sheet-myrow {
+    padding-left: 16px;
+}
+
+/* ===== SPANS ===== */
+span.sheet-spacer{
+    display: inline-block;
+    min-width: 10px;
+    text-align: center;
 }
 .sheet-lab {
     display: inline-block;
@@ -264,70 +339,10 @@ div.sheet-initiative {
     width: 70px;
 }
 .sheet-acvalues .sheet-lab,
-.sheet-saves .sheet-lab {
+.sheet-saves .sheet-lab,
+.sheet-babs .sheet-lab,
+.sheet-attackmods .sheet-lab {
     width: 40px;
-}
-.sheet-acvalues div.sheet-blacklabel.sheet-ac {
-    width: 40px;
-}
-.sheet-acvalues div.sheet-blacklabel.sheet-touch {
-    width: 72px;
-}
-.sheet-acvalues div.sheet-blacklabel.sheet-flatfooted {
-    width: 131px;
-}
-.sheet-abilities div.sheet-boxed{
-    margin-left: 5px;
-    margin-right: 5px;
-}
-.sheet-initiative div.sheet-boxed,
-.sheet-hpvalues div.sheet-boxed {
-    margin-left: 5px;
-}
-.sheet-skills div.sheet-blacklabel {
-    width: 95%;
-}
-
-div.sheet-acitems {
-    width: 550px;
-}
-.sheet-acitems .sheet-blackbgrd.sheet-item {width: 190px;}
-.sheet-acitems .sheet-blackbgrd.sheet-equipped {width: 16px;}
-.sheet-acitems .sheet-blackbgrd.sheet-ac ,
-.sheet-acitems .sheet-blackbgrd.sheet-flat ,
-.sheet-acitems .sheet-blackbgrd.sheet-touch ,
-.sheet-acitems .sheet-blackbgrd.sheet-check ,
-.sheet-acitems .sheet-blackbgrd.sheet-max {width: 35px;}
-.sheet-acitems .sheet-spacer.sheet-type,
-.sheet-acitems .sheet-blackbgrd.sheet-type {width: 60px;}
-.sheet-acitems .sheet-blackbgrd.sheet-spell {width: 38px;}
-.sheet-acitems .sheet-lab.sheet-totals {width: 90px;}
-.sheet-acitems .sheet-lab.sheet-shield,
- .sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
-
-.sheet-acitem div.sheet-myrow {
-    padding-left: 16px;
-}
-div.sheet-save {
-    display: inline-block;
-}
-.sheet-fortitude div.sheet-blacklabel{
-    width: 58px;
-}
-.sheet-reflex div.sheet-blacklabel{
-    width: 44px;
-}
-.sheet-will div.sheet-blacklabel{
-    width: 55px;
-}
-.sheet-invisible {
-    opacity: 0;
-}
-/* ===== SPAN ===== */
-span.sheet-spacer{
-    display: inline-block;
-    min-width: 10px;
-    text-align: center;
 }
 /* ===== INPUTS ===== */
 input, textarea{
@@ -618,7 +633,11 @@ input.sheet-tabconf:checked + span{
 .sheet-initiative .sheet-options-flag,
 .sheet-initiative .sheet-options-flag + span,
 .sheet-saves .sheet-options-flag.sheet-fortitude,
-.sheet-saves .sheet-options-flag.sheet-fortitude + span {
+.sheet-saves .sheet-options-flag.sheet-fortitude + span,
+.sheet-babs .sheet-options-flag.sheet-bab,
+.sheet-babs .sheet-options-flag.sheet-bab + span,
+.sheet-attackmods .sheet-options-flag.sheet-melee,
+.sheet-attackmods .sheet-options-flag.sheet-melee + span {
     top: -2px;
     left: 0px;
 }
@@ -632,17 +651,33 @@ input.sheet-tabconf:checked + span{
     top: -2px;
     left: 281px;
 }
+.sheet-babs .sheet-options-flag.sheet-cmb,
+.sheet-babs .sheet-options-flag.sheet-cmb + span {
+    top: -2px;
+    left: 290px;
+}
+.sheet-attackmods .sheet-options-flag.sheet-ranged,
+.sheet-attackmods .sheet-options-flag.sheet-ranged + span {
+    top: -2px;
+    left: 215px;
+}
 .sheet-abilities .sheet-ability:hover .sheet-options-flag + span,
 .sheet-acvalues:hover .sheet-options-flag + span,
 .sheet-initiative:hover .sheet-options-flag + span,
 .sheet-acitem:hover .sheet-options-flag + span,
-.sheet-saves:hover .sheet-options-flag + span {
+.sheet-saves:hover .sheet-options-flag + span,
+.sheet-babs:hover .sheet-options-flag + span,
+.sheet-attackmods:hover .sheet-options-flag + span {
     display: block;
 }
 .sheet-options,
 .sheet-options-fortitude,
 .sheet-options-reflex,
-.sheet-options-will {
+.sheet-options-will,
+.sheet-options-bab,
+.sheet-options-cmb,
+.sheet-options-melee,
+.sheet-options-ranged {
     display: none;
     background-color: rgb(250,250,250);
     margin-top: 2px;
@@ -652,7 +687,11 @@ input.sheet-tabconf:checked + span{
 .sheet-options-flag:checked ~ .sheet-options,
 .sheet-options-flag.sheet-fortitude:checked ~ .sheet-options-fortitude,
 .sheet-options-flag.sheet-reflex:checked ~ .sheet-options-reflex,
-.sheet-options-flag.sheet-will:checked ~ .sheet-options-will {
+.sheet-options-flag.sheet-will:checked ~ .sheet-options-will,
+.sheet-options-flag.sheet-bab:checked ~ .sheet-options-bab,
+.sheet-options-flag.sheet-cmb:checked ~ .sheet-options-cmb,
+.sheet-options-flag.sheet-melee:checked ~ .sheet-options-melee,
+.sheet-options-flag.sheet-ranged:checked ~ .sheet-options-ranged {
     display: inherit;
 }
 /* ===== AUTO EXPAND TEXTAREA ===== */
