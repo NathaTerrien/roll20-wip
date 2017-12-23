@@ -54,27 +54,35 @@
     on("change:strength_mod", function() {
         update_ac_ability("strength");
         update_saves_ability("strength","");
+        update_babs_ability("strength","");
+        update_cmd();
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
         update_saves_ability("dexterity","");
+        update_babs_ability("dexterity","");
+        update_cmd();
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
         update_saves_ability("constitution","");
+        update_babs_ability("constitution","");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
         update_saves_ability("intelligence","");
+        update_babs_ability("intelligence","");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
         update_saves_ability("wisdom","");
+        update_babs_ability("wisdom","");
     });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
         update_saves_ability("charisma","");
+        update_babs_ability("charisma","");
     });
 
     // === Initiative
@@ -88,6 +96,7 @@
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
+        update_cmd();
     });
     // AC Items
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
@@ -106,6 +115,26 @@
     });
     on("change:will_base change:will_ability_mod change:will_misc change:will_bonus", function(){
         update_save("will");
+    });
+
+    // === BAB / ATTACK MODS
+    on("change:bab", function(){
+        update_babs("cmb");
+        update_babs("melee");
+        update_babs("ranged");
+        update_cmd();
+    }):
+    on("change:cmb_ability change:melee_ability change:ranged_ability", function(e){
+        update_babs_ability(e.newValue,e.sourceAttribute);
+    });
+    on("change:cmb_ability_mod change:cmb_misc change:cmb_bonus", function(){
+        update_babs("cmb");
+    });
+    on("change:melee_ability_mod change:melee_misc change:melee_bonus", function(){
+        update_babs("melee");
+    });
+    on("change:ranged_ability_mod change:ranged_misc change:ranged_bonus", function(){
+        update_babs("ranged");
     });
 
     /* === FUNCTIONS === */
@@ -310,6 +339,9 @@
             });
         });
     };
+    var update_cmd = function() {
+        // TODO
+    };
     // === SAVES
     var update_saves_ability = function(attr,saveab) {
         var update = {},
@@ -340,6 +372,14 @@
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
         });
+    };
+
+    // === BABS
+    var update_babs_ability = function(attr,babsab) {
+        // TODO
+    };
+    var update_babs = function(attr) {
+        // TODO
     };
 
     // === Version and updating
