@@ -632,6 +632,10 @@
                         <input type="number" name="attr_cmb_bonus" class="boxed" value="0" title="@{cmb_bonus}" />
                     </div>
                 </div>
+                <div class="myrow labline">
+                    <span class="lab" style="margin-left: 340px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                </div>
                 <div class="options-bab">
                     <div class="autoex">
                         <span name="attr_bab_notes"></span>
@@ -675,7 +679,6 @@
                     </div>
                 </div>
             </div> <!-- END BABS -->
-            <div class="spacer"></div>
             <div class="attackmods"> <!-- ATTACK MODS (MELEE RANGED) -->
                 <input class="options-flag melee" name="attr_options-flag-melee" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <input class="options-flag ranged" name="attr_options-flag-ranged" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
@@ -704,6 +707,12 @@
                     <div class="boxed">
                         <input type="number" name="attr_ranged_bonus" class="boxed" value="0" title="@{ranged_bonus}" />
                     </div>
+                </div>
+                <div class="myrow labline">
+                    <span class="lab" style="margin-left: 125px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                    <span class="lab" style="margin-left: 128px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
                 <div class="options-melee">
                     <div class="myrow">
@@ -997,7 +1006,7 @@
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>
                     </div>
-                <span class="block" data-i18n="saving-throws:">Attacks:</span>
+                <span class="block" data-i18n="attacks:">Attacks:</span>
                     <div class="myrow padindent">
                         <span data-i18n="cmb-ability">CMB Ability</span>:
                         <select name="attr_cmb_ability" title="@{cmb_ability}">
@@ -1148,28 +1157,30 @@
     // === Mods
     on("change:strength_mod", function() {
         update_ac_ability("strength");
-        update_saves_ability("strength","");
+        update_flex_ability("strength","");
+        update_cmd();
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
-        update_saves_ability("dexterity","");
+        update_flex_ability("dexterity","");
+        update_cmd();
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
-        update_saves_ability("constitution","");
+        update_flex_ability("constitution","");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
-        update_saves_ability("intelligence","");
+        update_flex_ability("intelligence","");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
-        update_saves_ability("wisdom","");
-    });
+        update_flex_ability("wisdom","");
+   });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
-        update_saves_ability("charisma","");
+        update_flex_ability("charisma","");
     });
 
     // === Initiative
@@ -1183,6 +1194,7 @@
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
+        update_cmd();
     });
     // AC Items
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
@@ -1191,7 +1203,7 @@
 
     // === SAVES
     on("change:fortitude_ability change:reflex_ability change:will_ability", function(e){
-        update_saves_ability(e.newValue,e.sourceAttribute);
+        update_flex_ability(e.newValue,e.sourceAttribute);
     });
     on("change:fortitude_base change:fortitude_ability_mod change:fortitude_misc change:fortitude_bonus", function(){
         update_save("fortitude");
@@ -1201,6 +1213,26 @@
     });
     on("change:will_base change:will_ability_mod change:will_misc change:will_bonus", function(){
         update_save("will");
+    });
+
+    // === BAB / ATTACK MODS
+    on("change:bab", function(){
+        update_babs("cmb");
+        update_babs("melee");
+        update_babs("ranged");
+        update_cmd();
+    });
+    on("change:cmb_ability change:melee_ability change:ranged_ability", function(e){
+        update_flex_ability(e.newValue,e.sourceAttribute);
+    });
+    on("change:cmb_ability_mod change:cmb_misc change:cmb_bonus", function(){
+        update_babs("cmb");
+    });
+    on("change:melee_ability_mod change:melee_misc change:melee_bonus", function(){
+        update_babs("melee");
+    });
+    on("change:ranged_ability_mod change:ranged_misc change:ranged_bonus", function(){
+        update_babs("ranged");
     });
 
     /* === FUNCTIONS === */
@@ -1216,7 +1248,7 @@
             setAttrs(update);
         });
     };
-    var update_mod = function (attr) {
+    var update_mod = function(attr) {
         getAttrs([attr], function(v) {
             var mod = Math.floor(((parseInt(v[attr]) || 10) - 10) / 2);
             var update = {};
@@ -1224,6 +1256,36 @@
             setAttrs(update);
         });
     };
+    var update_flex_ability = function(attr,ablt) {
+        var update = {},
+            modz = [];
+            modz.push(attr + "_mod");
+        if (String(attr) && String(ablt)) {
+            getAttrs(modz, function(v) {
+                update[ablt + "_mod"] = v[attr + "_mod"];
+                setAttrs(update);
+            });
+        } else {
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability"],
+                flexes = [];
+            getAttrs(fields, function(ablts) {
+                _.each(fields, function(field){
+                    if(ablts[field] == attr) {
+                        flexes.push(field + "_mod");
+                    }
+                });
+                if ( (parseInt(flexes.length) || 0) > 0) {
+                    getAttrs(modz, function(v) {
+                        _.each(flexes, function(flex) {
+                            update[flex] = v[attr + "_mod"];
+                        });
+                        setAttrs(update);
+                    });
+                }
+            });
+        }
+    };
+
     // === Size
     var update_size = function(psize) {
         var size = psize || "medium",
@@ -1405,34 +1467,26 @@
             });
         });
     };
-    // === SAVES
-    var update_saves_ability = function(attr,saveab) {
-        var update = {},
-            modz = [];
-            modz.push(attr + "_mod");
-        if (String(attr) && String(saveab)) {
-            getAttrs(modz, function(v) {
-                update[saveab + "_mod"] = v[attr + "_mod"];
-                setAttrs(update);
-            });
-        } else {
-            getAttrs(["fortitude_ability","reflex_ability","will_ability"], function(savez) {
-                if( (attr == savez.fortitude_ability) || (attr == savez.reflex_ability) || (attr == savez.will_ability) ) {
-                    getAttrs(modz, function(v) {
-                        if(attr == savez.fortitude_ability) {update["fortitude_ability_mod"] = v[attr + "_mod"];}
-                        if(attr == savez.reflex_ability) {update["reflex_ability_mod"] = v[attr + "_mod"];}
-                        if(attr == savez.will_ability) {update["will_ability_mod"] = v[attr + "_mod"];}
-                        setAttrs(update);
-                    });
-                }
-            });
-        }
+    var update_cmd = function() {
+        // TO DO
+        return;
     };
+    // === SAVES
     var update_save = function(attr) {
         var attr_fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
         getAttrs(attr_fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            setAttrs(update);
+        });
+    };
+
+    // === BABS
+    var update_babs = function(attr) {
+        var attr_fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(attr_fields, function(v) {
+            var update = {};
+            update[attr] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
         });
     };

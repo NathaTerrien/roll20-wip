@@ -53,36 +53,30 @@
     // === Mods
     on("change:strength_mod", function() {
         update_ac_ability("strength");
-        update_saves_ability("strength","");
-        update_babs_ability("strength","");
+        update_flex_ability("strength","");
         update_cmd();
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
-        update_saves_ability("dexterity","");
-        update_babs_ability("dexterity","");
+        update_flex_ability("dexterity","");
         update_cmd();
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
-        update_saves_ability("constitution","");
-        update_babs_ability("constitution","");
+        update_flex_ability("constitution","");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
-        update_saves_ability("intelligence","");
-        update_babs_ability("intelligence","");
+        update_flex_ability("intelligence","");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
-        update_saves_ability("wisdom","");
-        update_babs_ability("wisdom","");
-    });
+        update_flex_ability("wisdom","");
+   });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
-        update_saves_ability("charisma","");
-        update_babs_ability("charisma","");
+        update_flex_ability("charisma","");
     });
 
     // === Initiative
@@ -105,7 +99,7 @@
 
     // === SAVES
     on("change:fortitude_ability change:reflex_ability change:will_ability", function(e){
-        update_saves_ability(e.newValue,e.sourceAttribute);
+        update_flex_ability(e.newValue,e.sourceAttribute);
     });
     on("change:fortitude_base change:fortitude_ability_mod change:fortitude_misc change:fortitude_bonus", function(){
         update_save("fortitude");
@@ -123,9 +117,9 @@
         update_babs("melee");
         update_babs("ranged");
         update_cmd();
-    }):
+    });
     on("change:cmb_ability change:melee_ability change:ranged_ability", function(e){
-        update_babs_ability(e.newValue,e.sourceAttribute);
+        update_flex_ability(e.newValue,e.sourceAttribute);
     });
     on("change:cmb_ability_mod change:cmb_misc change:cmb_bonus", function(){
         update_babs("cmb");
@@ -150,7 +144,7 @@
             setAttrs(update);
         });
     };
-    var update_mod = function (attr) {
+    var update_mod = function(attr) {
         getAttrs([attr], function(v) {
             var mod = Math.floor(((parseInt(v[attr]) || 10) - 10) / 2);
             var update = {};
@@ -158,6 +152,36 @@
             setAttrs(update);
         });
     };
+    var update_flex_ability = function(attr,ablt) {
+        var update = {},
+            modz = [];
+            modz.push(attr + "_mod");
+        if (String(attr) && String(ablt)) {
+            getAttrs(modz, function(v) {
+                update[ablt + "_mod"] = v[attr + "_mod"];
+                setAttrs(update);
+            });
+        } else {
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability"],
+                flexes = [];
+            getAttrs(fields, function(ablts) {
+                _.each(fields, function(field){
+                    if(ablts[field] == attr) {
+                        flexes.push(field + "_mod");
+                    }
+                });
+                if ( (parseInt(flexes.length) || 0) > 0) {
+                    getAttrs(modz, function(v) {
+                        _.each(flexes, function(flex) {
+                            update[flex] = v[attr + "_mod"];
+                        });
+                        setAttrs(update);
+                    });
+                }
+            });
+        }
+    };
+
     // === Size
     var update_size = function(psize) {
         var size = psize || "medium",
@@ -340,31 +364,10 @@
         });
     };
     var update_cmd = function() {
-        // TODO
+        // TO DO
+        return;
     };
     // === SAVES
-    var update_saves_ability = function(attr,saveab) {
-        var update = {},
-            modz = [];
-            modz.push(attr + "_mod");
-        if (String(attr) && String(saveab)) {
-            getAttrs(modz, function(v) {
-                update[saveab + "_mod"] = v[attr + "_mod"];
-                setAttrs(update);
-            });
-        } else {
-            getAttrs(["fortitude_ability","reflex_ability","will_ability"], function(savez) {
-                if( (attr == savez.fortitude_ability) || (attr == savez.reflex_ability) || (attr == savez.will_ability) ) {
-                    getAttrs(modz, function(v) {
-                        if(attr == savez.fortitude_ability) {update["fortitude_ability_mod"] = v[attr + "_mod"];}
-                        if(attr == savez.reflex_ability) {update["reflex_ability_mod"] = v[attr + "_mod"];}
-                        if(attr == savez.will_ability) {update["will_ability_mod"] = v[attr + "_mod"];}
-                        setAttrs(update);
-                    });
-                }
-            });
-        }
-    };
     var update_save = function(attr) {
         var attr_fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
         getAttrs(attr_fields, function(v) {
@@ -375,11 +378,13 @@
     };
 
     // === BABS
-    var update_babs_ability = function(attr,babsab) {
-        // TODO
-    };
     var update_babs = function(attr) {
-        // TODO
+        var attr_fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(attr_fields, function(v) {
+            var update = {};
+            update[attr] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            setAttrs(update);
+        });
     };
 
     // === Version and updating
