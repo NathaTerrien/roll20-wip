@@ -178,12 +178,12 @@ img.sheet-brdright {
 img.sheet-brdleft {
     float: left;
     clear: left;
-    margin-right: 6px;
+    margin-right: 4px;
 }
 img.sheet-brdright {
     float: right;
     clear: right;
-    margin-left: 6px;
+    margin-left: 4px;
 }
 div.sheet-identity{
     display: inline-block;
@@ -208,7 +208,8 @@ div.sheet-initiative,
 div.sheet-acitem,
 div.sheet-saves,
 div.sheet-babs,
-div.sheet-attackmods {
+div.sheet-attackmods,
+div.sheet-defenses {
     position: relative;
 }
 div.sheet-abilities,
@@ -274,16 +275,21 @@ div.sheet-save {
     width: 55px;
 }
 .sheet-babs div.sheet-blacklabel.sheet-bab {
-    width: 245px;
+    width: 215px;
 }
 .sheet-babs div.sheet-blacklabel.sheet-cmb {
-    width: 45px;
+    width: 75px;
 }
 .sheet-attackmods div.sheet-blacklabel.sheet-melee,
 .sheet-attackmods div.sheet-blacklabel.sheet-ranged {
     width: 123px;
 }
-
+.sheet-defenses div.sheet-blacklabel.sheet-cmd {
+    width: 84px;
+}
+.sheet-defenses div.sheet-blacklabel.sheet-sr {
+    width: 205px;
+}
 .sheet-skills div.sheet-blacklabel {
     width: 95%;
 }
@@ -341,7 +347,8 @@ span.sheet-spacer{
 .sheet-acvalues .sheet-lab,
 .sheet-saves .sheet-lab,
 .sheet-babs .sheet-lab,
-.sheet-attackmods .sheet-lab {
+.sheet-attackmods .sheet-lab,
+.sheet-defenses .sheet-lab {
     width: 40px;
 }
 /* ===== INPUTS ===== */
@@ -637,7 +644,9 @@ input.sheet-tabconf:checked + span{
 .sheet-babs .sheet-options-flag.sheet-bab,
 .sheet-babs .sheet-options-flag.sheet-bab + span,
 .sheet-attackmods .sheet-options-flag.sheet-melee,
-.sheet-attackmods .sheet-options-flag.sheet-melee + span {
+.sheet-attackmods .sheet-options-flag.sheet-melee + span,
+.sheet-defenses .sheet-options-flag.sheet-cmd,
+.sheet-defenses .sheet-options-flag.sheet-cmd + span {
     top: -2px;
     left: 0px;
 }
@@ -654,12 +663,17 @@ input.sheet-tabconf:checked + span{
 .sheet-babs .sheet-options-flag.sheet-cmb,
 .sheet-babs .sheet-options-flag.sheet-cmb + span {
     top: -2px;
-    left: 290px;
+    left: 262px;
 }
 .sheet-attackmods .sheet-options-flag.sheet-ranged,
 .sheet-attackmods .sheet-options-flag.sheet-ranged + span {
     top: -2px;
     left: 215px;
+}
+.sheet-defenses .sheet-options-flag.sheet-sr,
+.sheet-defenses .sheet-options-flag.sheet-sr + span {
+    top: -2px;
+    left: 174px;
 }
 .sheet-abilities .sheet-ability:hover .sheet-options-flag + span,
 .sheet-acvalues:hover .sheet-options-flag + span,
@@ -667,7 +681,8 @@ input.sheet-tabconf:checked + span{
 .sheet-acitem:hover .sheet-options-flag + span,
 .sheet-saves:hover .sheet-options-flag + span,
 .sheet-babs:hover .sheet-options-flag + span,
-.sheet-attackmods:hover .sheet-options-flag + span {
+.sheet-attackmods:hover .sheet-options-flag + span,
+.sheet-defenses:hover .sheet-options-flag + span {
     display: block;
 }
 .sheet-options,
@@ -677,7 +692,9 @@ input.sheet-tabconf:checked + span{
 .sheet-options-bab,
 .sheet-options-cmb,
 .sheet-options-melee,
-.sheet-options-ranged {
+.sheet-options-ranged,
+.sheet-options-cmd,
+.sheet-options-sr {
     display: none;
     background-color: rgb(250,250,250);
     margin-top: 2px;
@@ -691,7 +708,9 @@ input.sheet-tabconf:checked + span{
 .sheet-options-flag.sheet-bab:checked ~ .sheet-options-bab,
 .sheet-options-flag.sheet-cmb:checked ~ .sheet-options-cmb,
 .sheet-options-flag.sheet-melee:checked ~ .sheet-options-melee,
-.sheet-options-flag.sheet-ranged:checked ~ .sheet-options-ranged {
+.sheet-options-flag.sheet-ranged:checked ~ .sheet-options-ranged,
+.sheet-options-flag.sheet-cmd:checked ~ .sheet-options-cmd,
+.sheet-options-flag.sheet-sr:checked ~ .sheet-options-sr {
     display: inherit;
 }
 /* ===== AUTO EXPAND TEXTAREA ===== */

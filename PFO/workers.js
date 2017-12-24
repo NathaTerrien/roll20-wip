@@ -111,7 +111,7 @@
         update_save("will");
     });
 
-    // === BAB / ATTACK MODS
+    // === BAB / ATTACK MODS / DEFENSE
     on("change:bab", function(){
         update_babs("cmb");
         update_babs("melee");
@@ -129,6 +129,9 @@
     });
     on("change:ranged_ability_mod change:ranged_misc change:ranged_bonus", function(){
         update_babs("ranged");
+    });
+    on("change:cmd_misc change:cmd_bonus", function() {
+        update_cmd();
     });
 
     /* === FUNCTIONS === */
@@ -364,13 +367,26 @@
         });
     };
     var update_cmd = function() {
-        // TO DO
+        var fields = ["bab","strength_mod","dexterity_mod","cmb_size","ac_dodge","ac_deflection","cmd_misc","cmd_bonus"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["cmd"] = 10
+                            + (parseInt(v.bab) || 0)
+                            + (parseInt(v.strength_mod) || 0)
+                            + (parseInt(v.dexterity_mod) || 0)
+                            + (parseInt(v.cmb_size) || 0)
+                            + (parseInt(v.ac_dodge) || 0)
+                            + (parseInt(v.ac_deflection) || 0)
+                            + (parseInt(v.cmd_misc) || 0)
+                            + (parseInt(v.cmd_bonus) || 0);
+            setAttrs(update);
+        });
         return;
     };
     // === SAVES
     var update_save = function(attr) {
-        var attr_fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
-        getAttrs(attr_fields, function(v) {
+        var fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
@@ -379,8 +395,8 @@
 
     // === BABS
     var update_babs = function(attr) {
-        var attr_fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
-        getAttrs(attr_fields, function(v) {
+        var fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);

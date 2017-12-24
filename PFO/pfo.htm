@@ -615,12 +615,12 @@
                         <div class="blackbgrd">
                             <span class="big only" data-i18n="base-attack-bonus">Base Attack Bonus</span>
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     <div class="boxed">
                         <input type="number" name="attr_bab" class="boxed" value="0" title="@{bab}" />
                     </div>
                     <div class="blacklabel cmb">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                         <div class="blackbgrd">
                             <span class="big only" data-i18n="cmb-u" data-i18n-bonus="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span>
                         </div>
@@ -787,6 +787,97 @@
                     </div>
                 </div>
             </div>  <!-- END ATTACK MODS (MELEE RANGED) -->
+            <div class="defenses"> <!-- DEFENSES -->
+                <input class="options-flag cmd" name="attr_options-flag-cmd" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag sr" name="attr_options-flag-sr" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="myrow">
+                    <div class="blacklabel cmd">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="cmd-u" data-i18n-bonus="combat-maneuver-defense" title="Combat Maneuver Defense">CMD</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_cmd" class="pseudoattr" title="@{cmd}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_cmd_bonus" class="boxed" value="0" title="@{cmd_bonus}" />
+                    </div>
+                    <div class="blacklabel sr">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="spell-resistance">Spell Resistance</span>
+                        </div>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_sr" class="boxed" value="0" title="@{sr}" />
+                    </div>
+                </div>
+                <div class="myrow labline">
+                    <span class="lab" style="margin-left: 86px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                </div>
+                <div class="options-cmd">
+                    <div class="myrow">
+                        <span class="spacer">=</span>
+                        <div class="boxed greybg">
+                            <span name="attr_bab" class="pseudoattr" title="@{bab}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_strength_mod" class="pseudoattr" title="@{strength_mod}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_dexterity_mod" class="pseudoattr" title="@{dexterity_mod}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_cmb_size" class="pseudoattr" title="@{cmb_size}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_dodge" class="pseudoattr" title="@{ac_dodge}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed greybg">
+                            <span name="attr_ac_deflection" class="pseudoattr" title="@{ac_deflection}"></span>
+                        </div>
+                        <span class="spacer">+</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_cmd_misc" class="boxed" value="0" title="@{cmd_misc}" />
+                        </div>
+                        <span class="spacer">+</span>
+                        <span class="spacer">10</span>
+                    </div>
+                    <div class="myrow labline">
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="str-u" data-i18n-title="strength-modifier" title="Strength Modifier">STR</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="dex-u" data-i18n-title="dexterity-modifier" title="Dexterity Modifier">DEX</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="size" data-i18n-title="size-modifier" title="Size Modifier">Size</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="dodge" data-i18n-title="dodge-bonus" title="Dodge bonus">Dodge</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="deflection" data-i18n-title="deflection-modifier" title="Deflection Modifier">Deflection</span>
+                        <span class="spacer"></span>
+                        <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_cmd_notes"></span>
+                        <textarea name="attr_cmd_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{cmd_notes}"></textarea>
+                    </div>
+                </div>
+                <div class="options-sr">
+                    <div class="autoex">
+                        <span name="attr_sr_snotes"></span>
+                        <textarea name="attr_sr_notes" spellcheck="false" data-i18n-placeholder="sr-notes" placeholder="SR Notes" title="@{sr_notes}"></textarea>
+                    </div>
+                </div>
+            </div> <!-- END DEFENSES -->
         </div>  <!-- END tab1 col1 -->
         <div class="colhalf"> <!-- tab1 col2 -->
             <div class="myrow center skills">
@@ -1215,7 +1306,7 @@
         update_save("will");
     });
 
-    // === BAB / ATTACK MODS
+    // === BAB / ATTACK MODS / DEFENSE
     on("change:bab", function(){
         update_babs("cmb");
         update_babs("melee");
@@ -1233,6 +1324,9 @@
     });
     on("change:ranged_ability_mod change:ranged_misc change:ranged_bonus", function(){
         update_babs("ranged");
+    });
+    on("change:cmd_misc change:cmd_bonus", function() {
+        update_cmd();
     });
 
     /* === FUNCTIONS === */
@@ -1468,13 +1562,26 @@
         });
     };
     var update_cmd = function() {
-        // TO DO
+        var fields = ["bab","strength_mod","dexterity_mod","cmb_size","ac_dodge","ac_deflection","cmd_misc","cmd_bonus"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["cmd"] = 10
+                            + (parseInt(v.bab) || 0)
+                            + (parseInt(v.strength_mod) || 0)
+                            + (parseInt(v.dexterity_mod) || 0)
+                            + (parseInt(v.cmb_size) || 0)
+                            + (parseInt(v.ac_dodge) || 0)
+                            + (parseInt(v.ac_deflection) || 0)
+                            + (parseInt(v.cmd_misc) || 0)
+                            + (parseInt(v.cmd_bonus) || 0);
+            setAttrs(update);
+        });
         return;
     };
     // === SAVES
     var update_save = function(attr) {
-        var attr_fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
-        getAttrs(attr_fields, function(v) {
+        var fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
@@ -1483,8 +1590,8 @@
 
     // === BABS
     var update_babs = function(attr) {
-        var attr_fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
-        getAttrs(attr_fields, function(v) {
+        var fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
+        getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
