@@ -88,7 +88,7 @@
     on("change:ac_ability_primary change:ac_ability_secondary change:ac_ability_maximum", function(){
         update_ac_ability();
     });
-    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
+    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
         update_cmd();
     });
@@ -326,21 +326,20 @@
                     var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0,
                         secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0,
                         maxmod = parseInt(v.ac_ability_maximum) || 99;
-
-                    setAttrs({"ac_ability": Math.min(primary + secondary,maxmod)});
+                    setAttrs({"ac_ability_mod": Math.min(primary + secondary,maxmod)});
                 });
             }
         });
     };
     var update_ac = function() {
         var update = {};
-        getAttrs(["ac_bonus","ac_ability","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
+        getAttrs(["ac_bonus","ac_ability_mod","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
             var base = 10,
                 ac = 0,
                 actouch = 0,
                 acff = 0,
                 bonus = parseInt(v.ac_bonus) || 0,
-                ability = parseInt(v.ac_ability) || 0,
+                ability = parseInt(v.ac_ability_mod) || 0,
                 armor = parseInt(v.ac_armor) || 0,
                 shield = parseInt(v.ac_shield) || 0,
                 size = parseInt(v.ac_size) || 0,
@@ -404,6 +403,53 @@
     };
 
     // === Version and updating
+    var initializeChar = function(doneupdating) {
+        getAttrs(["character_name"], function(v) {
+            console.log("Initializing character " + v.character_name);
+            var update = {};
+            update["strength_mod"] = 0;
+            update["dexterity_mod"] = 0;
+            update["constitution_mod"] = 0;
+            update["intelligence_mod"] = 0;
+            update["wisdom_mod"] = 0;
+            update["charisma_mod"] = 0;
+            update["initiative_mod"] = 0;
+            update["initiative_mod"] = 0;
+            update["ac_size"] = 0;
+            update["bab_size"] = 0;
+            update["cmb_size"] = 0;
+            update["fly_size"] = 0;
+            update["stealth_size"] = 0;
+            update["ac_armor"] = 0;
+            update["ac_shield"] = 0;
+            update["ac_flatfooted_bonus"] = 0;
+            update["ac_touch_bonus"] = 0;
+            update["ac_ability_maximum"] = 0;
+            update["armor_check_penalty"] = 0;
+            update["armor_spell_failure"] = 0;
+            update["ac"] = 10;
+            update["ac_touch"] = 0;
+            update["ac_flatfooted"] = 0;
+            update["fortitude_ability_mod"] = 0;
+            update["reflex_ability_mod"] = 0;
+            update["will_ability_mod"] = 0;
+            update["cmb_ability_mod"] = 0;
+            update["melee_ability_mod"] = 0;
+            update["ranged_ability_mod"] = 0;
+            update["fortitude"] = 0;
+            update["reflex"] = 0;
+            update["will"] = 0;
+            update["cmb"] = 0;
+            update["melee"] = 0;
+            update["ranged"] = 0;
+            update["cmd"] = 10;
+            setAttrs(update
+                    ,{silent: false}
+                    ,function() {
+                        doneupdating();
+                    });
+        });
+    };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
@@ -411,8 +457,10 @@
                 console.log("Pathfinder by Roll20 v" + vrs);
                 return;
             } else if (vrs < 1.0) {
-                setAttrs({"version": "1.0"});
-                versioning();
+                initializeChar(function () {
+                    setAttrs({"version": "1.0"});
+                    versioning();
+                });
             }
         });
     };

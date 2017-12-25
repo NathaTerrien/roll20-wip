@@ -42,8 +42,8 @@ img{
     margin-bottom: 4px;
 }
 .sheet-titled{
-    margin-top: -16px;
-    padding-top: 20px;
+    margin-top: -13px;
+    padding-top: 15px;
 }
 .sheet-block{
     display: block;
@@ -73,6 +73,12 @@ img{
 .sheet-labline{
     line-height: 1em;
 }
+.sheet-labline.sheet-top{
+    margin-top: 2px;
+}
+.sheet-labline.sheet-bottom{
+    margin-bottom: 2px;
+}
 .sheet-invisible {
     opacity: 0;
 }
@@ -99,7 +105,7 @@ div.sheet-myrow.sheet-center{
 }
 div.sheet-spacer{
     display: block;
-    height: 15px;
+    height: 6px;
 }
 div.sheet-abilities{
     width: 250px;
@@ -132,7 +138,7 @@ div.sheet-blacklabel{
     color: white;
     text-align: center;
     vertical-align: top;
-    height: 30px;
+    height: 24px;
     text-transform: uppercase;
     border: none;
 }
@@ -145,7 +151,7 @@ div.sheet-blacklabel .sheet-blackbgrd{
     display: inline-block;
     vertical-align: top;
     text-align: center;
-    padding: 2px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
     display: inline-block;
@@ -154,7 +160,7 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
     font-weight: bold;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
-    padding-top: 5px;
+    padding-top: 4px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
     display: block;
@@ -162,13 +168,14 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
     line-height: 0.85em;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-med.sheet-only{
-    padding-top: 15px;
+    padding-top: 13px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
     display: block;
     font-size: 0.65em;
     line-height: 0.65em;
     font-family: sans-serif;
+    margin-top: -1px;
 }
 img.sheet-brdleft,
 img.sheet-brdright {
@@ -196,7 +203,6 @@ div.sheet-boxed {
     height: 24px;
     vertical-align: top;
     text-align: center;
-    margin-top: 3px;
     background-color: white;
 }
 div.sheet-boxed.sheet-greybg{
@@ -209,7 +215,8 @@ div.sheet-acitem,
 div.sheet-saves,
 div.sheet-babs,
 div.sheet-attackmods,
-div.sheet-defenses {
+div.sheet-defenses,
+div.sheet-attack {
     position: relative;
 }
 div.sheet-abilities,
@@ -498,8 +505,11 @@ button[type="roll"].sheet-myrol:before{
     content: none;
 }
 div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
-    margin-top: -2px;
-    margin-bottom: 2px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big.sheet-only{
+    padding-top: 4px;
 }
 /* ===== PSEUDO CHECKS ===== */
 input[type="checkbox"].sheet-pseudocheck {
@@ -646,7 +656,9 @@ input.sheet-tabconf:checked + span{
 .sheet-attackmods .sheet-options-flag.sheet-melee,
 .sheet-attackmods .sheet-options-flag.sheet-melee + span,
 .sheet-defenses .sheet-options-flag.sheet-cmd,
-.sheet-defenses .sheet-options-flag.sheet-cmd + span {
+.sheet-defenses .sheet-options-flag.sheet-cmd + span,
+.sheet-attacks .sheet-options-flag,
+.sheet-attacks .sheet-options-flag + span {
     top: -2px;
     left: 0px;
 }
@@ -682,7 +694,8 @@ input.sheet-tabconf:checked + span{
 .sheet-saves:hover .sheet-options-flag + span,
 .sheet-babs:hover .sheet-options-flag + span,
 .sheet-attackmods:hover .sheet-options-flag + span,
-.sheet-defenses:hover .sheet-options-flag + span {
+.sheet-defenses:hover .sheet-options-flag + span,
+ .sheet-attack:hover .sheet-options-flag + span{
     display: block;
 }
 .sheet-options,

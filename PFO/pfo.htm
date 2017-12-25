@@ -302,7 +302,7 @@
                             <input type="number" name="attr_hp_max" class="boxed" value="0" title="@{hp_max}" />
                         </div>
                     </div>
-                    <div class="myrow labline">
+                    <div class="myrow labline top">
                         <span class="lab">&nbsp;</span>
                         <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonlethal</span>
                         <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
@@ -334,7 +334,7 @@
                             <input type="number" name="attr_initiative_bonus" class="boxed" value="0" title="@{initiative_bonus}" />
                         </div>
                     </div>
-                    <div class="myrow labline">
+                    <div class="myrow labline bottom">
                         <span class="lab" style="margin-left: 73px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                         <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                     </div>
@@ -349,7 +349,7 @@
                                 <input type="number" name="attr_initiative_misc" class="boxed" value="0" title="@{initiative_misc}" />
                             </div>
                         </div>
-                        <div class="myrow labline">
+                        <div class="myrow labline bottom">
                             <span class="spacer"></span>
                             <span class="lab" data-i18n="dex" data-i18n-title="dexterity-modifier" title="Dexterity Modifier">dex</span>
                             <span class="spacer"></span>
@@ -396,7 +396,7 @@
                         <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
                 </div>
-                <div class="myrow labline">
+                <div class="myrow labline bottom">
                     <span class="lab" style="margin-left: 43px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
@@ -414,7 +414,7 @@
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed greybg">
-                            <span name="attr_ac_ability" class="pseudoattr" title="@{ac_ability}"></span>
+                            <span name="attr_ac_ability_mod" class="pseudoattr" title="@{ac_ability_mod}"></span>
                         </div>
                         <span class="spacer">+</span>
                         <div class="boxed greybg">
@@ -433,7 +433,7 @@
                             <input type="number" name="attr_ac_misc" class="boxed" value="0" title="@{ac_misc}" />
                         </div>
                     </div>
-                    <div class="myrow labline">
+                    <div class="myrow labline bottom">
                         <span class="spacer"></span>
                         <span class="spacer"></span>
                         <span class="spacer"></span>
@@ -506,7 +506,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="myrow labline">
+                <div class="myrow labline bottom">
                     <span class="lab" style="margin-left: 61px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                     <span class="lab" style="margin-left: 47px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
@@ -530,7 +530,7 @@
                             <input type="number" name="attr_fortitude_misc" class="boxed" value="0" title="@{fortitude_misc}" />
                         </div>
                     </div>
-                    <div class="myrow labline">
+                    <div class="myrow labline bottom">
                         <span class="spacer invisible" data-i18n="fort-u" data-i18n-title="fortitude" title="Fortitude">FORT</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
@@ -560,7 +560,7 @@
                             <input type="number" name="attr_reflex_misc" class="boxed" value="0" title="@{reflex_misc}" />
                         </div>
                     </div>
-                    <div class="myrow center labline">
+                    <div class="myrow center labline bottom">
                         <span class="spacer invisible" data-i18n="ref-u" data-i18n-title="reflex" title="Reflex">REF</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
@@ -590,7 +590,7 @@
                             <input type="number" name="attr_will_misc" class="boxed" value="0" title="@{will_misc}" />
                         </div>
                     </div>
-                    <div class="myrow right labline">
+                    <div class="myrow right labline bottom">
                         <span class="spacer invisible" data-i18n="will-u" data-i18n-title="will" title="Will">WILL</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="base" data-i18n-title="base-modifier" title="Base Modifier">Base</span>
@@ -607,7 +607,7 @@
             </div> <!-- END SAVING THROWS -->
             <div class="spacer"></div>
             <div class="babs"> <!-- BABS -->
-                <input class="options-flag bab" name="attr_options-flag-bab" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag bab" name="attr_options-flag-bab" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>i</span>
                 <input class="options-flag cmb" name="attr_options-flag-cmb" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow">
                     <div class="blacklabel bab">
@@ -622,7 +622,7 @@
                     <div class="blacklabel cmb">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                         <div class="blackbgrd">
-                            <span class="big only" data-i18n="cmb-u" data-i18n-bonus="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span>
+                            <button class="myrol big only" type="roll" name="CmbRoll" value="@{whispertype} &{template:default} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{cmb}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{cmb_notes}}}"><span data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span></button>
                         </div>
                     </div>
                     <div class="boxed greybg">
@@ -632,7 +632,7 @@
                         <input type="number" name="attr_cmb_bonus" class="boxed" value="0" title="@{cmb_bonus}" />
                     </div>
                 </div>
-                <div class="myrow labline">
+                <div class="myrow labline bottom">
                     <span class="lab" style="margin-left: 340px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
@@ -662,7 +662,7 @@
                             <input type="number" name="attr_cmb_misc" class="boxed" value="0" title="@{cmb_misc}" />
                         </div>
                     </div>
-                    <div class="myrow right labline">
+                    <div class="myrow right labline bottom">
                         <span class="spacer invisible" data-i18n="cmb-u" data-i18n-bonus="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
@@ -686,7 +686,7 @@
                     <div class="blacklabel melee">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                         <div class="blackbgrd">
-                            <span class="big only" data-i18n="melee">Melee</span>
+                            <button class="myrol big only" type="roll" name="MeleeRoll" data-i18n-title="basic-melee-attack-roll" title="Basic Melee Attack Roll" value="@{whispertype} &{template:default} {{name=^{melee}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{melee}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{melee_notes}}}"><span data-i18n="melee">Melee</span></button>
                         </div>
                     </div>
                     <div class="boxed greybg">
@@ -698,7 +698,7 @@
                     <div class="blacklabel ranged">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                         <div class="blackbgrd">
-                            <span class="big only" data-i18n="ranged">Ranged</span>
+                            <button class="myrol big only" type="roll" name="RangedRoll" data-i18n-title="basic-ranged-attack-roll" title="Basic Ranged Attack Roll" value="@{whispertype} &{template:default} {{name=^{ranged}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{ranged}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{ranged_notes}}}"><span data-i18n="ranged">Ranged</span></button>
                         </div>
                     </div>
                     <div class="boxed greybg">
@@ -708,7 +708,7 @@
                         <input type="number" name="attr_ranged_bonus" class="boxed" value="0" title="@{ranged_bonus}" />
                     </div>
                 </div>
-                <div class="myrow labline">
+                <div class="myrow labline bottom">
                     <span class="lab" style="margin-left: 125px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                     <span class="lab" style="margin-left: 128px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
@@ -734,7 +734,7 @@
                             <input type="number" name="attr_melee_misc" class="boxed" value="0" title="@{melee_misc}" />
                         </div>
                     </div>
-                    <div class="myrow labline">
+                    <div class="myrow labline bottom">
                         <span class="spacer invisible" data-i18n="melee">Melee</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
@@ -770,7 +770,7 @@
                             <input type="number" name="attr_ranged_misc" class="boxed" value="0" title="@{ranged_misc}" />
                         </div>
                     </div>
-                    <div class="myrow right labline">
+                    <div class="myrow right labline bottom">
                         <span class="spacer invisible" data-i18n="ranged">Ranged</span>
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
@@ -789,7 +789,7 @@
             </div>  <!-- END ATTACK MODS (MELEE RANGED) -->
             <div class="defenses"> <!-- DEFENSES -->
                 <input class="options-flag cmd" name="attr_options-flag-cmd" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
-                <input class="options-flag sr" name="attr_options-flag-sr" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <input class="options-flag sr" name="attr_options-flag-sr" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>i</span>
                 <div class="myrow">
                     <div class="blacklabel cmd">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -813,7 +813,7 @@
                         <input type="number" name="attr_sr" class="boxed" value="0" title="@{sr}" />
                     </div>
                 </div>
-                <div class="myrow labline">
+                <div class="myrow labline bottom">
                     <span class="lab" style="margin-left: 86px;" data-i18n="total" data-i18n-title="total" title="Total">Total</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
@@ -850,7 +850,7 @@
                         <span class="spacer">+</span>
                         <span class="spacer">10</span>
                     </div>
-                    <div class="myrow labline">
+                    <div class="myrow labline bottom">
                         <span class="spacer"></span>
                         <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
                         <span class="spacer"></span>
@@ -878,6 +878,47 @@
                     </div>
                 </div>
             </div> <!-- END DEFENSES -->
+            <div class="attacks"> <!-- ATTACKS -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="weapons-attacks">Weapons / Attacks</span>
+                        </div>
+                        <div class="blackbgrd type">
+                            <span class="med only" data-i18n="type" >Type</span>
+                        </div>
+                        <div class="blackbgrd attack">
+                            <span class="med only" data-i18n="attack" >Attack</span>
+                        </div>
+                        <div class="blackbgrd damage">
+                            <span class="med only" data-i18n="damage" >Damage</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="myrow"> <!-- REPEATING ATTACK -->
+                        <fieldset class="repeating_attacks">
+                            <div class="attack right">
+                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                                <div class="myrow right">
+                                    <button class="myrol" type="roll" name="AttackRoll" data-i18n-title="attack-roll" title="Attack roll" value="/r 1d20">
+                                        .
+                                        <span class="" name="attr_name"></span>
+                                    </button>
+                                </div>
+                                <div class="options right">
+                                    <span data-i18n="name">Name</span><input type="text" name="attr_name" class="name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" />
+                                    <div class="autoex">
+                                        <span name="attr_notes"></span>
+                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div> <!-- END REEATING ATTACK -->
+                </div>
+            </div> <!-- END ATTACKS -->
         </div>  <!-- END tab1 col1 -->
         <div class="colhalf"> <!-- tab1 col2 -->
             <div class="myrow center skills">
@@ -912,6 +953,21 @@
                     </div>
                 </div>
             </div>
+            <div class="myrow center languages"> <!-- LANGUAGES -->
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="languages">Languages</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="autoex">
+                        <span name="attr_languages"></span>
+                        <textarea name="attr_languages" spellcheck="false" data-i18n-placeholder="languages" placeholder="Languages" title="@{languages}"></textarea>
+                    </div>
+                </div>
+            </div> <!-- END LANGUAGES -->
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
     <div class="tabadd"> <!-- TAB ADDITIONNAL -->
@@ -1187,6 +1243,10 @@
 
 <!-- HIDDEN ATTRIBUTES -->
 <input type="hidden" name="none_mod" value="0" />
+<!-- HIDDEN TRANSLATION TEXT -->
+<div style="display: none;">
+    <span data-i18n="combat-maneuver">Combat Maneuver</span>
+</div>
 
 <!-- ROLL TEMPLATES -->
     <!-- TODO -->
@@ -1283,7 +1343,7 @@
     on("change:ac_ability_primary change:ac_ability_secondary change:ac_ability_maximum", function(){
         update_ac_ability();
     });
-    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
+    on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
         update_cmd();
     });
@@ -1521,21 +1581,20 @@
                     var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0,
                         secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0,
                         maxmod = parseInt(v.ac_ability_maximum) || 99;
-
-                    setAttrs({"ac_ability": Math.min(primary + secondary,maxmod)});
+                    setAttrs({"ac_ability_mod": Math.min(primary + secondary,maxmod)});
                 });
             }
         });
     };
     var update_ac = function() {
         var update = {};
-        getAttrs(["ac_bonus","ac_ability","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
+        getAttrs(["ac_bonus","ac_ability_mod","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
             var base = 10,
                 ac = 0,
                 actouch = 0,
                 acff = 0,
                 bonus = parseInt(v.ac_bonus) || 0,
-                ability = parseInt(v.ac_ability) || 0,
+                ability = parseInt(v.ac_ability_mod) || 0,
                 armor = parseInt(v.ac_armor) || 0,
                 shield = parseInt(v.ac_shield) || 0,
                 size = parseInt(v.ac_size) || 0,
@@ -1599,6 +1658,53 @@
     };
 
     // === Version and updating
+    var initializeChar = function(doneupdating) {
+        getAttrs(["character_name"], function(v) {
+            console.log("Initializing character " + v.character_name);
+            var update = {};
+            update["strength_mod"] = 0;
+            update["dexterity_mod"] = 0;
+            update["constitution_mod"] = 0;
+            update["intelligence_mod"] = 0;
+            update["wisdom_mod"] = 0;
+            update["charisma_mod"] = 0;
+            update["initiative_mod"] = 0;
+            update["initiative_mod"] = 0;
+            update["ac_size"] = 0;
+            update["bab_size"] = 0;
+            update["cmb_size"] = 0;
+            update["fly_size"] = 0;
+            update["stealth_size"] = 0;
+            update["ac_armor"] = 0;
+            update["ac_shield"] = 0;
+            update["ac_flatfooted_bonus"] = 0;
+            update["ac_touch_bonus"] = 0;
+            update["ac_ability_maximum"] = 0;
+            update["armor_check_penalty"] = 0;
+            update["armor_spell_failure"] = 0;
+            update["ac"] = 10;
+            update["ac_touch"] = 0;
+            update["ac_flatfooted"] = 0;
+            update["fortitude_ability_mod"] = 0;
+            update["reflex_ability_mod"] = 0;
+            update["will_ability_mod"] = 0;
+            update["cmb_ability_mod"] = 0;
+            update["melee_ability_mod"] = 0;
+            update["ranged_ability_mod"] = 0;
+            update["fortitude"] = 0;
+            update["reflex"] = 0;
+            update["will"] = 0;
+            update["cmb"] = 0;
+            update["melee"] = 0;
+            update["ranged"] = 0;
+            update["cmd"] = 10;
+            setAttrs(update
+                    ,{silent: false}
+                    ,function() {
+                        doneupdating();
+                    });
+        });
+    };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
@@ -1606,8 +1712,10 @@
                 console.log("Pathfinder by Roll20 v" + vrs);
                 return;
             } else if (vrs < 1.0) {
-                setAttrs({"version": "1.0"});
-                versioning();
+                initializeChar(function () {
+                    setAttrs({"version": "1.0"});
+                    versioning();
+                });
             }
         });
     };
