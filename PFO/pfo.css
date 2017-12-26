@@ -321,6 +321,16 @@ div.sheet-acitems {
     padding-left: 16px;
 }
 
+.sheet-attack .sheet-lab{text-align: left;}
+.sheet-attacks div.sheet-padindent{padding-left: 22px;}
+.sheet-attacks select.sheet-type,
+.sheet-attacks select.sheet-vs {width: 80px;}
+.sheet-attacks .sheet-dmgbase {width: 60px;}
+.sheet-attacks .sheet-dmgtype {width: 120px;}
+.sheet-attacks span.sheet-lab.sheet-atk{width: 52px;}
+.sheet-attacks span.sheet-lab.sheet-typ{width: 35px;}
+.sheet-attack .sheet-range {width: 193px;}
+
 /* ===== SPANS ===== */
 span.sheet-spacer{
     display: inline-block;
@@ -338,6 +348,7 @@ span.sheet-spacer{
     white-space: pre-line;
     color: black;
 }
+.sheet-lab.sheet-right{text-align: right};
 .sheet-abilities .sheet-lab {
     width: 50px;
 }
@@ -390,7 +401,8 @@ div.sheet-boxed input[type="number"]{
 }
 
 .sheet-identity input[type="number"],
-.sheet-acitem input[type="number"]{
+.sheet-acitem input[type="number"],
+.sheet-attacks input[type="number"]{
     width: 35px;
 }
 .sheet-acitems div.sheet-boxed {

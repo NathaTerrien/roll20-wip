@@ -894,21 +894,122 @@
                         <div class="blackbgrd damage">
                             <span class="med only" data-i18n="damage" >Damage</span>
                         </div>
+                        <div class="blackbgrd range">
+                            <span class="med only" data-i18n="range" >Range</span>
+                        </div>
+                        <div class="blackbgrd ammo">
+                            <span class="med only" data-i18n="ammo" >Ammo</span>
+                        </div>
                     </div>
                 </div>
                 <div class="bordered titled inbox">
                     <div class="myrow"> <!-- REPEATING ATTACK -->
                         <fieldset class="repeating_attacks">
                             <div class="attack right">
-                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                                 <div class="myrow right">
-                                    <button class="myrol" type="roll" name="AttackRoll" data-i18n-title="attack-roll" title="Attack roll" value="/r 1d20">
-                                        .
-                                        <span class="" name="attr_name"></span>
+                                    &nbsp;
+                                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="/r 1d20">
+                                        <span class="pseudoattr" name="attr_atkname"></span>
                                     </button>
+                                    <span class="" name="attr_atktype_display"></span>
+                                    <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="/r 1d20">
+                                        <span class="pseudoattr" name="attr_atkbonus"></span>
+                                    </button>
+                                    <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="attack-roll" title="Damage roll" value="/r 1d20">
+                                        <span class="pseudoattr" name="attr_atkdmgtype"></span>
+                                    </button>
+                                    <span class="pseudoattr" name="attr_atkrange"></span>
+                                    <input type="number" class="underlined" name="attr_atkammo" value="0" title="@{atkammo}" />
                                 </div>
                                 <div class="options right">
-                                    <span data-i18n="name">Name</span><input type="text" name="attr_name" class="name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" />
+                                    <div class="myrow">
+                                        <span class="lab" data-i18n="name">Name</span>
+                                        <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{atkname}" />
+                                    </div>
+                                    <div class="myrow">
+                                        <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{atkflag}" checked="checked" /><span class="mleft"></span>
+                                        <span class="lab atk" data-i18n="attack:">Attack:</span>
+                                        <select class="underlined type" name="attr_atktype" title="@{atktype}">
+                                            <option value="@{melee}" selected="selected" data-i18n="melee">Melee</option>
+                                            <option value="@{ranged}" data-i18n="ranged">Ranged</option>
+                                            <option value="@{cmb}" data-i18n="cmb-u">CMB</option>
+                                            <option value="@{strength_mod}" data-i18n="str-u">STR</option>
+                                            <option value="@{dexterity_mod}" data-i18n="dex-u">DEX</option>
+                                            <option value="@{constitution_mod}" data-i18n="con-u">CON</option>
+                                            <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
+                                            <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
+                                            <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
+                                            <option value="0">-</option>
+                                        </select>
+                                        <span class="lab">+</span>
+                                        <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{atkmod}" />
+                                        <span class="lab" data-i18n="vs-u">VS</span>
+                                        <select class="underlined vs" name="attr_atkvs" title="@{atkvs}">
+                                            <option value="ac" selected="selected" data-i18n="ac-u">AC</option>
+                                            <option value="touch" data-i18n="touch">Touch</option>
+                                            <option value="flatfooted" data-i18n="flat-footed">Flat-footed</option>
+                                            <option value="fftouch" data-i18n="ff-touch">FF Touch</option>
+                                            <option value="cmd" data-i18n="cmd-u">CMD</option>
+                                            <option value="cmb" data-i18n="cmb-opposed">CMB</option>
+                                            <option value="other" data-i18n="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="myrow padindent">
+                                        <span class="lab atk" data-i18n="critical:" data-i18n-title="critical-range" title="Critical Range">Critical:</span>
+                                        <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{atkcritrange}" />
+                                        <span class="lab" data-i18n-title="critical-multiplier" title="Critical Multiplier">X</span>
+                                        <input type="number" class="underlined" name="attr_atkcritmulti" value="2" title="@{atkcritmulti}" />
+                                        <span class="lab atk right" data-i18n="range:">Range:</span>
+                                        <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="Self (60-foot cone)" />
+                                    </div>
+                                    <div class="myrow">
+                                        <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
+                                        <span class="lab atk" data-i18n="damage:">Damage:</span>
+                                        <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{dmgbase}" />
+                                        <span class="lab">+</span>
+                                        <select class="underlined" name="attr_dmgattr" title="@{dmgattr}">
+                                            <option value="@{strength_mod}" selected="selected" data-i18n="str-u">STR</option>
+                                            <option value="@{dexterity_mod}" data-i18n="dex-u">DEX</option>
+                                            <option value="@{constitution_mod}" data-i18n="con-u">CON</option>
+                                            <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
+                                            <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
+                                            <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
+                                            <option value="0">-</option>
+                                        </select>
+                                        <span class="lab">+</span>
+                                        <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{dmgmod}" />
+                                        <span class="lab right typ" data-i18n="type:">Type:</span>
+                                        <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{dmgtype}" />
+                                    </div>
+                                    <div class="myrow">
+                                        <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{dmg2flag}" /><span class="mleft"></span>
+                                        <span class="lab atk" data-i18n="damage2:">Damage2:</span>
+                                        <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{dmg2base}" />
+                                        <span class="lab">+</span>
+                                        <select class="underlined" name="attr_dmg2attr" title="@{dmg2attr}">
+                                            <option value="@{strength_mod}" data-i18n="str-u">STR</option>
+                                            <option value="@{dexterity_mod}" data-i18n="dex-u">DEX</option>
+                                            <option value="@{constitution_mod}" data-i18n="con-u">CON</option>
+                                            <option value="@{intelligence_mod}" data-i18n="int-u">INT</option>
+                                            <option value="@{wisdom_mod}" data-i18n="wis-u">WIS</option>
+                                            <option value="@{charisma_mod}" data-i18n="cha-u">CHA</option>
+                                            <option value="0" selected="selected">-</option>
+                                        </select>
+                                        <span class="lab">+</span>
+                                        <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{dmg2mod}" />
+                                        <span class="lab right typ" data-i18n="type:">Type:</span>
+                                        <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{dmg2type}" />
+                                    </div>
+                                    <div class="myrow">
+                                        <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{descflag}" /><span class="mleft"></span>
+                                        <span class="lab atk" data-i18n="description:">Description:</span>
+                                        <div class="autoex">
+                                            <span name="attr_atk_desc"></span>
+                                            <textarea name="attr_atk_desc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description"></textarea>
+                                        </div>
+                                    </div>
+                                    <span class="lab" data-i18n="notes:">Notes:</span>
                                     <div class="autoex">
                                         <span name="attr_notes"></span>
                                         <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
@@ -916,7 +1017,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                    </div> <!-- END REEATING ATTACK -->
+                    </div> <!-- END REPEATING ATTACK -->
                 </div>
             </div> <!-- END ATTACKS -->
         </div>  <!-- END tab1 col1 -->
