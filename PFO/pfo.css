@@ -434,6 +434,7 @@ select {
     border-radius: 0;
     box-shadow: none;
     resize: none;
+    background: transparent;
 }
 select.sheet-alignment {
     width: 110px;
