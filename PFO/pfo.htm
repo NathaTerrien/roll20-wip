@@ -885,17 +885,11 @@
                         <div class="blackbgrd weapon">
                             <span class="big only" data-i18n="weapons-attacks">Weapons / Attacks</span>
                         </div>
-                        <div class="blackbgrd type">
-                            <span class="med only" data-i18n="type" >Type</span>
-                        </div>
-                        <div class="blackbgrd attack">
-                            <span class="med only" data-i18n="attack" >Attack</span>
+                        <div class="blackbgrd atk">
+                            <span class="med only" data-i18n="atk-u" >ATK</span>
                         </div>
                         <div class="blackbgrd damage">
-                            <span class="med only" data-i18n="damage" >Damage</span>
-                        </div>
-                        <div class="blackbgrd range">
-                            <span class="med only" data-i18n="range" >Range</span>
+                            <span class="med only" data-i18n="dmg-u" >DMG</span>
                         </div>
                         <div class="blackbgrd ammo">
                             <span class="med only" data-i18n="ammo" >Ammo</span>
@@ -903,24 +897,36 @@
                     </div>
                 </div>
                 <div class="bordered titled inbox">
+                    <div class="attack right"> <!-- DEBUG LAYOUT -->
+                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                        <div class="myrow right">
+                            <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="/r 1d20">
+                                <span class="pseudoattr greybg underlined weapon">Layout test</span>
+                            </button>
+                            <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="/r 1d20">
+                                <span class="pseudoattr greybg underlined atk">+6</span>
+                            </button>
+                            <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="attack-roll" title="Damage roll" value="/r 1d20">
+                                <span class="pseudoattr greybg underlined damage">1d12+4</span>
+                            </button>
+                            <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{atkammo}" />
+                        </div>
+                    </div> <!-- END DEBUG LAYOUT -->
                     <div class="myrow"> <!-- REPEATING ATTACK -->
                         <fieldset class="repeating_attacks">
                             <div class="attack right">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                                 <div class="myrow right">
-                                    &nbsp;
                                     <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="/r 1d20">
-                                        <span class="pseudoattr" name="attr_atkname"></span>
+                                        <span class="pseudoattr greybg underlined weapon" name="attr_atkname"></span>
                                     </button>
-                                    <span class="" name="attr_atktype_display"></span>
                                     <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="/r 1d20">
-                                        <span class="pseudoattr" name="attr_atkbonus"></span>
+                                        <span class="pseudoattr greybg underlined atk" name="attr_atkbonus"></span>
                                     </button>
                                     <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="attack-roll" title="Damage roll" value="/r 1d20">
-                                        <span class="pseudoattr" name="attr_atkdmgtype"></span>
+                                        <span class="pseudoattr greybg underlined damage" name="attr_atkdmgtype"></span>
                                     </button>
-                                    <span class="pseudoattr" name="attr_atkrange"></span>
-                                    <input type="number" class="underlined" name="attr_atkammo" value="0" title="@{atkammo}" />
+                                    <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{atkammo}" />
                                 </div>
                                 <div class="options right">
                                     <div class="myrow">
@@ -961,7 +967,7 @@
                                         <span class="lab" data-i18n-title="critical-multiplier" title="Critical Multiplier">X</span>
                                         <input type="number" class="underlined" name="attr_atkcritmulti" value="2" title="@{atkcritmulti}" />
                                         <span class="lab atk right" data-i18n="range:">Range:</span>
-                                        <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="Self (60-foot cone)" />
+                                        <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
