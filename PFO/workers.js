@@ -55,28 +55,34 @@
         update_ac_ability("strength");
         update_flex_ability("strength","");
         update_cmd();
+        update_attacks("strength","");
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
         update_initiative();
         update_flex_ability("dexterity","");
         update_cmd();
+        update_attacks("dexterity","");
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
         update_flex_ability("constitution","");
+        update_attacks("constitution","");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
         update_flex_ability("intelligence","");
+        update_attacks("intelligence","");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
         update_flex_ability("wisdom","");
+        update_attacks("wisdom","");
    });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
         update_flex_ability("charisma","");
+        update_attacks("charisma","");
     });
 
     // === Initiative
@@ -132,6 +138,16 @@
     });
     on("change:cmd_misc change:cmd_bonus", function() {
         update_cmd();
+    });
+    on("change:cmb_mod", function(){update_attacks("cmb","");});
+    on("change:melee_mod", function(){update_attacks("melee","");});
+    on("change:ranged_mod", function(){update_attacks("ranged","");});
+
+    // === WEAPONS / ATTACKS
+    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkcritmulti change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(eventinfo) {
+        if(eventinfo.sourceType === "sheetworker") {return;}
+        var attackid = eventinfo.sourceAttribute.substring(18, 38);
+        update_attacks(attackid);
     });
 
     /* === FUNCTIONS === */
@@ -369,7 +385,7 @@
         var fields = ["bab","strength_mod","dexterity_mod","cmb_size","ac_dodge","ac_deflection","cmd_misc","cmd_bonus"];
         getAttrs(fields, function(v) {
             var update = {};
-            update["cmd"] = 10
+            update["cmd_mod"] = 10
                             + (parseInt(v.bab) || 0)
                             + (parseInt(v.strength_mod) || 0)
                             + (parseInt(v.dexterity_mod) || 0)
@@ -397,8 +413,111 @@
         var fields = ["bab","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
         getAttrs(fields, function(v) {
             var update = {};
-            update[attr] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            update[attr + "_mod"] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
+        });
+    };
+
+    // === WEAPONS/ATTACKS
+    var update_attacks = function(update_id, source) {
+        console.log("DOING UPDATE_ATTACKS: " + update_id);
+        if(update_id.substring(0,1) === "-" && update_id.length === 20) {
+            do_update_attack([update_id], source);
+        }
+        else if(["strength","dexterity","constitution","intelligence","wisdom","charisma","melee","ranged","cmb","all"].includes(update_id)) {
+            getSectionIDs("repeating_attacks", function(idarray) {
+                if(update_id === "all") {
+                    do_update_attack(idarray);
+                } else {
+                    var attack_attribs = [];
+                    _.each(idarray, function(id) {
+                        attack_attribs.push("repeating_attacks_" + id + "_atktype");
+                        attack_attribs.push("repeating_attacks_" + id + "_dmgattr");
+                        attack_attribs.push("repeating_attacks_" + id + "_dmg2attr");
+                    });
+                    getAttrs(attack_attribs, function(v) {
+                        var attr_attack_ids = [];
+                        _.each(idarray, function(id) {
+                            if((v["repeating_attacks_" + id + "_atktype"] && v["repeating_attacks_" + id + "_atktype"].includes(update_id)) || (v["repeating_attacks_" + id + "_dmgattr"] && v["repeating_attacks_" + id + "_dmgattr"].includes(update_id)) || (v["repeating_attacks_" + id + "_dmg2attr"] && v["repeating_attacks_" + id + "_dmg2attr"].includes(update_id))) {
+                                attr_attack_ids.push(id);
+                            }
+                        });
+                        if(attr_attack_ids.length > 0) {
+                            do_update_attack(attr_attack_ids);
+                        }
+                    });
+                };
+            });
+        };
+    };
+    var do_update_attack = function(attack_array, source) {
+        var attack_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod"];
+        _.each(attack_array, function(attackid) {
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkname");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkflag");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atktype");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkmod");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkvs");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkcritrange");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkcritmulti");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmgflag");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmgbase");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmgattr");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmgmod");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmgtype");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmg2flag");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmg2base");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmg2attr");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmg2mod");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmg2type");
+            attack_attribs.push("repeating_attacks_" + attackid + "_descflag");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkdesc");
+            attack_attribs.push("repeating_attacks_" + attackid + "_notes");
+        });
+        getAttrs(attack_attribs, function(v) {
+            _.each(attack_array, function(attackid) {
+                console.log("UPDATING ATTACK: " + attackid);
+                var update = {},
+                    atkbonus = 0,
+                    atkbonusdisplay = "-",
+                    atkdmg = "",
+                    atkdmgbonus = 0,
+                    atkdmgdisplay = "-",
+                    rollbase = "",
+                    rollatk = "",
+                    rolldmg = "",
+                    atkname = v["repeating_attacks_" + attackid + "_atkname"],
+                    atkflag = v["repeating_attacks_" + attackid + "_atkflag"],
+                    atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0,
+                    atkmod = v["repeating_attacks_" + attackid + "_atkmod"],
+                    atkvs = v["repeating_attacks_" + atkvs + "_atktype"],
+                    atkcritrange = parseInt(v["repeating_attacks_" + atkvs + "_atkcritrange"]) || 20,
+                    atkcritmulti = parseInt(v["repeating_attacks_" + attackid + "_atkcritmulti"]) || 2,
+                    dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"],
+                    dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"],
+                    dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0,
+                    dmgmod = v["repeating_attacks_" + attackid + "_dmgmod"],
+                    dmgtype = v["repeating_attacks_" + attackid + "_dmgtype"],
+                    dmg2flag = v["repeating_attacks_" + attackid + "_dmg2flag"],
+                    dmg2base = v["repeating_attacks_" + attackid + "_dmg2base"],
+                    dmg2attr = parseInt(v[v["repeating_attacks_" + attackid + "_dmg2attr"] + "_mod"]) || 0,
+                    dmg2mod = v["repeating_attacks_" + attackid + "_dmg2mod"],
+                    dmg2type = v["repeating_attacks_" + attackid + "_dmg2type"],
+                    descflag = v["repeating_attacks_" + attackid + "_descflag"],
+                    atkdesc = v["repeating_attacks_" + attackid + "_atkdesc"],
+                    notes = v["repeating_attacks_" + attackid + "_notes"];
+                // A LOT TO DO ! (rolls)
+                // Display handling
+                atkbonus = atktype + (parseInt(atkmod) || 0);
+                atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
+                // console.log("*** DEBUG atkflag / dmgflag " + atkflag + " / " + dmgflag);
+                if (atkflag != "0") {atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;}
+                if (dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? " " : "+") + atkdmgbonus;}
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay"] = atkbonusdisplay;
+                update["repeating_attacks_" + attackid + "_atkdmgdisplay"] = atkdmgdisplay;
+                // update
+                setAttrs(update, {silent: true});
+            });
         });
     };
 
