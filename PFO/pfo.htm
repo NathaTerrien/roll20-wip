@@ -100,7 +100,7 @@
     <div class="tabmain"> <!-- TAB MAIN -->
         <div class="colhalf"> <!-- tab1 col1 -->
             <div class="abilities"> <!-- abilities -->
-                <div class="myrow labline">
+                <div class="labline">
                     <span class="lab" data-i18n="ability-name" data-i18n-title="ability-name" title="Ability Name">Ability Name</span>
                     <span class="lab" data-i18n="score" data-i18n-title="ability-score" title="Score">Score</span>
                     <span class="lab" data-i18n="modifier" data-i18n-title="ability-modifier" title="Modifier">Modifier</span>
@@ -897,7 +897,8 @@
                     </div>
                 </div>
                 <div class="bordered titled inbox">
-                    <div class="attack right"> <!-- DEBUG LAYOUT -->
+                    <!-- DEBUG LAYOUT -->
+                    <!-- <div class="attack right">
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow right">
                             <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="/r 1d20">
@@ -911,14 +912,14 @@
                             </button>
                             <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{atkammo}" />
                         </div>
-                    </div> <!-- END DEBUG LAYOUT -->
+                    </div> -->
                     <div class="myrow"> <!-- REPEATING ATTACK -->
                         <fieldset class="repeating_attacks">
                             <div class="attack right">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                                 <div class="myrow right">
                                     <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
-                                        <span class="pseudoattr greybg underlined weapon" name="attr_atkname"></span>
+                                        <span class="pseudoattr greybg underlined weapon" name="attr_atkdisplay"></span>
                                     </button>
                                     <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="@{rollbase_atk}">
                                         <span class="pseudoattr greybg underlined atk" name="attr_atkbonusdisplay"></span>
@@ -940,12 +941,12 @@
                                             <option value="melee" selected="selected" data-i18n="melee">Melee</option>
                                             <option value="ranged" data-i18n="ranged">Ranged</option>
                                             <option value="cmb" data-i18n="cmb-u">CMB</option>
-                                            <option value="strength_mod" data-i18n="str-u">STR</option>
-                                            <option value="dexterity_mod" data-i18n="dex-u">DEX</option>
-                                            <option value="constitution_mod" data-i18n="con-u">CON</option>
-                                            <option value="intelligence_mod" data-i18n="int-u">INT</option>
-                                            <option value="wisdom_mod" data-i18n="wis-u">WIS</option>
-                                            <option value="charisma_mod" data-i18n="cha-u">CHA</option>
+                                            <option value="strength" data-i18n="str-u">STR</option>
+                                            <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                            <option value="constitution" data-i18n="con-u">CON</option>
+                                            <option value="intelligence" data-i18n="int-u">INT</option>
+                                            <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                            <option value="charisma" data-i18n="cha-u">CHA</option>
                                             <option value="0">-</option>
                                         </select>
                                         <span class="lab">+</span>
@@ -1850,6 +1851,7 @@
                     atkdmg = "",
                     atkdmgbonus = 0,
                     atkdmgdisplay = "-",
+                    atkdisplay = "",
                     rollbase = "",
                     rollatk = "",
                     rolldmg = "",
@@ -1857,8 +1859,8 @@
                     atkflag = v["repeating_attacks_" + attackid + "_atkflag"],
                     atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0,
                     atkmod = v["repeating_attacks_" + attackid + "_atkmod"],
-                    atkvs = v["repeating_attacks_" + atkvs + "_atktype"],
-                    atkcritrange = parseInt(v["repeating_attacks_" + atkvs + "_atkcritrange"]) || 20,
+                    atkvs = v["repeating_attacks_" + attackid + "_atkvs"],
+                    atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20,
                     atkcritmulti = parseInt(v["repeating_attacks_" + attackid + "_atkcritmulti"]) || 2,
                     dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"],
                     dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"],
@@ -1875,11 +1877,16 @@
                     notes = v["repeating_attacks_" + attackid + "_notes"];
                 // A LOT TO DO ! (rolls)
                 // Display handling
+                atkdisplay = atkname;
                 atkbonus = atktype + (parseInt(atkmod) || 0);
                 atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
                 // console.log("*** DEBUG atkflag / dmgflag " + atkflag + " / " + dmgflag);
-                if (atkflag != "0") {atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;}
+                if (atkflag != "0") {
+                    atkdisplay += " / " + v["repeating_attacks_" + attackid + "_atktype"] + " vs " + atkvs;
+                    atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
+                }
                 if (dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? " " : "+") + atkdmgbonus;}
+                update["repeating_attacks_" + attackid + "_atkdisplay"] = atkdisplay;
                 update["repeating_attacks_" + attackid + "_atkbonusdisplay"] = atkbonusdisplay;
                 update["repeating_attacks_" + attackid + "_atkdmgdisplay"] = atkdmgdisplay;
                 // update

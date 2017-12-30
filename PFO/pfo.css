@@ -114,8 +114,8 @@ div.sheet-abilities{
     width: 250px;
     max-width: 250px;
 }
-.sheet-abilities div.sheet-myrow {
-    margin: 1px 0px 1px 0px;
+div.sheet-ability {
+    margin-bottom: 1px;
 }
 div.sheet-colhalf{
     display: inline-block;
@@ -163,7 +163,7 @@ div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
     font-weight: bold;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
-    padding-top: 4px;
+    padding-top: 3px;
 }
 div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
     display: block;
@@ -333,8 +333,9 @@ div.sheet-acitems {
 .sheet-attacks span.sheet-lab.sheet-atk{width: 52px;}
 .sheet-attacks span.sheet-lab.sheet-typ{width: 35px;}
 .sheet-attack .sheet-range {width: 193px;}
-.sheet-attacks .sheet-weapon {width: 210px;}
-.sheet-attacks .sheet-pseudoattr.sheet-weapon {text-align: left;}
+.sheet-attacks .sheet-weapon {width: 200px;}
+.sheet-attack .sheet-weapon {width: 225px;}
+.sheet-attack .sheet-pseudoattr.sheet-weapon {text-align: left;}
 .sheet-attacks .sheet-atk {width: 50px;}
 .sheet-attacks .sheet-damage {width: 80px;}
 .sheet-attacks .sheet-pseudoattr.sheet-atk,
@@ -347,7 +348,7 @@ span.sheet-spacer{
     min-width: 10px;
     text-align: center;
 }
-.sheet-lab {
+span.sheet-lab {
     display: inline-block;
     text-align: center;
     vertical-align: bottom;
@@ -358,16 +359,12 @@ span.sheet-spacer{
     white-space: pre-line;
     color: black;
 }
-.sheet-lab.sheet-right{text-align: right};
-.sheet-abilities .sheet-lab {
-    width: 50px;
-}
+.sheet-lab.sheet-right{text-align: right;}
+.sheet-abilities .sheet-lab:first-child {width: 80px;}
+.sheet-abilities .sheet-lab {width: 50px;}
 .sheet-hpvalues .sheet-lab,
 .sheet-initiative .sheet-lab {
     width: 45px;
-}
-.sheet-abilities .sheet-lab:first-child{
-    width: 80px;
 }
 .sheet-hpvalues .sheet-lab:first-child{
     width: 70px;
@@ -463,6 +460,7 @@ span.sheet-pseudoattr {
     margin-top: 3px;
     height: 18px;
     vertical-align: bottom;
+    white-space: pre;
 }
 div.sheet-boxed span.sheet-pseudoattr {
     min-width: 36px;
@@ -532,7 +530,7 @@ div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
     margin: 0px 0px 0px 0px;
 }
 div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big.sheet-only{
-    padding-top: 4px;
+    padding-top: 3px;
 }
 /* ===== PSEUDO CHECKS ===== */
 input[type="checkbox"].sheet-pseudocheck {

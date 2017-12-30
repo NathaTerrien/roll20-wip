@@ -483,6 +483,7 @@
                     atkdmg = "",
                     atkdmgbonus = 0,
                     atkdmgdisplay = "-",
+                    atkdisplay = "",
                     rollbase = "",
                     rollatk = "",
                     rolldmg = "",
@@ -490,8 +491,8 @@
                     atkflag = v["repeating_attacks_" + attackid + "_atkflag"],
                     atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0,
                     atkmod = v["repeating_attacks_" + attackid + "_atkmod"],
-                    atkvs = v["repeating_attacks_" + atkvs + "_atktype"],
-                    atkcritrange = parseInt(v["repeating_attacks_" + atkvs + "_atkcritrange"]) || 20,
+                    atkvs = v["repeating_attacks_" + attackid + "_atkvs"],
+                    atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20,
                     atkcritmulti = parseInt(v["repeating_attacks_" + attackid + "_atkcritmulti"]) || 2,
                     dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"],
                     dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"],
@@ -508,11 +509,16 @@
                     notes = v["repeating_attacks_" + attackid + "_notes"];
                 // A LOT TO DO ! (rolls)
                 // Display handling
+                atkdisplay = atkname;
                 atkbonus = atktype + (parseInt(atkmod) || 0);
                 atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
                 // console.log("*** DEBUG atkflag / dmgflag " + atkflag + " / " + dmgflag);
-                if (atkflag != "0") {atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;}
+                if (atkflag != "0") {
+                    atkdisplay += " / " + v["repeating_attacks_" + attackid + "_atktype"] + " vs " + atkvs;
+                    atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
+                }
                 if (dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? " " : "+") + atkdmgbonus;}
+                update["repeating_attacks_" + attackid + "_atkdisplay"] = atkdisplay;
                 update["repeating_attacks_" + attackid + "_atkbonusdisplay"] = atkbonusdisplay;
                 update["repeating_attacks_" + attackid + "_atkdmgdisplay"] = atkdmgdisplay;
                 // update
