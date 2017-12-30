@@ -1,10 +1,12 @@
     /* === GLOBAL VARIABLES === */
+    var i18n_obj = {};
 
     /* === EVENTS === */
 
     // === Version handling
     on("sheet:opened", function() {
         versioning();
+        loadi18n();
     });
 
     // === Abilities
@@ -147,7 +149,12 @@
     on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkcritmulti change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(eventinfo) {
         if(eventinfo.sourceType === "sheetworker") {return;}
         var attackid = eventinfo.sourceAttribute.substring(18, 38);
-        update_attacks(attackid);
+        update_attacks(attackid,"");
+    });
+
+    // === CONFIGURATION
+    on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
+       update_attacks("all","");
     });
 
     /* === FUNCTIONS === */
@@ -172,8 +179,8 @@
         });
     };
     var update_flex_ability = function(attr,ablt) {
-        var update = {},
-            modz = [];
+        var update = {};
+        var modz = [];
             modz.push(attr + "_mod");
         if (String(attr) && String(ablt)) {
             getAttrs(modz, function(v) {
@@ -181,8 +188,8 @@
                 setAttrs(update);
             });
         } else {
-            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability"],
-                flexes = [];
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability"];
+            var flexes = [];
             getAttrs(fields, function(ablts) {
                 _.each(fields, function(field){
                     if(ablts[field] == attr) {
@@ -203,64 +210,64 @@
 
     // === Size
     var update_size = function(psize) {
-        var size = psize || "medium",
-            atkac = 0,
-            cmb = 0,
-            fly = 0,
-            stealth = 0;
+        var size = psize || "medium";
+        var atkac = 0;
+        var cmb = 0;
+        var fly = 0;
+        var stealth = 0;
         switch(size) {
             case "fine":
-                atkac = 8,
-                cmb = -8,
-                fly = 8,
+                atkac = 8;
+                cmb = -8;
+                fly = 8;
                 stealth = 16;
                 break;
             case "diminutive":
-                atkac = 4,
-                cmb = -4,
-                fly = 6,
+                atkac = 4;
+                cmb = -4;
+                fly = 6;
                 stealth = 12;
                 break;
             case "tiny":
-                atkac = 2,
-                cmb = -2,
-                fly = 4,
+                atkac = 2;
+                cmb = -2;
+                fly = 4;
                 stealth = 8;
                 break;
             case "small":
-                atkac = 1,
-                cmb = -1,
-                fly = 2,
+                atkac = 1;
+                cmb = -1;
+                fly = 2;
                 stealth = 4;
                 break;
             case "medium":
-                atkac = 0,
-                cmb = 0,
-                fly = 0,
+                atkac = 0;
+                cmb = 0;
+                fly = 0;
                 stealth = 0;
                 break;
             case "large":
-                atkac = -1,
-                cmb = 1,
-                fly = -2,
+                atkac = -1;
+                cmb = 1;
+                fly = -2;
                 stealth = -4;
                 break;
             case "huge":
-                atkac = -2,
-                cmb = 2,
-                fly = -4,
+                atkac = -2;
+                cmb = 2;
+                fly = -4;
                 stealth = -8;
                 break;
             case "gargantuan":
-                atkac = -4,
-                cmb = 4,
-                fly = -6,
+                atkac = -4;
+                cmb = 4;
+                fly = -6;
                 stealth = -12;
                 break;
             case "colossal":
-                atkac = -8,
-                cmb = 8,
-                fly = -8,
+                atkac = -8;
+                cmb = 8;
+                fly = -8;
                 stealth = -16;
                 break;
         }
@@ -295,14 +302,14 @@
 
             });
             getAttrs(attrs, function(v) {
-                var bonusarmor = 0,
-                    bonusshield = 0,
-                    bonusff = 0,
-                    bonustouch = 0,
-                    checkpen = 0,
-                    maxdex = 99,
-                    spellf = 0,
-                    maxab = "-";
+                var bonusarmor = 0;
+                var bonusshield = 0;
+                var bonusff = 0;
+                var bonustouch = 0;
+                var checkpen = 0;
+                var maxdex = 99;
+                var spellf = 0;
+                var maxab = "-";
                 _.each(idarray, function(itemid) {
                     if ( (parseInt(v["repeating_acitems_" + itemid + "_equipped"]) || 0) == 1 ) {
                         if ( v["repeating_acitems_" + itemid + "_type"] == "shield") {
@@ -339,9 +346,9 @@
             if( (attr == "") || (attr == v.ac_ability_primary) || (attr == v.ac_ability_secondary) ) {
                 var attr_fields = [v.ac_ability_primary + "_mod",v.ac_ability_secondary + "_mod"];
                 getAttrs(attr_fields, function(modz) {
-                    var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0,
-                        secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0,
-                        maxmod = parseInt(v.ac_ability_maximum) || 99;
+                    var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0;
+                    var secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0;
+                    var maxmod = parseInt(v.ac_ability_maximum) || 99;
                     setAttrs({"ac_ability_mod": Math.min(primary + secondary,maxmod)});
                 });
             }
@@ -350,23 +357,23 @@
     var update_ac = function() {
         var update = {};
         getAttrs(["ac_bonus","ac_ability_mod","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_noflatflooted","ac_touchshield"], function(v) {
-            var base = 10,
-                ac = 0,
-                actouch = 0,
-                acff = 0,
-                bonus = parseInt(v.ac_bonus) || 0,
-                ability = parseInt(v.ac_ability_mod) || 0,
-                armor = parseInt(v.ac_armor) || 0,
-                shield = parseInt(v.ac_shield) || 0,
-                size = parseInt(v.ac_size) || 0,
-                natural = parseInt(v.ac_natural) || 0,
-                deflection = parseInt(v.ac_deflection) || 0,
-                misc = parseInt(v.ac_misc) || 0,
-                dodge = parseInt(v.ac_dodge) || 0,
-                touch_bonus = parseInt(v.ac_touch_bonus) || 0,
-                flatfooted_bonus = parseInt(v.ac_flatfooted_bonus) || 0,
-                noflatflooted = parseInt(v.ac_noflatflooted) || 0,
-                touchshield = parseInt(v.ac_touchshield) || 0;
+            var base = 10;
+            var ac = 0;
+            var actouch = 0;
+            var acff = 0;
+            var bonus = parseInt(v.ac_bonus) || 0;
+            var ability = parseInt(v.ac_ability_mod) || 0;
+            var armor = parseInt(v.ac_armor) || 0;
+            var shield = parseInt(v.ac_shield) || 0;
+            var size = parseInt(v.ac_size) || 0;
+            var natural = parseInt(v.ac_natural) || 0;
+            var deflection = parseInt(v.ac_deflection) || 0;
+            var misc = parseInt(v.ac_misc) || 0;
+            var dodge = parseInt(v.ac_dodge) || 0;
+            var touch_bonus = parseInt(v.ac_touch_bonus) || 0;
+            var flatfooted_bonus = parseInt(v.ac_flatfooted_bonus) || 0;
+            var noflatflooted = parseInt(v.ac_noflatflooted) || 0;
+            var touchshield = parseInt(v.ac_touchshield) || 0;
             ac = base + bonus + ability + armor + shield + size + natural + deflection + misc + dodge;
             if (noflatflooted == 1) {acff = ac;}
             else {acff = base + bonus + armor + shield + size + natural + deflection + misc;}
@@ -451,7 +458,7 @@
         };
     };
     var do_update_attack = function(attack_array, source) {
-        var attack_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod"];
+        var attack_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar"];
         _.each(attack_array, function(attackid) {
             attack_attribs.push("repeating_attacks_" + attackid + "_atkname");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkflag");
@@ -477,54 +484,141 @@
         getAttrs(attack_attribs, function(v) {
             _.each(attack_array, function(attackid) {
                 console.log("UPDATING ATTACK: " + attackid);
-                var update = {},
-                    atkbonus = 0,
-                    atkbonusdisplay = "-",
-                    atkdmg = "",
-                    atkdmgbonus = 0,
-                    atkdmgdisplay = "-",
-                    atkdisplay = "",
-                    rollbase = "",
-                    rollatk = "",
-                    rolldmg = "",
-                    atkname = v["repeating_attacks_" + attackid + "_atkname"],
-                    atkflag = v["repeating_attacks_" + attackid + "_atkflag"],
-                    atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0,
-                    atkmod = v["repeating_attacks_" + attackid + "_atkmod"],
-                    atkvs = v["repeating_attacks_" + attackid + "_atkvs"],
-                    atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20,
-                    atkcritmulti = parseInt(v["repeating_attacks_" + attackid + "_atkcritmulti"]) || 2,
-                    dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"],
-                    dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"],
-                    dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0,
-                    dmgmod = v["repeating_attacks_" + attackid + "_dmgmod"],
-                    dmgtype = v["repeating_attacks_" + attackid + "_dmgtype"],
-                    dmg2flag = v["repeating_attacks_" + attackid + "_dmg2flag"],
-                    dmg2base = v["repeating_attacks_" + attackid + "_dmg2base"],
-                    dmg2attr = parseInt(v[v["repeating_attacks_" + attackid + "_dmg2attr"] + "_mod"]) || 0,
-                    dmg2mod = v["repeating_attacks_" + attackid + "_dmg2mod"],
-                    dmg2type = v["repeating_attacks_" + attackid + "_dmg2type"],
-                    descflag = v["repeating_attacks_" + attackid + "_descflag"],
-                    atkdesc = v["repeating_attacks_" + attackid + "_atkdesc"],
-                    notes = v["repeating_attacks_" + attackid + "_notes"];
-                // A LOT TO DO ! (rolls)
-                // Display handling
-                atkdisplay = atkname;
+                var update = {};
+                var stemp = "";
+                var atkbonus = 0;
+                var atkbonusdisplay = "-";
+                var atkdmg = "";
+                var atkdmgbonus = 0;
+                var atkdmgdisplay = "-";
+                var atkdisplay = " ";
+                var rollbase = " ";
+                var rollatk = " ";
+                var rolldmg = " ";
+                var rolltype = "";
+                var rollnotes = "";
+                var rollbasetemplate = "default";
+                var rollatktemplate = "default";
+                var rolldmgtemplate = "default";
+                var atkname = v["repeating_attacks_" + attackid + "_atkname"];
+                var atkflag = v["repeating_attacks_" + attackid + "_atkflag"];
+                var atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0;
+                var atkmod = v["repeating_attacks_" + attackid + "_atkmod"];
+                var atkvs = v["repeating_attacks_" + attackid + "_atkvs"];
+                var atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20;
+                var atkcritmulti = parseInt(v["repeating_attacks_" + attackid + "_atkcritmulti"]) || 1;
+                var dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"];
+                var dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"];
+                var dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0;
+                var dmgmod = v["repeating_attacks_" + attackid + "_dmgmod"];
+                var dmgtype = v["repeating_attacks_" + attackid + "_dmgtype"];
+                var dmg2flag = v["repeating_attacks_" + attackid + "_dmg2flag"];
+                var dmg2base = v["repeating_attacks_" + attackid + "_dmg2base"];
+                var dmg2attr = parseInt(v[v["repeating_attacks_" + attackid + "_dmg2attr"] + "_mod"]) || 0;
+                var dmg2mod = v["repeating_attacks_" + attackid + "_dmg2mod"];
+                var dmg2type = v["repeating_attacks_" + attackid + "_dmg2type"];
+                var descflag = v["repeating_attacks_" + attackid + "_descflag"];
+                var atkdesc = v["repeating_attacks_" + attackid + "_atkdesc"];
+                var atknotes = v["repeating_attacks_" + attackid + "_notes"];
+                // == Display handling
                 atkbonus = atktype + (parseInt(atkmod) || 0);
                 atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
-                // console.log("*** DEBUG atkflag / dmgflag " + atkflag + " / " + dmgflag);
-                if (atkflag != "0") {
-                    atkdisplay += " / " + v["repeating_attacks_" + attackid + "_atktype"] + " vs " + atkvs;
+                if(atkflag != "0") {
+                    atkdisplay = " (" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + " " + i18n_obj["vs"] + " " + i18n_obj[atkvs] + ")";
                     atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
                 }
-                if (dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? " " : "+") + atkdmgbonus;}
+                if(dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? "" : "+") + atkdmgbonus;}
                 update["repeating_attacks_" + attackid + "_atkdisplay"] = atkdisplay;
                 update["repeating_attacks_" + attackid + "_atkbonusdisplay"] = atkbonusdisplay;
                 update["repeating_attacks_" + attackid + "_atkdmgdisplay"] = atkdmgdisplay;
-                // update
+                // == Rolls handling
+                // desc
+                if(descflag != "0") {
+                    atkdesc = "{{desc=" + atkdesc + "}}";
+                }
+                // notes
+                if(v["rollnotes_attack"] != "0") {
+                    rollnotes = "{{shownotes=[[1]]}}{{notes=" + atknotes + "}}";
+                }
+                // roll attack
+                if(atkflag != "0") {
+                    rollatk = "" + atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
+                    rollatk += "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rolltype += "attack";
+                    rollbase += rollatk;
+                    // desc
+                    if(descflag != "0") {
+                        rollatk += atkdesc;
+                        rollbase += atkdesc;
+                    }
+                    // notes
+                    if(v["rollnotes_attack"] != "0") {
+                        rollatk += rollnotes;
+                        rollbase += rollnotes;
+                    }
+                }
+                // roll damage
+                if((dmgflag != "0") || (dmg2flag != "0")) {
+                    rolltype += "damage";
+                    if(dmgflag != "0") {
+                        stemp = dmgbase + "+" + dmgattr + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS]";
+                        rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}{{dmg1crit=[[(" + stemp +")*" + atkcritmulti + "]]}}";
+                    }
+                    if(dmg2flag != "0") {
+                        stemp = dmg2base + "+" + dmg2attr + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS]";
+                        rolldmg += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
+                    }
+                    // desc
+                    if((descflag != "0") && (atkflag == "0")) {
+                        rolldmg += atkdesc;
+                    }
+                    // notes
+                    if((v["rollnotes_attack"] != "0") && (atkflag == "0")) {
+                        rolldmg += rollnotes;
+                    }
+                    rollbase += rolldmg;
+                }
+                // final rolls values
+                if (rollbase.trim().length > 0) {
+                    rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + atkname + "}}{{type=" + rolltype + "}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rollbase;
+                }
+                if (rollatk.trim().length > 0) {
+                    rollatk = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}"  + rollatk;
+                }
+                if (rolldmg.trim().length > 0) {
+                    rolldmg = "@{whispertype} &{template:" + rolldmgtemplate + "}{{name=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmg;
+                }
+                update["repeating_attacks_" + attackid + "_rollbase"] = rollbase;
+                update["repeating_attacks_" + attackid + "_rollbase_atk"] = rollatk;
+                update["repeating_attacks_" + attackid + "_rollbase_dmg"] = rolldmg;
+                // == update
                 setAttrs(update, {silent: true});
             });
         });
+    };
+
+    // === Multi Lingual handling
+    var loadi18n = function() {
+        i18n_obj["strength"] = getTranslationByKey("str-u");
+        i18n_obj["dexterity"] = getTranslationByKey("dex-u");
+        i18n_obj["constitution"] = getTranslationByKey("con-u");
+        i18n_obj["intelligence"] = getTranslationByKey("int-u");
+        i18n_obj["wisdom"] = getTranslationByKey("wis-u");
+        i18n_obj["charisma"] = getTranslationByKey("cha-u");
+        i18n_obj["melee"] = getTranslationByKey("melee");
+        i18n_obj["ranged"] = getTranslationByKey("ranged");
+        i18n_obj["cmb"] = getTranslationByKey("cmb-u");
+        i18n_obj["cmd"] = getTranslationByKey("cmd-u");
+        i18n_obj["ac"] = getTranslationByKey("ac-u");
+        i18n_obj["touch"] = getTranslationByKey("touch");
+        i18n_obj["flatfooted"] = getTranslationByKey("flat-footed");
+        i18n_obj["fftouch"] = getTranslationByKey("ff-touch");
+        i18n_obj["other"] = getTranslationByKey("other");
+        i18n_obj["fortitude"] = getTranslationByKey("fort-u");
+        i18n_obj["reflex"] = getTranslationByKey("ref-u");
+        i18n_obj["will"] = getTranslationByKey("will-u");
+        i18n_obj["vs"] = getTranslationByKey("vs");
+        i18n_obj["0"] = "";
     };
 
     // === Version and updating

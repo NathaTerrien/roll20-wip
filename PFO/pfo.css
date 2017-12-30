@@ -334,8 +334,20 @@ div.sheet-acitems {
 .sheet-attacks span.sheet-lab.sheet-typ{width: 35px;}
 .sheet-attack .sheet-range {width: 193px;}
 .sheet-attacks .sheet-weapon {width: 200px;}
-.sheet-attack .sheet-weapon {width: 225px;}
-.sheet-attack .sheet-pseudoattr.sheet-weapon {text-align: left;}
+.sheet-attack .sheet-weapon {
+    width: 225px;
+    text-align: left;
+    font-size: 1.1em;
+    padding-left: 2px;
+}
+.sheet-attack .sheet-weapon .sheet-vs {
+    width: auto;
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 0.8em;
+    line-height: 0.85em;
+    white-space: pre;
+}
 .sheet-attacks .sheet-atk {width: 50px;}
 .sheet-attacks .sheet-damage {width: 80px;}
 .sheet-attacks .sheet-pseudoattr.sheet-atk,
@@ -343,20 +355,19 @@ div.sheet-acitems {
 .sheet-attacks .sheet-ammo {width: 40px;}
 
 /* ===== SPANS ===== */
+span {display: inline-block;}
 span.sheet-spacer{
-    display: inline-block;
     min-width: 10px;
     text-align: center;
 }
 span.sheet-lab {
-    display: inline-block;
     text-align: center;
     vertical-align: bottom;
     font-family: sans-serif;
     font-size: 0.84em;
     line-height: 1.1em;
     text-transform: capitalize;
-    white-space: pre-line;
+    white-space: pre;
     color: black;
 }
 .sheet-lab.sheet-right{text-align: right;}
@@ -375,6 +386,21 @@ span.sheet-lab {
 .sheet-attackmods .sheet-lab,
 .sheet-defenses .sheet-lab {
     width: 40px;
+}
+span.sheet-pseudoattr {
+    font-family: 'Patrick Hand';
+    font-size: 1.2em;
+    line-height: 16px;
+    height: 18px;
+    vertical-align: bottom;
+    white-space: pre;
+}
+div.sheet-boxed span.sheet-pseudoattr {
+    min-width: 36px;
+    margin-top: 3px;
+}
+.sheet-acitems div.sheet-boxed span.sheet-pseudoattr {
+    width: 33px;
 }
 /* ===== INPUTS ===== */
 input, textarea{
@@ -451,22 +477,6 @@ select.sheet-size {
 }
 .sheet-acitem select{
     width: 60px;
-}
-span.sheet-pseudoattr {
-    display: inline-block;
-    font-family: 'Patrick Hand';
-    font-size: 1.2em;
-    line-height: 16px;
-    margin-top: 3px;
-    height: 18px;
-    vertical-align: bottom;
-    white-space: pre;
-}
-div.sheet-boxed span.sheet-pseudoattr {
-    min-width: 36px;
-}
-.sheet-acitems div.sheet-boxed span.sheet-pseudoattr {
-    width: 33px;
 }
 /* ===== ABILITIES ===== */
 .sheet-baseattr {
