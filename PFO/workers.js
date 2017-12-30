@@ -146,7 +146,7 @@
     on("change:ranged_mod", function(){update_attacks("ranged","");});
 
     // === WEAPONS / ATTACKS
-    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkcritmulti change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(eventinfo) {
+    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(eventinfo) {
         if(eventinfo.sourceType === "sheetworker") {return;}
         var attackid = eventinfo.sourceAttribute.substring(18, 38);
         update_attacks(attackid,"");
@@ -466,16 +466,17 @@
             attack_attribs.push("repeating_attacks_" + attackid + "_atkmod");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkvs");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkcritrange");
-            attack_attribs.push("repeating_attacks_" + attackid + "_atkcritmulti");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgflag");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgbase");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgattr");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgmod");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmgcritmulti");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgtype");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmg2flag");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmg2base");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmg2attr");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmg2mod");
+            attack_attribs.push("repeating_attacks_" + attackid + "_dmg2critmulti");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmg2type");
             attack_attribs.push("repeating_attacks_" + attackid + "_descflag");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkdesc");
@@ -506,20 +507,25 @@
                 var atkmod = v["repeating_attacks_" + attackid + "_atkmod"];
                 var atkvs = v["repeating_attacks_" + attackid + "_atkvs"];
                 var atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20;
-                var atkcritmulti = parseInt(v["repeating_attacks_" + attackid + "_atkcritmulti"]) || 1;
                 var dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"];
                 var dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"];
                 var dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0;
                 var dmgmod = v["repeating_attacks_" + attackid + "_dmgmod"];
+                var dmgcritmulti = parseInt(v["repeating_attacks_" + attackid + "_dmgcritmulti"]) || 1;
                 var dmgtype = v["repeating_attacks_" + attackid + "_dmgtype"];
                 var dmg2flag = v["repeating_attacks_" + attackid + "_dmg2flag"];
                 var dmg2base = v["repeating_attacks_" + attackid + "_dmg2base"];
                 var dmg2attr = parseInt(v[v["repeating_attacks_" + attackid + "_dmg2attr"] + "_mod"]) || 0;
                 var dmg2mod = v["repeating_attacks_" + attackid + "_dmg2mod"];
+                var dmg2critmulti = parseInt(v["repeating_attacks_" + attackid + "_dmg2critmulti"]) || 1;
                 var dmg2type = v["repeating_attacks_" + attackid + "_dmg2type"];
                 var descflag = v["repeating_attacks_" + attackid + "_descflag"];
                 var atkdesc = v["repeating_attacks_" + attackid + "_atkdesc"];
                 var atknotes = v["repeating_attacks_" + attackid + "_notes"];
+                // Handling empty values
+                if (atkmod.length == 0) {atkmod = "0";}
+                if (dmgmod.length == 0) {dmgmod = "0";}
+                if (dmg2mod.length == 0) {dmg2mod = "0";}
                 // == Display handling
                 atkbonus = atktype + (parseInt(atkmod) || 0);
                 atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
@@ -562,11 +568,11 @@
                     rolltype += "damage";
                     if(dmgflag != "0") {
                         stemp = dmgbase + "+" + dmgattr + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS]";
-                        rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}{{dmg1crit=[[(" + stemp +")*" + atkcritmulti + "]]}}";
+                        rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}{{dmg1crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";
                     }
                     if(dmg2flag != "0") {
                         stemp = dmg2base + "+" + dmg2attr + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS]";
-                        rolldmg += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
+                        rolldmg += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}{{dmg2crit=[[(" + stemp +")*" + dmg2critmulti + "]]}}";
                     }
                     // desc
                     if((descflag != "0") && (atkflag == "0")) {
