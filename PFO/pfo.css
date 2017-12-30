@@ -328,11 +328,11 @@ div.sheet-acitems {
 .sheet-attacks div.sheet-padindent{padding-left: 22px;}
 .sheet-attacks select.sheet-type,
 .sheet-attacks select.sheet-vs {width: 80px;}
-.sheet-attacks .sheet-dmgbase {width: 60px;}
+.sheet-attacks .sheet-dmgbase {width: 120px;}
 .sheet-attacks .sheet-dmgtype {width: 120px;}
 .sheet-attacks span.sheet-lab.sheet-atk{width: 52px;}
 .sheet-attacks span.sheet-lab.sheet-typ{width: 35px;}
-.sheet-attack .sheet-range {width: 193px;}
+.sheet-attack .sheet-range {width: 181px;}
 .sheet-attacks .sheet-weapon {width: 200px;}
 .sheet-attack .sheet-weapon {
     width: 225px;
