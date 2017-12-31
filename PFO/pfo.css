@@ -219,7 +219,8 @@ div.sheet-saves,
 div.sheet-babs,
 div.sheet-attackmods,
 div.sheet-defenses,
-div.sheet-attack {
+div.sheet-attack,
+div.sheet-skill {
     position: relative;
 }
 div.sheet-abilities,
@@ -354,6 +355,18 @@ div.sheet-acitems {
 .sheet-attacks .sheet-pseudoattr.sheet-damage {text-align: center;}
 .sheet-attacks .sheet-ammo {width: 40px;}
 
+.sheet-skills .sheet-lbl{
+    text-align: left;
+    vertical-align: bottom;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    text-transform: capitalize;
+    white-space: pre;
+}
+.sheet-skills .sheet-name{width: 180px;}
+.sheet-skill .sheet-number{width: 30px;}
+
 /* ===== SPANS ===== */
 span {display: inline-block;}
 span.sheet-spacer{
@@ -402,6 +415,17 @@ div.sheet-boxed span.sheet-pseudoattr {
 .sheet-acitems div.sheet-boxed span.sheet-pseudoattr {
     width: 33px;
 }
+
+.sheet-skills .sheet-lab.sheet-class {width: 20px;}
+.sheet-skills .sheet-lab.sheet-name {
+    width: 176px;
+    text-align: left;
+}
+.sheet-skills .sheet-lab.sheet-total,
+.sheet-skills .sheet-lab.sheet-ability,
+.sheet-skills .sheet-lab.sheet-ranks,
+.sheet-skills .sheet-lab.sheet-misc {width: 39px;}
+.sheet-skills .sheet-lab.sheet-temp {width: 37px;}
 /* ===== INPUTS ===== */
 input, textarea{
     background-color: transparent;
@@ -440,6 +464,9 @@ div.sheet-boxed input[type="number"]{
 }
 .sheet-acitems div.sheet-boxed {
     width: 35px;
+}
+.sheet-skill input[type="number"]{
+    width: 30px;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -689,7 +716,9 @@ input.sheet-tabconf:checked + span{
 .sheet-defenses .sheet-options-flag.sheet-cmd,
 .sheet-defenses .sheet-options-flag.sheet-cmd + span,
 .sheet-attacks .sheet-options-flag,
-.sheet-attacks .sheet-options-flag + span {
+.sheet-attacks .sheet-options-flag + span,
+.sheet-skill .sheet-options-flag,
+.sheet-skill .sheet-options-flag + span {
     top: -2px;
     left: 0px;
 }
@@ -726,7 +755,8 @@ input.sheet-tabconf:checked + span{
 .sheet-babs:hover .sheet-options-flag + span,
 .sheet-attackmods:hover .sheet-options-flag + span,
 .sheet-defenses:hover .sheet-options-flag + span,
- .sheet-attack:hover .sheet-options-flag + span{
+.sheet-attack:hover .sheet-options-flag + span,
+.sheet-skill:hover .sheet-options-flag + span {
     display: block;
 }
 .sheet-options,

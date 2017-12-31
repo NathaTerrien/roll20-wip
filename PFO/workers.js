@@ -188,7 +188,7 @@
                 setAttrs(update);
             });
         } else {
-            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability"];
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability"];
             var flexes = [];
             getAttrs(fields, function(ablts) {
                 _.each(fields, function(field){
@@ -600,6 +600,20 @@
                 // == update
                 setAttrs(update, {silent: true});
             });
+        });
+    };
+
+    // === SKILLS
+    var update_skill = function(attr) {
+        var fields = [attr + "_classkill",attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var cls = parseInt(v[attr + "_classkill"]) || 0;
+            var ranks = parseInt(v[attr + "_ranks"]) || 0;
+            var penlt = parseInt(v[attr + "_armor_penalty"]) || 0;
+
+            update[attr + "_mod"] = (parseInt(v.armor_check_penalty) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            setAttrs(update);
         });
     };
 
