@@ -369,15 +369,6 @@ div.sheet-acitems {
     width: 30px;
     text-align: center;
 }
-.sheet-skill .sheet-attr-flag[value="1"] + span {color: #501414;}
-.sheet-skill .sheet-attr-flag[value="1"] + span:after{
-    content: 'e';
-    font-family: "Pictos Custom";
-    font-size: 0.8em;
-    font-weight: bold;
-    position: absolute;
-    margin-left: 1px;
-}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -541,17 +532,42 @@ select.sheet-size {
 .sheet-boxed .sheet-baseattr:focus ~ .sheet-finalattr {
     display: none;
 }
-.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr{
-    color: #501414;
-}
-.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr:after{
-    content: 'e';
+/* ===== FLAGS ===== */
+.sheet-attr-flag[value="1"] + span {color: #501414;}
+.sheet-attr-flag[value="1"] + span:after{
+    content: "e";
     font-family: "Pictos";
     font-size: 0.8em;
     font-weight: bold;
     position: absolute;
     margin-left: 1px;
 }
+.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr{color: #501414;}
+.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr:after{
+    content: "e";
+    font-family: "Pictos";
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 1px;
+}
+.sheet-skill .sheet-attr-flag:not([value="0"]) + span {color: #501414;}
+.sheet-skill .sheet-attr-flag:not([value="0"]) + span:after{
+    font-family: "Pictos";
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: 1px;
+}
+.sheet-skill .sheet-attr-flag[value="1"] + span:after {
+    content: "U";
+}
+.sheet-skill .sheet-attr-flag[value="2"] + span:after {
+    content: "e";
+}
+.sheet-skill .sheet-attr-flag[value="3"] + span:after {
+    content: "Ue";
+}
+
 /* ===== BUTTONS ===== */
 button[type="roll"].sheet-myrol{
     text-align: center;

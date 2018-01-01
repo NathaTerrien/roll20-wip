@@ -328,6 +328,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
+                            <input type="hidden" name="attr_initiative_bonus_flag" class="attr-flag" value="0" />
                             <span name="attr_initiative_mod" class="pseudoattr" title="@{initiative_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -372,6 +373,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_ac_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_ac" class="pseudoattr" title="@{ac}"></span>
                     </div>
                     <div class="boxed">
@@ -384,6 +386,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_ac_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
                     </div>
                     <div class="blacklabel flatfooted">
@@ -393,6 +396,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_ac_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
                 </div>
@@ -471,6 +475,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
+                            <input type="hidden" name="attr_fortitude_bonus_flag" class="attr-flag" value="0" />
                             <span name="attr_fortitude" class="pseudoattr" title="@{fortitude}"></span>
                         </div>
                         <div class="boxed">
@@ -485,6 +490,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
+                            <input type="hidden" name="attr_reflex_bonus_flag" class="attr-flag" value="0" />
                             <span name="attr_reflex" class="pseudoattr" title="@{reflex}"></span>
                         </div>
                         <div class="boxed">
@@ -499,6 +505,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
+                            <input type="hidden" name="attr_will_bonus_flag" class="attr-flag" value="0" />
                             <span name="attr_will" class="pseudoattr" title="@{will}"></span>
                         </div>
                         <div class="boxed">
@@ -626,6 +633,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_cmb_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_cmb_mod" class="pseudoattr" title="@{cmb_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -690,6 +698,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_melee_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_melee_mod" class="pseudoattr" title="@{melee_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -702,6 +711,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_ranged_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_ranged_mod" class="pseudoattr" title="@{ranged_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -798,6 +808,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_cmd_bonus_flag" class="attr-flag" value="0" />
                         <span name="attr_cmd" class="pseudoattr" title="@{cmd}"></span>
                     </div>
                     <div class="boxed">
@@ -1717,7 +1728,10 @@
     // === INITIATIVE
     var update_initiative = function () {
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
-            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
+            var update = {};
+            update["initiative_mod"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
+            update["initiative_bonus_flag"] = (parseInt(v.initiative_bonus) || 0) !=0 ? 1 : 0;
+            setAttrs(update);
         });
     };
     // === AC
@@ -1809,6 +1823,7 @@
             var flatfooted_bonus = parseInt(v.ac_flatfooted_bonus) || 0;
             var noflatflooted = parseInt(v.ac_noflatflooted) || 0;
             var touchshield = parseInt(v.ac_touchshield) || 0;
+            var flag = bonus !=0 ? 1 : 0;
             ac = base + bonus + ability + armor + shield + size + natural + deflection + misc + dodge;
             if (noflatflooted == 1) {acff = ac;}
             else {acff = base + bonus + armor + shield + size + natural + deflection + misc;}
@@ -1819,7 +1834,8 @@
             setAttrs({
                 "ac": ac,
                 "ac_touch": actouch,
-                "ac_flatfooted": acff
+                "ac_flatfooted": acff,
+                "ac_bonus_flag": flag
             });
         });
     };
@@ -1836,6 +1852,7 @@
                             + (parseInt(v.ac_deflection) || 0)
                             + (parseInt(v.cmd_misc) || 0)
                             + (parseInt(v.cmd_bonus) || 0);
+            update["cmd_bonus_flag"] = (parseInt(v.cmd_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
         return;
@@ -1847,6 +1864,7 @@
         getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -1857,6 +1875,7 @@
         getAttrs(fields, function(v) {
             var update = {};
             update[attr + "_mod"] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -2050,7 +2069,8 @@
             var skpenlt = parseInt(v[attr + "_armor_penalty"]) || 0;
             var penlt = parseInt(v.armor_check_penalty) || 0;
             var clsbonus = (cls * ranks) != 0 ? 3 : 0;
-            update[attr + "_penalty_flag"] = (skpenlt*penlt) != 0 ? 1 : 0;
+            var flag = ((skpenlt*penlt) != 0 ? 1 : 0) + (((parseInt(v[attr + "_bonus"]) || 0) != 0 ? 1 : 0) * 2);
+            update[attr + "_penalty_flag"] = flag;
             update[attr] = clsbonus + ranks + (skpenlt*penlt) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
         });

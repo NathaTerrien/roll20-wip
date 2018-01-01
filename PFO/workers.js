@@ -293,7 +293,10 @@
     // === INITIATIVE
     var update_initiative = function () {
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
-            setAttrs({"initiative_mod": (parseInt(v["dexterity_mod"]) || 0) + (parseInt(v["initiative_misc"]) || 0) + (parseInt(v["initiative_bonus"]) || 0)});
+            var update = {};
+            update["initiative_mod"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
+            update["initiative_bonus_flag"] = (parseInt(v.initiative_bonus) || 0) !=0 ? 1 : 0;
+            setAttrs(update);
         });
     };
     // === AC
@@ -385,6 +388,7 @@
             var flatfooted_bonus = parseInt(v.ac_flatfooted_bonus) || 0;
             var noflatflooted = parseInt(v.ac_noflatflooted) || 0;
             var touchshield = parseInt(v.ac_touchshield) || 0;
+            var flag = bonus !=0 ? 1 : 0;
             ac = base + bonus + ability + armor + shield + size + natural + deflection + misc + dodge;
             if (noflatflooted == 1) {acff = ac;}
             else {acff = base + bonus + armor + shield + size + natural + deflection + misc;}
@@ -395,7 +399,8 @@
             setAttrs({
                 "ac": ac,
                 "ac_touch": actouch,
-                "ac_flatfooted": acff
+                "ac_flatfooted": acff,
+                "ac_bonus_flag": flag
             });
         });
     };
@@ -412,6 +417,7 @@
                             + (parseInt(v.ac_deflection) || 0)
                             + (parseInt(v.cmd_misc) || 0)
                             + (parseInt(v.cmd_bonus) || 0);
+            update["cmd_bonus_flag"] = (parseInt(v.cmd_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
         return;
@@ -423,6 +429,7 @@
         getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -433,6 +440,7 @@
         getAttrs(fields, function(v) {
             var update = {};
             update[attr + "_mod"] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -626,7 +634,8 @@
             var skpenlt = parseInt(v[attr + "_armor_penalty"]) || 0;
             var penlt = parseInt(v.armor_check_penalty) || 0;
             var clsbonus = (cls * ranks) != 0 ? 3 : 0;
-            update[attr + "_penalty_flag"] = (skpenlt*penlt) != 0 ? 1 : 0;
+            var flag = ((skpenlt*penlt) != 0 ? 1 : 0) + (((parseInt(v[attr + "_bonus"]) || 0) != 0 ? 1 : 0) * 2);
+            update[attr + "_penalty_flag"] = flag;
             update[attr] = clsbonus + ranks + (skpenlt*penlt) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
         });
