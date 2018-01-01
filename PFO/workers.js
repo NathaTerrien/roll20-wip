@@ -152,6 +152,17 @@
         update_attacks(attackid,"");
     });
 
+    // === SKILLS
+    on("change:acrobatics_ability change:appraise_ability", function(e){
+        update_flex_ability(e.newValue,e.sourceAttribute);
+    });
+    on("change:acrobatics_classkill change:acrobatics_ability_mod change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", function() {
+        update_skill("acrobatics");
+    });
+    on("change:appraise_classkill change:appraise_ability_mod change:appraise_ranks change:appraise_misc change:appraise_bonus change:appraise_armor_penalty", function() {
+        update_skill("appraise");
+    });
+
     // === CONFIGURATION
     on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
        update_attacks("all","");
@@ -405,6 +416,7 @@
         });
         return;
     };
+
     // === SAVES
     var update_save = function(attr) {
         var fields = [attr + "_base",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
@@ -605,14 +617,17 @@
 
     // === SKILLS
     var update_skill = function(attr) {
+        console.log("*** DEBUG updating skill : " + attr);
         var fields = [attr + "_classkill",attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty"];
         getAttrs(fields, function(v) {
             var update = {};
             var cls = parseInt(v[attr + "_classkill"]) || 0;
             var ranks = parseInt(v[attr + "_ranks"]) || 0;
-            var penlt = parseInt(v[attr + "_armor_penalty"]) || 0;
-
-            update[attr + "_mod"] = (parseInt(v.armor_check_penalty) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            var skpenlt = parseInt(v[attr + "_armor_penalty"]) || 0;
+            var penlt = parseInt(v.armor_check_penalty) || 0;
+            var clsbonus = (cls * ranks) != 0 ? 3 : 0;
+            update[attr + "_penalty_flag"] = (skpenlt*penlt) != 0 ? 1 : 0;
+            update[attr] = clsbonus + ranks + (skpenlt*penlt) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
         });
     };

@@ -365,7 +365,11 @@ div.sheet-acitems {
     white-space: pre;
 }
 .sheet-skills .sheet-name{width: 180px;}
-.sheet-skill .sheet-number{width: 30px;}
+.sheet-skill .sheet-number{
+    width: 30px;
+    text-align: center;
+}
+.sheet-skill .sheet-attr-flag[value="1"] + span {color: #501414;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
