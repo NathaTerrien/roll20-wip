@@ -369,6 +369,12 @@ div.sheet-acitems {
     width: 30px;
     text-align: center;
 }
+.sheet-skill span.sheet-perform,
+.sheet-skill span.sheet-craft,
+.sheet-skill span.sheet-profession{width: 60px;}
+.sheet-skill input[type="text"].sheet-craft,
+.sheet-skill input[type="text"].sheet-perform,
+.sheet-skill input[type="text"].sheet-profession{width: 117px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -537,8 +543,8 @@ select.sheet-size {
     display: none;
 }
 /* ===== FLAGS ===== */
-.sheet-attr-flag[value="1"] + span {color: #501414;}
-.sheet-attr-flag[value="1"] + span:after{
+.sheet-boxed .sheet-attr-flag[value="1"] + span {color: #501414;}
+.sheet-boxed .sheet-attr-flag[value="1"] + span:after{
     content: "e";
     font-family: "Pictos";
     font-size: 0.8em;
