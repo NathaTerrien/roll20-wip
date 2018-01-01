@@ -370,6 +370,14 @@ div.sheet-acitems {
     text-align: center;
 }
 .sheet-skill .sheet-attr-flag[value="1"] + span {color: #501414;}
+.sheet-skill .sheet-attr-flag[value="1"] + span:after{
+    content: 'e';
+    font-family: "Pictos Custom";
+    font-size: 0.8em;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 1px;
+}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -537,9 +545,12 @@ select.sheet-size {
     color: #501414;
 }
 .sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr:after{
-    content: '*';
-    font-size: 1.1em;
+    content: 'e';
+    font-family: "Pictos";
+    font-size: 0.8em;
+    font-weight: bold;
     position: absolute;
+    margin-left: 1px;
 }
 /* ===== BUTTONS ===== */
 button[type="roll"].sheet-myrol{
