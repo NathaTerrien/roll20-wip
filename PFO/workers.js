@@ -625,7 +625,6 @@
 
     // === SKILLS
     var update_skill = function(attr) {
-        console.log("*** DEBUG updating skill : " + attr);
         var fields = [attr + "_classkill",attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty"];
         getAttrs(fields, function(v) {
             var update = {};
