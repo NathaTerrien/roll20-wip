@@ -625,17 +625,21 @@
 
     // === SKILLS
     var update_skill = function(attr) {
-        var fields = [attr + "_classkill",attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty"];
+        var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty"];
         getAttrs(fields, function(v) {
             var update = {};
             var cls = parseInt(v[attr + "_classkill"]) || 0;
             var ranks = parseInt(v[attr + "_ranks"]) || 0;
-            var skpenlt = parseInt(v[attr + "_armor_penalty"]) || 0;
-            var penlt = parseInt(v.armor_check_penalty) || 0;
+            var penlt = 0;
+            if (["strength","dexterity"].includes(v[attr + "_ability"])) {
+                penlt = v[attr + "_armor_penalty"] != "0" ? (parseInt(v.armor_check_penalty) || 0) : 0;
+            } else {
+                update[attr + "_armor_penalty"] = "0";
+            }
             var clsbonus = (cls * ranks) != 0 ? 3 : 0;
-            var flag = ((skpenlt*penlt) != 0 ? 1 : 0) + (((parseInt(v[attr + "_bonus"]) || 0) != 0 ? 1 : 0) * 2);
+            var flag = (penlt != 0 ? 1 : 0) + (((parseInt(v[attr + "_bonus"]) || 0) != 0 ? 1 : 0) * 2);
             update[attr + "_penalty_flag"] = flag;
-            update[attr] = clsbonus + ranks + (skpenlt*penlt) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            update[attr] = clsbonus + ranks + penlt + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             setAttrs(update);
         });
     };

@@ -429,6 +429,10 @@ div.sheet-boxed span.sheet-pseudoattr {
 .sheet-skills .sheet-lab.sheet-ranks,
 .sheet-skills .sheet-lab.sheet-misc {width: 39px;}
 .sheet-skills .sheet-lab.sheet-temp {width: 37px;}
+.sheet-skill div.sheet-skillability {display: none;}
+.sheet-skill input.sheet-skillability[value="strength"] + div.sheet-skillability,
+.sheet-skill input.sheet-skillability[value="dexterity"] + div.sheet-skillability {display: inline-block;}
+
 /* ===== INPUTS ===== */
 input, textarea{
     background-color: transparent;
