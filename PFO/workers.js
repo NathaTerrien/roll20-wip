@@ -59,6 +59,9 @@
         update_cmd();
         update_attacks("strength","");
         update_flex_ability_repsection("strength","skillcraft");
+        update_flex_ability_repsection("strength","skillknowledge");
+        update_flex_ability_repsection("strength","skillperform");
+        update_flex_ability_repsection("strength","skillprofession");
     });
     on("change:dexterity_mod", function() {
         update_ac_ability("dexterity");
@@ -67,30 +70,45 @@
         update_cmd();
         update_attacks("dexterity","");
         update_flex_ability_repsection("dexterity","skillcraft");
+        update_flex_ability_repsection("dexterity","skillknowledge");
+        update_flex_ability_repsection("dexterity","skillperform");
+        update_flex_ability_repsection("dexterity","skillprofession");
     });
     on("change:constitution_mod", function() {
         update_ac_ability("constitution");
         update_flex_ability("constitution","");
         update_attacks("constitution","");
         update_flex_ability_repsection("constitution","skillcraft");
+        update_flex_ability_repsection("constitution","skillknowledge");
+        update_flex_ability_repsection("constitution","skillperform");
+        update_flex_ability_repsection("constitution","skillprofession");
     });
     on("change:intelligence_mod", function() {
         update_ac_ability("intelligence");
         update_flex_ability("intelligence","");
         update_attacks("intelligence","");
         update_flex_ability_repsection("intelligence","skillcraft");
+        update_flex_ability_repsection("intelligence","skillknowledge");
+        update_flex_ability_repsection("intelligence","skillperform");
+        update_flex_ability_repsection("intelligence","skillprofession");
     });
     on("change:wisdom_mod", function() {
         update_ac_ability("wisdom");
         update_flex_ability("wisdom","");
         update_attacks("wisdom","");
         update_flex_ability_repsection("wisdom","skillcraft");
+        update_flex_ability_repsection("wisdom","skillknowledge");
+        update_flex_ability_repsection("wisdom","skillperform");
+        update_flex_ability_repsection("wisdom","skillprofession");
    });
     on("change:charisma_mod", function() {
         update_ac_ability("charisma");
         update_flex_ability("charisma","");
         update_attacks("charisma","");
         update_flex_ability_repsection("charisma","skillcraft");
+        update_flex_ability_repsection("charisma","skillknowledge");
+        update_flex_ability_repsection("charisma","skillperform");
+        update_flex_ability_repsection("charisma","skillprofession");
     });
 
     // === Initiative
@@ -153,13 +171,13 @@
 
     // === WEAPONS / ATTACKS
     on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(eventinfo) {
-        if(eventinfo.sourceType === "sheetworker") {return;}
+        // if(eventinfo.sourceType === "sheetworker") {return;}
         var attackid = eventinfo.sourceAttribute.substring(18, 38);
         update_attacks(attackid,"");
     });
 
     // === SKILLS
-    on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability", function(e){
+    on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability", function(e){
         update_flex_ability(e.newValue,e.sourceAttribute);
     });
     on("change:acrobatics_classkill change:acrobatics_ability_mod change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", function() {update_skill("acrobatics");});
@@ -169,8 +187,7 @@
     on("change:bluff_classkill change:bluff_ability_mod change:bluff_ranks change:bluff_misc change:bluff_bonus change:bluff_armor_penalty", function() {update_skill("bluff");});
     on("change:climb_classkill change:climb_ability_mod change:climb_ranks change:climb_misc change:climb_bonus change:climb_armor_penalty", function() {update_skill("climb");});
     on("change:craft_classkill change:craft_ability_mod change:craft_ranks change:craft_misc change:craft_bonus change:craft_armor_penalty", function() {update_skill("craft");});
-    on("change:repeating_skillcraft:classkill change:repeating_skillcraft:ability_mod change:repeating_skillcraft:ranks change:repeating_skillcraft:misc change:repeating_skillcraft:bonus change:repeating_skillcraft:armor_penalty", function(eventinfo) {
-        if(eventinfo.sourceType === "sheetworker") {return;}
+    on("change:repeating_skillcraft:classkill change:repeating_skillcraft:name change:repeating_skillcraft:ability_mod change:repeating_skillcraft:ranks change:repeating_skillcraft:misc change:repeating_skillcraft:bonus change:repeating_skillcraft:armor_penalty", function(eventinfo) {
         var skillid = eventinfo.sourceAttribute.substring(0, 41);
         update_skill(skillid);
     });
@@ -192,10 +209,22 @@
     on("change:knowledge_nobility_classkill change:knowledge_nobility_ability_mod change:knowledge_nobility_ranks change:knowledge_nobility_misc change:knowledge_nobility_bonus change:knowledge_nobility_armor_penalty", function() {update_skill("knowledge_nobility");});
     on("change:knowledge_planes_classkill change:knowledge_planes_ability_mod change:knowledge_planes_ranks change:knowledge_planes_misc change:knowledge_planes_bonus change:knowledge_planes_armor_penalty", function() {update_skill("knowledge_planes");});
     on("change:knowledge_religion_classkill change:knowledge_religion_ability_mod change:knowledge_religion_ranks change:knowledge_religion_misc change:knowledge_religion_bonus change:knowledge_religion_armor_penalty", function() {update_skill("knowledge_religion");});
+    on("change:repeating_skillknowledge:classkill change:repeating_skillknowledge:name change:repeating_skillknowledge:ability_mod change:repeating_skillknowledge:ranks change:repeating_skillknowledge:misc change:repeating_skillknowledge:bonus change:repeating_skillknowledge:armor_penalty", function(eventinfo) {
+        var skillid = eventinfo.sourceAttribute.substring(0, 45);
+        update_skill(skillid);
+    });
     on("change:linguistics_classkill change:linguistics_ability_mod change:linguistics_ranks change:linguistics_misc change:linguistics_bonus change:linguistics_armor_penalty", function() {update_skill("linguistics");});
     on("change:perception_classkill change:perception_ability_mod change:perception_ranks change:perception_misc change:perception_bonus change:perception_armor_penalty", function() {update_skill("perception");});
     on("change:perform_classkill change:perform_ability_mod change:perform_ranks change:perform_misc change:perform_bonus change:perform_armor_penalty", function() {update_skill("perform");});
+    on("change:repeating_skillperform:classkill change:repeating_skillperform:name change:repeating_skillperform:ability_mod change:repeating_skillperform:ranks change:repeating_skillperform:misc change:repeating_skillperform:bonus change:repeating_skillperform:armor_penalty", function(eventinfo) {
+        var skillid = eventinfo.sourceAttribute.substring(0, 43);
+        update_skill(skillid);
+    });
     on("change:profession_classkill change:profession_ability_mod change:profession_ranks change:profession_misc change:profession_bonus change:profession_armor_penalty", function() {update_skill("profession");});
+    on("change:repeating_skillprofession:classkill change:repeating_skillprofession:name change:repeating_skillprofession:ability_mod change:repeating_skillprofession:ranks change:repeating_skillprofession:misc change:repeating_skillprofession:bonus change:repeating_skillprofession:armor_penalty", function(eventinfo) {
+        var skillid = eventinfo.sourceAttribute.substring(0, 46);
+        update_skill(skillid);
+    });
     on("change:ride_classkill change:ride_ability_mod change:ride_ranks change:ride_misc change:ride_bonus change:ride_armor_penalty", function() {update_skill("ride");});
     on("change:sense_motive_classkill change:sense_motive_ability_mod change:sense_motive_ranks change:sense_motive_misc change:sense_motive_bonus change:sense_motive_armor_penalty", function() {update_skill("sense_motive");});
     on("change:sleight_of_hand_classkill change:sleight_of_hand_ability_mod change:sleight_of_hand_ranks change:sleight_of_hand_misc change:sleight_of_hand_bonus change:sleight_of_hand_armor_penalty", function() {update_skill("sleight_of_hand");});
@@ -696,7 +725,7 @@
 
     // === SKILLS
     var update_skill = function(attr) {
-        var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty"];
+        var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod"];
         getAttrs(fields, function(v) {
             var update = {};
             var cls = parseInt(v[attr + "_classkill"]) || 0;
@@ -710,10 +739,17 @@
             var clsbonus = (cls * ranks) != 0 ? 3 : 0;
             var flag = (penlt != 0 ? 1 : 0) + (((parseInt(v[attr + "_bonus"]) || 0) != 0 ? 1 : 0) * 2);
             update[attr + "_penalty_flag"] = flag;
-            var skill = clsbonus + ranks + penlt + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
+            var abltmod = 0;
+            if (String(v[attr + "_ability_mod"] || "")) {
+                abltmod  = parseInt(v[attr + "_ability_mod"]) || 0;
+            } else {
+                abltmod = parseInt(v[v[attr + "_ability"] + "_mod"]) || 0;
+                update[attr + "_ability_mod"] = abltmod;
+            }
+            var skill = clsbonus + ranks + penlt + abltmod + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             if (attr.substr(0, 15) == "repeating_skill") {update[attr + "_skill"] = skill;}
             else {update[attr] = skill;}
-            setAttrs(update);
+            setAttrs(update, {silent: true});
         });
     };
 
