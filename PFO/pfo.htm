@@ -1239,7 +1239,7 @@
                     <input class="options-flag" name="attr_options-flag-craft" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow right">
                         <input class="pseudocheck" type="checkbox" name="attr_craft_classkill" value="1" title="@{craft_classkill}" /><span class="mleft"></span>
-                        <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} @{craft_name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{craft}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{craft_notes}}}">
+                        <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} (@{craft_name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{craft}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{craft_notes}}}">
                             <span class="lbl craft" data-i18n="craft">Craft</span>
                         </button>
                         <input type="text" name="attr_craft_name" class="craft underlined" data-i18n-placeholder="group" placeholder="Group" title="@{craft_name}" />
@@ -1282,7 +1282,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
                             <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
-                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} @{name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
+                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl craft" data-i18n="craft">Craft</span>
                             </button>
                             <input type="hidden" name="attr_skill" />
@@ -2065,7 +2065,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
                             <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
-                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge} @{name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
+                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl craft" data-i18n="knowledge">Knowledge</span>
                             </button>
                             <input type="hidden" name="attr_skill" />
@@ -2191,7 +2191,7 @@
                     <input class="options-flag" name="attr_options-flag-perform" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow right">
                         <input class="pseudocheck" type="checkbox" name="attr_perform_classkill" value="1" title="@{perform_classkill}" /><span class="mleft"></span>
-                        <button class="myrol" type="roll" name="perform" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perform} @{perform_name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perform}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{perform_notes}}}">
+                        <button class="myrol" type="roll" name="perform" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perform} (@{perform_name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perform}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{perform_notes}}}">
                             <span class="lbl perform" data-i18n="perform">Perform</span>
                         </button>
                         <input type="text" name="attr_perform_name" class="perform underlined" data-i18n-placeholder="category" placeholder="Category" title="@{perform_name}" />
@@ -2234,7 +2234,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
                             <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
-                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perform} @{name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
+                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perform} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl perform" data-i18n="perform">Perform</span>
                             </button>
                             <input type="hidden" name="attr_skill" />
@@ -2278,7 +2278,7 @@
                     <input class="options-flag" name="attr_options-flag-profession" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow right">
                         <input class="pseudocheck" type="checkbox" name="attr_profession_classkill" value="1" title="@{profession_classkill}" /><span class="mleft"></span>
-                        <button class="myrol" type="roll" name="profession" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{profession} @{profession_name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{profession}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{profession_notes}}}">
+                        <button class="myrol" type="roll" name="profession" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{profession} (@{profession_name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{profession}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{profession_notes}}}">
                             <span class="lbl profession" data-i18n="profession">Profession*</span>
                         </button>
                         <input type="text" name="attr_profession_name" class="profession underlined" data-i18n-placeholder="job" placeholder="Job" title="@{profession_name}" />
@@ -2321,7 +2321,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
                             <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
-                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{profession} @{name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
+                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{profession} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl profession" data-i18n="profession">Profession</span>
                             </button>
                             <input type="hidden" name="attr_skill" />
