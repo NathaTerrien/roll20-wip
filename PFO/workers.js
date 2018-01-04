@@ -54,61 +54,24 @@
 
     // === Mods
     on("change:strength_mod", function() {
-        update_ac_ability("strength");
-        update_flex_ability("strength","");
         update_cmd();
-        update_attacks("strength","");
-        update_flex_ability_repsection("strength","skillcraft");
-        update_flex_ability_repsection("strength","skillknowledge");
-        update_flex_ability_repsection("strength","skillperform");
-        update_flex_ability_repsection("strength","skillprofession");
+        update_ability_mod("strength");
     });
     on("change:dexterity_mod", function() {
-        update_ac_ability("dexterity");
-        update_initiative();
-        update_flex_ability("dexterity","");
         update_cmd();
-        update_attacks("dexterity","");
-        update_flex_ability_repsection("dexterity","skillcraft");
-        update_flex_ability_repsection("dexterity","skillknowledge");
-        update_flex_ability_repsection("dexterity","skillperform");
-        update_flex_ability_repsection("dexterity","skillprofession");
+        update_ability_mod("dexterity");
     });
     on("change:constitution_mod", function() {
-        update_ac_ability("constitution");
-        update_flex_ability("constitution","");
-        update_attacks("constitution","");
-        update_flex_ability_repsection("constitution","skillcraft");
-        update_flex_ability_repsection("constitution","skillknowledge");
-        update_flex_ability_repsection("constitution","skillperform");
-        update_flex_ability_repsection("constitution","skillprofession");
+        update_ability_mod("constitution");
     });
     on("change:intelligence_mod", function() {
-        update_ac_ability("intelligence");
-        update_flex_ability("intelligence","");
-        update_attacks("intelligence","");
-        update_flex_ability_repsection("intelligence","skillcraft");
-        update_flex_ability_repsection("intelligence","skillknowledge");
-        update_flex_ability_repsection("intelligence","skillperform");
-        update_flex_ability_repsection("intelligence","skillprofession");
+        update_ability_mod("intelligence");
     });
     on("change:wisdom_mod", function() {
-        update_ac_ability("wisdom");
-        update_flex_ability("wisdom","");
-        update_attacks("wisdom","");
-        update_flex_ability_repsection("wisdom","skillcraft");
-        update_flex_ability_repsection("wisdom","skillknowledge");
-        update_flex_ability_repsection("wisdom","skillperform");
-        update_flex_ability_repsection("wisdom","skillprofession");
+        update_ability_mod("wisdom");
    });
     on("change:charisma_mod", function() {
-        update_ac_ability("charisma");
-        update_flex_ability("charisma","");
-        update_attacks("charisma","");
-        update_flex_ability_repsection("charisma","skillcraft");
-        update_flex_ability_repsection("charisma","skillknowledge");
-        update_flex_ability_repsection("charisma","skillperform");
-        update_flex_ability_repsection("charisma","skillprofession");
+        update_ability_mod("charisma");
     });
 
     // === Initiative
@@ -117,8 +80,8 @@
     });
 
     // === AC
-    on("change:ac_ability_primary change:ac_ability_secondary change:ac_ability_maximum", function(){
-        update_ac_ability();
+    on("change:ac_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(eventinfo){
+        update_ac_ability(eventinfo.sourceAttribute);
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
@@ -318,6 +281,15 @@
             }
         });
     };
+    var update_ability_mod = function(attr) {
+        update_flex_ability(attr,"");
+        update_ac_ability(attr);
+        update_attacks(attr,"");
+        update_flex_ability_repsection(attr,"skillcraft");
+        update_flex_ability_repsection(attr,"skillknowledge");
+        update_flex_ability_repsection(attr,"skillperform");
+        update_flex_ability_repsection(attr,"skillprofession");
+    };
 
     // === Size
     var update_size = function(psize) {
@@ -394,7 +366,7 @@
     var update_initiative = function () {
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
             var update = {};
-            update["initiative_mod"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
+            update["initiative"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
             update["initiative_bonus_flag"] = (parseInt(v.initiative_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
@@ -456,13 +428,13 @@
         });
     };
     var update_ac_ability = function(attr) {
-        getAttrs(["ac_ability_primary","ac_ability_secondary","ac_ability_maximum"], function(v) {
-            if( (attr == "") || (attr == v.ac_ability_primary) || (attr == v.ac_ability_secondary) ) {
-                var attr_fields = [v.ac_ability_primary + "_mod",v.ac_ability_secondary + "_mod"];
+        getAttrs(["ac_ability_primary","ac_ability_secondary"], function(v) {
+            if( (attr == "ac_ability_maximum") || (attr == v.ac_ability_primary) || (attr == v.ac_ability_secondary) ) {
+                var attr_fields = [v.ac_ability_primary + "_mod",v.ac_ability_secondary + "_mod","ac_ability_maximum"];
                 getAttrs(attr_fields, function(modz) {
                     var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0;
                     var secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0;
-                    var maxmod = parseInt(v.ac_ability_maximum) || 99;
+                    var maxmod = parseInt(modz.ac_ability_maximum) || 99;
                     setAttrs({"ac_ability_mod": Math.min(primary + secondary,maxmod)});
                 });
             }
@@ -788,8 +760,7 @@
             update["intelligence_mod"] = 0;
             update["wisdom_mod"] = 0;
             update["charisma_mod"] = 0;
-            update["initiative_mod"] = 0;
-            update["initiative_mod"] = 0;
+            update["initiative"] = 0;
             update["ac_size"] = 0;
             update["bab_size"] = 0;
             update["cmb_size"] = 0;
@@ -818,8 +789,89 @@
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
             update["cmd_mod"] = 10;
+            // Skills
+            update["acrobatics_ability_mod"] = 0;
+            update["appraise_ability_mod"] = 0;
+            update["bluff_ability_mod"] = 0;
+            update["climb_ability_mod"] = 0;
+            update["craft_ability_mod"] = 0;
+            update["diplomacy_ability_mod"] = 0;
+            update["disable_device_ability_mod"] = 0;
+            update["disguise_ability_mod"] = 0;
+            update["escape_artist_ability_mod"] = 0;
+            update["fly_ability_mod"] = 0;
+            update["handle_animal_ability_mod"] = 0;
+            update["heal_ability_mod"] = 0;
+            update["intimidate_ability_mod"] = 0;
+            update["knowledge_arcana_ability_mod"] = 0;
+            update["knowledge_dungeoneering_ability_mod"] = 0;
+            update["knowledge_engineering_ability_mod"] = 0;
+            update["knowledge_geography_ability_mod"] = 0;
+            update["knowledge_history_ability_mod"] = 0;
+            update["knowledge_local_ability_mod"] = 0;
+            update["knowledge_nature_ability_mod"] = 0;
+            update["knowledge_nobility_ability_mod"] = 0;
+            update["knowledge_planes_ability_mod"] = 0;
+            update["knowledge_religion_ability_mod"] = 0;
+            update["linguistics_ability_mod"] = 0;
+            update["perception_ability_mod"] = 0;
+            update["perform_ability_mod"] = 0;
+            update["profession_ability_mod"] = 0;
+            update["ride_ability_mod"] = 0;
+            update["sense_motive_ability_mod"] = 0;
+            update["sleight_of_hand_ability_mod"] = 0;
+            update["spellcraft_ability_mod"] = 0;
+            update["stealth_ability_mod"] = 0;
+            update["survival_ability_mod"] = 0;
+            update["swim_ability_mod"] = 0;
+            update["use_magic_device_ability_mod"] = 0;
+            update["acrobatics"] = 0;
+            update["appraise"] = 0;
+            update["bluff"] = 0;
+            update["climb"] = 0;
+            update["craft"] = 0;
+            update["diplomacy"] = 0;
+            update["disable_device"] = 0;
+            update["disguise"] = 0;
+            update["escape_artist"] = 0;
+            update["fly"] = 0;
+            update["handle_animal"] = 0;
+            update["heal"] = 0;
+            update["intimidate"] = 0;
+            update["knowledge_arcana"] = 0;
+            update["knowledge_dungeoneering"] = 0;
+            update["knowledge_engineering"] = 0;
+            update["knowledge_geography"] = 0;
+            update["knowledge_history"] = 0;
+            update["knowledge_local"] = 0;
+            update["knowledge_nature"] = 0;
+            update["knowledge_nobility"] = 0;
+            update["knowledge_planes"] = 0;
+            update["knowledge_religion"] = 0;
+            update["linguistics"] = 0;
+            update["perception"] = 0;
+            update["perform"] = 0;
+            update["profession"] = 0;
+            update["ride"] = 0;
+            update["sense_motive"] = 0;
+            update["sleight_of_hand"] = 0;
+            update["spellcraft"] = 0;
+            update["stealth"] = 0;
+            update["survival"] = 0;
+            update["swim"] = 0;
+            update["use_magic_device"] = 0;
+            update["acrobatics_ability"] = "dexterity";
+            update["climb_ability"] = "strength";
+            update["disable_device_ability"] = "dexterity";
+            update["escape_artist_ability"] = "dexterity";
+            update["fly_ability"] = "dexterity";
+            update["ride_ability"] = "dexterity";
+            update["sleight_of_hand_ability"] = "dexterity";
+            update["stealth_ability"] = "dexterity";
+            update["swim_ability"] = "strength";
+            // UPDATE
             setAttrs(update
-                    ,{silent: false}
+                    ,{silent: true}
                     ,function() {
                         doneupdating();
                     });
