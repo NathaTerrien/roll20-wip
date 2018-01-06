@@ -924,17 +924,17 @@
                                     <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
                                         <span class="pseudoattr greybg underlined damage" name="attr_atkdmgdisplay"></span>
                                     </button>
-                                    <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{atkammo}" />
+                                    <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{repeating_attacks_$id_atkammo}" />
                                 </div>
                                 <div class="options right">
                                     <div class="myrow">
                                         <span class="lab" data-i18n="name">Name</span>
-                                        <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{atkname}" />
+                                        <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
                                     </div>
                                     <div class="myrow">
-                                        <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{atkflag}" checked="checked" /><span class="mleft"></span>
+                                        <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
                                         <span class="lab atk" data-i18n="attack:">Attack:</span>
-                                        <select class="underlined type" name="attr_atktype" title="@{atktype}">
+                                        <select class="underlined type" name="attr_atktype" title="@{repeating_attacks_$id_atktype}">
                                             <option value="melee" selected="selected" data-i18n="melee">Melee</option>
                                             <option value="ranged" data-i18n="ranged">Ranged</option>
                                             <option value="cmb" data-i18n="cmb-u">CMB</option>
@@ -947,7 +947,7 @@
                                             <option value="0">-</option>
                                         </select>
                                         <span class="lab">+</span>
-                                        <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{atkmod}" />
+                                        <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_attacks_$id_atkmod}" />
                                         <span class="lab" data-i18n="vs">vs</span>
                                         <select class="underlined vs" name="attr_atkvs" title="@{atkvs}">
                                             <option value="ac" selected="selected" data-i18n="ac-u">AC</option>
@@ -964,16 +964,16 @@
                                     </div>
                                     <div class="myrow padindent">
                                         <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
-                                        <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{atkcritrange}" />
+                                        <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
                                         <span class="lab atk right" data-i18n="range:">Range:</span>
                                         <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
                                         <span class="lab atk" data-i18n="damage:">Damage:</span>
-                                        <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{dmgbase}" />
+                                        <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
                                         <span class="lab">+</span>
-                                        <select class="underlined" name="attr_dmgattr" title="@{dmgattr}">
+                                        <select class="underlined" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
                                             <option value="strength" selected="selected" data-i18n="str-u">STR</option>
                                             <option value="dexterity" data-i18n="dex-u">DEX</option>
                                             <option value="constitution" data-i18n="con-u">CON</option>
@@ -983,20 +983,20 @@
                                             <option value="0">-</option>
                                         </select>
                                         <span class="lab">+</span>
-                                        <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{dmgmod}" />
+                                        <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmgmod}" />
                                     </div>
                                     <div class="myrow padindent">
                                         <span class="lab right typ" data-i18n="type:">Type:</span>
-                                        <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{dmgtype}" />
+                                        <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
                                         <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
-                                        <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{dmgcritmulti}" />
+                                        <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
                                     </div>
                                     <div class="myrow">
-                                        <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{dmg2flag}" /><span class="mleft"></span>
+                                        <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_attacks_$id_dmg2flag}" /><span class="mleft"></span>
                                         <span class="lab atk" data-i18n="damage2:">Damage2:</span>
-                                        <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{dmg2base}" />
+                                        <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
                                         <span class="lab">+</span>
-                                        <select class="underlined" name="attr_dmg2attr" title="@{dmg2attr}">
+                                        <select class="underlined" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
                                             <option value="strength" data-i18n="str-u">STR</option>
                                             <option value="dexterity" data-i18n="dex-u">DEX</option>
                                             <option value="constitution" data-i18n="con-u">CON</option>
@@ -1006,26 +1006,26 @@
                                             <option value="0" selected="selected">-</option>
                                         </select>
                                         <span class="lab">+</span>
-                                        <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{dmg2mod}" />
+                                        <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmg2mod}" />
                                     </div>
                                     <div class="myrow padindent">
                                         <span class="lab right typ" data-i18n="type:">Type:</span>
-                                        <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{dmg2type}" />
+                                        <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
                                         <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
-                                        <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{dmg2critmulti}" />
+                                        <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
                                     </div>
                                     <div class="myrow">
-                                        <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{descflag}" /><span class="mleft"></span>
+                                        <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span class="mleft"></span>
                                         <span class="lab atk" data-i18n="description:">Description:</span>
                                         <div class="autoex">
                                             <span name="attr_atkdesc"></span>
-                                            <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{atkdesc}"></textarea>
+                                            <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
                                         </div>
                                     </div>
                                     <span class="lab" data-i18n="notes:">Notes:</span>
                                     <div class="autoex">
                                         <span name="attr_notes"></span>
-                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{notes}"></textarea>
+                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_attacks_$id_notes}"></textarea>
                                     </div>
                                 </div>
                                 <input type="hidden" name="attr_rollbase">
@@ -1281,27 +1281,27 @@
                     <div class="myrow skill">
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
-                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{repeating_skillcraft_$id_classkill}" /><span class="mleft"></span>
                             <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl craft" data-i18n="craft">Craft</span>
                             </button>
-                            <input type="hidden" name="attr_skill" />
-                            <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="group" placeholder="Group" title="@{name}" />
+                            <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="group" placeholder="Group" title="@{repeating_skillcraft_$id_name}" />
                             <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
-                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{skill}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillcraft_$id_skill}"></span>
+                            <input type="hidden" name="attr_skill" />
                             <span class="lbl">=</span>
-                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{ability_mod}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillcraft_$id_ability_mod}"></span>
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{ranks}" />
+                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillcraft_$id_ranks}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{misc}" />
+                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillcraft_$id_misc}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{bonus}" />
+                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillcraft_$id_bonus}" />
                         </div>
                         <div class="options">
                             <div class="myrow">
                                 <span data-i18n="ability">Ability</span>:
-                                <select name="attr_ability" title="@{ability}">
+                                <select name="attr_ability" title="@{repeating_skillcraft_$id_ability}">
                                     <option value="strength" data-i18n="strength">Strength</option>
                                     <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                                     <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -1312,12 +1312,12 @@
                                 <input type="hidden" class="skillability" name="attr_ability" />
                                 <div class="skillability">
                                     <span class="spacer"></span>
-                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillcraft_$id_armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
                                 </div>
                             </div>
                             <div class="autoex">
                                 <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{notes}"></textarea>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillcraft_$id_notes}"></textarea>
                             </div>
                         </div>
                     </div>
@@ -2064,27 +2064,27 @@
                     <div class="myrow skill">
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
-                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{repeating_skillknowledge_$id_classkill}" /><span class="mleft"></span>
                             <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
-                                <span class="lbl craft" data-i18n="knowledge">Knowledge</span>
+                                <span class="lbl knowledge" data-i18n="knowledge">Knowledge</span>
                             </button>
-                            <input type="hidden" name="attr_skill" />
-                            <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="field-of-study" placeholder="Field of study" title="@{name}" />
+                            <input type="text" name="attr_name" class="knowledge underlined" data-i18n-placeholder="field-of-study" placeholder="Field of study" title="@{repeating_skillknowledge_$id_name}" />
                             <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
-                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{skill}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillknowledge_$id_skill}"></span>
+                            <input type="hidden" name="attr_skill" />
                             <span class="lbl">=</span>
-                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{ability_mod}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillknowledge_$id_ability_mod}"></span>
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{ranks}" />
+                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillknowledge_$id_ranks}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{misc}" />
+                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillknowledge_$id_misc}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{bonus}" />
+                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillknowledge_$id_bonus}" />
                         </div>
                         <div class="options">
                             <div class="myrow">
                                 <span data-i18n="ability">Ability</span>:
-                                <select name="attr_ability" title="@{ability}">
+                                <select name="attr_ability" title="@{repeating_skillknowledge_$id_ability}">
                                     <option value="strength" data-i18n="strength">Strength</option>
                                     <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                                     <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -2095,12 +2095,12 @@
                                 <input type="hidden" class="skillability" name="attr_ability" />
                                 <div class="skillability">
                                     <span class="spacer"></span>
-                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillknowledge_$id_armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
                                 </div>
                             </div>
                             <div class="autoex">
                                 <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{notes}"></textarea>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillknowledge_$id_notes}"></textarea>
                             </div>
                         </div>
                     </div>
@@ -2237,23 +2237,23 @@
                             <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perform} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl perform" data-i18n="perform">Perform</span>
                             </button>
-                            <input type="hidden" name="attr_skill" />
-                            <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="category" placeholder="Category" title="@{name}" />
+                            <input type="text" name="attr_name" class="perform underlined" data-i18n-placeholder="category" placeholder="Category" title="@{repeating_skillperform_$id_name}" />
                             <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
-                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{skill}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillperform_$id_skill}"></span>
+                            <input type="hidden" name="attr_skill" />
                             <span class="lbl">=</span>
-                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{ability_mod}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillperform_$id_ability_mod}"></span>
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{ranks}" />
+                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillperform_$id_ranks}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{misc}" />
+                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillperform_$id_misc}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{bonus}" />
+                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillperform_$id_bonus}" />
                         </div>
                         <div class="options">
                             <div class="myrow">
                                 <span data-i18n="ability">Ability</span>:
-                                <select name="attr_ability" title="@{ability}">
+                                <select name="attr_ability" title="@{repeating_skillperform_$id_ability}">
                                     <option value="strength" data-i18n="strength">Strength</option>
                                     <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                                     <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -2264,12 +2264,12 @@
                                 <input type="hidden" class="skillability" name="attr_ability" />
                                 <div class="skillability">
                                     <span class="spacer"></span>
-                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillperform_$id_armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
                                 </div>
                             </div>
                             <div class="autoex">
                                 <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{notes}"></textarea>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillperform_$id_notes}"></textarea>
                             </div>
                         </div>
                     </div>
@@ -2320,27 +2320,27 @@
                     <div class="myrow skill">
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow right">
-                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{classkill}" /><span class="mleft"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{repeating_skillprofession_$id_classkill}" /><span class="mleft"></span>
                             <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{profession} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl profession" data-i18n="profession">Profession</span>
                             </button>
-                            <input type="hidden" name="attr_skill" />
-                            <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="job" placeholder="Job" title="@{name}" />
+                            <input type="text" name="attr_name" class="profession underlined" data-i18n-placeholder="job" placeholder="Job" title="@{repeating_skillprofession_$id_name}" />
                             <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
-                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{skill}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillprofession_$id_skill}"></span>
+                            <input type="hidden" name="attr_skill" />
                             <span class="lbl">=</span>
-                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{ability_mod}"></span>
+                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillprofession_$id_ability_mod}"></span>
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{ranks}" />
+                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillprofession_$id_ranks}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{misc}" />
+                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillprofession_$id_misc}" />
                             <span class="lbl">+</span>
-                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{bonus}" />
+                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillprofession_$id_bonus}" />
                         </div>
                         <div class="options">
                             <div class="myrow">
                                 <span data-i18n="ability">Ability</span>:
-                                <select name="attr_ability" title="@{ability}">
+                                <select name="attr_ability" title="@{repeating_skillprofession_$id_ability}">
                                     <option value="strength" data-i18n="strength">Strength</option>
                                     <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                                     <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -2351,16 +2351,16 @@
                                 <input type="hidden" class="skillability" name="attr_ability" />
                                 <div class="skillability">
                                     <span class="spacer"></span>
-                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillprofession_$id_armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
                                 </div>
                             </div>
                             <div class="autoex">
                                 <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{notes}"></textarea>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillprofession_$id_notes}"></textarea>
                             </div>
                         </div>
                     </div>
-                </fieldset>  <!-- END repeating perform -->
+                </fieldset>  <!-- END repeating profession -->
                 <div class="myrow skill"> <!-- ride -->
                     <input class="options-flag" name="attr_options-flag-ride" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow right">
@@ -2689,6 +2689,51 @@
                         </div>
                     </div>
                 </div>  <!-- END use_magic_device -->
+                <fieldset class="repeating_skillcustom"> <!-- repeating custom skill -->
+                    <div class="myrow skill">
+                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                        <div class="myrow right">
+                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{repeating_skillcustom_$id_classkill}" /><span class="mleft"></span>
+                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
+                                <span class="lbl custom" data-i18n="custom">Custom</span>
+                            </button>
+                            <input type="text" name="attr_name" class="custom underlined" data-i18n-placeholder="job" placeholder="Job" title="@{repeating_skillcustom_$id_name}" />
+                            <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
+                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillcustom_$id_skill}"></span>
+                            <input type="hidden" name="attr_skill" />
+                            <span class="lbl">=</span>
+                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillcustom_$id_ability_mod}"></span>
+                            <span class="lbl">+</span>
+                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillcustom_$id_ranks}" />
+                            <span class="lbl">+</span>
+                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillcustom_$id_misc}" />
+                            <span class="lbl">+</span>
+                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillcustom_$id_bonus}" />
+                        </div>
+                        <div class="options">
+                            <div class="myrow">
+                                <span data-i18n="ability">Ability</span>:
+                                <select name="attr_ability" title="@{repeating_skillcustom_$id_ability}">
+                                    <option value="strength" data-i18n="strength">Strength</option>
+                                    <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                                    <option value="constitution" data-i18n="constitution">Constitution</option>
+                                    <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                                    <option value="wisdom" data-i18n="wisdom" selected="selected">Wisdom</option>
+                                    <option value="charisma" data-i18n="charisma">Charisma</option>
+                                </select>
+                                <input type="hidden" class="skillability" name="attr_ability" />
+                                <div class="skillability">
+                                    <span class="spacer"></span>
+                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillcustom_$id_armor_penalty}" /><span class="mleft"></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                                </div>
+                            </div>
+                            <div class="autoex">
+                                <span name="attr_notes"></span>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillcustom_$id_notes}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>  <!-- END repeating custom skill -->
             </div> <!-- END SKILLS -->
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
@@ -2733,26 +2778,26 @@
                             <div class="acitem right">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
                                 <div class="myrow right">
-                                    <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_name}" data-i18n-placeholder="item" placeholder="Item" />
-                                    <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_equipped}" /><span class="mleft"></span>
-                                    <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_ac_bonus}" />
-                                    <input type="number" name="attr_flatfooted_bonus" value="0" class="underlined" title="@{repeating_acitems_flatfooted_bonus}" />
-                                    <input type="number" name="attr_touch_bonus" value="0" class="underlined" title="@{repeating_acitems_touch_bonus}" />
-                                    <select name="attr_type" title="@{repeating_acitems_type}">
+                                    <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_$id_name}" data-i18n-placeholder="item" placeholder="Item" />
+                                    <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_$id_equipped}" /><span class="mleft"></span>
+                                    <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_ac_bonus}" />
+                                    <input type="number" name="attr_flatfooted_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_flatfooted_bonus}" />
+                                    <input type="number" name="attr_touch_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_touch_bonus}" />
+                                    <select name="attr_type" title="@{repeating_acitems_$id_type}">
                                         <option value="light" data-i18n="light">Light</option>
                                         <option value="medium" data-i18n="medium" selected="selected">Medium</option>
                                         <option value="heavy" data-i18n="heavy">Heavy</option>
                                         <option value="shield" data-i18n="shield">Shield</option>
                                         <option value="misc" data-i18n="misc">Misc</option>
                                     </select>
-                                    <input type="number" name="attr_check_penalty" value="0" class="underlined" title="@{repeating_acitems_check_penalty}" />
-                                    <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_max_dex_bonus}" />
-                                    <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_spell_failure}" />
+                                    <input type="number" name="attr_check_penalty" value="0" class="underlined" title="@{repeating_acitems_$id_check_penalty}" />
+                                    <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_max_dex_bonus}" />
+                                    <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_$id_spell_failure}" />
                                 </div>
                                 <div class="options right">
                                     <div class="autoex">
                                         <span name="attr_notes"></span>
-                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
+                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_acitems_$id_notes}"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -3117,7 +3162,7 @@
     });
 
     // === SKILLS
-    on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability", function(e){
+    on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability change:repeating_skillcustom:ability", function(e){
         update_flex_ability(e.newValue,e.sourceAttribute);
     });
     on("change:acrobatics_classkill change:acrobatics_ability_mod change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", function() {update_skill("acrobatics");});
@@ -3173,6 +3218,10 @@
     on("change:survival_classkill change:survival_ability_mod change:survival_ranks change:survival_misc change:survival_bonus change:survival_armor_penalty", function() {update_skill("survival");});
     on("change:swim_classkill change:swim_ability_mod change:swim_ranks change:swim_misc change:swim_bonus change:swim_armor_penalty", function() {update_skill("swim");});
     on("change:use_magic_device_classkill change:use_magic_device_ability_mod change:use_magic_device_ranks change:use_magic_device_misc change:use_magic_device_bonus change:use_magic_device_armor_penalty", function() {update_skill("use_magic_device");});
+    on("change:repeating_skillcustom:classkill change:repeating_skillcustom:name change:repeating_skillcustom:ability_mod change:repeating_skillcustom:ranks change:repeating_skillcustom:misc change:repeating_skillcustom:bonus change:repeating_skillcustom:armor_penalty", function(eventinfo) {
+        var skillid = eventinfo.sourceAttribute.substring(0, 42);
+        update_skill(skillid);
+    });
 
     // === CONFIGURATION
     on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
@@ -3266,6 +3315,7 @@
         update_flex_ability_repsection(attr,"skillknowledge");
         update_flex_ability_repsection(attr,"skillperform");
         update_flex_ability_repsection(attr,"skillprofession");
+        update_flex_ability_repsection(attr,"skillcustom");
     };
 
     // === Size

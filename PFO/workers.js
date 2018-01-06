@@ -140,7 +140,7 @@
     });
 
     // === SKILLS
-    on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability", function(e){
+    on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability change:repeating_skillcustom:ability", function(e){
         update_flex_ability(e.newValue,e.sourceAttribute);
     });
     on("change:acrobatics_classkill change:acrobatics_ability_mod change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", function() {update_skill("acrobatics");});
@@ -196,6 +196,10 @@
     on("change:survival_classkill change:survival_ability_mod change:survival_ranks change:survival_misc change:survival_bonus change:survival_armor_penalty", function() {update_skill("survival");});
     on("change:swim_classkill change:swim_ability_mod change:swim_ranks change:swim_misc change:swim_bonus change:swim_armor_penalty", function() {update_skill("swim");});
     on("change:use_magic_device_classkill change:use_magic_device_ability_mod change:use_magic_device_ranks change:use_magic_device_misc change:use_magic_device_bonus change:use_magic_device_armor_penalty", function() {update_skill("use_magic_device");});
+    on("change:repeating_skillcustom:classkill change:repeating_skillcustom:name change:repeating_skillcustom:ability_mod change:repeating_skillcustom:ranks change:repeating_skillcustom:misc change:repeating_skillcustom:bonus change:repeating_skillcustom:armor_penalty", function(eventinfo) {
+        var skillid = eventinfo.sourceAttribute.substring(0, 42);
+        update_skill(skillid);
+    });
 
     // === CONFIGURATION
     on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
@@ -289,6 +293,7 @@
         update_flex_ability_repsection(attr,"skillknowledge");
         update_flex_ability_repsection(attr,"skillperform");
         update_flex_ability_repsection(attr,"skillprofession");
+        update_flex_ability_repsection(attr,"skillcustom");
     };
 
     // === Size

@@ -302,7 +302,7 @@ div.sheet-save {
     width: 205px;
 }
 .sheet-skills div.sheet-blacklabel {
-    width: 95%;
+    width: 85%;
 }
 
 div.sheet-acitems {
@@ -371,10 +371,14 @@ div.sheet-acitems {
 }
 .sheet-skill span.sheet-perform,
 .sheet-skill span.sheet-craft,
-.sheet-skill span.sheet-profession{width: 60px;}
+.sheet-skill span.sheet-knowledge,
+.sheet-skill span.sheet-profession,
+.sheet-skill span.sheet-custom {width: 60px;}
 .sheet-skill input[type="text"].sheet-craft,
+.sheet-skill input[type="text"].sheet-knowledge,
 .sheet-skill input[type="text"].sheet-perform,
-.sheet-skill input[type="text"].sheet-profession{width: 117px;}
+.sheet-skill input[type="text"].sheet-profession,
+.sheet-skill input[type="text"].sheet-custom {width: 117px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
