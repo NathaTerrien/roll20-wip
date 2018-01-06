@@ -93,9 +93,9 @@
         </div> <!-- END identity -->
     </div> <!-- END top row -->
     <!-- PSEUDO TABS -->
-    <input type="radio" name="attr_tabcurrent" class="tabmain" value="tabmain" checked /><span data-i18n="tab-main">Main</span>
+    <input type="radio" name="attr_tabcurrent" class="tabmain" value="tabmain" /><span data-i18n="tab-main">Main</span>
     <input type="radio" name="attr_tabcurrent" class="tabadd" value="tabadd" /><span data-i18n="tab-additional">Additional</span>
-    <input type="radio" name="attr_tabcurrent" class="tabspell" value="tabspell" /><span data-i18n="tab-spells">Spells</span>
+    <input type="radio" name="attr_tabcurrent" class="tabspell" value="tabspell" checked="checked" /><span data-i18n="tab-spells">Spells</span>
     <input type="radio" name="attr_tabcurrent" class="tabconf" value="tabconf" /><span data-i18n="tab-configuration">Configuration</span>
     <div class="tabmain"> <!-- TAB MAIN -->
         <div class="colhalf"> <!-- tab1 col1 -->
@@ -2836,7 +2836,375 @@
         <div class="col1third">stuff</div>
     </div> <!-- END TAB ADDITIONNAL -->
     <div class="tabspell"> <!-- TAB SPELLS -->
-        SPELLS AND MAGIC
+        <div class="col1third"> <!-- misc magic -->
+            <div class="myrow center spellcasting"> <!-- SPELLCASTING -->
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="spellcasting">Spellcasting</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="myrow">
+                        <span class="lbl" data-i18n="caster-level">Caster Level</span>
+                        <input type="number" name="attr_casterlevel" value="0" class="underlined number" title="@{casterlevel}" />
+                        <span class="spacer"></span>
+                        <span class="lbl" data-i18n="ability-mod">Ability mod</span>
+                        <span class="pseudoattr number greybg underlined" value="attr_spellcasting_ability_mod" title="@{spellcasting_ability_mod}"></span>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="myrow labline top perlevel">
+                        <span class="lab" data-i18n="level" data-i18n-title="spell-level" title="Spell Level">Level</span>
+                        <span class="lab" data-i18n="known" data-i18n-title="spells-known" title="Spells Known">Known</span>
+                        <span class="lab" data-i18n="per-day" data-i18n-title="spells-per-day" title="Spells Per Day">Per Day</span>
+                        <span class="lab" data-i18n="bonus" data-i18n-title="bonus-spells" title="Bonus Spells">Bonus</span>
+                        <span class="lab" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
+                        <span class="lab" data-i18n="temp" data-i18n-title="save-dc-temp-adjustment" title="Save DC Temp Adjustment">Temp</span>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">0</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_0" value="0" title="@{spells_known_level_0}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_0" value="0" title="@{spells_perday_level_0}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_0" value="0" title="@{spells_bonus_level_0}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_0" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_0" class="pseudoattr" title="@{spells_dc_level_0}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_0" value="0" title="@{spells_dcbonus_level_0}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">1</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_1" value="0" title="@{spells_known_level_1}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_1" value="0" title="@{spells_perday_level_1}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_1" value="0" title="@{spells_bonus_level_1}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_1" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_1" class="pseudoattr" title="@{spells_dc_level_1}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_1" value="0" title="@{spells_dcbonus_level_1}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">2</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_2" value="0" title="@{spells_known_level_2}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_2" value="0" title="@{spells_perday_level_2}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_2" value="0" title="@{spells_bonus_level_2}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_2" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_2" class="pseudoattr" title="@{spells_dc_level_2}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_2" value="0" title="@{spells_dcbonus_level_2}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">3</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_3" value="0" title="@{spells_known_level_3}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_3" value="0" title="@{spells_perday_level_3}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_3" value="0" title="@{spells_bonus_level_3}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_3" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_3" class="pseudoattr" title="@{spells_dc_level_3}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_3" value="0" title="@{spells_dcbonus_level_3}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">4</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_4" value="0" title="@{spells_known_level_4}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_4" value="0" title="@{spells_perday_level_4}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_4" value="0" title="@{spells_bonus_level_4}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_4" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_4" class="pseudoattr" title="@{spells_dc_level_4}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_4" value="0" title="@{spells_dcbonus_level_4}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">5</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_5" value="0" title="@{spells_known_level_5}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_5" value="0" title="@{spells_perday_level_5}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_5" value="0" title="@{spells_bonus_level_5}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_5" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_5" class="pseudoattr" title="@{spells_dc_level_5}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_0" value="0" title="@{spells_dcbonus_level_0}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">6</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_6" value="0" title="@{spells_known_level_6}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_6" value="0" title="@{spells_perday_level_6}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_6" value="0" title="@{spells_bonus_level_6}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_6" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_6" class="pseudoattr" title="@{spells_dc_level_6}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_6" value="0" title="@{spells_dcbonus_level_6}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">7</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_7" value="0" title="@{spells_known_level_7}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_7" value="0" title="@{spells_perday_level_7}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_7" value="0" title="@{spells_bonus_level_7}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_7" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_7" class="pseudoattr" title="@{spells_dc_level_7}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_7" value="0" title="@{spells_dcbonus_level_7}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">8</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_8" value="0" title="@{spells_known_level_8}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_8" value="0" title="@{spells_perday_level_8}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_8" value="0" title="@{spells_bonus_level_8}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_8" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_8" class="pseudoattr" title="@{spells_dc_level_8}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_8" value="0" title="@{spells_dcbonus_level_8}" />
+                        </div>
+                    </div>
+                    <div class="myrow perlevel">
+                        <span class="pseudoattr level center">9</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_known_level_9" value="0" title="@{spells_known_level_9}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_perday_level_9" value="0" title="@{spells_perday_level_9}" />
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_bonus_level_9" value="0" title="@{spells_bonus_level_9}" />
+                        </div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="attr_spells_dcflag_level_9" class="attr-flag" value="0" />
+                            <span name="attr_spells_dc_level_9" class="pseudoattr" title="@{spells_dc_level_9}"></span>
+                        </div>
+                        <div class="boxed">
+                            <input type="number" name="attr_spells_dcbonus_level_9" value="0" title="@{spells_dcbonus_level_9}" />
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                    <span class="lbl" data-i18n="bloodlines-domaines-schools:">Bloodlines, Domains, Schools... :</span>
+                    <div class="padindent">
+                        <div class="autoex">
+                            <span name="attr_spells_notes"></span>
+                            <textarea name="attr_spells_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{spells_notes}"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLCASTING -->
+        </div> <!-- END misc magic -->
+        <div class="col2third spells"> <!-- SPELLS -->
+            <div class="myrow right">
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd weapon">
+                        <span class="big only" data-i18n="spells">Spells</span>
+                    </div>
+                    <div class="blackbgrd atk">
+                        <span class="med only" data-i18n="atk-u" >ATK</span>
+                    </div>
+                    <div class="blackbgrd damage">
+                        <span class="med only" data-i18n="dmg-u" >DMG</span>
+                    </div>
+                    <div class="blackbgrd ammo">
+                        <span class="med only" data-i18n="ammo" >Ammo</span>
+                    </div>
+                </div>
+            </div>
+            <fieldset class="repeating_spells"> <!-- REPEATING SPELL -->
+                <div class="spell right">
+                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                    <div class="myrow right">
+                        <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
+                            <span class="pseudoattr greybg underlined weapon"><span class="pseudoattr" name="attr_atkname"></span><span class="vs" name="attr_atkdisplay"></span>
+                            </span>
+                        </button>
+                        <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="@{rollbase_atk}">
+                            <span class="pseudoattr greybg underlined atk" name="attr_atkbonusdisplay"></span>
+                        </button>
+                        <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
+                            <span class="pseudoattr greybg underlined damage" name="attr_atkdmgdisplay"></span>
+                        </button>
+                        <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{repeating_attacks_$id_atkammo}" />
+                    </div>
+                    <div class="options right">
+                        <div class="myrow">
+                            <span class="lab" data-i18n="name">Name</span>
+                            <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lab atk" data-i18n="attack:">Attack:</span>
+                            <select class="underlined type" name="attr_atktype" title="@{repeating_attacks_$id_atktype}">
+                                <option value="melee" selected="selected" data-i18n="melee">Melee</option>
+                                <option value="ranged" data-i18n="ranged">Ranged</option>
+                                <option value="cmb" data-i18n="cmb-u">CMB</option>
+                                <option value="strength" data-i18n="str-u">STR</option>
+                                <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                <option value="constitution" data-i18n="con-u">CON</option>
+                                <option value="intelligence" data-i18n="int-u">INT</option>
+                                <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                <option value="charisma" data-i18n="cha-u">CHA</option>
+                                <option value="0">-</option>
+                            </select>
+                            <span class="lab">+</span>
+                            <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_attacks_$id_atkmod}" />
+                            <span class="lab" data-i18n="vs">vs</span>
+                            <select class="underlined vs" name="attr_atkvs" title="@{atkvs}">
+                                <option value="ac" selected="selected" data-i18n="ac-u">AC</option>
+                                <option value="touch" data-i18n="touch">Touch</option>
+                                <option value="flatfooted" data-i18n="flat-footed">Flat-footed</option>
+                                <option value="fftouch" data-i18n="ff-touch">FF Touch</option>
+                                <option value="cmd" data-i18n="cmd-u">CMD</option>
+                                <option value="cmb" data-i18n="cmb-opposed">CMB (opposed)</option>
+                                <option value="fortitude" data-i18n="fortitude">Fortitude</option>
+                                <option value="reflex" data-i18n="reflex">Reflex</option>
+                                <option value="will" data-i18n="will">Will</option>
+                                <option value="other" data-i18n="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="myrow padindent">
+                            <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                            <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
+                            <span class="lab atk right" data-i18n="range:">Range:</span>
+                            <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lab atk" data-i18n="damage:">Damage:</span>
+                            <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
+                            <span class="lab">+</span>
+                            <select class="underlined" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
+                                <option value="strength" selected="selected" data-i18n="str-u">STR</option>
+                                <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                <option value="constitution" data-i18n="con-u">CON</option>
+                                <option value="intelligence" data-i18n="int-u">INT</option>
+                                <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                <option value="charisma" data-i18n="cha-u">CHA</option>
+                                <option value="0">-</option>
+                            </select>
+                            <span class="lab">+</span>
+                            <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmgmod}" />
+                        </div>
+                        <div class="myrow padindent">
+                            <span class="lab right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
+                            <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_attacks_$id_dmg2flag}" /><span class="mleft"></span>
+                            <span class="lab atk" data-i18n="damage2:">Damage2:</span>
+                            <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
+                            <span class="lab">+</span>
+                            <select class="underlined" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
+                                <option value="strength" data-i18n="str-u">STR</option>
+                                <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                <option value="constitution" data-i18n="con-u">CON</option>
+                                <option value="intelligence" data-i18n="int-u">INT</option>
+                                <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                <option value="charisma" data-i18n="cha-u">CHA</option>
+                                <option value="0" selected="selected">-</option>
+                            </select>
+                            <span class="lab">+</span>
+                            <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmg2mod}" />
+                        </div>
+                        <div class="myrow padindent">
+                            <span class="lab right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
+                            <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span class="mleft"></span>
+                            <span class="lab atk" data-i18n="description:">Description:</span>
+                            <div class="autoex">
+                                <span name="attr_atkdesc"></span>
+                                <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
+                            </div>
+                        </div>
+                        <span class="lab" data-i18n="notes:">Notes:</span>
+                        <div class="autoex">
+                            <span name="attr_notes"></span>
+                            <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_attacks_$id_notes}"></textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="attr_rollbase">
+                    <input type="hidden" name="attr_rollbase_atk">
+                    <input type="hidden" name="attr_rollbase_dmg">
+                </div>
+            </fieldset> <!-- END REPEATING SPELL -->
+        </div> <!-- END SPELLS -->
     </div> <!-- END TAB SPELLS -->
     <div class="tabconf"> <!-- TAB CONFIGURATION -->
         <div class="col1third">
@@ -2950,6 +3318,18 @@
                             <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
                             <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                <span class="block" data-i18n="spellcasting:">Spellcasting:</span>
+                    <div class="myrow padindent">
+                        <span data-i18n="ability">Ability</span>:
+                        <select name="attr_fortitude_ability" title="@{spellcasting_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
                             <option value="wisdom" data-i18n="wisdom">Wisdom</option>
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>

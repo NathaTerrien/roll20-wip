@@ -127,6 +127,7 @@ div.sheet-col1third{
     display: inline-block;
     vertical-align: top;
     width: 279px;
+    max-width: 279px;
     margin: 1px;
     text-align: center;
 }
@@ -134,6 +135,7 @@ div.sheet-col2third{
     display: inline-block;
     vertical-align: top;
     width: 560px;
+    max-width: 560px;
 }
 div.sheet-blacklabel{
     display: inline-block;
@@ -355,7 +357,7 @@ div.sheet-acitems {
 .sheet-attacks .sheet-pseudoattr.sheet-damage {text-align: center;}
 .sheet-attacks .sheet-ammo {width: 40px;}
 
-.sheet-skills .sheet-lbl{
+.sheet-lbl{
     text-align: left;
     vertical-align: bottom;
     font-family: sans-serif;
@@ -365,7 +367,8 @@ div.sheet-acitems {
     white-space: pre;
 }
 .sheet-skills .sheet-name{width: 180px;}
-.sheet-skill .sheet-number{
+.sheet-skill .sheet-number,
+.sheet-spellcasting .sheet-number {
     width: 30px;
     text-align: center;
 }
@@ -379,6 +382,14 @@ div.sheet-acitems {
 .sheet-skill input[type="text"].sheet-perform,
 .sheet-skill input[type="text"].sheet-profession,
 .sheet-skill input[type="text"].sheet-custom {width: 117px;}
+
+.sheet-spellcasting .sheet-perlevel {margin-bottom: 1px;}
+.sheet-spellcasting .sheet-perlevel .sheet-lab,
+.sheet-spellcasting .sheet-perlevel .sheet-level {
+    width: 40px;
+    margin: 0px 1px 0px 1px;
+}
+.sheet-spellcasting .sheet-perlevel .sheet-boxed {margin: 0px 1px 0px 1px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -476,13 +487,14 @@ div.sheet-boxed input[type="number"]{
 
 .sheet-identity input[type="number"],
 .sheet-acitem input[type="number"],
-.sheet-attacks input[type="number"]{
+.sheet-attacks input[type="number"] {
     width: 35px;
 }
 .sheet-acitems div.sheet-boxed {
     width: 35px;
 }
-.sheet-skill input[type="number"]{
+.sheet-skill input[type="number"],
+.sheet-spellcasting input[type="number"] {
     width: 30px;
 }
 input[type="number"]::-webkit-inner-spin-button,
