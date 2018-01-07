@@ -333,14 +333,14 @@ div.sheet-acitems {
     padding-left: 16px;
 }
 
-.sheet-attack .sheet-lab{text-align: left;}
-.sheet-attacks div.sheet-padindent{padding-left: 22px;}
+.sheet-attack .sheet-lab {text-align: left;}
+.sheet-attacks div.sheet-padindent {padding-left: 22px;}
 .sheet-attacks select.sheet-type,
 .sheet-attacks select.sheet-vs {width: 80px;}
 .sheet-attacks .sheet-dmgbase {width: 120px;}
 .sheet-attacks .sheet-dmgtype {width: 120px;}
-.sheet-attacks span.sheet-lab.sheet-atk{width: 52px;}
-.sheet-attacks span.sheet-lab.sheet-typ{width: 35px;}
+.sheet-attacks span.sheet-lab.sheet-atk {width: 52px;}
+.sheet-attacks span.sheet-lab.sheet-typ {width: 35px;}
 .sheet-attack .sheet-range {width: 181px;}
 .sheet-attacks .sheet-weapon {width: 200px;}
 .sheet-attack .sheet-weapon {
@@ -363,7 +363,7 @@ div.sheet-acitems {
 .sheet-attacks .sheet-pseudoattr.sheet-damage {text-align: center;}
 .sheet-attacks .sheet-ammo {width: 40px;}
 
-.sheet-lbl{
+.sheet-lbl {
     text-align: left;
     vertical-align: bottom;
     font-family: sans-serif;
@@ -372,7 +372,7 @@ div.sheet-acitems {
     text-transform: capitalize;
     white-space: pre;
 }
-.sheet-skills .sheet-name{width: 180px;}
+.sheet-skills .sheet-name {width: 180px;}
 .sheet-skill .sheet-number,
 .sheet-spellcasting .sheet-number {
     width: 30px;
@@ -396,6 +396,22 @@ div.sheet-acitems {
     margin: 0px 1px 0px 1px;
 }
 .sheet-spellcasting .sheet-perlevel .sheet-boxed {margin: 0px 1px 0px 1px;}
+.sheet-spells div.sheet-blacklabel {width: 85%;}
+.sheet-spell .sheet-lab {text-align: left;}
+.sheet-spell span.sheet-std {width: 92px;}
+.sheet-spell input[type="text"].sheet-std {width: 175px;}
+.sheet-spell .sheet-atk {width: 50px;}
+.sheet-spell .sheet-damage {width: 80px;}
+.sheet-spell .sheet-dmgbase {width: 75px;}
+.sheet-spell .sheet-dmgtype {width: 75px;}
+.sheet-spell span.sheet-lab.sheet-atk {width: 52px;}
+.sheet-spell span.sheet-lab.sheet-typ {width: 35px;}
+.sheet-spell .sheet-spelldsp {width: 220px;}
+.sheet-spell .sheet-autoex.sheet-std {
+    display: inline-block;
+    width: 175px;
+    max-width: 175px;
+}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -482,7 +498,7 @@ input[type="number"]{
     text-align: center;
     vertical-align: middle;
 }
-input[type="number"].sheet-sml{
+input[type="number"].sheet-sml {
     width: 30px;
 }
 div.sheet-boxed input[type="number"]{
@@ -490,12 +506,14 @@ div.sheet-boxed input[type="number"]{
     height: 18px;
     margin-top: 2px;
 }
-
 .sheet-identity input[type="number"],
 .sheet-acitem input[type="number"],
-.sheet-attacks input[type="number"] {
+.sheet-attacks input[type="number"],
+.sheet-spells input[type="number"] {
     width: 35px;
 }
+.sheet-spells input[type="number"].sheet-sml {width: 25px;}
+
 .sheet-acitems div.sheet-boxed {
     width: 35px;
 }
