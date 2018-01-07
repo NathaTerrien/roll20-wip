@@ -3098,146 +3098,238 @@
             </div> <!-- END SPELLCASTING -->
         </div> <!-- END misc magic -->
         <div class="col2third spells"> <!-- SPELLS -->
-            <div class="myrow right">
+            <div class="myrow center">
                 <div class="blacklabel">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd weapon">
+                    <div class="blackbgrd">
                         <span class="big only" data-i18n="spells">Spells</span>
                     </div>
-                    <div class="blackbgrd atk">
-                        <span class="med only" data-i18n="atk-u" >ATK</span>
-                    </div>
-                    <div class="blackbgrd damage">
-                        <span class="med only" data-i18n="dmg-u" >DMG</span>
-                    </div>
-                    <div class="blackbgrd ammo">
-                        <span class="med only" data-i18n="ammo" >Ammo</span>
-                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
             </div>
-            <fieldset class="repeating_spells"> <!-- REPEATING SPELL -->
-                <div class="spell right">
-                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <div class="myrow right">
-                        <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
-                            <span class="pseudoattr greybg underlined weapon"><span class="pseudoattr" name="attr_atkname"></span><span class="vs" name="attr_atkdisplay"></span>
-                            </span>
-                        </button>
-                        <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="@{rollbase_atk}">
-                            <span class="pseudoattr greybg underlined atk" name="attr_atkbonusdisplay"></span>
-                        </button>
-                        <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
-                            <span class="pseudoattr greybg underlined damage" name="attr_atkdmgdisplay"></span>
-                        </button>
-                        <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{repeating_attacks_$id_atkammo}" />
+            <div class="col1third"> <!-- SPELLS LEVEL 0 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-0">Level 0</span>
+                        </div>
                     </div>
-                    <div class="options right">
-                        <div class="myrow">
-                            <span class="lab" data-i18n="name">Name</span>
-                            <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
+                </div>
+                <fieldset class="repeating_spells"> <!-- REPEATING SPELL -->
+                    <div class="spell right">
+                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                        <div class="myrow right">
+                            <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
+                                <span class="pseudoattr greybg underlined weapon"><span class="pseudoattr" name="attr_atkname"></span><span class="vs" name="attr_atkdisplay"></span>
+                                </span>
+                            </button>
+                            <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="@{rollbase_atk}">
+                                <span class="pseudoattr greybg underlined atk" name="attr_atkbonusdisplay"></span>
+                            </button>
+                            <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
+                                <span class="pseudoattr greybg underlined damage" name="attr_atkdmgdisplay"></span>
+                            </button>
+                            <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{repeating_attacks_$id_atkammo}" />
                         </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
-                            <span class="lab atk" data-i18n="attack:">Attack:</span>
-                            <select class="underlined type" name="attr_atktype" title="@{repeating_attacks_$id_atktype}">
-                                <option value="melee" selected="selected" data-i18n="melee">Melee</option>
-                                <option value="ranged" data-i18n="ranged">Ranged</option>
-                                <option value="cmb" data-i18n="cmb-u">CMB</option>
-                                <option value="strength" data-i18n="str-u">STR</option>
-                                <option value="dexterity" data-i18n="dex-u">DEX</option>
-                                <option value="constitution" data-i18n="con-u">CON</option>
-                                <option value="intelligence" data-i18n="int-u">INT</option>
-                                <option value="wisdom" data-i18n="wis-u">WIS</option>
-                                <option value="charisma" data-i18n="cha-u">CHA</option>
-                                <option value="0">-</option>
-                            </select>
-                            <span class="lab">+</span>
-                            <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_attacks_$id_atkmod}" />
-                            <span class="lab" data-i18n="vs">vs</span>
-                            <select class="underlined vs" name="attr_atkvs" title="@{atkvs}">
-                                <option value="ac" selected="selected" data-i18n="ac-u">AC</option>
-                                <option value="touch" data-i18n="touch">Touch</option>
-                                <option value="flatfooted" data-i18n="flat-footed">Flat-footed</option>
-                                <option value="fftouch" data-i18n="ff-touch">FF Touch</option>
-                                <option value="cmd" data-i18n="cmd-u">CMD</option>
-                                <option value="cmb" data-i18n="cmb-opposed">CMB (opposed)</option>
-                                <option value="fortitude" data-i18n="fortitude">Fortitude</option>
-                                <option value="reflex" data-i18n="reflex">Reflex</option>
-                                <option value="will" data-i18n="will">Will</option>
-                                <option value="other" data-i18n="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="myrow padindent">
-                            <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
-                            <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
-                            <span class="lab atk right" data-i18n="range:">Range:</span>
-                            <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
-                            <span class="lab atk" data-i18n="damage:">Damage:</span>
-                            <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
-                            <span class="lab">+</span>
-                            <select class="underlined" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
-                                <option value="strength" selected="selected" data-i18n="str-u">STR</option>
-                                <option value="dexterity" data-i18n="dex-u">DEX</option>
-                                <option value="constitution" data-i18n="con-u">CON</option>
-                                <option value="intelligence" data-i18n="int-u">INT</option>
-                                <option value="wisdom" data-i18n="wis-u">WIS</option>
-                                <option value="charisma" data-i18n="cha-u">CHA</option>
-                                <option value="0">-</option>
-                            </select>
-                            <span class="lab">+</span>
-                            <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmgmod}" />
-                        </div>
-                        <div class="myrow padindent">
-                            <span class="lab right typ" data-i18n="type:">Type:</span>
-                            <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
-                            <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
-                            <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_attacks_$id_dmg2flag}" /><span class="mleft"></span>
-                            <span class="lab atk" data-i18n="damage2:">Damage2:</span>
-                            <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
-                            <span class="lab">+</span>
-                            <select class="underlined" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
-                                <option value="strength" data-i18n="str-u">STR</option>
-                                <option value="dexterity" data-i18n="dex-u">DEX</option>
-                                <option value="constitution" data-i18n="con-u">CON</option>
-                                <option value="intelligence" data-i18n="int-u">INT</option>
-                                <option value="wisdom" data-i18n="wis-u">WIS</option>
-                                <option value="charisma" data-i18n="cha-u">CHA</option>
-                                <option value="0" selected="selected">-</option>
-                            </select>
-                            <span class="lab">+</span>
-                            <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmg2mod}" />
-                        </div>
-                        <div class="myrow padindent">
-                            <span class="lab right typ" data-i18n="type:">Type:</span>
-                            <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
-                            <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
-                            <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span class="mleft"></span>
-                            <span class="lab atk" data-i18n="description:">Description:</span>
+                        <div class="options right">
+                            <div class="myrow">
+                                <span class="lab" data-i18n="name">Name</span>
+                                <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
+                            </div>
+                            <div class="myrow">
+                                <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
+                                <span class="lab atk" data-i18n="attack:">Attack:</span>
+                                <select class="underlined type" name="attr_atktype" title="@{repeating_attacks_$id_atktype}">
+                                    <option value="melee" selected="selected" data-i18n="melee">Melee</option>
+                                    <option value="ranged" data-i18n="ranged">Ranged</option>
+                                    <option value="cmb" data-i18n="cmb-u">CMB</option>
+                                    <option value="strength" data-i18n="str-u">STR</option>
+                                    <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                    <option value="constitution" data-i18n="con-u">CON</option>
+                                    <option value="intelligence" data-i18n="int-u">INT</option>
+                                    <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                    <option value="charisma" data-i18n="cha-u">CHA</option>
+                                    <option value="0">-</option>
+                                </select>
+                                <span class="lab">+</span>
+                                <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_attacks_$id_atkmod}" />
+                                <span class="lab" data-i18n="vs">vs</span>
+                                <select class="underlined vs" name="attr_atkvs" title="@{atkvs}">
+                                    <option value="ac" selected="selected" data-i18n="ac-u">AC</option>
+                                    <option value="touch" data-i18n="touch">Touch</option>
+                                    <option value="flatfooted" data-i18n="flat-footed">Flat-footed</option>
+                                    <option value="fftouch" data-i18n="ff-touch">FF Touch</option>
+                                    <option value="cmd" data-i18n="cmd-u">CMD</option>
+                                    <option value="cmb" data-i18n="cmb-opposed">CMB (opposed)</option>
+                                    <option value="fortitude" data-i18n="fortitude">Fortitude</option>
+                                    <option value="reflex" data-i18n="reflex">Reflex</option>
+                                    <option value="will" data-i18n="will">Will</option>
+                                    <option value="other" data-i18n="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="myrow padindent">
+                                <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                                <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
+                                <span class="lab atk right" data-i18n="range:">Range:</span>
+                                <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" />
+                            </div>
+                            <div class="myrow">
+                                <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
+                                <span class="lab atk" data-i18n="damage:">Damage:</span>
+                                <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
+                                <span class="lab">+</span>
+                                <select class="underlined" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
+                                    <option value="strength" selected="selected" data-i18n="str-u">STR</option>
+                                    <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                    <option value="constitution" data-i18n="con-u">CON</option>
+                                    <option value="intelligence" data-i18n="int-u">INT</option>
+                                    <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                    <option value="charisma" data-i18n="cha-u">CHA</option>
+                                    <option value="0">-</option>
+                                </select>
+                                <span class="lab">+</span>
+                                <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmgmod}" />
+                            </div>
+                            <div class="myrow padindent">
+                                <span class="lab right typ" data-i18n="type:">Type:</span>
+                                <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
+                                <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
+                            </div>
+                            <div class="myrow">
+                                <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_attacks_$id_dmg2flag}" /><span class="mleft"></span>
+                                <span class="lab atk" data-i18n="damage2:">Damage2:</span>
+                                <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
+                                <span class="lab">+</span>
+                                <select class="underlined" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
+                                    <option value="strength" data-i18n="str-u">STR</option>
+                                    <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                    <option value="constitution" data-i18n="con-u">CON</option>
+                                    <option value="intelligence" data-i18n="int-u">INT</option>
+                                    <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                    <option value="charisma" data-i18n="cha-u">CHA</option>
+                                    <option value="0" selected="selected">-</option>
+                                </select>
+                                <span class="lab">+</span>
+                                <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmg2mod}" />
+                            </div>
+                            <div class="myrow padindent">
+                                <span class="lab right typ" data-i18n="type:">Type:</span>
+                                <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
+                                <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
+                            </div>
+                            <div class="myrow">
+                                <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span class="mleft"></span>
+                                <span class="lab atk" data-i18n="description:">Description:</span>
+                                <div class="autoex">
+                                    <span name="attr_atkdesc"></span>
+                                    <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
+                                </div>
+                            </div>
+                            <span class="lab" data-i18n="notes:">Notes:</span>
                             <div class="autoex">
-                                <span name="attr_atkdesc"></span>
-                                <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
+                                <span name="attr_notes"></span>
+                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_attacks_$id_notes}"></textarea>
                             </div>
                         </div>
-                        <span class="lab" data-i18n="notes:">Notes:</span>
-                        <div class="autoex">
-                            <span name="attr_notes"></span>
-                            <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_attacks_$id_notes}"></textarea>
+                        <input type="hidden" name="attr_rollbase">
+                        <input type="hidden" name="attr_rollbase_atk">
+                        <input type="hidden" name="attr_rollbase_dmg">
+                    </div>
+                </fieldset> <!-- END REPEATING SPELL -->
+            </div> <!-- END SPELLS LEVEL 0 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 1 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-1">Level 1</span>
                         </div>
                     </div>
-                    <input type="hidden" name="attr_rollbase">
-                    <input type="hidden" name="attr_rollbase_atk">
-                    <input type="hidden" name="attr_rollbase_dmg">
                 </div>
-            </fieldset> <!-- END REPEATING SPELL -->
+            </div> <!-- END SPELLS LEVEL 1 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 2 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-1">Level 2</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 2 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 3 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-3">Level 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 3 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 4 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-4">Level 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 4 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 5 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-5">Level 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 5 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 6 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-6">Level 6</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 6 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 7 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-7">Level 7</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 7 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 8 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-8">Level 8</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 8 -->
+            <div class="col1third"> <!-- SPELLS LEVEL 9 -->
+                <div class="myrow right">
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd weapon">
+                            <span class="big only" data-i18n="level-9">Level 9</span>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- END SPELLS LEVEL 9 -->
         </div> <!-- END SPELLS -->
     </div> <!-- END TAB SPELLS -->
     <div class="tabconf"> <!-- TAB CONFIGURATION -->
