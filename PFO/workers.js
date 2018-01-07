@@ -133,7 +133,7 @@
     on("change:ranged_mod", function(){update_attacks("ranged","");});
 
     // === WEAPONS / ATTACKS
-    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
+    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
         // if(e.sourceType === "sheetworker") {return;}
         var attackid = e.sourceAttribute.substring(18, 38);
         update_attacks(attackid,"");
@@ -203,6 +203,20 @@
 
     // SPELLS - SPELLCASTING
     on("change:spellcasting_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
+    on("change:spellcasting_ability_mod", function(e) {
+        update_concentration();
+        update_spellsdc(e.sourceAttribute);
+    });
+    on("change:casterlevel", function() {
+        update_concentration();
+    });
+    on("change:concentration_misc change:concentration_bonus", function() {
+        update_concentration();
+    });
+    on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
+        update_spellsdc(e.sourceAttribute);
+    });
+
 
     // === CONFIGURATION
     on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
@@ -240,7 +254,7 @@
                 setAttrs(update);
             });
         } else {
-            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability"];
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability","spellcasting_ability"];
             var flexes = [];
             getAttrs(fields, function(ablts) {
                 _.each(fields, function(field){
@@ -379,7 +393,7 @@
             setAttrs(update);
         });
     };
-    // === AC
+    // === AC / DEFENSE
     var update_ac_items = function() {
         var update = {};
         var attrs = [];
@@ -566,6 +580,7 @@
             attack_attribs.push("repeating_attacks_" + attackid + "_atkmod");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkvs");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkcritrange");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkrange");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgflag");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgbase");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgattr");
@@ -607,6 +622,7 @@
                 var atkmod = v["repeating_attacks_" + attackid + "_atkmod"];
                 var atkvs = v["repeating_attacks_" + attackid + "_atkvs"];
                 var atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20;
+                var atkrange = v["repeating_attacks_" + attackid + "_atkrange"];
                 var dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"];
                 var dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"];
                 var dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0;
@@ -646,10 +662,14 @@
                 if(v["rollnotes_attack"] != "0") {
                     rollnotes = "{{shownotes=[[1]]}}{{notes=" + atknotes + "}}";
                 }
+                // range
+                if(atkrange.length != 0) {
+                    atkrange = "{{range=" + atkrange + "}}";
+                }
                 // roll attack
                 if(atkflag != "0") {
                     rollatk = "" + atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
-                    rollatk += "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollatk += atkrange + "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     rolltype += "attack";
                     rollbase += rollatk;
                     // desc
@@ -732,6 +752,40 @@
             setAttrs(update, {silent: true});
         });
     };
+
+    // === SPELLS / SPELLCASTING
+    var update_concentration = function() {
+        var fields = ["casterlevel","spellcasting_ability_mod","concentration_misc","concentration_bonus"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["concentration"] = (parseInt(v.casterlevel) || 0) + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.concentration_misc) || 0) + (parseInt(v.concentration_bonus) || 0);
+            update["concentration_bonus_flag"] = (parseInt(v.concentration_bonus) || 0) !=0 ? 1 : 0;
+            setAttrs(update, {silent: true});
+        });
+    };
+    var update_spellsdc = function (attr) {
+        var fields = ["spellcasting_ability_mod","spells_dcmisc"];
+        var minlvl = 0;
+        var maxlvl = 0;
+        if (fields.includes(attr)) {
+            maxlvl = 10;
+            fields = fields.concat(["spells_dcbonus_level_0","spells_dcbonus_level_1","spells_dcbonus_level_2","spells_dcbonus_level_3","spells_dcbonus_level_4","spells_dcbonus_level_5","spells_dcbonus_level_6","spells_dcbonus_level_7","spells_dcbonus_level_8","spells_dcbonus_level_9"]);
+        } else {
+            minlvl = parseInt(attr.charAt(attr.length - 1)) || 99;
+            maxlvl = minlvl + 1;
+            fields.push("spells_dcbonus_level_" + minlvl);
+        }
+        getAttrs(fields, function(v) {
+            var update = {};
+            var i = 0;
+            for (i = minlvl; i < maxlvl; i++) {
+                update["spells_dc_level_" + i] = i + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.spells_dcmisc) || 0) + (parseInt(v["spells_dcbonus_level_" + i]) || 0);
+                update["spells_dcflag_level_" + i] = (parseInt(v["spells_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
+            }
+            setAttrs(update, {silent: true});
+        });
+    };
+
 
     // === Multi Lingual handling
     var loadi18n = function() {
@@ -877,6 +931,19 @@
             update["sleight_of_hand_ability"] = "dexterity";
             update["stealth_ability"] = "dexterity";
             update["swim_ability"] = "strength";
+            // Spells / spellcasting
+            update["spellcasting_ability_mod"] = 0;
+            update["concentration"] = 0;
+            update["spells_dc_level_0"] = 0;
+            update["spells_dc_level_1"] = 0;
+            update["spells_dc_level_2"] = 0;
+            update["spells_dc_level_3"] = 0;
+            update["spells_dc_level_4"] = 0;
+            update["spells_dc_level_5"] = 0;
+            update["spells_dc_level_6"] = 0;
+            update["spells_dc_level_7"] = 0;
+            update["spells_dc_level_8"] = 0;
+            update["spells_dc_level_9"] = 0;
             // UPDATE
             setAttrs(update
                     ,{silent: true}

@@ -470,7 +470,7 @@
                     <div class="save fortitude">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{fortitude_notes}}}"><span data-i18n="fort-u">FORT</span></button>
+                                <button class="myrol big" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{fortitude_notes}}}"><span data-i18n="fort-u">FORT</span></button>
                                 <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
                             </div>
                         </div>
@@ -485,7 +485,7 @@
                     <div class="save reflex">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{reflex_notes}}}"><span data-i18n="ref-u">REF</span></button>
+                                <button class="myrol big" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{reflex_notes}}}"><span data-i18n="ref-u">REF</span></button>
                                 <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
                             </div>
                         </div>
@@ -500,7 +500,7 @@
                     <div class="save will">
                         <div class="blacklabel">
                             <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{will_notes}}}"><span data-i18n="will-u">WILL</span></button>
+                                <button class="myrol big" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{will_notes}}}"><span data-i18n="will-u">WILL</span></button>
                                 <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
                             </div>
                         </div>
@@ -966,7 +966,7 @@
                                         <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
                                         <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
                                         <span class="lab atk right" data-i18n="range:">Range:</span>
-                                        <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" />
+                                        <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_attacks_$id_atkrange}" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
@@ -2851,8 +2851,42 @@
                         <input type="number" name="attr_casterlevel" value="0" class="underlined number" title="@{casterlevel}" />
                         <span class="spacer"></span>
                         <span class="lbl" data-i18n="ability-mod">Ability mod</span>
-                        <span class="pseudoattr number greybg underlined" value="attr_spellcasting_ability_mod" title="@{spellcasting_ability_mod}"></span>
+                        <span class="pseudoattr number greybg underlined" name="attr_spellcasting_ability_mod" title="@{spellcasting_ability_mod}"></span>
                     </div>
+                    <div class="spacer"></div>
+                    <div class="concentration"> <!-- CONCENTRATION -->
+                        <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                        <div class="myrow padindent">
+                            <button class="myrol" type="roll" name="ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
+                            <input type="hidden" name="attr_concentration_bonus_flag" class="attr-flag" value="0" />
+                            <span name="attr_concentration" class="pseudoattr number greybg underlined" title="@{concentration}"></span>
+                            <span class="spacer"></span>
+                            <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                            <input type="number" name="attr_concentration_bonus" class="underlined" value="0" title="@{concentration_bonus}" />
+                        </div>
+                        <div class="options padindent">
+                            <div class="myrow padindent">
+                                <span class="spacer">=</span>
+                                <span name="attr_casterlevel" class="pseudoattr number greybg underlined" title="@{casterlevel}"></span>
+                                <span class="spacer">+</span>
+                                <span name="attr_spellcasting_ability_mod" class="pseudoattr number greybg underlined" title="@{spellcasting_ability_mod}"></span>
+                                <span class="spacer">+</span>
+                                <input type="number" name="attr_concentration_misc" class="underlined" value="0" title="@{concentration_misc}" />
+                            </div>
+                            <div class="myrow padindent labline bottom">
+                                <span class="spacer"></span>
+                                <span class="lab" data-i18n="caster" data-i18n-title="caster-level" title="Caster Level">Caster</span>
+                                <span class="spacer"></span>
+                                <span class="lab" data-i18n="ability" data-i18n-title="ability-modifier" title="Ability Modifier">Ability</span>
+                                <span class="spacer"></span>
+                                <span class="lab" data-i18n="misc" data-i18n-title="misc-modifier" title="Misc Modifier">Misc</span>
+                            </div>
+                            <div class="autoex">
+                                <span name="attr_concentration_notes"></span>
+                                <textarea name="attr_concentration_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{concentration_notes}"></textarea>
+                            </div>
+                        </div>
+                    </div> <!-- END CONCENTRATION -->
                     <div class="spacer"></div>
                     <div class="myrow labline top perlevel">
                         <span class="lab" data-i18n="level" data-i18n-title="spell-level" title="Spell Level">Level</span>
@@ -2973,7 +3007,7 @@
                             <span name="attr_spells_dc_level_5" class="pseudoattr" title="@{spells_dc_level_5}"></span>
                         </div>
                         <div class="boxed">
-                            <input type="number" name="attr_spells_dcbonus_level_0" value="0" title="@{spells_dcbonus_level_0}" />
+                            <input type="number" name="attr_spells_dcbonus_level_5" value="0" title="@{spells_dcbonus_level_5}" />
                         </div>
                     </div>
                     <div class="myrow perlevel">
@@ -3217,7 +3251,7 @@
             </div>
             <div class="bordered titled inbox">
                 <span data-i18n="hit-die">Hit Die</span>:
-                    <select name="attr_hitdietype" title="@{hitdietype}">
+                    <select name="attr_hitdietype" class="underlined" title="@{hitdietype}">
                         <option value="4">D4</option>
                         <option value="6">D6</option>
                         <option value="8" selected="selected">D8</option>
@@ -3227,7 +3261,7 @@
                 <span class="block" data-i18n="armor-class:">Armor Class:</span>
                     <div class="myrow padindent">
                         <span data-i18n="primary-ability-modifier">Primary ability modifier</span>:
-                        <select name="attr_ac_ability_primary" title="@{ac_ability_primary}">
+                        <select name="attr_ac_ability_primary" class="underlined" title="@{ac_ability_primary}">
                             <option value="strength" data-i18n="strength">Strength</option>
                             <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3238,7 +3272,7 @@
                     </div>
                     <div class="myrow padindent">
                         <span data-i18n="secondary-ability-modifier">Secondary ability modifier</span>:
-                        <select name="attr_ac_ability_secondary" title="@{ac_ability_secondary}">
+                        <select name="attr_ac_ability_secondary" class="underlined" title="@{ac_ability_secondary}">
                             <option value="none" data-i18n="none" selected="selected">None</option>
                             <option value="strength" data-i18n="strength">Strength</option>
                             <option value="dexterity" data-i18n="dexterity">Dexterity</option>
@@ -3248,11 +3282,11 @@
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>
                     </div>
-                    <div class="myrow padindent"><span data-i18n="dodge-bonus">Dodge bonus</span>:<input type="number" name="attr_ac_dodge" value="0" class="sml" title="@{ac_dodge}" /></div>
+                    <div class="myrow padindent"><span data-i18n="dodge-bonus">Dodge bonus</span>:<input type="number" name="attr_ac_dodge" value="0" class="sml underlined" title="@{ac_dodge}" /></div>
                     <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_noflatflooted" value="1" title="@{ac_noflatflooted}" /><span class="mleft"></span><span data-i18n="cannot-be-caught-flat-footed">Cannot be caught Flat-Footed</span></div>
                     <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_touchshield" value="1" title="@{ac_touchshield}" /><span class="mleft"></span><span data-i18n="shield-bonus-added-to-touch-ac">Shield bonus added to Touch AC</span></div>
                 <span class="block" data-i18n="saving-throws:">Saving Throws:</span>
-                    <div class="myrow padindent"><span data-i18n="base-fortitude">Base Fortitude</span>:<input type="number" name="attr_fortitude_base" value="0" class="sml" title="@{fortitude_base}" /></div>
+                    <div class="myrow padindent"><span data-i18n="base-fortitude">Base Fortitude</span>:<input type="number" name="attr_fortitude_base" value="0" class="sml underlined" title="@{fortitude_base}" /></div>
                     <div class="myrow padindent">
                         <span data-i18n="fortitude-ability">Fortitude Ability</span>:
                         <select name="attr_fortitude_ability" title="@{fortitude_ability}">
@@ -3264,10 +3298,10 @@
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>
                     </div>
-                    <div class="myrow padindent"><span data-i18n="base-reflex">Base Reflex</span>:<input type="number" name="attr_reflex_base" value="0" class="sml" title="@{reflex_base}" /></div>
+                    <div class="myrow padindent"><span data-i18n="base-reflex">Base Reflex</span>:<input type="number" name="attr_reflex_base" value="0" class="sml underlined" title="@{reflex_base}" /></div>
                     <div class="myrow padindent">
                         <span data-i18n="reflex-ability">Reflex Ability</span>:
-                        <select name="attr_reflex_ability" title="@{reflex_ability}">
+                        <select name="attr_reflex_ability" class="underlined" title="@{reflex_ability}">
                             <option value="strength" data-i18n="strength">Strength</option>
                             <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3276,10 +3310,10 @@
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>
                     </div>
-                    <div class="myrow padindent"><span data-i18n="base-will">Base Will</span>:<input type="number" name="attr_will_base" value="0" class="sml" title="@{will_base}" /></div>
+                    <div class="myrow padindent"><span data-i18n="base-will">Base Will</span>:<input type="number" name="attr_will_base" value="0" class="sml underlined" title="@{will_base}" /></div>
                     <div class="myrow padindent">
                         <span data-i18n="will-ability">Will Ability</span>:
-                        <select name="attr_will_ability" title="@{will_ability}">
+                        <select name="attr_will_ability" class="underlined" title="@{will_ability}">
                             <option value="strength" data-i18n="strength">Strength</option>
                             <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3291,7 +3325,7 @@
                 <span class="block" data-i18n="attacks:">Attacks:</span>
                     <div class="myrow padindent">
                         <span data-i18n="cmb-ability">CMB Ability</span>:
-                        <select name="attr_cmb_ability" title="@{cmb_ability}">
+                        <select name="attr_cmb_ability" class="underlined" title="@{cmb_ability}">
                             <option value="strength" data-i18n="strength" selected="selected">Strength</option>
                             <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3302,7 +3336,7 @@
                     </div>
                     <div class="myrow padindent">
                         <span data-i18n="melee-ability">Melee Ability</span>:
-                        <select name="attr_melee_ability" title="@{melee_ability}">
+                        <select name="attr_melee_ability" class="underlined" title="@{melee_ability}">
                             <option value="strength" data-i18n="strength" selected="selected">Strength</option>
                             <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3313,7 +3347,7 @@
                     </div>
                     <div class="myrow padindent">
                         <span data-i18n="ranged-ability">Ranged Ability</span>:
-                        <select name="attr_ranged_ability" title="@{ranged_ability}">
+                        <select name="attr_ranged_ability" class="underlined" title="@{ranged_ability}">
                             <option value="strength" data-i18n="strength">Strength</option>
                             <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3325,7 +3359,7 @@
                 <span class="block" data-i18n="spellcasting:">Spellcasting:</span>
                     <div class="myrow padindent">
                         <span data-i18n="ability">Ability</span>:
-                        <select name="attr_fortitude_ability" title="@{spellcasting_ability}">
+                        <select name="attr_spellcasting_ability" class="underlined" title="@{spellcasting_ability}">
                             <option value="strength" data-i18n="strength">Strength</option>
                             <option value="dexterity" data-i18n="dexterity">Dexterity</option>
                             <option value="constitution" data-i18n="constitution">Constitution</option>
@@ -3334,6 +3368,7 @@
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>
                     </div>
+                    <div class="myrow padindent"><span data-i18n="save-dc-misc-bonus">Save DC Misc Bonus</span>:<input type="number" name="attr_spells_dcmisc" value="0" class="sml underlined" title="@{spells_dcmisc}" /></div>
             </div>
         </div>
         <div class="col1third">
@@ -3348,7 +3383,7 @@
                 <input class="pseudocheck" type="checkbox" name="attr_rollshowchar" value="[[1]]" title="@{rollshowchar}" checked="checked" /><span class="mleft"></span><span data-i18n="show-character-name">Show character name</span>
                 <div class="myrow">
                     <span data-i18n="whisp-rolls-gm:">Whisper Rolls to GM:</span>
-                    <select name="attr_whispertype" title="@{whispertype}">
+                    <select name="attr_whispertype" class="underlined" title="@{whispertype}">
                         <option value="" data-i18n="never-whisper-roll" selected="selected">Never Whisper Rolls</option>
                         <!-- <option value="@{whispertoggle}" data-i18n="toggle-roll-whisper">Whisper Toggle</option> -->
                         <option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }" data-i18n="query-whisper-roll">Query Whisper</option>
@@ -3358,14 +3393,14 @@
                 <span class="block" data-i18n="query-modifier">Query modifier for:</span>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_ability" value="?{Modifier|0}" title="@{rollmod_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_initiative" value="?{Modifier|0}" title="@{rollmod_initiative}" /><span class="mleft"></span><span data-i18n="initiative-rolls">Initiative Rolls</span></div>
-                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_save" value="?{Modifier|0}" title="@{rollmod_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_save" value="?{Modifier|0}" title="@{rollmod_save}" /><span class="mleft"></span><span data-i18n="save-concentration-rolls">Saving Throw & Concentration Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_skill" value="?{Modifier|0}" title="@{rollmod_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_attack" value="?{Attack Modifier|0}" title="@{rollmod_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollmod_damage" value="?{Damage Modifier|0}" title="@{rollmod_damage}" /><span class="mleft"></span><span data-i18n="damage-rolls">Damage Rolls</span></div>
                 <span class="block" data-i18n="show-notes-in">Show Notes in:</span>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_ability" value="[[1]]" title="@{rollnotes_ability}" /><span class="mleft"></span><span data-i18n="ability-rolls">Ability Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_initiative" value="[[1]]" title="@{rollnotes_initiative}" /><span class="mleft"></span><span data-i18n="initiative-rolls">Initiative Rolls</span></div>
-                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_save" value="[[1]]" title="@{rollnotes_save}" /><span class="mleft"></span><span data-i18n="save-rolls">Saving Throw Rolls</span></div>
+                <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_save" value="[[1]]" title="@{rollnotes_save}" /><span class="mleft"></span><span data-i18n="save-concentration-rolls">Saving Throw & Concentration Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_skill" value="[[1]]" title="@{rollnotes_skill}" /><span class="mleft"></span><span data-i18n="skill-rolls">Skill Rolls</span></div>
                 <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_attack" value="[[1]]" title="@{rollnotes_attack}" /><span class="mleft"></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
             </div>
@@ -3482,8 +3517,8 @@
     });
 
     // === AC
-    on("change:ac_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(eventinfo){
-        update_ac_ability(eventinfo.sourceAttribute);
+    on("change:ac_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(e){
+        update_ac_ability(e.sourceAttribute);
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
         update_ac();
@@ -3535,9 +3570,9 @@
     on("change:ranged_mod", function(){update_attacks("ranged","");});
 
     // === WEAPONS / ATTACKS
-    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(eventinfo) {
-        // if(eventinfo.sourceType === "sheetworker") {return;}
-        var attackid = eventinfo.sourceAttribute.substring(18, 38);
+    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
+        // if(e.sourceType === "sheetworker") {return;}
+        var attackid = e.sourceAttribute.substring(18, 38);
         update_attacks(attackid,"");
     });
 
@@ -3552,8 +3587,8 @@
     on("change:bluff_classkill change:bluff_ability_mod change:bluff_ranks change:bluff_misc change:bluff_bonus change:bluff_armor_penalty", function() {update_skill("bluff");});
     on("change:climb_classkill change:climb_ability_mod change:climb_ranks change:climb_misc change:climb_bonus change:climb_armor_penalty", function() {update_skill("climb");});
     on("change:craft_classkill change:craft_ability_mod change:craft_ranks change:craft_misc change:craft_bonus change:craft_armor_penalty", function() {update_skill("craft");});
-    on("change:repeating_skillcraft:classkill change:repeating_skillcraft:name change:repeating_skillcraft:ability_mod change:repeating_skillcraft:ranks change:repeating_skillcraft:misc change:repeating_skillcraft:bonus change:repeating_skillcraft:armor_penalty", function(eventinfo) {
-        var skillid = eventinfo.sourceAttribute.substring(0, 41);
+    on("change:repeating_skillcraft:classkill change:repeating_skillcraft:name change:repeating_skillcraft:ability_mod change:repeating_skillcraft:ranks change:repeating_skillcraft:misc change:repeating_skillcraft:bonus change:repeating_skillcraft:armor_penalty", function(e) {
+        var skillid = e.sourceAttribute.substring(0, 41);
         update_skill(skillid);
     });
     on("change:diplomacy_classkill change:diplomacy_ability_mod change:diplomacy_ranks change:diplomacy_misc change:diplomacy_bonus change:diplomacy_armor_penalty", function() {update_skill("diplomacy");});
@@ -3574,20 +3609,20 @@
     on("change:knowledge_nobility_classkill change:knowledge_nobility_ability_mod change:knowledge_nobility_ranks change:knowledge_nobility_misc change:knowledge_nobility_bonus change:knowledge_nobility_armor_penalty", function() {update_skill("knowledge_nobility");});
     on("change:knowledge_planes_classkill change:knowledge_planes_ability_mod change:knowledge_planes_ranks change:knowledge_planes_misc change:knowledge_planes_bonus change:knowledge_planes_armor_penalty", function() {update_skill("knowledge_planes");});
     on("change:knowledge_religion_classkill change:knowledge_religion_ability_mod change:knowledge_religion_ranks change:knowledge_religion_misc change:knowledge_religion_bonus change:knowledge_religion_armor_penalty", function() {update_skill("knowledge_religion");});
-    on("change:repeating_skillknowledge:classkill change:repeating_skillknowledge:name change:repeating_skillknowledge:ability_mod change:repeating_skillknowledge:ranks change:repeating_skillknowledge:misc change:repeating_skillknowledge:bonus change:repeating_skillknowledge:armor_penalty", function(eventinfo) {
-        var skillid = eventinfo.sourceAttribute.substring(0, 45);
+    on("change:repeating_skillknowledge:classkill change:repeating_skillknowledge:name change:repeating_skillknowledge:ability_mod change:repeating_skillknowledge:ranks change:repeating_skillknowledge:misc change:repeating_skillknowledge:bonus change:repeating_skillknowledge:armor_penalty", function(e) {
+        var skillid = e.sourceAttribute.substring(0, 45);
         update_skill(skillid);
     });
     on("change:linguistics_classkill change:linguistics_ability_mod change:linguistics_ranks change:linguistics_misc change:linguistics_bonus change:linguistics_armor_penalty", function() {update_skill("linguistics");});
     on("change:perception_classkill change:perception_ability_mod change:perception_ranks change:perception_misc change:perception_bonus change:perception_armor_penalty", function() {update_skill("perception");});
     on("change:perform_classkill change:perform_ability_mod change:perform_ranks change:perform_misc change:perform_bonus change:perform_armor_penalty", function() {update_skill("perform");});
-    on("change:repeating_skillperform:classkill change:repeating_skillperform:name change:repeating_skillperform:ability_mod change:repeating_skillperform:ranks change:repeating_skillperform:misc change:repeating_skillperform:bonus change:repeating_skillperform:armor_penalty", function(eventinfo) {
-        var skillid = eventinfo.sourceAttribute.substring(0, 43);
+    on("change:repeating_skillperform:classkill change:repeating_skillperform:name change:repeating_skillperform:ability_mod change:repeating_skillperform:ranks change:repeating_skillperform:misc change:repeating_skillperform:bonus change:repeating_skillperform:armor_penalty", function(e) {
+        var skillid = e.sourceAttribute.substring(0, 43);
         update_skill(skillid);
     });
     on("change:profession_classkill change:profession_ability_mod change:profession_ranks change:profession_misc change:profession_bonus change:profession_armor_penalty", function() {update_skill("profession");});
-    on("change:repeating_skillprofession:classkill change:repeating_skillprofession:name change:repeating_skillprofession:ability_mod change:repeating_skillprofession:ranks change:repeating_skillprofession:misc change:repeating_skillprofession:bonus change:repeating_skillprofession:armor_penalty", function(eventinfo) {
-        var skillid = eventinfo.sourceAttribute.substring(0, 46);
+    on("change:repeating_skillprofession:classkill change:repeating_skillprofession:name change:repeating_skillprofession:ability_mod change:repeating_skillprofession:ranks change:repeating_skillprofession:misc change:repeating_skillprofession:bonus change:repeating_skillprofession:armor_penalty", function(e) {
+        var skillid = e.sourceAttribute.substring(0, 46);
         update_skill(skillid);
     });
     on("change:ride_classkill change:ride_ability_mod change:ride_ranks change:ride_misc change:ride_bonus change:ride_armor_penalty", function() {update_skill("ride");});
@@ -3598,10 +3633,27 @@
     on("change:survival_classkill change:survival_ability_mod change:survival_ranks change:survival_misc change:survival_bonus change:survival_armor_penalty", function() {update_skill("survival");});
     on("change:swim_classkill change:swim_ability_mod change:swim_ranks change:swim_misc change:swim_bonus change:swim_armor_penalty", function() {update_skill("swim");});
     on("change:use_magic_device_classkill change:use_magic_device_ability_mod change:use_magic_device_ranks change:use_magic_device_misc change:use_magic_device_bonus change:use_magic_device_armor_penalty", function() {update_skill("use_magic_device");});
-    on("change:repeating_skillcustom:classkill change:repeating_skillcustom:name change:repeating_skillcustom:ability_mod change:repeating_skillcustom:ranks change:repeating_skillcustom:misc change:repeating_skillcustom:bonus change:repeating_skillcustom:armor_penalty", function(eventinfo) {
-        var skillid = eventinfo.sourceAttribute.substring(0, 42);
+    on("change:repeating_skillcustom:classkill change:repeating_skillcustom:name change:repeating_skillcustom:ability_mod change:repeating_skillcustom:ranks change:repeating_skillcustom:misc change:repeating_skillcustom:bonus change:repeating_skillcustom:armor_penalty", function(e) {
+        var skillid = e.sourceAttribute.substring(0, 42);
         update_skill(skillid);
     });
+
+    // SPELLS - SPELLCASTING
+    on("change:spellcasting_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
+    on("change:spellcasting_ability_mod", function(e) {
+        update_concentration();
+        update_spellsdc(e.sourceAttribute);
+    });
+    on("change:casterlevel", function() {
+        update_concentration();
+    });
+    on("change:concentration_misc change:concentration_bonus", function() {
+        update_concentration();
+    });
+    on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
+        update_spellsdc(e.sourceAttribute);
+    });
+
 
     // === CONFIGURATION
     on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
@@ -3639,7 +3691,7 @@
                 setAttrs(update);
             });
         } else {
-            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability"];
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability","spellcasting_ability"];
             var flexes = [];
             getAttrs(fields, function(ablts) {
                 _.each(fields, function(field){
@@ -3778,7 +3830,7 @@
             setAttrs(update);
         });
     };
-    // === AC
+    // === AC / DEFENSE
     var update_ac_items = function() {
         var update = {};
         var attrs = [];
@@ -3965,6 +4017,7 @@
             attack_attribs.push("repeating_attacks_" + attackid + "_atkmod");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkvs");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkcritrange");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atkrange");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgflag");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgbase");
             attack_attribs.push("repeating_attacks_" + attackid + "_dmgattr");
@@ -4006,6 +4059,7 @@
                 var atkmod = v["repeating_attacks_" + attackid + "_atkmod"];
                 var atkvs = v["repeating_attacks_" + attackid + "_atkvs"];
                 var atkcritrange = parseInt(v["repeating_attacks_" + attackid + "_atkcritrange"]) || 20;
+                var atkrange = v["repeating_attacks_" + attackid + "_atkrange"];
                 var dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"];
                 var dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"];
                 var dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0;
@@ -4045,10 +4099,14 @@
                 if(v["rollnotes_attack"] != "0") {
                     rollnotes = "{{shownotes=[[1]]}}{{notes=" + atknotes + "}}";
                 }
+                // range
+                if(atkrange.length != 0) {
+                    atkrange = "{{range=" + atkrange + "}}";
+                }
                 // roll attack
                 if(atkflag != "0") {
                     rollatk = "" + atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
-                    rollatk += "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollatk += atkrange + "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     rolltype += "attack";
                     rollbase += rollatk;
                     // desc
@@ -4131,6 +4189,40 @@
             setAttrs(update, {silent: true});
         });
     };
+
+    // === SPELLS / SPELLCASTING
+    var update_concentration = function() {
+        var fields = ["casterlevel","spellcasting_ability_mod","concentration_misc","concentration_bonus"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["concentration"] = (parseInt(v.casterlevel) || 0) + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.concentration_misc) || 0) + (parseInt(v.concentration_bonus) || 0);
+            update["concentration_bonus_flag"] = (parseInt(v.concentration_bonus) || 0) !=0 ? 1 : 0;
+            setAttrs(update, {silent: true});
+        });
+    };
+    var update_spellsdc = function (attr) {
+        var fields = ["spellcasting_ability_mod","spells_dcmisc"];
+        var minlvl = 0;
+        var maxlvl = 0;
+        if (fields.includes(attr)) {
+            maxlvl = 10;
+            fields = fields.concat(["spells_dcbonus_level_0","spells_dcbonus_level_1","spells_dcbonus_level_2","spells_dcbonus_level_3","spells_dcbonus_level_4","spells_dcbonus_level_5","spells_dcbonus_level_6","spells_dcbonus_level_7","spells_dcbonus_level_8","spells_dcbonus_level_9"]);
+        } else {
+            minlvl = parseInt(attr.charAt(attr.length - 1)) || 99;
+            maxlvl = minlvl + 1;
+            fields.push("spells_dcbonus_level_" + minlvl);
+        }
+        getAttrs(fields, function(v) {
+            var update = {};
+            var i = 0;
+            for (i = minlvl; i < maxlvl; i++) {
+                update["spells_dc_level_" + i] = i + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.spells_dcmisc) || 0) + (parseInt(v["spells_dcbonus_level_" + i]) || 0);
+                update["spells_dcflag_level_" + i] = (parseInt(v["spells_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
+            }
+            setAttrs(update, {silent: true});
+        });
+    };
+
 
     // === Multi Lingual handling
     var loadi18n = function() {
@@ -4276,6 +4368,19 @@
             update["sleight_of_hand_ability"] = "dexterity";
             update["stealth_ability"] = "dexterity";
             update["swim_ability"] = "strength";
+            // Spells / spellcasting
+            update["spellcasting_ability_mod"] = 0;
+            update["concentration"] = 0;
+            update["spells_dc_level_0"] = 0;
+            update["spells_dc_level_1"] = 0;
+            update["spells_dc_level_2"] = 0;
+            update["spells_dc_level_3"] = 0;
+            update["spells_dc_level_4"] = 0;
+            update["spells_dc_level_5"] = 0;
+            update["spells_dc_level_6"] = 0;
+            update["spells_dc_level_7"] = 0;
+            update["spells_dc_level_8"] = 0;
+            update["spells_dc_level_9"] = 0;
             // UPDATE
             setAttrs(update
                     ,{silent: true}
