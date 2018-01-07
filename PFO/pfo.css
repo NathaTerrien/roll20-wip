@@ -131,6 +131,10 @@ div.sheet-col1third{
     margin: 1px;
     text-align: center;
 }
+.sheet-spells div.sheet-col1third {
+    width: 275px;
+    max-width: 275px;
+}
 div.sheet-col2third{
     display: inline-block;
     vertical-align: top;
