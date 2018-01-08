@@ -399,7 +399,11 @@ div.sheet-acitems {
 .sheet-spells div.sheet-blacklabel {width: 85%;}
 .sheet-spell .sheet-lab {text-align: left;}
 .sheet-spell span.sheet-std {width: 92px;}
-.sheet-spell input[type="text"].sheet-std {width: 175px;}
+.sheet-spell input[type="text"].sheet-std {
+    width: 175px;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
 .sheet-spell .sheet-atk {width: 50px;}
 .sheet-spell .sheet-damage {width: 80px;}
 .sheet-spell .sheet-dmgbase {width: 75px;}

@@ -216,11 +216,22 @@
     on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
     });
-
+    on("change:repeating_spell-0:spellname change:repeating_spell-0:spellschool change:repeating_spell-0:spellclasslevel change:repeating_spell-0:spellcastingtime change:repeating_spell-0:spellcomponent change:repeating_spell-0:spellrange change:repeating_spell-0:spellarea change:repeating_spell-0:spelltargets change:repeating_spell-0:spelleffect change:repeating_spell-0:spellduration change:repeating_spell-0:spellsaveflag change:repeating_spell-0:spellsave change:repeating_spell-0:spellresistance change:repeating_spell-0:spellatkflag change:repeating_spell-0:spellatktype change:repeating_spell-0:spellatkmod change:repeating_spell-0:spelldmgflag change:repeating_spell-0:spelldmg change:repeating_spell-0:spelldmgtype change:repeating_spell-0:spelldmg2flag change:repeating_spell-0:spelldmg2 change:repeating_spell-0:spelldmg2type change:repeating_spell-0:spelldescflag change:repeating_spell-0:spelldesc change:repeating_spell-0:notes change:repeating_spell-1:spellname", function(e) {
+        var spellid = e.sourceAttribute.substring(18, 38);
+        update_spell(0,spellid,"");
+    });
+    on("change:repeating_spell-1:spellschool change:repeating_spell-1:spellclasslevel change:repeating_spell-1:spellcastingtime change:repeating_spell-1:spellcomponent change:repeating_spell-1:spellrange change:repeating_spell-1:spellarea change:repeating_spell-1:spelltargets change:repeating_spell-1:spelleffect change:repeating_spell-1:spellduration change:repeating_spell-1:spellsaveflag change:repeating_spell-1:spellsave change:repeating_spell-1:spellresistance change:repeating_spell-1:spellatkflag change:repeating_spell-1:spellatktype change:repeating_spell-1:spellatkmod change:repeating_spell-1:spelldmgflag change:repeating_spell-1:spelldmg change:repeating_spell-1:spelldmgtype change:repeating_spell-1:spelldmg2flag change:repeating_spell-1:spelldmg2 change:repeating_spell-1:spelldmg2type change:repeating_spell-1:spelldescflag change:repeating_spell-1:spelldesc change:repeating_spell-1:notes", function(e) {
+        var spellid = e.sourceAttribute.substring(18, 38);
+        update_spell(1,spellid,"");
+    });
 
     // === CONFIGURATION
-    on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
+    on("change:whispertype change:rollshowchar", function(){
        update_attacks("all","");
+       update_spell("all","all","");
+    });
+    on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage change:whispertype change:rollshowchar", function(){
+       update_attacks("all","all","");
     });
 
     /* === FUNCTIONS === */
@@ -772,20 +783,104 @@
             fields = fields.concat(["spells_dcbonus_level_0","spells_dcbonus_level_1","spells_dcbonus_level_2","spells_dcbonus_level_3","spells_dcbonus_level_4","spells_dcbonus_level_5","spells_dcbonus_level_6","spells_dcbonus_level_7","spells_dcbonus_level_8","spells_dcbonus_level_9"]);
         } else {
             minlvl = parseInt(attr.charAt(attr.length - 1)) || 99;
-            maxlvl = minlvl + 1;
+            maxlvl = 1 + minlvl;
             fields.push("spells_dcbonus_level_" + minlvl);
         }
-        getAttrs(fields, function(v) {
-            var update = {};
+        if (maxlvl < 100) {
+            getAttrs(fields, function(v) {
+                var update = {};
+                var i = 0;
+                for (i = minlvl; i < maxlvl; i++) {
+                    update["spells_dc_level_" + i] = 10 + i + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.spells_dcmisc) || 0) + (parseInt(v["spells_dcbonus_level_" + i]) || 0);
+                    update["spells_dcflag_level_" + i] = (parseInt(v["spells_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
+                }
+                setAttrs(update, {silent: true});
+            });
+        }
+    };
+    var update_spell = function(level,update_id, source) {
+        console.log("DOING UPDATE_SPELLS: " + level + " / " + update_id);
+        if(update_id.substring(0,1) === "-" && update_id.length === 20) {
+            do_update_spell(level,[update_id], source);
+        }
+        else if(["strength","dexterity","constitution","intelligence","wisdom","charisma","melee","ranged","cmb","all"].includes(update_id)) {
+            var minlvl = 0;
+            var maxlvl = 0;
             var i = 0;
-            for (i = minlvl; i < maxlvl; i++) {
-                update["spells_dc_level_" + i] = 10 + i + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.spells_dcmisc) || 0) + (parseInt(v["spells_dcbonus_level_" + i]) || 0);
-                update["spells_dcflag_level_" + i] = (parseInt(v["spells_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
+            if (level == "all") {maxlvl = 10;}
+            else {
+                minlvl = parseInt(level) || 99;
+                maxlvl = 1 + minlvl;
             }
-            setAttrs(update, {silent: true});
+            if (maxlvl < 100) {
+                for (i = minlvl; i < maxlvl; i++) {
+                    getSectionIDs("repeating_spell-" + i, function(idarray) {
+                        if(update_id === "all") {
+                            do_update_spell(i,idarray,source);
+                        } else {
+                            var spell_attribs = [];
+                            _.each(idarray, function(id) {
+                                spell_attribs.push("repeating_spell-" + i + "_" + id + "_spellatktype");
+                            });
+                            getAttrs(spell_attribs, function(v) {
+                                var attr_spell_ids = [];
+                                _.each(idarray, function(id) {
+                                    if((v["repeating_spell-" + i + "_" + id + "_spellatktype"] && v["repeating_spell-" + i + "_" + id + "_spellatktype"].includes(update_id))) {
+                                        attr_spell_ids.push(id);
+                                    }
+                                });
+                                if(attr_spell_ids.length > 0) {
+                                    do_update_spell(i,attr_spell_ids,source);
+                                }
+                            });
+                        };
+                    });
+                }
+            }
+        };
+    };
+    var do_update_spell = function(level,spell_array, source) {
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar"];
+        _.each(spell_array, function(spellid) {
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellname");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellschool");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellclasslevel");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellcastingtime");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellcomponent");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellrange");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellarea");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelltargets");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelleffect");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellduration");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellsaveflag");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellsave");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellresistance");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellatkflag");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellatktype");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellatkmod");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmgflag");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmgtype");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg2flag");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg2");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg2type");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldescflag");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldesc");
+            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_notes");
+        });
+        getAttrs(spell_attribs, function(v) {
+            _.each(spell_array, function(spellid) {
+                console.log("UPDATING SPELL: " + level + " / " + spellid);
+                var update = {};
+                var stemp = "";
+                var atkbonus = 0;
+                //TODO
+                update["repeating_spell-" + level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + level + "_" + spellid + "_spellname"];
+                // == update
+                setAttrs(update, {silent: true});
+            });
         });
     };
-
 
     // === Multi Lingual handling
     var loadi18n = function() {
