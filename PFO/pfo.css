@@ -398,9 +398,21 @@ div.sheet-acitems {
 .sheet-spellcasting .sheet-perlevel .sheet-boxed {margin: 0px 1px 0px 1px;}
 .sheet-spells div.sheet-blacklabel {width: 85%;}
 .sheet-spell .sheet-lab {text-align: left;}
-.sheet-spell span.sheet-std {width: 92px;}
+.sheet-spell span.sheet-std {width: 80px;}
 .sheet-spell input[type="text"].sheet-std {
-    width: 175px;
+    width: 185px;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+.sheet-spell .sheet-autoex.sheet-std {
+    display: inline-block;
+    width: 185px;
+    max-width: 185px;
+    vertical-align: bottom;
+}
+.sheet-spell span.sheet-med {width: 85px;}
+.sheet-spell input[type="text"].sheet-med {
+    width: 158px;
     font-size: 1.1em;
     line-height: 1.2em;
 }
@@ -410,11 +422,11 @@ div.sheet-acitems {
 .sheet-spell .sheet-dmgtype {width: 75px;}
 .sheet-spell span.sheet-lab.sheet-atk {width: 52px;}
 .sheet-spell span.sheet-lab.sheet-typ {width: 35px;}
-.sheet-spell .sheet-spelldsp {width: 220px;}
-.sheet-spell .sheet-autoex.sheet-std {
-    display: inline-block;
-    width: 175px;
-    max-width: 175px;
+.sheet-spell .sheet-spelldsp {
+    width: 220px;
+    text-align: left;
+    font-size: 1.2em;
+    padding-left: 2px;
 }
 
 /* ===== SPANS ===== */

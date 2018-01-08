@@ -3193,12 +3193,13 @@
                             </div>
                             <div class="myrow">
                                 <input class="pseudocheck" type="checkbox" name="attr_spellsaveflag" value="{{save=1}}{{savedc=[[@{spells_dc_level_0}]]}}{{saveeffect=@{spellsave}}}" title="@{repeating_spell-0_$id_spellsaveflag}" checked="checked" /><span class="mleft"></span>
-                                <span class="lab" data-i18n="saving-throw:">Saving Throw:</span>
-                                <input type="text" name="attr_spellsave" class="underlined std" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-0_$id_spellsave}" />
+                                <span class="lab med" data-i18n="saving-throw:">Saving Throw:</span>
+                                <input type="text" name="attr_spellsave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-0_$id_spellsave}" />
                             </div>
                             <div class="myrow">
-                                <span class="lab std right" data-i18n="spell-resistance:">Spell Resistance:</span>
-                                <input type="text" name="attr_spellresistance" class="underlined std" spellcheck="false" data-i18n-placeholder="yes" placeholder="Yes" title="@{repeating_spell-0_$id_spellresistance}" />
+                                <input class="pseudocheck" type="checkbox" name="attr_spellresistanceflag" value="{{sr=1}}" title="@{repeating_spell-0_$id_spellresistanceflag}" checked="checked" /><span class="mleft"></span>
+                                <span class="lab med" data-i18n="spell-resistance:">Spell Resistance:</span>
+                                <input type="text" name="attr_spellresistance" class="underlined med" spellcheck="false" title="@{repeating_spell-0_$id_spellresistance}" />
                             </div>
                             <div class="myrow">
                                 <input class="pseudocheck" type="checkbox" name="attr_spellatkflag" value="{{attack=1}}" title="@{repeating_spell-0_$id_spellatkflag}" /><span class="mleft"></span>
@@ -3335,12 +3336,13 @@
                             </div>
                             <div class="myrow">
                                 <input class="pseudocheck" type="checkbox" name="attr_spellsaveflag" value="{{save=1}}{{savedc=[[@{spells_dc_level_0}]]}}{{saveeffect=@{spellsave}}}" title="@{repeating_spell-1_$id_spellsaveflag}" checked="checked" /><span class="mleft"></span>
-                                <span class="lab" data-i18n="saving-throw:">Saving Throw:</span>
-                                <input type="text" name="attr_spellsave" class="underlined std" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-1_$id_spellsave}" />
+                                <span class="lab med" data-i18n="saving-throw:">Saving Throw:</span>
+                                <input type="text" name="attr_spellsave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-1_$id_spellsave}" />
                             </div>
                             <div class="myrow">
-                                <span class="lab std right" data-i18n="spell-resistance:">Spell Resistance:</span>
-                                <input type="text" name="attr_spellresistance" class="underlined std" spellcheck="false" data-i18n-placeholder="yes" placeholder="Yes" title="@{repeating_spell-1_$id_spellresistance}" />
+                                <input class="pseudocheck" type="checkbox" name="attr_spellresistanceflag" value="{{sr=1}}" title="@{repeating_spell-1_$id_spellresistanceflag}" checked="checked" /><span class="mleft"></span>
+                                <span class="lab med" data-i18n="spell-resistance:">Spell Resistance:</span>
+                                <input type="text" name="attr_spellresistance" class="underlined med" spellcheck="false" title="@{repeating_spell-1_$id_spellresistance}" />
                             </div>
                             <div class="myrow">
                                 <input class="pseudocheck" type="checkbox" name="attr_spellatkflag" value="{{attack=1}}" title="@{repeating_spell-1_$id_spellatkflag}" /><span class="mleft"></span>
@@ -3887,11 +3889,11 @@
     on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
     });
-    on("change:repeating_spell-0:spellname change:repeating_spell-0:spellschool change:repeating_spell-0:spellclasslevel change:repeating_spell-0:spellcastingtime change:repeating_spell-0:spellcomponent change:repeating_spell-0:spellrange change:repeating_spell-0:spellarea change:repeating_spell-0:spelltargets change:repeating_spell-0:spelleffect change:repeating_spell-0:spellduration change:repeating_spell-0:spellsaveflag change:repeating_spell-0:spellsave change:repeating_spell-0:spellresistance change:repeating_spell-0:spellatkflag change:repeating_spell-0:spellatktype change:repeating_spell-0:spellatkmod change:repeating_spell-0:spelldmgflag change:repeating_spell-0:spelldmg change:repeating_spell-0:spelldmgtype change:repeating_spell-0:spelldmg2flag change:repeating_spell-0:spelldmg2 change:repeating_spell-0:spelldmg2type change:repeating_spell-0:spelldescflag change:repeating_spell-0:spelldesc change:repeating_spell-0:notes change:repeating_spell-1:spellname", function(e) {
+    on("change:repeating_spell-0:spellname change:repeating_spell-0:spellschool change:repeating_spell-0:spellclasslevel change:repeating_spell-0:spellcastingtime change:repeating_spell-0:spellcomponent change:repeating_spell-0:spellrange change:repeating_spell-0:spellarea change:repeating_spell-0:spelltargets change:repeating_spell-0:spelleffect change:repeating_spell-0:spellduration change:repeating_spell-0:spellsaveflag change:repeating_spell-0:spellsave change:repeating_spell-0:spellresistance change:repeating_spell-0:spellatkflag change:repeating_spell-0:spellatktype change:repeating_spell-0:spellatkmod change:repeating_spell-0:spelldmgflag change:repeating_spell-0:spelldmg change:repeating_spell-0:spelldmgtype change:repeating_spell-0:spelldmg2flag change:repeating_spell-0:spelldmg2 change:repeating_spell-0:spelldmg2type change:repeating_spell-0:spelldescflag change:repeating_spell-0:spelldesc change:repeating_spell-0:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
         update_spell(0,spellid,"");
     });
-    on("change:repeating_spell-1:spellschool change:repeating_spell-1:spellclasslevel change:repeating_spell-1:spellcastingtime change:repeating_spell-1:spellcomponent change:repeating_spell-1:spellrange change:repeating_spell-1:spellarea change:repeating_spell-1:spelltargets change:repeating_spell-1:spelleffect change:repeating_spell-1:spellduration change:repeating_spell-1:spellsaveflag change:repeating_spell-1:spellsave change:repeating_spell-1:spellresistance change:repeating_spell-1:spellatkflag change:repeating_spell-1:spellatktype change:repeating_spell-1:spellatkmod change:repeating_spell-1:spelldmgflag change:repeating_spell-1:spelldmg change:repeating_spell-1:spelldmgtype change:repeating_spell-1:spelldmg2flag change:repeating_spell-1:spelldmg2 change:repeating_spell-1:spelldmg2type change:repeating_spell-1:spelldescflag change:repeating_spell-1:spelldesc change:repeating_spell-1:notes", function(e) {
+    on("change:repeating_spell-1:spellname change:repeating_spell-1:spellschool change:repeating_spell-1:spellclasslevel change:repeating_spell-1:spellcastingtime change:repeating_spell-1:spellcomponent change:repeating_spell-1:spellrange change:repeating_spell-1:spellarea change:repeating_spell-1:spelltargets change:repeating_spell-1:spelleffect change:repeating_spell-1:spellduration change:repeating_spell-1:spellsaveflag change:repeating_spell-1:spellsave change:repeating_spell-1:spellresistance change:repeating_spell-1:spellatkflag change:repeating_spell-1:spellatktype change:repeating_spell-1:spellatkmod change:repeating_spell-1:spelldmgflag change:repeating_spell-1:spelldmg change:repeating_spell-1:spelldmgtype change:repeating_spell-1:spelldmg2flag change:repeating_spell-1:spelldmg2 change:repeating_spell-1:spelldmg2type change:repeating_spell-1:spelldescflag change:repeating_spell-1:spelldesc change:repeating_spell-1:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
         update_spell(1,spellid,"");
     });
@@ -4477,14 +4479,16 @@
         else if(["strength","dexterity","constitution","intelligence","wisdom","charisma","melee","ranged","cmb","all"].includes(update_id)) {
             var minlvl = 0;
             var maxlvl = 0;
-            var i = 0;
             if (level == "all") {maxlvl = 10;}
             else {
                 minlvl = parseInt(level) || 99;
                 maxlvl = 1 + minlvl;
             }
+            console.log("*** DEBUG update_spells lvl range: " + minlvl + " -> " + maxlvl);
             if (maxlvl < 100) {
+                var i = 0;
                 for (i = minlvl; i < maxlvl; i++) {
+                    console.log("*** DEBUG update_spells current lvl: " + i);
                     getSectionIDs("repeating_spell-" + i, function(idarray) {
                         if(update_id === "all") {
                             do_update_spell(i,idarray,source);
@@ -4510,43 +4514,43 @@
             }
         };
     };
-    var do_update_spell = function(level,spell_array, source) {
+    var do_update_spell = function(spell_level,spell_array, source) {
         var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar"];
         _.each(spell_array, function(spellid) {
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellname");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellschool");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellclasslevel");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellcastingtime");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellcomponent");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellrange");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellarea");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelltargets");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelleffect");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellduration");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellsaveflag");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellsave");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellresistance");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellatkflag");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellatktype");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellatkmod");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmgflag");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmgtype");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg2flag");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg2");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldmg2type");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldescflag");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spelldesc");
-            spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_notes");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellname");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellschool");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellclasslevel");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellrange");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellarea");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelltargets");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelleffect");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellduration");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellsave");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellresistance");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatktype");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatkmod");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldmgflag");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldmg");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldmgtype");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldesc");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_notes");
         });
         getAttrs(spell_attribs, function(v) {
             _.each(spell_array, function(spellid) {
-                console.log("UPDATING SPELL: " + level + " / " + spellid);
+                console.log("UPDATING SPELL: " + spell_level + " / " + spellid);
                 var update = {};
                 var stemp = "";
                 var atkbonus = 0;
                 //TODO
-                update["repeating_spell-" + level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + level + "_" + spellid + "_spellname"];
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                 // == update
                 setAttrs(update, {silent: true});
             });
