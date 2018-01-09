@@ -18,7 +18,8 @@ spelleffect
 spellduration
 spellsaveflag
 spellsave
-spelldcmod
+spelldc
+spelldc_mod
 spellresistance
 spellatkflag
 spellatktype
