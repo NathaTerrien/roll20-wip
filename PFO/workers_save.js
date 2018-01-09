@@ -60,7 +60,6 @@
     on("change:dexterity_mod", function() {
         update_cmd();
         update_ability_mod("dexterity");
-        update_initiative();
     });
     on("change:constitution_mod", function() {
         update_ability_mod("constitution");
@@ -935,7 +934,7 @@
                         if(atkflag != "0") {rollbase += "{{dmg1crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";}
                     }
                     if(dmg2flag != "0") {
-                        stemp = "" + dmg2base + "+@{rollmod_damage}[BONUS]";
+                        stemp = "" + dmg2base "+@{rollmod_damage}[BONUS]";
                         rollbase += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
                         if(atkflag != "0") {rollbase += "{{dmg2crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";}
                     }

@@ -7,6 +7,7 @@ spellprepared
 spelldisplay
 
 spellname
+
 spellschool
 spellclasslevel
 spellcastingtime
@@ -20,7 +21,9 @@ spellsaveflag
 spellsave
 spelldc
 spelldc_mod
+spellresistanceflag
 spellresistance
+
 spellatkflag
 spellatktype
 spellatkmod
@@ -33,5 +36,6 @@ spelldmg2flag
 spelldmg2
 spelldmg2type
 spelldescflag
+
 spelldesc
 notes
