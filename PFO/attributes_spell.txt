@@ -18,10 +18,13 @@ spelleffect
 spellduration
 spellsaveflag
 spellsave
+spelldcmod
 spellresistance
 spellatkflag
 spellatktype
 spellatkmod
+spellatkcritrange
+spelldmgcritmulti
 spelldmgflag
 spelldmg
 spelldmgtype

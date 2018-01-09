@@ -374,7 +374,8 @@ div.sheet-acitems {
 }
 .sheet-skills .sheet-name {width: 180px;}
 .sheet-skill .sheet-number,
-.sheet-spellcasting .sheet-number {
+.sheet-spellcasting .sheet-number,
+.sheet-spells .sheet-number {
     width: 30px;
     text-align: center;
 }

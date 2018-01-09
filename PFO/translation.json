@@ -191,6 +191,7 @@
     "misc-bonus": "Misc Bonus",
     "misc-modifier": "Misc Modifier",
     "modifier": "Modifier",
+    "multiplier:": "Multiplier:",
     "name": "Name",
     "natural": "Natural",
     "natural-armor": "Natural Armor",
@@ -312,6 +313,5 @@
     "wis": "wis",
     "wis-u": "WIS",
     "wisdom": "Wisdom",
-    "wisdom-roll": "Wisdom roll",
-    "yes": "Yes"
+    "wisdom-roll": "Wisdom roll"
 }
