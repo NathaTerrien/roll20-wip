@@ -372,6 +372,7 @@ div.sheet-acitems {
     text-transform: capitalize;
     white-space: pre;
 }
+.sheet-lbl.sheet-right {text-align: right;}
 .sheet-skills .sheet-name {width: 180px;}
 .sheet-skill .sheet-number,
 .sheet-spellcasting .sheet-number,
@@ -397,7 +398,7 @@ div.sheet-acitems {
     margin: 0px 1px 0px 1px;
 }
 .sheet-spellcasting .sheet-perlevel .sheet-boxed {margin: 0px 1px 0px 1px;}
-.sheet-spells div.sheet-blacklabel {width: 85%;}
+.sheet-spells div.sheet-blacklabel {width: 60%;}
 .sheet-spell .sheet-lab {text-align: left;}
 .sheet-spell span.sheet-std {width: 80px;}
 .sheet-spell input[type="text"].sheet-std {
@@ -411,9 +412,9 @@ div.sheet-acitems {
     max-width: 185px;
     vertical-align: bottom;
 }
-.sheet-spell span.sheet-med {width: 85px;}
+.sheet-spell span.sheet-med {width: 95px;}
 .sheet-spell input[type="text"].sheet-med {
-    width: 158px;
+    width: 150px;
     font-size: 1.1em;
     line-height: 1.2em;
 }
@@ -421,8 +422,8 @@ div.sheet-acitems {
 .sheet-spell .sheet-damage {width: 80px;}
 .sheet-spell .sheet-dmgbase {width: 75px;}
 .sheet-spell .sheet-dmgtype {width: 75px;}
-.sheet-spell span.sheet-lab.sheet-atk {width: 52px;}
-.sheet-spell span.sheet-lab.sheet-typ {width: 35px;}
+.sheet-spell span.sheet-lbl.sheet-atk {width: 55px;}
+.sheet-spell span.sheet-lbl.sheet-typ {width: 35px;}
 .sheet-spell .sheet-spelldsp {
     width: 220px;
     text-align: left;
@@ -898,7 +899,7 @@ input.sheet-tabconf:checked + span{
     position: relative;
     cursor: text;
     font-family: 'Patrick Hand';
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.2em;
     min-height: 18px;
     text-align: left;

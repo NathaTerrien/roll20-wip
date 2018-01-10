@@ -203,6 +203,7 @@
     });
 
     // SPELLS - SPELLCASTING
+    // -- Concentration & DCs
     on("change:spellcasting_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
     on("change:spellcasting_ability_mod", function(e) {
         update_concentration();
@@ -217,6 +218,16 @@
     on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
     });
+    // -- Prepared / Total
+    on("change:spells_perday_level_0 change:spells_perday_level_1 change:spells_perday_level_2 change:spells_perday_level_3 change:spells_perday_level_4 change:spells_perday_level_5 change:spells_perday_level_6 change:spells_perday_level_7 change:spells_perday_level_8 change:spells_perday_level_9 change:spells_bonus_level_0 change:spells_bonus_level_1 change:spells_bonus_level_2 change:spells_bonus_level_3 change:spells_bonus_level_4 change:spells_bonus_level_5 change:spells_bonus_level_6 change:spells_bonus_level_7 change:spells_bonus_level_8 change:spells_bonus_level_9", function(e) {
+        update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1));
+    });
+    on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
+        var repsec = e.sourceAttribute.substr(0,17);
+        var level = repsec.charAt(repsec.length - 1);
+        update_spells_prepared(level);
+    });
+    // -- Rolls / Display
     on("change:spells_dc_level_0 change:spells_dc_level_1 change:spells_dc_level_2 change:spells_dc_level_3 change:spells_dc_level_4 change:spells_dc_level_5 change:spells_dc_level_6 change:spells_dc_level_7 change:spells_dc_level_8 change:spells_dc_level_9", function(e){
         update_spells(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),"all","");
     });
@@ -803,6 +814,32 @@
                 setAttrs(update, {silent: false});
             });
         }
+    };
+    var update_spells_totals = function(level) {
+        var fields = ["spells_perday_level_" + level,"spells_bonus_level_" + level];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["spells_total_level_" + level] = (parseInt(v["spells_perday_level_" + level]) || 0) + (parseInt(v["spells_bonus_level_" + level]) || 0);
+            setAttrs(update, {silent: true});
+        });
+    };
+    var update_spells_prepared = function (level) {
+        getSectionIDs("repeating_spell-" + level, function(idarray) {
+            var spell_attribs = ["spells_total_level_" + level];
+            _.each(idarray, function(spellid) {
+                spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellprepared");
+            });
+            getAttrs(spell_attribs, function(v) {
+                var total = 0;
+                var update = {};
+                _.each(idarray, function(id) {
+                    total += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
+                });
+                update["spells_prepared_level_" + level] = total;
+                update["spells_prepared_flag_" + level] = (total > (parseInt(v["spells_total_level_" + level]) || 0)) ? 1 : 0;
+                setAttrs(update, {silent: true});
+            });
+        });
     };
     var update_all_spells = function(update_id, source) {
         // ugly but couldn't manage to loop with asyncrhonus getAttrs...

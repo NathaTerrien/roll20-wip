@@ -928,12 +928,12 @@
                                 </div>
                                 <div class="options right">
                                     <div class="myrow">
-                                        <span class="lab" data-i18n="name">Name</span>
+                                        <span class="lbl" data-i18n="name">Name</span>
                                         <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
-                                        <span class="lab atk" data-i18n="attack:">Attack:</span>
+                                        <span class="lbl atk" data-i18n="attack:">Attack:</span>
                                         <select class="underlined type" name="attr_atktype" title="@{repeating_attacks_$id_atktype}">
                                             <option value="melee" selected="selected" data-i18n="melee">Melee</option>
                                             <option value="ranged" data-i18n="ranged">Ranged</option>
@@ -946,9 +946,9 @@
                                             <option value="charisma" data-i18n="cha-u">CHA</option>
                                             <option value="0">-</option>
                                         </select>
-                                        <span class="lab">+</span>
+                                        <span class="lbl">+</span>
                                         <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_attacks_$id_atkmod}" />
-                                        <span class="lab" data-i18n="vs">vs</span>
+                                        <span class="lbl" data-i18n="vs">vs</span>
                                         <select class="underlined vs" name="attr_atkvs" title="@{atkvs}">
                                             <option value="ac" selected="selected" data-i18n="ac-u">AC</option>
                                             <option value="touch" data-i18n="touch">Touch</option>
@@ -963,16 +963,16 @@
                                         </select>
                                     </div>
                                     <div class="myrow padindent">
-                                        <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                                        <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
                                         <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
-                                        <span class="lab atk right" data-i18n="range:">Range:</span>
+                                        <span class="lbl atk right" data-i18n="range:">Range:</span>
                                         <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_attacks_$id_atkrange}" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
-                                        <span class="lab atk" data-i18n="damage:">Damage:</span>
+                                        <span class="lbl atk" data-i18n="damage:">Damage:</span>
                                         <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
-                                        <span class="lab">+</span>
+                                        <span class="lbl">+</span>
                                         <select class="underlined" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
                                             <option value="strength" selected="selected" data-i18n="str-u">STR</option>
                                             <option value="dexterity" data-i18n="dex-u">DEX</option>
@@ -982,20 +982,20 @@
                                             <option value="charisma" data-i18n="cha-u">CHA</option>
                                             <option value="0">-</option>
                                         </select>
-                                        <span class="lab">+</span>
+                                        <span class="lbl">+</span>
                                         <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmgmod}" />
                                     </div>
                                     <div class="myrow padindent">
-                                        <span class="lab right typ" data-i18n="type:">Type:</span>
+                                        <span class="lbl right typ" data-i18n="type:">Type:</span>
                                         <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
-                                        <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                        <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
                                         <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_attacks_$id_dmg2flag}" /><span class="mleft"></span>
-                                        <span class="lab atk" data-i18n="damage2:">Damage2:</span>
+                                        <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
                                         <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
-                                        <span class="lab">+</span>
+                                        <span class="lbl">+</span>
                                         <select class="underlined" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
                                             <option value="strength" data-i18n="str-u">STR</option>
                                             <option value="dexterity" data-i18n="dex-u">DEX</option>
@@ -1005,24 +1005,24 @@
                                             <option value="charisma" data-i18n="cha-u">CHA</option>
                                             <option value="0" selected="selected">-</option>
                                         </select>
-                                        <span class="lab">+</span>
+                                        <span class="lbl">+</span>
                                         <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmg2mod}" />
                                     </div>
                                     <div class="myrow padindent">
-                                        <span class="lab right typ" data-i18n="type:">Type:</span>
+                                        <span class="lbl right typ" data-i18n="type:">Type:</span>
                                         <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
-                                        <span class="lab" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                        <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
                                         <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span class="mleft"></span>
-                                        <span class="lab atk" data-i18n="description:">Description:</span>
+                                        <span class="lbl atk" data-i18n="description:">Description:</span>
                                         <div class="autoex">
                                             <span name="attr_atkdesc"></span>
                                             <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
                                         </div>
                                     </div>
-                                    <span class="lab" data-i18n="notes:">Notes:</span>
+                                    <span class="lbl" data-i18n="notes:">Notes:</span>
                                     <div class="autoex">
                                         <span name="attr_notes"></span>
                                         <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_attacks_$id_notes}"></textarea>
@@ -3107,402 +3107,435 @@
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
             </div>
-            <div class="col1third"> <!-- SPELLS LEVEL 0 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-0">Level 0</span>
+            <div class="spacer"></div>
+            <div class="col1third"> <!-- LEFT SPELLS COL -->
+                <div> <!-- SPELLS LEVEL 0 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-0">Level 0</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        <span class="lbl" data-i18n="p." data-i18n-title="prepared-times" title="Prepared # times">P.</span>
+                        <div class="boxed greybg">
+                            <input type="hidden" class="attr-flag" name="attr_spells_prepared_flag_0" value="0" />
+                            <span class="pseudoattr" name="attr_spells_prepared_level_0" title="@{spells_prepared_level_0}"></span>
+                        </div>
+                        <span class="lbl">/</span>
+                        <div class="boxed greybg">
+                            <span class="pseudoattr" name="attr_spells_total_level_0" title="@{spells_total_level_0}"></span>
+                        </div>
                     </div>
-                </div>
-                <fieldset class="repeating_spell-0"> <!-- REPEATING 0 LVL SPELL -->
-                    <input type="hidden" name="attr_spelllevel" value="0" />
-                    <div class="spell right">
-                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                        <div class="myrow right">
-                            <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                            <span class="lab" data-i18n="p." data-i18n-title="prepared-times" title="Prepared # times">P.</span>
-                            <input class="pseudocheck" type="checkbox" name="attr_spellprepared" value="1" title="@{repeating_spell-0_$id_spellprepared}" /><span class="mleft"></span>
-                        </div>
-                        <div class="options right">
-                            <div class="myrow">
-                                <span class="lab" data-i18n="name">Name</span>
-                                <input type="text" name="attr_spellname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-0_$id_spellname}" />
+                    <div class="spacer"></div>
+                    <fieldset class="repeating_spell-0"> <!-- REPEATING 0 LVL SPELL -->
+                        <input type="hidden" name="attr_spelllevel" value="0" />
+                        <div class="spell right">
+                            <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                            <div class="myrow right">
+                                <input type="hidden" name="attr_rollcontent" />
+                                <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
+                                <span class="lbl" data-i18n="p." data-i18n-title="prepared-times" title="Prepared # times">P.</span>
+                                <input class="pseudocheck" type="checkbox" name="attr_spellprepared" value="1" title="@{repeating_spell-0_$id_spellprepared}" /><span class="mleft"></span>
                             </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="school:">School:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellschool"></span>
-                                    <textarea name="attr_spellschool" class="underlined" spellcheck="false" data-i18n-placeholder="spellschool-ph" placeholder="School/Domain/Elemental school..." title="@{repeating_spell-0_$id_spellschool}"></textarea>
+                            <div class="options right">
+                                <div class="myrow">
+                                    <span class="lbl" data-i18n="name">Name</span>
+                                    <input type="text" name="attr_spellname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-0_$id_spellname}" />
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="class-level:">Class/Level:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellclasslevel"></span>
-                                    <textarea name="attr_spellclasslevel" class="underlined" spellcheck="false" data-i18n-placeholder="spellclasslevel-ph" placeholder="Sorcerer/Wizard 3" title="@{repeating_spell-0_$id_spellclasslevel}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="school:">School:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellschool"></span>
+                                        <textarea name="attr_spellschool" class="underlined" spellcheck="false" data-i18n-placeholder="spellschool-ph" placeholder="School/Domain/Elemental school..." title="@{repeating_spell-0_$id_spellschool}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="casting-time:">Casting time:</span>
-                                <input type="text" name="attr_spellcastingtime" class="underlined std" spellcheck="false" data-i18n-placeholder="spellcastingtime-ph" placeholder="1 standard action" title="@{repeating_spell-0_$id_spellcastingtime}" />
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="components:">Components:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellcomponent"></span>
-                                    <textarea name="attr_spellcomponent" class="underlined" spellcheck="false" data-i18n-placeholder="spellcomponent-ph" placeholder="V, S, M (a ball of bat guano and sulfur)" title="@{repeating_spell-0_$id_spellcomponent}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="class-level:">Class/Level:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellclasslevel"></span>
+                                        <textarea name="attr_spellclasslevel" class="underlined" spellcheck="false" data-i18n-placeholder="spellclasslevel-ph" placeholder="Sorcerer/Wizard 3" title="@{repeating_spell-0_$id_spellclasslevel}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="range:">Range:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellrange"></span>
-                                    <textarea name="attr_spellrange" class="underlined" spellcheck="false" data-i18n-placeholder="spellrange-ph" placeholder="Long (400 ft. + 40 ft./level)" title="@{repeating_spell-0_$id_spellrange}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="casting-time:">Casting time:</span>
+                                    <input type="text" name="attr_spellcastingtime" class="underlined std" spellcheck="false" data-i18n-placeholder="spellcastingtime-ph" placeholder="1 standard action" title="@{repeating_spell-0_$id_spellcastingtime}" />
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="area:">Area:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellarea"></span>
-                                    <textarea name="attr_spellarea" class="underlined" spellcheck="false" data-i18n-placeholder="spellarea-ph" placeholder="20-ft.-radius spread" title="@{repeating_spell-0_$id_spellarea}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="components:">Components:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellcomponent"></span>
+                                        <textarea name="attr_spellcomponent" class="underlined" spellcheck="false" data-i18n-placeholder="spellcomponent-ph" placeholder="V, S, M (a ball of bat guano and sulfur)" title="@{repeating_spell-0_$id_spellcomponent}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="targets:">Targets:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spelltargets"></span>
-                                    <textarea name="attr_spelltargets" class="underlined" spellcheck="false" data-i18n-placeholder="spelltargets-ph" placeholder="up to five creatures" title="@{repeating_spell-0_$id_spelltargets}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="range:">Range:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellrange"></span>
+                                        <textarea name="attr_spellrange" class="underlined" spellcheck="false" data-i18n-placeholder="spellrange-ph" placeholder="Long (400 ft. + 40 ft./level)" title="@{repeating_spell-0_$id_spellrange}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="effect:">Effect:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spelleffect"></span>
-                                    <textarea name="attr_spelleffect" class="underlined" spellcheck="false" data-i18n-placeholder="spelleffect-ph" placeholder="Heal [[1d6+@{casterlevel}]] HP" title="@{repeating_spell-0_$id_spelleffect}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="area:">Area:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellarea"></span>
+                                        <textarea name="attr_spellarea" class="underlined" spellcheck="false" data-i18n-placeholder="spellarea-ph" placeholder="20-ft.-radius spread" title="@{repeating_spell-0_$id_spellarea}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="duration:">Duration:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellduration"></span>
-                                    <textarea name="attr_spellduration" class="underlined" spellcheck="false" data-i18n-placeholder="spellduration-ph" placeholder="Instantaneous" title="@{repeating_spell-0_$id_spellduration}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="targets:">Targets:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spelltargets"></span>
+                                        <textarea name="attr_spelltargets" class="underlined" spellcheck="false" data-i18n-placeholder="spelltargets-ph" placeholder="up to five creatures" title="@{repeating_spell-0_$id_spelltargets}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spellsaveflag" value="{{save=1}}" title="@{repeating_spell-0_$id_spellsaveflag}" checked="checked" /><span class="mleft"></span>
-                                <span class="lab med" data-i18n="saving-throw:">Saving Throw:</span>
-                                <input type="text" name="attr_spellsave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-0_$id_spellsave}" />
-                            </div>
-                            <div class="myrow padindent">
-                                <span class="spacer"></span>
-                                <span class="lab" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
-                                <span class="lab">+</span>
-                                <input type="number" class="underlined" name="attr_spelldc_mod" value="0" title="@{repeating_spell-0_$id_spelldc_mod}" />
-                                <span class="lab">=</span>
-                                <span class="pseudoattr greybg underlined number" name="attr_spelldc" title="@{repeating_spell-0_$id_spelldc}"></span>
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spellresistanceflag" value="{{sr=1}}" title="@{repeating_spell-0_$id_spellresistanceflag}" checked="checked" /><span class="mleft"></span>
-                                <span class="lab med" data-i18n="spell-resistance:">Spell Resistance:</span>
-                                <input type="text" name="attr_spellresistance" class="underlined med" spellcheck="false" title="@{repeating_spell-0_$id_spellresistance}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spellatkflag" value="{{attack=1}}" title="@{repeating_spell-0_$id_spellatkflag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="attack:">Attack:</span>
-                                <select class="underlined type" name="attr_spellatktype" title="@{repeating_spell-0_$id_spellatktype}">
-                                    <option value="melee" data-i18n="melee">Melee</option>
-                                    <option value="ranged" data-i18n="ranged">Ranged</option>
-                                    <option value="cmb" data-i18n="cmb-u">CMB</option>
-                                    <option value="strength" data-i18n="str-u">STR</option>
-                                    <option value="dexterity" data-i18n="dex-u">DEX</option>
-                                    <option value="constitution" data-i18n="con-u">CON</option>
-                                    <option value="intelligence" data-i18n="int-u">INT</option>
-                                    <option value="wisdom" data-i18n="wis-u">WIS</option>
-                                    <option value="charisma" data-i18n="cha-u">CHA</option>
-                                    <option value="0" selected="selected">-</option>
-                                </select>
-                                <span class="lab">+</span>
-                                <input type="text" class="underlined dmgbase" name="attr_spellatkmod" value="0" spellcheck="false" title="@{repeating_spell-0_$id_spellatkmod}" />
-                            </div>
-                            <div class="myrow padindent">
-                                <span class="spacer"></span>
-                                <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
-                                <input type="number" class="underlined" name="attr_spellatkcritrange" value="20" title="@{repeating_spell-0_$id_spellatkcritrange}" />
-                                <span class="lab" data-i18n="multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Multiplier:</span>
-                                <input type="number" class="underlined" name="attr_spelldmgcritmulti" value="2" title="@{repeating_spell-0_$id_spelldmgcritmulti}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spelldmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{repeating_spell-0_$id_spelldmgflag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="damage:">Damage:</span>
-                                <input type="text" name="attr_spelldmg" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_spell-0_$id_spelldmg}" />
-                                <span class="lab right typ" data-i18n="type:">Type:</span>
-                                <input type="text" name="attr_spelldmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_spell-0_$id_spelldmgtype}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spelldmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_spell-0_$id_spelldmg2flag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="damage2:">Damage2:</span>
-                                <input type="text" name="attr_spelldmg2" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_spell-0_$id_spelldmg2}" />
-                                <span class="lab right typ" data-i18n="type:">Type:</span>
-                                <input type="text" name="attr_spelldmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="force" placeholder="Force" title="@{repeating_spell-0_$id_spelldmg2type}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spelldescflag" value="{{descflag=1}}" title="@{repeating_spell-0_$id_spelldescflag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="description:">Description:</span>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="effect:">Effect:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spelleffect"></span>
+                                        <textarea name="attr_spelleffect" class="underlined" spellcheck="false" data-i18n-placeholder="spelleffect-ph" placeholder="Heal [[1d6+@{casterlevel}]] HP" title="@{repeating_spell-0_$id_spelleffect}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="duration:">Duration:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellduration"></span>
+                                        <textarea name="attr_spellduration" class="underlined" spellcheck="false" data-i18n-placeholder="spellduration-ph" placeholder="Instantaneous" title="@{repeating_spell-0_$id_spellduration}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spellsaveflag" value="{{save=1}}" title="@{repeating_spell-0_$id_spellsaveflag}" checked="checked" /><span class="mleft"></span>
+                                    <span class="lbl med" data-i18n="saving-throw:">Saving Throw:</span>
+                                    <input type="text" name="attr_spellsave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-0_$id_spellsave}" />
+                                </div>
+                                <div class="myrow padindent">
+                                    <span class="spacer"></span>
+                                    <span class="lbl" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
+                                    <span class="lbl">+</span>
+                                    <input type="number" class="underlined" name="attr_spelldc_mod" value="0" title="@{repeating_spell-0_$id_spelldc_mod}" />
+                                    <span class="lbl">=</span>
+                                    <span class="pseudoattr greybg underlined number" name="attr_spelldc" title="@{repeating_spell-0_$id_spelldc}"></span>
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spellresistanceflag" value="{{sr=1}}" title="@{repeating_spell-0_$id_spellresistanceflag}" checked="checked" /><span class="mleft"></span>
+                                    <span class="lbl med" data-i18n="spell-resistance:">Spell Resistance:</span>
+                                    <input type="text" name="attr_spellresistance" class="underlined med" spellcheck="false" title="@{repeating_spell-0_$id_spellresistance}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spellatkflag" value="{{attack=1}}" title="@{repeating_spell-0_$id_spellatkflag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="attack:">Attack:</span>
+                                    <select class="underlined type" name="attr_spellatktype" title="@{repeating_spell-0_$id_spellatktype}">
+                                        <option value="melee" data-i18n="melee">Melee</option>
+                                        <option value="ranged" data-i18n="ranged">Ranged</option>
+                                        <option value="cmb" data-i18n="cmb-u">CMB</option>
+                                        <option value="strength" data-i18n="str-u">STR</option>
+                                        <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                        <option value="constitution" data-i18n="con-u">CON</option>
+                                        <option value="intelligence" data-i18n="int-u">INT</option>
+                                        <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                        <option value="charisma" data-i18n="cha-u">CHA</option>
+                                        <option value="0" selected="selected">-</option>
+                                    </select>
+                                    <span class="lbl">+</span>
+                                    <input type="text" class="underlined dmgbase" name="attr_spellatkmod" value="0" spellcheck="false" title="@{repeating_spell-0_$id_spellatkmod}" />
+                                </div>
+                                <div class="myrow padindent">
+                                    <span class="spacer"></span>
+                                    <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                                    <input type="number" class="underlined" name="attr_spellatkcritrange" value="20" title="@{repeating_spell-0_$id_spellatkcritrange}" />
+                                    <span class="lbl" data-i18n="multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Multiplier:</span>
+                                    <input type="number" class="underlined" name="attr_spelldmgcritmulti" value="2" title="@{repeating_spell-0_$id_spelldmgcritmulti}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spelldmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{repeating_spell-0_$id_spelldmgflag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="damage:">Damage:</span>
+                                    <input type="text" name="attr_spelldmg" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_spell-0_$id_spelldmg}" />
+                                    <span class="lbl right typ" data-i18n="type:">Type:</span>
+                                    <input type="text" name="attr_spelldmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_spell-0_$id_spelldmgtype}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spelldmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_spell-0_$id_spelldmg2flag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
+                                    <input type="text" name="attr_spelldmg2" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_spell-0_$id_spelldmg2}" />
+                                    <span class="lbl right typ" data-i18n="type:">Type:</span>
+                                    <input type="text" name="attr_spelldmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="force" placeholder="Force" title="@{repeating_spell-0_$id_spelldmg2type}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spelldescflag" value="{{descflag=1}}" title="@{repeating_spell-0_$id_spelldescflag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="description:">Description:</span>
+                                    <div class="autoex">
+                                        <span name="attr_spelldesc"></span>
+                                        <textarea name="attr_spelldesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_spell-0_$id_spelldesc}"></textarea>
+                                    </div>
+                                </div>
+                                <span class="lbl" data-i18n="notes:">Notes:</span>
                                 <div class="autoex">
-                                    <span name="attr_spelldesc"></span>
-                                    <textarea name="attr_spelldesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_spell-0_$id_spelldesc}"></textarea>
+                                    <span name="attr_notes"></span>
+                                    <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_spell-0_$id_notes}"></textarea>
                                 </div>
                             </div>
-                            <span class="lab" data-i18n="notes:">Notes:</span>
-                            <div class="autoex">
-                                <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_spell-0_$id_notes}"></textarea>
+                        </div>
+                    </fieldset> <!-- END REPEATING 0 LVL SPELL -->
+                </div> <!-- END SPELLS LEVEL 0 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 2 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-2">Level 2</span>
                             </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                     </div>
-                </fieldset> <!-- END REPEATING 0 LVL SPELL -->
-            </div> <!-- END SPELLS LEVEL 0 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 1 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-1">Level 1</span>
+                </div> <!-- END SPELLS LEVEL 2 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 4 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-4">Level 4</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
-                </div>
-                <fieldset class="repeating_spell-1"> <!-- REPEATING 1 LVL SPELL -->
-                    <input type="hidden" name="attr_spelllevel" value="0" />
-                    <div class="spell right">
-                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                        <div class="myrow right">
-                            <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                            <span class="lab" data-i18n="p." data-i18n-title="prepared-times" title="Prepared # times">P.</span>
-                            <input type="number" name="attr_spellprepared" value="0" class="sml underlined" title="@{repeating_spell-1_$id_spellprepared}" />
+                </div> <!-- END SPELLS LEVEL 4 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 6 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-6">Level 6</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <div class="options right">
-                            <div class="myrow">
-                                <span class="lab" data-i18n="name">Name</span>
-                                <input type="text" name="attr_spellname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-1_$id_spellname}" />
+                    </div>
+                </div> <!-- END SPELLS LEVEL 6 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 8 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-8">Level 8</span>
                             </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="school:">School:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellschool"></span>
-                                    <textarea name="attr_spellschool" class="underlined" spellcheck="false" data-i18n-placeholder="spellschool-ph" placeholder="School/Domain/Elemental school..." title="@{repeating_spell-1_$id_spellschool}"></textarea>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        </div>
+                    </div>
+                </div> <!-- END SPELLS LEVEL 8 -->
+            </div> <!-- END LEFT SPELLS COL -->
+            <div class="col1third"> <!-- RIGHT SPELLS COL -->
+                <div> <!-- SPELLS LEVEL 1 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-1">Level 1</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        </div>
+                        <span class="lbl" data-i18n="p." data-i18n-title="prepared-times" title="Prepared # times">P.</span>
+                        <div class="boxed greybg">
+                            <input type="hidden" class="attr-flag" name="attr_spells_prepared_flag_1" value="0" />
+                            <span class="pseudoattr" name="attr_spells_prepared_level_1" title="@{spells_prepared_level_1}"></span>
+                        </div>
+                        <span class="lbl">/</span>
+                        <div class="boxed greybg">
+                            <span class="pseudoattr" name="attr_spells_total_level_1" title="@{spells_total_level_1}"></span>
+                        </div>
+                    </div>
+                    <div class="spacer"></div>
+                    <fieldset class="repeating_spell-1"> <!-- REPEATING 1 LVL SPELL -->
+                        <input type="hidden" name="attr_spelllevel" value="0" />
+                        <div class="spell right">
+                            <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                            <div class="myrow right">
+                                <input type="hidden" name="attr_rollcontent" />
+                                <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
+                                <span class="lbl" data-i18n="p." data-i18n-title="prepared-times" title="Prepared # times">P.</span>
+                                <input type="number" name="attr_spellprepared" value="0" class="sml underlined" title="@{repeating_spell-1_$id_spellprepared}" />
+                            </div>
+                            <div class="options right">
+                                <div class="myrow">
+                                    <span class="lbl" data-i18n="name">Name</span>
+                                    <input type="text" name="attr_spellname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-1_$id_spellname}" />
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="class-level:">Class/Level:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellclasslevel"></span>
-                                    <textarea name="attr_spellclasslevel" class="underlined" spellcheck="false" data-i18n-placeholder="spellclasslevel-ph" placeholder="Sorcerer/Wizard 3" title="@{repeating_spell-1_$id_spellclasslevel}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="school:">School:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellschool"></span>
+                                        <textarea name="attr_spellschool" class="underlined" spellcheck="false" data-i18n-placeholder="spellschool-ph" placeholder="School/Domain/Elemental school..." title="@{repeating_spell-1_$id_spellschool}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="casting-time:">Casting time:</span>
-                                <input type="text" name="attr_spellcastingtime" class="underlined std" spellcheck="false" data-i18n-placeholder="spellcastingtime-ph" placeholder="1 standard action" title="@{repeating_spell-1_$id_spellcastingtime}" />
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="components:">Components:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellcomponent"></span>
-                                    <textarea name="attr_spellcomponent" class="underlined" spellcheck="false" data-i18n-placeholder="spellcomponent-ph" placeholder="V, S, M (a ball of bat guano and sulfur)" title="@{repeating_spell-1_$id_spellcomponent}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="class-level:">Class/Level:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellclasslevel"></span>
+                                        <textarea name="attr_spellclasslevel" class="underlined" spellcheck="false" data-i18n-placeholder="spellclasslevel-ph" placeholder="Sorcerer/Wizard 3" title="@{repeating_spell-1_$id_spellclasslevel}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="range:">Range:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellrange"></span>
-                                    <textarea name="attr_spellrange" class="underlined" spellcheck="false" data-i18n-placeholder="spellrange-ph" placeholder="Long (400 ft. + 40 ft./level)" title="@{repeating_spell-1_$id_spellrange}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="casting-time:">Casting time:</span>
+                                    <input type="text" name="attr_spellcastingtime" class="underlined std" spellcheck="false" data-i18n-placeholder="spellcastingtime-ph" placeholder="1 standard action" title="@{repeating_spell-1_$id_spellcastingtime}" />
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="area:">Area:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellarea"></span>
-                                    <textarea name="attr_spellarea" class="underlined" spellcheck="false" data-i18n-placeholder="spellarea-ph" placeholder="20-ft.-radius spread" title="@{repeating_spell-1_$id_spellarea}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="components:">Components:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellcomponent"></span>
+                                        <textarea name="attr_spellcomponent" class="underlined" spellcheck="false" data-i18n-placeholder="spellcomponent-ph" placeholder="V, S, M (a ball of bat guano and sulfur)" title="@{repeating_spell-1_$id_spellcomponent}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="targets:">Targets:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spelltargets"></span>
-                                    <textarea name="attr_spelltargets" class="underlined" spellcheck="false" data-i18n-placeholder="spelltargets-ph" placeholder="up to five creatures" title="@{repeating_spell-1_$id_spelltargets}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="range:">Range:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellrange"></span>
+                                        <textarea name="attr_spellrange" class="underlined" spellcheck="false" data-i18n-placeholder="spellrange-ph" placeholder="Long (400 ft. + 40 ft./level)" title="@{repeating_spell-1_$id_spellrange}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="effect:">Effect:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spelleffect"></span>
-                                    <textarea name="attr_spelleffect" class="underlined" spellcheck="false" data-i18n-placeholder="spelleffect-ph" placeholder="Heal [[1d6+@{casterlevel}]] HP" title="@{repeating_spell-1_$id_spelleffect}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="area:">Area:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellarea"></span>
+                                        <textarea name="attr_spellarea" class="underlined" spellcheck="false" data-i18n-placeholder="spellarea-ph" placeholder="20-ft.-radius spread" title="@{repeating_spell-1_$id_spellarea}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <span class="lab std right" data-i18n="duration:">Duration:</span>
-                                <div class="autoex std">
-                                    <span name="attr_spellduration"></span>
-                                    <textarea name="attr_spellduration" class="underlined" spellcheck="false" data-i18n-placeholder="spellduration-ph" placeholder="Instantaneous" title="@{repeating_spell-1_$id_spellduration}"></textarea>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="targets:">Targets:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spelltargets"></span>
+                                        <textarea name="attr_spelltargets" class="underlined" spellcheck="false" data-i18n-placeholder="spelltargets-ph" placeholder="up to five creatures" title="@{repeating_spell-1_$id_spelltargets}"></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spellsaveflag" value="{{save=1}}" title="@{repeating_spell-1_$id_spellsaveflag}" checked="checked" /><span class="mleft"></span>
-                                <span class="lab med" data-i18n="saving-throw:">Saving Throw:</span>
-                                <input type="text" name="attr_spellsave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-1_$id_spellsave}" />
-                            </div>
-                            <div class="myrow padindent">
-                                <span class="spacer"></span>
-                                <span class="lab" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
-                                <span class="lab">+</span>
-                                <input type="number" class="underlined" name="attr_spelldc_mod" value="0" title="@{repeating_spell-1_$id_spelldc_mod}" />
-                                <span class="lab">=</span>
-                                <span class="pseudoattr greybg underlined number" name="attr_spelldc" title="@{repeating_spell-1_$id_spelldc}"></span>
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spellresistanceflag" value="{{sr=1}}" title="@{repeating_spell-1_$id_spellresistanceflag}" checked="checked" /><span class="mleft"></span>
-                                <span class="lab med" data-i18n="spell-resistance:">Spell Resistance:</span>
-                                <input type="text" name="attr_spellresistance" class="underlined med" spellcheck="false" title="@{repeating_spell-1_$id_spellresistance}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spellatkflag" value="{{attack=1}}" title="@{repeating_spell-1_$id_spellatkflag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="attack:">Attack:</span>
-                                <select class="underlined type" name="attr_spellatktype" title="@{repeating_spell-1_$id_spellatktype}">
-                                    <option value="melee" data-i18n="melee">Melee</option>
-                                    <option value="ranged" data-i18n="ranged">Ranged</option>
-                                    <option value="cmb" data-i18n="cmb-u">CMB</option>
-                                    <option value="strength" data-i18n="str-u">STR</option>
-                                    <option value="dexterity" data-i18n="dex-u">DEX</option>
-                                    <option value="constitution" data-i18n="con-u">CON</option>
-                                    <option value="intelligence" data-i18n="int-u">INT</option>
-                                    <option value="wisdom" data-i18n="wis-u">WIS</option>
-                                    <option value="charisma" data-i18n="cha-u">CHA</option>
-                                    <option value="0" selected="selected">-</option>
-                                </select>
-                                <span class="lab">+</span>
-                                <input type="text" class="underlined dmgbase" name="attr_spellatkmod" value="0" spellcheck="false" title="@{repeating_spell-1_$id_spellatkmod}" />
-                            </div>
-                            <div class="myrow padindent">
-                                <span class="spacer"></span>
-                                <span class="lab" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
-                                <input type="number" class="underlined" name="attr_spellatkcritrange" value="20" title="@{repeating_spell-1_$id_spellatkcritrange}" />
-                                <span class="lab" data-i18n="multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Multiplier:</span>
-                                <input type="number" class="underlined" name="attr_spelldmgcritmulti" value="2" title="@{repeating_spell-1_$id_spelldmgcritmulti}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spelldmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{repeating_spell-1_$id_spelldmgflag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="damage:">Damage:</span>
-                                <input type="text" name="attr_spelldmg" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_spell-1_$id_spelldmg}" />
-                                <span class="lab right typ" data-i18n="type:">Type:</span>
-                                <input type="text" name="attr_spelldmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_spell-1_$id_spelldmgtype}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spelldmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_spell-1_$id_spelldmg2flag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="damage2:">Damage2:</span>
-                                <input type="text" name="attr_spelldmg2" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_spell-1_$id_spelldmg2}" />
-                                <span class="lab right typ" data-i18n="type:">Type:</span>
-                                <input type="text" name="attr_spelldmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="force" placeholder="Force" title="@{repeating_spell-1_$id_spelldmg2type}" />
-                            </div>
-                            <div class="myrow">
-                                <input class="pseudocheck" type="checkbox" name="attr_spelldescflag" value="{{descflag=1}}" title="@{repeating_spell-1_$id_spelldescflag}" /><span class="mleft"></span>
-                                <span class="lab atk" data-i18n="description:">Description:</span>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="effect:">Effect:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spelleffect"></span>
+                                        <textarea name="attr_spelleffect" class="underlined" spellcheck="false" data-i18n-placeholder="spelleffect-ph" placeholder="Heal [[1d6+@{casterlevel}]] HP" title="@{repeating_spell-1_$id_spelleffect}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="myrow">
+                                    <span class="lbl std right" data-i18n="duration:">Duration:</span>
+                                    <div class="autoex std">
+                                        <span name="attr_spellduration"></span>
+                                        <textarea name="attr_spellduration" class="underlined" spellcheck="false" data-i18n-placeholder="spellduration-ph" placeholder="Instantaneous" title="@{repeating_spell-1_$id_spellduration}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spellsaveflag" value="{{save=1}}" title="@{repeating_spell-1_$id_spellsaveflag}" checked="checked" /><span class="mleft"></span>
+                                    <span class="lbl med" data-i18n="saving-throw:">Saving Throw:</span>
+                                    <input type="text" name="attr_spellsave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-1_$id_spellsave}" />
+                                </div>
+                                <div class="myrow padindent">
+                                    <span class="spacer"></span>
+                                    <span class="lbl" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
+                                    <span class="lbl">+</span>
+                                    <input type="number" class="underlined" name="attr_spelldc_mod" value="0" title="@{repeating_spell-1_$id_spelldc_mod}" />
+                                    <span class="lbl">=</span>
+                                    <span class="pseudoattr greybg underlined number" name="attr_spelldc" title="@{repeating_spell-1_$id_spelldc}"></span>
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spellresistanceflag" value="{{sr=1}}" title="@{repeating_spell-1_$id_spellresistanceflag}" checked="checked" /><span class="mleft"></span>
+                                    <span class="lbl med" data-i18n="spell-resistance:">Spell Resistance:</span>
+                                    <input type="text" name="attr_spellresistance" class="underlined med" spellcheck="false" title="@{repeating_spell-1_$id_spellresistance}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spellatkflag" value="{{attack=1}}" title="@{repeating_spell-1_$id_spellatkflag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="attack:">Attack:</span>
+                                    <select class="underlined type" name="attr_spellatktype" title="@{repeating_spell-1_$id_spellatktype}">
+                                        <option value="melee" data-i18n="melee">Melee</option>
+                                        <option value="ranged" data-i18n="ranged">Ranged</option>
+                                        <option value="cmb" data-i18n="cmb-u">CMB</option>
+                                        <option value="strength" data-i18n="str-u">STR</option>
+                                        <option value="dexterity" data-i18n="dex-u">DEX</option>
+                                        <option value="constitution" data-i18n="con-u">CON</option>
+                                        <option value="intelligence" data-i18n="int-u">INT</option>
+                                        <option value="wisdom" data-i18n="wis-u">WIS</option>
+                                        <option value="charisma" data-i18n="cha-u">CHA</option>
+                                        <option value="0" selected="selected">-</option>
+                                    </select>
+                                    <span class="lbl">+</span>
+                                    <input type="text" class="underlined dmgbase" name="attr_spellatkmod" value="0" spellcheck="false" title="@{repeating_spell-1_$id_spellatkmod}" />
+                                </div>
+                                <div class="myrow padindent">
+                                    <span class="spacer"></span>
+                                    <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                                    <input type="number" class="underlined" name="attr_spellatkcritrange" value="20" title="@{repeating_spell-1_$id_spellatkcritrange}" />
+                                    <span class="lbl" data-i18n="multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Multiplier:</span>
+                                    <input type="number" class="underlined" name="attr_spelldmgcritmulti" value="2" title="@{repeating_spell-1_$id_spelldmgcritmulti}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spelldmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{repeating_spell-1_$id_spelldmgflag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="damage:">Damage:</span>
+                                    <input type="text" name="attr_spelldmg" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_spell-1_$id_spelldmg}" />
+                                    <span class="lbl right typ" data-i18n="type:">Type:</span>
+                                    <input type="text" name="attr_spelldmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_spell-1_$id_spelldmgtype}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spelldmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_spell-1_$id_spelldmg2flag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
+                                    <input type="text" name="attr_spelldmg2" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_spell-1_$id_spelldmg2}" />
+                                    <span class="lbl right typ" data-i18n="type:">Type:</span>
+                                    <input type="text" name="attr_spelldmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="force" placeholder="Force" title="@{repeating_spell-1_$id_spelldmg2type}" />
+                                </div>
+                                <div class="myrow">
+                                    <input class="pseudocheck" type="checkbox" name="attr_spelldescflag" value="{{descflag=1}}" title="@{repeating_spell-1_$id_spelldescflag}" /><span class="mleft"></span>
+                                    <span class="lbl atk" data-i18n="description:">Description:</span>
+                                    <div class="autoex">
+                                        <span name="attr_spelldesc"></span>
+                                        <textarea name="attr_spelldesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_spell-1_$id_spelldesc}"></textarea>
+                                    </div>
+                                </div>
+                                <span class="lbl" data-i18n="notes:">Notes:</span>
                                 <div class="autoex">
-                                    <span name="attr_spelldesc"></span>
-                                    <textarea name="attr_spelldesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_spell-1_$id_spelldesc}"></textarea>
+                                    <span name="attr_notes"></span>
+                                    <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_spell-1_$id_notes}"></textarea>
                                 </div>
                             </div>
-                            <span class="lab" data-i18n="notes:">Notes:</span>
-                            <div class="autoex">
-                                <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_spell-1_$id_notes}"></textarea>
+                        </div>
+                    </fieldset> <!-- END REPEATING 1 LVL SPELL -->
+                </div>  <!-- END SPELLS LEVEL 1 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 3 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-3">Level 3</span>
                             </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                     </div>
-                </fieldset> <!-- END REPEATING 1 LVL SPELL -->
-            </div> <!-- END SPELLS LEVEL 1 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 2 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-2">Level 2</span>
+                </div> <!-- END SPELLS LEVEL 3 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 5 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-5">Level 5</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 2 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 3 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-3">Level 3</span>
+                </div> <!-- END SPELLS LEVEL 5 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 7 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-7">Level 7</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 3 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 4 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-4">Level 4</span>
+                </div> <!-- END SPELLS LEVEL 7 -->
+                <div class="spacer"></div>
+                <div> <!-- SPELLS LEVEL 9 -->
+                    <div class="myrow">
+                        <div class="blacklabel">
+                            <div class="blackbgrd weapon">
+                                <span class="big only" data-i18n="level-9">Level 9</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 4 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 5 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-5">Level 5</span>
-                        </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 5 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 6 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-6">Level 6</span>
-                        </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 6 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 7 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-7">Level 7</span>
-                        </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 7 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 8 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-8">Level 8</span>
-                        </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 8 -->
-            <div class="col1third"> <!-- SPELLS LEVEL 9 -->
-                <div class="myrow">
-                    <div class="blacklabel">
-                        <div class="blackbgrd weapon">
-                            <span class="big only" data-i18n="level-9">Level 9</span>
-                        </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                </div>
-            </div> <!-- END SPELLS LEVEL 9 -->
+                </div> <!-- END SPELLS LEVEL 9 -->
+            </div> <!-- END RIGHT SPELLS COL -->
         </div> <!-- END SPELLS -->
     </div> <!-- END TAB SPELLS -->
     <div class="tabconf"> <!-- TAB CONFIGURATION -->
@@ -3906,6 +3939,7 @@
     });
 
     // SPELLS - SPELLCASTING
+    // -- Concentration & DCs
     on("change:spellcasting_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
     on("change:spellcasting_ability_mod", function(e) {
         update_concentration();
@@ -3920,6 +3954,16 @@
     on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
     });
+    // -- Prepared / Total
+    on("change:spells_perday_level_0 change:spells_perday_level_1 change:spells_perday_level_2 change:spells_perday_level_3 change:spells_perday_level_4 change:spells_perday_level_5 change:spells_perday_level_6 change:spells_perday_level_7 change:spells_perday_level_8 change:spells_perday_level_9 change:spells_bonus_level_0 change:spells_bonus_level_1 change:spells_bonus_level_2 change:spells_bonus_level_3 change:spells_bonus_level_4 change:spells_bonus_level_5 change:spells_bonus_level_6 change:spells_bonus_level_7 change:spells_bonus_level_8 change:spells_bonus_level_9", function(e) {
+        update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1));
+    });
+    on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
+        var repsec = e.sourceAttribute.substr(0,17);
+        var level = repsec.charAt(repsec.length - 1);
+        update_spells_prepared(level);
+    });
+    // -- Rolls / Display
     on("change:spells_dc_level_0 change:spells_dc_level_1 change:spells_dc_level_2 change:spells_dc_level_3 change:spells_dc_level_4 change:spells_dc_level_5 change:spells_dc_level_6 change:spells_dc_level_7 change:spells_dc_level_8 change:spells_dc_level_9", function(e){
         update_spells(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),"all","");
     });
@@ -4506,6 +4550,32 @@
                 setAttrs(update, {silent: false});
             });
         }
+    };
+    var update_spells_totals = function(level) {
+        var fields = ["spells_perday_level_" + level,"spells_bonus_level_" + level];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["spells_total_level_" + level] = (parseInt(v["spells_perday_level_" + level]) || 0) + (parseInt(v["spells_bonus_level_" + level]) || 0);
+            setAttrs(update, {silent: true});
+        });
+    };
+    var update_spells_prepared = function (level) {
+        getSectionIDs("repeating_spell-" + level, function(idarray) {
+            var spell_attribs = ["spells_total_level_" + level];
+            _.each(idarray, function(spellid) {
+                spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellprepared");
+            });
+            getAttrs(spell_attribs, function(v) {
+                var total = 0;
+                var update = {};
+                _.each(idarray, function(id) {
+                    total += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
+                });
+                update["spells_prepared_level_" + level] = total;
+                update["spells_prepared_flag_" + level] = (total > (parseInt(v["spells_total_level_" + level]) || 0)) ? 1 : 0;
+                setAttrs(update, {silent: true});
+            });
+        });
     };
     var update_all_spells = function(update_id, source) {
         // ugly but couldn't manage to loop with asyncrhonus getAttrs...
