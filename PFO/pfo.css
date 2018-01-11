@@ -399,11 +399,12 @@ div.sheet-acitems {
 }
 .sheet-spellcasting .sheet-perlevel .sheet-boxed {margin: 0px 1px 0px 1px;}
 .sheet-spells div.sheet-blacklabel {width: 60%;}
+div.sheet-spell {margin-top: 2px;}
 .sheet-spell .sheet-lab {text-align: left;}
 .sheet-spell span.sheet-std {width: 80px;}
 .sheet-spell input[type="text"].sheet-std {
     width: 185px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.2em;
 }
 .sheet-spell .sheet-autoex.sheet-std {
@@ -415,7 +416,7 @@ div.sheet-acitems {
 .sheet-spell span.sheet-med {width: 95px;}
 .sheet-spell input[type="text"].sheet-med {
     width: 150px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     line-height: 1.2em;
 }
 .sheet-spell .sheet-atk {width: 50px;}
@@ -425,7 +426,7 @@ div.sheet-acitems {
 .sheet-spell span.sheet-lbl.sheet-atk {width: 55px;}
 .sheet-spell span.sheet-lbl.sheet-typ {width: 35px;}
 .sheet-spell .sheet-spelldsp {
-    width: 220px;
+    width: 190px;
     text-align: left;
     font-size: 1.2em;
     padding-left: 2px;
@@ -471,6 +472,7 @@ span.sheet-pseudoattr {
     height: 18px;
     vertical-align: bottom;
     white-space: pre;
+    overflow: hidden;
 }
 div.sheet-boxed span.sheet-pseudoattr {
     min-width: 36px;
@@ -671,7 +673,7 @@ div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big.
     padding-top: 3px;
 }
 /* ===== PSEUDO CHECKS ===== */
-input[type="checkbox"].sheet-pseudocheck {
+input.sheet-pseudocheck {
     opacity: 0;
     width: 13px;
     cursor: pointer;
@@ -679,20 +681,20 @@ input[type="checkbox"].sheet-pseudocheck {
     margin-top: 3px;
     line-height: 13px;
 }
-input[type="checkbox"].sheet-pseudocheck + span{
+input.sheet-pseudocheck + span{
     font-size: 13px;
     line-height: 13px;
     white-space: nowrap;
 }
-input[type="checkbox"].sheet-pseudocheck + span.sheet-mright{
+input.sheet-pseudocheck + span.sheet-mright{
     margin-right: -13px;
     margin-left: 2px;
 }
-input[type="checkbox"].sheet-pseudocheck + span.sheet-mleft{
+input.sheet-pseudocheck + span.sheet-mleft{
     margin-left: -13px;
     margin-right: 2px;
 }
-input[type="checkbox"].sheet-pseudocheck + span::before {
+input.sheet-pseudocheck + span::before {
     text-align: middle;
     display: inline-block;
     vertical-align: middle;
@@ -704,8 +706,57 @@ input[type="checkbox"].sheet-pseudocheck + span::before {
     line-height: 18px;
     font-size: 18px;
 }
-input[type="checkbox"].sheet-pseudocheck:checked + span::before {
+input.sheet-pseudocheck:checked + span::before {
     content: "☑";
+}
+/* ==== RADIO ==== */
+.sheet-dotcontainer{
+    display: inline-block;
+    position: relative;
+}
+.sheet-dots {
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+}
+.sheet-dots input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+}
+.sheet-dots input[type="radio"],
+.sheet-dots input[type="radio"] + span {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin: 3px -1px 0px -1px;
+}
+.sheet-dots input[type="radio"] + span {
+    vertical-align: top;
+    position: relative;
+    background: transparent;
+}
+.sheet-dots input[type="radio"]:not([value="0"]) + span {
+    border: 1px solid black;
+}
+.sheet-dots input[type="radio"]:not([value="0"]) + span::before {
+    content: "✔";
+    position: absolute;
+    top: -3px;
+    left: 0px;
+}
+.sheet-dots input[type="radio"]:checked ~ input[type="radio"] + span::before {
+    content: " ";
+}
+.sheet-dots input[type="radio"][value="0"] + span:before {
+    content: "P.";
+    font-family: sans-serif;
+    font-size: 0.95em;
+    position: relative;
+}
+.sheet-dots input[type="radio"][value="0"]:hover + span:before {
+    font-weight: bold;
+    color: #BE202E;
 }
 /* ===== PSEUDO TABS ===== */
 div.sheet-tabmain,
@@ -901,7 +952,7 @@ input.sheet-tabconf:checked + span{
     font-family: 'Patrick Hand';
     font-size: 1.2em;
     line-height: 1.2em;
-    min-height: 18px;
+    min-height: 1.2em;
     text-align: left;
 }
 .sheet-autoex span {
