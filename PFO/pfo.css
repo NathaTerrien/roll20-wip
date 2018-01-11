@@ -426,7 +426,7 @@ div.sheet-spell {margin-top: 2px;}
 .sheet-spell span.sheet-lbl.sheet-atk {width: 55px;}
 .sheet-spell span.sheet-lbl.sheet-typ {width: 35px;}
 .sheet-spell .sheet-spelldsp {
-    width: 190px;
+    width: 185px;
     text-align: left;
     font-size: 1.2em;
     padding-left: 2px;
@@ -639,6 +639,20 @@ select.sheet-size {
 .sheet-skill .sheet-attr-flag[value="3"] + span:after {
     content: "Ue";
 }
+.sheet-spell .sheet-attr-flag + span{
+    position: absolute;
+    right: 75px;
+}
+.sheet-spell .sheet-attr-flag:not([value="0"]) + span:after{
+    font-family: "Pictos Three";
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #BE202E;
+    background: #DDD;
+}
+.sheet-spell .sheet-attr-flag[value="1"] + span:after {
+    content: "g";
+}
 
 /* ===== BUTTONS ===== */
 button[type="roll"].sheet-myrol{
@@ -710,14 +724,14 @@ input.sheet-pseudocheck:checked + span::before {
     content: "☑";
 }
 /* ==== RADIO ==== */
-.sheet-dotcontainer{
-    display: inline-block;
-    position: relative;
-}
 .sheet-dots {
     display: inline-block;
     position: relative;
     white-space: nowrap;
+}
+.sheet-spell div.sheet-dots {
+    width: 70px;
+    text-align: left;
 }
 .sheet-dots input[type="radio"] {
     position: absolute;
@@ -738,6 +752,7 @@ input.sheet-pseudocheck:checked + span::before {
 }
 .sheet-dots input[type="radio"]:not([value="0"]) + span {
     border: 1px solid black;
+    border-radius: 50%;
 }
 .sheet-dots input[type="radio"]:not([value="0"]) + span::before {
     content: "✔";

@@ -223,9 +223,7 @@
         update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1));
     });
     on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
-        var repsec = e.sourceAttribute.substr(0,17);
-        var level = repsec.charAt(repsec.length - 1);
-        update_spells_prepared(level);
+        update_spells_prepared(e.sourceAttribute,e.newValue);
     });
     // -- Rolls / Display
     on("change:spells_dc_level_0 change:spells_dc_level_1 change:spells_dc_level_2 change:spells_dc_level_3 change:spells_dc_level_4 change:spells_dc_level_5 change:spells_dc_level_6 change:spells_dc_level_7 change:spells_dc_level_8 change:spells_dc_level_9", function(e){
@@ -855,7 +853,13 @@
             setAttrs(update, {silent: true});
         });
     };
-    var update_spells_prepared = function (level) {
+    var update_spells_prepared = function (src,val) {
+        var splid = src.substring(18, 38);
+        var repsec = src.substr(0,17);
+        var level = repsec.charAt(repsec.length - 1);
+        var prep = parseInt(val) || 0;
+        var update = {};
+        update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
         getSectionIDs("repeating_spell-" + level, function(idarray) {
             var spell_attribs = ["spells_total_level_" + level];
             _.each(idarray, function(spellid) {
@@ -863,7 +867,6 @@
             });
             getAttrs(spell_attribs, function(v) {
                 var total = 0;
-                var update = {};
                 _.each(idarray, function(id) {
                     total += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
                 });
@@ -951,7 +954,8 @@
                 var rollbase = "";
                 var rollbasetemplate = "default";
                 var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"];
-                var atktype = parseInt(v[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] + "_mod"]) || 0;
+                //var atktype = parseInt(v[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] + "_mod"]) || 0;
+                var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"];
                 var atkmod = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkmod"];
                 var atkcritrange = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkcritrange"]) || 20;
                 var dmgflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgflag"];
@@ -961,8 +965,6 @@
                 var dmg2flag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag"];
                 var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"];
                 var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"];
-                // Handling empty values
-                if (atkmod.length == 0) {atkmod = "0";}
                 // == Display handling
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                 // == Save DC
@@ -993,6 +995,8 @@
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {rollbase += "{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";}
                 // roll attack
                 if(atkflag != "0") {
+                    if (atktype != "0") {atktype = "@{" + atktype + "_mod}";}
+                    if (atkmod.length == 0) {atkmod = "0";}
                     rollbase += atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     rollbase += "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                 }
