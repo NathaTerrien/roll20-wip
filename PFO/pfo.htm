@@ -2697,7 +2697,7 @@
                             <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
                                 <span class="lbl custom" data-i18n="custom">Custom</span>
                             </button>
-                            <input type="text" name="attr_name" class="custom underlined" data-i18n-placeholder="job" placeholder="Job" title="@{repeating_skillcustom_$id_name}" />
+                            <input type="text" name="attr_name" class="custom underlined" data-i18n-placeholder="skill" placeholder="Skill" title="@{repeating_skillcustom_$id_name}" />
                             <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
                             <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillcustom_$id_skill}"></span>
                             <input type="hidden" name="attr_skill" />
@@ -2734,6 +2734,18 @@
                         </div>
                     </div>
                 </fieldset>  <!-- END repeating custom skill -->
+                <div class="spacer"></div>
+                <div class="myrow"> <!-- SPELLCASTING -->
+                    <div class="blacklabel totalranks">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="total-ranks">Total Ranks</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <span class="pseudoattr" name="attr_skills_ranks_total" title="@{skills_ranks_total}"></span>
+                    </div>
+                </div>
             </div> <!-- END SKILLS -->
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
@@ -2767,7 +2779,7 @@
                         <div class="blackbgrd max">
                             <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Maximum Dex Bonus">Dex</span>
                         </div>
-                        <div class="blackbgrd spell">
+                        <div class="blackbgrd spellfailure">
                             <span class="med only" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
                         </div>
                     </div>
@@ -5191,63 +5203,64 @@
     on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability change:repeating_skillcustom:ability", function(e){
         update_flex_ability(e.newValue,e.sourceAttribute);
     });
-    on("change:acrobatics_classkill change:acrobatics_ability_mod change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", function() {update_skill("acrobatics");});
-    on("change:appraise_classkill change:appraise_ability_mod change:appraise_ranks change:appraise_misc change:appraise_bonus change:appraise_armor_penalty", function() {
-        update_skill("appraise");
+    on("change:acrobatics_classkill change:acrobatics_ability_mod change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", function(e) {update_skill("acrobatics",e.sourceAttribute);});
+    on("change:appraise_classkill change:appraise_ability_mod change:appraise_ranks change:appraise_misc change:appraise_bonus change:appraise_armor_penalty", function(e) {
+        update_skill("appraise",e.sourceAttribute);
     });
-    on("change:bluff_classkill change:bluff_ability_mod change:bluff_ranks change:bluff_misc change:bluff_bonus change:bluff_armor_penalty", function() {update_skill("bluff");});
-    on("change:climb_classkill change:climb_ability_mod change:climb_ranks change:climb_misc change:climb_bonus change:climb_armor_penalty", function() {update_skill("climb");});
-    on("change:craft_classkill change:craft_ability_mod change:craft_ranks change:craft_misc change:craft_bonus change:craft_armor_penalty", function() {update_skill("craft");});
+    on("change:bluff_classkill change:bluff_ability_mod change:bluff_ranks change:bluff_misc change:bluff_bonus change:bluff_armor_penalty", function(e) {update_skill("bluff",e.sourceAttribute);});
+    on("change:climb_classkill change:climb_ability_mod change:climb_ranks change:climb_misc change:climb_bonus change:climb_armor_penalty", function(e) {update_skill("climb",e.sourceAttribute);});
+    on("change:craft_classkill change:craft_ability_mod change:craft_ranks change:craft_misc change:craft_bonus change:craft_armor_penalty", function(e) {update_skill("craft",e.sourceAttribute);});
     on("change:repeating_skillcraft:classkill change:repeating_skillcraft:name change:repeating_skillcraft:ability_mod change:repeating_skillcraft:ranks change:repeating_skillcraft:misc change:repeating_skillcraft:bonus change:repeating_skillcraft:armor_penalty", function(e) {
         var skillid = e.sourceAttribute.substring(0, 41);
-        update_skill(skillid);
+        update_skill(skillid,e.sourceAttribute);
     });
-    on("change:diplomacy_classkill change:diplomacy_ability_mod change:diplomacy_ranks change:diplomacy_misc change:diplomacy_bonus change:diplomacy_armor_penalty", function() {update_skill("diplomacy");});
-    on("change:disable_device_classkill change:disable_device_ability_mod change:disable_device_ranks change:disable_device_misc change:disable_device_bonus change:disable_device_armor_penalty", function() {update_skill("disable_device");});
-    on("change:disguise_classkill change:disguise_ability_mod change:disguise_ranks change:disguise_misc change:disguise_bonus change:disguise_armor_penalty", function() {update_skill("disguise");});
-    on("change:escape_artist_classkill change:escape_artist_ability_mod change:escape_artist_ranks change:escape_artist_misc change:escape_artist_bonus change:escape_artist_armor_penalty", function() {update_skill("escape_artist");});
-    on("change:fly_classkill change:fly_ability_mod change:fly_ranks change:fly_misc change:fly_bonus change:fly_armor_penalty", function() {update_skill("fly");});
-    on("change:handle_animal_classkill change:handle_animal_ability_mod change:handle_animal_ranks change:handle_animal_misc change:handle_animal_bonus change:handle_animal_armor_penalty", function() {update_skill("handle_animal");});
-    on("change:heal_classkill change:heal_ability_mod change:heal_ranks change:heal_misc change:heal_bonus change:heal_armor_penalty", function() {update_skill("heal");});
-    on("change:intimidate_classkill change:intimidate_ability_mod change:intimidate_ranks change:intimidate_misc change:intimidate_bonus change:intimidate_armor_penalty", function() {update_skill("intimidate");});
-    on("change:knowledge_arcana_classkill change:knowledge_arcana_ability_mod change:knowledge_arcana_ranks change:knowledge_arcana_misc change:knowledge_arcana_bonus change:knowledge_arcana_armor_penalty", function() {update_skill("knowledge_arcana");});
-    on("change:knowledge_dungeoneering_classkill change:knowledge_dungeoneering_ability_mod change:knowledge_dungeoneering_ranks change:knowledge_dungeoneering_misc change:knowledge_dungeoneering_bonus change:knowledge_dungeoneering_armor_penalty", function() {update_skill("knowledge_dungeoneering");});
-    on("change:knowledge_engineering_classkill change:knowledge_engineering_ability_mod change:knowledge_engineering_ranks change:knowledge_engineering_misc change:knowledge_engineering_bonus change:knowledge_engineering_armor_penalty", function() {update_skill("knowledge_engineering");});
-    on("change:knowledge_geography_classkill change:knowledge_geography_ability_mod change:knowledge_geography_ranks change:knowledge_geography_misc change:knowledge_geography_bonus change:knowledge_geography_armor_penalty", function() {update_skill("knowledge_geography");});
-    on("change:knowledge_history_classkill change:knowledge_history_ability_mod change:knowledge_history_ranks change:knowledge_history_misc change:knowledge_history_bonus change:knowledge_history_armor_penalty", function() {update_skill("knowledge_history");});
-    on("change:knowledge_local_classkill change:knowledge_local_ability_mod change:knowledge_local_ranks change:knowledge_local_misc change:knowledge_local_bonus change:knowledge_local_armor_penalty", function() {update_skill("knowledge_local");});
-    on("change:knowledge_nature_classkill change:knowledge_nature_ability_mod change:knowledge_nature_ranks change:knowledge_nature_misc change:knowledge_nature_bonus change:knowledge_nature_armor_penalty", function() {update_skill("knowledge_nature");});
-    on("change:knowledge_nobility_classkill change:knowledge_nobility_ability_mod change:knowledge_nobility_ranks change:knowledge_nobility_misc change:knowledge_nobility_bonus change:knowledge_nobility_armor_penalty", function() {update_skill("knowledge_nobility");});
-    on("change:knowledge_planes_classkill change:knowledge_planes_ability_mod change:knowledge_planes_ranks change:knowledge_planes_misc change:knowledge_planes_bonus change:knowledge_planes_armor_penalty", function() {update_skill("knowledge_planes");});
-    on("change:knowledge_religion_classkill change:knowledge_religion_ability_mod change:knowledge_religion_ranks change:knowledge_religion_misc change:knowledge_religion_bonus change:knowledge_religion_armor_penalty", function() {update_skill("knowledge_religion");});
+    on("change:diplomacy_classkill change:diplomacy_ability_mod change:diplomacy_ranks change:diplomacy_misc change:diplomacy_bonus change:diplomacy_armor_penalty", function(e) {update_skill("diplomacy",e.sourceAttribute);});
+    on("change:disable_device_classkill change:disable_device_ability_mod change:disable_device_ranks change:disable_device_misc change:disable_device_bonus change:disable_device_armor_penalty", function(e) {update_skill("disable_device",e.sourceAttribute);});
+    on("change:disguise_classkill change:disguise_ability_mod change:disguise_ranks change:disguise_misc change:disguise_bonus change:disguise_armor_penalty", function(e) {update_skill("disguise",e.sourceAttribute);});
+    on("change:escape_artist_classkill change:escape_artist_ability_mod change:escape_artist_ranks change:escape_artist_misc change:escape_artist_bonus change:escape_artist_armor_penalty", function(e) {update_skill("escape_artist",e.sourceAttribute);});
+    on("change:fly_classkill change:fly_ability_mod change:fly_ranks change:fly_misc change:fly_bonus change:fly_armor_penalty", function(e) {update_skill("fly",e.sourceAttribute);});
+    on("change:handle_animal_classkill change:handle_animal_ability_mod change:handle_animal_ranks change:handle_animal_misc change:handle_animal_bonus change:handle_animal_armor_penalty", function(e) {update_skill("handle_animal",e.sourceAttribute);});
+    on("change:heal_classkill change:heal_ability_mod change:heal_ranks change:heal_misc change:heal_bonus change:heal_armor_penalty", function(e) {update_skill("heal",e.sourceAttribute);});
+    on("change:intimidate_classkill change:intimidate_ability_mod change:intimidate_ranks change:intimidate_misc change:intimidate_bonus change:intimidate_armor_penalty", function(e) {update_skill("intimidate",e.sourceAttribute);});
+    on("change:knowledge_arcana_classkill change:knowledge_arcana_ability_mod change:knowledge_arcana_ranks change:knowledge_arcana_misc change:knowledge_arcana_bonus change:knowledge_arcana_armor_penalty", function(e) {update_skill("knowledge_arcana",e.sourceAttribute);});
+    on("change:knowledge_dungeoneering_classkill change:knowledge_dungeoneering_ability_mod change:knowledge_dungeoneering_ranks change:knowledge_dungeoneering_misc change:knowledge_dungeoneering_bonus change:knowledge_dungeoneering_armor_penalty", function(e) {update_skill("knowledge_dungeoneering",e.sourceAttribute);});
+    on("change:knowledge_engineering_classkill change:knowledge_engineering_ability_mod change:knowledge_engineering_ranks change:knowledge_engineering_misc change:knowledge_engineering_bonus change:knowledge_engineering_armor_penalty", function(e) {update_skill("knowledge_engineering",e.sourceAttribute);});
+    on("change:knowledge_geography_classkill change:knowledge_geography_ability_mod change:knowledge_geography_ranks change:knowledge_geography_misc change:knowledge_geography_bonus change:knowledge_geography_armor_penalty", function(e) {update_skill("knowledge_geography",e.sourceAttribute);});
+    on("change:knowledge_history_classkill change:knowledge_history_ability_mod change:knowledge_history_ranks change:knowledge_history_misc change:knowledge_history_bonus change:knowledge_history_armor_penalty", function(e) {update_skill("knowledge_history",e.sourceAttribute);});
+    on("change:knowledge_local_classkill change:knowledge_local_ability_mod change:knowledge_local_ranks change:knowledge_local_misc change:knowledge_local_bonus change:knowledge_local_armor_penalty", function(e) {update_skill("knowledge_local",e.sourceAttribute);});
+    on("change:knowledge_nature_classkill change:knowledge_nature_ability_mod change:knowledge_nature_ranks change:knowledge_nature_misc change:knowledge_nature_bonus change:knowledge_nature_armor_penalty", function(e) {update_skill("knowledge_nature",e.sourceAttribute);});
+    on("change:knowledge_nobility_classkill change:knowledge_nobility_ability_mod change:knowledge_nobility_ranks change:knowledge_nobility_misc change:knowledge_nobility_bonus change:knowledge_nobility_armor_penalty", function(e) {update_skill("knowledge_nobility",e.sourceAttribute);});
+    on("change:knowledge_planes_classkill change:knowledge_planes_ability_mod change:knowledge_planes_ranks change:knowledge_planes_misc change:knowledge_planes_bonus change:knowledge_planes_armor_penalty", function(e) {update_skill("knowledge_planes",e.sourceAttribute);});
+    on("change:knowledge_religion_classkill change:knowledge_religion_ability_mod change:knowledge_religion_ranks change:knowledge_religion_misc change:knowledge_religion_bonus change:knowledge_religion_armor_penalty", function(e) {update_skill("knowledge_religion",e.sourceAttribute);});
     on("change:repeating_skillknowledge:classkill change:repeating_skillknowledge:name change:repeating_skillknowledge:ability_mod change:repeating_skillknowledge:ranks change:repeating_skillknowledge:misc change:repeating_skillknowledge:bonus change:repeating_skillknowledge:armor_penalty", function(e) {
         var skillid = e.sourceAttribute.substring(0, 45);
-        update_skill(skillid);
+        update_skill(skillid,e.sourceAttribute);
     });
-    on("change:linguistics_classkill change:linguistics_ability_mod change:linguistics_ranks change:linguistics_misc change:linguistics_bonus change:linguistics_armor_penalty", function() {update_skill("linguistics");});
-    on("change:perception_classkill change:perception_ability_mod change:perception_ranks change:perception_misc change:perception_bonus change:perception_armor_penalty", function() {update_skill("perception");});
-    on("change:perform_classkill change:perform_ability_mod change:perform_ranks change:perform_misc change:perform_bonus change:perform_armor_penalty", function() {update_skill("perform");});
+    on("change:linguistics_classkill change:linguistics_ability_mod change:linguistics_ranks change:linguistics_misc change:linguistics_bonus change:linguistics_armor_penalty", function(e) {update_skill("linguistics",e.sourceAttribute);});
+    on("change:perception_classkill change:perception_ability_mod change:perception_ranks change:perception_misc change:perception_bonus change:perception_armor_penalty", function(e) {update_skill("perception",e.sourceAttribute);});
+    on("change:perform_classkill change:perform_ability_mod change:perform_ranks change:perform_misc change:perform_bonus change:perform_armor_penalty", function(e) {update_skill("perform",e.sourceAttribute);});
     on("change:repeating_skillperform:classkill change:repeating_skillperform:name change:repeating_skillperform:ability_mod change:repeating_skillperform:ranks change:repeating_skillperform:misc change:repeating_skillperform:bonus change:repeating_skillperform:armor_penalty", function(e) {
         var skillid = e.sourceAttribute.substring(0, 43);
-        update_skill(skillid);
+        update_skill(skillid,e.sourceAttribute);
     });
-    on("change:profession_classkill change:profession_ability_mod change:profession_ranks change:profession_misc change:profession_bonus change:profession_armor_penalty", function() {update_skill("profession");});
+    on("change:profession_classkill change:profession_ability_mod change:profession_ranks change:profession_misc change:profession_bonus change:profession_armor_penalty", function(e) {update_skill("profession",e.sourceAttribute);});
     on("change:repeating_skillprofession:classkill change:repeating_skillprofession:name change:repeating_skillprofession:ability_mod change:repeating_skillprofession:ranks change:repeating_skillprofession:misc change:repeating_skillprofession:bonus change:repeating_skillprofession:armor_penalty", function(e) {
         var skillid = e.sourceAttribute.substring(0, 46);
-        update_skill(skillid);
+        update_skill(skillid,e.sourceAttribute);
     });
-    on("change:ride_classkill change:ride_ability_mod change:ride_ranks change:ride_misc change:ride_bonus change:ride_armor_penalty", function() {update_skill("ride");});
-    on("change:sense_motive_classkill change:sense_motive_ability_mod change:sense_motive_ranks change:sense_motive_misc change:sense_motive_bonus change:sense_motive_armor_penalty", function() {update_skill("sense_motive");});
-    on("change:sleight_of_hand_classkill change:sleight_of_hand_ability_mod change:sleight_of_hand_ranks change:sleight_of_hand_misc change:sleight_of_hand_bonus change:sleight_of_hand_armor_penalty", function() {update_skill("sleight_of_hand");});
-    on("change:spellcraft_classkill change:spellcraft_ability_mod change:spellcraft_ranks change:spellcraft_misc change:spellcraft_bonus change:spellcraft_armor_penalty", function() {update_skill("spellcraft");});
-    on("change:stealth_classkill change:stealth_ability_mod change:stealth_ranks change:stealth_misc change:stealth_bonus change:stealth_armor_penalty", function() {update_skill("stealth");});
-    on("change:survival_classkill change:survival_ability_mod change:survival_ranks change:survival_misc change:survival_bonus change:survival_armor_penalty", function() {update_skill("survival");});
-    on("change:swim_classkill change:swim_ability_mod change:swim_ranks change:swim_misc change:swim_bonus change:swim_armor_penalty", function() {update_skill("swim");});
-    on("change:use_magic_device_classkill change:use_magic_device_ability_mod change:use_magic_device_ranks change:use_magic_device_misc change:use_magic_device_bonus change:use_magic_device_armor_penalty", function() {update_skill("use_magic_device");});
+    on("change:ride_classkill change:ride_ability_mod change:ride_ranks change:ride_misc change:ride_bonus change:ride_armor_penalty", function(e) {update_skill("ride",e.sourceAttribute);});
+    on("change:sense_motive_classkill change:sense_motive_ability_mod change:sense_motive_ranks change:sense_motive_misc change:sense_motive_bonus change:sense_motive_armor_penalty", function(e) {update_skill("sense_motive",e.sourceAttribute);});
+    on("change:sleight_of_hand_classkill change:sleight_of_hand_ability_mod change:sleight_of_hand_ranks change:sleight_of_hand_misc change:sleight_of_hand_bonus change:sleight_of_hand_armor_penalty", function(e) {update_skill("sleight_of_hand",e.sourceAttribute);});
+    on("change:spellcraft_classkill change:spellcraft_ability_mod change:spellcraft_ranks change:spellcraft_misc change:spellcraft_bonus change:spellcraft_armor_penalty", function(e) {update_skill("spellcraft",e.sourceAttribute);});
+    on("change:stealth_classkill change:stealth_ability_mod change:stealth_ranks change:stealth_misc change:stealth_bonus change:stealth_armor_penalty", function(e) {update_skill("stealth",e.sourceAttribute);});
+    on("change:survival_classkill change:survival_ability_mod change:survival_ranks change:survival_misc change:survival_bonus change:survival_armor_penalty", function(e) {update_skill("survival",e.sourceAttribute);});
+    on("change:swim_classkill change:swim_ability_mod change:swim_ranks change:swim_misc change:swim_bonus change:swim_armor_penalty", function(e) {update_skill("swim",e.sourceAttribute);});
+    on("change:use_magic_device_classkill change:use_magic_device_ability_mod change:use_magic_device_ranks change:use_magic_device_misc change:use_magic_device_bonus change:use_magic_device_armor_penalty", function(e) {update_skill("use_magic_device",e.sourceAttribute);});
     on("change:repeating_skillcustom:classkill change:repeating_skillcustom:name change:repeating_skillcustom:ability_mod change:repeating_skillcustom:ranks change:repeating_skillcustom:misc change:repeating_skillcustom:bonus change:repeating_skillcustom:armor_penalty", function(e) {
         var skillid = e.sourceAttribute.substring(0, 42);
-        update_skill(skillid);
+        update_skill(skillid,e.sourceAttribute);
     });
+    on("change:skillfixed_ranks change:skillcraft_ranks change:skillknowledge_ranks change:skillperform_ranks change:skillprofession_ranks change:skillcustom_ranks", function() {sum_allskills_ranks();});
 
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
@@ -5829,7 +5842,7 @@
     };
 
     // === SKILLS
-    var update_skill = function(attr) {
+    var update_skill = function(attr,source) {
         var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod"];
         getAttrs(fields, function(v) {
             var update = {};
@@ -5854,7 +5867,55 @@
             var skill = clsbonus + ranks + penlt + abltmod + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             if (attr.substr(0, 15) == "repeating_skill") {update[attr + "_skill"] = skill;}
             else {update[attr] = skill;}
-            setAttrs(update, {silent: true});
+            setAttrs(update, {silent: true}, sum_someskills_ranks(source));
+        });
+    };
+    var sum_someskills_ranks = function(source) {
+        if (source.slice(-5) == "ranks") {
+            var fields = [];
+            var ranks = 0;
+            var update = {};
+            if (source.includes("repeating_skill")) {
+                var repsec = "";
+                if (source.includes("skillcraft")) {repsec = "skillcraft";}
+                else if (source.includes("skillknowledge")) {repsec = "skillknowledge";}
+                else if (source.includes("skillperform")) {repsec = "skillperform";}
+                else if (source.includes("skillprofession")) {repsec = "skillprofession";}
+                else if (source.includes("skillcustom")) {repsec = "skillcustom";}
+                if (repsec.length > 0 ){
+                    getSectionIDs("repeating_" + repsec, function(idarray) {
+                        _.each(idarray, function(id) {
+                            fields.push("repeating_" + repsec + "_" + id + "_ranks");
+                        });
+                        getAttrs(fields, function(v){
+                            _.each(fields, function(fld){
+                                ranks += parseInt(v[fld]) || 0;
+                            });
+                            update[repsec + "_ranks"] = ranks;
+                            setAttrs(update,{silent:false});
+                        });
+                    });
+                }
+            } else {
+                fields = ["acrobatics_ranks","appraise_ranks","bluff_ranks","climb_ranks","craft_ranks","diplomacy_ranks","disable_device_ranks","disguise_ranks","escape_artist_ranks","fly_ranks","handle_animal_ranks","heal_ranks","intimidate_ranks","knowledge_arcana_ranks","knowledge_dungeoneering_ranks","knowledge_engineering_ranks","knowledge_geography_ranks","knowledge_history_ranks","knowledge_local_ranks","knowledge_nature_ranks","knowledge_nobility_ranks","knowledge_planes_ranks","knowledge_religion_ranks","linguistics_ranks","perception_ranks","perform_ranks","profession_ranks","ride_ranks","sense_motive_ranks","sleight_of_hand_ranks","spellcraft_ranks","stealth_ranks","survival_ranks","swim_ranks","use_magic_device_ranks"];
+                getAttrs(fields, function(v){
+                    _.each(fields, function(fld){
+                        ranks += parseInt(v[fld]) || 0;
+                    });
+                    update["skillfixed_ranks"] = ranks;
+                    setAttrs(update,{silent:false});
+                });
+            }
+        }
+    };
+    var sum_allskills_ranks = function() {
+        var fields = ["skillfixed_ranks","skillcraft_ranks","skillknowledge_ranks","skillperform_ranks","skillprofession_ranks","skillcustom_ranks"];
+        getAttrs(fields, function(v){
+            var ranks = 0;
+            _.each(fields, function(fld){
+                ranks += parseInt(v[fld]) || 0;
+            });
+            setAttrs({"skills_ranks_total":ranks},{silent:true});
         });
     };
 

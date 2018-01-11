@@ -312,6 +312,10 @@ div.sheet-save {
 .sheet-skills div.sheet-blacklabel {
     width: 85%;
 }
+.sheet-skills div.sheet-blacklabel.sheet-totalranks {
+    width: 165px;
+    margin-left: 133px;
+}
 
 div.sheet-acitems {
     width: 550px;
@@ -325,7 +329,7 @@ div.sheet-acitems {
 .sheet-acitems .sheet-blackbgrd.sheet-max {width: 35px;}
 .sheet-acitems .sheet-spacer.sheet-type,
 .sheet-acitems .sheet-blackbgrd.sheet-type {width: 60px;}
-.sheet-acitems .sheet-blackbgrd.sheet-spell {width: 38px;}
+.sheet-acitems .sheet-blackbgrd.sheet-spellfailure {width: 38px;}
 .sheet-acitems .sheet-lab.sheet-totals {width: 90px;}
 .sheet-acitems .sheet-lab.sheet-shield,
 .sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
@@ -966,8 +970,8 @@ input.sheet-tabconf:checked + span{
     cursor: text;
     font-family: 'Patrick Hand';
     font-size: 1.2em;
-    line-height: 1.2em;
-    min-height: 1.2em;
+    line-height: 1.4em;
+    min-height: 1.4em;
     text-align: left;
 }
 .sheet-autoex span {
@@ -978,7 +982,7 @@ input.sheet-tabconf:checked + span{
     line-height: inherit;
     white-space: pre-wrap;
     text-align: inherit;
-    padding: 2px;
+    min-height: inherit;
 }
 .sheet-autoex textarea {
     display: block;
@@ -994,7 +998,7 @@ input.sheet-tabconf:checked + span{
     line-height: inherit;
     white-space: pre-wrap;
     text-align: inherit;
-    padding: 2px;
+    min-height: inherit;
 }
 /* ===== REPEATING SECTIONS CTRL ===== */
 .repcontrol {
