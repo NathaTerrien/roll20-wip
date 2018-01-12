@@ -659,7 +659,8 @@ select.sheet-size {
 }
 
 /* ===== BUTTONS ===== */
-button[type="roll"].sheet-myrol{
+button[type="compendium"].sheet-myrol,
+button[type="roll"].sheet-myrol {
     text-align: center;
     text-decoration: none;
     background:none;
@@ -677,6 +678,7 @@ button[type="roll"].sheet-myrol{
     text-align: inherit;
     vertical-align: inherit;
 }
+button[type="compendium"].sheet-myrol:hover,
 button[type="roll"].sheet-myrol:hover{
     color: #BE202E;
 }

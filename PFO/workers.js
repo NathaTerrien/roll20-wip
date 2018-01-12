@@ -205,29 +205,29 @@
 
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
-    on("change:spellcasting_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
-    on("change:spellcasting_ability_mod", function(e) {
-        update_concentration();
+    on("change:caster1_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
+    on("change:caster1_ability_mod", function(e) {
+        update_concentration(e.sourceAttribute);
         update_spellsdc(e.sourceAttribute);
     });
-    on("change:casterlevel", function() {
-        update_concentration();
+    on("change:caster1_level", function() {
+        update_concentration(e.sourceAttribute);
     });
-    on("change:concentration_misc change:concentration_bonus", function() {
-        update_concentration();
+    on("change:caster1_concentration_misc change:caster1_concentration_bonus", function() {
+        update_concentration(e.sourceAttribute);
     });
-    on("change:spells_dcmisc change:spells_dcbonus_level_0 change:spells_dcbonus_level_1 change:spells_dcbonus_level_2 change:spells_dcbonus_level_3 change:spells_dcbonus_level_4 change:spells_dcbonus_level_5 change:spells_dcbonus_level_6 change:spells_dcbonus_level_7 change:spells_dcbonus_level_8 change:spells_dcbonus_level_9", function(e) {
+    on("change:caster1_dc_misc change:caster1_dcbonus_level_0 change:caster1_dcbonus_level_1 change:caster1_dcbonus_level_2 change:caster1_dcbonus_level_3 change:caster1_dcbonus_level_4 change:caster1_dcbonus_level_5 change:caster1_dcbonus_level_6 change:caster1_dcbonus_level_7 change:caster1_dcbonus_level_8 change:caster1_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
     });
     // -- Prepared / Total
-    on("change:spells_perday_level_0 change:spells_perday_level_1 change:spells_perday_level_2 change:spells_perday_level_3 change:spells_perday_level_4 change:spells_perday_level_5 change:spells_perday_level_6 change:spells_perday_level_7 change:spells_perday_level_8 change:spells_perday_level_9 change:spells_bonus_level_0 change:spells_bonus_level_1 change:spells_bonus_level_2 change:spells_bonus_level_3 change:spells_bonus_level_4 change:spells_bonus_level_5 change:spells_bonus_level_6 change:spells_bonus_level_7 change:spells_bonus_level_8 change:spells_bonus_level_9", function(e) {
-        update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1));
+    on("change:caster1_spells_perday_level_0 change:caster1_spells_perday_level_1 change:caster1_spells_perday_level_2 change:caster1_spells_perday_level_3 change:caster1_spells_perday_level_4 change:caster1_spells_perday_level_5 change:caster1_spells_perday_level_6 change:caster1_spells_perday_level_7 change:caster1_spells_perday_level_8 change:caster1_spells_perday_level_9 change:caster1_spells_bonus_level_0 change:caster1_spells_bonus_level_1 change:caster1_spells_bonus_level_2 change:caster1_spells_bonus_level_3 change:caster1_spells_bonus_level_4 change:caster1_spells_bonus_level_5 change:caster1_spells_bonus_level_6 change:caster1_spells_bonus_level_7 change:caster1_spells_bonus_level_8 change:caster1_spells_bonus_level_9", function(e) {
+        update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),1);
     });
     on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
         update_spells_prepared(e.sourceAttribute,e.newValue);
     });
     // -- Rolls / Display
-    on("change:spells_dc_level_0 change:spells_dc_level_1 change:spells_dc_level_2 change:spells_dc_level_3 change:spells_dc_level_4 change:spells_dc_level_5 change:spells_dc_level_6 change:spells_dc_level_7 change:spells_dc_level_8 change:spells_dc_level_9", function(e){
+    on("change:caster1_dc_level_0 change:caster1_dc_level_1 change:caster1_dc_level_2 change:caster1_dc_level_3 change:caster1_dc_level_4 change:caster1_dc_level_5 change:caster1_dc_level_6 change:caster1_dc_level_7 change:caster1_dc_level_8 change:caster1_dc_level_9", function(e){
         update_spells(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),"all","");
     });
     on("change:repeating_spell-0:spellname change:repeating_spell-0:spellschool change:repeating_spell-0:spellclasslevel change:repeating_spell-0:spellcastingtime change:repeating_spell-0:spellcomponent change:repeating_spell-0:spellrange change:repeating_spell-0:spellarea change:repeating_spell-0:spelltargets change:repeating_spell-0:spelleffect change:repeating_spell-0:spellduration change:repeating_spell-0:spellsaveflag change:repeating_spell-0:spellsave change:repeating_spell-0:spelldc_mod change:repeating_spell-0:spellresistanceflag change:repeating_spell-0:spellresistance change:repeating_spell-0:spellatkflag change:repeating_spell-0:spellatktype change:repeating_spell-0:spellatkmod change:repeating_spell-0:spellatkcritrange change:repeating_spell-0:spelldmgcritmulti change:repeating_spell-0:spelldmgflag change:repeating_spell-0:spelldmg change:repeating_spell-0:spelldmgtype change:repeating_spell-0:spelldmg2flag change:repeating_spell-0:spelldmg2 change:repeating_spell-0:spelldmg2type change:repeating_spell-0:spelldescflag change:repeating_spell-0:spelldesc change:repeating_spell-0:notes", function(e) {
@@ -311,7 +311,7 @@
                 setAttrs(update);
             });
         } else {
-            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability","spellcasting_ability"];
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability","caster1_ability"];
             var flexes = [];
             getAttrs(fields, function(ablts) {
                 _.each(fields, function(field){
@@ -861,44 +861,46 @@
     };
 
     // === SPELLS / SPELLCASTING
-    var update_concentration = function() {
-        var fields = ["casterlevel","spellcasting_ability_mod","concentration_misc","concentration_bonus"];
+    var update_concentration = function(srcattr) {
+        var cster = srcattr.substr(0,7).slice(-1);
+        var fields = ["caster" + cster + "_level","caster" + cster + "_ability_mod","caster" + cster + "_concentration_misc","caster" + cster + "_concentration_bonus"];
         getAttrs(fields, function(v) {
             var update = {};
-            update["concentration"] = (parseInt(v.casterlevel) || 0) + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.concentration_misc) || 0) + (parseInt(v.concentration_bonus) || 0);
-            update["concentration_bonus_flag"] = (parseInt(v.concentration_bonus) || 0) !=0 ? 1 : 0;
+            update["caster" + cster + "_concentration"] = (parseInt(v["caster" + cster + "_level"]) || 0) + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_concentration_misc"]) || 0) + (parseInt(v["caster" + cster + "_concentration_bonus"]) || 0);
+            update["caster" + cster + "_concentration_bonus_flag"] = (parseInt(v["caster" + cster + "_concentration_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update, {silent: true});
         });
     };
     var update_spellsdc = function (attr) {
-        var fields = ["spellcasting_ability_mod","spells_dcmisc"];
+        var cster = attr.substr(0,7).slice(-1);
+        var fields = ["caster" + cster + "_ability_mod","caster" + cster + "_dc_misc"];
         var minlvl = 0;
         var maxlvl = 0;
         if (fields.includes(attr)) {
             maxlvl = 10;
-            fields = fields.concat(["spells_dcbonus_level_0","spells_dcbonus_level_1","spells_dcbonus_level_2","spells_dcbonus_level_3","spells_dcbonus_level_4","spells_dcbonus_level_5","spells_dcbonus_level_6","spells_dcbonus_level_7","spells_dcbonus_level_8","spells_dcbonus_level_9"]);
+            fields = fields.concat(["caster" + cster + "_dcbonus_level_0","caster" + cster + "_dcbonus_level_1","caster" + cster + "_dcbonus_level_2","caster" + cster + "_dcbonus_level_3","caster" + cster + "_dcbonus_level_4","caster" + cster + "_dcbonus_level_5","caster" + cster + "_dcbonus_level_6","caster" + cster + "_dcbonus_level_7","caster" + cster + "_dcbonus_level_8","caster" + cster + "_dcbonus_level_9"]);
         } else {
             minlvl = parseInt(attr.charAt(attr.length - 1));
             maxlvl = 1 + minlvl;
-            fields.push("spells_dcbonus_level_" + minlvl);
+            fields.push("caster" + cster + "_dcbonus_level_" + minlvl);
         }
         if ((minlvl >= 0) && (maxlvl <= 10)) {
             getAttrs(fields, function(v) {
                 var update = {};
                 var i = 0;
                 for (i = minlvl; i < maxlvl; i++) {
-                    update["spells_dc_level_" + i] = 10 + i + (parseInt(v.spellcasting_ability_mod) || 0) + (parseInt(v.spells_dcmisc) || 0) + (parseInt(v["spells_dcbonus_level_" + i]) || 0);
-                    update["spells_dcflag_level_" + i] = (parseInt(v["spells_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
+                    update["caster" + cster + "_dc_level_" + i] = 10 + i + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_dc_misc"]) || 0) + (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0);
+                    update["caster" + cster + "_dcflag_level_" + i] = (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
                 }
                 setAttrs(update, {silent: false});
             });
         }
     };
-    var update_spells_totals = function(level) {
-        var fields = ["spells_perday_level_" + level,"spells_bonus_level_" + level];
+    var update_spells_totals = function(level,cster) {
+        var fields = ["caster" + cster + "_spells_perday_level_" + level,"caster" + cster + "_spells_bonus_level_" + level];
         getAttrs(fields, function(v) {
             var update = {};
-            update["spells_total_level_" + level] = (parseInt(v["spells_perday_level_" + level]) || 0) + (parseInt(v["spells_bonus_level_" + level]) || 0);
+            update["caster" + cster + "_spells_total_level_" + level] = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
             setAttrs(update, {silent: true});
         });
     };
@@ -910,7 +912,7 @@
         var update = {};
         update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
         getSectionIDs("repeating_spell-" + level, function(idarray) {
-            var spell_attribs = ["spells_total_level_" + level];
+            var spell_attribs = ["caster1_spells_total_level_" + level];
             _.each(idarray, function(spellid) {
                 spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellprepared");
             });
@@ -920,13 +922,12 @@
                     total += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
                 });
                 update["spells_prepared_level_" + level] = total;
-                update["spells_prepared_flag_" + level] = (total > (parseInt(v["spells_total_level_" + level]) || 0)) ? 1 : 0;
+                update["spells_prepared_flag_" + level] = (total > (parseInt(v["caster1_spells_total_level_" + level]) || 0)) ? 1 : 0;
                 setAttrs(update, {silent: true});
             });
         });
     };
     var update_all_spells = function(update_id, source) {
-        // ugly but couldn't manage to loop with asyncrhonus getAttrs...
         update_spells(0,update_id,source);
         update_spells(1,update_id,source);
         update_spells(2,update_id,source);
@@ -964,8 +965,10 @@
         }
     };
     var do_update_spell = function(spell_level,spell_array, source) {
-        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","spells_dc_level_" + spell_level];
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_dc_level_" + spell_level]; // "caster2_dc_level_" + spell_level "caster3_dc_level_" + spell_level
         _.each(spell_array, function(spellid) {
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelllevel");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcaster");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellname");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellschool");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellclasslevel");
@@ -1014,10 +1017,11 @@
                 var dmg2flag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag"];
                 var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"];
                 var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"];
+                var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"];
                 // == Display handling
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                 // == Save DC
-                var savedc = 0 + (parseInt(v["spells_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
+                var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
                 // == Rolls handling
                 rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + "}}{{type=spell}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}{{level=" + spell_level + "}}";
                 // school
@@ -1217,18 +1221,18 @@
             update["stealth_ability"] = "dexterity";
             update["swim_ability"] = "strength";
             // Spells / spellcasting
-            update["spellcasting_ability_mod"] = 0;
-            update["concentration"] = 0;
-            update["spells_dc_level_0"] = 0;
-            update["spells_dc_level_1"] = 0;
-            update["spells_dc_level_2"] = 0;
-            update["spells_dc_level_3"] = 0;
-            update["spells_dc_level_4"] = 0;
-            update["spells_dc_level_5"] = 0;
-            update["spells_dc_level_6"] = 0;
-            update["spells_dc_level_7"] = 0;
-            update["spells_dc_level_8"] = 0;
-            update["spells_dc_level_9"] = 0;
+            update["caster1_ability_mod"] = 0;
+            update["caster1_concentration"] = 0;
+            update["caster1_dc_level_0"] = 0;
+            update["caster1_dc_level_1"] = 0;
+            update["caster1_dc_level_2"] = 0;
+            update["caster1_dc_level_3"] = 0;
+            update["caster1_dc_level_4"] = 0;
+            update["caster1_dc_level_5"] = 0;
+            update["caster1_dc_level_6"] = 0;
+            update["caster1_dc_level_7"] = 0;
+            update["caster1_dc_level_8"] = 0;
+            update["caster1_dc_level_9"] = 0;
             // UPDATE
             setAttrs(update
                     ,{silent: true}
