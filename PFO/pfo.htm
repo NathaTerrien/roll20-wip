@@ -1,4 +1,8 @@
-<div class="main">
+<input type="checkbox" class="npc_toggle" name="attr_npc" value="1" style="display: none;" />
+<div class="statblock"><!-- NPC SHEET -->
+    <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+</div><!-- NPC SHEET -->
+<div class="fullpc"> <!-- PC SHEET -->
     <div class="myrow"> <!-- top row -->
         <div class="col1third"> <!-- logo -->
             <img style="width: 270px;" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/logo.png" />
@@ -3161,6 +3165,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-0_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -3337,6 +3342,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-2_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -3513,6 +3519,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-4_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -3689,6 +3696,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-6_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -3865,6 +3873,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-8_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -4042,6 +4051,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-1_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -4218,6 +4228,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-3_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -4394,6 +4405,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-5_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -4570,6 +4582,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-7_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -4746,6 +4759,7 @@
                                 <div class="myrow">
                                     <span class="lbl" data-i18n="name">Name</span>
                                     <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-9_$id_spellname}" />
+                                    <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                     <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                 </div>
                                 <div class="myrow">
@@ -5055,19 +5069,19 @@
             <div class="blacklabel">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                 <div class="blackbgrd">
-                    <span class="big only">some other stuff</span>
+                    <span class="big only" data-i18n="misc">MISC</span>
                 </div>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
-                <span class="block">Some configuration stuff</span>
+                <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
             </div>
             <div class="myrow right">
                 <span data-i18n="version">Version</span>&nbsp;<span name="attr_version"></span>
             </div>
         </div>
     </div> <!-- END TAB CONFIGURATION -->
-</div>
+</div>  <!-- END PC SHEET -->
 
 <!-- HIDDEN ATTRIBUTES -->
 <input type="hidden" name="none_mod" value="0" />

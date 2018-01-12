@@ -86,7 +86,11 @@ img{
     background-color: #DDD;
 }
 /* ==== DIVS ==== */
-div.sheet-main{
+div.sheet-statblock {
+    display: none;
+}
+div.sheet-fullpc{
+    display: block;
     vertical-align: top;
     text-align: left;
     width: 850px;
@@ -94,6 +98,12 @@ div.sheet-main{
     background-color: white;
     font-family: 'Times New Roman';
     color: black;
+}
+.sheet-npc_toggle:checked ~ .sheet-statblock {
+    display: block;
+}
+.sheet-npc_toggle:checked ~ .sheet-fullpc {
+    display: none;
 }
 div.sheet-myrow{
     display: block;
@@ -691,6 +701,12 @@ div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
 }
 div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big.sheet-only{
     padding-top: 3px;
+}
+button[type="compendium"].sheet-myrol {
+    display: none;
+}
+.sheet-fromcompendium:not([value=""]) + button[type="compendium"].sheet-myrol {
+    display: inline-block;
 }
 /* ===== PSEUDO CHECKS ===== */
 input.sheet-pseudocheck {
