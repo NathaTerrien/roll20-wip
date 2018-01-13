@@ -94,14 +94,15 @@
     });
     // -- Compendium drop adjustments
     on("change:repeating_acitems:compendium_ac_bonus change:repeating_acitems:compendium_check_penalty change:repeating_acitems:compendium_max_dex_bonus change:repeating_acitems:compendium_spell_failure", function(e){
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium","");
         var val = parseInt(e.newValue.replace(/[^\d-]+/, "")) || 0;
-        var attr = e.sourceAttribute.attr.replace("_compendium","");
-        update[attr] = e.newValue;
+        update[attr] = val;
         setAttrs(update,{silent:false});
     });
     on("change:repeating_acitems:compendium_armor_category", function(e) {
-        var val = "misc";
         var update = {};
+        var val = "misc";
         var attr = e.sourceAttribute.replace("_compendium_armor_category","_type");
         if(e.newValue.toLowerCase().includes("shield")) {val = "shield";}
         else if(e.newValue.toLowerCase().includes("light")) {val = "light";}
