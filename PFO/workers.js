@@ -92,6 +92,24 @@
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
         update_ac_items();
     });
+    // -- Compendium drop adjustments
+    on("change:repeating_acitems:compendium_ac_bonus change:repeating_acitems:compendium_check_penalty change:repeating_acitems:compendium_max_dex_bonus change:repeating_acitems:compendium_spell_failure", function(e){
+        var val = parseInt(e.newValue.replace(/[^\d-]+/, "")) || 0;
+        var attr = e.sourceAttribute.attr.replace("_compendium","");
+        update[attr] = e.newValue;
+        setAttrs(update,{silent:false});
+    });
+    on("change:repeating_acitems:compendium_armor_category", function(e) {
+        var val = "misc";
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_armor_category","_type");
+        if(e.newValue.toLowerCase().includes("shield")) {val = "shield";}
+        else if(e.newValue.toLowerCase().includes("light")) {val = "light";}
+        else if(e.newValue.toLowerCase().includes("medium")) {val = "medium";}
+        else if(e.newValue.toLowerCase().includes("heavy")) {val = "heavy";}
+        update[attr] = val;
+        setAttrs(update,{silent:false});
+    });
 
     // === SAVES
     on("change:fortitude_ability change:reflex_ability change:will_ability", function(e){
@@ -134,10 +152,70 @@
     on("change:ranged_mod", function(){update_attacks("ranged","");});
 
     // === WEAPONS / ATTACKS
+    // -- Display and roll calculation
     on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
-        // if(e.sourceType === "sheetworker") {return;}
         var attackid = e.sourceAttribute.substring(18, 38);
         update_attacks(attackid,"");
+    });
+    // -- Compendium drop adjustments
+    on("change:repeating_attacks:category", function(e) {
+        var typ = "";
+        var dmg = "";
+        var attr = e.sourceAttribute.replace("_compendium_critical_range","_atkcritrange");
+        if (e.newValue.toLowerCase().includes("ranged")) {
+            typ = "ranged";
+            dmg = "0";
+        }
+        else if (e.newValue.toLowerCase().includes("melee")) {
+            typ = "melee";
+            if(e.newValue.toLowerCase().includes("two-handed")) {
+                dmg = "strength_oneandahalf";
+            } else {
+                dmg = "strength";
+            };
+        }
+        if (typ != "") {
+            var update = {};
+            var attratk = e.sourceAttribute.replace("_category","_atktype");
+            var attrdmg = e.sourceAttribute.replace("_category","_dmgattr");
+            update[attratk] = typ;
+            update[attrdmg] = dmg;
+            setAttrs(update,{silent:false});
+        }
+    });
+    on("change:repeating_attacks:compendium_dmg_medium", function(e) {
+        getAttrs(["size"], function(v) {
+            if(["medium","large","huge","gargantuan","colossal"].includes(v.size)) {
+                var update = {};
+                var attr = e.sourceAttribute.replace("_compendium_dmg_medium","_dmgbase");
+                update[attr] = e.newValue;
+                setAttrs(update,{silent:false});
+            }
+        });
+    });
+    on("change:repeating_attacks:compendium_dmg_small", function(e) {
+        getAttrs(["size"], function(v) {
+            if(["fine","diminutive","tiny","small"].includes(v.size)) {
+                var update = {};
+                var attr = e.sourceAttribute.replace("_compendium_dmg_small","_dmgbase");
+                update[attr] = e.newValue;
+                setAttrs(update,{silent:false});
+            }
+        });
+    });
+    on("change:repeating_attacks:compendium_critical_range", function(e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_critical_range","_atkcritrange");
+        var crit = parseInt(e.newValue.substr(0,2)) || 2;
+        update[attr] = crit;
+        setAttrs(update,{silent:false});
+    });
+    on("change:repeating_attacks:compendium_critical_damage", function(e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_critical_damage","_dmgcritmulti");
+        var crit = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
+        update[attr] = crit;
+        setAttrs(update,{silent:false});
     });
 
     // === SKILLS
@@ -203,6 +281,8 @@
     });
     on("change:skillfixed_ranks change:skillcraft_ranks change:skillknowledge_ranks change:skillperform_ranks change:skillprofession_ranks change:skillcustom_ranks", function() {sum_allskills_ranks();});
 
+    on("remove:repeating_skillcraft remove:repeating_skillknowledge remove:repeating_skillperform remove:repeating_skillprofession remove:repeating_skillcustom", function(e) {sum_someskills_ranks(e.sourceAttribute + "_ranks")});
+
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
     on("change:caster1_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
@@ -225,6 +305,10 @@
     });
     on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
         update_spells_prepared(e.sourceAttribute,e.newValue);
+    });
+    // -- Removing
+    on("remove:repeating_spell-0 remove:repeating_spell-1 remove:repeating_spell-2 remove:repeating_spell-3 remove:repeating_spell-4 remove:repeating_spell-5 remove:repeating_spell-6 remove:repeating_spell-7 remove:repeating_spell-8 remove:repeating_spell-9", function(e) {
+        update_spells_prepared(e.sourceAttribute,"");
     });
     // -- Rolls / Display
     on("change:caster1_dc_level_0 change:caster1_dc_level_1 change:caster1_dc_level_2 change:caster1_dc_level_3 change:caster1_dc_level_4 change:caster1_dc_level_5 change:caster1_dc_level_6 change:caster1_dc_level_7 change:caster1_dc_level_8 change:caster1_dc_level_9", function(e){
@@ -295,9 +379,13 @@
     };
     var update_mod = function(attr) {
         getAttrs([attr], function(v) {
-            var mod = Math.floor(((parseInt(v[attr]) || 10) - 10) / 2);
             var update = {};
+            var mod = Math.floor(((parseInt(v[attr]) || 10) - 10) / 2);
             update[attr + "_mod"] = mod;
+            if (attr == "strength") {
+                update["strength_half_mod"] = Math.floor(mod*0.5);
+                update["strength_oneandahalf_mod"] = Math.floor(mod*1.5);
+            }
             setAttrs(update);
         });
     };
@@ -629,7 +717,7 @@
         };
     };
     var do_update_attack = function(attack_array, source) {
-        var attack_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar"];
+        var attack_attribs = ["strength_mod","strength_oneandahalf_mod","strength_half_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar"];
         _.each(attack_array, function(attackid) {
             attack_attribs.push("repeating_attacks_" + attackid + "_atkname");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkflag");
@@ -905,12 +993,14 @@
         });
     };
     var update_spells_prepared = function (src,val) {
-        var splid = src.substring(18, 38);
+        var update = {};
         var repsec = src.substr(0,17);
         var level = repsec.charAt(repsec.length - 1);
-        var prep = parseInt(val) || 0;
-        var update = {};
-        update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
+        if (val != "") {
+            var splid = src.substring(18, 38);
+            var prep = parseInt(val) || 0;
+            update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
+        }
         getSectionIDs("repeating_spell-" + level, function(idarray) {
             var spell_attribs = ["caster1_spells_total_level_" + level];
             _.each(idarray, function(spellid) {

@@ -346,6 +346,7 @@ div.sheet-acitems {
 .sheet-acitem div.sheet-myrow {
     padding-left: 16px;
 }
+.sheet-acitem .sheet-speed {width: 50px;}
 
 .sheet-attack .sheet-lab {text-align: left;}
 .sheet-attacks div.sheet-padindent {padding-left: 22px;}
@@ -376,6 +377,7 @@ div.sheet-acitems {
 .sheet-attacks .sheet-pseudoattr.sheet-atk,
 .sheet-attacks .sheet-pseudoattr.sheet-damage {text-align: center;}
 .sheet-attacks .sheet-ammo {width: 40px;}
+.sheet-attacks select.sheet-dmg {width: 70px;}
 
 .sheet-lbl {
     text-align: left;

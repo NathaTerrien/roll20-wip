@@ -126,6 +126,8 @@
                             <span name="attr_strength" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
+                            <input type="hidden" name="attr_strength_half_mod" value="0" />
+                            <input type="hidden" name="attr_strength_oneandahalf_mod" value="0" />
                             <span name="attr_strength_mod" class="pseudoattr" title="@{strength_mod}"></span>
                         </div>
                         <div class="boxed">
@@ -915,7 +917,7 @@
                 <div class="bordered titled inbox">
                     <div class="myrow"> <!-- REPEATING ATTACK -->
                         <fieldset class="repeating_attacks">
-                            <div class="attack right">
+                            <div class="attack right compendium-drop-target">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                                 <div class="myrow right">
                                     <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
@@ -933,7 +935,15 @@
                                 <div class="options right">
                                     <div class="myrow">
                                         <span class="lbl" data-i18n="name">Name</span>
-                                        <input type="text" name="attr_atkname" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
+                                        <input type="text" name="attr_atkname" accept="Name" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
+                                        <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
+                                        <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                    <div class="myrow padindent">
+                                        <span class="lbl" data-i18n="category">Category</span>
+                                        <input type="text" name="attr_category" accept="Weapon Category" class="underlined dmgbase" spellcheck="false" title="@{repeating_attacks_$id_category}" />
+                                        <span class="lbl" data-i18n="type">Type</span>
+                                        <input type="text" name="attr_type" accept="Weapon Type" class="underlined dmgbase" spellcheck="false" title="@{repeating_attacks_$id_type}" />
+                                    </div>
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
@@ -968,17 +978,22 @@
                                     </div>
                                     <div class="myrow padindent">
                                         <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                                        <input type="hidden" name="attr_compendium_critical_range" accept="Critical Range" value="" />
                                         <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
                                         <span class="lbl atk right" data-i18n="range:">Range:</span>
-                                        <input type="text" name="attr_atkrange" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_attacks_$id_atkrange}" />
+                                        <input type="text" name="attr_atkrange" accept="Range" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_attacks_$id_atkrange}" />
                                     </div>
                                     <div class="myrow">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
                                         <span class="lbl atk" data-i18n="damage:">Damage:</span>
+                                        <input type="hidden" name="attr_compendium_dmg_medium" accept="Damage (Medium)" value="" />
+                                        <input type="hidden" name="attr_compendium_dmg_small" accept="Damage (Small)" value="" />
                                         <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
                                         <span class="lbl">+</span>
-                                        <select class="underlined" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
+                                        <select class="underlined dmg" name="attr_dmgattr" title="@{repeating_attacks_$id_dmgattr}">
                                             <option value="strength" selected="selected" data-i18n="str-u">STR</option>
+                                            <option value="strength_oneandahalf" data-i18n="str-two-handed">STR (Two-Handed)</option>
+                                            <option value="strength_half" data-i18n="str-off-hand">STR (Off-Hand)</option>
                                             <option value="dexterity" data-i18n="dex-u">DEX</option>
                                             <option value="constitution" data-i18n="con-u">CON</option>
                                             <option value="intelligence" data-i18n="int-u">INT</option>
@@ -991,8 +1006,9 @@
                                     </div>
                                     <div class="myrow padindent">
                                         <span class="lbl right typ" data-i18n="type:">Type:</span>
-                                        <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
+                                        <input type="text" name="attr_dmgtype" accept="Damage Type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
                                         <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                        <input type="hidden" name="attr_compendium_critical_damage" accept="Critical Damage" value="" />
                                         <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
                                     </div>
                                     <div class="myrow">
@@ -1000,8 +1016,10 @@
                                         <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
                                         <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
                                         <span class="lbl">+</span>
-                                        <select class="underlined" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
+                                        <select class="underlined dmg" name="attr_dmg2attr" title="@{repeating_attacks_$id_dmg2attr}">
                                             <option value="strength" data-i18n="str-u">STR</option>
+                                            <option value="strength_oneandahalf" data-i18n="str-two-handed">STR (Two-Handed)</option>
+                                            <option value="strength_half" data-i18n="str-off-hand">STR (Off-Hand)</option>
                                             <option value="dexterity" data-i18n="dex-u">DEX</option>
                                             <option value="constitution" data-i18n="con-u">CON</option>
                                             <option value="intelligence" data-i18n="int-u">INT</option>
@@ -1023,7 +1041,7 @@
                                         <span class="lbl atk" data-i18n="description:">Description:</span>
                                         <div class="autoex">
                                             <span name="attr_atkdesc"></span>
-                                            <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
+                                            <textarea name="attr_atkdesc" accept="Content" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
                                         </div>
                                     </div>
                                     <span class="lbl" data-i18n="notes:">Notes:</span>
@@ -2791,14 +2809,16 @@
                 <div class="bordered titled inboxright">
                     <div class="myrow"> <!-- REPEATING AC ITEMS -->
                         <fieldset class="repeating_acitems">
-                            <div class="acitem right">
-                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                            <div class="acitem right compendium-drop-target">
+                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes" /><span>i</span>
                                 <div class="myrow right">
-                                    <input type="text" name="attr_name" spellcheck="false" class="underlined" title="@{repeating_acitems_$id_name}" data-i18n-placeholder="item" placeholder="Item" />
-                                    <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_$id_equipped}" /><span class="mleft"></span>
+                                    <input type="text" name="attr_name" accept="Name" spellcheck="false" class="underlined" title="@{repeating_acitems_$id_name}" data-i18n-placeholder="item" placeholder="Item" />
+                                    <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_$id_equipped}" checked="checked" /><span class="mleft"></span>
+                                    <input type="hidden" name="attr_compendium_ac_bonus" accept="Armor/Shield Bonus" />
                                     <input type="number" name="attr_ac_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_ac_bonus}" />
                                     <input type="number" name="attr_flatfooted_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_flatfooted_bonus}" />
                                     <input type="number" name="attr_touch_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_touch_bonus}" />
+                                    <input type="hidden" name="attr_compendium_armor_category" accept="Armor Category" />
                                     <select name="attr_type" title="@{repeating_acitems_$id_type}">
                                         <option value="light" data-i18n="light">Light</option>
                                         <option value="medium" data-i18n="medium" selected="selected">Medium</option>
@@ -2806,11 +2826,20 @@
                                         <option value="shield" data-i18n="shield">Shield</option>
                                         <option value="misc" data-i18n="misc">Misc</option>
                                     </select>
+                                    <input type="hidden" name="attr_compendium_check_penalty" accept="Armor Check Penalty" />
                                     <input type="number" name="attr_check_penalty" value="0" class="underlined" title="@{repeating_acitems_$id_check_penalty}" />
+                                    <input type="hidden" name="attr_compendium_max_dex_bonus"  accept="Maximum Dex Bonus" />
                                     <input type="number" name="attr_max_dex_bonus" value="0" class="underlined" title="@{repeating_acitems_$id_max_dex_bonus}" />
+                                    <input type="hidden" name="attr_compendium_spell_failure"  accept="Arcane Spell Failure Chance" />
                                     <input type="number" name="attr_spell_failure" value="0" class="underlined" title="@{repeating_acitems_$id_spell_failure}" />
                                 </div>
                                 <div class="options right">
+                                    <div class="myrow">
+                                        <span class="lbl" data-i18n="speed-20ft" >Speed 20ft.</span>
+                                        <input type="text" name="attr_speed20" accept="Speed 20ft." class="underlined speed" spellcheck="false" class="underlined" title="@{repeating_acitems_$id_speed20}" />
+                                        <span class="lbl" data-i18n="speed-30ft" >Speed 30ft.</span>
+                                        <input type="text" name="attr_speed30" accept="Speed 30ft." class="underlined speed" spellcheck="false" class="underlined" title="@{repeating_acitems_$id_speed30}" />
+                                    </div>
                                     <div class="autoex">
                                         <span name="attr_notes"></span>
                                         <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_acitems_$id_notes}"></textarea>
@@ -5069,7 +5098,7 @@
             <div class="blacklabel">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                 <div class="blackbgrd">
-                    <span class="big only" data-i18n="misc">MISC</span>
+                    <span class="big only" data-i18n="misc-u">MISC</span>
                 </div>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
@@ -5189,6 +5218,24 @@
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
         update_ac_items();
     });
+    // -- Compendium drop adjustments
+    on("change:repeating_acitems:compendium_ac_bonus change:repeating_acitems:compendium_check_penalty change:repeating_acitems:compendium_max_dex_bonus change:repeating_acitems:compendium_spell_failure", function(e){
+        var val = parseInt(e.newValue.replace(/[^\d-]+/, "")) || 0;
+        var attr = e.sourceAttribute.attr.replace("_compendium","");
+        update[attr] = e.newValue;
+        setAttrs(update,{silent:false});
+    });
+    on("change:repeating_acitems:compendium_armor_category", function(e) {
+        var val = "misc";
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_armor_category","_type");
+        if(e.newValue.toLowerCase().includes("shield")) {val = "shield";}
+        else if(e.newValue.toLowerCase().includes("light")) {val = "light";}
+        else if(e.newValue.toLowerCase().includes("medium")) {val = "medium";}
+        else if(e.newValue.toLowerCase().includes("heavy")) {val = "heavy";}
+        update[attr] = val;
+        setAttrs(update,{silent:false});
+    });
 
     // === SAVES
     on("change:fortitude_ability change:reflex_ability change:will_ability", function(e){
@@ -5231,10 +5278,70 @@
     on("change:ranged_mod", function(){update_attacks("ranged","");});
 
     // === WEAPONS / ATTACKS
+    // -- Display and roll calculation
     on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
-        // if(e.sourceType === "sheetworker") {return;}
         var attackid = e.sourceAttribute.substring(18, 38);
         update_attacks(attackid,"");
+    });
+    // -- Compendium drop adjustments
+    on("change:repeating_attacks:category", function(e) {
+        var typ = "";
+        var dmg = "";
+        var attr = e.sourceAttribute.replace("_compendium_critical_range","_atkcritrange");
+        if (e.newValue.toLowerCase().includes("ranged")) {
+            typ = "ranged";
+            dmg = "0";
+        }
+        else if (e.newValue.toLowerCase().includes("melee")) {
+            typ = "melee";
+            if(e.newValue.toLowerCase().includes("two-handed")) {
+                dmg = "strength_oneandahalf";
+            } else {
+                dmg = "strength";
+            };
+        }
+        if (typ != "") {
+            var update = {};
+            var attratk = e.sourceAttribute.replace("_category","_atktype");
+            var attrdmg = e.sourceAttribute.replace("_category","_dmgattr");
+            update[attratk] = typ;
+            update[attrdmg] = dmg;
+            setAttrs(update,{silent:false});
+        }
+    });
+    on("change:repeating_attacks:compendium_dmg_medium", function(e) {
+        getAttrs(["size"], function(v) {
+            if(["medium","large","huge","gargantuan","colossal"].includes(v.size)) {
+                var update = {};
+                var attr = e.sourceAttribute.replace("_compendium_dmg_medium","_dmgbase");
+                update[attr] = e.newValue;
+                setAttrs(update,{silent:false});
+            }
+        });
+    });
+    on("change:repeating_attacks:compendium_dmg_small", function(e) {
+        getAttrs(["size"], function(v) {
+            if(["fine","diminutive","tiny","small"].includes(v.size)) {
+                var update = {};
+                var attr = e.sourceAttribute.replace("_compendium_dmg_small","_dmgbase");
+                update[attr] = e.newValue;
+                setAttrs(update,{silent:false});
+            }
+        });
+    });
+    on("change:repeating_attacks:compendium_critical_range", function(e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_critical_range","_atkcritrange");
+        var crit = parseInt(e.newValue.substr(0,2)) || 2;
+        update[attr] = crit;
+        setAttrs(update,{silent:false});
+    });
+    on("change:repeating_attacks:compendium_critical_damage", function(e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_critical_damage","_dmgcritmulti");
+        var crit = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
+        update[attr] = crit;
+        setAttrs(update,{silent:false});
     });
 
     // === SKILLS
@@ -5300,6 +5407,8 @@
     });
     on("change:skillfixed_ranks change:skillcraft_ranks change:skillknowledge_ranks change:skillperform_ranks change:skillprofession_ranks change:skillcustom_ranks", function() {sum_allskills_ranks();});
 
+    on("remove:repeating_skillcraft remove:repeating_skillknowledge remove:repeating_skillperform remove:repeating_skillprofession remove:repeating_skillcustom", function(e) {sum_someskills_ranks(e.sourceAttribute + "_ranks")});
+
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
     on("change:caster1_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
@@ -5322,6 +5431,10 @@
     });
     on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
         update_spells_prepared(e.sourceAttribute,e.newValue);
+    });
+    // -- Removing
+    on("remove:repeating_spell-0 remove:repeating_spell-1 remove:repeating_spell-2 remove:repeating_spell-3 remove:repeating_spell-4 remove:repeating_spell-5 remove:repeating_spell-6 remove:repeating_spell-7 remove:repeating_spell-8 remove:repeating_spell-9", function(e) {
+        update_spells_prepared(e.sourceAttribute,"");
     });
     // -- Rolls / Display
     on("change:caster1_dc_level_0 change:caster1_dc_level_1 change:caster1_dc_level_2 change:caster1_dc_level_3 change:caster1_dc_level_4 change:caster1_dc_level_5 change:caster1_dc_level_6 change:caster1_dc_level_7 change:caster1_dc_level_8 change:caster1_dc_level_9", function(e){
@@ -5392,9 +5505,13 @@
     };
     var update_mod = function(attr) {
         getAttrs([attr], function(v) {
-            var mod = Math.floor(((parseInt(v[attr]) || 10) - 10) / 2);
             var update = {};
+            var mod = Math.floor(((parseInt(v[attr]) || 10) - 10) / 2);
             update[attr + "_mod"] = mod;
+            if (attr == "strength") {
+                update["strength_half_mod"] = Math.floor(mod*0.5);
+                update["strength_oneandahalf_mod"] = Math.floor(mod*1.5);
+            }
             setAttrs(update);
         });
     };
@@ -5726,7 +5843,7 @@
         };
     };
     var do_update_attack = function(attack_array, source) {
-        var attack_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar"];
+        var attack_attribs = ["strength_mod","strength_oneandahalf_mod","strength_half_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar"];
         _.each(attack_array, function(attackid) {
             attack_attribs.push("repeating_attacks_" + attackid + "_atkname");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkflag");
@@ -6002,12 +6119,14 @@
         });
     };
     var update_spells_prepared = function (src,val) {
-        var splid = src.substring(18, 38);
+        var update = {};
         var repsec = src.substr(0,17);
         var level = repsec.charAt(repsec.length - 1);
-        var prep = parseInt(val) || 0;
-        var update = {};
-        update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
+        if (val != "") {
+            var splid = src.substring(18, 38);
+            var prep = parseInt(val) || 0;
+            update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
+        }
         getSectionIDs("repeating_spell-" + level, function(idarray) {
             var spell_attribs = ["caster1_spells_total_level_" + level];
             _.each(idarray, function(spellid) {
@@ -6025,7 +6144,6 @@
         });
     };
     var update_all_spells = function(update_id, source) {
-        // ugly but couldn't manage to loop with asyncrhonus getAttrs...
         update_spells(0,update_id,source);
         update_spells(1,update_id,source);
         update_spells(2,update_id,source);

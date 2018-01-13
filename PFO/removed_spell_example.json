@@ -1,0 +1,23 @@
+{
+    "removedInfo": {
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_fromcompendium": "Spells%3ABurning%20Hands",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_infoButton": "Spells%3ABurning%20Hands",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_options-flag": "0",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_rollcontent": "@{whispertype} &{template:default}{{name=Burning Hands}}{{type=spell}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}{{level=0}}{{school=Evocation [fire]}}{{castingtime=1 standard action}}{{component=V, S}}{{range=15 ft.}}{{area=Cone-shaped burst}}{{duration=Instantaneous}}{{save=1}}{{savedc=0}}{{saveeffect=Reflex half}}{{sr=1}}{{spellresistance=Yes}}{{desc= A cone of searing flame shoots from your fingertips. Any creature in the area of the flames takes 1d4 points of fire damage per caster level (maximum 5d4). Flammable materials burn if the flames touch them. A character can extinguish burning items as a full-round action. }}{{shownotes=1}}{{notes=}}",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellarea": "Cone-shaped burst",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellcastingtime": "1 standard action",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellclasslevel": "Sorcerer/wizard 1",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellcomponent": "V, S",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spelldc": 0,
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spelldesc": " A cone of searing flame shoots from your fingertips. Any creature in the area of the flames takes 1d4 points of fire damage per caster level (maximum 5d4). Flammable materials burn if the flames touch them. A character can extinguish burning items as a full-round action. ",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spelldisplay": "Burning Hands",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellduration": "Instantaneous",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellname": "Burning Hands",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellrange": "15 ft.",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellresistance": "Yes",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellsave": "Reflex half",
+        "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk_spellschool": "Evocation [fire]"
+    },
+    "sourceAttribute": "repeating_spell-0_-L2ipjOgLHtSJ8sCExLk",
+    "sourceType": "player"
+}
