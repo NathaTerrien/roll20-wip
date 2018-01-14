@@ -93,7 +93,7 @@ div.sheet-statblock {
     width: 600px;
     max-width: 600px;
     background-color: white;
-    font-family: 'Times New Roman';
+    font-family: sans-serif;
     color: black;
 }
 div.sheet-fullpc{
@@ -245,7 +245,8 @@ div.sheet-defenses,
 div.sheet-attack,
 div.sheet-skill,
 div.sheet-concentration,
-div.sheet-spell {
+div.sheet-spell,
+div.sheet-statblock {
     position: relative;
 }
 div.sheet-abilities,
@@ -552,7 +553,8 @@ div.sheet-boxed input[type="number"]{
 .sheet-identity input[type="number"],
 .sheet-acitem input[type="number"],
 .sheet-attacks input[type="number"],
-.sheet-spells input[type="number"] {
+.sheet-spells input[type="number"],
+.sheet-statblock input[type="number"].sheet-medium {
     width: 35px;
 }
 .sheet-spells input[type="number"].sheet-sml {width: 25px;}
@@ -601,6 +603,9 @@ select.sheet-size {
 .sheet-acitem select{
     width: 60px;
 }
+input[type="text"].sheet-small {width: 45px;}
+input[type="text"].sheet-medium {width: 140px;}
+
 /* ===== ABILITIES ===== */
 .sheet-baseattr {
     opacity: 0;
@@ -920,7 +925,9 @@ input.sheet-tabconf:checked + span{
 .sheet-concentration .sheet-options-flag,
 .sheet-concentration .sheet-options-flag + span,
 .sheet-spell .sheet-options-flag,
-.sheet-spell .sheet-options-flag + span {
+.sheet-spell .sheet-options-flag + span,
+.sheet-statblock .sheet-options-flag,
+.sheet-statblock .sheet-options-flag + span {
     top: -2px;
     left: 0px;
 }
@@ -960,7 +967,8 @@ input.sheet-tabconf:checked + span{
 .sheet-attack:hover .sheet-options-flag + span,
 .sheet-skill:hover .sheet-options-flag + span,
 .sheet-concentration:hover .sheet-options-flag + span,
-.sheet-spell:hover .sheet-options-flag + span {
+.sheet-spell:hover .sheet-options-flag + span,
+.sheet-statblock:hover .sheet-options-flag + span {
     display: block;
 }
 .sheet-options,
@@ -974,10 +982,21 @@ input.sheet-tabconf:checked + span{
 .sheet-options-cmd,
 .sheet-options-sr {
     display: none;
-    background-color: rgb(250,250,250);
     margin-top: 2px;
     border-top: 1px dotted rgba(195,153,107,0.2);
     border-bottom: 2px dotted #C3996B;
+}
+.sheet-fullpc .sheet-options,
+.sheet-options-fortitude,
+.sheet-options-reflex,
+.sheet-options-will,
+.sheet-options-bab,
+.sheet-options-cmb,
+.sheet-options-melee,
+.sheet-options-ranged,
+.sheet-options-cmd,
+.sheet-options-sr {
+    background-color: rgb(250,250,250);
 }
 .sheet-options-flag:checked ~ .sheet-options,
 .sheet-options-flag.sheet-fortitude:checked ~ .sheet-options-fortitude,

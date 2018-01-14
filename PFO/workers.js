@@ -1,12 +1,21 @@
     /* === GLOBAL VARIABLES === */
-    var i18n_obj = {};
+    var pfoglobals_i18n_obj = {};
+    var pfoglobals_ispc = true;
 
     /* === EVENTS === */
 
     // === Version handling
     on("sheet:opened", function() {
-        versioning();
         loadi18n();
+        versioning();
+        getAttrs("npc_toggle", function(v) {
+            if(v.npc_toggle != "1") {pfoglobals_ispc = false;}
+        });
+    });
+
+    // === Generals
+    on("change:npc_toggle", function(e) {
+        pfoglobals_ispc = (e.newValue == "1") ? false : true;
     });
 
     // === Abilities
@@ -49,30 +58,44 @@
 
     // === Size
     on("change:size", function(e){
-        update_size(e.newValue);
+        if(pfoglobals_ispc) {
+            update_size(e.newValue);
+        }
     });
 
     // === Mods
     on("change:strength_mod", function() {
-        update_cmd();
-        update_ability_mod("strength");
+        if(pfoglobals_ispc) {
+            update_cmd();
+            update_ability_mod("strength");
+        }
     });
     on("change:dexterity_mod", function() {
-        update_cmd();
-        update_ability_mod("dexterity");
-        update_initiative();
+        if(pfoglobals_ispc) {
+            update_cmd();
+            update_ability_mod("dexterity");
+            update_initiative();
+        }
     });
     on("change:constitution_mod", function() {
-        update_ability_mod("constitution");
+        if(pfoglobals_ispc) {
+            update_ability_mod("constitution");
+        }
     });
     on("change:intelligence_mod", function() {
-        update_ability_mod("intelligence");
+        if(pfoglobals_ispc) {
+            update_ability_mod("intelligence");
+        }
     });
     on("change:wisdom_mod", function() {
-        update_ability_mod("wisdom");
+        if(pfoglobals_ispc) {
+            update_ability_mod("wisdom");
+        }
    });
     on("change:charisma_mod", function() {
-        update_ability_mod("charisma");
+        if(pfoglobals_ispc) {
+            update_ability_mod("charisma");
+        }
     });
 
     // === Initiative
@@ -128,10 +151,12 @@
 
     // === BAB / ATTACK MODS / DEFENSE
     on("change:bab", function(){
-        update_babs("cmb");
-        update_babs("melee");
-        update_babs("ranged");
-        update_cmd();
+        if(pfoglobals_ispc) {
+            update_babs("cmb");
+            update_babs("melee");
+            update_babs("ranged");
+            update_cmd();
+        }
     });
     on("change:cmb_ability change:melee_ability change:ranged_ability", function(e){
         update_flex_ability(e.newValue,e.sourceAttribute);
@@ -148,9 +173,21 @@
     on("change:cmd_misc change:cmd_bonus", function() {
         update_cmd();
     });
-    on("change:cmb_mod", function(){update_attacks("cmb","");});
-    on("change:melee_mod", function(){update_attacks("melee","");});
-    on("change:ranged_mod", function(){update_attacks("ranged","");});
+    on("change:cmb_mod", function(){
+        if(pfoglobals_ispc) {
+            update_attacks("cmb","");
+        }
+    });
+    on("change:melee_mod", function(){
+        if(pfoglobals_ispc) {
+            update_attacks("melee","");
+        }
+    });
+    on("change:ranged_mod", function(){
+        if(pfoglobals_ispc) {
+            update_attacks("ranged","");
+        }
+    });
 
     // === WEAPONS / ATTACKS
     // -- Display and roll calculation
@@ -292,7 +329,9 @@
         update_spellsdc(e.sourceAttribute);
     });
     on("change:caster1_level", function() {
-        update_concentration(e.sourceAttribute);
+        if(pfoglobals_ispc) {
+           update_concentration(e.sourceAttribute);
+        }
     });
     on("change:caster1_concentration_misc change:caster1_concentration_bonus", function() {
         update_concentration(e.sourceAttribute);
@@ -792,7 +831,7 @@
                 atkbonus = atktype + (parseInt(atkmod) || 0);
                 atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
                 if(atkflag != "0") {
-                    atkdisplay = " (" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + " " + i18n_obj["vs"] + " " + i18n_obj[atkvs] + ")";
+                    atkdisplay = " (" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + " " + pfoglobals_i18n_obj["vs"] + " " + pfoglobals_i18n_obj[atkvs] + ")";
                     atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
                 }
                 if(dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? "" : "+") + atkdmgbonus;}
@@ -814,8 +853,8 @@
                 }
                 // roll attack
                 if(atkflag != "0") {
-                    rollatk = "" + atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
-                    rollatk += atkrange + "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollatk = "" + atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
+                    rollatk += atkrange + "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     rolltype += "attack";
                     rollbase += rollatk;
                     // desc
@@ -833,12 +872,12 @@
                 if((dmgflag != "0") || (dmg2flag != "0")) {
                     rolltype += "damage";
                     if(dmgflag != "0") {
-                        stemp = dmgbase + "+" + dmgattr + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS]";
+                        stemp = dmgbase + "+" + dmgattr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS]";
                         rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
                         if(atkflag != "0") {rolldmg += "{{dmg1crit=[[(" + stemp + ")*" + dmgcritmulti + "]]}}";}
                     }
                     if(dmg2flag != "0") {
-                        stemp = dmg2base + "+" + dmg2attr + "[" + i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS]";
+                        stemp = dmg2base + "+" + dmg2attr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS]";
                         rolldmg += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
                         if(atkflag != "0") {rolldmg += "{{dmg2crit=[[(" + stemp + ")*" + dmg2critmulti + "]]}}";}
                     }
@@ -1141,8 +1180,8 @@
                 if(atkflag != "0") {
                     if (atktype != "0") {atktype = "@{" + atktype + "_mod}";}
                     if (atkmod.length == 0) {atkmod = "0";}
-                    rollbase += atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
-                    rollbase += "{{critconfirm=[[1d20cs20+" + atktype + "[" + i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollbase += atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollbase += "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                 }
                 // roll damage
                 if((dmgflag != "0") || (dmg2flag != "0")) {
@@ -1169,26 +1208,26 @@
 
     // === Multi Lingual handling
     var loadi18n = function() {
-        i18n_obj["strength"] = getTranslationByKey("str-u");
-        i18n_obj["dexterity"] = getTranslationByKey("dex-u");
-        i18n_obj["constitution"] = getTranslationByKey("con-u");
-        i18n_obj["intelligence"] = getTranslationByKey("int-u");
-        i18n_obj["wisdom"] = getTranslationByKey("wis-u");
-        i18n_obj["charisma"] = getTranslationByKey("cha-u");
-        i18n_obj["melee"] = getTranslationByKey("melee");
-        i18n_obj["ranged"] = getTranslationByKey("ranged");
-        i18n_obj["cmb"] = getTranslationByKey("cmb-u");
-        i18n_obj["cmd"] = getTranslationByKey("cmd-u");
-        i18n_obj["ac"] = getTranslationByKey("ac-u");
-        i18n_obj["touch"] = getTranslationByKey("touch");
-        i18n_obj["flatfooted"] = getTranslationByKey("flat-footed");
-        i18n_obj["fftouch"] = getTranslationByKey("ff-touch");
-        i18n_obj["other"] = getTranslationByKey("other");
-        i18n_obj["fortitude"] = getTranslationByKey("fort-u");
-        i18n_obj["reflex"] = getTranslationByKey("ref-u");
-        i18n_obj["will"] = getTranslationByKey("will-u");
-        i18n_obj["vs"] = getTranslationByKey("vs");
-        i18n_obj["0"] = "";
+        pfoglobals_i18n_obj["strength"] = getTranslationByKey("str-u");
+        pfoglobals_i18n_obj["dexterity"] = getTranslationByKey("dex-u");
+        pfoglobals_i18n_obj["constitution"] = getTranslationByKey("con-u");
+        pfoglobals_i18n_obj["intelligence"] = getTranslationByKey("int-u");
+        pfoglobals_i18n_obj["wisdom"] = getTranslationByKey("wis-u");
+        pfoglobals_i18n_obj["charisma"] = getTranslationByKey("cha-u");
+        pfoglobals_i18n_obj["melee"] = getTranslationByKey("melee");
+        pfoglobals_i18n_obj["ranged"] = getTranslationByKey("ranged");
+        pfoglobals_i18n_obj["cmb"] = getTranslationByKey("cmb-u");
+        pfoglobals_i18n_obj["cmd"] = getTranslationByKey("cmd-u");
+        pfoglobals_i18n_obj["ac"] = getTranslationByKey("ac-u");
+        pfoglobals_i18n_obj["touch"] = getTranslationByKey("touch");
+        pfoglobals_i18n_obj["flatfooted"] = getTranslationByKey("flat-footed");
+        pfoglobals_i18n_obj["fftouch"] = getTranslationByKey("ff-touch");
+        pfoglobals_i18n_obj["other"] = getTranslationByKey("other");
+        pfoglobals_i18n_obj["fortitude"] = getTranslationByKey("fort-u");
+        pfoglobals_i18n_obj["reflex"] = getTranslationByKey("ref-u");
+        pfoglobals_i18n_obj["will"] = getTranslationByKey("will-u");
+        pfoglobals_i18n_obj["vs"] = getTranslationByKey("vs");
+        pfoglobals_i18n_obj["0"] = "";
     };
 
     // === Version and updating
