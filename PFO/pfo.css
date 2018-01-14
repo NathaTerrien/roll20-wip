@@ -88,6 +88,13 @@ img{
 /* ==== DIVS ==== */
 div.sheet-statblock {
     display: none;
+    vertical-align: top;
+    text-align: left;
+    width: 600px;
+    max-width: 600px;
+    background-color: white;
+    font-family: 'Times New Roman';
+    color: black;
 }
 div.sheet-fullpc{
     display: block;

@@ -75,6 +75,7 @@
     "concentration-roll": "Concentration roll",
     "constitution": "Constitution",
     "constitution-roll": "Constitution roll",
+    "cr-u": "CR",
     "craft": "Craft",
     "critical-multiplier": "Critical Multiplier",
     "critical-multiplier:": "Critical Multiplier:",
@@ -245,6 +246,7 @@
     "score": "Score",
     "secondary-ability-modifier": "Secondary ability modifier",
     "sense_motive": "Sense Motive",
+    "senses": "Senses",
     "shield": "Shield",
     "shield-bonus": "Shield Bonus",
     "shield-bonus-added-to-touch-ac": "Shield bonus added to Touch AC",
@@ -327,5 +329,6 @@
     "wis": "wis",
     "wis-u": "WIS",
     "wisdom": "Wisdom",
-    "wisdom-roll": "Wisdom roll"
+    "wisdom-roll": "Wisdom roll",
+    "xp-u": "XP"
 }
