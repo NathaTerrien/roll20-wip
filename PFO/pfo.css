@@ -70,6 +70,9 @@ img{
 .sheet-center{
     text-align: center;
 }
+.sheet-upper {
+    text-transform: uppercase;
+}
 .sheet-labline{
     line-height: 1em;
 }
@@ -113,7 +116,6 @@ div.sheet-fullpc{
     display: none;
 }
 div.sheet-myrow{
-    display: block;
     width: 100%;
     text-align: left;
 }
@@ -397,6 +399,8 @@ div.sheet-acitems {
     white-space: pre;
 }
 .sheet-lbl.sheet-right {text-align: right;}
+.sheet-lbl.sheet-upper {text-transform: uppercase;}
+
 .sheet-skills .sheet-name {width: 180px;}
 .sheet-skill .sheet-number,
 .sheet-spellcasting .sheet-number,
@@ -519,6 +523,21 @@ div.sheet-boxed span.sheet-pseudoattr {
 .sheet-skill div.sheet-skillability {display: none;}
 .sheet-skill input.sheet-skillability[value="strength"] + div.sheet-skillability,
 .sheet-skill input.sheet-skillability[value="dexterity"] + div.sheet-skillability {display: inline-block;}
+
+.sheet-statblock .sheet-senses {width: 350px;;}
+.sheet-statblock .sheet-type {width: 325px;}
+.sheet-statblock .sheet-aura {width: 458px;}
+
+span.sheet-npc-section {
+    display: block;
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 1.3em;
+    margin-top: 6px;
+}
 
 /* ===== INPUTS ===== */
 input, textarea{
@@ -1010,6 +1029,11 @@ input.sheet-tabconf:checked + span{
 .sheet-options-flag.sheet-sr:checked ~ .sheet-options-sr {
     display: inherit;
 }
+
+.sheet-optional-flag {display: none;}
+.sheet-optional{display: none;}
+.sheet-optional-flag:checked + .sheet-optional{display: inherit;}
+
 /* ===== AUTO EXPAND TEXTAREA ===== */
 .sheet-autoex {
     position: relative;

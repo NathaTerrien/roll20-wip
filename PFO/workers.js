@@ -1,21 +1,21 @@
     /* === GLOBAL VARIABLES === */
     var pfoglobals_i18n_obj = {};
-    var pfoglobals_ispc = true;
+    var pfoglobals_ispc = 1;
 
     /* === EVENTS === */
 
     // === Version handling
     on("sheet:opened", function() {
+        getAttrs(["npc_toggle"], function(v) {
+            if(v.npc_toggle != "1") {pfoglobals_ispc = 0;}
+        });
         loadi18n();
         versioning();
-        getAttrs("npc_toggle", function(v) {
-            if(v.npc_toggle != "1") {pfoglobals_ispc = false;}
-        });
     });
 
     // === Generals
     on("change:npc_toggle", function(e) {
-        pfoglobals_ispc = (e.newValue == "1") ? false : true;
+        pfoglobals_ispc = (e.newValue == "1") ? 0 : 1;
     });
 
     // === Abilities
@@ -60,6 +60,10 @@
     on("change:size", function(e){
         if(pfoglobals_ispc) {
             update_size(e.newValue);
+        } else {
+            var update = {};
+            update["size_display"] = getTranslationByKey(e.newValue);
+            setAttrs(update);
         }
     });
 
@@ -393,6 +397,28 @@
     on("change:repeating_spell-9:spellname change:repeating_spell-9:spellschool change:repeating_spell-9:spellclasslevel change:repeating_spell-9:spellcastingtime change:repeating_spell-9:spellcomponent change:repeating_spell-9:spellrange change:repeating_spell-9:spellarea change:repeating_spell-9:spelltargets change:repeating_spell-9:spelleffect change:repeating_spell-9:spellduration change:repeating_spell-9:spellsaveflag change:repeating_spell-9:spellsave change:repeating_spell-9:spelldc_mod change:repeating_spell-9:spellresistanceflag change:repeating_spell-9:spellresistance change:repeating_spell-9:spellatkflag change:repeating_spell-9:spellatktype change:repeating_spell-9:spellatkmod change:repeating_spell-9:spellatkcritrange change:repeating_spell-9:spelldmgcritmulti change:repeating_spell-9:spelldmgflag change:repeating_spell-9:spelldmg change:repeating_spell-9:spelldmgtype change:repeating_spell-9:spelldmg2flag change:repeating_spell-9:spelldmg2 change:repeating_spell-9:spelldmg2type change:repeating_spell-9:spelldescflag change:repeating_spell-9:spelldesc change:repeating_spell-9:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
         update_spells(9,spellid,"");
+    });
+
+    // === NPC
+    // --- Compendium drop
+    on("change:compendium_npc_size", function(e){
+        if(["fine","diminutive","tiny","small","medium","large","huge","gargantuan","colossal"].includes(e.newValue.toLowerCase())) {
+            setAttrs({"size":e.newValue.toLowerCase()});
+        } else {
+            setAttrs({"size_display":e.newValue});
+        }
+    });
+    on("change:aura", function(e) {
+        var flag = (e.newValue.length > 0) ? 1 : 0;
+        setAttrs({"aura_flag":flag});
+    });
+    on("change:race change:class change:npc_level", function(e) {
+        if (pfoglobals_ispc == 0) {
+            getAttrs(["race","class","npc_level"], function(v) {
+                var flag = ((v.race.length > 0) || (v.class.length > 0) || (v.npc_level.length > 0)) ? 1 : 0;
+                setAttrs({"npc_raceclasslvl_flag":flag});
+            });
+        }
     });
 
     // === CONFIGURATION
