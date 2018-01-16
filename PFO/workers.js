@@ -102,6 +102,19 @@
         }
     });
 
+    // === HP
+    on("change:hp", function(e) {
+        if (pfoglobals_ispc == 0) {
+            if((parseInt(e.newValue) || 0) > 0) {
+                getAttrs(["hp_max"], function(v) {
+                    if((parseInt(v.hp_max) || 0) < (parseInt(e.newValue) || 0)) {
+                        setAttrs({"hp_max":e.newValue},{silent:true});
+                    }
+                });
+            }
+        }
+    });
+
     // === Initiative
     on("change:initiative_misc change:initiative_bonus", function() {
         update_initiative();
@@ -406,18 +419,6 @@
             setAttrs({"size":e.newValue.toLowerCase()});
         } else {
             setAttrs({"size_display":e.newValue});
-        }
-    });
-    on("change:aura", function(e) {
-        var flag = (e.newValue.length > 0) ? 1 : 0;
-        setAttrs({"aura_flag":flag});
-    });
-    on("change:race change:class change:npc_level", function(e) {
-        if (pfoglobals_ispc == 0) {
-            getAttrs(["race","class","npc_level"], function(v) {
-                var flag = ((v.race.length > 0) || (v.class.length > 0) || (v.npc_level.length > 0)) ? 1 : 0;
-                setAttrs({"npc_raceclasslvl_flag":flag});
-            });
         }
     });
 

@@ -5,11 +5,11 @@
         <div class="spacer"></div>
         <div class="blacklabel" style="width: 100%;text-align:left;">
             <div class="blackbgrd" style="margin-left:6px;margin-right:6px;">
-                <span class="big only" name="attr_character_name">Goblin</span>
+                <span class="big only" name="attr_character_name"></span>
             </div>
             <div class="blackbgrd">
                 <input type="hidden" name="attr_npc_fromcompendium" class="fromcompendium" value="" />
-                <button class="myrol" type="compendium" name="attr_npc_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                <button class="myrol" type="compendium" name="attr_npc_fromcompendium" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
             </div>
             <div class="blackbgrd" style="float:right;clear:both;margin-right:6px;">
                 <span class="big only" data-i18n="cr-u">CR</span>
@@ -33,12 +33,8 @@
                 <input type="text" name="attr_xp" accept="XP" class="underlined small" title="@{attr_xp}" />
             </div>
             <div class="myrow">
-                <span class="lbl" data-i18n="race">Race</span>
-                <input type="text" name="attr_race" class="underlined" spellcheck="false" title="@{race}" />
-                <span class="spacer"></span><span class="lbl" data-i18n="class">Class</span>
-                <input type="text" name="attr_class" accept="Monster Class" class="underlined" spellcheck="false" title="@{class}" />
-                <span class="spacer"></span><span class="lbl" data-i18n="level">Level</span>
-                <input type="text" name="attr_npc_level" class="underlined small" title="@{npc_level}" />
+                <span class="lbl" data-i18n="race-class-and-level">Race, Class, Level</span>
+                <input type="text" name="attr_class" accept="Monster Class" class="underlined type" spellcheck="false" title="@{class}" />
             </div>
             <div class="myrow">
                 <span class="lbl" data-i18n="alignment">Alignment</span>
@@ -82,22 +78,30 @@
                 <input type="number" name="attr_ac" class="underlined sml" value="10" title="@{ac}" />
                 <span class="spacer"></span><span class="lbl" data-i18n="touch">Touch</span>
                 <input type="number" name="attr_ac_touch" class="underlined sml" value="10" title="@{ac_touch}" />
-                <span class="spacer"></span><span class="lbl" data-i18n="flatfooted">Flatfooted</span>
+                <span class="spacer"></span><span class="lbl" data-i18n="flat-footed">Flat-footed</span>
                 <input type="number" name="attr_ac_flatfooted" class="underlined sml" value="10" title="@{ac_flatfooted}" />
                 <span class="spacer"></span><span class="lbl" data-i18n="notes">Notes</span>
                 <input type="text" name="attr_ac_notes" class="underlined" spellcheck="false" title="@{ac_notes}" />
             </div>
             <div class="myrow">
                 <span class="lbl" data-i18n="hp-u">HP</span>
-                <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" /><span class="lbl">/</span><input type="number" name="attr_hp_max" class="underlined sml" value="0" title="@{hp_max}" />
+                <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
+                <span class="lbl">/</span>
+                <input type="number" name="attr_hp_max" class="underlined sml" value="0" title="@{hp_max}" />
                 <span class="spacer"></span><span class="lbl" data-i18n="hd-u">HD</span>
                 <input type="text" name="attr_hd_roll" class="underlined medium" spellcheck="false" placeholder="1d6+1" title="@{hd_roll}" />
-                <span class="spacer"></span><span class="lbl" data-i18n="fort">Fort</span>
+                <span class="spacer"></span><span class="lbl" data-i18n="sr-u">SR</span>
+                <input type="number" name="attr_sr" class="underlined sml" value="0" title="@{sr}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="fort">Fort</span>
                 <input type="number" name="attr_fortitude" class="underlined sml" value="0" title="@{fortitude}" />
                 <span class="spacer"></span><span class="lbl" data-i18n="ref">Ref</span>
                 <input type="number" name="attr_reflex" class="underlined sml" value="0" title="@{reflex}" />
                 <span class="spacer"></span><span class="lbl" data-i18n="will">Will</span>
                 <input type="number" name="attr_will" class="underlined sml" value="0" title="@{will}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="modifiers">Modifiers</span>
+                <input type="text" name="attr_saves_modifiers" class="underlined" spellcheck="false" title="@{saves_modifiers}" />
             </div>
             <div class="myrow">
                 <span class="lbl" data-i18n="defensive-abilities">Defensive Abilities</span>
@@ -112,9 +116,7 @@
                 <input type="text" name="attr_resist" accept="Resist" class="underlined" spellcheck="false" title="@{resist}" />
             </div>
             <div class="myrow">
-                <span class="lbl" data-i18n="sr-u">SR</span>
-                <input type="number" name="attr_sr" class="underlined sml" value="0" title="@{sr}" />
-                <span class="spacer"></span><span class="lbl" data-i18n="weaknesses">Weaknesses</span>
+                <span class="lbl" data-i18n="weaknesses">Weaknesses</span>
                 <input type="text" name="attr_weaknesses" accept="Weaknesses" class="underlined" spellcheck="false" title="@{weaknesses}" />
             </div>
             <div class="spacer"></div>
@@ -137,10 +139,8 @@
             <span class="lbl bold" data-i18n="xp-u">XP</span>
             <span class="lbl bold" name="attr_xp"></span>
         </div>
-        <input type="checkbox" class="optional-flag" name="attr_npc_raceclasslvl_flag" value="1" /><div class="myrow optional">
-            <span class="lbl" name="attr_race"></span>
+        <input type="hidden" class="optional-flag" name="attr_class" value="" /><div class="myrow optional">
             <span class="lbl" name="attr_class"></span>
-            <span class="lbl" name="attr_npc_level"></span>
         </div>
         <div class="myrow">
             <span class="lbl upper" name="attr_npc_alignment"></span>
@@ -153,19 +153,61 @@
             <span class="lbl" name="attr_senses"></span>;
             <button class="myrol" type="roll" name="perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span class="lbl bold" data-i18n="perception">Perception</span>&nbsp;<span class="lbl" name="attr_perception"></span></button>
         </div>
-        <input type="checkbox" class="optional-flag" name="attr_aura_flag" value="1" /><div class="myrow optional">
+        <input type="hidden" class="optional-flag" name="attr_aura" value="" /><div class="myrow optional">
             <span class="lbl bold" data-i18n="aura">Aura</span>
             <span class="lbl" name="attr_aura"></span>
         </div>
     </div> <!-- END Display head info -->
     <div> <!-- Display DEFENSE -->
-        <span class="npc-section" data-i18n="defense">Defense</span>
-        <span class="lbl bold" data-i18n="ac-u">AC</span>
-        <span class="lbl" name="attr_ac"></span>,
-        <span class="lbl bold" data-i18n="touch">Touch</span>
-        <span class="lbl" name="attr_ac_touch"></span>,
-        <span class="lbl bold" data-i18n="flatfooted">Flat-footed</span>
-        <span class="lbl" name="attr_ac_touch"></span>,
+        <div class="myrow">
+            <span class="npc-section" data-i18n="defense">Defense</span>
+            <span class="lbl bold" data-i18n="ac-u">AC</span>
+            <span class="lbl" name="attr_ac"></span>,
+            <span class="lbl" data-i18n="touch">Touch</span>
+            <span class="lbl" name="attr_ac_touch"></span>,
+            <span class="lbl" data-i18n="flat-footed">Flat-footed</span>
+            <span class="lbl" name="attr_ac_flatfooted"></span>
+            <span class="lbl">(<span class="lbl" name="attr_ac_notes"></span>)</span>
+        </div>
+        <div class="myrow">
+            <span class="lbl bold" data-i18n="hp-u">HP</span>
+            <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
+            <span class="lbl">/</span>
+            <span class="lbl" name="attr_hp_max"></span>
+            <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}"><span class="lbl">(<span name="attr_hd_roll"></span>)</span></button>
+            <span class="spacer"></span>
+            <span class="lbl bold" data-i18n="sr-u">SR</span>
+            <span class="lbl" name="attr_sr"></span>
+        </div>
+        <div class="myrow">
+            <button class="myrol" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]]]}}"><span class="lbl bold" data-i18n="fort">Fort</span>
+                <span class="lbl" name="attr_fortitude"></span>,</button>
+            <button class="myrol" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]]]}}"><span class="lbl bold" data-i18n="ref">Ref</span>
+                <span class="lbl" name="attr_reflex"></span>,</button>
+            <button class="myrol" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]]]}}"><span class="lbl bold" data-i18n="will">Will</span>
+                <span class="lbl" name="attr_will"></span></button>
+            <span class="lbl">(<span name="attr_saves_modifiers"></span>)</span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_defensive_abilities" value="" /><div class="myrow optional">
+            <span class="lbl bold" data-i18n="defensive-abilities">Defensive Abilities</span>
+            <span class="lbl" name="attr_defensive_abilities"></span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_npc_dr" value="" /><div class="myrow optional">
+            <span class="lbl bold" data-i18n="dr-u">DR</span>
+            <span class="lbl" name="attr_npc_dr"></span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_immune" value="" /><div class="myrow optional">
+            <span class="lbl bold" data-i18n="immune">Immune</span>
+            <span class="lbl" name="attr_immune"></span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_resist" value="" /><div class="myrow optional">
+            <span class="lbl bold" data-i18n="resist">Resist</span>
+            <span class="lbl" name="attr_resist"></span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_weaknesses" value="" /><div class="myrow optional">
+            <span class="lbl bold" data-i18n="weaknesses">Weaknesses</span>
+            <span class="lbl" name="attr_weaknesses"></span>
+        </div>
     </div> <!-- END Display DEFENSE -->
     <div> <!-- Display OFFENSE -->
         <span class="npc-section" data-i18n="offense">Offense</span>
@@ -5402,6 +5444,19 @@
         }
     });
 
+    // === HP
+    on("change:hp", function(e) {
+        if (pfoglobals_ispc == 0) {
+            if((parseInt(e.newValue) || 0) > 0) {
+                getAttrs(["hp_max"], function(v) {
+                    if((parseInt(v.hp_max) || 0) < (parseInt(e.newValue) || 0)) {
+                        setAttrs({"hp_max":e.newValue},{silent:true});
+                    }
+                });
+            }
+        }
+    });
+
     // === Initiative
     on("change:initiative_misc change:initiative_bonus", function() {
         update_initiative();
@@ -5706,18 +5761,6 @@
             setAttrs({"size":e.newValue.toLowerCase()});
         } else {
             setAttrs({"size_display":e.newValue});
-        }
-    });
-    on("change:aura", function(e) {
-        var flag = (e.newValue.length > 0) ? 1 : 0;
-        setAttrs({"aura_flag":flag});
-    });
-    on("change:race change:class change:npc_level", function(e) {
-        if (pfoglobals_ispc == 0) {
-            getAttrs(["race","class","npc_level"], function(v) {
-                var flag = ((v.race.length > 0) || (v.class.length > 0) || (v.npc_level.length > 0)) ? 1 : 0;
-                setAttrs({"npc_raceclasslvl_flag":flag});
-            });
         }
     });
 

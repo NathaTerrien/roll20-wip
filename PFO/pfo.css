@@ -536,7 +536,7 @@ span.sheet-npc-section {
     text-transform: uppercase;
     font-family: sans-serif;
     font-size: 1.3em;
-    margin-top: 6px;
+    margin-top: 10px;
 }
 
 /* ===== INPUTS ===== */
@@ -1032,7 +1032,7 @@ input.sheet-tabconf:checked + span{
 
 .sheet-optional-flag {display: none;}
 .sheet-optional{display: none;}
-.sheet-optional-flag:checked + .sheet-optional{display: inherit;}
+.sheet-optional-flag:not([value=""]) + .sheet-optional{display: inherit;}
 
 /* ===== AUTO EXPAND TEXTAREA ===== */
 .sheet-autoex {
