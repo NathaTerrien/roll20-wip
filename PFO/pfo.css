@@ -98,6 +98,7 @@ div.sheet-statblock {
     background-color: white;
     font-family: sans-serif;
     color: black;
+    font-size: 1.0em;
 }
 div.sheet-fullpc{
     display: block;
@@ -944,9 +945,7 @@ input.sheet-tabconf:checked + span{
 .sheet-concentration .sheet-options-flag,
 .sheet-concentration .sheet-options-flag + span,
 .sheet-spell .sheet-options-flag,
-.sheet-spell .sheet-options-flag + span,
-.sheet-statblock .sheet-options-flag,
-.sheet-statblock .sheet-options-flag + span {
+.sheet-spell .sheet-options-flag + span {
     top: -2px;
     left: 0px;
 }
@@ -1030,9 +1029,13 @@ input.sheet-tabconf:checked + span{
     display: inherit;
 }
 
-.sheet-optional-flag {display: none;}
+.sheet-optional-flag,
+.sheet-optional-flag0 {display: none;}
 .sheet-optional{display: none;}
-.sheet-optional-flag:not([value=""]) + .sheet-optional{display: inherit;}
+.sheet-optional-flag:not([value=""]) + .sheet-optional.sheet-blk,
+.sheet-optional-flag0:not([value="0"]) + .sheet-optional.sheet-blk {display: block;}
+.sheet-optional-flag:not([value=""]) + .sheet-optional.sheet-inl,
+.sheet-optional-flag0:not([value="0"]) + .sheet-optional.sheet-inl {display: inline-block;}
 
 /* ===== AUTO EXPAND TEXTAREA ===== */
 .sheet-autoex {

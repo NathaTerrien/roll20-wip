@@ -2,9 +2,8 @@
 <div class="statblock"><!-- NPC SHEET -->
     <input checked="checked" class="options-flag" name="attr_options-flag-npc" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
     <div class="myrow"><!-- Display Name and CR -->
-        <div class="spacer"></div>
         <div class="blacklabel" style="width: 100%;text-align:left;">
-            <div class="blackbgrd" style="margin-left:6px;margin-right:6px;">
+            <div class="blackbgrd" style="margin-left:14px;margin-right:6px;">
                 <span class="big only" name="attr_character_name"></span>
             </div>
             <div class="blackbgrd">
@@ -131,82 +130,202 @@
                     <span class="big only" data-i18n="statistics">Statistics</span>
                 </div>
             </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="str-u">STR</span>
+                <input type="number" name="attr_strength" accept="Str" class="underlined sml" value="0" title="@{strength}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="dex-u">DEX</span>
+                <input type="number" name="attr_dexterity" accept="Dex" class="underlined sml" value="0" title="@{dexterity}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="con-u">CON</span>
+                <input type="number" name="attr_constitution" accept="Con" class="underlined sml" value="0" title="@{constitution}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="int-u">INT</span>
+                <input type="number" name="attr_intelligence" accept="Int" class="underlined sml" value="0" title="@{intelligence}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="wis-u">WIS</span>
+                <input type="number" name="attr_wisdom" accept="Wis" class="underlined sml" value="0" title="@{wisdom}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="cha-u">CHA</span>
+                <input type="number" name="attr_charisma" accept="Cha" class="underlined sml" value="0" title="@{charisma}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="base-atk">Base Atk</span>
+                <input type="number" name="attr_bab" accept="Base Atk" class="underlined sml" value="0" title="@{bab}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="cmb-u">CMB</span>
+                <input type="number" name="attr_cmb_mod" accept="CMB" class="underlined sml" value="0" title="@{cmb_mod}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="cmd-u">CMD</span>
+                <input type="number" name="attr_cmd_mod" accept="CMD" class="underlined sml" value="0" title="@{cmd_mod}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="feats">Feats</span>
+                TODO
+            </div>
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="skills">Skills</span>
+                <span class="spacer"></span>
+                <span class="lbl" data-i18n="racial-modifiers">Racial Modifiers</span>
+                <input type="text" name="attr_skills_racial_modifiers" accept="Racial Modifiers" class="underlined senses" spellcheck="false" title="@{skills_racial_modifiers}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="acrobatics">Acrobatics</span>
+                <input type="number" name="attr_acrobatics" class="underlined sml" value="0" title="@{acrobatics}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="appraise">Appraise</span>
+                <input type="number" name="attr_appraise" class="underlined sml" value="0" title="@{appraise}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="bluff">Bluff</span>
+                <input type="number" name="attr_bluff" class="underlined sml" value="0" title="@{bluff}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="climb">Climb</span>
+                <input type="number" name="attr_climb" class="underlined sml" value="0" title="@{climb}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="craft">Craft</span>
+                <input type="number" name="attr_craft" class="underlined sml" value="0" title="@{craft}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="diplomacy">Diplomacy</span>
+                <input type="number" name="attr_diplomacy" class="underlined sml" value="0" title="@{diplomacy}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="disable_device">Disable Device*</span>
+                <input type="number" name="attr_disable_device" class="underlined sml" value="0" title="@{disable_device}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="disguise">Disguise</span>
+                <input type="number" name="attr_disguise" class="underlined sml" value="0" title="@{disguise}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="escape_artist">Escape Artist</span>
+                <input type="number" name="attr_escape_artist" class="underlined sml" value="0" title="@{escape_artist}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="fly">Fly</span>
+                <input type="number" name="attr_fly" class="underlined sml" value="0" title="@{fly}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="handle_animal">Handle Animal*</span>
+                <input type="number" name="attr_handle_animal" class="underlined sml" value="0" title="@{handle_animal}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="heal">Heal</span>
+                <input type="number" name="attr_heal" class="underlined sml" value="0" title="@{heal}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="intimidate">Intimidate</span>
+                <input type="number" name="attr_intimidate" class="underlined sml" value="0" title="@{intimidate}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_arcana">Knowledge (Arcana)*</span>
+                <input type="number" name="attr_knowledge_arcana" class="underlined sml" value="0" title="@{knowledge_arcana}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_dungeoneering">Knowledge (Dungeoneering)*</span>
+                <input type="number" name="attr_knowledge_dungeoneering" class="underlined sml" value="0" title="@{knowledge_dungeoneering}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_engineering">Knowledge (Engineering)*</span>
+                <input type="number" name="attr_knowledge_engineering" class="underlined sml" value="0" title="@{knowledge_engineering}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_geography">Knowledge (Geography)*</span>
+                <input type="number" name="attr_knowledge_geography" class="underlined sml" value="0" title="@{knowledge_geography}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_history">Knowledge (History)*</span>
+                <input type="number" name="attr_knowledge_history" class="underlined sml" value="0" title="@{knowledge_history}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_local">Knowledge (Local)*</span>
+                <input type="number" name="attr_knowledge_local" class="underlined sml" value="0" title="@{knowledge_local}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_nature">Knowledge (Nature)*</span>
+                <input type="number" name="attr_knowledge_nature" class="underlined sml" value="0" title="@{knowledge_nature}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_nobility">Knowledge (Nobility)*</span>
+                <input type="number" name="attr_knowledge_nobility" class="underlined sml" value="0" title="@{knowledge_nobility}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_planes">Knowledge (Planes)*</span>
+                <input type="number" name="attr_knowledge_planes" class="underlined sml" value="0" title="@{knowledge_planes}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="knowledge_religion">Knowledge (Religion)*</span>
+                <input type="number" name="attr_knowledge_religion" class="underlined sml" value="0" title="@{knowledge_religion}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="linguistics">Linguistics*</span>
+                <input type="number" name="attr_linguistics" class="underlined sml" value="0" title="@{linguistics}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="perform">Perform</span>
+                <input type="number" name="attr_perform" class="underlined sml" value="0" title="@{perform}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="profession">Profession*</span>
+                <input type="number" name="attr_profession" class="underlined sml" value="0" title="@{profession}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="ride">Ride</span>
+                <input type="number" name="attr_ride" class="underlined sml" value="0" title="@{ride}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="sense_motive">Sense Motive</span>
+                <input type="number" name="attr_sense_motive" class="underlined sml" value="0" title="@{sense_motive}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="sleight_of_hand">Sleight of Hand*</span>
+                <input type="number" name="attr_sleight_of_hand" class="underlined sml" value="0" title="@{sleight_of_hand}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="spellcraft">Spellcraft*</span>
+                <input type="number" name="attr_spellcraft" class="underlined sml" value="0" title="@{spellcraft}" />
+            </div>
+            <div class="myrow">
+                <span class="spacer"></span><span class="lbl" data-i18n="stealth">Stealth</span>
+                <input type="number" name="attr_stealth" class="underlined sml" value="0" title="@{stealth}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="survival">Survival</span>
+                <input type="number" name="attr_survival" class="underlined sml" value="0" title="@{survival}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="swim">Swim</span>
+                <input type="number" name="attr_swim" class="underlined sml" value="0" title="@{swim}" />
+                <span class="spacer"></span><span class="lbl" data-i18n="use_magic_device">Use Magic Device*</span>
+                <input type="number" name="attr_use_magic_device" class="underlined sml" value="0" title="@{use_magic_device}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="languages">Languages</span>
+                <input type="text" name="attr_languages" accept="Languages" class="underlined aura" spellcheck="false" title="@{languages}" />
+            </div>
         </div> <!-- END NPC OPTIONS BASE DROP -->
         <div class="spacer"></div>
     </div>  <!-- END NPC options / base entry -->
     <div> <!-- Display head info -->
         <div class="myrow bold">
-            <span class="lbl bold" data-i18n="xp-u">XP</span>
-            <span class="lbl bold" name="attr_xp"></span>
+            <span class="bold" data-i18n="xp-u">XP</span>
+            <span class="bold" name="attr_xp"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_class" value="" /><div class="myrow optional">
-            <span class="lbl" name="attr_class"></span>
-        </div>
-        <div class="myrow">
-            <span class="lbl upper" name="attr_npc_alignment"></span>
-            <span class="lbl" name="attr_size_display"></span>
-            <span class="lbl" name="attr_npc_type"></span>
+        <input type="hidden" class="optional-flag" name="attr_class" value="" /><div class="myrow optional blk">
+            <span name="attr_class"></span>
         </div>
         <div class="myrow">
-            <button class="myrol" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative}[MOD] &{tracker}]]}}"><span class="lbl bold" data-i18n="init">Init</span>&nbsp;<span class="lbl" name="attr_initiative"></span></button>;
-            <span class="lbl bold" data-i18n="senses">Senses</span>
-            <span class="lbl" name="attr_senses"></span>;
-            <button class="myrol" type="roll" name="perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span class="lbl bold" data-i18n="perception">Perception</span>&nbsp;<span class="lbl" name="attr_perception"></span></button>
+            <span class="upper" name="attr_npc_alignment"></span>
+            <span name="attr_size_display"></span>
+            <span name="attr_npc_type"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_aura" value="" /><div class="myrow optional">
-            <span class="lbl bold" data-i18n="aura">Aura</span>
-            <span class="lbl" name="attr_aura"></span>
+        <div class="myrow">
+            <button class="myrol" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative}[MOD] &{tracker}]]}}"><span class="bold" data-i18n="init">Init</span>&nbsp;<span name="attr_initiative"></span></button>;
+            <span class="bold" data-i18n="senses">Senses</span>
+            <span name="attr_senses"></span>;
+            <button class="myrol" type="roll" name="perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span class="bold" data-i18n="perception">Perception</span>&nbsp;<span name="attr_perception"></span></button>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_aura" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="aura">Aura</span>
+            <span name="attr_aura"></span>
         </div>
     </div> <!-- END Display head info -->
     <div> <!-- Display DEFENSE -->
         <div class="myrow">
             <span class="npc-section" data-i18n="defense">Defense</span>
-            <span class="lbl bold" data-i18n="ac-u">AC</span>
-            <span class="lbl" name="attr_ac"></span>,
-            <span class="lbl" data-i18n="touch">Touch</span>
-            <span class="lbl" name="attr_ac_touch"></span>,
-            <span class="lbl" data-i18n="flat-footed">Flat-footed</span>
-            <span class="lbl" name="attr_ac_flatfooted"></span>
-            <span class="lbl">(<span class="lbl" name="attr_ac_notes"></span>)</span>
+            <span class="bold" data-i18n="ac-u">AC</span>
+            <span name="attr_ac"></span>,
+            <span data-i18n="touch">Touch</span>
+            <span name="attr_ac_touch"></span>,
+            <span data-i18n="flat-footed">Flat-footed</span>
+            <span name="attr_ac_flatfooted"></span>
+            <input type="hidden" class="optional-flag" name="attr_ac_notes" value="" /><span class="optional inl">(<span name="attr_ac_notes"></span>)</span>
         </div>
         <div class="myrow">
-            <span class="lbl bold" data-i18n="hp-u">HP</span>
+            <span class="bold" data-i18n="hp-u">HP</span>
             <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
-            <span class="lbl">/</span>
-            <span class="lbl" name="attr_hp_max"></span>
-            <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}"><span class="lbl">(<span name="attr_hd_roll"></span>)</span></button>
+            /
+            <span name="attr_hp_max"></span>
+            <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}"><span>(<span name="attr_hd_roll"></span>)</span></button>
             <span class="spacer"></span>
-            <span class="lbl bold" data-i18n="sr-u">SR</span>
-            <span class="lbl" name="attr_sr"></span>
+            <span class="bold" data-i18n="sr-u">SR</span>
+            <span name="attr_sr"></span>
         </div>
         <div class="myrow">
-            <button class="myrol" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]]]}}"><span class="lbl bold" data-i18n="fort">Fort</span>
-                <span class="lbl" name="attr_fortitude"></span>,</button>
-            <button class="myrol" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]]]}}"><span class="lbl bold" data-i18n="ref">Ref</span>
-                <span class="lbl" name="attr_reflex"></span>,</button>
-            <button class="myrol" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]]]}}"><span class="lbl bold" data-i18n="will">Will</span>
-                <span class="lbl" name="attr_will"></span></button>
-            <span class="lbl">(<span name="attr_saves_modifiers"></span>)</span>
+            <button class="myrol" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]]]}}"><span class="bold" data-i18n="fort">Fort</span>
+                <span name="attr_fortitude"></span>,</button>
+            <button class="myrol" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]]]}}"><span class="bold" data-i18n="ref">Ref</span>
+                <span name="attr_reflex"></span>,</button>
+            <button class="myrol" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]]]}}"><span class="bold" data-i18n="will">Will</span>
+                <span name="attr_will"></span></button>
+            <input type="hidden" class="optional-flag" name="attr_saves_modifiers" value="" /><span class="optional inl">(<span name="attr_saves_modifiers"></span>)</span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_defensive_abilities" value="" /><div class="myrow optional">
-            <span class="lbl bold" data-i18n="defensive-abilities">Defensive Abilities</span>
-            <span class="lbl" name="attr_defensive_abilities"></span>
+        <input type="hidden" class="optional-flag" name="attr_defensive_abilities" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="defensive-abilities">Defensive Abilities</span>
+            <span name="attr_defensive_abilities"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_npc_dr" value="" /><div class="myrow optional">
-            <span class="lbl bold" data-i18n="dr-u">DR</span>
-            <span class="lbl" name="attr_npc_dr"></span>
+        <input type="hidden" class="optional-flag" name="attr_npc_dr" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="dr-u">DR</span>
+            <span name="attr_npc_dr"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_immune" value="" /><div class="myrow optional">
-            <span class="lbl bold" data-i18n="immune">Immune</span>
-            <span class="lbl" name="attr_immune"></span>
+        <input type="hidden" class="optional-flag" name="attr_immune" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="immune">Immune</span>
+            <span name="attr_immune"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_resist" value="" /><div class="myrow optional">
-            <span class="lbl bold" data-i18n="resist">Resist</span>
-            <span class="lbl" name="attr_resist"></span>
+        <input type="hidden" class="optional-flag" name="attr_resist" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="resist">Resist</span>
+            <span name="attr_resist"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_weaknesses" value="" /><div class="myrow optional">
-            <span class="lbl bold" data-i18n="weaknesses">Weaknesses</span>
-            <span class="lbl" name="attr_weaknesses"></span>
+        <input type="hidden" class="optional-flag" name="attr_weaknesses" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="weaknesses">Weaknesses</span>
+            <span name="attr_weaknesses"></span>
         </div>
     </div> <!-- END Display DEFENSE -->
     <div> <!-- Display OFFENSE -->
@@ -214,6 +333,39 @@
     </div> <!-- END Display OFFENSE -->
     <div> <!-- Display STATISTICS -->
         <span class="npc-section" data-i18n="statistics">Statistics</span>
+        <div class="myrow">
+            <button class="myrol" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]]]}}"><span class="bold" data-i18n="str-u">STR</span>
+            <span name="attr_strength"></span> (<span name="attr_strength_mod"></span>)</button>,
+            <button class="myrol" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:default} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]]]}}"><span class="bold" data-i18n="dex-u">DEX</span>
+            <span name="attr_dexterity"></span> (<span name="attr_dexterity_mod"></span>)</button>,
+            <button class="myrol" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:default} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]]]}}"><span class="bold" data-i18n="con-u">CON</span>
+            <span name="attr_constitution"></span> (<span name="attr_constitution_mod"></span>)</button>,
+            <button class="myrol" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:default} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]]]}}"><span class="bold" data-i18n="int-u">INT</span>
+            <span name="attr_intelligence"></span> (<span name="attr_intelligence_mod"></span>)</button>,
+            <button class="myrol" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="wisdom roll" value="@{whispertype} &{template:default} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]]]}}"><span class="bold" data-i18n="wis-u">WIS</span>
+            <span name="attr_wisdom"></span> (<span name="attr_wisdom_mod"></span>)</button>,
+            <button class="myrol" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="charisma roll" value="@{whispertype} &{template:default} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]]]}}"><span class="bold" data-i18n="cha-u">CHA</span>
+            <span name="attr_charisma"></span> (<span name="attr_charisma_mod"></span>)</button>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="base-atk">Base Atk</span>
+            <span name="attr_bab"></span>
+            ;
+            <button class="myrol" type="roll" name="CmbRoll" value="@{whispertype} &{template:default} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{cmb_mod}[MOD]]]}}"><span class="bold" data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span> <span name="attr_cmb_mod"></span></button>
+            ;
+            <span class="bold" data-i18n="cmd-u">CMD</span>
+            <span name="attr_cmd_mod"></span>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="base-atk">Base Atk</span>
+            TODO
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="skills">Skills</span>
+            <input type="hidden" class="optional-flag0" name="attr_acrobatics" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Acrobatics" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{acrobatics}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{acrobatics}[MOD]]]}}"><span data-i18n="acrobatics">Acrobatics</span> <span name="attr_acrobatics"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_appraise" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Appraise" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{appraise}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{appraise}[MOD]]]}}"><span data-i18n="appraise">Appraise</span> <span name="attr_appraise"></span></button>,</span>
+            <input type="hidden" class="optional-flag" name="attr_skills_racial_modifiers" value="" /><span class="optional inl">(<span name="attr_skills_racial_modifiers"></span>)</span>
+        </div>
     </div> <!-- END Display STATISTICS -->
 </div><!-- NPC SHEET -->
 <div class="fullpc"> <!-- PC SHEET -->
@@ -1294,7 +1446,7 @@
                 <div class="blacklabel">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                     <div class="blackbgrd">
-                        <span class="big only" data-i18n="skills">skills</span>
+                        <span class="big only" data-i18n="skills">Skills</span>
                     </div>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
