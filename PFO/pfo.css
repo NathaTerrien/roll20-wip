@@ -126,6 +126,10 @@ div.sheet-myrow.sheet-right{
 div.sheet-myrow.sheet-center{
     text-align: center;
 }
+.sheet-npc-display div.sheet-myrow {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
 div.sheet-spacer{
     display: block;
     height: 6px;
@@ -536,8 +540,9 @@ span.sheet-npc-section {
     border-bottom: 1px solid black;
     text-transform: uppercase;
     font-family: sans-serif;
-    font-size: 1.3em;
+    font-size: 1.15em;
     margin-top: 10px;
+    padding-left: 2px;
 }
 
 /* ===== INPUTS ===== */

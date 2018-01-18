@@ -87,8 +87,10 @@
                 <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
                 <span class="lbl">/</span>
                 <input type="number" name="attr_hp_max" class="underlined sml" value="0" title="@{hp_max}" />
-                <span class="lbl padindent" data-i18n="hd-u">HD</span>
+                <span class="lbl padindent" data-i18n="hp-roll">HP Roll</span>
                 <input type="text" name="attr_hd_roll" class="underlined medium" spellcheck="false" placeholder="1d6+1" title="@{hd_roll}" />
+                <span class="lbl padindent" data-i18n="hd-u">HD</span>
+                <input type="text" name="attr_hd" class="underlined medium" accept="Hit Dice" spellcheck="false" placeholder="1d6" title="@{hd}" />
                 <span class="lbl padindent" data-i18n="sr-u">SR</span>
                 <input type="number" name="attr_sr" class="underlined sml" value="0" title="@{sr}" />
             </div>
@@ -124,8 +126,40 @@
                     <span class="big only" data-i18n="offense">Offense</span>
                 </div>
             </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="speed">Speed</span>
+                <input type="text" name="attr_npc_speed" accept="Speed" class="underlined" spellcheck="false" title="@{npc_speed}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="melee">Melee</span>
+                <span style="color:red;">TODO</span>
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="ranged">Ranged</span>
+                <span style="color:red;">TODO</span>
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="space">Space</span>
+                <input type="text" name="attr_space" accept="Space" class="underlined" spellcheck="false" title="@{space}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="reach">Reach</span>
+                <input type="text" name="attr_reach" accept="Reach" class="underlined" spellcheck="false" title="@{reach}" />
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="special-attacks">Special Attacks</span>
+                <span style="color:red;">TODO</span>
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
+                <span style="color:red;">TODO</span>
+            </div>
+            <div class="myrow">
+                <span class="lbl" data-i18n="spells">Spells</span>
+                <span style="color:red;">TODO</span>
+            </div>
             <div class="spacer"></div>
-            <div class="myrow bold greybg padindent"> <!-- input STATISTICS -->
+            <div class="myrow greybg padindent"> <!-- input STATISTICS -->
                 <div class="blackbgrd">
                     <span class="big only" data-i18n="statistics">Statistics</span>
                 </div>
@@ -154,7 +188,7 @@
             </div>
             <div class="myrow">
                 <span class="lbl bold" data-i18n="feats">Feats</span>
-                TODO
+                <span style="color:red;">TODO</span>
             </div>
             <div class="myrow">
                 <span class="lbl bold" data-i18n="skills">Skills</span>
@@ -250,6 +284,10 @@
                 <span class="lbl bold" data-i18n="languages">Languages</span>
                 <input type="text" name="attr_languages" accept="Languages" class="underlined aura" spellcheck="false" title="@{languages}" />
             </div>
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="sq-u" data-i18n="special-qualities" title="Special Qualities">SQ</span>
+                <input type="text" name="attr_sq" accept="SQ" class="underlined aura" spellcheck="false" title="@{sq}" />
+            </div>
             <div class="spacer"></div>
             <div class="myrow bold greybg padindent"> <!-- input ECOLOGY -->
                 <div class="blackbgrd">
@@ -282,7 +320,7 @@
         </div> <!-- END NPC OPTIONS BASE DROP -->
         <div class="spacer"></div>
     </div>  <!-- END NPC options / base entry -->
-    <div> <!-- Display head info -->
+    <div class="npc-display"> <!-- Display head info -->
         <div class="myrow bold">
             <span class="bold" data-i18n="xp-u">XP</span>
             <span class="bold" name="attr_xp"></span>
@@ -306,7 +344,7 @@
             <span name="attr_aura"></span>
         </div>
     </div> <!-- END Display head info -->
-    <div> <!-- Display DEFENSE -->
+    <div class="npc-display"> <!-- Display DEFENSE -->
         <div class="myrow">
             <span class="npc-section" data-i18n="defense">Defense</span>
             <span class="bold" data-i18n="ac-u">AC</span>
@@ -322,7 +360,10 @@
             <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
             /
             <span name="attr_hp_max"></span>
-            <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}"><span>(<span name="attr_hd_roll"></span>)</span></button>
+            <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}">(<span name="attr_hd_roll"></span>)</button>
+            <span class="spacer"></span>
+            <span class="bold" data-i18n="hit-dice">Hit Dice</span>
+            <button class="myrol" type="roll" name="HdRoll" data-i18n-title="roll-hd" title="Roll HD" value="@{whispertype} &{template:default} {{name=^{hit-dice}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd}]]}}"><span name="attr_hd"></span></button>
             <span class="spacer"></span>
             <span class="bold" data-i18n="sr-u">SR</span>
             <span name="attr_sr"></span>
@@ -357,10 +398,42 @@
             <span name="attr_weaknesses"></span>
         </div>
     </div> <!-- END Display DEFENSE -->
-    <div> <!-- Display OFFENSE -->
+    <div class="npc-display"> <!-- Display OFFENSE -->
         <span class="npc-section" data-i18n="offense">Offense</span>
+        <div class="myrow">
+            <span class="bold" data-i18n="speed">Speed</span>
+            <span name="attr_npc_speed"></span>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="melee">Melee</span>
+            <span style="color:red;">TODO</span>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="ranged">Ranged</span>
+            <span style="color:red;">TODO</span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_space" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="space">Space</span>
+            <span name="attr_space"></span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_reach" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="reach">Reach</span>
+            <span name="attr_reach"></span>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="special-attacks">Special Attacks</span>
+            <span style="color:red;">TODO</span>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
+            <span style="color:red;">TODO</span>
+        </div>
+        <div class="myrow">
+            <span class="bold" data-i18n="spells">Spells</span>
+            <span style="color:red;">TODO</span>
+        </div>
     </div> <!-- END Display OFFENSE -->
-    <div> <!-- Display STATISTICS -->
+    <div class="npc-display"> <!-- Display STATISTICS -->
         <span class="npc-section" data-i18n="statistics">Statistics</span>
         <div class="myrow">
             <button class="myrol" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]]]}}"><span class="bold" data-i18n="str-u">STR</span>
@@ -387,7 +460,7 @@
         </div>
         <div class="myrow">
             <span class="bold" data-i18n="feats">Feats</span>
-            TODO
+            <span style="color:red;">TODO</span>
         </div>
         <div class="myrow">
             <span class="bold" data-i18n="skills">Skills</span>
@@ -432,8 +505,12 @@
             <span class="bold" data-i18n="languages">Languages</span>
             <span name="attr_languages"></span>
         </div>
+        <input type="hidden" class="optional-flag" name="attr_sq" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="sq-u">SQ</span>
+            <span name="attr_sq"></span>
+        </div>
     </div> <!-- END Display STATISTICS -->
-    <div> <!-- Display STATISTICS -->
+    <div class="npc-display"> <!-- Display ECOLOGY -->
         <span class="npc-section" data-i18n="ecology">Ecology</span>
         <div class="myrow">
             <span class="bold" data-i18n="environment">Environment</span>
@@ -451,7 +528,7 @@
             <span class="bold" data-i18n="description">Description</span>
             <span name="attr_background"></span>
         </div>
-    </div> <!-- END Display STATISTICS -->
+    </div> <!-- END Display ECOLOGY -->
 </div><!-- NPC SHEET -->
 <div class="fullpc"> <!-- PC SHEET -->
     <div class="myrow"> <!-- top row -->
