@@ -131,32 +131,12 @@
                 <input type="text" name="attr_npc_speed" accept="Speed" class="underlined" spellcheck="false" title="@{npc_speed}" />
             </div>
             <div class="myrow">
-                <span class="lbl" data-i18n="melee">Melee</span>
-                <span style="color:red;">TODO</span>
-            </div>
-            <div class="myrow">
-                <span class="lbl" data-i18n="ranged">Ranged</span>
-                <span style="color:red;">TODO</span>
-            </div>
-            <div class="myrow">
                 <span class="lbl" data-i18n="space">Space</span>
                 <input type="text" name="attr_space" accept="Space" class="underlined" spellcheck="false" title="@{space}" />
             </div>
             <div class="myrow">
                 <span class="lbl" data-i18n="reach">Reach</span>
                 <input type="text" name="attr_reach" accept="Reach" class="underlined" spellcheck="false" title="@{reach}" />
-            </div>
-            <div class="myrow">
-                <span class="lbl" data-i18n="special-attacks">Special Attacks</span>
-                <span style="color:red;">TODO</span>
-            </div>
-            <div class="myrow">
-                <span class="lbl" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
-                <span style="color:red;">TODO</span>
-            </div>
-            <div class="myrow">
-                <span class="lbl" data-i18n="spells">Spells</span>
-                <span style="color:red;">TODO</span>
             </div>
             <div class="spacer"></div>
             <div class="myrow greybg padindent"> <!-- input STATISTICS -->
@@ -187,10 +167,6 @@
                 <input type="number" name="attr_cmd_mod" accept="CMD" class="underlined sml" value="0" title="@{cmd_mod}" />
             </div>
             <div class="myrow">
-                <span class="lbl bold" data-i18n="feats">Feats</span>
-                <span style="color:red;">TODO</span>
-            </div>
-            <div class="myrow">
                 <span class="lbl bold" data-i18n="skills">Skills</span>
                 <span class="spacer"></span>
                 <span class="lbl" data-i18n="racial-modifiers">Racial Modifiers</span>
@@ -199,86 +175,142 @@
             <div class="myrow">
                 <span class="lbl padindent" data-i18n="acrobatics">Acrobatics</span>
                 <input type="number" name="attr_acrobatics" class="underlined sml" value="0" title="@{acrobatics}" />
+                <input type="text" name="attr_acrobatics_notes" class="underlined medium" title="@{acrobatics_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="appraise">Appraise</span>
                 <input type="number" name="attr_appraise" class="underlined sml" value="0" title="@{appraise}" />
+                <input type="text" name="attr_appraise_notes" class="underlined medium" title="@{appraise_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="bluff">Bluff</span>
                 <input type="number" name="attr_bluff" class="underlined sml" value="0" title="@{bluff}" />
+                <input type="text" name="attr_bluff_notes" class="underlined medium" title="@{bluff_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="climb">Climb</span>
                 <input type="number" name="attr_climb" class="underlined sml" value="0" title="@{climb}" />
+                <input type="text" name="attr_climb_notes" class="underlined medium" title="@{climb_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="craft">Craft</span>
                 <input type="number" name="attr_craft" class="underlined sml" value="0" title="@{craft}" />
+                <input type="text" name="attr_craft_notes" class="underlined medium" title="@{craft_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="diplomacy">Diplomacy</span>
                 <input type="number" name="attr_diplomacy" class="underlined sml" value="0" title="@{diplomacy}" />
+                <input type="text" name="attr_diplomacy_notes" class="underlined medium" title="@{diplomacy_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
                 <span class="lbl padindent" data-i18n="disable_device">Disable Device*</span>
                 <input type="number" name="attr_disable_device" class="underlined sml" value="0" title="@{disable_device}" />
+                <input type="text" name="attr_disable_device_notes" class="underlined medium" title="@{disable_device_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="disguise">Disguise</span>
                 <input type="number" name="attr_disguise" class="underlined sml" value="0" title="@{disguise}" />
-                <span class="lbl padindent" data-i18n="escape_artist">Escape Artist</span>
-                <input type="number" name="attr_escape_artist" class="underlined sml" value="0" title="@{escape_artist}" />
-                <span class="lbl padindent" data-i18n="fly">Fly</span>
-                <input type="number" name="attr_fly" class="underlined sml" value="0" title="@{fly}" />
-                <span class="lbl padindent" data-i18n="handle_animal">Handle Animal*</span>
-                <input type="number" name="attr_handle_animal" class="underlined sml" value="0" title="@{handle_animal}" />
+                <input type="text" name="attr_disguise_notes" class="underlined medium" title="@{disguise_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
+                <span class="lbl padindent" data-i18n="escape_artist">Escape Artist</span>
+                <input type="number" name="attr_escape_artist" class="underlined sml" value="0" title="@{escape_artist}" />
+                <input type="text" name="attr_escape_artist_notes" class="underlined medium" title="@{escape_artist_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+                <span class="lbl padindent" data-i18n="fly">Fly</span>
+                <input type="number" name="attr_fly" class="underlined sml" value="0" title="@{fly}" />
+                <input type="text" name="attr_fly_notes" class="underlined medium" title="@{fly_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
+                <span class="lbl padindent" data-i18n="handle_animal">Handle Animal*</span>
+                <input type="number" name="attr_handle_animal" class="underlined sml" value="0" title="@{handle_animal}" />
+                <input type="text" name="attr_handle_animal_notes" class="underlined medium" title="@{handle_animal_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="heal">Heal</span>
                 <input type="number" name="attr_heal" class="underlined sml" value="0" title="@{heal}" />
+                <input type="text" name="attr_heal_notes" class="underlined medium" title="@{heal_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="intimidate">Intimidate</span>
                 <input type="number" name="attr_intimidate" class="underlined sml" value="0" title="@{intimidate}" />
+                <input type="text" name="attr_intimidate_notes" class="underlined medium" title="@{intimidate_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="knowledge_arcana">Knowledge (Arcana)*</span>
                 <input type="number" name="attr_knowledge_arcana" class="underlined sml" value="0" title="@{knowledge_arcana}" />
+                <input type="text" name="attr_knowledge_arcana_notes" class="underlined medium" title="@{knowledge_arcana_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="knowledge_dungeoneering">Knowledge (Dungeoneering)*</span>
                 <input type="number" name="attr_knowledge_dungeoneering" class="underlined sml" value="0" title="@{knowledge_dungeoneering}" />
+                <input type="text" name="attr_knowledge_dungeoneering_notes" class="underlined medium" title="@{knowledge_dungeoneering_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
                 <span class="lbl padindent" data-i18n="knowledge_engineering">Knowledge (Engineering)*</span>
                 <input type="number" name="attr_knowledge_engineering" class="underlined sml" value="0" title="@{knowledge_engineering}" />
+                <input type="text" name="attr_knowledge_engineering_notes" class="underlined medium" title="@{knowledge_engineering_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="knowledge_geography">Knowledge (Geography)*</span>
                 <input type="number" name="attr_knowledge_geography" class="underlined sml" value="0" title="@{knowledge_geography}" />
+                <input type="text" name="attr_knowledge_geography_notes" class="underlined medium" title="@{knowledge_geography_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="knowledge_history">Knowledge (History)*</span>
                 <input type="number" name="attr_knowledge_history" class="underlined sml" value="0" title="@{knowledge_history}" />
+                <input type="text" name="attr_knowledge_history_notes" class="underlined medium" title="@{knowledge_history_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
                 <span class="lbl padindent" data-i18n="knowledge_local">Knowledge (Local)*</span>
                 <input type="number" name="attr_knowledge_local" class="underlined sml" value="0" title="@{knowledge_local}" />
+                <input type="text" name="attr_knowledge_local_notes" class="underlined medium" title="@{knowledge_local_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="knowledge_nature">Knowledge (Nature)*</span>
                 <input type="number" name="attr_knowledge_nature" class="underlined sml" value="0" title="@{knowledge_nature}" />
+                <input type="text" name="attr_knowledge_nature_notes" class="underlined medium" title="@{knowledge_nature_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="knowledge_nobility">Knowledge (Nobility)*</span>
                 <input type="number" name="attr_knowledge_nobility" class="underlined sml" value="0" title="@{knowledge_nobility}" />
-            </div>
-            <div class="myrow">
+                <input type="text" name="attr_knowledge_nobility_notes" class="underlined medium" title="@{knowledge_nobility_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="knowledge_planes">Knowledge (Planes)*</span>
                 <input type="number" name="attr_knowledge_planes" class="underlined sml" value="0" title="@{knowledge_planes}" />
-                <span class="lbl padindent" data-i18n="knowledge_religion">Knowledge (Religion)*</span>
-                <input type="number" name="attr_knowledge_religion" class="underlined sml" value="0" title="@{knowledge_religion}" />
-                <span class="lbl padindent" data-i18n="linguistics">Linguistics*</span>
-                <input type="number" name="attr_linguistics" class="underlined sml" value="0" title="@{linguistics}" />
-                <span class="lbl padindent" data-i18n="perform">Perform</span>
-                <input type="number" name="attr_perform" class="underlined sml" value="0" title="@{perform}" />
+                <input type="text" name="attr_knowledge_planes_notes" class="underlined medium" title="@{knowledge_planes_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
+                <span class="lbl padindent" data-i18n="knowledge_religion">Knowledge (Religion)*</span>
+                <input type="number" name="attr_knowledge_religion" class="underlined sml" value="0" title="@{knowledge_religion}" />
+                <input type="text" name="attr_knowledge_religion_notes" class="underlined medium" title="@{knowledge_religion_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+                <span class="lbl padindent" data-i18n="linguistics">Linguistics*</span>
+                <input type="number" name="attr_linguistics" class="underlined sml" value="0" title="@{linguistics}" />
+                <input type="text" name="attr_linguistics_notes" class="underlined medium" title="@{linguistics_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
+                <span class="lbl padindent" data-i18n="perform">Perform</span>
+                <input type="number" name="attr_perform" class="underlined sml" value="0" title="@{perform}" />
+                <input type="text" name="attr_perform_notes" class="underlined medium" title="@{perform_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="profession">Profession*</span>
                 <input type="number" name="attr_profession" class="underlined sml" value="0" title="@{profession}" />
+                <input type="text" name="attr_profession_notes" class="underlined medium" title="@{profession_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="ride">Ride</span>
                 <input type="number" name="attr_ride" class="underlined sml" value="0" title="@{ride}" />
+                <input type="text" name="attr_ride_notes" class="underlined medium" title="@{ride_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="sense_motive">Sense Motive</span>
                 <input type="number" name="attr_sense_motive" class="underlined sml" value="0" title="@{sense_motive}" />
+                <input type="text" name="attr_sense_motive_notes" class="underlined medium" title="@{sense_motive_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="sleight_of_hand">Sleight of Hand*</span>
                 <input type="number" name="attr_sleight_of_hand" class="underlined sml" value="0" title="@{sleight_of_hand}" />
+                <input type="text" name="attr_sleight_of_hand_notes" class="underlined medium" title="@{sleight_of_hand_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="spellcraft">Spellcraft*</span>
                 <input type="number" name="attr_spellcraft" class="underlined sml" value="0" title="@{spellcraft}" />
+                <input type="text" name="attr_spellcraft_notes" class="underlined medium" title="@{spellcraft_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
                 <span class="lbl padindent" data-i18n="stealth">Stealth</span>
                 <input type="number" name="attr_stealth" class="underlined sml" value="0" title="@{stealth}" />
+                <input type="text" name="attr_stealth_notes" class="underlined medium" title="@{stealth_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="survival">Survival</span>
                 <input type="number" name="attr_survival" class="underlined sml" value="0" title="@{survival}" />
+                <input type="text" name="attr_stealth_notes" class="underlined medium" title="@{stealth_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
                 <span class="lbl padindent" data-i18n="swim">Swim</span>
                 <input type="number" name="attr_swim" class="underlined sml" value="0" title="@{swim}" />
+                <input type="text" name="attr_swim_notes" class="underlined medium" title="@{swim_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 <span class="lbl padindent" data-i18n="use_magic_device">Use Magic Device*</span>
                 <input type="number" name="attr_use_magic_device" class="underlined sml" value="0" title="@{use_magic_device}" />
+                <input type="text" name="attr_use_magic_device_notes" class="underlined medium" title="@{use_magic_device_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
             </div>
             <div class="myrow">
                 <span class="lbl bold" data-i18n="languages">Languages</span>
@@ -412,11 +444,11 @@
             <span class="bold" data-i18n="ranged">Ranged</span>
             <span style="color:red;">TODO</span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_space" value="" /><div class="myrow optional blk">
+        <input type="hidden" class="optional-flag" name="attr_space" value="" /><div class="optional inl">
             <span class="bold" data-i18n="space">Space</span>
             <span name="attr_space"></span>
         </div>
-        <input type="hidden" class="optional-flag" name="attr_reach" value="" /><div class="myrow optional blk">
+        <input type="hidden" class="optional-flag" name="attr_reach" value="" /><div class="optional inl">
             <span class="bold" data-i18n="reach">Reach</span>
             <span name="attr_reach"></span>
         </div>
