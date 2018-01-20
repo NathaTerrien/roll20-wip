@@ -464,6 +464,11 @@ div.sheet-spell {margin-top: 2px;}
     font-size: 1.2em;
     padding-left: 2px;
 }
+.sheet-statblock .sheet-npcatk .sheet-attack {
+    display: inline-block;
+    position: relative;
+}
+.sheet-statblock .sheet-npcatk button.sheet-myrol {margin-left: 15px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -529,7 +534,7 @@ div.sheet-boxed span.sheet-pseudoattr {
 .sheet-skill input.sheet-skillability[value="strength"] + div.sheet-skillability,
 .sheet-skill input.sheet-skillability[value="dexterity"] + div.sheet-skillability {display: inline-block;}
 
-.sheet-statblock .sheet-senses {width: 350px;;}
+.sheet-statblock .sheet-senses {width: 350px;}
 .sheet-statblock .sheet-type {width: 325px;}
 .sheet-statblock .sheet-aura {width: 458px;}
 .sheet-statblock .sheet-skill {
@@ -994,7 +999,8 @@ input.sheet-tabconf:checked + span{
 .sheet-skill:hover .sheet-options-flag + span,
 .sheet-concentration:hover .sheet-options-flag + span,
 .sheet-spell:hover .sheet-options-flag + span,
-.sheet-statblock:hover .sheet-options-flag + span {
+.sheet-statblock .sheet-head-info:hover .sheet-options-flag + span,
+.sheet-statblock .sheet-npcatk .sheet-attack:hover .sheet-options-flag + span {
     display: block;
 }
 .sheet-options,
@@ -1082,55 +1088,78 @@ input.sheet-tabconf:checked + span{
     min-height: inherit;
 }
 /* ===== REPEATING SECTIONS CTRL ===== */
-.repcontrol {
+.sheet-fullpc .repcontrol {
     min-height: 27px;
 }
 
 .repcontrol .btn {
-    /*visibility: hidden;*/
-    border: medium none;
+    border: none;
     color: white !important;
     background: none;
     box-shadow: none;
+}
+.sheet-fullpc .repcontrol .btn {
     padding: 4px 4px 4px 4px;
 }
-
+.sheet-statblock .repcontrol .btn {
+    padding: 0px 0px 0px 0px;
+    margin-left: 10px;
+    display: inline-block;
+    width: 25px;
+    font-size: 0px;
+}
 .repcontrol .btn:focus {
     outline: 0;
 }
 
-.repcontrol .repcontrol_edit:after {
-    content: '(';
-    visibility: visible;
-    font-family: pictos;
-    color: black;
-    border: 1px solid black;
-    border-radius: 50%;
-    font-size: 14px;
-    height: 12px;
-    width: 12px;
-    padding: 4px;
-    display: inline-block;
-    line-height: 12px;
-}
-
-.editmode ~ .repcontrol .repcontrol_edit:after {
-    content: ')';
-}
-
 .repcontrol .repcontrol_add:before {
     content: '&';
-    visibility: visible;
     font-family: pictos;
     color: black;
+    display: inline-block;
+}
+.sheet-fullpc .repcontrol  .repcontrol_add:before {
     border: 1px solid black;
     border-radius: 50%;
     font-size: 14px;
     height: 12px;
     width: 12px;
     padding: 4px;
-    display: inline-block;
     line-height: 12px;
+}
+.sheet-statblock .repcontrol .repcontrol_add:before{
+    font-size: 12px;
+    padding: 2px;
+    height: 10px;
+    width: 10px;
+    line-height: 10px;
+}
+
+.repcontrol .repcontrol_edit:after {
+    content: '(';
+    font-family: pictos;
+    color: black;
+    display: inline-block;
+}
+.sheet-fullpc .repcontrol .repcontrol_edit:after{
+    border: 1px solid black;
+    border-radius: 50%;
+    font-size: 14px;
+    padding: 4px;
+    height: 12px;
+    width: 12px;
+    line-height: 12px;
+}
+.sheet-statblock .repcontrol .repcontrol_edit:after{
+    font-size: 12px;
+    padding: 2px;
+    height: 10px;
+    width: 10px;
+    line-height: 10px;
+}
+.editmode ~ .repcontrol .repcontrol_edit:after {
+    content: ')';
+    vertical-align: bottom;
 }
 
 .repcontrol .repcontrol_edit:hover:after,
@@ -1156,4 +1185,9 @@ input.sheet-tabconf:checked + span{
     padding: 0px;
     height: 18px;
     width: 18px;
+}
+.sheet-statblock .sheet-npcatk .repitem,
+.sheet-statblock .sheet-npcatk .repcontrol,
+.sheet-statblock .sheet-npcatk .repcontainer {
+    display: inline-block;
 }
