@@ -532,7 +532,10 @@ div.sheet-boxed span.sheet-pseudoattr {
 .sheet-statblock .sheet-senses {width: 350px;;}
 .sheet-statblock .sheet-type {width: 325px;}
 .sheet-statblock .sheet-aura {width: 458px;}
-
+.sheet-statblock .sheet-skill {
+    width: 115px;
+    text-align: right;
+}
 span.sheet-npc-section {
     display: block;
     width: 100%;

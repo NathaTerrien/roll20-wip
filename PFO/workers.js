@@ -337,6 +337,38 @@
     on("change:skillfixed_ranks change:skillcraft_ranks change:skillknowledge_ranks change:skillperform_ranks change:skillprofession_ranks change:skillcustom_ranks", function() {sum_allskills_ranks();});
 
     on("remove:repeating_skillcraft remove:repeating_skillknowledge remove:repeating_skillperform remove:repeating_skillprofession remove:repeating_skillcustom", function(e) {sum_someskills_ranks(e.sourceAttribute + "_ranks")});
+    // -- NPC skills display
+    on("change:acrobatics change:acrobatics_notes change:appraise change:appraise_notes change:bluff change:bluff_notes change:climb change:climb_notes change:craft change:craft_notes change:diplomacy change:diplomacy_notes change:disable_device change:disable_device_notes change:disguise change:disguise_notes change:escape_artist change:escape_artist_notes change:fly change:fly_notes change:handle_animal change:handle_animal_notes change:heal change:heal_notes change:intimidate change:intimidate_notes change:knowledge_arcana change:knowledge_arcana_notes change:knowledge_dungeoneering change:knowledge_dungeoneering_notes change:knowledge_engineering change:knowledge_engineering_notes change:knowledge_geography change:knowledge_geography_notes change:knowledge_history change:knowledge_history_notes change:knowledge_local change:knowledge_local_notes change:knowledge_nature change:knowledge_nature_notes change:knowledge_nobility change:knowledge_nobility_notes change:knowledge_planes change:knowledge_planes_notes change:knowledge_religion change:knowledge_religion_notes change:linguistics change:linguistics_notes change:perception change:perception_notes change:perform change:perform_notes change:profession change:profession_notes change:ride change:ride_notes change:sense_motive change:sense_motive_notes change:sleight_of_hand change:sleight_of_hand_notes change:spellcraft change:spellcraft_notes change:stealth change:stealth_notes change:survival change:survival_notes change:swim change:swim_notes change:use_magic_device change:use_magic_device_notes", function(e) {
+        if(pfoglobals_ispc != 1) {
+            var skill = "";
+            if (e.sourceAttribute.slice(-6) == "_notes") {
+                skill = e.sourceAttribute.substring(0, e.sourceAttribute.indexOf("_notes"));
+            } else {
+                skill = e.sourceAttribute;
+            }
+            var fields = [skill, skill + "_notes"];
+            getAttrs(fields, function(v) {
+                var update = {};
+                var display = "";
+                var flag = 0;
+                if ((parseInt(v[skill]) || 0) != 0 ) {
+                    display += v[skill];
+                    flag = 1;
+                }
+                if(v[skill + "_notes"] && (v[skill + "_notes"].length > 0)) {
+                    if(display.length === 0) {
+                        display += "0";
+                    }
+                    display += " (" + v[skill + "_notes"] + ")";
+                    flag = 1;
+                }
+                update[skill + "_display"] = display;
+                update[skill + "_flag"] = flag;
+                setAttrs(update,{silent: true});
+            });
+        }
+    });
+
 
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
