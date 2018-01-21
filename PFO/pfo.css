@@ -469,6 +469,7 @@ div.sheet-spell {margin-top: 2px;}
     position: relative;
 }
 .sheet-statblock .sheet-npcatk button.sheet-myrol {margin-left: 15px;}
+.sheet-statblock .sheet-attack .sheet-lbl.sheet-atk {width: 55px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -637,6 +638,7 @@ select.sheet-size {
     width: 60px;
 }
 input[type="text"].sheet-small {width: 45px;}
+input[type="text"].sheet-smlmed {width: 80px;}
 input[type="text"].sheet-medium {width: 140px;}
 
 /* ===== ABILITIES ===== */
@@ -1030,6 +1032,11 @@ input.sheet-tabconf:checked + span{
 .sheet-options-sr {
     background-color: rgb(250,250,250);
 }
+.sheet-npcatk .sheet-options {
+    background-color: rgb(250,250,250);
+    width: 100%;
+}
+
 .sheet-options-flag:checked ~ .sheet-options,
 .sheet-options-flag.sheet-fortitude:checked ~ .sheet-options-fortitude,
 .sheet-options-flag.sheet-reflex:checked ~ .sheet-options-reflex,
@@ -1190,4 +1197,14 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-npcatk .repcontrol,
 .sheet-statblock .sheet-npcatk .repcontainer {
     display: inline-block;
+    vertical-align: top;
+}
+.sheet-statblock .sheet-npcatk.sheet-melee .repcontainer {
+    max-width: 560px;
+}
+.sheet-statblock .sheet-npcatk.sheet-ranged .repcontainer {
+    max-width: 545px;
+}
+.sheet-statblock .sheet-npcatk.sheet-special .repcontainer {
+    max-width: 500px;
 }

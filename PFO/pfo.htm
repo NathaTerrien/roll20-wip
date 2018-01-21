@@ -441,61 +441,6 @@
             <span class="bold" data-i18n="speed">Speed</span>
             <span name="attr_npc_speed"></span>
         </div>
-        <div class="myrow npcatk">
-            <span class="bold" data-i18n="melee">Melee</span>
-            <fieldset class="repeating_npcatk-melee">
-                <div class="attack">
-                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
-                        <span name="attr_atkname"></span>
-                    </button>
-                    <input type="hidden" name="attr_rollbase">
-                    <div class="options">
-                        <div class="myrow">
-                            <span class="lbl" data-i18n="name">Name</span>
-                            <input type="text" name="attr_atkname" accept="Name" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span class="mleft"></span>
-                            <span class="lbl atk" data-i18n="attack:">Attack:</span>
-                            <input type="text" class="underlined dmgbase" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_attacks_$id_atkmod}" />
-                            <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
-                            <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
-                            <span class="lbl atk" data-i18n="damage:">Damage:</span>
-                            <input type="text" name="attr_dmgbase" class="underlined dmgbase" spellcheck="false" placeholder="1d6" title="@{repeating_attacks_$id_dmgbase}" />
-                            <span class="lbl right typ" data-i18n="type:">Type:</span>
-                            <input type="text" name="attr_dmgtype" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
-                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
-                            <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}" title="@{repeating_attacks_$id_dmg2flag}" /><span class="mleft"></span>
-                            <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
-                            <input type="text" name="attr_dmg2base" class="underlined dmgbase" spellcheck="false" placeholder="1d4" title="@{repeating_attacks_$id_dmg2base}" />
-                            <span class="lbl right typ" data-i18n="type:">Type:</span>
-                            <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
-                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
-                            <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
-                        </div>
-                        <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span class="mleft"></span>
-                            <span class="lbl atk" data-i18n="description:">Description:</span>
-                            <div class="autoex">
-                                <span name="attr_atkdesc"></span>
-                                <textarea name="attr_atkdesc" accept="Content" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_attacks_$id_atkdesc}"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-        <div class="myrow">
-            <span class="bold" data-i18n="ranged">Ranged</span>
-            <span style="color:red;">TODO</span>
-        </div>
         <input type="hidden" class="optional-flag" name="attr_space" value="" /><div class="optional inl">
             <span class="bold" data-i18n="space">Space</span>
             <span name="attr_space"></span>
@@ -504,9 +449,110 @@
             <span class="bold" data-i18n="reach">Reach</span>
             <span name="attr_reach"></span>
         </div>
-        <div class="myrow">
+        <div class="myrow npcatk melee">
+            <span class="bold" data-i18n="melee">Melee</span>
+            <fieldset class="repeating_npcatk-melee">
+                <div class="attack">
+                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <div class="options">
+                        <div class="myrow">
+                            <span class="lbl" data-i18n="name">Name</span>
+                            <input type="text" name="attr_atkname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_npcatk-melee_$id_atkname}" />
+                            <span class="spacer"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-melee_$id_atkflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="attack:">Attack:</span>
+                            <input type="text" class="underlined small" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod}" />
+                            <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                            <input type="number" class="underlined sml" name="attr_atkcritrange" value="20" title="@{repeating_npcatk-melee_$id_atkcritrange}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="damage:">Damage:</span>
+                            <input type="text" name="attr_dmgbase" class="underlined smlmed" spellcheck="false" placeholder="1d6" title="@{repeating_npcatk-melee_$id_dmgbase}" />
+                            <span class="lbl right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmgtype" class="underlined medium" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_npcatk-melee_$id_dmgtype}" />
+                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined sml" name="attr_dmgcritmulti" value="2" title="@{repeating_npcatk-melee_$id_dmgcritmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}" title="@{repeating_npcatk-melee_$id_dmg2flag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
+                            <input type="text" name="attr_dmg2base" class="underlined smlmed" spellcheck="false" placeholder="1d4" title="@{repeating_npcatk-melee_$id_dmg2base}" />
+                            <span class="lbl right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmg2type" class="underlined medium" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_npcatk-melee_$id_dmg2type}" />
+                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined sml" name="attr_dmg2critmulti" value="1" title="@{repeating_npcatk-melee_$id_dmg2critmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{atkdesc}}}" title="@{repeating_npcatk-melee_$id_descflag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="description:">Description:</span>
+                            <div class="autoex">
+                                <span name="attr_atkdesc"></span>
+                                <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_npcatk-melee_$id_atkdesc}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="myrow npcatk ranged">
+            <span class="bold" data-i18n="ranged">Ranged</span>
+            <fieldset class="repeating_npcatk-ranged">
+                <div class="attack">
+                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <div class="options">
+                        <div class="myrow">
+                            <span class="lbl" data-i18n="name">Name</span>
+                            <input type="text" name="attr_atkname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_npcatk-ranged_$id_atkname}" />
+                            <span class="spacer"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-ranged_$id_atkflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="attack:">Attack:</span>
+                            <input type="text" class="underlined small" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_npcatk-ranged_$id_atkmod}" />
+                            <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                            <input type="number" class="underlined sml" name="attr_atkcritrange" value="20" title="@{repeating_npcatk-ranged_$id_atkcritrange}" />
+                        </div>
+                        <div class="myrow">
+                            <span class="lbl atk" data-i18n="range:">Range:</span>
+                            <input type="text" name="attr_atkrange" class="underlined medium" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_npcatk-ranged_$id_atkrange}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}" title="@{dmgflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="damage:">Damage:</span>
+                            <input type="text" name="attr_dmgbase" class="underlined smlmed" spellcheck="false" placeholder="1d6" title="@{repeating_npcatk-ranged_$id_dmgbase}" />
+                            <span class="lbl right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmgtype" class="underlined medium" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_npcatk-ranged_$id_dmgtype}" />
+                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined sml" name="attr_dmgcritmulti" value="2" title="@{repeating_npcatk-ranged_$id_dmgcritmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}" title="@{repeating_npcatk-ranged_$id_dmg2flag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
+                            <input type="text" name="attr_dmg2base" class="underlined smlmed" spellcheck="false" placeholder="1d4" title="@{repeating_npcatk-ranged_$id_dmg2base}" />
+                            <span class="lbl right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmg2type" class="underlined medium" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_npcatk-ranged_$id_dmg2type}" />
+                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined sml" name="attr_dmg2critmulti" value="1" title="@{repeating_npcatk-ranged_$id_dmg2critmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{atkdesc}}}" title="@{repeating_npcatk-ranged_$id_descflag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="description:">Description:</span>
+                            <div class="autoex">
+                                <span name="attr_atkdesc"></span>
+                                <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_npcatk-ranged_$id_atkdesc}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="myrow npcatk special">
             <span class="bold" data-i18n="special-attacks">Special Attacks</span>
-            <span style="color:red;">TODO</span>
+            <fieldset class="repeating_npcatk-special">
+                <div class="attack">
+                </div>
+            </fieldset>
         </div>
         <div class="myrow">
             <span class="bold" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
@@ -6190,13 +6236,22 @@
     });
 
     // === NPC
-    // --- Compendium drop
+    // --- Npc Compendium drop
     on("change:compendium_npc_size", function(e){
         if(["fine","diminutive","tiny","small","medium","large","huge","gargantuan","colossal"].includes(e.newValue.toLowerCase())) {
             setAttrs({"size":e.newValue.toLowerCase()});
         } else {
             setAttrs({"size_display":e.newValue});
         }
+    });
+    // --- Npc Attacks Display name
+    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkflag change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
+            var atkid = e.sourceAttribute.substring(23, 43);
+            update_npc_attack("melee",atkid);
+    });
+    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkflag change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
+            var atkid = e.sourceAttribute.substring(24, 44);
+            update_npc_attack("ranged",atkid);
     });
 
     // === CONFIGURATION
@@ -6713,7 +6768,42 @@
             });
         });
     };
-
+    var update_npc_attack = function (type,id) {
+        // type = "melee" / "ranged" / "special"
+        var update = {};
+        var display = "";
+        var base = "repeating_npcatk-" + type + "_" + id + "_";
+        var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
+        if(type == "ranged") {fields.push(base + "atkrange");}
+        // todo "special" fields
+        getAttrs(fields, function(v){
+            display = v[base + "atkname"];
+            if (v[base  + "atkflag"] != "0") {
+                display += " +" + v[base + "atkmod"];
+                if((type == "ranged") && (v[base + "atkrange"] != "")) {
+                    display += " " + v[base + "atkrange"];
+                }
+            }
+            if ((v[base  + "dmgflag"] != "0")||(v[base  + "dmg2flag"] != "0")) {
+                display += " ("
+                if(v[base  + "dmgflag"] != "0") {
+                    display += v[base + "dmgbase"];
+                    if(v[base + "dmgtype"] != "") {display += " " + v[base + "dmgtype"];}
+                    if((parseInt(v[base + "atkcritrange"]) || 20) < 20) {display += "/" + v[base + "atkcritrange"] + "-20";}
+                    if((parseInt(v[base + "dmgcritmulti"]) || 2) != 2) {display += "/x" + v[base + "dmgcritmulti"];}
+                }
+                if (v[base  + "dmg2flag"] != "0") {
+                    display += ", ";
+                    display += v[base + "dmg2base"];
+                    if(v[base + "dmg2type"] != "") {display += " " + v[base + "dmg2type"];}
+                    if((parseInt(v[base + "dmg2critmulti"]) || 1) != 1) {display += "/x" + v[base + "dmg2critmulti"];}
+                }
+                display += ")";
+            }
+            update[base + "atkdisplay"] = display;
+            setAttrs(update,{silent:true});
+        });
+    };
     // === SKILLS
     var update_skill = function(attr,source) {
         var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod"];

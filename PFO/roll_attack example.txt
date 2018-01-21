@@ -1,17 +1,38 @@
 @{Eruk|whispertype} &{template:default}{{name=+1 Greataxe of Fire}}
 {{type=attackdamage}}
 {{showchar=@{Eruk|rollshowchar}}}
-{{charname=@{Eruk|character_name}}} {{attack=1}}
+{{charname=@{Eruk|character_name}}}
+{{attack=1}}
 {{roll=[[1d20cs20+12[Melee]+1[MOD]+@{Eruk|rollmod_attack}[BONUS]]]}}
 {{atkvs= (Melee vs AC)}}
 {{critconfirm=[[1d20cs20+12[Melee]+1[MOD]+@{Eruk|rollmod_attack}[BONUS]]]}}
 {{desc=Burn, Critter, buuurn!}}
 {{shownotes=1}}
-{{notes=Martial 2H}} {{damage=1}} {{dmg1flag=1}}
+{{notes=Martial 2H}}
+{{damage=1}}
+{{dmg1flag=1}}
 {{dmg1=[[1d12+6[undefined]+1[MOD]+@{Eruk|rollmod_damage}[BONUS]]]}}
 {{dmg1type=Slashing}}
 {{dmg1crit=[[(1d12+6[undefined]+1[MOD]+@{Eruk|rollmod_damage}[BONUS])*3]]}}
-{{damage=1}} {{dmg2flag=1}}
+{{damage=1}}
+{{dmg2flag=1}}
 {{dmg2=[[1d6+0[]+1[MOD]+@{Eruk|rollmod_damage}[BONUS]]]}}
 {{dmg2type=Fire}}
 {{dmg2crit=[[(1d6+0[]+1[MOD]+@{Eruk|rollmod_damage}[BONUS])*1]]}}
+
+@{Eruk|whispertype} &{template:default}{{name=Crossbow, Heavy}}
+{{type=attackdamage}}
+{{showchar=@{Eruk|rollshowchar}}}
+{{charname=@{Eruk|character_name}}}
+{{attack=1}}
+{{roll=[[1d20cs19+8[Ranged]+0[MOD]+@{Eruk|rollmod_attack}[BONUS]]]}}
+{{atkvs= (Ranged vs AC)}}
+{{range=120 ft.}}
+{{critconfirm=[[1d20cs20+8[Ranged]+0[MOD]+@{Eruk|rollmod_attack}[BONUS]]]}}
+{{shownotes=1}}
+{{notes=}}
+{{damage=1}}
+{{dmg1flag=1}}
+{{dmg1=[[1d10+0[]+0[MOD]+@{Eruk|rollmod_damage}[BONUS]]]}}
+{{dmg1type=Piercing}}
+{{dmg1crit=[[(1d10+0[]+0[MOD]+@{Eruk|rollmod_damage}[BONUS])*2]]}}
