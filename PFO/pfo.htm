@@ -100,7 +100,7 @@
                     <span class="lbl margindent" data-i18n="modifiers">Modifiers</span>
                     <input type="text" name="attr_saves_modifiers" class="underlined" spellcheck="false" title="@{saves_modifiers}" />
                     <span class="lbl margindent" data-i18n="sr-u">SR</span>
-                    <input type="number" name="attr_sr" class="underlined sml" value="0" title="@{sr}" />
+                    <input type="number" name="attr_sr" accept="Spell Resistance" class="underlined sml" value="0" title="@{sr}" />
                 </div>
                 <div class="myrow">
                     <span class="lbl right w100" data-i18n="defensive-abilities">Defensive Abilities</span>
@@ -166,8 +166,7 @@
                 </div>
                 <div class="myrow">
                     <span class="lbl bold" data-i18n="skills">Skills</span>
-                    <span class="spacer"></span>
-                    <span class="lbl" data-i18n="racial-modifiers">Racial Modifiers</span>
+                    <span class="lbl margindent" data-i18n="racial-modifiers">Racial Modifiers</span>
                     <input type="text" name="attr_skills_racial_modifiers" accept="Racial Modifiers" class="underlined senses" spellcheck="false" title="@{skills_racial_modifiers}" />
                 </div>
                 <div class="myrow">
@@ -397,13 +396,12 @@
                 <span class="bold" data-i18n="hp-u">HP</span>
                 <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
                 /
-                <span name="attr_hp_max"></span>
+                <span name="attr_hp_max" title="@{hp_max}"></span>
+                <input type="hidden" class="optional-flag" name="attr_hp_notes" value="" /><span class="optional inl">(<span name="attr_hp_notes"></span>)</span>
                 <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}">(<span name="attr_hd_roll"></span>)</button>
-                <span class="spacer"></span>
-                <span class="bold" data-i18n="hit-dice">Hit Dice</span>
+                <span class="bold margindent" data-i18n="hit-dice">Hit Dice</span>
                 <button class="myrol" type="roll" name="HdRoll" data-i18n-title="roll-hd" title="Roll HD" value="@{whispertype} &{template:default} {{name=^{hit-dice}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd}]]}}"><span name="attr_hd"></span></button>
-                <span class="spacer"></span>
-                <span class="bold" data-i18n="sr-u">SR</span>
+                <span class="bold margindent" data-i18n="sr-u">SR</span>
                 <span name="attr_sr"></span>
             </div>
             <div class="myrow">
@@ -586,9 +584,11 @@
             <span name="attr_bab"></span>
             ;
             <button class="myrol" type="roll" name="CmbRoll" value="@{whispertype} &{template:default} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{cmb_mod}[MOD]]]}}"><span class="bold" data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span> <span name="attr_cmb_mod"></span></button>
+            <input type="hidden" class="optional-flag" name="attr_cmb_notes" value="" /><span class="optional inl">(<span name="attr_cmb_notes"></span>)</span>
             ;
             <span class="bold" data-i18n="cmd-u">CMD</span>
             <span name="attr_cmd_mod"></span>
+            <input type="hidden" class="optional-flag" name="attr_cmd_notes" value="" /><span class="optional inl">(<span name="attr_cmd_notes"></span>)</span>
         </div>
         <div class="myrow">
             <span class="bold" data-i18n="feats">Feats</span>
