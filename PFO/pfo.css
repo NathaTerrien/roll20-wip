@@ -64,6 +64,9 @@ img{
 .sheet-padindent{
     padding-left: 10px;
 }
+.sheet-margindent {
+    margin-left: 10px;
+}
 .sheet-bold{
     font-weight: bold;
 }
@@ -87,6 +90,12 @@ img{
 }
 .sheet-greybg{
     background-color: #DDD;
+}
+.sheet-w100{
+    width: 100px;
+}
+.sheet-w50{
+    width: 50px;
 }
 /* ==== DIVS ==== */
 div.sheet-statblock {

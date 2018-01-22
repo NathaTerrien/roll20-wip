@@ -24,9 +24,9 @@
                 <div class="myrow">
                     <span class="lbl" data-i18n="name">Name</span>
                     <input type="text" name="attr_character_name" accept="Name" class="underlined" spellcheck="false" title="@{character_name}" />
-                    <span class="lbl padindent" data-i18n="cr-u">CR</span>
+                    <span class="lbl margindent" data-i18n="cr-u">CR</span>
                     <input type="text" name="attr_npc_cr" accept="CR" class="underlined small" spellcheck="false" title="@{npc_cr}" />
-                    <span class="lbl" data-i18n="xp-u">XP</span>
+                    <span class="lbl margindent" data-i18n="xp-u">XP</span>
                     <input type="text" name="attr_xp" accept="XP" class="underlined medium" title="@{attr_xp}" />
                 </div>
                 <div class="myrow">
@@ -36,7 +36,7 @@
                 <div class="myrow">
                     <span class="lbl" data-i18n="alignment">Alignment</span>
                     <input type="text" name="attr_npc_alignment" accept="Alignment" class="underlined small upper" spellcheck="false" title="@{npc_alignment}" />
-                    <span class="lbl padindent" data-i18n="size">Size</span>
+                    <span class="lbl margindent" data-i18n="size">Size</span>
                     <input type="hidden" name="attr_compendium_npc_size" accept="Size" />
                     <select class="size underlined" name="attr_size" title="@{size}">
                         <option value="fine" data-i18n="fine">Fine</option>
@@ -49,15 +49,15 @@
                         <option value="gargantuan" data-i18n="gargantuan">Gargantuan</option>
                         <option value="colossal" data-i18n="colossal">Colossal</option>
                     </select>
-                    <span class="lbl padindent" data-i18n="type">Type</span>
+                    <span class="lbl margindent" data-i18n="type">Type</span>
                     <input type="text" name="attr_npc_type" accept="Creature Type" class="underlined type" title="@{npc_type}" />
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="initiative">Initiative</span>
                     <input type="number" name="attr_initiative" class="underlined sml" value="0" title="@{initiative}" />
-                    <span class="lbl padindent" data-i18n="senses">Senses</span>
+                    <span class="lbl margindent" data-i18n="senses">Senses</span>
                     <input type="text" name="attr_senses" accept="Senses" class="underlined senses" spellcheck="false" title="@{senses}" />
-                    <span class="lbl padindent" data-i18n="perception">Perception</span>
+                    <span class="lbl margindent" data-i18n="perception">Perception</span>
                     <input type="number" name="attr_perception" class="underlined sml" value="0" title="@{perception}" />
                 </div>
                 <div class="myrow">
@@ -73,50 +73,50 @@
                 <div class="myrow">
                     <span class="lbl" data-i18n="ac-u">AC</span>
                     <input type="number" name="attr_ac" class="underlined sml" value="10" title="@{ac}" />
-                    <span class="lbl padindent" data-i18n="touch">Touch</span>
+                    <span class="lbl margindent" data-i18n="touch">Touch</span>
                     <input type="number" name="attr_ac_touch" class="underlined sml" value="10" title="@{ac_touch}" />
-                    <span class="lbl padindent" data-i18n="flat-footed">Flat-footed</span>
+                    <span class="lbl margindent" data-i18n="flat-footed">Flat-footed</span>
                     <input type="number" name="attr_ac_flatfooted" class="underlined sml" value="10" title="@{ac_flatfooted}" />
-                    <span class="lbl padindent" data-i18n="notes">Notes</span>
-                    <input type="text" name="attr_ac_notes" class="underlined" spellcheck="false" title="@{ac_notes}" />
+                    <input type="text" name="attr_ac_notes" class="underlined" title="@{ac_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="hp-u">HP</span>
                     <input type="number" name="attr_hp" class="underlined sml" value="0" title="@{hp}" />
                     <span class="lbl">/</span>
                     <input type="number" name="attr_hp_max" class="underlined sml" value="0" title="@{hp_max}" />
-                    <span class="lbl padindent" data-i18n="hp-roll">HP Roll</span>
-                    <input type="text" name="attr_hd_roll" class="underlined medium" spellcheck="false" placeholder="1d6+1" title="@{hd_roll}" />
-                    <span class="lbl padindent" data-i18n="hd-u">HD</span>
-                    <input type="text" name="attr_hd" class="underlined medium" accept="Hit Dice" spellcheck="false" placeholder="1d6" title="@{hd}" />
+                    <input type="text" name="attr_hp_notes" class="underlined" title="@{hp_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+                    <span class="lbl margindent" data-i18n="hp-roll">HP Roll</span>
+                    <input type="text" name="attr_hd_roll" class="underlined smlmed" spellcheck="false" placeholder="1d6+1" title="@{hd_roll}" />
+                    <span class="lbl margindent" data-i18n="hd-u">HD</span>
+                    <input type="text" name="attr_hd" class="underlined smlmed" accept="Hit Dice" spellcheck="false" placeholder="1d6" title="@{hd}" />
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="fort">Fort</span>
                     <input type="number" name="attr_fortitude" class="underlined sml" value="0" title="@{fortitude}" />
-                    <span class="lbl padindent" data-i18n="ref">Ref</span>
+                    <span class="lbl margindent" data-i18n="ref">Ref</span>
                     <input type="number" name="attr_reflex" class="underlined sml" value="0" title="@{reflex}" />
-                    <span class="lbl padindent" data-i18n="will">Will</span>
+                    <span class="lbl margindent" data-i18n="will">Will</span>
                     <input type="number" name="attr_will" class="underlined sml" value="0" title="@{will}" />
-                    <span class="lbl padindent" data-i18n="modifiers">Modifiers</span>
+                    <span class="lbl margindent" data-i18n="modifiers">Modifiers</span>
                     <input type="text" name="attr_saves_modifiers" class="underlined" spellcheck="false" title="@{saves_modifiers}" />
-                    <span class="lbl padindent" data-i18n="sr-u">SR</span>
+                    <span class="lbl margindent" data-i18n="sr-u">SR</span>
                     <input type="number" name="attr_sr" class="underlined sml" value="0" title="@{sr}" />
                 </div>
                 <div class="myrow">
-                    <span class="lbl" data-i18n="defensive-abilities">Defensive Abilities</span>
+                    <span class="lbl right w100" data-i18n="defensive-abilities">Defensive Abilities</span>
                     <input type="text" name="attr_defensive_abilities" accept="Defensive Abilities" class="underlined" spellcheck="false" title="@{defensive_abilities}" />
-                    <span class="lbl padindent" data-i18n="dr-u">DR</span>
+                    <span class="lbl margindent right w50" data-i18n="dr-u">DR</span>
                     <input type="text" name="attr_npc_dr" accept="DR" class="underlined" spellcheck="false" title="@{npc_dr}" />
                 </div>
                 <div class="myrow">
-                    <span class="lbl" data-i18n="immune">Immune</span>
+                    <span class="lbl right w100" data-i18n="immune">Immune</span>
                     <input type="text" name="attr_immune" accept="Immune" class="underlined" spellcheck="false" title="@{immune}" />
-                    <span class="lbl padindent" data-i18n="resist">Resist</span>
+                    <span class="lbl margindent right w50" data-i18n="resist">Resist</span>
                     <input type="text" name="attr_resist" accept="Resist" class="underlined" spellcheck="false" title="@{resist}" />
                 </div>
                 <div class="myrow">
-                    <span class="lbl" data-i18n="weaknesses">Weaknesses</span>
-                    <input type="text" name="attr_weaknesses" accept="Weaknesses" class="underlined aura" spellcheck="false" title="@{weaknesses}" />
+                    <span class="lbl right w100" data-i18n="weaknesses">Weaknesses</span>
+                    <input type="text" name="attr_weaknesses" accept="Weaknesses" class="underlined" spellcheck="false" title="@{weaknesses}" />
                 </div>
                 <div class="spacer"></div>
                 <div class="myrow bold greybg padindent"> <!-- input OFFENSE -->
@@ -131,7 +131,7 @@
                 <div class="myrow">
                     <span class="lbl" data-i18n="space">Space</span>
                     <input type="text" name="attr_space" accept="Space" class="underlined" spellcheck="false" title="@{space}" />
-                    <span class="lbl padindent" data-i18n="reach">Reach</span>
+                    <span class="lbl margindent" data-i18n="reach">Reach</span>
                     <input type="text" name="attr_reach" accept="Reach" class="underlined" spellcheck="false" title="@{reach}" />
                 </div>
                 <div class="spacer"></div>
@@ -143,24 +143,26 @@
                 <div class="myrow">
                     <span class="lbl" data-i18n="str-u">STR</span>
                     <input type="number" name="attr_strength" accept="Str" class="underlined sml" value="0" title="@{strength}" />
-                    <span class="lbl padindent" data-i18n="dex-u">DEX</span>
+                    <span class="lbl margindent" data-i18n="dex-u">DEX</span>
                     <input type="number" name="attr_dexterity" accept="Dex" class="underlined sml" value="0" title="@{dexterity}" />
-                    <span class="lbl padindent" data-i18n="con-u">CON</span>
+                    <span class="lbl margindent" data-i18n="con-u">CON</span>
                     <input type="number" name="attr_constitution" accept="Con" class="underlined sml" value="0" title="@{constitution}" />
-                    <span class="lbl padindent" data-i18n="int-u">INT</span>
+                    <span class="lbl margindent" data-i18n="int-u">INT</span>
                     <input type="number" name="attr_intelligence" accept="Int" class="underlined sml" value="0" title="@{intelligence}" />
-                    <span class="lbl padindent" data-i18n="wis-u">WIS</span>
+                    <span class="lbl margindent" data-i18n="wis-u">WIS</span>
                     <input type="number" name="attr_wisdom" accept="Wis" class="underlined sml" value="0" title="@{wisdom}" />
-                    <span class="lbl padindent" data-i18n="cha-u">CHA</span>
+                    <span class="lbl margindent" data-i18n="cha-u">CHA</span>
                     <input type="number" name="attr_charisma" accept="Cha" class="underlined sml" value="0" title="@{charisma}" />
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="base-atk">Base Atk</span>
                     <input type="number" name="attr_bab" accept="Base Atk" class="underlined sml" value="0" title="@{bab}" />
-                    <span class="lbl padindent" data-i18n="cmb-u">CMB</span>
+                    <span class="lbl margindent" data-i18n="cmb-u">CMB</span>
                     <input type="number" name="attr_cmb_mod" accept="CMB" class="underlined sml" value="0" title="@{cmb_mod}" />
-                    <span class="lbl padindent" data-i18n="cmd-u">CMD</span>
+                    <input type="text" name="attr_cmb_notes" class="underlined medium" title="@{cmb_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+                    <span class="lbl margindent" data-i18n="cmd-u">CMD</span>
                     <input type="number" name="attr_cmd_mod" accept="CMD" class="underlined sml" value="0" title="@{cmd_mod}" />
+                    <input type="text" name="attr_cmd_notes" class="underlined medium" title="@{cmd_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
                 </div>
                 <div class="myrow">
                     <span class="lbl bold" data-i18n="skills">Skills</span>
