@@ -134,6 +134,22 @@
                     <span class="lbl margindent" data-i18n="reach">Reach</span>
                     <input type="text" name="attr_reach" accept="Reach" class="underlined" spellcheck="false" title="@{reach}" />
                 </div>
+                <div class="myrow">
+                    <input class="pseudocheck" type="checkbox" name="attr_spellabilities_flag" value="1" title="@{spellabilities_flag}" /><span class="mleft"></span>
+                    <span class="lbl" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
+                    <span class="lbl margindent" data-i18n="caster-level">Caster Level</span>
+                    <input type="number" name="attr_caster2_level" class="underlined sml" value="0" title="@{caster2_level}" />
+                    <span class="lbl margindent" data-i18n="concentration">Concentration</span>
+                    <input type="number" name="attr_caster2_concentration" class="underlined sml" value="0" title="@{caster2_concentration}" />
+                </div>
+                <div class="myrow">
+                    <input class="pseudocheck" type="checkbox" name="attr_spells_flag" value="1" title="@{spells_flag}" /><span class="mleft"></span>
+                    <span class="lbl" data-i18n="spells">Spells</span>
+                    <span class="lbl margindent" data-i18n="caster-level">Caster Level</span>
+                    <input type="number" name="attr_caster1_level" class="underlined sml" value="0" title="@{caster1_level}" />
+                    <span class="lbl margindent" data-i18n="concentration">Concentration</span>
+                    <input type="number" name="attr_caster1_concentration" class="underlined sml" value="0" title="@{caster1_concentration}" />
+                </div>
                 <div class="spacer"></div>
                 <div class="myrow bold greybg padindent"> <!-- input STATISTICS -->
                     <div class="blackbgrd">
@@ -449,7 +465,7 @@
             <span class="bold" data-i18n="reach">Reach</span>
             <span name="attr_reach"></span>
         </div>
-        <div class="myrow npcatk melee">
+        <div class="myrow npcatk melee"> <!-- Repeating Melee attacks -->
             <span class="bold" data-i18n="melee">Melee</span>
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
@@ -495,8 +511,8 @@
                     </div>
                 </div>
             </fieldset>
-        </div>
-        <div class="myrow npcatk ranged">
+        </div> <!-- END Repeating Melee attacks -->
+        <div class="myrow npcatk ranged"> <!-- Repeating Ranged attacks -->
             <span class="bold" data-i18n="ranged">Ranged</span>
             <fieldset class="repeating_npcatk-ranged">
                 <div class="attack">
@@ -514,7 +530,7 @@
                             <input type="number" class="underlined sml" name="attr_atkcritrange" value="20" title="@{repeating_npcatk-ranged_$id_atkcritrange}" />
                         </div>
                         <div class="myrow">
-                            <span class="lbl atk" data-i18n="range:">Range:</span>
+                            <span class="lbl w50 right" data-i18n="range:">Range:</span>
                             <input type="text" name="attr_atkrange" class="underlined medium" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_npcatk-ranged_$id_atkrange}" />
                         </div>
                         <div class="myrow">
@@ -546,22 +562,87 @@
                     </div>
                 </div>
             </fieldset>
-        </div>
-        <div class="myrow npcatk special">
+        </div> <!-- END Repeating Ranged attacks -->
+        <div class="myrow npcatk special"> <!-- Repeating Special attacks -->
             <span class="bold" data-i18n="special-attacks">Special Attacks</span>
             <fieldset class="repeating_npcatk-special">
                 <div class="attack">
+                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
+                    <div class="options">
+                        <div class="myrow">
+                            <span class="lbl" data-i18n="name">Name</span>
+                            <input type="text" name="attr_atkname" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_npcatk-special_$id_atkname}" />
+                            <span class="spacer"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-special_$id_atkflag}" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="attack:">Attack:</span>
+                            <input type="text" class="underlined small" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_npcatk-special_$id_atkmod}" />
+                            <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
+                            <input type="number" class="underlined sml" name="attr_atkcritrange" value="20" title="@{repeating_npcatk-special_$id_atkcritrange}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_rangeflag" value="{{range=@{atkrange}}}" title="@{repeating_npcatk-special_$id_rangeflag}" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="range:">Range:</span>
+                            <input type="text" name="attr_atkrange" class="underlined medium" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_npcatk-special_$id_atkrange}" />
+                            <span class="spacer"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_areaflag" value="{{area=@{atkarea}}}" title="@{repeating_npcatk-special_$id_areaflag}" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="area:">Area:</span>
+                            <input type="text" name="attr_atkarea" class="underlined medium" spellcheck="false" data-i18n-placeholder="spellarea-ph" placeholder="20-ft.-radius spread" title="@{repeating_npcatk-special_$id_atkarea}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_effectflag" value="{{effect=@{atkeffect}}}" title="@{repeating_npcatk-special_$id_effectflag}" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="effect:">Effect:</span>
+                            <input type="text" name="attr_atkeffect" class="underlined senses" spellcheck="false" title="@{repeating_npcatk-special_$id_atkeffect}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_atksaveflag" value="{{save=1}}{{savedc=@{atkdc}}}{{saveeffect=@{atksave}}}" title="@{repeating_npcatk-special_$id_atksaveflag}" /><span class="mleft"></span>
+                            <span class="lbl" data-i18n="saving-throw:">Saving Throw:</span>
+                            <input type="text" name="attr_atksave" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_npcatk-special_$id_atksave}" />
+                            <span class="lbl margindent" data-i18n="dc-u">DC</span>
+                            <input type="number" class="underlined" name="attr_atkdc" value="0" title="@{repeating_npcatk-special_$id_atkdc}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}}{{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}" title="@{dmgflag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="damage:">Damage:</span>
+                            <input type="text" name="attr_dmgbase" class="underlined smlmed" spellcheck="false" placeholder="1d6" title="@{repeating_npcatk-special_$id_dmgbase}" />
+                            <span class="lbl right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmgtype" class="underlined medium" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_npcatk-special_$id_dmgtype}" />
+                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined sml" name="attr_dmgcritmulti" value="2" title="@{repeating_npcatk-special_$id_dmgcritmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_dmg2flag" value="{{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}" title="@{repeating_npcatk-special_$id_dmg2flag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="damage2:">Damage2:</span>
+                            <input type="text" name="attr_dmg2base" class="underlined smlmed" spellcheck="false" placeholder="1d4" title="@{repeating_npcatk-special_$id_dmg2base}" />
+                            <span class="lbl right typ" data-i18n="type:">Type:</span>
+                            <input type="text" name="attr_dmg2type" class="underlined medium" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_npcatk-special_$id_dmg2type}" />
+                            <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                            <input type="number" class="underlined sml" name="attr_dmg2critmulti" value="1" title="@{repeating_npcatk-special_$id_dmg2critmulti}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{atkdesc}}}" title="@{repeating_npcatk-special_$id_descflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="description:">Description:</span>
+                            <div class="autoex">
+                                <span name="attr_atkdesc"></span>
+                                <textarea name="attr_atkdesc" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_npcatk-special_$id_atkdesc}"></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </fieldset>
-        </div>
-        <div class="myrow">
+        </div> <!-- END Repeating Special attacks -->
+        <input type="hidden" class="optional-flag0" name="attr_spellabilities_flag" value="0" /><div class="optional blk"> <!-- Repeating Spell like abilities -->
             <span class="bold" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
-            <span style="color:red;">TODO</span>
-        </div>
-        <div class="myrow">
+            (<span data-i18n="cl-u">CL</span> <span name="attr_caster2_level"></span>;
+            <button class="myrol" type="roll" name="Caster2ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster2_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster2_concentration"></span></button>)
+            <br/><span style="color:red;">TODO</span>
+        </div> <!-- END Repeating Spell like abilities -->
+        <input type="hidden" class="optional-flag0" name="attr_spells_flag" value="0" /><div class="optional blk"> <!-- Repeating Spells -->
             <span class="bold" data-i18n="spells">Spells</span>
-            <span style="color:red;">TODO</span>
-        </div>
+            (<span data-i18n="cl-u">CL</span> <span name="attr_caster1_level"></span>;
+            <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster1_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster1_concentration"></span></button>)
+            <br/><span style="color:red;">TODO</span>
+        </div> <!-- END Repeating Spells -->
     </div> <!-- END Display OFFENSE -->
     <div class="npc-display"> <!-- Display STATISTICS -->
         <span class="npc-section" data-i18n="statistics">Statistics</span>
@@ -3930,8 +4011,7 @@
                                     <input type="text" name="attr_spellsave" accept="Saving Throw" class="underlined med" spellcheck="false" data-i18n-placeholder="spellsave-ph" placeholder="Reflex Half" title="@{repeating_spell-0_$id_spellsave}" />
                                 </div>
                                 <div class="myrow padindent">
-                                    <span class="spacer"></span>
-                                    <span class="lbl" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
+                                    <span class="lbl margindent" data-i18n="dc-u" data-i18n-title="spell-save-dc" title="Spell Save DC">DC</span>
                                     <span class="lbl">+</span>
                                     <input type="number" class="underlined" name="attr_spelldc_mod" value="0" title="@{repeating_spell-0_$id_spelldc_mod}" />
                                     <span class="lbl">=</span>
