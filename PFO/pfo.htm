@@ -135,6 +135,16 @@
                     <input type="text" name="attr_reach" accept="Reach" class="underlined" spellcheck="false" title="@{reach}" />
                 </div>
                 <div class="myrow">
+                    <input class="pseudocheck" type="checkbox" name="attr_meleeattacks_flag" value="1" title="@{meleeattacks_flag}" checked="checked" /><span class="mleft"></span>
+                    <span class="lbl" data-i18n="melee">Melee</span>
+                    <span class="spacer"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_rangedattacks_flag" value="1" title="@{rangedattacks_flag}" checked="checked" /><span class="mleft"></span>
+                    <span class="lbl" data-i18n="ranged">Ranged</span>
+                    <span class="spacer"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_specialattacks_flag" value="1" title="@{specialattacks_flag}" checked="checked" /><span class="mleft"></span>
+                    <span class="lbl" data-i18n="special-attacks">Special Attacks</span>
+                </div>
+                <div class="myrow">
                     <input class="pseudocheck" type="checkbox" name="attr_spellabilities_flag" value="1" title="@{spellabilities_flag}" /><span class="mleft"></span>
                     <span class="lbl" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
                     <span class="lbl margindent" data-i18n="caster-level">Caster Level</span>
@@ -369,7 +379,7 @@
                         <span class="big only" data-i18n="tab-configuration">Configuration</span>
                     </div>
                 </div>
-                <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+                <input checked="checked" class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
             </div> <!-- END NPC OPTIONS BASE DROP -->
             <div class="spacer"></div>
         </div>  <!-- END NPC options / base entry -->
@@ -465,7 +475,7 @@
             <span class="bold" data-i18n="reach">Reach</span>
             <span name="attr_reach"></span>
         </div>
-        <div class="myrow npcatk melee"> <!-- Repeating Melee attacks -->
+        <input type="hidden" class="optional-flag0" name="attr_meleeattacks_flag" value="1" /><div class="optional blk npcatk melee"> <!-- Repeating Melee attacks -->
             <span class="bold" data-i18n="melee">Melee</span>
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
@@ -512,7 +522,7 @@
                 </div>
             </fieldset>
         </div> <!-- END Repeating Melee attacks -->
-        <div class="myrow npcatk ranged"> <!-- Repeating Ranged attacks -->
+        <input type="hidden" class="optional-flag0" name="attr_rangedattacks_flag" value="1" /><div class="optional blk npcatk ranged"> <!-- Repeating Ranged attacks -->
             <span class="bold" data-i18n="ranged">Ranged</span>
             <fieldset class="repeating_npcatk-ranged">
                 <div class="attack">
@@ -563,7 +573,7 @@
                 </div>
             </fieldset>
         </div> <!-- END Repeating Ranged attacks -->
-        <div class="myrow npcatk special"> <!-- Repeating Special attacks -->
+        <input type="hidden" class="optional-flag0" name="attr_specialattacks_flag" value="1" /><div class="optional blk npcatk special"> <!-- Repeating Special attacks -->
             <span class="bold" data-i18n="special-attacks">Special Attacks</span>
             <fieldset class="repeating_npcatk-special">
                 <div class="attack">
@@ -5850,7 +5860,7 @@
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
-                <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+                <input checked="checked" class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
             </div>
             <div class="myrow right">
                 <span data-i18n="version">Version</span>&nbsp;<span name="attr_version"></span>
@@ -5879,15 +5889,15 @@
 
     // === Version handling
     on("sheet:opened", function() {
-        getAttrs(["npc_toggle"], function(v) {
-            if(v.npc_toggle != "1") {pfoglobals_ispc = 0;}
+        getAttrs(["npc"], function(v) {
+            if(v.npc == "1") {pfoglobals_ispc = 0;}
         });
         loadi18n();
         versioning();
     });
 
     // === Generals
-    on("change:npc_toggle", function(e) {
+    on("change:npc", function(e) {
         pfoglobals_ispc = (e.newValue == "1") ? 0 : 1;
     });
 
@@ -7134,7 +7144,7 @@
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"].length != 0) {rollbase += "{{school=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"] + "}}";}
                 // casting time
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"].length != 0) {rollbase += "{{castingtime=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"] + "}}";}
-                // casting time
+                // component
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"].length != 0) {rollbase += "{{component=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"] + "}}";}
                 // range
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"].length != 0) {rollbase += "{{range=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"] + "}}";}

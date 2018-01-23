@@ -6,15 +6,15 @@
 
     // === Version handling
     on("sheet:opened", function() {
-        getAttrs(["npc_toggle"], function(v) {
-            if(v.npc_toggle != "1") {pfoglobals_ispc = 0;}
+        getAttrs(["npc"], function(v) {
+            if(v.npc == "1") {pfoglobals_ispc = 0;}
         });
         loadi18n();
         versioning();
     });
 
     // === Generals
-    on("change:npc_toggle", function(e) {
+    on("change:npc", function(e) {
         pfoglobals_ispc = (e.newValue == "1") ? 0 : 1;
     });
 
