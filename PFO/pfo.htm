@@ -673,8 +673,8 @@
                 <span class="bold" data-i18n="spells-prepared">Spells Prepared</span>
                 (<span data-i18n="cl-u">CL</span> <span name="attr_caster1_level"></span>; <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster1_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster1_concentration"></span></button>)
             </div>
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_9" value="0" /><div class="optional blk"> <!-- Spells lvl 9 -->
-                <span class="greybg"><span data-i18n="9th">9th</span> (<span name="attr_spells_prepared_level_9"></span>/<span name="attr_caster1_spells_total_level_9"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_9" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 9 -->
+                <span class="greybg prep"><span data-i18n="9th">9th</span> (<span name="attr_spells_prepared_level_9"></span>/<span name="attr_caster1_spells_total_level_9"></span>)</span>
                 <fieldset class="repeating_spell-9"> <!-- REPEATING 9 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="9" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -682,14 +682,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -697,6 +691,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-9_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -799,8 +800,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 9 LVL SPELL -->
             </div><!-- END Spells lvl 9 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_8" value="0" /><div class="optional blk"> <!-- Spells lvl 8 -->
-                <span class="greybg"><span data-i18n="8th">8th</span> (<span name="attr_spells_prepared_level_8"></span>/<span name="attr_caster1_spells_total_level_8"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_8" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 8 -->
+                <span class="greybg prep"><span data-i18n="8th">8th</span> (<span name="attr_spells_prepared_level_8"></span>/<span name="attr_caster1_spells_total_level_8"></span>)</span>
                 <fieldset class="repeating_spell-8"> <!-- REPEATING 8 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="8" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -808,14 +809,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -823,6 +818,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-8_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -925,8 +927,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 8 LVL SPELL -->
             </div><!-- END Spells lvl 8 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_7" value="0" /><div class="optional blk"> <!-- Spells lvl 7 -->
-                <span class="greybg"><span data-i18n="7th">7th</span> (<span name="attr_spells_prepared_level_7"></span>/<span name="attr_caster1_spells_total_level_7"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_7" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 7 -->
+                <span class="greybg prep"><span data-i18n="7th">7th</span> (<span name="attr_spells_prepared_level_7"></span>/<span name="attr_caster1_spells_total_level_7"></span>)</span>
                 <fieldset class="repeating_spell-7"> <!-- REPEATING 7 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="7" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -934,14 +936,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -949,6 +945,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-7_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1051,8 +1054,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 7 LVL SPELL -->
             </div><!-- END Spells lvl 7 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_6" value="0" /><div class="optional blk"> <!-- Spells lvl 6 -->
-                <span class="greybg"><span data-i18n="6th">6th</span> (<span name="attr_spells_prepared_level_6"></span>/<span name="attr_caster1_spells_total_level_6"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_6" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 6 -->
+                <span class="greybg prep"><span data-i18n="6th">6th</span> (<span name="attr_spells_prepared_level_6"></span>/<span name="attr_caster1_spells_total_level_6"></span>)</span>
                 <fieldset class="repeating_spell-6"> <!-- REPEATING 6 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="6" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -1060,14 +1063,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -1075,6 +1072,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-6_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1177,8 +1181,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 6 LVL SPELL -->
             </div><!-- END Spells lvl 6 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_5" value="0" /><div class="optional blk"> <!-- Spells lvl 5 -->
-                <span class="greybg"><span data-i18n="5th">5th</span> (<span name="attr_spells_prepared_level_5"></span>/<span name="attr_caster1_spells_total_level_5"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_5" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 5 -->
+                <span class="greybg prep"><span data-i18n="5th">5th</span> (<span name="attr_spells_prepared_level_5"></span>/<span name="attr_caster1_spells_total_level_5"></span>)</span>
                 <fieldset class="repeating_spell-5"> <!-- REPEATING 5 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="5" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -1186,14 +1190,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -1201,6 +1199,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-5_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1303,8 +1308,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 5 LVL SPELL -->
             </div><!-- END Spells lvl 5 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_4" value="0" /><div class="optional blk"> <!-- Spells lvl 4 -->
-                <span class="greybg"><span data-i18n="4th">4th</span> (<span name="attr_spells_prepared_level_4"></span>/<span name="attr_caster1_spells_total_level_4"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_4" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 4 -->
+                <span class="greybg prep"><span data-i18n="4th">4th</span> (<span name="attr_spells_prepared_level_4"></span>/<span name="attr_caster1_spells_total_level_4"></span>)</span>
                 <fieldset class="repeating_spell-4"> <!-- REPEATING 4 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="4" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -1312,14 +1317,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -1327,6 +1326,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-4_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1429,8 +1435,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 4 LVL SPELL -->
             </div><!-- END Spells lvl 4 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_3" value="0" /><div class="optional blk"> <!-- Spells lvl 3 -->
-                <span class="greybg"><span data-i18n="3rd">3rd</span> (<span name="attr_spells_prepared_level_3"></span>/<span name="attr_caster1_spells_total_level_3"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_3" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 3 -->
+                <span class="greybg prep"><span data-i18n="3rd">3rd</span> (<span name="attr_spells_prepared_level_3"></span>/<span name="attr_caster1_spells_total_level_3"></span>)</span>
                 <fieldset class="repeating_spell-3"> <!-- REPEATING 3 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="3" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -1438,14 +1444,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -1453,6 +1453,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-3_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1555,8 +1562,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 3 LVL SPELL -->
             </div><!-- END Spells lvl 3 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_2" value="0" /><div class="optional blk"> <!-- Spells lvl 2 -->
-                <span class="greybg"><span data-i18n="2nd">2nd</span> (<span name="attr_spells_prepared_level_2"></span>/<span name="attr_caster1_spells_total_level_2"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_2" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 2 -->
+                <span class="greybg prep"><span data-i18n="2nd">2nd</span> (<span name="attr_spells_prepared_level_2"></span>/<span name="attr_caster1_spells_total_level_2"></span>)</span>
                 <fieldset class="repeating_spell-2"> <!-- REPEATING 2 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="2" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -1564,14 +1571,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -1579,6 +1580,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-2_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1681,8 +1689,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 2 LVL SPELL -->
             </div><!-- END Spells lvl 2 -->
-            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_1" value="0" /><div class="optional blk"> <!-- Spells lvl 1 -->
-                <span class="greybg"><span data-i18n="1st">1st</span> (<span name="attr_spells_prepared_level_1"></span>/<span name="attr_caster1_spells_total_level_1"></span>)</span>
+            <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_1" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 1 -->
+                <span class="greybg prep"><span data-i18n="1st">1st</span> (<span name="attr_spells_prepared_level_1"></span>/<span name="attr_caster1_spells_total_level_1"></span>)</span>
                 <fieldset class="repeating_spell-1"> <!-- REPEATING 1 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="1" />
                     <input type="hidden" name="attr_spellcaster" value="1" />
@@ -1690,14 +1698,8 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
-                            <div class="dots">
-                                <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
-                                <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
-                            </div>
+                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                                <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -1705,6 +1707,13 @@
                                 <input type="text" name="attr_spellname" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_spell-1_$id_spellname}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                <div class="dots margindent">
+                                    <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="2" data-i18n-title="prepared-twice" title="Prepared twice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="3" data-i18n-title="prepared-thrice" title="Prepared thrice" /><span></span>
+                                    <input type="radio" name="attr_spellprepared" value="4" data-i18n-title="prepared-four-times" title="Prepared four times" /><span></span>
+                                </div>
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="school:">School:</span>
@@ -1807,8 +1816,8 @@
                     </div>
                 </fieldset> <!-- END REPEATING 1 LVL SPELL -->
             </div><!-- END Spells lvl 1 -->
-            <div class="myrow"> <!-- Spells lvl 0 -->
-                <span class="greybg">0 (<span data-i18n="at-will">at will</span>)</span>
+            <div class="myrow grtopbrd"> <!-- Spells lvl 0 -->
+                <span class="greybg prep">0 (<span data-i18n="at-will">at will</span>)</span>
                 <fieldset class="repeating_spell-0"> <!-- REPEATING 0 LVL SPELL -->
                     <input type="hidden" name="attr_spelllevel" value="0" />
                     <input type="hidden" name="attr_spellcaster" value="1" />

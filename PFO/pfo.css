@@ -91,6 +91,12 @@ img{
 .sheet-greybg{
     background-color: #DDD;
 }
+.sheet-grtopbrd{
+    border-top: 1px solid #DDD;
+}
+.sheet-grbotbrd{
+    border-bottom: 1px solid #DDD;
+}
 .sheet-w100{
     width: 100px;
 }
@@ -486,6 +492,10 @@ div.sheet-spell {margin-top: 2px;}
     margin-right: 2px;
 }
 .sheet-statblock .sheet-attack .sheet-lbl.sheet-atk {width: 55px;}
+.sheet-statblock .sheet-prep {
+    width: 55px;
+    text-align: center;
+}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
