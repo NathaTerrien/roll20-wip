@@ -445,14 +445,14 @@ div.sheet-spell {margin-top: 2px;}
 .sheet-spell .sheet-lab {text-align: left;}
 .sheet-spell span.sheet-std {width: 80px;}
 .sheet-spell input[type="text"].sheet-std {
-    width: 185px;
+    width: 180px;
     font-size: 1.2em;
     line-height: 1.2em;
 }
 .sheet-spell .sheet-autoex.sheet-std {
     display: inline-block;
-    width: 185px;
-    max-width: 185px;
+    width: 180px;
+    max-width: 180px;
     vertical-align: bottom;
 }
 .sheet-spell span.sheet-med {width: 95px;}
@@ -477,7 +477,14 @@ div.sheet-spell {margin-top: 2px;}
     display: inline-block;
     position: relative;
 }
-.sheet-statblock .sheet-npcatk button.sheet-myrol {margin-left: 15px;}
+.sheet-statblock  button.sheet-myrol{
+    margin: 0px 0px 0px 0px;
+}
+.sheet-statblock .sheet-npcatk button.sheet-myrol {margin-left: 13px;}
+.sheet-statblock .sheet-npcatk.sheet-spells button.sheet-myrol {
+    font-style: italic;
+    margin-right: 2px;
+}
 .sheet-statblock .sheet-attack .sheet-lbl.sheet-atk {width: 55px;}
 
 /* ===== SPANS ===== */
@@ -812,6 +819,7 @@ input.sheet-pseudocheck:checked + span::before {
 .sheet-spell div.sheet-dots {
     width: 70px;
     text-align: left;
+    vertical-align: top;
 }
 .sheet-dots input[type="radio"] {
     position: absolute;
@@ -1216,4 +1224,7 @@ input.sheet-tabconf:checked + span{
 }
 .sheet-statblock .sheet-npcatk.sheet-special .repcontainer {
     max-width: 500px;
+}
+.sheet-statblock .sheet-npcatk.sheet-spells .repcontainer {
+    max-width: 540px;
 }
