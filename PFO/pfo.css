@@ -449,13 +449,15 @@ div.sheet-acitems {
 .sheet-spells div.sheet-blacklabel {width: 60%;}
 div.sheet-spell {margin-top: 2px;}
 .sheet-spell .sheet-lab {text-align: left;}
-.sheet-spell span.sheet-std {width: 80px;}
+.sheet-spell span.sheet-std,
+.sheet-feat span.sheet-std {width: 80px;}
 .sheet-spell input[type="text"].sheet-std {
     width: 180px;
     font-size: 1.2em;
     line-height: 1.2em;
 }
-.sheet-spell .sheet-autoex.sheet-std {
+.sheet-spell .sheet-autoex.sheet-std,
+.sheet-feat .sheet-autoex.sheet-std {
     display: inline-block;
     width: 180px;
     max-width: 180px;
@@ -1226,7 +1228,8 @@ input.sheet-tabconf:checked + span{
     display: inline-block;
     vertical-align: top;
 }
-.sheet-statblock .sheet-npcatk.sheet-melee .repcontainer {
+.sheet-statblock .sheet-npcatk.sheet-melee .repcontainer,
+.sheet-statblock .sheet-npcatk.sheet-feats .repcontainer, {
     max-width: 560px;
 }
 .sheet-statblock .sheet-npcatk.sheet-ranged .repcontainer {

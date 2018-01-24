@@ -1964,10 +1964,68 @@
             <span name="attr_cmd_mod"></span>
             <input type="hidden" class="optional-flag" name="attr_cmd_notes" value="" /><span class="optional inl">(<span name="attr_cmd_notes"></span>)</span>
         </div>
-        <div class="myrow">
+        <div class="myrow npcatk feats"> <!-- Feats -->
             <span class="bold" data-i18n="feats">Feats</span>
-            <span style="color:red;">TODO</span>
-        </div>
+            <fieldset class="repeating_feats">
+                <div class="feat compendium-drop-target">
+                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                    <button class="myrol" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=@{type}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}}"><span name="attr_name"></span></button>
+                    <div class="options">
+                        <div class="myrow">
+                            <span class="lbl" data-i18n="name">Name</span>
+                            <input type="text" name="attr_name" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_feats_$id_name}" />
+                            <span class="lbl margindent" data-i18n="type">Type</span>
+                            <select name="attr_type">
+                                <option value="general" data-i18n="general" selected="selected">General</option>
+                                <option value="combat" data-i18n="combat">Combat</option>
+                                <option value="critical" data-i18n="critical">Critical</option>
+                                <option value="grit" data-i18n="grit">Grit</option>
+                                <option value="item creation" data-i18n="item-creation">Item creation</option>
+                                <option value="metamagic" data-i18n="metamagic">Metamagic</option>
+                                <option value="panache" data-i18n="panache">Panache</option>
+                                <option value="performance" data-i18n="performance">Performance</option>
+                                <option value="style" data-i18n="style">Style</option>
+                                <option value="teamwork" data-i18n="teamwork">Teamwork</option>
+                            </select>
+                        </div>
+                        <div class="myrow">
+                            <span class="lbl" data-i18n="benefits:">Benefits:</span>
+                            <div class="autoex">
+                                <span name="attr_benefits"></span>
+                                <textarea name="attr_benefits" class="underlined" spellcheck="false" title="@{repeating_feats_$id_benefits}"></textarea>
+                            </div>
+                        </div>
+                        <div class="myrow">
+                            <span class="lbl std right" data-i18n="prerequisites:">Prerequisites:</span>
+                            <div class="autoex std">
+                                <span name="attr_prerequisites"></span>
+                                <textarea name="attr_prerequisites" class="underlined" spellcheck="false" title="@{repeating_feats_$id_prerequisites}"></textarea>
+                            </div>
+                            <span class="lbl std right" data-i18n="normal:">Normal:</span>
+                            <div class="autoex std">
+                                <span name="attr_normal"></span>
+                                <textarea name="attr_normal" class="underlined" spellcheck="false" title="@{repeating_feats_$id_normal}"></textarea>
+                            </div>
+                        </div>
+                        <div class="myrow">
+                            <span class="lbl std right" data-i18n="special:">Special:</span>
+                            <div class="autoex std">
+                                <span name="attr_special"></span>
+                                <textarea name="attr_special" class="underlined" spellcheck="false" title="@{repeating_feats_$id_special}"></textarea>
+                            </div>
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{description}}}" title="@{repeating_npcatk-melee_$id_descflag}" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="description:">Description:</span>
+                            <div class="autoex">
+                                <span name="attr_description"></span>
+                                <textarea name="attr_description" accept="Content" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_feats_$id_description}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>  <!-- END Feats -->
         <div class="myrow">
             <span class="bold" data-i18n="skills">Skills</span>
             <input type="hidden" class="optional-flag0" name="attr_acrobatics_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Acrobatics" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{acrobatics}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{acrobatics}[MOD]]]}}"><span data-i18n="acrobatics">Acrobatics</span> <span name="attr_acrobatics_display"></span></button>,</span>
