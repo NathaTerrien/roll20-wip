@@ -488,7 +488,8 @@ div.sheet-spell {margin-top: 2px;}
 .sheet-statblock  button.sheet-myrol{
     margin: 0px 0px 0px 0px;
 }
-.sheet-statblock .sheet-npcatk button.sheet-myrol {margin-left: 13px;}
+.sheet-statblock .sheet-npcatk button.sheet-myrol,
+.sheet-statblock .sheet-specabilities button.sheet-myrol {margin-left: 13px;}
 .sheet-statblock .sheet-npcatk.sheet-spells button.sheet-myrol {
     font-style: italic;
     margin-right: 2px;
@@ -1031,9 +1032,12 @@ input.sheet-tabconf:checked + span{
 .sheet-concentration:hover .sheet-options-flag + span,
 .sheet-spell:hover .sheet-options-flag + span,
 .sheet-statblock .sheet-head-info:hover .sheet-options-flag + span,
-.sheet-statblock .sheet-npcatk .sheet-attack:hover .sheet-options-flag + span {
+.sheet-statblock .sheet-npcatk .sheet-attack:hover .sheet-options-flag + span,
+.sheet-feat:hover .sheet-options-flag + span,
+.sheet-ability:hover .sheet-options-flag + span {
     display: block;
 }
+
 .sheet-options,
 .sheet-options-fortitude,
 .sheet-options-reflex,
@@ -1225,9 +1229,18 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-npcatk .repitem,
 .sheet-statblock .sheet-npcatk .repcontrol,
 .sheet-statblock .sheet-npcatk .repcontainer {
-    display: inline-block;
     vertical-align: top;
 }
+.sheet-statblock .sheet-npcatk .repitem {
+    display: inline-block;
+}
+.sheet-statblock .sheet-npcatk .repcontrol {
+    display: inline-block;
+}
+.sheet-statblock .sheet-npcatk .repcontainer {
+    display: inline;
+}
+
 .sheet-statblock .sheet-npcatk.sheet-melee .repcontainer,
 .sheet-statblock .sheet-npcatk.sheet-feats .repcontainer, {
     max-width: 560px;

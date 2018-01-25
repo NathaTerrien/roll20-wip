@@ -400,7 +400,27 @@
                         <span class="big only" data-i18n="tab-configuration">Configuration</span>
                     </div>
                 </div>
-                <input checked="checked" class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+                <div class="myrow">
+                    <span class="lbl bold" data-i18n="general">General</span>
+                    <span class="spacer"></span>
+                    <input checked="checked" class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span class="mleft"></span><span class="lbl" data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+                    <span class="spacer"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_special_abilities_flag" value="1" title="@{special_abilities_flag}" checked="checked" /><span class="mleft"></span><span class="lbl" data-i18n="show-special-abilities">Show Special Abilities</span>
+                    <span class="spacer"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_ecology_flag" value="1" title="@{ecology_flag}" checked="checked" /><span class="mleft"></span><span class="lbl" data-i18n="show-ecology">Show Ecology</span>
+                </div>
+                <div class="myrow">
+                    <span class="lbl bold" data-i18n="rolls">Rolls</span>
+                    <span class="spacer"></span>
+                    <input class="pseudocheck" type="checkbox" name="attr_rollshowchar" value="[[1]]" title="@{rollshowchar}" checked="checked" /><span class="mleft"></span><span class="lbl" data-i18n="show-character-name">Show character name</span>
+                    <span class="lbl margindent" data-i18n="whisp-rolls-gm:">Whisper Rolls to GM:</span>
+                    <select name="attr_whispertype" class="underlined" title="@{whispertype}">
+                        <option value="" data-i18n="never-whisper-roll" selected="selected">Never Whisper Rolls</option>
+                        <!-- <option value="@{whispertoggle}" data-i18n="toggle-roll-whisper">Whisper Toggle</option> -->
+                        <option value="?{Whisper?|Public Roll,|Whisper Roll,/w gm }" data-i18n="query-whisper-roll">Query Whisper</option>
+                        <option value="/w gm " data-i18n="always-whisper-roll">Always Whisper Rolls</option>
+                    </select>
+                </div>
             </div> <!-- END NPC OPTIONS BASE DROP -->
             <div class="spacer"></div>
         </div>  <!-- END NPC options / base entry -->
@@ -1969,13 +1989,15 @@
             <fieldset class="repeating_feats">
                 <div class="feat compendium-drop-target">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=@{type}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}}"><span name="attr_name"></span></button>
+                    <button class="myrol" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}}"><span name="attr_name"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
                             <input type="text" name="attr_name" accept="Name" class="underlined" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_feats_$id_name}" />
+                            <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
+                            <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                             <span class="lbl margindent" data-i18n="type">Type</span>
-                            <select name="attr_type">
+                            <select name="attr_type" title="@{repeating_feat_$id_type}">
                                 <option value="general" data-i18n="general" selected="selected">General</option>
                                 <option value="combat" data-i18n="combat">Combat</option>
                                 <option value="critical" data-i18n="critical">Critical</option>
@@ -2015,7 +2037,7 @@
                             </div>
                         </div>
                         <div class="myrow">
-                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{description}}}" title="@{repeating_npcatk-melee_$id_descflag}" /><span class="mleft"></span>
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{description}}}" title="@{repeating_feats_$id_descflag}" checked="checked" /><span class="mleft"></span>
                             <span class="lbl atk" data-i18n="description:">Description:</span>
                             <div class="autoex">
                                 <span name="attr_description"></span>
@@ -2074,28 +2096,58 @@
             <span name="attr_sq"></span>
         </div>
     </div> <!-- END Display STATISTICS -->
-    <div class="npc-display"> <!-- Display SPECIAL ABILITIES -->
-        <div class="myrow">
-            <span class="npc-section" data-i18n="special-abilities">Special Abilities</span>
+    <input type="hidden" class="optional-flag0" name="attr_special_abilities_flag" value="1" /><div class="specabilities optional blk"> <!-- Display SPECIAL ABILITIES -->
+        <div class="npc-display">
+            <div class="myrow">
+                <span class="npc-section" data-i18n="special-abilities">Special Abilities</span>
+            </div>
+            <fieldset class="repeating_abilities">
+                <div class="ability compendium-drop-target">
+                    <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
+                    <button class="myrol" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
+                        <input type="hidden" class="optional-flag" name="attr_type" value="" /><span class="optional inl bold">(<span name="attr_type"></span>)</span></button>
+                    <span style="display: inline;" name="attr_description"></span>
+                    <div class="options">
+                        <div class="myrow">
+                            <span class="lbl" data-i18n="name">Name</span>
+                            <input type="text" name="attr_name" accept="Name" class="underlined large" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_abilities_$id_name}" />
+                            <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
+                            <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                            <span class="lbl margindent" data-i18n="type">Type</span>
+                            <input type="text" name="attr_type" accept="Ability Type" class="underlined small" spellcheck="false" data-i18n-placeholder="type" placeholder="Type" title="@{repeating_abilities_$id_type}" />
+                        </div>
+                        <div class="myrow">
+                            <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{description}}}" title="@{repeating_abilities_$id_descflag}" checked="checked" /><span class="mleft"></span>
+                            <span class="lbl atk" data-i18n="description:">Description:</span>
+                            <div class="autoex">
+                                <span name="attr_description"></span>
+                                <textarea name="attr_description" accept="Content" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_abilities_$id_description}"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
         </div>
     </div> <!-- END Display SPECIAL ABILITIES -->
-    <div class="npc-display"> <!-- Display ECOLOGY -->
-        <span class="npc-section" data-i18n="ecology">Ecology</span>
-        <div class="myrow">
-            <span class="bold" data-i18n="environment">Environment</span>
-            <span name="attr_environment"></span>
-        </div>
-        <div class="myrow">
-            <span class="bold" data-i18n="organization">Organization</span>
-            <span name="attr_organization"></span>
-        </div>
-        <div class="myrow">
-            <span class="bold" data-i18n="treasure">Treasure</span>
-            <span name="attr_treasure"></span>
-        </div>
-        <div class="myrow">
-            <span class="bold" data-i18n="description">Description</span>
-            <span name="attr_background"></span>
+    <input type="hidden" class="optional-flag0" name="attr_ecology_flag" value="1" /><div class="optional blk"> <!-- Display ECOLOGY -->
+        <div class="npc-display">
+            <span class="npc-section" data-i18n="ecology">Ecology</span>
+            <div class="myrow">
+                <span class="bold" data-i18n="environment">Environment</span>
+                <span name="attr_environment"></span>
+            </div>
+            <div class="myrow">
+                <span class="bold" data-i18n="organization">Organization</span>
+                <span name="attr_organization"></span>
+            </div>
+            <div class="myrow">
+                <span class="bold" data-i18n="treasure">Treasure</span>
+                <span name="attr_treasure"></span>
+            </div>
+            <div class="myrow">
+                <span class="bold" data-i18n="description">Description</span>
+                <span name="attr_background"></span>
+            </div>
         </div>
     </div> <!-- END Display ECOLOGY -->
 </div><!-- NPC SHEET -->
@@ -7161,7 +7213,7 @@
             <div class="blacklabel">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                 <div class="blackbgrd">
-                    <span class="big only" data-i18n="rolls">rolls</span>
+                    <span class="big only" data-i18n="rolls">Rolls</span>
                 </div>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
