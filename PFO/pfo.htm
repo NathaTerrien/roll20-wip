@@ -521,7 +521,7 @@
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -568,7 +568,7 @@
             <fieldset class="repeating_npcatk-ranged">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -619,7 +619,7 @@
             <fieldset class="repeating_npcatk-special">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
+                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -1997,7 +1997,7 @@
                             <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                             <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                             <span class="lbl margindent" data-i18n="type">Type</span>
-                            <select name="attr_type" title="@{repeating_feat_$id_type}">
+                            <select class="underlined" name="attr_type" title="@{repeating_feat_$id_type}">
                                 <option value="general" data-i18n="general" selected="selected">General</option>
                                 <option value="combat" data-i18n="combat">Combat</option>
                                 <option value="critical" data-i18n="critical">Critical</option>
