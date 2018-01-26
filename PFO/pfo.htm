@@ -521,7 +521,7 @@
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{atkflag} @{atk2flag} @{atk3flag} @{atk4flag} @{atk5flag} @{atk6flag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{atkflag} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -532,27 +532,29 @@
                             <span class="lbl" data-i18n="attack:">Attack:</span>
                             <input type="number" class="underlined sml" name="attr_atkmod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod}" />
                             <span class="spacer"></span>
-                            <input class="pseudocheck" type="checkbox" name="attr_atk2flag" value="{{roll2=[[1d20cs@{atkcritrange}+@{atk2mod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm2=[[1d20cs20+@{atk2mod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-melee_$id_atk2flag}" /><span class="mleft"></span>
-                            <span class="lbl">#2:</span>
-                            <input type="number" class="underlined sml" name="attr_atk2mod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atk2mod}" />
-                            <span class="spacer"></span>
-                            <input class="pseudocheck" type="checkbox" name="attr_atk3flag" value="{{roll3=[[1d20cs@{atkcritrange}+@{atk3mod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm3=[[1d20cs20+@{atk3mod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-melee_$id_atk3flag}" /><span class="mleft"></span>
-                            <span class="lbl">#3:</span>
-                            <input type="number" class="underlined sml" name="attr_atk3mod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atk3mod}" />
-                            <span class="spacer"></span>
-                            <input class="pseudocheck" type="checkbox" name="attr_atk4flag" value="{{roll4=[[1d20cs@{atkcritrange}+@{atk4mod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm4=[[1d20cs20+@{atk4mod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-melee_$id_atk4flag}" /><span class="mleft"></span>
-                            <span class="lbl">#4:</span>
-                            <input type="number" class="underlined sml" name="attr_atk4mod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atk4mod}" />
-                            <span class="spacer"></span>
-                            <input class="pseudocheck" type="checkbox" name="attr_atk5flag" value="{{roll5=[[1d20cs@{atkcritrange}+@{atk5mod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm5=[[1d20cs20+@{atk5mod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-melee_$id_atk5flag}" /><span class="mleft"></span>
-                            <span class="lbl">#5:</span>
-                            <input type="number" class="underlined sml" name="attr_atk5mod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atk5mod}" />
-                            <span class="spacer"></span>
-                            <input class="pseudocheck" type="checkbox" name="attr_atk6flag" value="{{roll6=[[1d20cs@{atkcritrange}+@{atk6mod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm6=[[1d20cs20+@{atk6mod}[MOD]+@{rollmod_attack}[BONUS]]]}}" title="@{repeating_npcatk-melee_$id_atk6flag}" /><span class="mleft"></span>
-                            <span class="lbl">#6:</span>
-                            <input type="number" class="underlined sml" name="attr_atk6mod" value="0" spellcheck="false" title="@{repeating_npcatk-melee_$id_atk6mod}" />
+                            <input class="pseudocheck" type="checkbox" name="attr_multipleatk_flag" value="1" title="@{repeating_npcatk-melee_$id_multipleatk_flag}" /><span class="mleft"></span>
+                            <span class="lbl" data-i18="multiple-attacks">Multiple attacks</span>
+                            <input type="hidden" name="attr_multipleatk" value="" />
                         </div>
-                        <div class="myrow">
+                        <input type="hidden" class="optional-flag0" name="attr_multipleatk_flag" value="0" /><div class="optional blk">
+                            <span class="lbl margindent">#2:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod2" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod2}" />
+                            <span class="lbl margindent">#3:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod3" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod3}" />
+                            <span class="lbl margindent">#4:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod4" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod4}" />
+                            <span class="lbl margindent">#5:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod5" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod5}" />
+                            <span class="lbl margindent">#6:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod6" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod6}" />
+                            <span class="lbl margindent">#7:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod7" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod7}" />
+                            <span class="lbl margindent">#8:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod8" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod8}" />
+                            <span class="lbl margindent">#9:</span>
+                            <input type="text" class="underlined sml" name="attr_atkmod9" value="" spellcheck="false" title="@{repeating_npcatk-melee_$id_atkmod9}" />
+                        </div>
+                        <div class="myrow padindent">
                             <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
                             <input type="number" class="underlined sml" name="attr_atkcritrange" value="20" title="@{repeating_npcatk-melee_$id_atkcritrange}" />
                         </div>
@@ -7753,11 +7755,11 @@
         }
     });
     // --- Npc Attacks Display name
-    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkflag change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:atk2flag change:repeating_npcatk-melee:atk2mod change:repeating_npcatk-melee:atk3flag change:repeating_npcatk-melee:atk3mod change:repeating_npcatk-melee:atk4flag change:repeating_npcatk-melee:atk4mod change:repeating_npcatk-melee:atk5flag change:repeating_npcatk-melee:atk5mod change:repeating_npcatk-melee:atk6flag change:repeating_npcatk-melee:atk6mod change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
+    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkflag change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:multipleatk_flag change:repeating_npcatk-melee:atkmod2 change:repeating_npcatk-melee:atkmod3 change:repeating_npcatk-melee:atkmod4 change:repeating_npcatk-melee:atkmod5 change:repeating_npcatk-melee:atkmod6 change:repeating_npcatk-melee:atkmod7 change:repeating_npcatk-melee:atkmod8 change:repeating_npcatk-melee:atkmod9 change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(23, 43);
             update_npc_attack("melee",atkid);
     });
-    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkflag change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:atk2flag change:repeating_npcatk-ranged:atk2mod change:repeating_npcatk-ranged:atk3flag change:repeating_npcatk-ranged:atk3mod change:repeating_npcatk-ranged:atk4flag change:repeating_npcatk-ranged:atk4mod change:repeating_npcatk-ranged:atk5flag change:repeating_npcatk-ranged:atk5mod change:repeating_npcatk-ranged:atk6flag change:repeating_npcatk-ranged:atk6mod change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
+    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkflag change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:multipleatk_flag change:repeating_npcatk-ranged:atkmod2 change:repeating_npcatk-ranged:atkmod3 change:repeating_npcatk-ranged:atkmod4 change:repeating_npcatk-ranged:atkmod5 change:repeating_npcatk-ranged:atkmod6 change:repeating_npcatk-ranged:atkmod7 change:repeating_npcatk-ranged:atkmod8 change:repeating_npcatk-ranged:atkmod9 change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(24, 44);
             update_npc_attack("ranged",atkid);
     });
@@ -8280,27 +8282,20 @@
         // type = "melee" / "ranged"
         var update = {};
         var display = "";
+        var multi = "";
         var base = "repeating_npcatk-" + type + "_" + id + "_";
-        var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "atk2flag",base + "atk2mod",base + "atk3flag",base + "atk3mod",base + "atk4flag",base + "atk4mod",base + "atk5flag",base + "atk5mod",base + "atk6flag",base + "atk6mod",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
+        var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "multipleatk_flag",base + "atkmod2",base + "atkmod3",base + "atkmod4",base + "atkmod5",base + "atkmod6",base + "atkmod7",base + "atkmod8",base + "atkmod9",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
         if(type == "ranged") {fields.push(base + "atkrange");}
-        // todo "special" fields
         getAttrs(fields, function(v){
             display = v[base + "atkname"];
-            display += " " + (((parseInt(v[base + "atkmod"]) || 0) > 0) ? "+" : "") + v[base + "atkmod"];
-            if (v[base  + "atk2flag"] != "0") {
-                display += "/" + (((parseInt(v[base + "atk2mod"]) || 0) > 0) ? "+" : "") + v[base + "atk2mod"];
-            }
-            if (v[base  + "atk3flag"] != "0") {
-                display += "/" + (((parseInt(v[base + "atk3mod"]) || 0) > 0) ? "+" : "") + v[base + "atk3mod"];
-            }
-            if (v[base  + "atk4flag"] != "0") {
-                display += "/" + (((parseInt(v[base + "atk4mod"]) || 0) > 0) ? "+" : "") + v[base + "atk4mod"];
-            }
-            if (v[base  + "atk5flag"] != "0") {
-                display += "/" + (((parseInt(v[base + "atk5mod"]) || 0) > 0) ? "+" : "") + v[base + "atk5mod"];
-            }
-            if (v[base  + "atk6flag"] != "0") {
-                display += "/" + (((parseInt(v[base + "atk6mod"]) || 0) > 0) ? "+" : "") + v[base + "atk6mod"];
+            display += " " + (((parseInt(v[base  + "atkmod"]) || 0) > 0) ? "+" : "") + v[base  + "atkmod"];
+            if(v[base + "multipleatk_flag"] == "1"){
+                for (var i = 2; i < 10; i++) {
+                    if (v[base  + "atkmod" + i] != "") {
+                        display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
+                        multi += "{{roll" + i + "=[[1d20cs@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + i + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    }
+                }
             }
             if((type == "ranged") && (v[base + "atkrange"] != "")) {
                 display += " " + v[base + "atkrange"];
@@ -8326,6 +8321,7 @@
                 }
             }
             update[base + "atkdisplay"] = display;
+            update[base + "multipleatk"] = multi;
             setAttrs(update,{silent:true});
         });
     };

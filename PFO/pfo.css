@@ -669,6 +669,8 @@ select.sheet-size {
 .sheet-acitem select{
     width: 60px;
 }
+
+input[type="text"].sheet-sml {width: 30px;}
 input[type="text"].sheet-small {width: 45px;}
 input[type="text"].sheet-smlmed {width: 80px;}
 input[type="text"].sheet-medium {width: 140px;}
