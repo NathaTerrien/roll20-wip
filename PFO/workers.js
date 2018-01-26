@@ -454,11 +454,11 @@
         }
     });
     // --- Npc Attacks Display name
-    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkflag change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
+    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkflag change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:atk2flag change:repeating_npcatk-melee:atk2mod change:repeating_npcatk-melee:atk3flag change:repeating_npcatk-melee:atk3mod change:repeating_npcatk-melee:atk4flag change:repeating_npcatk-melee:atk4mod change:repeating_npcatk-melee:atk5flag change:repeating_npcatk-melee:atk5mod change:repeating_npcatk-melee:atk6flag change:repeating_npcatk-melee:atk6mod change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(23, 43);
             update_npc_attack("melee",atkid);
     });
-    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkflag change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
+    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkflag change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:atk2flag change:repeating_npcatk-ranged:atk2mod change:repeating_npcatk-ranged:atk3flag change:repeating_npcatk-ranged:atk3mod change:repeating_npcatk-ranged:atk4flag change:repeating_npcatk-ranged:atk4mod change:repeating_npcatk-ranged:atk5flag change:repeating_npcatk-ranged:atk5mod change:repeating_npcatk-ranged:atk6flag change:repeating_npcatk-ranged:atk6mod change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(24, 44);
             update_npc_attack("ranged",atkid);
     });
@@ -978,36 +978,53 @@
         });
     };
     var update_npc_attack = function (type,id) {
-        // type = "melee" / "ranged" / "special"
+        // type = "melee" / "ranged"
         var update = {};
         var display = "";
         var base = "repeating_npcatk-" + type + "_" + id + "_";
-        var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
+        var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "atk2flag",base + "atk2mod",base + "atk3flag",base + "atk3mod",base + "atk4flag",base + "atk4mod",base + "atk5flag",base + "atk5mod",base + "atk6flag",base + "atk6mod",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
         if(type == "ranged") {fields.push(base + "atkrange");}
         // todo "special" fields
         getAttrs(fields, function(v){
             display = v[base + "atkname"];
-            if (v[base  + "atkflag"] != "0") {
-                display += " +" + v[base + "atkmod"];
-                if((type == "ranged") && (v[base + "atkrange"] != "")) {
-                    display += " " + v[base + "atkrange"];
-                }
+            display += " " + (((parseInt(v[base + "atkmod"]) || 0) > 0) ? "+" : "") + v[base + "atkmod"];
+            if (v[base  + "atk2flag"] != "0") {
+                display += "/" + (((parseInt(v[base + "atk2mod"]) || 0) > 0) ? "+" : "") + v[base + "atk2mod"];
+            }
+            if (v[base  + "atk3flag"] != "0") {
+                display += "/" + (((parseInt(v[base + "atk3mod"]) || 0) > 0) ? "+" : "") + v[base + "atk3mod"];
+            }
+            if (v[base  + "atk4flag"] != "0") {
+                display += "/" + (((parseInt(v[base + "atk4mod"]) || 0) > 0) ? "+" : "") + v[base + "atk4mod"];
+            }
+            if (v[base  + "atk5flag"] != "0") {
+                display += "/" + (((parseInt(v[base + "atk5mod"]) || 0) > 0) ? "+" : "") + v[base + "atk5mod"];
+            }
+            if (v[base  + "atk6flag"] != "0") {
+                display += "/" + (((parseInt(v[base + "atk6mod"]) || 0) > 0) ? "+" : "") + v[base + "atk6mod"];
+            }
+            if((type == "ranged") && (v[base + "atkrange"] != "")) {
+                display += " " + v[base + "atkrange"];
             }
             if ((v[base  + "dmgflag"] != "0")||(v[base  + "dmg2flag"] != "0")) {
-                display += " ("
+                var dmg = "";
+                var dmg1 = "";
+                var dmg2 = "";
                 if(v[base  + "dmgflag"] != "0") {
-                    display += v[base + "dmgbase"];
-                    if(v[base + "dmgtype"] != "") {display += " " + v[base + "dmgtype"];}
-                    if((parseInt(v[base + "atkcritrange"]) || 20) < 20) {display += "/" + v[base + "atkcritrange"] + "-20";}
-                    if((parseInt(v[base + "dmgcritmulti"]) || 2) != 2) {display += "/x" + v[base + "dmgcritmulti"];}
+                    dmg1 += v[base + "dmgbase"];
+                    if(v[base + "dmgtype"] != "") {dmg1 += " " + v[base + "dmgtype"];}
+                    if((parseInt(v[base + "atkcritrange"]) || 20) < 20) {dmg1 += "/" + v[base + "atkcritrange"] + "-20";}
+                    if((parseInt(v[base + "dmgcritmulti"]) || 2) != 2) {dmg1 += "/x" + v[base + "dmgcritmulti"];}
                 }
                 if (v[base  + "dmg2flag"] != "0") {
-                    display += ", ";
-                    display += v[base + "dmg2base"];
-                    if(v[base + "dmg2type"] != "") {display += " " + v[base + "dmg2type"];}
-                    if((parseInt(v[base + "dmg2critmulti"]) || 1) != 1) {display += "/x" + v[base + "dmg2critmulti"];}
+                    if(v[base + "dmg2base"].trim() != "0") {dmg2 += v[base + "dmg2base"];}
+                    if(v[base + "dmg2type"] != "") {dmg2 += " " + v[base + "dmg2type"];}
+                    if((parseInt(v[base + "dmg2critmulti"]) || 1) != 1) {dmg2 += "/x" + v[base + "dmg2critmulti"];}
                 }
-                display += ")";
+                dmg = dmg1 + ((dmg1.length >0) ? ", " : "") + dmg2;
+                if (dmg.length >0) {
+                    display += " (" + dmg + ")";
+                }
             }
             update[base + "atkdisplay"] = display;
             setAttrs(update,{silent:true});
