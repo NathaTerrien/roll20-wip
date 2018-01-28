@@ -494,11 +494,14 @@ input[type="text"].sheet-std {
     margin: 0px 0px 0px 0px;
 }
 
-.sheet-statblock .sheet-npcatk button.sheet-myrol,
+.sheet-statblock .sheet-npcatk .sheet-attack button.sheet-myrol,
+.sheet-statblock .sheet-npcatk .sheet-spell button.sheet-myrol,
+.sheet-statblock .sheet-spelllike .sheet-spell button.sheet-myrol,
 .sheet-statblock .sheet-specabilities button.sheet-myrol {margin-left: 14px;}
 .sheet-statblock .sheet-npcatk button.sheet-myrol.sheet-atk {border-bottom: 1px dotted #999;}
 .sheet-statblock .sheet-npcatk button.sheet-myrol.sheet-atk:hover {border-bottom: 1px dotted #BE202E;}
-.sheet-statblock .sheet-npcatk.sheet-spells button.sheet-myrol {
+.sheet-statblock .sheet-npcatk .sheet-spell button.sheet-myrol,
+.sheet-statblock .sheet-spelllike .sheet-spell button.sheet-myrol {
     font-style: italic;
     margin-right: 2px;
 }
@@ -789,8 +792,9 @@ button[type="compendium"].sheet-myrol {
 .sheet-fromcompendium:not([value=""]) + button[type="compendium"].sheet-myrol {
     display: inline-block;
 }
-/* ===== PSEUDO CHECKS ===== */
-input.sheet-pseudocheck {
+/* ===== PSEUDO CHECKS and RADIOS ===== */
+input[type="checkbox"].sheet-pseudocheck,
+input[type="radio"].sheet-pseudocheck {
     opacity: 0;
     width: 13px;
     cursor: pointer;
@@ -798,35 +802,44 @@ input.sheet-pseudocheck {
     margin-top: 3px;
     line-height: 13px;
 }
-input.sheet-pseudocheck + span{
+input[type="checkbox"].sheet-pseudocheck + span,
+input[type="radio"].sheet-pseudocheck + span {
     font-size: 13px;
     line-height: 13px;
     white-space: nowrap;
-}
-input.sheet-pseudocheck + span.sheet-mright{
-    margin-right: -13px;
-    margin-left: 2px;
-}
-input.sheet-pseudocheck + span.sheet-mleft{
+    display: inline-block;
     margin-left: -13px;
-    margin-right: 2px;
 }
-input.sheet-pseudocheck + span::before {
+input[type="checkbox"].sheet-pseudocheck + span::before,
+input[type="radio"].sheet-pseudocheck + span::before {
     text-align: middle;
     display: inline-block;
     vertical-align: middle;
-    -moz-box-shadow: 0 0 0px #000;
-    -webkit-box-shadow: 0 0 0px #000;
-    box-shadow: 0 0 0px #000;
     background: transparent;
+}
+input[type="checkbox"].sheet-pseudocheck + span::before {
     content: "☐";
     line-height: 18px;
     font-size: 18px;
 }
-input.sheet-pseudocheck:checked + span::before {
+input[type="checkbox"].sheet-pseudocheck:checked + span::before {
     content: "☑";
 }
-/* ==== RADIO ==== */
+input[type="radio"].sheet-pseudocheck + span {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    vertical-align: bottom;
+}
+input[type="radio"].sheet-pseudocheck + span::before {
+    content: "";
+    margin-top: -4px;
+}
+input[type="radio"].sheet-pseudocheck:checked + span::before {
+    content: "✔";
+}
+/* ==== LEFT FILLED RADIO  ==== */
 .sheet-dots {
     display: inline-block;
     position: relative;
@@ -1068,6 +1081,7 @@ input.sheet-tabconf:checked + span{
 .sheet-options-sr {
     background-color: rgb(250,250,250);
 }
+.sheet-spelllike .sheet-options,
 .sheet-npcatk .sheet-options {
     background-color: rgb(250,250,250);
     width: 100%;

@@ -462,6 +462,11 @@
             var atkid = e.sourceAttribute.substring(24, 44);
             update_npc_attack("ranged",atkid);
     });
+    // --- Npc Spell-line abilities
+    on("change:repeating_spell-like:spellname change:repeating_spell-like:spellschool change:repeating_spell-like:spellclasslevel change:repeating_spell-like:spellcastingtime change:repeating_spell-like:spellrange change:repeating_spell-like:spellarea change:repeating_spell-like:spelltargets change:repeating_spell-like:spelleffect change:repeating_spell-like:spellduration change:repeating_spell-like:spellsaveflag change:repeating_spell-like:spellsave change:repeating_spell-like:spelldc_mod change:repeating_spell-like:spellresistanceflag change:repeating_spell-like:spellresistance change:repeating_spell-like:spellatkflag change:repeating_spell-like:spellatktype change:repeating_spell-like:spellatkmod change:repeating_spell-like:spellatkcritrange change:repeating_spell-like:spelldmgcritmulti change:repeating_spell-like:spelldmgflag change:repeating_spell-like:spelldmg change:repeating_spell-like:spelldmgtype change:repeating_spell-like:spelldmg2flag change:repeating_spell-like:spelldmg2 change:repeating_spell-like:spelldmg2type change:repeating_spell-like:spelldescflag change:repeating_spell-like:spelldesc change:repeating_spell-like:notes change:repeating_spell-like:timesperday change:repeating_spell-like:perday_max", function(e) {
+        var spellid = e.sourceAttribute.substring(21, 41);
+        update_spells("like",spellid,"");
+    });
 
     // === CONFIGURATION
     on("change:whispertype change:rollshowchar", function(){
@@ -1005,9 +1010,9 @@
                 var dmg2 = "";
                 if(v[base  + "dmgflag"] != "0") {
                     dmg1 += v[base + "dmgbase"];
-                    if(v[base + "dmgtype"] != "") {dmg1 += " " + v[base + "dmgtype"];}
                     if((parseInt(v[base + "atkcritrange"]) || 20) < 20) {dmg1 += "/" + v[base + "atkcritrange"] + "-20";}
                     if((parseInt(v[base + "dmgcritmulti"]) || 2) != 2) {dmg1 += "/x" + v[base + "dmgcritmulti"];}
+                    if(v[base + "dmgtype"] != "") {dmg1 += " " + v[base + "dmgtype"];}
                 }
                 if (v[base  + "dmg2flag"] != "0") {
                     if(v[base + "dmg2base"].trim() != "0") {dmg2 += v[base + "dmg2base"];}
@@ -1218,7 +1223,9 @@
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellschool");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellclasslevel");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime");
-            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent");
+            if (spell_level != "like") {
+                spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent");
+            }
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellrange");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellarea");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelltargets");
@@ -1242,6 +1249,10 @@
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldesc");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_notes");
+            if(spell_level == "like") {
+                spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_timesperday");
+                spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_perday_max");
+            }
         });
         getAttrs(spell_attribs, function(v) {
             _.each(spell_array, function(spellid) {
@@ -1264,7 +1275,12 @@
                 var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"];
                 var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"];
                 // == Display handling
-                update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
+                if (spell_level == "like") {
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = (v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "per-day") ? 1 : 0;
+                } else {
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
+                }
                 // == Save DC
                 var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
                 // == Rolls handling
@@ -1274,7 +1290,9 @@
                 // casting time
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"].length != 0) {rollbase += "{{castingtime=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"] + "}}";}
                 // component
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"].length != 0) {rollbase += "{{component=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"] + "}}";}
+                if (spell_level != "like") {
+                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"].length != 0) {rollbase += "{{component=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"] + "}}";}
+                }
                 // range
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"].length != 0) {rollbase += "{{range=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"] + "}}";}
                 // area
@@ -1343,6 +1361,9 @@
         pfoglobals_i18n_obj["will"] = getTranslationByKey("will-u");
         pfoglobals_i18n_obj["vs"] = getTranslationByKey("vs");
         pfoglobals_i18n_obj["0"] = "";
+        pfoglobals_i18n_obj["constant"] = getTranslationByKey("constant");
+        pfoglobals_i18n_obj["at-will"] = getTranslationByKey("at-will");
+        pfoglobals_i18n_obj["per-day"] = getTranslationByKey("per-day");
     };
 
     // === Version and updating
