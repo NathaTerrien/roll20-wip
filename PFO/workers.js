@@ -453,12 +453,12 @@
             setAttrs({"size_display":e.newValue});
         }
     });
-    // --- Npc Attacks Display name
-    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkflag change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:multipleatk_flag change:repeating_npcatk-melee:atkmod2 change:repeating_npcatk-melee:atkmod3 change:repeating_npcatk-melee:atkmod4 change:repeating_npcatk-melee:atkmod5 change:repeating_npcatk-melee:atkmod6 change:repeating_npcatk-melee:atkmod7 change:repeating_npcatk-melee:atkmod8 change:repeating_npcatk-melee:atkmod9 change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
+    // --- Npc Attacks Display and Roll
+    on("change:repeating_npcatk-melee:atkname change:repeating_npcatk-melee:atkmod change:repeating_npcatk-melee:multipleatk_flag change:repeating_npcatk-melee:atkmod2 change:repeating_npcatk-melee:atkmod3 change:repeating_npcatk-melee:atkmod4 change:repeating_npcatk-melee:atkmod5 change:repeating_npcatk-melee:atkmod6 change:repeating_npcatk-melee:atkmod7 change:repeating_npcatk-melee:atkmod8 change:repeating_npcatk-melee:atkmod9 change:repeating_npcatk-melee:atkcritrange change:repeating_npcatk-melee:dmgflag change:repeating_npcatk-melee:dmgbase change:repeating_npcatk-melee:dmgtype change:repeating_npcatk-melee:dmgcritmulti change:repeating_npcatk-melee:dmg2flag change:repeating_npcatk-melee:dmg2base change:repeating_npcatk-melee:dmg2type change:repeating_npcatk-melee:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(23, 43);
             update_npc_attack("melee",atkid);
     });
-    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkflag change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:multipleatk_flag change:repeating_npcatk-ranged:atkmod2 change:repeating_npcatk-ranged:atkmod3 change:repeating_npcatk-ranged:atkmod4 change:repeating_npcatk-ranged:atkmod5 change:repeating_npcatk-ranged:atkmod6 change:repeating_npcatk-ranged:atkmod7 change:repeating_npcatk-ranged:atkmod8 change:repeating_npcatk-ranged:atkmod9 change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
+    on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:multipleatk_flag change:repeating_npcatk-ranged:atkmod2 change:repeating_npcatk-ranged:atkmod3 change:repeating_npcatk-ranged:atkmod4 change:repeating_npcatk-ranged:atkmod5 change:repeating_npcatk-ranged:atkmod6 change:repeating_npcatk-ranged:atkmod7 change:repeating_npcatk-ranged:atkmod8 change:repeating_npcatk-ranged:atkmod9 change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(24, 44);
             update_npc_attack("ranged",atkid);
     });
@@ -1014,7 +1014,7 @@
                     if(v[base + "dmg2type"] != "") {dmg2 += " " + v[base + "dmg2type"];}
                     if((parseInt(v[base + "dmg2critmulti"]) || 1) != 1) {dmg2 += "/x" + v[base + "dmg2critmulti"];}
                 }
-                dmg = dmg1 + ((dmg1.length >0) ? ", " : "") + dmg2;
+                dmg = dmg1 + ((dmg2.length >0) ? ", " : "") + dmg2;
                 if (dmg.length >0) {
                     display += " (" + dmg + ")";
                 }
@@ -1024,6 +1024,7 @@
             setAttrs(update,{silent:true});
         });
     };
+
     // === SKILLS
     var update_skill = function(attr,source) {
         var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod"];

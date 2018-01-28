@@ -1,4 +1,5 @@
 {
+    "#-used": "# used",
     "1st": "1st",
     "2nd": "2nd",
     "3rd": "3rd",
@@ -221,6 +222,7 @@
     "light": "Light",
     "linguistics": "Linguistics*",
     "max": "max",
+    "max-#-per-day": "Max # per day",
     "max-dex-bonus": "Maximum Dex Bonus",
     "maximum": "Maximum",
     "medium": "Medium",

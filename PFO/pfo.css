@@ -449,19 +449,24 @@ div.sheet-acitems {
 .sheet-spells div.sheet-blacklabel {width: 60%;}
 div.sheet-spell {margin-top: 2px;}
 .sheet-spell .sheet-lab {text-align: left;}
-.sheet-spell span.sheet-std,
-.sheet-feat span.sheet-std {width: 80px;}
-.sheet-spell input[type="text"].sheet-std {
-    width: 180px;
+span.sheet-std {width: 80px;}
+input[type="text"].sheet-std {
     font-size: 1.2em;
     line-height: 1.2em;
 }
-.sheet-spell .sheet-autoex.sheet-std,
-.sheet-feat .sheet-autoex.sheet-std {
+.sheet-spell input[type="text"].sheet-std {width: 180px;}
+.sheet-feat input[type="text"].sheet-std {width: 210px;}
+.sheet-autoex.sheet-std {
     display: inline-block;
+    vertical-align: bottom;
+}
+.sheet-spell .sheet-autoex.sheet-std {
     width: 180px;
     max-width: 180px;
-    vertical-align: bottom;
+}
+.sheet-feat .sheet-autoex.sheet-std {
+    width: 210px;
+    max-width: 210px;
 }
 .sheet-spell span.sheet-med {width: 95px;}
 .sheet-spell input[type="text"].sheet-med {
@@ -549,9 +554,8 @@ div.sheet-boxed span.sheet-pseudoattr {
     min-width: 36px;
     margin-top: 3px;
 }
-.sheet-acitems div.sheet-boxed span.sheet-pseudoattr {
-    width: 33px;
-}
+.sheet-acitems div.sheet-boxed span.sheet-pseudoattr {width: 33px;}
+.sheet-acitems div.sheet-boxed {width: 35px;}
 
 .sheet-skills .sheet-lab.sheet-class {width: 20px;}
 .sheet-skills .sheet-lab.sheet-name {
@@ -604,33 +608,16 @@ input:focus, input:hover, textarea:focus, textarea:hover, select:hover, select:f
     background-color: rgba(230,221,148,0.3);
     outline: none;
 }
+
+input[type="text"].sheet-spsml {width: 20px;}
+input[type="text"].sheet-sml {width: 30px;}
+input[type="text"].sheet-small {width: 45px;}
+input[type="text"].sheet-smlmed {width: 80px;}
+input[type="text"].sheet-medium {width: 140px;}
+
 input[type="number"]{
     text-align: center;
     vertical-align: middle;
-}
-input[type="number"].sheet-sml {
-    width: 30px;
-}
-div.sheet-boxed input[type="number"]{
-    width: 36px;
-    height: 18px;
-    margin-top: 2px;
-}
-.sheet-identity input[type="number"],
-.sheet-acitem input[type="number"],
-.sheet-attacks input[type="number"],
-.sheet-spells input[type="number"],
-.sheet-statblock input[type="number"].sheet-medium {
-    width: 35px;
-}
-.sheet-spells input[type="number"].sheet-sml {width: 25px;}
-
-.sheet-acitems div.sheet-boxed {
-    width: 35px;
-}
-.sheet-skill input[type="number"],
-.sheet-spellcasting input[type="number"] {
-    width: 30px;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -640,6 +627,22 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type=number] {
     -moz-appearance:textfield;
 }
+input[type="number"].sheet-spsml {width: 20px;}
+input[type="number"].sheet-sml {width: 30px;}
+div.sheet-boxed input[type="number"]{
+    width: 36px;
+    height: 18px;
+    margin-top: 2px;
+}
+.sheet-identity input[type="number"],
+.sheet-acitem input[type="number"],
+.sheet-attacks input[type="number"],
+.sheet-spells input[type="number"],
+.sheet-statblock input[type="number"].sheet-medium {width: 35px;}
+.sheet-spells input[type="number"].sheet-sml {width: 25px;}
+.sheet-skill input[type="number"],
+.sheet-spellcasting input[type="number"] {width: 30px;}
+
 select {
     width: auto;
     height: 1.3em;
@@ -669,11 +672,6 @@ select.sheet-size {
 .sheet-acitem select{
     width: 60px;
 }
-
-input[type="text"].sheet-sml {width: 30px;}
-input[type="text"].sheet-small {width: 45px;}
-input[type="text"].sheet-smlmed {width: 80px;}
-input[type="text"].sheet-medium {width: 140px;}
 
 /* ===== ABILITIES ===== */
 .sheet-baseattr {
