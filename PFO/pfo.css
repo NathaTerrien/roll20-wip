@@ -500,11 +500,13 @@ input[type="text"].sheet-std {
 .sheet-statblock .sheet-specabilities button.sheet-myrol {margin-left: 14px;}
 .sheet-statblock .sheet-npcatk button.sheet-myrol.sheet-atk {border-bottom: 1px dotted #999;}
 .sheet-statblock .sheet-npcatk button.sheet-myrol.sheet-atk:hover {border-bottom: 1px dotted #BE202E;}
-.sheet-statblock .sheet-npcatk .sheet-spell button.sheet-myrol,
-.sheet-statblock .sheet-spelllike .sheet-spell button.sheet-myrol {
+.sheet-statblock .sheet-npcatk .sheet-spell button.sheet-myrol {
     font-style: italic;
     margin-right: 2px;
+    border-bottom: 1px dotted #999;
 }
+.sheet-statblock .sheet-npcatk .sheet-spell button.sheet-myrol:hover {border-bottom: 1px dotted #BE202E;}
+
 .sheet-statblock .sheet-attack .sheet-lbl.sheet-atk {width: 55px;}
 .sheet-statblock .sheet-prep {
     width: 55px;
