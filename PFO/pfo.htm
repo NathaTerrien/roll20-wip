@@ -525,7 +525,7 @@
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -594,7 +594,7 @@
             <fieldset class="repeating_npcatk-ranged">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} {{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} {{attack=1}}{{roll=[[1d20cs@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -667,7 +667,7 @@
             <fieldset class="repeating_npcatk-special">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol atk" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
                     <input type="hidden" class="optional-flag" name="attr_perday_max" value="" /><span class="optional inl">(<input type="number" class="spsml center" name="attr_perday" value="0" data-i18n-title="#-used" title="# used" />/<span name="attr_perday_max" data-i18n-title="max-#-per-day" title="Max # per day"></span>)</span>
                     <div class="options">
                         <div class="myrow">
@@ -748,7 +748,7 @@
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                     <div class="myrow">
                         <input type="hidden" name="attr_rollcontent" />
-                        <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button><input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">&nbsp;(<input type="number" class="spsml center" name="attr_perday" value="0" data-i18n-title="#-used" title="# used" />/<span name="attr_perday_max" data-i18n-title="max-#-per-day" title="Max # per day"></span>)</span>,
+                        <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button><input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">&nbsp;(<input type="number" class="spsml center" name="attr_perday" value="0" data-i18n-title="#-used" title="# used" />/<span name="attr_perday_max" data-i18n-title="max-#-per-day" title="Max # per day"></span>)</span>,
                     </div>
                     <div class="options">
                         <div class="myrow">
@@ -876,7 +876,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1003,7 +1003,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1130,7 +1130,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1257,7 +1257,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1384,7 +1384,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1511,7 +1511,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1638,7 +1638,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1765,7 +1765,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -1892,7 +1892,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span>
                                 <input type="hidden" class="optional-flag0" name="attr_spellprepared" value="0" /><span class="optional inl">(<span name="attr_spellprepared"></span>)</span></button>
                         </div>
                         <div class="options">
@@ -2019,7 +2019,7 @@
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                         <div class="myrow">
                             <input type="hidden" name="attr_rollcontent" />
-                            <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
+                            <button class="myrol underl" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span name="attr_spelldisplay"></span></button>
                         </div>
                         <div class="options">
                             <div class="myrow">
@@ -2163,7 +2163,7 @@
             <fieldset class="repeating_feats">
                 <div class="feat compendium-drop-target">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}} @{descflag}"><span name="attr_name"></span></button>
+                    <button class="myrol underl" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}} @{descflag}"><span name="attr_name"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
