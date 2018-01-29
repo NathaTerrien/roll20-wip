@@ -45,9 +45,7 @@ img{
     margin-top: -13px;
     padding-top: 15px;
 }
-.sheet-block{
-    display: block;
-}
+.sheet-block{display: block;}
 .sheet-inbox{
     padding-left:2px;
     padding-bottom: 2px;
@@ -510,6 +508,10 @@ button[type="roll"].sheet-myrol.sheet-underl:hover,
     width: 55px;
     text-align: center;
 }
+
+.sheet-fullpc .sheet-money .sheet-blacklabel,
+.sheet-fullpc .sheet-feats .sheet-blacklabel,
+.sheet-fullpc .sheet-traits .sheet-blacklabel {width: 95%;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -1150,17 +1152,15 @@ input.sheet-tabconf:checked + span{
 /* ===== REPEATING SECTIONS CTRL ===== */
 .sheet-fullpc .repcontrol {
     min-height: 27px;
+    width: 80%;
 }
-
 .repcontrol .btn {
     border: none;
     color: white !important;
     background: none;
     box-shadow: none;
 }
-.sheet-fullpc .repcontrol .btn {
-    padding: 4px 4px 4px 4px;
-}
+.sheet-fullpc .repcontrol .btn {padding: 4px 4px 4px 4px;}
 .sheet-statblock .repcontrol .btn {
     padding: 0px 0px 0px 0px;
     margin-left: 10px;
@@ -1168,10 +1168,8 @@ input.sheet-tabconf:checked + span{
     width: 25px;
     font-size: 0px;
 }
-.repcontrol .btn:focus {
-    outline: 0;
-}
 
+.repcontrol .btn:focus {outline: 0;}
 .repcontrol .repcontrol_add:before {
     content: '&';
     font-family: pictos;
@@ -1223,23 +1221,17 @@ input.sheet-tabconf:checked + span{
 }
 
 .repcontrol .repcontrol_edit:hover:after,
-.repcontrol .repcontrol_add:hover:before
-{
+.repcontrol .repcontrol_add:hover:before {
     color: #C3996B;
     border-color: #C3996B;
 }
-
-.itemcontrol {
-    z-index: 10;
-}
-
+.itemcontrol {z-index: 10;}
 .itemcontrol .repcontrol_del {
     font-size: 10px;
     padding: 0px;
     height: 18px;
     width: 18px;
 }
-
 .itemcontrol .repcontrol_move {
     font-size: 10px;
     padding: 0px;
@@ -1248,29 +1240,12 @@ input.sheet-tabconf:checked + span{
 }
 .sheet-statblock .sheet-npcatk .repitem,
 .sheet-statblock .sheet-npcatk .repcontrol,
-.sheet-statblock .sheet-npcatk .repcontainer {
-    vertical-align: top;
-}
-.sheet-statblock .sheet-npcatk .repitem {
-    display: inline-block;
-}
-.sheet-statblock .sheet-npcatk .repcontrol {
-    display: inline-block;
-}
-.sheet-statblock .sheet-npcatk .repcontainer {
-    display: inline;
-}
-
+.sheet-statblock .sheet-npcatk .repcontainer {vertical-align: top;}
+.sheet-statblock .sheet-npcatk .repitem {display: inline-block;}
+.sheet-statblock .sheet-npcatk .repcontrol {display: inline-block;}
+.sheet-statblock .sheet-npcatk .repcontainer {display: inline;}
 .sheet-statblock .sheet-npcatk.sheet-melee .repcontainer,
-.sheet-statblock .sheet-npcatk.sheet-feats .repcontainer, {
-    max-width: 560px;
-}
-.sheet-statblock .sheet-npcatk.sheet-ranged .repcontainer {
-    max-width: 545px;
-}
-.sheet-statblock .sheet-npcatk.sheet-special .repcontainer {
-    max-width: 500px;
-}
-.sheet-statblock .sheet-npcatk.sheet-spells .repcontainer {
-    max-width: 540px;
-}
+.sheet-statblock .sheet-npcatk.sheet-feats .repcontainer {max-width: 560px;}
+.sheet-statblock .sheet-npcatk.sheet-ranged .repcontainer {max-width: 545px;}
+.sheet-statblock .sheet-npcatk.sheet-special .repcontainer {max-width: 500px;}
+.sheet-statblock .sheet-npcatk.sheet-spells .repcontainer {max-width: 540px;}
