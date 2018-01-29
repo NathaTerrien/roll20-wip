@@ -612,7 +612,6 @@ input:focus, input:hover, textarea:focus, textarea:hover, select:hover, select:f
     outline: none;
 }
 
-input[type="text"].sheet-right {text-align: right;}
 input[type="text"].sheet-spsml {width: 20px;}
 input[type="text"].sheet-sml {width: 30px;}
 input[type="text"].sheet-small {width: 45px;}

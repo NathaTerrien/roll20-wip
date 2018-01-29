@@ -1,4 +1,4 @@
-<input type="checkbox" class="npc_toggle" name="attr_npc" value="1" style="display: none;" />
+<input checked="checked" type="checkbox" class="npc_toggle" name="attr_npc" value="1" style="display: none;" />
 <div class="statblock"><!-- NPC SHEET -->
     <div class="head-info">
         <input checked="checked" class="options-flag" name="attr_options-flag-npc" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
@@ -407,7 +407,7 @@
                 <div class="myrow">
                     <span class="lbl bold" data-i18n="general">General</span>
                     <span class="spacer"></span>
-                    <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span></span><span class="lbl" data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+                    <input checked="checked" class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span></span><span class="lbl" data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
                     <span class="spacer"></span>
                     <input class="pseudocheck" type="checkbox" name="attr_special_abilities_flag" value="1" title="@{special_abilities_flag}" checked="checked" /><span></span><span class="lbl" data-i18n="show-special-abilities">Show Special Abilities</span>
                     <span class="spacer"></span>
@@ -5093,7 +5093,7 @@
         </div>  <!-- END tab1 col2 -->
     </div> <!-- END TAB MAIN -->
     <div class="tabadd"> <!-- TAB ADDITIONNAL -->
-        <div class="col2third"> <!-- TAB 2 COL LEFT -->
+        <div class="col2third">
             <div class="acitems"> <!-- AC ITEMS -->
                 <div class="myrow right">
                     <div class="blacklabel">
@@ -5200,27 +5200,8 @@
                     </div> <!-- End Ac Items Totals -->
                 </div>
             </div> <!-- END AC ITEMS -->
-        </div> <!-- END TAB 2 COL LEFT -->
-        <div class="col1third"> <!-- TAB 2 COL RIGHT -->
-            <div class="myrow right"><!-- XP -->
-                <div class="blacklabel">
-                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="experience-points">Experience Points</span>
-                    </div>
-                    <div class="blackbgrd margindent">
-                        <span class="med only" data-i18n="next-level">Next Level</span>
-                    </div>
-                </div>
-                <div class="bordered titled inboxright">
-                    <div class="myrow right">
-                        <input type="text" name="attr_xp" class="underlined smlmed right" value="0" title="@{xp}" />
-                        <input type="text" name="attr_xp_max" class="underlined smlmed right" value="2000" title="@{xp_max}" />
-                    </div>
-                    <div class="spacer"></div>
-                </div>
-            </div>
-        </div> <!-- END TAB 2 COL RIGHT -->
+        </div>
+        <div class="col1third">stuff</div>
     </div> <!-- END TAB ADDITIONNAL -->
     <div class="tabspell"> <!-- TAB SPELLS -->
         <div class="col1third"> <!-- misc magic -->
@@ -7444,7 +7425,7 @@
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
-                <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
+                <input checked="checked" class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
             </div>
             <div class="myrow right">
                 <span data-i18n="version">Version</span>&nbsp;<span name="attr_version"></span>
