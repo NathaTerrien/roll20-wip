@@ -453,7 +453,9 @@ input[type="text"].sheet-std {
     line-height: 1.2em;
 }
 .sheet-spell input[type="text"].sheet-std {width: 180px;}
-.sheet-feat input[type="text"].sheet-std {width: 210px;}
+.sheet-fullpc .sheet-feat input[type="text"].sheet-std,
+.sheet-fullpc .sheet-ability input[type="text"].sheet-std {width: 320px;}
+.sheet-statblock .sheet-feat input[type="text"].sheet-std {width: 210px;}
 .sheet-autoex.sheet-std {
     display: inline-block;
     vertical-align: bottom;
@@ -462,7 +464,11 @@ input[type="text"].sheet-std {
     width: 180px;
     max-width: 180px;
 }
-.sheet-feat .sheet-autoex.sheet-std {
+.sheet-fullpc .sheet-feat .sheet-autoex.sheet-std {
+    width: 320px;
+    max-width: 320px;
+}
+.sheet-statblock .sheet-feat .sheet-autoex.sheet-std {
     width: 210px;
     max-width: 210px;
 }
@@ -487,26 +493,6 @@ input[type="text"].sheet-std {
 .sheet-statblock .sheet-npcatk .sheet-attack {
     display: inline-block;
     position: relative;
-}
-
-.sheet-statblock  button[type="roll"].sheet-myrol{margin: 0px 0px 0px 0px;}
-button[type="roll"].sheet-myrol.sheet-underl {
-    margin-left: 14px;
-    border-bottom: 1px dotted #999;
-}
-.sheet-spells .sheet-spell button[type="roll"].sheet-myrol.sheet-underl,
-.sheet-spelllike .sheet-spell button[type="roll"].sheet-myrol.sheet-underl {font-style: italic;}
-.sheet-spells .sheet-spell button[type="roll"].sheet-myrol.sheet-underl {
-    margin-right: 2px;
-    border-bottom: 1px dotted transparent;
-}
-button[type="roll"].sheet-myrol.sheet-underl:hover,
-.sheet-spells .sheet-spell button[type="roll"].sheet-myrol.sheet-underl:hover {border-bottom: 1px dotted #BE202E;}
-
-.sheet-statblock .sheet-attack .sheet-lbl.sheet-atk {width: 55px;}
-.sheet-statblock .sheet-prep {
-    width: 55px;
-    text-align: center;
 }
 
 .sheet-fullpc .sheet-money .sheet-blacklabel,
@@ -575,6 +561,9 @@ div.sheet-boxed span.sheet-pseudoattr {
 .sheet-skill div.sheet-skillability {display: none;}
 .sheet-skill input.sheet-skillability[value="strength"] + div.sheet-skillability,
 .sheet-skill input.sheet-skillability[value="dexterity"] + div.sheet-skillability {display: inline-block;}
+
+.sheet-fullpc .sheet-feat,
+.sheet-fullpc .sheet-ability {margin-top: 2px;}
 
 .sheet-statblock .sheet-senses {width: 350px;}
 .sheet-statblock .sheet-type {width: 325px;}
@@ -791,12 +780,34 @@ div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
 div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big.sheet-only{
     padding-top: 3px;
 }
+button[type="roll"].sheet-myrol.sheet-margindent {margin-left: 14px;}
+.sheet-statblock  button[type="roll"].sheet-myrol{margin: 0px 0px 0px 0px;}
+button[type="roll"].sheet-myrol.sheet-underl {
+    margin-left: 14px;
+    border-bottom: 1px dotted #999;
+}
+.sheet-spells .sheet-spell button[type="roll"].sheet-myrol.sheet-underl,
+.sheet-spelllike .sheet-spell button[type="roll"].sheet-myrol.sheet-underl {font-style: italic;}
+.sheet-spells .sheet-spell button[type="roll"].sheet-myrol.sheet-underl {
+    margin-right: 2px;
+    border-bottom: 1px dotted transparent;
+}
+button[type="roll"].sheet-myrol.sheet-underl:hover,
+.sheet-spells .sheet-spell button[type="roll"].sheet-myrol.sheet-underl:hover {border-bottom: 1px dotted #BE202E;}
+
+.sheet-statblock .sheet-attack .sheet-lbl.sheet-atk {width: 55px;}
+.sheet-statblock .sheet-prep {
+    width: 55px;
+    text-align: center;
+}
+
 button[type="compendium"].sheet-myrol {
     display: none;
 }
 .sheet-fromcompendium:not([value=""]) + button[type="compendium"].sheet-myrol {
     display: inline-block;
 }
+
 /* ===== PSEUDO CHECKS and RADIOS ===== */
 input[type="checkbox"].sheet-pseudocheck,
 input[type="radio"].sheet-pseudocheck {
@@ -1153,6 +1164,7 @@ input.sheet-tabconf:checked + span{
 .sheet-fullpc .repcontrol {
     min-height: 27px;
     width: 80%;
+    text-align: center;
 }
 .repcontrol .btn {
     border: none;

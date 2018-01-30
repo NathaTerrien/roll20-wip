@@ -2176,7 +2176,7 @@
                                 <option value="combat" data-i18n="combat">Combat</option>
                                 <option value="critical" data-i18n="critical">Critical</option>
                                 <option value="grit" data-i18n="grit">Grit</option>
-                                <option value="item creation" data-i18n="item-creation">Item creation</option>
+                                <option value="item-creation" data-i18n="item-creation">Item creation</option>
                                 <option value="metamagic" data-i18n="metamagic">Metamagic</option>
                                 <option value="panache" data-i18n="panache">Panache</option>
                                 <option value="performance" data-i18n="performance">Performance</option>
@@ -5275,7 +5275,8 @@
                 <fieldset class="repeating_feats">
                     <div class="feat underlined compendium-drop-target">
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                        <button class="myrol underl" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}} @{descflag}"><span name="attr_name"></span></button>
+                        <button class="myrol margindent" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}} @{descflag}"><span class="pseudoattr"><span name="attr_name"></span> (<span name="attr_type" data-i18n-dynamic></span>)</span></button>
+                        <span name="attr_descshort"></span>
                         <div class="options">
                             <div class="myrow">
                                 <span class="lbl" data-i18n="name">Name</span>
@@ -5288,13 +5289,17 @@
                                     <option value="combat" data-i18n="combat">Combat</option>
                                     <option value="critical" data-i18n="critical">Critical</option>
                                     <option value="grit" data-i18n="grit">Grit</option>
-                                    <option value="item creation" data-i18n="item-creation">Item creation</option>
+                                    <option value="item-creation" data-i18n="item-creation">Item creation</option>
                                     <option value="metamagic" data-i18n="metamagic">Metamagic</option>
                                     <option value="panache" data-i18n="panache">Panache</option>
                                     <option value="performance" data-i18n="performance">Performance</option>
                                     <option value="style" data-i18n="style">Style</option>
                                     <option value="teamwork" data-i18n="teamwork">Teamwork</option>
                                 </select>
+                            </div>
+                            <div class="myrow">
+                                <span class="lbl std right" data-i18n="short-desc:" data-i18n-title="short description:" title="Short Description">Short Desc.:</span>
+                                <input type="text" name="attr_descshort" class="underlined std" spellcheck="false" title="@{repeating_feats_$id_descshort}" />
                             </div>
                             <div class="myrow">
                                 <span class="lbl std right" data-i18n="prerequisites:">Prerequisites:</span>
@@ -5355,16 +5360,23 @@
                 <fieldset class="repeating_abilities">
                     <div class="ability underlined compendium-drop-target">
                         <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                        <button class="myrol" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
-                            <input type="hidden" class="optional-flag" name="attr_type" value="" /><span class="optional inl bold">(<span name="attr_type"></span>)</span></button>
+                        <button class="myrol margindent" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="pseudoattr" name="attr_name"></span>
+                            <input type="hidden" class="optional-flag" name="attr_type" value="" /><span class="optional inl pseudoattr">(<span name="attr_type"></span>)</span></button>
+                        <span name="attr_descshort"></span>
                         <div class="options">
                             <div class="myrow">
                                 <span class="lbl" data-i18n="name">Name</span>
                                 <input type="text" name="attr_name" accept="Name" class="underlined large" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_abilities_$id_name}" />
                                 <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_infoButton" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
-                                <span class="lbl margindent" data-i18n="type">Type</span>
-                                <input type="text" name="attr_type" accept="Ability Type" class="underlined small" spellcheck="false" data-i18n-placeholder="type" placeholder="Type" title="@{repeating_abilities_$id_type}" />
+                            </div>
+                            <div class="myrow">
+                                <span class="lbl std right" data-i18n="type">Type</span>
+                                <input type="text" name="attr_type" accept="Ability Type" class="underlined" spellcheck="false" data-i18n-placeholder="type" placeholder="Type" title="@{repeating_abilities_$id_type}" />
+                            </div>
+                            <div class="myrow">
+                                <span class="lbl std right" data-i18n="short-desc:" data-i18n-title="short description:" title="Short Description">Short Desc.:</span>
+                                <input type="text" name="attr_descshort" class="underlined std" spellcheck="false" title="@{repeating_abilities_$id_descshort}" />
                             </div>
                             <div class="myrow">
                                 <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}{{desc=@{description}}}" title="@{repeating_abilities_$id_descflag}" checked="checked" /><span></span>
