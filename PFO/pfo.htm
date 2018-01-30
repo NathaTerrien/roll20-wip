@@ -5096,7 +5096,7 @@
         <div class="col2third"> <!-- TAB 2 COL LEFT -->
             <div class="acitems"> <!-- AC ITEMS -->
                 <div class="myrow right">
-                    <div class="blacklabel">
+                    <div class="blacklabel right">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                         <div class="blackbgrd item">
                             <span class="big only" data-i18n="ac-items">AC Items</span>
@@ -5259,7 +5259,38 @@
         </div> <!-- END TAB 2 COL RIGHT -->
         <div class="spacer"></div>
         <div class="colhalf"> <!-- GEAR & ENCUMBRANCE -->
-            todo
+            DEBUG encumbrance_gear_weight: <span name="attr_encumbrance_gear_weight"></span>
+            <div class="gear"> <!-- GEAR -->
+                <div class="myrow right">
+                    <div class="blacklabel right">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd gear">
+                            <span class="big only" data-i18n="gear">Gear</span>
+                        </div>
+                        <div class="blackbgrd item">
+                            <span class="med only" data-i18n="item">Item</span>
+                        </div>
+                        <div class="blackbgrd qty">
+                            <span class="med only" data-i18n="qty" data-i18n-title="quantity" title="Quantity">Qty</span>
+                        </div>
+                        <div class="blackbgrd weight">
+                            <span class="med only" data-i18n="weight" >Weight</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bordered titled inboxright">
+                    <fieldset class="repeating_gear">
+                        <div class="myrow right gearitem compendium-drop-target">
+                            <input type="text" name="attr_name" accept="Name" class="underlined item" spellcheck="false" title="@{repeating_gear_$id_name}" />
+                            <input type="number" name="attr_quantity" value="1" class="underlined  right" spellcheck="false" title="@{repeating_gear_$id_quantity}" />
+                            <input type="hidden" name="attr_compendium_weight" accept="Weight" />
+                            <input type="number" name="attr_weight" value="0" class="underlined  right" spellcheck="false" title="@{repeating_gear_$id_weight}" />
+                            <input type="hidden" name="attr_weight_total" value="0" />
+                            <span class="pseudoattr greybg right underlined total" name="attr_weight_total"></span>
+                        </div>
+                    </fieldset>
+                </div>
+            </div> <!-- END GEAR -->
         </div> <!-- END GEAR & ENCUMBRANCE -->
         <div class="colhalf"> <!-- FEATS & TRAITS -->
             <div class="feats"> <!-- FEATS -->
@@ -8011,6 +8042,23 @@
         }
     });
 
+    // GEAR - ENCUMBRANCE
+    // -- Gear weight
+    on("change:repeating_gear:weight change:repeating_gear:quantity", function (e) {
+        var id = e.sourceAttribute.substring(15, 35);
+        update_gear_weight(id);
+    });
+    on("change:repeating_gear:weight_total", function() {
+        update_gear_weight_total();
+    });
+    // -- Compendium drop adjustments
+    on("change:repeating_gear:compendium_weight", function (e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_weight","_weight");
+        var wght = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
+        update[attr] = wght;
+        setAttrs(update,{silent:false});
+    });
 
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
@@ -8104,7 +8152,7 @@
             var atkid = e.sourceAttribute.substring(24, 44);
             update_npc_attack("ranged",atkid);
     });
-    // --- Npc Spell-line abilities
+    // --- NPC Spell-like abilities
     on("change:repeating_spell-like:spellname change:repeating_spell-like:spellschool change:repeating_spell-like:spellclasslevel change:repeating_spell-like:spellcastingtime change:repeating_spell-like:spellrange change:repeating_spell-like:spellarea change:repeating_spell-like:spelltargets change:repeating_spell-like:spelleffect change:repeating_spell-like:spellduration change:repeating_spell-like:spellsaveflag change:repeating_spell-like:spellsave change:repeating_spell-like:spelldc_mod change:repeating_spell-like:spellresistanceflag change:repeating_spell-like:spellresistance change:repeating_spell-like:spellatkflag change:repeating_spell-like:spellatktype change:repeating_spell-like:spellatkmod change:repeating_spell-like:spellatkcritrange change:repeating_spell-like:spelldmgcritmulti change:repeating_spell-like:spelldmgflag change:repeating_spell-like:spelldmg change:repeating_spell-like:spelldmgtype change:repeating_spell-like:spelldmg2flag change:repeating_spell-like:spelldmg2 change:repeating_spell-like:spelldmg2type change:repeating_spell-like:spelldescflag change:repeating_spell-like:spelldesc change:repeating_spell-like:notes change:repeating_spell-like:timesperday change:repeating_spell-like:perday_max", function(e) {
         var spellid = e.sourceAttribute.substring(21, 41);
         update_spells("like",spellid,"");
@@ -8747,6 +8795,33 @@
                 ranks += parseInt(v[fld]) || 0;
             });
             setAttrs({"skills_ranks_total":ranks},{silent:true});
+        });
+    };
+
+    // === GEAR / ENCUMBRANCE
+    var update_gear_weight = function(id) {
+        var fields = ["repeating_gear_" + id + "_weight","repeating_gear_" + id + "_quantity"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["repeating_gear_" + id + "_weight_total"] = (parseFloat(v["repeating_gear_" + id + "_weight"]) || 0.0) * (parseFloat(v["repeating_gear_" + id + "_quantity"]) || 0.0);
+            setAttrs(update, {silent: false});
+        });
+    };
+    var update_gear_weight_total = function() {
+        getSectionIDs("repeating_gear", function(idarray) {
+            var attribs = [];
+            _.each(idarray, function(id) {
+                attribs.push("repeating_gear_" + id + "_weight_total");
+            });
+            getAttrs(attribs, function(v) {
+                var total = 0;
+                var update = {}
+                _.each(idarray, function(id) {
+                    total += parseFloat(v["repeating_gear_" + id + "_weight_total"]) || 0.0;
+                });
+                update["encumbrance_gear_weight"] = total;
+                setAttrs(update, {silent: false});
+            });
         });
     };
 

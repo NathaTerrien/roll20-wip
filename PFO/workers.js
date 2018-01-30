@@ -369,6 +369,23 @@
         }
     });
 
+    // GEAR - ENCUMBRANCE
+    // -- Gear weight
+    on("change:repeating_gear:weight change:repeating_gear:quantity", function (e) {
+        var id = e.sourceAttribute.substring(15, 35);
+        update_gear_weight(id);
+    });
+    on("change:repeating_gear:weight_total", function() {
+        update_gear_weight_total();
+    });
+    // -- Compendium drop adjustments
+    on("change:repeating_gear:compendium_weight", function (e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_weight","_weight");
+        var wght = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
+        update[attr] = wght;
+        setAttrs(update,{silent:false});
+    });
 
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
@@ -1105,6 +1122,33 @@
                 ranks += parseInt(v[fld]) || 0;
             });
             setAttrs({"skills_ranks_total":ranks},{silent:true});
+        });
+    };
+
+    // === GEAR / ENCUMBRANCE
+    var update_gear_weight = function(id) {
+        var fields = ["repeating_gear_" + id + "_weight","repeating_gear_" + id + "_quantity"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            update["repeating_gear_" + id + "_weight_total"] = (parseFloat(v["repeating_gear_" + id + "_weight"]) || 0.0) * (parseFloat(v["repeating_gear_" + id + "_quantity"]) || 0.0);
+            setAttrs(update, {silent: false});
+        });
+    };
+    var update_gear_weight_total = function() {
+        getSectionIDs("repeating_gear", function(idarray) {
+            var attribs = [];
+            _.each(idarray, function(id) {
+                attribs.push("repeating_gear_" + id + "_weight_total");
+            });
+            getAttrs(attribs, function(v) {
+                var total = 0;
+                var update = {}
+                _.each(idarray, function(id) {
+                    total += parseFloat(v["repeating_gear_" + id + "_weight_total"]) || 0.0;
+                });
+                update["encumbrance_gear_weight"] = total;
+                setAttrs(update, {silent: false});
+            });
         });
     };
 

@@ -188,6 +188,9 @@ div.sheet-blacklabel{
     text-transform: uppercase;
     border: none;
 }
+div.sheet-blacklabel.sheet-right {
+    text-align: right;
+}
 div.sheet-blacklabel::after{
     content: "";
     clear: both;
@@ -497,7 +500,14 @@ input[type="text"].sheet-std {
 
 .sheet-fullpc .sheet-money .sheet-blacklabel,
 .sheet-fullpc .sheet-feats .sheet-blacklabel,
-.sheet-fullpc .sheet-traits .sheet-blacklabel {width: 95%;}
+.sheet-fullpc .sheet-traits .sheet-blacklabel,
+.sheet-fullpc .sheet-gear .sheet-blacklabel {width: 95%;}
+
+.sheet-gear .sheet-qty,
+.sheet-gear .sheet-total {width: 55px;}
+.sheet-gear .sheet-weight {width: 115px;}
+.sheet-gear .sheet-item {width: 130px;}
+.sheet-gearitem input.sheet-item {width: 240px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
