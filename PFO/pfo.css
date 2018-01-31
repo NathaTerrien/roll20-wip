@@ -101,6 +101,9 @@ img{
 .sheet-w50{
     width: 50px;
 }
+.sheet-whitebgrd{
+    background: white;
+}
 /* ==== DIVS ==== */
 div.sheet-statblock {
     display: none;
@@ -269,7 +272,8 @@ div.sheet-attack,
 div.sheet-skill,
 div.sheet-concentration,
 div.sheet-spell,
-div.sheet-statblock {
+div.sheet-statblock,
+div.sheet-encumbrance {
     position: relative;
 }
 div.sheet-abilities,
@@ -501,13 +505,26 @@ input[type="text"].sheet-std {
 .sheet-fullpc .sheet-money .sheet-blacklabel,
 .sheet-fullpc .sheet-feats .sheet-blacklabel,
 .sheet-fullpc .sheet-traits .sheet-blacklabel,
-.sheet-fullpc .sheet-gear .sheet-blacklabel {width: 95%;}
+.sheet-fullpc .sheet-gear .sheet-blacklabel.sheet-title {width: 95%;}
 
-.sheet-gear .sheet-qty,
-.sheet-gear .sheet-total {width: 55px;}
-.sheet-gear .sheet-weight {width: 115px;}
+.sheet-fullpc .sheet-gear .sheet-blacklabel.sheet-total {
+    width: calc(100% + 2px);
+    padding-right: 2px;
+    margin-top: 2px;
+    margin-right: -2px;
+    margin-bottom: -2px;
+}
+.sheet-gear .sheet-qty  {width: 40px;}
+.sheet-gear .sheet-total {width: 35px;}
+.sheet-gear .sheet-weight {width: 85px;}
 .sheet-gear .sheet-item {width: 130px;}
-.sheet-gearitem input.sheet-item {width: 240px;}
+.sheet-gear .sheet-wtotal {
+    width: 45px;
+    color: black;
+}
+.sheet-gearitem input.sheet-item {width: 260px;}
+
+.sheet-encumbrance .sheet-lab {width: 75px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}
@@ -1076,7 +1093,8 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-head-info:hover .sheet-options-flag + span,
 .sheet-statblock .sheet-npcatk .sheet-attack:hover .sheet-options-flag + span,
 .sheet-feat:hover .sheet-options-flag + span,
-.sheet-ability:hover .sheet-options-flag + span {
+.sheet-ability:hover .sheet-options-flag + span,
+.sheet-encumbrance:hover .sheet-options-flag + span {
     display: block;
 }
 
