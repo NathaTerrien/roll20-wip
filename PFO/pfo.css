@@ -91,6 +91,7 @@ img{
 }
 .sheet-grtopbrd{
     border-top: 1px solid #DDD;
+    margin-top: 2px;
 }
 .sheet-grbotbrd{
     border-bottom: 1px solid #DDD;
@@ -383,15 +384,10 @@ div.sheet-acitems {
 }
 .sheet-acitem .sheet-speed {width: 50px;}
 
-.sheet-attack .sheet-lab {text-align: left;}
 .sheet-attacks div.sheet-padindent {padding-left: 22px;}
-.sheet-attacks select.sheet-type,
-.sheet-attacks select.sheet-vs {width: 80px;}
 .sheet-attacks .sheet-dmgbase {width: 120px;}
 .sheet-attacks .sheet-dmgtype {width: 120px;}
-.sheet-attacks span.sheet-lab.sheet-atk {width: 52px;}
-.sheet-attacks span.sheet-lab.sheet-typ {width: 35px;}
-.sheet-attack .sheet-range {width: 181px;}
+.sheet-attacks span.sheet-lbl.sheet-atk {width: 55px;}
 .sheet-attacks .sheet-weapon {width: 200px;}
 .sheet-attack .sheet-weapon {
     width: 225px;
@@ -524,7 +520,7 @@ input[type="text"].sheet-std {
 }
 .sheet-gearitem input.sheet-item {width: 260px;}
 
-.sheet-encumbrance .sheet-lab {width: 75px;}
+.sheet-encumbrance .sheet-lab.sheet-std {width: 75px;}
 
 /* ===== SPANS ===== */
 span {display: inline-block;}

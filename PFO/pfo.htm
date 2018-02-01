@@ -2432,7 +2432,7 @@
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
                 </div>
                 <div class="ability"> <!-- strength -->
-                    <input class="options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -2463,7 +2463,7 @@
                     </div>
                 </div> <!-- END strength -->
                 <div class="ability"> <!-- dexterity -->
-                    <input class="options-flag" name="attr_options-flag-dex" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-dex" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -2492,7 +2492,7 @@
                     </div>
                 </div> <!-- END dexterity -->
                 <div class="ability"> <!-- constitution -->
-                    <input class="options-flag" name="attr_options-flag-con" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-con" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -2521,7 +2521,7 @@
                     </div>
                 </div> <!-- END constitution -->
                 <div class="ability"> <!-- intelligence -->
-                    <input class="options-flag" name="attr_options-flag-int" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-int" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -2550,7 +2550,7 @@
                     </div>
                 </div> <!-- END intelligence -->
                 <div class="ability"> <!-- wisdom -->
-                    <input class="options-flag" name="attr_options-flag-wis" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-wis" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -2579,7 +2579,7 @@
                     </div>
                 </div> <!-- END wisdom -->
                 <div class="ability"> <!-- charisma -->
-                    <input class="options-flag" name="attr_options-flag-cha" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>i</span>
+                    <input class="options-flag" name="attr_options-flag-cha" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
                         <div class="blacklabel">
                             <div class="blackbgrd">
@@ -2941,7 +2941,7 @@
             </div> <!-- END SAVING THROWS -->
             <div class="spacer"></div>
             <div class="babs"> <!-- BABS -->
-                <input class="options-flag bab" name="attr_options-flag-bab" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>i</span>
+                <input class="options-flag bab" name="attr_options-flag-bab" type="checkbox" value="1" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                 <input class="options-flag cmb" name="attr_options-flag-cmb" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow">
                     <div class="blacklabel bab">
@@ -3126,7 +3126,7 @@
             </div>  <!-- END ATTACK MODS (MELEE RANGED) -->
             <div class="defenses"> <!-- DEFENSES -->
                 <input class="options-flag cmd" name="attr_options-flag-cmd" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
-                <input class="options-flag sr" name="attr_options-flag-sr" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>i</span>
+                <input class="options-flag sr" name="attr_options-flag-sr" type="checkbox" value="1" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                 <div class="myrow">
                     <div class="blacklabel cmd">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -3217,7 +3217,7 @@
                 </div>
             </div> <!-- END DEFENSES -->
             <div class="spacer"></div>
-            <div class="attacks"> <!-- ATTACKS -->
+            <div class="attacks"> <!-- WEAPONS / ATTACKS -->
                 <div class="myrow right">
                     <div class="blacklabel">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -3260,13 +3260,13 @@
                                         <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                         <button class="myrol" type="compendium" name="attr_fromcompendium" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
                                     <div class="myrow padindent">
-                                        <span class="lbl" data-i18n="category">Category</span>
+                                        <span class="lbl" data-i18n="category:">Category:</span>
                                         <input type="text" name="attr_category" accept="Weapon Category" class="underlined dmgbase" spellcheck="false" title="@{repeating_attacks_$id_category}" />
-                                        <span class="lbl" data-i18n="type">Type</span>
+                                        <span class="lbl margindent" data-i18n="type:">Type:</span>
                                         <input type="text" name="attr_type" accept="Weapon Type" class="underlined dmgbase" spellcheck="false" title="@{repeating_attacks_$id_type}" />
                                     </div>
                                     </div>
-                                    <div class="myrow">
+                                    <div class="myrow grtopbrd">
                                         <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span></span>
                                         <span class="lbl atk" data-i18n="attack:">Attack:</span>
                                         <select class="underlined type" name="attr_atktype" title="@{repeating_attacks_$id_atktype}">
@@ -3301,10 +3301,10 @@
                                         <span class="lbl" data-i18n="critical-range:" data-i18n-title="critical-range" title="Critical Range">Critical Range:</span>
                                         <input type="hidden" name="attr_compendium_critical_range" accept="Critical Range" value="" />
                                         <input type="number" class="underlined" name="attr_atkcritrange" value="20" title="@{repeating_attacks_$id_atkcritrange}" />
-                                        <span class="lbl atk right" data-i18n="range:">Range:</span>
-                                        <input type="text" name="attr_atkrange" accept="Range" class="underlined range" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_attacks_$id_atkrange}" />
+                                        <span class="lbl margindent" data-i18n="range:">Range:</span>
+                                        <input type="text" name="attr_atkrange" accept="Range" class="underlined medium" spellcheck="false" data-i18n-placeholder="range-place" placeholder="10 feet" title="@{repeating_attacks_$id_atkrange}" />
                                     </div>
-                                    <div class="myrow">
+                                    <div class="myrow grtopbrd">
                                         <input class="pseudocheck" type="checkbox" name="attr_dmgflag" value="{{damage=1}} {{dmg1flag=1}}" title="@{dmgflag}" checked="checked" /><span></span>
                                         <span class="lbl atk" data-i18n="damage:">Damage:</span>
                                         <input type="hidden" name="attr_compendium_dmg_medium" accept="Damage (Medium)" value="" />
@@ -3326,9 +3326,9 @@
                                         <input type="text" name="attr_dmgmod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmgmod}" />
                                     </div>
                                     <div class="myrow padindent">
-                                        <span class="lbl right typ" data-i18n="type:">Type:</span>
+                                        <span class="lbl" data-i18n="type:">Type:</span>
                                         <input type="text" name="attr_dmgtype" accept="Damage Type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="slashing" placeholder="Slashing" title="@{repeating_attacks_$id_dmgtype}" />
-                                        <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                        <span class="lbl margindent" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
                                         <input type="hidden" name="attr_compendium_critical_damage" accept="Critical Damage" value="" />
                                         <input type="number" class="underlined" name="attr_dmgcritmulti" value="2" title="@{repeating_attacks_$id_dmgcritmulti}" />
                                     </div>
@@ -3352,12 +3352,12 @@
                                         <input type="text" name="attr_dmg2mod" class="underlined dmgbase" spellcheck="false" placeholder="0" title="@{repeating_attacks_$id_dmg2mod}" />
                                     </div>
                                     <div class="myrow padindent">
-                                        <span class="lbl right typ" data-i18n="type:">Type:</span>
+                                        <span class="lbl" data-i18n="type:">Type:</span>
                                         <input type="text" name="attr_dmg2type" class="underlined dmgtype" spellcheck="false" data-i18n-placeholder="fire" placeholder="Fire" title="@{repeating_attacks_$id_dmg2type}" />
-                                        <span class="lbl" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
+                                        <span class="lbl margindent" data-i18n="critical-multiplier:" data-i18n-title="critical-multiplier" title="Critical Multiplier">Critical Multiplier:</span>
                                         <input type="number" class="underlined" name="attr_dmg2critmulti" value="1" title="@{repeating_attacks_$id_dmg2critmulti}" />
                                     </div>
-                                    <div class="myrow">
+                                    <div class="myrow grtopbrd">
                                         <input class="pseudocheck" type="checkbox" name="attr_descflag" value="{{descflag=1}}" title="@{repeating_attacks_$id_descflag}" /><span></span>
                                         <span class="lbl atk" data-i18n="description:">Description:</span>
                                         <div class="autoex">
@@ -3620,51 +3620,53 @@
                         </div>
                     </div>
                 </div>  <!-- END craft -->
-                <fieldset class="repeating_skillcraft"> <!-- repeating craft -->
-                    <div class="myrow skill">
-                        <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
-                        <div class="myrow right">
-                            <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{repeating_skillcraft_$id_classkill}" /><span></span>
-                            <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
-                                <span class="lbl craft" data-i18n="craft">Craft</span>
-                            </button>
-                            <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="group" placeholder="Group" title="@{repeating_skillcraft_$id_name}" />
-                            <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
-                            <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillcraft_$id_skill}"></span>
-                            <input type="hidden" name="attr_skill" />
-                            <span class="lbl">=</span>
-                            <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillcraft_$id_ability_mod}"></span>
-                            <span class="lbl">+</span>
-                            <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillcraft_$id_ranks}" />
-                            <span class="lbl">+</span>
-                            <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillcraft_$id_misc}" />
-                            <span class="lbl">+</span>
-                            <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillcraft_$id_bonus}" />
-                        </div>
-                        <div class="options">
-                            <div class="myrow">
-                                <span data-i18n="ability">Ability</span>:
-                                <select name="attr_ability" title="@{repeating_skillcraft_$id_ability}">
-                                    <option value="strength" data-i18n="strength">Strength</option>
-                                    <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                                    <option value="constitution" data-i18n="constitution">Constitution</option>
-                                    <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
-                                    <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                                    <option value="charisma" data-i18n="charisma">Charisma</option>
-                                </select>
-                                <input type="hidden" class="skillability" name="attr_ability" />
-                                <div class="skillability">
-                                    <span class="spacer"></span>
-                                    <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillcraft_$id_armor_penalty}" /><span></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                <div>
+                    <fieldset class="repeating_skillcraft"> <!-- repeating craft -->
+                        <div class="myrow skill">
+                            <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                            <div class="myrow right">
+                                <input class="pseudocheck" type="checkbox" name="attr_classkill" value="1" title="@{repeating_skillcraft_$id_classkill}" /><span></span>
+                                <button class="myrol" type="roll" name="craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft} (@{name})}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{skill}[MOD]+@{rollmod_skill}[BONUS]]]}} {{shownotes=@{rollnotes_skill}}} {{notes=@{notes}}}">
+                                    <span class="lbl craft" data-i18n="craft">Craft</span>
+                                </button>
+                                <input type="text" name="attr_name" class="craft underlined" data-i18n-placeholder="group" placeholder="Group" title="@{repeating_skillcraft_$id_name}" />
+                                <input type="hidden" name="attr_penalty_flag" class="attr-flag" value="0" />
+                                <span class="pseudoattr greybg underlined number" name="attr_skill" title="@{repeating_skillcraft_$id_skill}"></span>
+                                <input type="hidden" name="attr_skill" />
+                                <span class="lbl">=</span>
+                                <span class="pseudoattr greybg underlined number" name="attr_ability_mod" title="@{repeating_skillcraft_$id_ability_mod}"></span>
+                                <span class="lbl">+</span>
+                                <input type="number" name="attr_ranks" class="number underlined" value="0" title="@{repeating_skillcraft_$id_ranks}" />
+                                <span class="lbl">+</span>
+                                <input type="number" name="attr_misc" class="number underlined" value="0" title="@{repeating_skillcraft_$id_misc}" />
+                                <span class="lbl">+</span>
+                                <input type="number" name="attr_bonus" class="number underlined" value="0" title="@{repeating_skillcraft_$id_bonus}" />
+                            </div>
+                            <div class="options">
+                                <div class="myrow">
+                                    <span data-i18n="ability">Ability</span>:
+                                    <select name="attr_ability" title="@{repeating_skillcraft_$id_ability}">
+                                        <option value="strength" data-i18n="strength">Strength</option>
+                                        <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                                        <option value="constitution" data-i18n="constitution">Constitution</option>
+                                        <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
+                                        <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                                        <option value="charisma" data-i18n="charisma">Charisma</option>
+                                    </select>
+                                    <input type="hidden" class="skillability" name="attr_ability" />
+                                    <div class="skillability">
+                                        <span class="spacer"></span>
+                                        <input class="pseudocheck" type="checkbox" name="attr_armor_penalty" value="@{armor_check_penalty}" title="@{repeating_skillcraft_$id_armor_penalty}" /><span></span><span data-i18n="armor-penalty">Armor Penalty</span>
+                                    </div>
+                                </div>
+                                <div class="autoex">
+                                    <span name="attr_notes"></span>
+                                    <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillcraft_$id_notes}"></textarea>
                                 </div>
                             </div>
-                            <div class="autoex">
-                                <span name="attr_notes"></span>
-                                <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_skillcraft_$id_notes}"></textarea>
-                            </div>
                         </div>
-                    </div>
-                </fieldset>  <!-- END repeating craft -->
+                    </fieldset>  <!-- END repeating craft -->
+                </div>
                 <div class="myrow skill"> <!-- diplomacy -->
                     <input class="options-flag" name="attr_options-flag-diplomacy" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow right">
@@ -5131,7 +5133,7 @@
                     <div class="myrow"> <!-- REPEATING AC ITEMS -->
                         <fieldset class="repeating_acitems">
                             <div class="acitem right compendium-drop-target">
-                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes" /><span>i</span>
+                                <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes" /><span>y</span>
                                 <div class="myrow right">
                                     <input type="text" name="attr_name" accept="Name" spellcheck="false" class="underlined" title="@{repeating_acitems_$id_name}" data-i18n-placeholder="item" placeholder="Item" />
                                     <input class="pseudocheck" type="checkbox" name="attr_equipped" value="1" title="@{repeating_acitems_$id_equipped}" checked="checked" /><span></span>
@@ -5304,37 +5306,50 @@
             <div class="myrow encumbrance"> <!-- ENCUMBRANCE -->
                 <input class="options-flag" name="attr_options-flag-encumbrance" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow center">
-                    <span class="lab right" data-i18n="light-load">Light Load</span>
+                    <span class="lab std right" data-i18n="light-load">Light Load</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_load_light" title="@{encumbrance_load_light}"></span>
                     </div>
-                    <span class="lab right margindent" data-i18n="medium-load">Medium Load</span>
+                    <span class="lab std right margindent" data-i18n="medium-load">Medium Load</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_load_medium" title="@{encumbrance_load_medium}"></span>
                     </div>
-                    <span class="lab right margindent" data-i18n="heavy-load">Heavy Load</span>
+                    <span class="lab std right margindent" data-i18n="heavy-load">Heavy Load</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_load_heavy" title="@{encumbrance_load_heavy}"></span>
                     </div>
                 </div>
                 <div class="spacer"></div>
                 <div class="myrow center">
-                    <span class="lab right" data-i18n="lift-over-head">Lift Over Head</span>
+                    <span class="lab std right" data-i18n="lift-over-head">Lift Over Head</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_lift_head" title="@{encumbrance_lift_head}"></span>
                     </div>
-                    <span class="lab right margindent" data-i18n="lift-off-ground">Lift Off Ground</span>
+                    <span class="lab std right margindent" data-i18n="lift-off-ground">Lift Off Ground</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_lift_ground" title="@{encumbrance_lift_ground}"></span>
                     </div>
-                    <span class="lab right margindent" data-i18n="drag-or-push">Drag Or Push</span>
+                    <span class="lab std right margindent" data-i18n="drag-or-push">Drag Or Push</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_drag_push" title="@{encumbrance_drag_push}"></span>
                     </div>
                 </div>
                 <div class="options">
-                    <div class="boxed">
-                        <input type="number" name="attr_encumbrance_load_bonus" class="boxed" value="0" title="@{encumbrance_load_bonus}" />
+                    <div class="myrow">
+                        <span class="lab" data-i18n="strength">Strength</span>
+                        <span class="lab">(+)</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_encumbrance_load_bonus" class="boxed" value="0" title="@{encumbrance_load_bonus}" />
+                        </div>
+                        <span class="lab margindent" data-i18n="multiplier">Multiplier</span>
+                        <span class="lab">(*)</span>
+                        <div class="boxed">
+                            <input type="number" name="attr_encumbrance_load_multiplier" class="boxed" value="1" title="@{encumbrance_load_multiplier}" />
+                        </div>
+                    </div>
+                    <div class="autoex">
+                        <span name="attr_encumbrance_load_notes"></span>
+                        <textarea name="attr_encumbrance_load_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{encumbrance_load_notes}"></textarea>
                     </div>
                 </div>
             </div> <!-- ENCUMBRACE -->
@@ -7762,6 +7777,7 @@
     });
     on("change:strength", function() {
         update_mod("strength");
+        update_encumbrance_load();
     });
     on("change:dexterity_base change:dexterity_bonus", function() {
         update_attr("dexterity");
@@ -8123,6 +8139,10 @@
         var wght = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
         update[attr] = wght;
         setAttrs(update,{silent:false});
+    });
+    // -- Encumbrance
+    on("change:encumbrance_load_bonus change:encumbrance_load_multiplier", function() {
+        update_encumbrance_load();
     });
 
     // SPELLS - SPELLCASTING
@@ -9121,6 +9141,35 @@
         });
     };
 
+    // === Encumbrance
+    var update_encumbrance_load = function() {
+        getAttrs(["encumbrance_load_bonus","encumbrance_load_multiplier","strength"], function(v) {
+            var bonus = parseInt(v.encumbrance_load_bonus) || 0;
+            var str = (parseInt(v.strength) || 10) + bonus;
+            var multi = parseInt(v.encumbrance_load_multiplier) || 1;
+            var heavy = calc_max_load(str) * multi;
+            var medium = Math.floor((heavy / 3) * 2);
+            var light = Math.floor(heavy / 3);
+            var update = {};
+            update["encumbrance_load_light"] = light;
+            update["encumbrance_load_medium"] = medium;
+            update["encumbrance_load_heavy"] = heavy;
+            update["encumbrance_lift_head"] = heavy;
+            update["encumbrance_lift_ground"] = heavy * 2;
+            update["encumbrance_drag_push"] = heavy * 5;
+            setAttrs(update, {silent: false});
+        });
+    };
+    var calc_max_load = function(str) {
+        if((str>=0) && (str<=10)) {
+            return (str * 10);
+        } else if (str > 14) {
+            return (2 * calc_max_load(str - 5));
+        } else {
+            return ([115, 130, 150, 175][str - 11]);
+        }
+    };
+
     // === Multi Lingual handling
     var loadi18n = function() {
         pfoglobals_i18n_obj["strength"] = getTranslationByKey("str-u");
@@ -9188,6 +9237,13 @@
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
             update["cmd_mod"] = 10;
+            // Encumbrance
+            update["encumbrance_load_light"] = 33;
+            update["encumbrance_load_medium"] = 66;
+            update["encumbrance_load_heavy"] = 100;
+            update["encumbrance_lift_head"] = 100;
+            update["encumbrance_lift_ground"] = 200;
+            update["encumbrance_drag_push"] = 500;
             // Skills
             update["acrobatics_ability_mod"] = 0;
             update["appraise_ability_mod"] = 0;

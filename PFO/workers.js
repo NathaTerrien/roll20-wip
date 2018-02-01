@@ -24,6 +24,7 @@
     });
     on("change:strength", function() {
         update_mod("strength");
+        update_encumbrance_load();
     });
     on("change:dexterity_base change:dexterity_bonus", function() {
         update_attr("dexterity");
@@ -385,6 +386,10 @@
         var wght = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
         update[attr] = wght;
         setAttrs(update,{silent:false});
+    });
+    // -- Encumbrance
+    on("change:encumbrance_load_bonus change:encumbrance_load_multiplier", function() {
+        update_encumbrance_load();
     });
 
     // SPELLS - SPELLCASTING
@@ -1383,6 +1388,35 @@
         });
     };
 
+    // === Encumbrance
+    var update_encumbrance_load = function() {
+        getAttrs(["encumbrance_load_bonus","encumbrance_load_multiplier","strength"], function(v) {
+            var bonus = parseInt(v.encumbrance_load_bonus) || 0;
+            var str = (parseInt(v.strength) || 10) + bonus;
+            var multi = parseInt(v.encumbrance_load_multiplier) || 1;
+            var heavy = calc_max_load(str) * multi;
+            var medium = Math.floor((heavy / 3) * 2);
+            var light = Math.floor(heavy / 3);
+            var update = {};
+            update["encumbrance_load_light"] = light;
+            update["encumbrance_load_medium"] = medium;
+            update["encumbrance_load_heavy"] = heavy;
+            update["encumbrance_lift_head"] = heavy;
+            update["encumbrance_lift_ground"] = heavy * 2;
+            update["encumbrance_drag_push"] = heavy * 5;
+            setAttrs(update, {silent: false});
+        });
+    };
+    var calc_max_load = function(str) {
+        if((str>=0) && (str<=10)) {
+            return (str * 10);
+        } else if (str > 14) {
+            return (2 * calc_max_load(str - 5));
+        } else {
+            return ([115, 130, 150, 175][str - 11]);
+        }
+    };
+
     // === Multi Lingual handling
     var loadi18n = function() {
         pfoglobals_i18n_obj["strength"] = getTranslationByKey("str-u");
@@ -1450,6 +1484,13 @@
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
             update["cmd_mod"] = 10;
+            // Encumbrance
+            update["encumbrance_load_light"] = 33;
+            update["encumbrance_load_medium"] = 66;
+            update["encumbrance_load_heavy"] = 100;
+            update["encumbrance_lift_head"] = 100;
+            update["encumbrance_lift_ground"] = 200;
+            update["encumbrance_drag_push"] = 500;
             // Skills
             update["acrobatics_ability_mod"] = 0;
             update["appraise_ability_mod"] = 0;
