@@ -502,7 +502,6 @@ input[type="text"].sheet-std {
 .sheet-fullpc .sheet-feats .sheet-blacklabel,
 .sheet-fullpc .sheet-traits .sheet-blacklabel,
 .sheet-fullpc .sheet-gear .sheet-blacklabel.sheet-title {width: 95%;}
-
 .sheet-fullpc .sheet-gear .sheet-blacklabel.sheet-total {
     width: calc(100% + 2px);
     padding-right: 2px;
@@ -519,6 +518,11 @@ input[type="text"].sheet-std {
     color: black;
 }
 .sheet-gearitem input.sheet-item {width: 260px;}
+.sheet-gear span.sheet-overload {color: white;}
+.sheet-gear input.sheet-overload[value="over"] + span.sheet-overload {
+    font-weight: bold;
+    color: #BE202E;
+}
 
 .sheet-encumbrance .sheet-lab.sheet-std {width: 75px;}
 

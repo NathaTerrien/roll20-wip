@@ -24,7 +24,9 @@
     });
     on("change:strength", function() {
         update_mod("strength");
-        update_encumbrance_load();
+        if(pfoglobals_ispc) {
+            update_encumbrance_load();
+        }
     });
     on("change:dexterity_base change:dexterity_bonus", function() {
         update_attr("dexterity");
@@ -65,6 +67,11 @@
             var update = {};
             update["size_display"] = getTranslationByKey(e.newValue);
             setAttrs(update);
+        }
+    });
+    on("change:encumbrance_size", function() {
+        if(pfoglobals_ispc) {
+            update_encumbrance_load();
         }
     });
 
@@ -228,7 +235,7 @@
                 dmg = "strength_oneandahalf";
             } else {
                 dmg = "strength";
-            };
+            }
         }
         if (typ != "") {
             var update = {};
@@ -371,14 +378,6 @@
     });
 
     // GEAR - ENCUMBRANCE
-    // -- Gear weight
-    on("change:repeating_gear:weight change:repeating_gear:quantity", function (e) {
-        var id = e.sourceAttribute.substring(15, 35);
-        update_gear_weight(id);
-    });
-    on("change:repeating_gear:weight_total", function() {
-        update_gear_weight_total();
-    });
     // -- Compendium drop adjustments
     on("change:repeating_gear:compendium_weight", function (e) {
         var update = {};
@@ -387,9 +386,21 @@
         update[attr] = wght;
         setAttrs(update,{silent:false});
     });
+    // -- Gear weight
+    on("change:repeating_gear:weight change:repeating_gear:quantity", function (e) {
+        var id = e.sourceAttribute.substring(15, 35);
+        update_gear_weight(id);
+    });
+    on("change:repeating_gear:weight_total", function() {
+        update_gear_weight_total();
+    });
     // -- Encumbrance
     on("change:encumbrance_load_bonus change:encumbrance_load_multiplier", function() {
         update_encumbrance_load();
+    });
+    // -- Overload
+    on("change:encumbrance_gear_weight change:encumbrance_load_heavy", function() {
+        check_encumbrance();
     });
 
     // SPELLS - SPELLCASTING
@@ -600,60 +611,70 @@
         var cmb = 0;
         var fly = 0;
         var stealth = 0;
+        var load = 1;
         switch(size) {
             case "fine":
                 atkac = 8;
                 cmb = -8;
                 fly = 8;
                 stealth = 16;
+                load = 0.125;
                 break;
             case "diminutive":
                 atkac = 4;
                 cmb = -4;
                 fly = 6;
                 stealth = 12;
+                load = 0.25;
                 break;
             case "tiny":
                 atkac = 2;
                 cmb = -2;
                 fly = 4;
                 stealth = 8;
+                load = 0.5;
                 break;
             case "small":
                 atkac = 1;
                 cmb = -1;
                 fly = 2;
                 stealth = 4;
+                load = 0.75;
                 break;
             case "medium":
                 atkac = 0;
                 cmb = 0;
                 fly = 0;
                 stealth = 0;
+                load = 1;
                 break;
             case "large":
                 atkac = -1;
                 cmb = 1;
                 fly = -2;
                 stealth = -4;
+                load = 2;
                 break;
             case "huge":
                 atkac = -2;
                 cmb = 2;
                 fly = -4;
                 stealth = -8;
+                load = 4;
                 break;
             case "gargantuan":
                 atkac = -4;
                 cmb = 4;
                 fly = -6;
                 stealth = -12;
+                load = 8;
                 break;
             case "colossal":
                 atkac = -8;
                 cmb = 8;
                 fly = -8;
                 stealth = -16;
+                load = 16;
                 break;
         }
         setAttrs({
@@ -661,7 +682,8 @@
             "bab_size": atkac,
             "cmb_size": cmb,
             "fly_size": fly,
-            "stealth_size": stealth
+            "stealth_size": stealth,
+            "encumbrance_size": load
         });
     };
     // === INITIATIVE
@@ -1130,6 +1152,11 @@
         });
     };
 
+    // === SPEED
+    // speed_race + speed_bonus = speed_base
+    // encumbrance(speed_base) = speed
+    // speed_run = speed * speed_run_factor
+
     // === GEAR / ENCUMBRANCE
     var update_gear_weight = function(id) {
         var fields = ["repeating_gear_" + id + "_weight","repeating_gear_" + id + "_quantity"];
@@ -1155,6 +1182,91 @@
                 setAttrs(update, {silent: false});
             });
         });
+    };
+    // Encumbrance
+    var update_encumbrance_load = function() {
+        getAttrs(["encumbrance_load_bonus","encumbrance_load_multiplier","strength","encumbrance_size"], function(v) {
+            var bonus = parseInt(v.encumbrance_load_bonus) || 0;
+            var str = (parseInt(v.strength) || 10) + bonus;
+            var multi = parseInt(v.encumbrance_load_multiplier) || 1;
+            var size = parseFloat(v.encumbrance_size) || 1.0;
+            var heavy = (calc_max_load(str) * size) * multi;
+            var medium = Math.floor((heavy / 3) * 2);
+            var light = Math.floor(heavy / 3);
+            var update = {};
+            update["encumbrance_load_light"] = light;
+            update["encumbrance_load_medium"] = medium;
+            update["encumbrance_load_heavy"] = heavy;
+            update["encumbrance_lift_head"] = heavy;
+            update["encumbrance_lift_ground"] = heavy * 2;
+            update["encumbrance_drag_push"] = heavy * 5;
+            setAttrs(update, {silent: false});
+        });
+    };
+    var calc_max_load = function(str) {
+        if((str >= 0) && (str <= 10)) {
+            return (str * 10);
+        } else if (str > 14) {
+            return (2 * calc_max_load(str - 5));
+        } else {
+            return ([115, 130, 150, 175][str - 11]);
+        }
+    };
+    var check_encumbrance = function() {
+        var fields = ["encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_base","encumbrance"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var checkpen = 0;
+            var speedbase = parseInt(v.speed_base) || 30;
+            var speed = speedbase;
+            var dexmax = 99;
+            var runfactor = 4;
+            var weight = parseInt(v.encumbrance_gear_weight) || 0;
+            var light = parseInt(v.encumbrance_load_light) || 1;
+            var medium = parseInt(v.encumbrance_load_medium) || 2;
+            var heavy = parseInt(v.encumbrance_load_heavy) || 3;
+            var prevenc = v.encumbrance; // light / medium / heavy / over
+            var newenc = prevenc;
+            if((weight > light) && (weight <= medium)) {
+                newenc = "medium";
+                checkpen = -3;
+                speed = calc_reduced_speed(speedbase);
+                dexmax = 3;
+                runfactor = 4;
+            } else if ((weight > medium) && (weight <= heavy)) {
+                newenc = "heavy";
+                checkpen = -6;
+                speed = calc_reduced_speed(speedbase);
+                dexmax = 1;
+                runfactor = 3;
+            } else if (weight > heavy) {
+                newenc = "over";
+                checkpen = -6;
+                speed = 5;
+                dexmax = 1;
+                runfactor = 3;
+            } else {
+                newenc = "light";
+                checkpen = 0;
+                speed = speedbase;
+                dexmax = 99;
+                runfactor = 4;
+            }
+            if(prevenc != newenc) {
+                update["encumbrance"] = newenc;
+                update["encumbrance_display"] = getTranslationByKey(newenc + "-load");
+                update["encumbrance_check_penalty"] = checkpen;
+                update["speed"] = speed;
+                update["encumbrance_ability_maximum"] = dexmax;
+                update["speed_run_factor"] = runfactor;
+                setAttrs(update,{silent: false});
+            }
+        });
+    };
+    var calc_reduced_speed = function(basespeed) {
+        var base = parseInt(basespeed) || 30;
+        var speed = Math.ceil((((base/5)/3)*2))*5;
+        return speed;
     };
 
     // === SPELLS / SPELLCASTING
@@ -1388,35 +1500,6 @@
         });
     };
 
-    // === Encumbrance
-    var update_encumbrance_load = function() {
-        getAttrs(["encumbrance_load_bonus","encumbrance_load_multiplier","strength"], function(v) {
-            var bonus = parseInt(v.encumbrance_load_bonus) || 0;
-            var str = (parseInt(v.strength) || 10) + bonus;
-            var multi = parseInt(v.encumbrance_load_multiplier) || 1;
-            var heavy = calc_max_load(str) * multi;
-            var medium = Math.floor((heavy / 3) * 2);
-            var light = Math.floor(heavy / 3);
-            var update = {};
-            update["encumbrance_load_light"] = light;
-            update["encumbrance_load_medium"] = medium;
-            update["encumbrance_load_heavy"] = heavy;
-            update["encumbrance_lift_head"] = heavy;
-            update["encumbrance_lift_ground"] = heavy * 2;
-            update["encumbrance_drag_push"] = heavy * 5;
-            setAttrs(update, {silent: false});
-        });
-    };
-    var calc_max_load = function(str) {
-        if((str>=0) && (str<=10)) {
-            return (str * 10);
-        } else if (str > 14) {
-            return (2 * calc_max_load(str - 5));
-        } else {
-            return ([115, 130, 150, 175][str - 11]);
-        }
-    };
-
     // === Multi Lingual handling
     var loadi18n = function() {
         pfoglobals_i18n_obj["strength"] = getTranslationByKey("str-u");
@@ -1461,6 +1544,7 @@
             update["cmb_size"] = 0;
             update["fly_size"] = 0;
             update["stealth_size"] = 0;
+            update["encumbrance_size"] = 1;
             update["ac_armor"] = 0;
             update["ac_shield"] = 0;
             update["ac_flatfooted_bonus"] = 0;
@@ -1484,6 +1568,8 @@
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
             update["cmd_mod"] = 10;
+            // Speed
+            // TODO
             // Encumbrance
             update["encumbrance_load_light"] = 33;
             update["encumbrance_load_medium"] = 66;
