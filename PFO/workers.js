@@ -282,6 +282,14 @@
     });
 
     // === SKILLS
+    on("change:armor_check_penalty change:encumbrance_check_penalty", function() {
+        getAttrs(["armor_check_penalty","encumbrance_check_penalty","skill_check_penalty"], function(v) {
+            var newval = Math.min((parseInt(v.armor_check_penalty) || 0),(parseInt(v.encumbrance_check_penalty) || 0));
+            if(newval != (parseInt(v.skill_check_penalty) || 0)) {
+                setAttrs({"skill_check_penalty":newval},{silent: false});
+            }
+        });
+    });
     on("change:acrobatics_ability change:appraise_ability change:bluff_ability change:climb_ability change:craft_ability change:diplomacy_ability change:disable_device_ability change:disguise_ability change:escape_artist_ability change:fly_ability change:handle_animal_ability change:heal_ability change:intimidate_ability change:knowledge_arcana_ability change:knowledge_dungeoneering_ability change:knowledge_engineering_ability change:knowledge_geography_ability change:knowledge_history_ability change:knowledge_local_ability change:knowledge_nature_ability change:knowledge_nobility_ability change:knowledge_planes_ability change:knowledge_religion_ability change:linguistics_ability change:perception_ability change:perform_ability change:profession_ability change:ride_ability change:sense_motive_ability change:sleight_of_hand_ability change:spellcraft_ability change:stealth_ability change:survival_ability change:swim_ability change:use_magic_device_ability change:repeating_skillcraft:ability change:repeating_skillknowledge:ability change:repeating_skillperform:ability change:repeating_skillprofession:ability change:repeating_skillcustom:ability", function(e){
         update_flex_ability(e.newValue,e.sourceAttribute);
     });
@@ -1076,14 +1084,14 @@
 
     // === SKILLS
     var update_skill = function(attr,source) {
-        var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","armor_check_penalty","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod"];
+        var fields = [attr + "_classkill",attr + "_ability", attr + "_ability_mod",attr + "_ranks",attr + "_misc",attr + "_bonus",attr + "_armor_penalty","skill_check_penalty","strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod"];
         getAttrs(fields, function(v) {
             var update = {};
             var cls = parseInt(v[attr + "_classkill"]) || 0;
             var ranks = parseInt(v[attr + "_ranks"]) || 0;
             var penlt = 0;
             if (["strength","dexterity"].includes(v[attr + "_ability"])) {
-                penlt = v[attr + "_armor_penalty"] != "0" ? (parseInt(v.armor_check_penalty) || 0) : 0;
+                penlt = v[attr + "_armor_penalty"] != "0" ? (parseInt(v.skill_check_penalty) || 0) : 0;
             } else {
                 update[attr + "_armor_penalty"] = "0";
             }
@@ -1153,9 +1161,15 @@
     };
 
     // === SPEED
-    // speed_race + speed_bonus = speed_base
-    // encumbrance(speed_base) = speed
+    // speed_base = speed_race + speed_bonus
+    // speed_encumbrance = encumbrance(speed_base)
+    // speed_armor = armor(speed_base)
+    // speed_run_factor = Min(encumbrance_run_factor, armor_run_factor)
+    // speed = Min(speed_encumbrance, speed_armor)
     // speed_run = speed * speed_run_factor
+    // speed_swim = speed/4 + speed_swim_bonus (?)
+    // speed_climb = speed/4 + speed_cllimb_bonus (?)
+
 
     // === GEAR / ENCUMBRANCE
     var update_gear_weight = function(id) {
@@ -1256,9 +1270,9 @@
                 update["encumbrance"] = newenc;
                 update["encumbrance_display"] = getTranslationByKey(newenc + "-load");
                 update["encumbrance_check_penalty"] = checkpen;
-                update["speed"] = speed;
+                update["speed_encumbrance"] = speed;
                 update["encumbrance_ability_maximum"] = dexmax;
-                update["speed_run_factor"] = runfactor;
+                update["encumbrance_run_factor"] = runfactor;
                 setAttrs(update,{silent: false});
             }
         });
@@ -1577,6 +1591,7 @@
             update["encumbrance_lift_head"] = 100;
             update["encumbrance_lift_ground"] = 200;
             update["encumbrance_drag_push"] = 500;
+            update["encumbrance_check_penalty"] = 0;
             // Skills
             update["acrobatics_ability_mod"] = 0;
             update["appraise_ability_mod"] = 0;
@@ -1649,14 +1664,24 @@
             update["swim"] = 0;
             update["use_magic_device"] = 0;
             update["acrobatics_ability"] = "dexterity";
+            update["acrobatics_armor_penalty"] = "@{skill_check_penalty}";
             update["climb_ability"] = "strength";
+            update["climb_armor_penalty"] = "@{skill_check_penalty}";
             update["disable_device_ability"] = "dexterity";
+            update["disable_device_armor_penalty"] = "@{skill_check_penalty}";
             update["escape_artist_ability"] = "dexterity";
+            update["escape_artist_armor_penalty"] = "@{skill_check_penalty}";
             update["fly_ability"] = "dexterity";
+            update["fly_armor_penalty"] = "@{skill_check_penalty}";
             update["ride_ability"] = "dexterity";
+            update["ride_armor_penalty"] = "@{skill_check_penalty}";
             update["sleight_of_hand_ability"] = "dexterity";
+            update["sleight_of_hand_armor_penalty"] = "@{skill_check_penalty}";
             update["stealth_ability"] = "dexterity";
+            update["stealth_armor_penalty"] = "@{skill_check_penalty}";
             update["swim_ability"] = "strength";
+            update["swim_armor_penalty"] = "@{skill_check_penalty}";
+            update["skill_check_penalty"] = 0;
             // Spells / spellcasting
             update["caster1_ability_mod"] = 0;
             update["caster1_concentration"] = 0;
@@ -1670,6 +1695,18 @@
             update["caster1_dc_level_7"] = 0;
             update["caster1_dc_level_8"] = 0;
             update["caster1_dc_level_9"] = 0;
+            update["caster2_ability_mod"] = 0;
+            update["caster2_concentration"] = 0;
+            update["caster2_dc_level_0"] = 0;
+            update["caster2_dc_level_1"] = 0;
+            update["caster2_dc_level_2"] = 0;
+            update["caster2_dc_level_3"] = 0;
+            update["caster2_dc_level_4"] = 0;
+            update["caster2_dc_level_5"] = 0;
+            update["caster2_dc_level_6"] = 0;
+            update["caster2_dc_level_7"] = 0;
+            update["caster2_dc_level_8"] = 0;
+            update["caster2_dc_level_9"] = 0;
             // UPDATE
             setAttrs(update
                     ,{silent: true}

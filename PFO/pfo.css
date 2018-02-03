@@ -522,6 +522,7 @@ input[type="text"].sheet-std {
 .sheet-gear input.sheet-overload[value="over"] + span.sheet-overload {
     font-weight: bold;
     color: #BE202E;
+    text-transform: uppercase;
 }
 
 .sheet-encumbrance .sheet-lab.sheet-std {width: 75px;}
