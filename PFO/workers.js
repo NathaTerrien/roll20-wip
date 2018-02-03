@@ -129,7 +129,7 @@
     });
 
     // === AC
-    on("change:ac_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(e){
+    on("change:ac_ability_maximum change:encumbrance_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(e){
         update_ac_ability(e.sourceAttribute);
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
@@ -137,7 +137,7 @@
         update_cmd();
     });
     // AC Items
-    on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure", function(){
+    on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure change:repeating_acitems:speed20 change:repeating_acitems:speed30 change:repeating_acitems:run_factor", function(){
         update_ac_items();
     });
     // -- Compendium drop adjustments
@@ -151,12 +151,17 @@
     on("change:repeating_acitems:compendium_armor_category", function(e) {
         var update = {};
         var val = "misc";
+        var runfactor = 4;
         var attr = e.sourceAttribute.replace("_compendium_armor_category","_type");
         if(e.newValue.toLowerCase().includes("shield")) {val = "shield";}
         else if(e.newValue.toLowerCase().includes("light")) {val = "light";}
         else if(e.newValue.toLowerCase().includes("medium")) {val = "medium";}
-        else if(e.newValue.toLowerCase().includes("heavy")) {val = "heavy";}
+        else if(e.newValue.toLowerCase().includes("heavy")) {
+            val = "heavy";
+            runfactor = 3;
+        }
         update[attr] = val;
+        update["run_factor"] = runfactor;
         setAttrs(update,{silent:false});
     });
 
@@ -212,6 +217,40 @@
         if(pfoglobals_ispc) {
             update_attacks("ranged","");
         }
+    });
+
+    // === GEAR - ENCUMBRANCE
+    // -- Compendium drop adjustments
+    on("change:repeating_gear:compendium_weight", function (e) {
+        var update = {};
+        var attr = e.sourceAttribute.replace("_compendium_weight","_weight");
+        var wght = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
+        update[attr] = wght;
+        setAttrs(update,{silent:false});
+    });
+    // -- Gear weight
+    on("change:repeating_gear:weight change:repeating_gear:quantity", function (e) {
+        var id = e.sourceAttribute.substring(15, 35);
+        update_gear_weight(id);
+    });
+    on("change:repeating_gear:weight_total remove:repeating_gear", function() {
+        update_gear_weight_total();
+    });
+    // -- Encumbrance
+    on("change:encumbrance_load_bonus change:encumbrance_load_multiplier", function() {
+        update_encumbrance_load();
+    });
+    // -- Overload
+    on("change:encumbrance_gear_weight change:encumbrance_load_heavy", function() {
+        check_encumbrance();
+    });
+
+    // === SPEED
+    on("change:speed_base change:speed_bonus change:armor_run_factor change:encumbrance_run_factor", function() {
+        update_speed();
+    });
+    on("change:speed_race change:speed_notmodified change:speed_encumbrance change:speed_armor", function() {
+        update_speed_base();
     });
 
     // === WEAPONS / ATTACKS
@@ -385,32 +424,6 @@
         }
     });
 
-    // GEAR - ENCUMBRANCE
-    // -- Compendium drop adjustments
-    on("change:repeating_gear:compendium_weight", function (e) {
-        var update = {};
-        var attr = e.sourceAttribute.replace("_compendium_weight","_weight");
-        var wght = parseInt(e.newValue.replace(/\D+/g, "")) || 2;
-        update[attr] = wght;
-        setAttrs(update,{silent:false});
-    });
-    // -- Gear weight
-    on("change:repeating_gear:weight change:repeating_gear:quantity", function (e) {
-        var id = e.sourceAttribute.substring(15, 35);
-        update_gear_weight(id);
-    });
-    on("change:repeating_gear:weight_total", function() {
-        update_gear_weight_total();
-    });
-    // -- Encumbrance
-    on("change:encumbrance_load_bonus change:encumbrance_load_multiplier", function() {
-        update_encumbrance_load();
-    });
-    // -- Overload
-    on("change:encumbrance_gear_weight change:encumbrance_load_heavy", function() {
-        check_encumbrance();
-    });
-
     // SPELLS - SPELLCASTING
     // -- Concentration & DCs
     on("change:caster1_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
@@ -418,12 +431,12 @@
         update_concentration(e.sourceAttribute);
         update_spellsdc(e.sourceAttribute);
     });
-    on("change:caster1_level", function() {
+    on("change:caster1_level", function(e) {
         if(pfoglobals_ispc) {
            update_concentration(e.sourceAttribute);
         }
     });
-    on("change:caster1_concentration_misc change:caster1_concentration_bonus", function() {
+    on("change:caster1_concentration_misc change:caster1_concentration_bonus", function(e) {
         update_concentration(e.sourceAttribute);
     });
     on("change:caster1_dc_misc change:caster1_dcbonus_level_0 change:caster1_dcbonus_level_1 change:caster1_dcbonus_level_2 change:caster1_dcbonus_level_3 change:caster1_dcbonus_level_4 change:caster1_dcbonus_level_5 change:caster1_dcbonus_level_6 change:caster1_dcbonus_level_7 change:caster1_dcbonus_level_8 change:caster1_dcbonus_level_9", function(e) {
@@ -519,6 +532,7 @@
     });
 
     /* === FUNCTIONS === */
+
     // === ABILITIES and MODS
     var update_attr = function(attr) {
         var update = {};
@@ -612,7 +626,7 @@
         update_flex_ability_repsection(attr,"skillcustom");
     };
 
-    // === Size
+    // === SIZE
     var update_size = function(psize) {
         var size = psize || "medium";
         var atkac = 0;
@@ -694,6 +708,7 @@
             "encumbrance_size": load
         });
     };
+
     // === INITIATIVE
     var update_initiative = function () {
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
@@ -703,10 +718,11 @@
             setAttrs(update);
         });
     };
+
     // === AC / DEFENSE
     var update_ac_items = function() {
         var update = {};
-        var attrs = [];
+        var attrs = ["speed_race"];
         getSectionIDs("repeating_acitems", function(idarray) {
             _.each(idarray, function(itemid) {
                 attrs.push("repeating_acitems_" + itemid + "_equipped");
@@ -717,7 +733,10 @@
                 attrs.push("repeating_acitems_" + itemid + "_check_penalty");
                 attrs.push("repeating_acitems_" + itemid + "_max_dex_bonus");
                 attrs.push("repeating_acitems_" + itemid + "_spell_failure");
-
+                attrs.push("repeating_acitems_" + itemid + "_spell_failure");
+                attrs.push("repeating_acitems_" + itemid + "_speed20");
+                attrs.push("repeating_acitems_" + itemid + "_speed30");
+                attrs.push("repeating_acitems_" + itemid + "_run_factor");
             });
             getAttrs(attrs, function(v) {
                 var bonusarmor = 0;
@@ -728,6 +747,9 @@
                 var maxdex = 99;
                 var spellf = 0;
                 var maxab = "-";
+                var speedrace = parseInt(v.speed_race) || 30;
+                var speed = speedrace;
+                var run = 4;
                 _.each(idarray, function(itemid) {
                     if ( (parseInt(v["repeating_acitems_" + itemid + "_equipped"]) || 0) == 1 ) {
                         if ( v["repeating_acitems_" + itemid + "_type"] == "shield") {
@@ -742,6 +764,12 @@
                             maxdex = Math.min(maxdex, parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 99);
                         }
                         spellf += parseInt(v["repeating_acitems_" + itemid + "_spell_failure"]) || 0;
+                        if(speedrace <= 20) {
+                            speed = Math.min(speed, parseInt(v["repeating_acitems_" + itemid + "_speed20"].replace(/\D+/g, "")) || speedrace);
+                        } else {
+                            speed = Math.min(speed, parseInt(v["repeating_acitems_" + itemid + "_speed30"].replace(/\D+/g, "")) || speedrace);
+                        }
+                        run = Math.min(run, parseInt(v["repeating_acitems_" + itemid + "_run_factor"]) || 4);
                     }
                 });
                 if (maxdex < 99) {
@@ -754,7 +782,9 @@
                     "ac_touch_bonus": bonustouch,
                     "ac_ability_maximum": maxab,
                     "armor_check_penalty": checkpen,
-                    "armor_spell_failure": spellf
+                    "armor_spell_failure": spellf,
+                    "speed_armor": speed,
+                    "armor_run_factor":run
                 });
             });
         });
@@ -762,11 +792,11 @@
     var update_ac_ability = function(attr) {
         getAttrs(["ac_ability_primary","ac_ability_secondary"], function(v) {
             if( (attr == "ac_ability_maximum") || (attr == v.ac_ability_primary) || (attr == v.ac_ability_secondary) ) {
-                var attr_fields = [v.ac_ability_primary + "_mod",v.ac_ability_secondary + "_mod","ac_ability_maximum"];
+                var attr_fields = [v.ac_ability_primary + "_mod",v.ac_ability_secondary + "_mod","ac_ability_maximum","encumbrance_ability_maximum"];
                 getAttrs(attr_fields, function(modz) {
                     var primary = parseInt(modz[v.ac_ability_primary + "_mod"]) || 0;
                     var secondary = parseInt(modz[v.ac_ability_secondary + "_mod"]) || 0;
-                    var maxmod = parseInt(modz.ac_ability_maximum) || 99;
+                    var maxmod = Math.min(parseInt(modz.ac_ability_maximum) || 99, parseInt(modz.encumbrance_ability_maximum) || 99);
                     setAttrs({"ac_ability_mod": Math.min(primary + secondary,maxmod)});
                 });
             }
@@ -1161,15 +1191,30 @@
     };
 
     // === SPEED
-    // speed_base = speed_race + speed_bonus
-    // speed_encumbrance = encumbrance(speed_base)
-    // speed_armor = armor(speed_base)
-    // speed_run_factor = Min(encumbrance_run_factor, armor_run_factor)
-    // speed = Min(speed_encumbrance, speed_armor)
-    // speed_run = speed * speed_run_factor
-    // speed_swim = speed/4 + speed_swim_bonus (?)
-    // speed_climb = speed/4 + speed_cllimb_bonus (?)
-
+    var update_speed = function() {
+        getAttrs(["speed_base","speed_bonus","encumbrance_run_factor","armor_run_factor"], function(v) {
+            var update = {};
+            var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
+            update["speed"] = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
+            update["speed_run_factor"] = runfac;
+            update["speed_run"] = (speed * runfac);
+            update["speed_swim"] = (speed/4);
+            update["speed_climb"] = (speed/4);
+            setAttrs(update, {silent: true});
+        });
+    }
+    var update_speed_base = function() {
+        var fields = ["speed_race","speed_notmodified","speed_encumbrance","speed_armor"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var speed = parseInt(v.speed_race) || 30;
+            if (v.speed_notmodified != "1") {
+                Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(speed_armor) || 30);
+            }
+            update["speed_base"] = speed;
+            setAttrs(update, {silent: false});
+        });
+    }
 
     // === GEAR / ENCUMBRANCE
     var update_gear_weight = function(id) {
@@ -1227,12 +1272,12 @@
         }
     };
     var check_encumbrance = function() {
-        var fields = ["encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_base","encumbrance"];
+        var fields = ["encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_race","encumbrance"];
         getAttrs(fields, function(v) {
             var update = {};
             var checkpen = 0;
-            var speedbase = parseInt(v.speed_base) || 30;
-            var speed = speedbase;
+            var speedrace = parseInt(v.speed_race) || 30;
+            var speed = speedrace;
             var dexmax = 99;
             var runfactor = 4;
             var weight = parseInt(v.encumbrance_gear_weight) || 0;
@@ -1244,13 +1289,13 @@
             if((weight > light) && (weight <= medium)) {
                 newenc = "medium";
                 checkpen = -3;
-                speed = calc_reduced_speed(speedbase);
+                speed = calc_reduced_speed(speedrace);
                 dexmax = 3;
                 runfactor = 4;
             } else if ((weight > medium) && (weight <= heavy)) {
                 newenc = "heavy";
                 checkpen = -6;
-                speed = calc_reduced_speed(speedbase);
+                speed = calc_reduced_speed(speedrace);
                 dexmax = 1;
                 runfactor = 3;
             } else if (weight > heavy) {
@@ -1262,7 +1307,7 @@
             } else {
                 newenc = "light";
                 checkpen = 0;
-                speed = speedbase;
+                speed = speedrace;
                 dexmax = 99;
                 runfactor = 4;
             }
@@ -1563,9 +1608,10 @@
             update["ac_shield"] = 0;
             update["ac_flatfooted_bonus"] = 0;
             update["ac_touch_bonus"] = 0;
-            update["ac_ability_maximum"] = 0;
+            update["ac_ability_maximum"] = 99;
             update["armor_check_penalty"] = 0;
             update["armor_spell_failure"] = 0;
+            update["armor_run_factor"] = 4;
             update["ac"] = 10;
             update["ac_touch"] = 0;
             update["ac_flatfooted"] = 0;
@@ -1583,7 +1629,15 @@
             update["ranged_mod"] = 0;
             update["cmd_mod"] = 10;
             // Speed
-            // TODO
+            update["speed"] = 30;
+            update["speed_base"] = 30;
+            update["speed_bonus"] = 0;
+            update["speed_encumbrance"] = 30;
+            update["speed_armor"] = 30;
+            update["speed_run_factor"] = 4;
+            update["speed_run"] = 120;
+            update["speed_swim"] = 7.5;
+            update["speed_climb"] = 7.5;
             // Encumbrance
             update["encumbrance_load_light"] = 33;
             update["encumbrance_load_medium"] = 66;
@@ -1592,6 +1646,8 @@
             update["encumbrance_lift_ground"] = 200;
             update["encumbrance_drag_push"] = 500;
             update["encumbrance_check_penalty"] = 0;
+            update["encumbrance_ability_maximum"] = 99;
+            update["encumbrance_run_factor"] = 4;
             // Skills
             update["acrobatics_ability_mod"] = 0;
             update["appraise_ability_mod"] = 0;
