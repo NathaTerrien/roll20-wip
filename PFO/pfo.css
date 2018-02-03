@@ -287,9 +287,7 @@ div.sheet-subcol.sheet-hpinit {
     max-width: 170px;
 }
 div.sheet-hpvalues,
-div.sheet-initiative {
-    display: block;
-}
+div.sheet-initiative {display: block;}
 .sheet-identity span{
     display: block;
     margin-left: 2px;
@@ -297,75 +295,40 @@ div.sheet-initiative {
     font-size: 1.03em;
     color: black;
 }
-.sheet-identity input[type=text].sheet-medium {
-    width: 139px;
-}
-.sheet-identity input[type=text].sheet-small {
-    width: 46px;
-}
-.sheet-abilities div.sheet-blacklabel {
-    width: 80px;
-}
+.sheet-identity input[type=text].sheet-medium {width: 139px;}
+.sheet-identity input[type=text].sheet-small {width: 46px;}
+.sheet-abilities div.sheet-blacklabel {width: 80px;}
 .sheet-abilities div.sheet-boxed{
     margin-left: 5px;
     margin-right: 5px;
 }
 .sheet-hpvalues div.sheet-blacklabel,
-.sheet-initiative div.sheet-blacklabel {
-    width: 70px;
-}
-.sheet-initiative div.sheet-boxed,
-.sheet-hpvalues div.sheet-boxed {
-    margin-left: 5px;
-}
-.sheet-acvalues div.sheet-blacklabel.sheet-ac {
-    width: 40px;
-}
-.sheet-acvalues div.sheet-blacklabel.sheet-touch {
-    width: 72px;
-}
-.sheet-acvalues div.sheet-blacklabel.sheet-flatfooted {
-    width: 131px;
-}
-div.sheet-save {
-    display: inline-block;
-}
-.sheet-fortitude div.sheet-blacklabel{
-    width: 58px;
-}
-.sheet-reflex div.sheet-blacklabel{
-    width: 44px;
-}
-.sheet-will div.sheet-blacklabel{
-    width: 55px;
-}
-.sheet-babs div.sheet-blacklabel.sheet-bab {
-    width: 215px;
-}
-.sheet-babs div.sheet-blacklabel.sheet-cmb {
-    width: 75px;
-}
-.sheet-attackmods div.sheet-blacklabel.sheet-melee,
-.sheet-attackmods div.sheet-blacklabel.sheet-ranged {
-    width: 123px;
-}
-.sheet-defenses div.sheet-blacklabel.sheet-cmd {
-    width: 84px;
-}
-.sheet-defenses div.sheet-blacklabel.sheet-sr {
-    width: 205px;
-}
-.sheet-skills div.sheet-blacklabel {
-    width: 85%;
-}
-.sheet-skills div.sheet-blacklabel.sheet-totalranks {
-    width: 165px;
-    margin-left: 133px;
-}
+.sheet-initiative div.sheet-blacklabel {width: 70px;}
 
-div.sheet-acitems {
-    width: 550px;
-}
+.sheet-initiative div.sheet-boxed,
+.sheet-hpvalues div.sheet-boxed {margin-left: 5px;}
+
+.sheet-acvalues div.sheet-blacklabel.sheet-ac {width: 40px;}
+.sheet-acvalues div.sheet-blacklabel.sheet-touch {width: 72px;}
+.sheet-acvalues div.sheet-blacklabel.sheet-flatfooted {width: 131px;}
+
+div.sheet-save {display: inline-block;}
+.sheet-fortitude div.sheet-blacklabel {width: 58px;}
+.sheet-reflex div.sheet-blacklabel {width: 44px;}
+.sheet-will div.sheet-blacklabel{width: 55px;}
+
+.sheet-babs div.sheet-blacklabel.sheet-bab {width: 215px;}
+.sheet-babs div.sheet-blacklabel.sheet-cmb {width: 75px;}
+
+.sheet-attackmods div.sheet-blacklabel.sheet-melee,
+.sheet-attackmods div.sheet-blacklabel.sheet-ranged {width: 123px;}
+
+.sheet-defenses div.sheet-blacklabel.sheet-cmd {width: 84px;}
+.sheet-defenses div.sheet-blacklabel.sheet-sr {width: 205px;}
+
+.sheet-speeds div.sheet-blacklabel.sheet-land {width: 70px;}
+
+div.sheet-acitems {width: 550px;}
 .sheet-acitems .sheet-blackbgrd.sheet-item {width: 190px;}
 .sheet-acitems .sheet-blackbgrd.sheet-equipped {width: 16px;}
 .sheet-acitems .sheet-blackbgrd.sheet-ac ,
@@ -379,10 +342,10 @@ div.sheet-acitems {
 .sheet-acitems .sheet-lab.sheet-totals {width: 90px;}
 .sheet-acitems .sheet-lab.sheet-shield,
 .sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
-.sheet-acitem div.sheet-myrow {
-    padding-left: 16px;
-}
+.sheet-acitem div.sheet-myrow {padding-left: 16px;}
 .sheet-acitem .sheet-speed {width: 50px;}
+.sheet-acitems .sheet-labline .sheet-lab {width: 34px;}
+.sheet-acitems .sheet-labline .sheet-speed {margin-left: 133px;}
 
 .sheet-attacks div.sheet-padindent {padding-left: 22px;}
 .sheet-attacks .sheet-dmgbase {width: 120px;}
@@ -410,18 +373,11 @@ div.sheet-acitems {
 .sheet-attacks .sheet-ammo {width: 40px;}
 .sheet-attacks select.sheet-dmg {width: 70px;}
 
-.sheet-lbl {
-    text-align: left;
-    vertical-align: bottom;
-    font-family: sans-serif;
-    font-size: 0.95em;
-    line-height: 1.2em;
-    text-transform: capitalize;
-    white-space: pre;
+.sheet-skills div.sheet-blacklabel {width: 85%;}
+.sheet-skills div.sheet-blacklabel.sheet-totalranks {
+    width: 165px;
+    margin-left: 133px;
 }
-.sheet-lbl.sheet-right {text-align: right;}
-.sheet-lbl.sheet-upper {text-transform: uppercase;}
-
 .sheet-skills .sheet-name {width: 180px;}
 .sheet-skill .sheet-number,
 .sheet-spellcasting .sheet-number,
@@ -557,9 +513,23 @@ span.sheet-lab {
 .sheet-saves .sheet-lab,
 .sheet-babs .sheet-lab,
 .sheet-attackmods .sheet-lab,
-.sheet-defenses .sheet-lab {
+.sheet-defenses .sheet-lab,
+.sheet-speeds .sheet-lab {
     width: 40px;
 }
+
+.sheet-lbl {
+    text-align: left;
+    vertical-align: bottom;
+    font-family: sans-serif;
+    font-size: 0.95em;
+    line-height: 1.2em;
+    text-transform: capitalize;
+    white-space: pre;
+}
+.sheet-lbl.sheet-right {text-align: right;}
+.sheet-lbl.sheet-upper {text-transform: uppercase;}
+
 span.sheet-pseudoattr {
     font-family: 'Patrick Hand';
     font-size: 1.2em;

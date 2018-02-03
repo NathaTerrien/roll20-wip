@@ -3380,6 +3380,34 @@
                 </div>
             </div> <!-- END ATTACKS -->
             <div class="spacer"></div>
+            <div class="speeds"> <!-- SPEEDS -->
+                <input class="options-flag" name="attr_options-flag-speed" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                <div class="myrow"> <!-- LAND SPEED -->
+                    <div class="blacklabel land">
+                        <div class="blackbgrd">
+                            <span class="big only" data-i18n="speed">Speed</span>
+                        </div>
+                    </div>
+                    <div class="boxed greybg">
+                        <input type="hidden" name="attr_speed_bonus_flag" class="attr-flag" value="0" />
+                        <span name="attr_speed" class="pseudoattr" title="@{speed}"></span>
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_speed_bonus" class="boxed" value="0" title="@{speed_bonus}" />
+                    </div>
+                </div> <!-- END LAND SPEED -->
+                <div class="myrow labline bottom">
+                    <span class="lab" style="margin-left: 73px;" data-i18n="land" data-i18n-title="land" title="Land">Land</span>
+                    <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                </div>
+                <div class="options">
+                    <div class="autoex">
+                        <span name="attr_speed_notes"></span>
+                        <textarea name="attr_speed_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{speed_notes}"></textarea>
+                    </div>
+                </div>
+            </div> <!-- END SPEEDS -->
+            <div class="spacer"></div>
             <div class="myrow center languages"> <!-- LANGUAGES -->
                 <div class="blacklabel">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -5122,7 +5150,7 @@
                             <span class="med only" data-i18n="check" data-i18n-title="check-penalty" title="Check Penalty">Check</span>
                         </div>
                         <div class="blackbgrd max">
-                            <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Maximum Dex Bonus">Dex</span>
+                            <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Max Dex Bonus">Dex</span>
                         </div>
                         <div class="blackbgrd spellfailure">
                             <span class="med only" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
@@ -5177,11 +5205,15 @@
                     </div> <!-- END REPEATING AC ITEMS -->
                     <div class="myrow right" style="margin-top: 3px;"> <!-- Ac Items Totals -->
                         <span class="lab bold totals" data-i18n="totals-u">TOTALS</span>
-                        <span class="lab shield" data-i18n="shield">Shield</span>
                         <div class="boxed greybg">
+                            <span class="pseudoattr" name="attr_speed_armor" title="@{speed_armor}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span class="pseudoattr" title="@{armor_run_factor}">x <span name="attr_armor_run_factor"></span></span>
+                        </div>
+                        <div class="boxed greybg margindent">
                             <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
                         </div>
-                        <span class="lab armor" data-i18n="armor">Armor</span>
                         <div class="boxed greybg">
                             <span name="attr_ac_armor" class="pseudoattr" title="@{ac_armor}"></span>
                         </div>
@@ -5201,7 +5233,14 @@
                         <div class="boxed greybg">
                             <span name="attr_armor_spell_failure" class="pseudoattr" title="@{armor_spell_failure}"></span>
                         </div>
-                    </div> <!-- End Ac Items Totals -->
+                    </div>
+                    <div class="myrow labline bottom">
+                        <span class="lab speed" data-i18n="speed">Speed</span>
+                        <span class="lab" data-i18n="run">Run</span>
+                        <span class="lab margindent" data-i18n="shield">Shield</span>
+                        <span class="lab" data-i18n="armor">Armor</span>
+                    </div>
+                    <!-- End Ac Items Totals -->
                 </div>
             </div> <!-- END AC ITEMS -->
         </div> <!-- END AC ITEMS -->
@@ -5340,17 +5379,21 @@
                 </div>
                 <div class="spacer"></div>
                 <div class="myrow center">
-                    <span class="lab std right" data-i18n="lift-over-head">Lift Over Head</span>
+                    <span class="lab right" data-i18n="speed">Speed</span>
                     <div class="boxed greybg">
-                        <span class="pseudoattr" name="attr_encumbrance_lift_head" title="@{encumbrance_lift_head}"></span>
+                        <span class="pseudoattr" name="attr_speed_encumbrance" title="@{speed_encumbrance}"></span>
                     </div>
-                    <span class="lab std right margindent" data-i18n="lift-off-ground">Lift Off Ground</span>
+                    <span class="lab right margindent" data-i18n="run">Run</span>
                     <div class="boxed greybg">
-                        <span class="pseudoattr" name="attr_encumbrance_lift_ground" title="@{encumbrance_lift_ground}"></span>
+                        <span class="pseudoattr" title="@{encumbrance_run_factor}">x <span name="attr_encumbrance_run_factor"></span></span>
                     </div>
-                    <span class="lab std right margindent" data-i18n="drag-or-push">Drag Or Push</span>
+                    <span class="lab right margindent" data-i18n="check-penalty">Check penalty</span>
                     <div class="boxed greybg">
-                        <span class="pseudoattr" name="attr_encumbrance_drag_push" title="@{encumbrance_drag_push}"></span>
+                        <span class="pseudoattr" name="attr_encumbrance_check_penalty" title="@{encumbrance_check_penalty}"></span>
+                    </div>
+                    <span class="lab right margindent" data-i18n="max-dex-bonus">Max Dex Bonus</span>
+                    <div class="boxed greybg">
+                        <span class="pseudoattr" name="attr_encumbrance_ability_maximum" title="@{encumbrance_ability_maximum}"></span>
                     </div>
                 </div>
                 <div class="options">
@@ -8225,7 +8268,8 @@
         var update = {};
         var val = "misc";
         var runfactor = 4;
-        var attr = e.sourceAttribute.replace("_compendium_armor_category","_type");
+        var typattr = e.sourceAttribute.replace("_compendium_armor_category","_type");
+        var runattr =  e.sourceAttribute.replace("_compendium_armor_category","_run_factor");
         if(e.newValue.toLowerCase().includes("shield")) {val = "shield";}
         else if(e.newValue.toLowerCase().includes("light")) {val = "light";}
         else if(e.newValue.toLowerCase().includes("medium")) {val = "medium";}
@@ -8233,8 +8277,8 @@
             val = "heavy";
             runfactor = 3;
         }
-        update[attr] = val;
-        update["run_factor"] = runfactor;
+        update[typattr] = val;
+        update[runattr] = runfactor;
         setAttrs(update,{silent:false});
     });
 
@@ -9269,6 +9313,7 @@
             var update = {};
             var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
             update["speed"] = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
+            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
             update["speed_run_factor"] = runfac;
             update["speed_run"] = (speed * runfac);
             update["speed_swim"] = (speed/4);
@@ -9352,6 +9397,7 @@
             var speedrace = parseInt(v.speed_race) || 30;
             var speed = speedrace;
             var dexmax = 99;
+            var maxab = "-";
             var runfactor = 4;
             var weight = parseInt(v.encumbrance_gear_weight) || 0;
             var light = parseInt(v.encumbrance_load_light) || 1;
@@ -9379,17 +9425,16 @@
                 runfactor = 3;
             } else {
                 newenc = "light";
-                checkpen = 0;
-                speed = speedrace;
-                dexmax = 99;
-                runfactor = 4;
             }
             if(prevenc != newenc) {
+                if (dexmax < 99) {
+                    maxab = dexmax;
+                }
                 update["encumbrance"] = newenc;
                 update["encumbrance_display"] = getTranslationByKey(newenc + "-load");
                 update["encumbrance_check_penalty"] = checkpen;
                 update["speed_encumbrance"] = speed;
-                update["encumbrance_ability_maximum"] = dexmax;
+                update["encumbrance_ability_maximum"] = maxab;
                 update["encumbrance_run_factor"] = runfactor;
                 setAttrs(update,{silent: false});
             }
@@ -9671,23 +9716,26 @@
             update["wisdom_mod"] = 0;
             update["charisma_mod"] = 0;
             update["initiative"] = 0;
+            // Size
             update["ac_size"] = 0;
             update["bab_size"] = 0;
             update["cmb_size"] = 0;
             update["fly_size"] = 0;
             update["stealth_size"] = 0;
             update["encumbrance_size"] = 1;
+            // AC
             update["ac_armor"] = 0;
             update["ac_shield"] = 0;
             update["ac_flatfooted_bonus"] = 0;
             update["ac_touch_bonus"] = 0;
-            update["ac_ability_maximum"] = 99;
+            update["ac_ability_maximum"] = "-";
             update["armor_check_penalty"] = 0;
             update["armor_spell_failure"] = 0;
             update["armor_run_factor"] = 4;
             update["ac"] = 10;
             update["ac_touch"] = 0;
             update["ac_flatfooted"] = 0;
+            // Saves
             update["fortitude_ability_mod"] = 0;
             update["reflex_ability_mod"] = 0;
             update["will_ability_mod"] = 0;
@@ -9697,6 +9745,7 @@
             update["fortitude"] = 0;
             update["reflex"] = 0;
             update["will"] = 0;
+            // BABs
             update["cmb_mod"] = 0;
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
@@ -9719,7 +9768,7 @@
             update["encumbrance_lift_ground"] = 200;
             update["encumbrance_drag_push"] = 500;
             update["encumbrance_check_penalty"] = 0;
-            update["encumbrance_ability_maximum"] = 99;
+            update["encumbrance_ability_maximum"] = "-";
             update["encumbrance_run_factor"] = 4;
             // Skills
             update["acrobatics_ability_mod"] = 0;

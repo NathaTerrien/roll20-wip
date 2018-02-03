@@ -152,7 +152,8 @@
         var update = {};
         var val = "misc";
         var runfactor = 4;
-        var attr = e.sourceAttribute.replace("_compendium_armor_category","_type");
+        var typattr = e.sourceAttribute.replace("_compendium_armor_category","_type");
+        var runattr =  e.sourceAttribute.replace("_compendium_armor_category","_run_factor");
         if(e.newValue.toLowerCase().includes("shield")) {val = "shield";}
         else if(e.newValue.toLowerCase().includes("light")) {val = "light";}
         else if(e.newValue.toLowerCase().includes("medium")) {val = "medium";}
@@ -160,8 +161,8 @@
             val = "heavy";
             runfactor = 3;
         }
-        update[attr] = val;
-        update["run_factor"] = runfactor;
+        update[typattr] = val;
+        update[runattr] = runfactor;
         setAttrs(update,{silent:false});
     });
 
@@ -1196,6 +1197,7 @@
             var update = {};
             var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
             update["speed"] = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
+            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
             update["speed_run_factor"] = runfac;
             update["speed_run"] = (speed * runfac);
             update["speed_swim"] = (speed/4);
@@ -1279,6 +1281,7 @@
             var speedrace = parseInt(v.speed_race) || 30;
             var speed = speedrace;
             var dexmax = 99;
+            var maxab = "-";
             var runfactor = 4;
             var weight = parseInt(v.encumbrance_gear_weight) || 0;
             var light = parseInt(v.encumbrance_load_light) || 1;
@@ -1306,17 +1309,16 @@
                 runfactor = 3;
             } else {
                 newenc = "light";
-                checkpen = 0;
-                speed = speedrace;
-                dexmax = 99;
-                runfactor = 4;
             }
             if(prevenc != newenc) {
+                if (dexmax < 99) {
+                    maxab = dexmax;
+                }
                 update["encumbrance"] = newenc;
                 update["encumbrance_display"] = getTranslationByKey(newenc + "-load");
                 update["encumbrance_check_penalty"] = checkpen;
                 update["speed_encumbrance"] = speed;
-                update["encumbrance_ability_maximum"] = dexmax;
+                update["encumbrance_ability_maximum"] = maxab;
                 update["encumbrance_run_factor"] = runfactor;
                 setAttrs(update,{silent: false});
             }
@@ -1598,23 +1600,26 @@
             update["wisdom_mod"] = 0;
             update["charisma_mod"] = 0;
             update["initiative"] = 0;
+            // Size
             update["ac_size"] = 0;
             update["bab_size"] = 0;
             update["cmb_size"] = 0;
             update["fly_size"] = 0;
             update["stealth_size"] = 0;
             update["encumbrance_size"] = 1;
+            // AC
             update["ac_armor"] = 0;
             update["ac_shield"] = 0;
             update["ac_flatfooted_bonus"] = 0;
             update["ac_touch_bonus"] = 0;
-            update["ac_ability_maximum"] = 99;
+            update["ac_ability_maximum"] = "-";
             update["armor_check_penalty"] = 0;
             update["armor_spell_failure"] = 0;
             update["armor_run_factor"] = 4;
             update["ac"] = 10;
             update["ac_touch"] = 0;
             update["ac_flatfooted"] = 0;
+            // Saves
             update["fortitude_ability_mod"] = 0;
             update["reflex_ability_mod"] = 0;
             update["will_ability_mod"] = 0;
@@ -1624,6 +1629,7 @@
             update["fortitude"] = 0;
             update["reflex"] = 0;
             update["will"] = 0;
+            // BABs
             update["cmb_mod"] = 0;
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
@@ -1646,7 +1652,7 @@
             update["encumbrance_lift_ground"] = 200;
             update["encumbrance_drag_push"] = 500;
             update["encumbrance_check_penalty"] = 0;
-            update["encumbrance_ability_maximum"] = 99;
+            update["encumbrance_ability_maximum"] = "-";
             update["encumbrance_run_factor"] = 4;
             // Skills
             update["acrobatics_ability_mod"] = 0;
