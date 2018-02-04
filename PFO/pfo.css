@@ -274,7 +274,8 @@ div.sheet-skill,
 div.sheet-concentration,
 div.sheet-spell,
 div.sheet-statblock,
-div.sheet-encumbrance {
+div.sheet-encumbrance,
+div.sheet-speeds {
     position: relative;
 }
 div.sheet-abilities,
@@ -1020,7 +1021,9 @@ input.sheet-tabconf:checked + span{
 .sheet-concentration .sheet-options-flag,
 .sheet-concentration .sheet-options-flag + span,
 .sheet-spell .sheet-options-flag,
-.sheet-spell .sheet-options-flag + span {
+.sheet-spell .sheet-options-flag + span,
+.sheet-speeds .sheet-options-flag,
+.sheet-speeds .sheet-options-flag + span {
     top: -2px;
     left: 0px;
 }
@@ -1065,7 +1068,8 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-npcatk .sheet-attack:hover .sheet-options-flag + span,
 .sheet-feat:hover .sheet-options-flag + span,
 .sheet-ability:hover .sheet-options-flag + span,
-.sheet-encumbrance:hover .sheet-options-flag + span {
+.sheet-encumbrance:hover .sheet-options-flag + span,
+.sheet-speeds:hover .sheet-options-flag + span {
     display: block;
 }
 

@@ -3395,18 +3395,93 @@
                     <div class="boxed">
                         <input type="number" name="attr_speed_bonus" class="boxed" value="0" title="@{speed_bonus}" />
                     </div>
+                    <div class="boxed greybg margindent">
+                        <span name="attr_speed_run" class="pseudoattr" title="@{speed_run}"></span>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_speed_swim" class="pseudoattr" title="@{speed_swim}"></span>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_speed_climb" class="pseudoattr" title="@{speed_climb}"></span>
+                    </div>
+                    <div class="boxed margindent">
+                        <input type="number" name="attr_speed_fly" class="boxed" value="0" title="@{speed_fly}" />
+                    </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_speed_other" class="boxed" value="0" title="@{speed_other}" />
+                    </div>
                 </div> <!-- END LAND SPEED -->
                 <div class="myrow labline bottom">
                     <span class="lab" style="margin-left: 73px;" data-i18n="land" data-i18n-title="land" title="Land">Land</span>
                     <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
+                    <span class="lab margindent" data-i18n="run" data-i18n-title="run" title="Run">Run</span>
+                    <span class="lab" data-i18n="swim" data-i18n-title="swim" title="Swim">Swim</span>
+                    <span class="lab" data-i18n="climb" data-i18n-title="climb" title="Climb">Climb</span>
+                    <span class="lab margindent" data-i18n="fly" data-i18n-title="fly" title="Fly">Fly</span>
+                    <span class="lab" data-i18n="other" data-i18n-title="other" title="Other">Other</span>
                 </div>
                 <div class="options">
+                    <div class="myrow">
+                        <div class="boxed greybg">
+                            <span name="attr_speed_base" class="pseudoattr" title="@{speed_base}"></span>
+                        </div>
+                        <span class="lab">= Min(</span>
+                        <div class="boxed greybg">
+                            <span name="attr_speed_race" class="pseudoattr" title="@{speed_race}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_speed_armor" class="pseudoattr" title="@{speed_armor}"></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span name="attr_speed_encumbrance" class="pseudoattr" title="@{speed_encumbrance}"></span>
+                        </div>
+                        <span class="lbl">)</span>
+                        <div class="boxed greybg margindent">
+                            <span class="pseudoattr" title="@{speed_run_factor}">x<span name="attr_speed_run_factor"></span></span>
+                        </div>
+                        <span class="lab">= Min(</span>
+                        <div class="boxed greybg">
+                            <span class="pseudoattr" title="@{armor_run_factor}">x<span name="attr_armor_run_factor"></span></span>
+                        </div>
+                        <div class="boxed greybg">
+                            <span class="pseudoattr" title="@{encumbrance_run_factor}">x<span name="attr_encumbrance_run_factor"></span></span>
+                        </div>
+                        <span class="lbl">)</span>
+                    </div>
+                    <div class="myrow labline bottom">
+                        <span class="lab" data-i18n="speed" data-i18n-title="speed" title="Speed">Speed</span>
+                        <span class="lab">&nbsp;</span>
+                        <span class="lab" data-i18n="race" data-i18n-title="race" title="Race">Race</span>
+                        <span class="lab" data-i18n="armor" data-i18n-title="armor" title="Armor">Armor</span>
+                        <span class="lab" data-i18n="load" data-i18n-title="load" title="Load">Load</span>
+                        <span class="lbl">&nbsp;</span>
+                        <span class="lab margindent" data-i18n="run" data-i18n-title="run" title="Run">Run</span>
+                        <span class="lab">&nbsp;</span>
+                        <span class="lab" data-i18n="armor" data-i18n-title="armor" title="Armor">Armor</span>
+                        <span class="lab" data-i18n="load" data-i18n-title="load" title="Load">Load</span>
+                    </div>
                     <div class="autoex">
                         <span name="attr_speed_notes"></span>
                         <textarea name="attr_speed_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{speed_notes}"></textarea>
                     </div>
                 </div>
             </div> <!-- END SPEEDS -->
+            <div class="spacer"></div>
+            <div class="myrow center languages"> <!-- SENSES -->
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="senses">Senses</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="autoex">
+                        <span name="attr_senses"></span>
+                        <textarea name="attr_senses" spellcheck="false" data-i18n-placeholder="senses" placeholder="Senses" title="@{senses}"></textarea>
+                    </div>
+                </div>
+            </div> <!-- END LANGUAGES -->
             <div class="spacer"></div>
             <div class="myrow center languages"> <!-- LANGUAGES -->
                 <div class="blacklabel">
@@ -5209,7 +5284,7 @@
                             <span class="pseudoattr" name="attr_speed_armor" title="@{speed_armor}"></span>
                         </div>
                         <div class="boxed greybg">
-                            <span class="pseudoattr" title="@{armor_run_factor}">x <span name="attr_armor_run_factor"></span></span>
+                            <span class="pseudoattr" title="@{armor_run_factor}">x<span name="attr_armor_run_factor"></span></span>
                         </div>
                         <div class="boxed greybg margindent">
                             <span name="attr_ac_shield" class="pseudoattr" title="@{ac_shield}"></span>
@@ -5339,7 +5414,7 @@
                                 <span class="big only" data-i18n="total-weight">Total Weight</span>
                                 <input type="hidden" name="attr_encumbrance" value="light" class="overload" />
                                 <span class="lbl margindent overload" name="attr_encumbrance_display"></span>
-                                <span name="attr_encumbrance_gear_weight" class="pseudoattr right whitebgrd wtotal margindent"></span>
+                                <span name="attr_encumbrance_gear_weight" class="pseudoattr right greybg wtotal margindent"></span>
                             </div>
                         </div>
                     </div>
@@ -5385,7 +5460,7 @@
                     </div>
                     <span class="lab right margindent" data-i18n="run">Run</span>
                     <div class="boxed greybg">
-                        <span class="pseudoattr" title="@{encumbrance_run_factor}">x <span name="attr_encumbrance_run_factor"></span></span>
+                        <span class="pseudoattr" title="@{encumbrance_run_factor}">x<span name="attr_encumbrance_run_factor"></span></span>
                     </div>
                     <span class="lab right margindent" data-i18n="check-penalty">Check penalty</span>
                     <div class="boxed greybg">
@@ -5415,8 +5490,24 @@
                     </div>
                 </div>
             </div> <!-- ENCUMBRACE -->
+            <div class="spacer"></div>
+            <div class="myrow center"> <!-- NOTES -->
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="misc">Misc</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+            </div>
+            <div class="bordered titled inbox">
+                <div class="autoex">
+                    <span name="attr_misc_notes"></span>
+                    <textarea name="attr_misc_notes" spellcheck="false" data-i18n-placeholder="misc" placeholder="Misc" title="@{misc_notes}"></textarea>
+                </div>
+            </div> <!-- END NOTES -->
         </div> <!-- END GEAR & ENCUMBRANCE -->
-        <div class="colhalf padindent"> <!-- FEATS & TRAITS -->
+        <div class="colhalf padindent"> <!-- FEATS & TRAITS & BRACKGROUND -->
             <div class="feats"> <!-- FEATS -->
                 <div class="myrow center">
                     <div class="blacklabel">
@@ -5550,10 +5641,8 @@
                     </div>
                 </fieldset>
             </div> <!-- END TRAITS -->
-        </div> <!-- END FEATS & TRAITS -->
-        <div class="spacer"></div>
-        <div> <!-- BACKGROUND/NOTES -->
-            <div class="myrow center">
+            <div class="spacer"></div>
+            <div class="myrow center"> <!-- BACKGROUND -->
                 <div class="blacklabel">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                     <div class="blackbgrd">
@@ -5567,8 +5656,8 @@
                     <span name="attr_background"></span>
                     <textarea name="attr_background" spellcheck="false" data-i18n-placeholder="background" placeholder="Background" title="@{background}"></textarea>
                 </div>
-            </div>
-        </div> <!-- END BACKGROUND/NOTES -->
+            </div> <!-- END BACKGROUND -->
+        </div> <!-- END FEATS & TRAITS & BRACKGROUND -->
     </div> <!-- END TAB ADDITIONNAL -->
     <div class="tabspell"> <!-- TAB SPELLS -->
         <div class="col1third"> <!-- misc magic -->
@@ -8363,11 +8452,14 @@
     });
 
     // === SPEED
-    on("change:speed_base change:speed_bonus change:armor_run_factor change:encumbrance_run_factor", function() {
-        update_speed();
-    });
     on("change:speed_race change:speed_notmodified change:speed_encumbrance change:speed_armor", function() {
         update_speed_base();
+    });
+    on("change:armor_run_factor change:encumbrance_run_factor", function() {
+        update_run_factor();
+    });
+    on("change:speed_base change:speed_bonus change:speed_run_factor", function() {
+        update_speed();
     });
 
     // === WEAPONS / ATTACKS
@@ -9308,29 +9400,39 @@
     };
 
     // === SPEED
-    var update_speed = function() {
-        getAttrs(["speed_base","speed_bonus","encumbrance_run_factor","armor_run_factor"], function(v) {
-            var update = {};
-            var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
-            update["speed"] = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
-            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
-            update["speed_run_factor"] = runfac;
-            update["speed_run"] = (speed * runfac);
-            update["speed_swim"] = (speed/4);
-            update["speed_climb"] = (speed/4);
-            setAttrs(update, {silent: true});
-        });
-    }
     var update_speed_base = function() {
         var fields = ["speed_race","speed_notmodified","speed_encumbrance","speed_armor"];
         getAttrs(fields, function(v) {
             var update = {};
             var speed = parseInt(v.speed_race) || 30;
             if (v.speed_notmodified != "1") {
-                Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(speed_armor) || 30);
+                speed = Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(v.speed_armor) || 30);
             }
             update["speed_base"] = speed;
             setAttrs(update, {silent: false});
+        });
+    }
+    var update_run_factor = function() {
+        var fields = ["encumbrance_run_factor","armor_run_factor"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
+            update["speed_run_factor"] = runfac;
+            setAttrs(update, {silent: false});
+        });
+    }
+    var update_speed = function() {
+        var fields = ["speed_base","speed_bonus","speed_run_factor"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var runfac = parseInt(v.speed_run_factor) || 4;
+            var speed = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
+            update["speed"] = speed;
+            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
+            update["speed_run"] = (speed * runfac);
+            update["speed_swim"] = (speed/4);
+            update["speed_climb"] = (speed/4);
+            setAttrs(update, {silent: true});
         });
     }
 
@@ -9753,7 +9855,6 @@
             // Speed
             update["speed"] = 30;
             update["speed_base"] = 30;
-            update["speed_bonus"] = 0;
             update["speed_encumbrance"] = 30;
             update["speed_armor"] = 30;
             update["speed_run_factor"] = 4;

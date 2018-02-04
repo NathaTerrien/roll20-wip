@@ -125,16 +125,22 @@
 
     // === Initiative
     on("change:initiative_misc change:initiative_bonus", function() {
-        update_initiative();
+        if(pfoglobals_ispc) {
+            update_initiative();
+        }
     });
 
     // === AC
     on("change:ac_ability_maximum change:encumbrance_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(e){
-        update_ac_ability(e.sourceAttribute);
+        if(pfoglobals_ispc) {
+            update_ac_ability(e.sourceAttribute);
+        }
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
-        update_ac();
-        update_cmd();
+        if(pfoglobals_ispc) {
+            update_ac();
+            update_cmd();
+        }
     });
     // AC Items
     on("remove:repeating_acitems change:repeating_acitems:equipped change:repeating_acitems:ac_bonus change:repeating_acitems:flatfooted_bonus change:repeating_acitems:touch_bonus change:repeating_acitems:type change:repeating_acitems:check_penalty change:repeating_acitems:max_dex_bonus change:repeating_acitems:spell_failure change:repeating_acitems:speed20 change:repeating_acitems:speed30 change:repeating_acitems:run_factor", function(){
@@ -247,11 +253,14 @@
     });
 
     // === SPEED
-    on("change:speed_base change:speed_bonus change:armor_run_factor change:encumbrance_run_factor", function() {
-        update_speed();
-    });
     on("change:speed_race change:speed_notmodified change:speed_encumbrance change:speed_armor", function() {
         update_speed_base();
+    });
+    on("change:armor_run_factor change:encumbrance_run_factor", function() {
+        update_run_factor();
+    });
+    on("change:speed_base change:speed_bonus change:speed_run_factor", function() {
+        update_speed();
     });
 
     // === WEAPONS / ATTACKS
@@ -1192,29 +1201,39 @@
     };
 
     // === SPEED
-    var update_speed = function() {
-        getAttrs(["speed_base","speed_bonus","encumbrance_run_factor","armor_run_factor"], function(v) {
-            var update = {};
-            var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
-            update["speed"] = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
-            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
-            update["speed_run_factor"] = runfac;
-            update["speed_run"] = (speed * runfac);
-            update["speed_swim"] = (speed/4);
-            update["speed_climb"] = (speed/4);
-            setAttrs(update, {silent: true});
-        });
-    }
     var update_speed_base = function() {
         var fields = ["speed_race","speed_notmodified","speed_encumbrance","speed_armor"];
         getAttrs(fields, function(v) {
             var update = {};
             var speed = parseInt(v.speed_race) || 30;
             if (v.speed_notmodified != "1") {
-                Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(speed_armor) || 30);
+                speed = Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(v.speed_armor) || 30);
             }
             update["speed_base"] = speed;
             setAttrs(update, {silent: false});
+        });
+    }
+    var update_run_factor = function() {
+        var fields = ["encumbrance_run_factor","armor_run_factor"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var runfac = Math.min((parseInt(v.encumbrance_run_factor) || 4),(parseInt(v.armor_run_factor) || 4));
+            update["speed_run_factor"] = runfac;
+            setAttrs(update, {silent: false});
+        });
+    }
+    var update_speed = function() {
+        var fields = ["speed_base","speed_bonus","speed_run_factor"];
+        getAttrs(fields, function(v) {
+            var update = {};
+            var runfac = parseInt(v.speed_run_factor) || 4;
+            var speed = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
+            update["speed"] = speed;
+            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
+            update["speed_run"] = (speed * runfac);
+            update["speed_swim"] = (speed/4);
+            update["speed_climb"] = (speed/4);
+            setAttrs(update, {silent: true});
         });
     }
 
@@ -1637,7 +1656,6 @@
             // Speed
             update["speed"] = 30;
             update["speed_base"] = 30;
-            update["speed_bonus"] = 0;
             update["speed_encumbrance"] = 30;
             update["speed_armor"] = 30;
             update["speed_run_factor"] = 4;
