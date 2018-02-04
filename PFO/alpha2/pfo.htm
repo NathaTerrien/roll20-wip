@@ -8458,8 +8458,11 @@
     });
 
     // === SPEED
-    on("change:speed_race change:speed_notmodified change:speed_encumbrance change:speed_armor", function() {
-        update_speed_base();
+    on("change:speed_race", function() {
+        update_speed_base(1);
+    });
+    on("change:speed_notmodified change:speed_encumbrance change:speed_armor", function() {
+        update_speed_base(0);
     });
     on("change:armor_run_factor change:encumbrance_run_factor", function() {
         update_run_factor();
@@ -9412,18 +9415,35 @@
     };
 
     // === SPEED
-    var update_speed_base = function() {
-        var fields = ["speed_race","speed_notmodified","speed_encumbrance","speed_armor"];
-        getAttrs(fields, function(v) {
-            var update = {};
-            var speed = parseInt(v.speed_race) || 30;
-            if (v.speed_notmodified != "1") {
-                speed = Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(v.speed_armor) || 30);
-            }
-            update["speed_base"] = speed;
-            setAttrs(update, {silent: false});
-        });
-    }
+    var update_speed_base = function(recalc) {
+        if (recalc == "1") {
+            // Force recalculation of speed_encumbrance and speed_armor
+            var fields = ["speed_race","encumbrance"];
+            getAttrs(fields, function(v) {
+                var update = {};
+                var speedrace = parseInt(v.speed_race) || 30;
+                var speed = speedrace;
+                if (["medium","heavy"].includes(v.encumbrance)) {
+                    speed = calc_reduced_speed(speedrace);
+                } else if (v.encumbrance == "over") {
+                    speed = 5;
+                }
+                update["speed_encumbrance"] = speed;
+                setAttrs(update,{silent: false},function() {update_ac_items();});
+            });
+        } else {
+            var fields = ["speed_race","speed_notmodified","speed_encumbrance","speed_armor"];
+            getAttrs(fields, function(v) {
+                var update = {};
+                var speed = parseInt(v.speed_race) || 30;
+                if (v.speed_notmodified != "1") {
+                    speed = Math.min(speed, parseInt(v.speed_encumbrance) || 30, parseInt(v.speed_armor) || 30);
+                }
+                update["speed_base"] = speed;
+                setAttrs(update, {silent: false});
+            });
+        }
+    };
     var update_run_factor = function() {
         var fields = ["encumbrance_run_factor","armor_run_factor"];
         getAttrs(fields, function(v) {
@@ -9432,7 +9452,7 @@
             update["speed_run_factor"] = runfac;
             setAttrs(update, {silent: false});
         });
-    }
+    };
     var update_speed = function() {
         var fields = ["speed_base","speed_bonus","speed_run_factor"];
         getAttrs(fields, function(v) {
@@ -9447,7 +9467,7 @@
             update["speed_climb"] = fourth;
             setAttrs(update, {silent: true});
         });
-    }
+    };
     var calc_reduced_speed = function(basespeed) {
         var base = parseInt(basespeed) || 30;
         var speed = Math.ceil((((base/5)/3)*2))*5;
