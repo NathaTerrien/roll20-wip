@@ -8963,11 +8963,12 @@
                 var spellf = 0;
                 var maxab = "-";
                 var speedrace = parseInt(v.speed_race) || 30;
+                var speedreduced = calc_reduced_speed(speedrace); // heavy and medium armor
                 var speed = speedrace;
                 var run = 4;
                 _.each(idarray, function(itemid) {
-                    if ( (parseInt(v["repeating_acitems_" + itemid + "_equipped"]) || 0) == 1 ) {
-                        if ( v["repeating_acitems_" + itemid + "_type"] == "shield") {
+                    if ( v["repeating_acitems_" + itemid + "_equipped"] == "1" ) {
+                        if (v["repeating_acitems_" + itemid + "_type"] == "shield") {
                             bonusshield += parseInt(v["repeating_acitems_" + itemid + "_ac_bonus"]) || 0;
                         } else {
                             bonusarmor += parseInt(v["repeating_acitems_" + itemid + "_ac_bonus"]) || 0;
@@ -8979,11 +8980,16 @@
                             maxdex = Math.min(maxdex, parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 99);
                         }
                         spellf += parseInt(v["repeating_acitems_" + itemid + "_spell_failure"]) || 0;
+                        if(["heavy","medium"].includes(v["repeating_acitems_" + itemid + "_type"])) {
+                            speed = Math.min(speed,speedrace,speedreduced);
+                        }
+                        /*
                         if(speedrace <= 20) {
                             speed = Math.min(speed, parseInt(v["repeating_acitems_" + itemid + "_speed20"].replace(/\D+/g, "")) || speedrace);
                         } else {
                             speed = Math.min(speed, parseInt(v["repeating_acitems_" + itemid + "_speed30"].replace(/\D+/g, "")) || speedrace);
                         }
+                        */
                         run = Math.min(run, parseInt(v["repeating_acitems_" + itemid + "_run_factor"]) || 4);
                     }
                 });
@@ -9433,21 +9439,37 @@
             var update = {};
             var runfac = parseInt(v.speed_run_factor) || 4;
             var speed = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
+            var fourth = calc_round_speed(speed/4);
             update["speed"] = speed;
             update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
             update["speed_run"] = (speed * runfac);
-            update["speed_swim"] = (speed/4);
-            update["speed_climb"] = (speed/4);
+            update["speed_swim"] = fourth;
+            update["speed_climb"] = fourth;
             setAttrs(update, {silent: true});
         });
     }
+    var calc_reduced_speed = function(basespeed) {
+        var base = parseInt(basespeed) || 30;
+        var speed = Math.ceil((((base/5)/3)*2))*5;
+        return speed;
+    };
+    var calc_round_speed = function(rawspeed) {
+        var base = parseFloat(rawspeed) || 0.0;
+        var speed = Math.floor(base/5)*5;
+        speed = (speed < 5) ? 5 : speed;
+        return speed;
+    };
 
     // === GEAR / ENCUMBRANCE
     var update_gear_weight = function(id) {
         var fields = ["repeating_gear_" + id + "_weight","repeating_gear_" + id + "_quantity"];
         getAttrs(fields, function(v) {
             var update = {};
-            update["repeating_gear_" + id + "_weight_total"] = (parseFloat(v["repeating_gear_" + id + "_weight"]) || 0.0) * (parseFloat(v["repeating_gear_" + id + "_quantity"]) || 0.0);
+            var weight = (parseFloat(v["repeating_gear_" + id + "_weight"]) || 0.0) * (parseFloat(v["repeating_gear_" + id + "_quantity"]) || 0.0);
+            if ((weight - parseInt(weight)) > 0) {
+                weight = weight.toFixed(1);
+            }
+            update["repeating_gear_" + id + "_weight_total"] = weight;
             setAttrs(update, {silent: false});
         });
     };
@@ -9463,6 +9485,9 @@
                 _.each(idarray, function(id) {
                     total += parseFloat(v["repeating_gear_" + id + "_weight_total"]) || 0.0;
                 });
+                if ((total - parseInt(total)) > 0) {
+                    total = total.toFixed(1);
+                }
                 update["encumbrance_gear_weight"] = total;
                 setAttrs(update, {silent: false});
             });
@@ -9547,11 +9572,6 @@
                 setAttrs(update,{silent: false});
             }
         });
-    };
-    var calc_reduced_speed = function(basespeed) {
-        var base = parseInt(basespeed) || 30;
-        var speed = Math.ceil((((base/5)/3)*2))*5;
-        return speed;
     };
 
     // === SPELLS / SPELLCASTING
