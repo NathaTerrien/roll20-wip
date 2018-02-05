@@ -990,6 +990,9 @@
                 var stemp = "";
                 var atkbonus = 0;
                 var atkbonusdisplay = "-";
+                var atkbonusdisplay1 = "";
+                var atkbonusdisplay2 = "";
+                var atkbonusdisplay3 = "";
                 var atkdmg = "";
                 var atkdmgbonus = 0;
                 var atkdmgdisplay = "-";
@@ -1042,15 +1045,30 @@
                     atkdisplay = " (" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + " " + pfoglobals_i18n_obj["vs"] + " " + pfoglobals_i18n_obj[atkvs] + ")";
                     atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
                     if (atktypearray.length > 1) {
+                        tmpint = (parseInt(atktypearray[1]) || 0) + (parseInt(atkmod) || 0);
+                        atkbonusdisplay1 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                    }
+                    if (atktypearray.length > 2) {
+                        tmpint = (parseInt(atktypearray[2]) || 0) + (parseInt(atkmod) || 0);
+                        atkbonusdisplay2 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                    }
+                    if (atktypearray.length > 3) {
+                        tmpint = (parseInt(atktypearray[3]) || 0) + (parseInt(atkmod) || 0);
+                        atkbonusdisplay3 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                    }
+                    /*
                         for(i = 1; i < atktypearray.length;i++) {
                             tmpint = (parseInt(atktypearray[i]) || 0) + (parseInt(atkmod) || 0);
-                            atkbonusdisplay += "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                            update["repeating_attacks_" + attackid + "_atkbonusdisplay" + i] = "/" + (tmpint < 0 ? "" : "+") + tmpint;
                         }
-                    }
+                    */
                 }
                 if(dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? "" : "+") + atkdmgbonus;}
                 update["repeating_attacks_" + attackid + "_atkdisplay"] = atkdisplay;
                 update["repeating_attacks_" + attackid + "_atkbonusdisplay"] = atkbonusdisplay;
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay1"] = atkbonusdisplay1;
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay2"] = atkbonusdisplay2;
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay3"] = atkbonusdisplay3;
                 update["repeating_attacks_" + attackid + "_atkdmgdisplay"] = atkdmgdisplay;
                 // == Rolls handling
                 // desc

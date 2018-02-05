@@ -3241,16 +3241,31 @@
                             <div class="attack right compendium-drop-target">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                                 <div class="myrow right">
-                                    <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
-                                        <span class="pseudoattr greybg underlined weapon"><span class="pseudoattr" name="attr_atkname"></span><span class="vs" name="attr_atkdisplay"></span>
-                                        </span>
-                                    </button>
-                                    <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll" title="Attack roll" value="@{rollbase_atk}">
-                                        <span class="pseudoattr greybg underlined atk" name="attr_atkbonusdisplay"></span>
-                                    </button>
-                                    <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
-                                        <span class="pseudoattr greybg underlined damage" name="attr_atkdmgdisplay"></span>
-                                    </button>
+                                    <div class="weapon greybg underlined">
+                                        <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
+                                            <span class="pseudoattr"><span class="pseudoattr" name="attr_atkname"></span><span class="vs" name="attr_atkdisplay"></span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="atk greybg underlined center">
+                                        <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll-1" title="Attack roll #1" value="@{rollbase_atk}">
+                                            <span class="pseudoattr" name="attr_atkbonusdisplay"></span>
+                                        </button>
+                                        <button class="myrol" type="roll" name="AtkRoll1" data-i18n-title="attack-roll-2" title="Attack roll #2" value="@{rollbase_atk1}">
+                                            <span class="pseudoattr" name="attr_atkbonusdisplay1"></span>
+                                        </button>
+                                        <button class="myrol" type="roll" name="AtkRoll2" data-i18n-title="attack-roll-3" title="Attack roll #3" value="@{rollbase_atk2}">
+                                            <span class="pseudoattr" name="attr_atkbonusdisplay2"></span>
+                                        </button>
+                                        <button class="myrol" type="roll" name="AtkRoll4" data-i18n-title="attack-roll-4" title="Attack roll #4" value="@{rollbase_atk3}">
+                                            <span class="pseudoattr" name="attr_atkbonusdisplay3"></span>
+                                        </button>
+                                    </div>
+                                    <div class="damage greybg underlined center">
+                                        <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
+                                            <span class="pseudoattr" name="attr_atkdmgdisplay"></span>
+                                        </button>
+                                    </div>
                                     <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{repeating_attacks_$id_atkammo}" />
                                 </div>
                                 <div class="options right">
@@ -3259,12 +3274,12 @@
                                         <input type="text" name="attr_atkname" accept="Name" class="underlined name" spellcheck="false" data-i18n-placeholder="name" placeholder="Name" title="@{repeating_attacks_$id_atkname}" />
                                         <input type="hidden" name="attr_fromcompendium" accept="uniqueName" class="fromcompendium" value="" />
                                         <button class="myrol" type="compendium" name="attr_fromcompendium" accept="uniqueName" data-i18n="open-compendium-item" title="Open Compendium Item"></button>
+                                    </div>
                                     <div class="myrow padindent">
                                         <span class="lbl" data-i18n="category:">Category:</span>
                                         <input type="text" name="attr_category" accept="Weapon Category" class="underlined dmgbase" spellcheck="false" title="@{repeating_attacks_$id_category}" />
                                         <span class="lbl margindent" data-i18n="type:">Type:</span>
                                         <input type="text" name="attr_type" accept="Weapon Type" class="underlined dmgbase" spellcheck="false" title="@{repeating_attacks_$id_type}" />
-                                    </div>
                                     </div>
                                     <div class="myrow grtopbrd">
                                         <input class="pseudocheck" type="checkbox" name="attr_atkflag" value="{{attack=1}}" title="@{repeating_attacks_$id_atkflag}" checked="checked" /><span></span>
@@ -9195,6 +9210,9 @@
                 var stemp = "";
                 var atkbonus = 0;
                 var atkbonusdisplay = "-";
+                var atkbonusdisplay1 = "";
+                var atkbonusdisplay2 = "";
+                var atkbonusdisplay3 = "";
                 var atkdmg = "";
                 var atkdmgbonus = 0;
                 var atkdmgdisplay = "-";
@@ -9247,15 +9265,30 @@
                     atkdisplay = " (" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + " " + pfoglobals_i18n_obj["vs"] + " " + pfoglobals_i18n_obj[atkvs] + ")";
                     atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
                     if (atktypearray.length > 1) {
+                        tmpint = (parseInt(atktypearray[1]) || 0) + (parseInt(atkmod) || 0);
+                        atkbonusdisplay1 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                    }
+                    if (atktypearray.length > 2) {
+                        tmpint = (parseInt(atktypearray[2]) || 0) + (parseInt(atkmod) || 0);
+                        atkbonusdisplay2 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                    }
+                    if (atktypearray.length > 3) {
+                        tmpint = (parseInt(atktypearray[3]) || 0) + (parseInt(atkmod) || 0);
+                        atkbonusdisplay3 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                    }
+                    /*
                         for(i = 1; i < atktypearray.length;i++) {
                             tmpint = (parseInt(atktypearray[i]) || 0) + (parseInt(atkmod) || 0);
-                            atkbonusdisplay += "/" + (tmpint < 0 ? "" : "+") + tmpint;
+                            update["repeating_attacks_" + attackid + "_atkbonusdisplay" + i] = "/" + (tmpint < 0 ? "" : "+") + tmpint;
                         }
-                    }
+                    */
                 }
                 if(dmgflag != "0") {atkdmgdisplay = "" + dmgbase + (atkdmgbonus < 0 ? "" : "+") + atkdmgbonus;}
                 update["repeating_attacks_" + attackid + "_atkdisplay"] = atkdisplay;
                 update["repeating_attacks_" + attackid + "_atkbonusdisplay"] = atkbonusdisplay;
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay1"] = atkbonusdisplay1;
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay2"] = atkbonusdisplay2;
+                update["repeating_attacks_" + attackid + "_atkbonusdisplay3"] = atkbonusdisplay3;
                 update["repeating_attacks_" + attackid + "_atkdmgdisplay"] = atkdmgdisplay;
                 // == Rolls handling
                 // desc

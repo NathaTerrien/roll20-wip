@@ -354,7 +354,8 @@ div.sheet-acitems {width: 550px;}
 .sheet-attacks span.sheet-lbl.sheet-atk {width: 55px;}
 .sheet-attacks .sheet-weapon {width: 200px;}
 .sheet-attack .sheet-weapon {
-    width: 225px;
+    display: inline-block;
+    width: 220px;
     text-align: left;
     font-size: 1.1em;
     padding-left: 2px;
@@ -367,10 +368,16 @@ div.sheet-acitems {width: 550px;}
     line-height: 0.85em;
     white-space: pre;
 }
-.sheet-attacks .sheet-atk {width: 80px;}
-.sheet-attacks .sheet-damage {width: 50px;}
-.sheet-attacks .sheet-pseudoattr.sheet-atk,
-.sheet-attacks .sheet-pseudoattr.sheet-damage {
+.sheet-attacks .sheet-atk {
+    display: inline-block;
+    width: 85px;
+}
+.sheet-attacks .sheet-damage {
+    display: inline-block;
+    width: 50px;
+}
+.sheet-attacks .sheet-atk .sheet-pseudoattr,
+.sheet-attacks .sheet-damage .sheet-pseudoattr {
     text-align: center;
     font-family: sans-serif;
     font-size: 0.9em;
