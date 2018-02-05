@@ -367,10 +367,14 @@ div.sheet-acitems {width: 550px;}
     line-height: 0.85em;
     white-space: pre;
 }
-.sheet-attacks .sheet-atk {width: 50px;}
-.sheet-attacks .sheet-damage {width: 80px;}
+.sheet-attacks .sheet-atk {width: 80px;}
+.sheet-attacks .sheet-damage {width: 50px;}
 .sheet-attacks .sheet-pseudoattr.sheet-atk,
-.sheet-attacks .sheet-pseudoattr.sheet-damage {text-align: center;}
+.sheet-attacks .sheet-pseudoattr.sheet-damage {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
 .sheet-attacks .sheet-ammo {width: 40px;}
 .sheet-attacks select.sheet-dmg {width: 70px;}
 
