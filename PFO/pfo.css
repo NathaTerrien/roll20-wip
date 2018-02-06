@@ -356,9 +356,10 @@ div.sheet-acitems {width: 550px;}
 .sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-atk-title {width: 105px;}
 .sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-damage-title {width: 50px;}
 .sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-ammo-title {width: 40px;}
+div.sheet-attack {margin-bottom: 2px;}
 .sheet-attack .sheet-weapon {
     display: inline-block;
-    width: 200px;
+    width: 208px;
     text-align: left;
     font-size: 1.1em;
     padding-left: 2px;
@@ -378,6 +379,7 @@ div.sheet-acitems {width: 550px;}
     vertical-align: top;
 }
 .sheet-attacks .sheet-damage {
+    display: inline-block;
     width: 50px;
     vertical-align: top;
 }
@@ -385,7 +387,7 @@ div.sheet-acitems {width: 550px;}
 .sheet-attacks .sheet-damage .sheet-pseudoattr {
     text-align: center;
     font-family: sans-serif;
-    font-size: 0.9em;
+    font-size: 0.95em;
 }
 .sheet-attacks .sheet-ammo {width: 40px;}
 .sheet-attacks select.sheet-dmg {width: 70px;}
