@@ -3221,16 +3221,16 @@
                 <div class="myrow right">
                     <div class="blacklabel">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd weapon">
+                        <div class="blackbgrd weapon-title">
                             <span class="big only" data-i18n="weapons-attacks">Weapons / Attacks</span>
                         </div>
-                        <div class="blackbgrd atk">
+                        <div class="blackbgrd atk-title">
                             <span class="med only" data-i18n="atk-u" >ATK</span>
                         </div>
-                        <div class="blackbgrd damage">
+                        <div class="blackbgrd damage-title">
                             <span class="med only" data-i18n="dmg-u" >DMG</span>
                         </div>
-                        <div class="blackbgrd ammo">
+                        <div class="blackbgrd ammo-title">
                             <span class="med only" data-i18n="ammo" >Ammo</span>
                         </div>
                     </div>
@@ -3241,11 +3241,11 @@
                             <div class="attack right compendium-drop-target">
                                 <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                                 <div class="myrow right">
-                                    <div class="weapon greybg underlined">
-                                        <button class="myrol" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
-                                            <span class="pseudoattr"><span class="pseudoattr" name="attr_atkname"></span><span class="vs" name="attr_atkdisplay"></span>
-                                            </span>
+                                    <div class="weapon">
+                                        <button class="myrol" style="width: 100%;" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{rollbase}">
+                                            <span class="pseudoattr greybg underlined" style="width: 100%;" name="attr_atkname"></span>
                                         </button>
+                                        <span class="pseudoattr vs block" name="attr_atkdisplay"></span>
                                     </div>
                                     <div class="atk greybg underlined center">
                                         <button class="myrol" type="roll" name="AtkRoll" data-i18n-title="attack-roll-1" title="Attack roll #1" value="@{rollbase_atk}">
@@ -3261,10 +3261,17 @@
                                             <span class="pseudoattr" name="attr_atkbonusdisplay3"></span>
                                         </button>
                                     </div>
-                                    <div class="damage greybg underlined center">
-                                        <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
-                                            <span class="pseudoattr" name="attr_atkdmgdisplay"></span>
-                                        </button>
+                                    <div class="damage">
+                                        <div class="greybg underlined center">
+                                            <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
+                                                <span class="pseudoattr" name="attr_atkdmgdisplay"></span>
+                                            </button>
+                                        </div>
+                                        <div class="greybg underlined center">
+                                            <button class="myrol" type="roll" name="DmgRoll" data-i18n-title="damage-roll" title="Damage roll" value="@{rollbase_dmg}">
+                                                <span class="pseudoattr" name="attr_atkdmgdisplay2"></span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <input type="number" class="underlined ammo" name="attr_atkammo" value="0" title="@{repeating_attacks_$id_atkammo}" />
                                 </div>

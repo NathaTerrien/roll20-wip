@@ -352,29 +352,34 @@ div.sheet-acitems {width: 550px;}
 .sheet-attacks .sheet-dmgbase {width: 120px;}
 .sheet-attacks .sheet-dmgtype {width: 120px;}
 .sheet-attacks span.sheet-lbl.sheet-atk {width: 55px;}
-.sheet-attacks .sheet-weapon {width: 200px;}
+.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-weapon-title {width: 180px;}
+.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-atk-title {width: 105px;}
+.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-damage-title {width: 50px;}
+.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-ammo-title {width: 40px;}
 .sheet-attack .sheet-weapon {
     display: inline-block;
-    width: 220px;
+    width: 200px;
     text-align: left;
     font-size: 1.1em;
     padding-left: 2px;
+    vertical-align: top;
 }
 .sheet-attack .sheet-weapon .sheet-vs {
     width: auto;
-    text-align: left;
+    text-align: right;
     font-family: sans-serif;
     font-size: 0.8em;
-    line-height: 0.85em;
     white-space: pre;
+    vertical-align: top;
 }
 .sheet-attacks .sheet-atk {
     display: inline-block;
-    width: 85px;
+    width: 105px;
+    vertical-align: top;
 }
 .sheet-attacks .sheet-damage {
-    display: inline-block;
     width: 50px;
+    vertical-align: top;
 }
 .sheet-attacks .sheet-atk .sheet-pseudoattr,
 .sheet-attacks .sheet-damage .sheet-pseudoattr {
