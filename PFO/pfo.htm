@@ -2443,7 +2443,7 @@
                         <div class="boxed">
                             <input type="number" name="attr_strength_base" value="10" class="baseattr" title="@{strength}" />
                             <input type="hidden" name="attr_strength" value="10" />
-                            <input type="hidden" name="attr_strength_flag" value="0" class="attr-flag" />
+                            <input type="hidden" name="attr_strength_bonus" value="0" class="attr-flag" />
                             <span name="attr_strength" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
@@ -2474,7 +2474,7 @@
                         <div class="boxed">
                             <input type="number" name="attr_dexterity_base" value="10" class="baseattr" title="@{dexterity}" />
                             <input type="hidden" name="attr_dexterity" value="10" />
-                            <input type="hidden" name="attr_dexterity_flag" value="0" class="attr-flag" />
+                            <input type="hidden" name="attr_dexterity_bonus" value="0" class="attr-flag" />
                             <span name="attr_dexterity" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
@@ -2503,7 +2503,7 @@
                         <div class="boxed">
                             <input type="number" name="attr_constitution_base" value="10" class="baseattr" title="@{constitution}" />
                             <input type="hidden" name="attr_constitution" value="10" />
-                            <input type="hidden" name="attr_constitution_flag" value="0" class="attr-flag" />
+                            <input type="hidden" name="attr_constitution_bonus" value="0" class="attr-flag" />
                             <span name="attr_constitution" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
@@ -2532,7 +2532,7 @@
                         <div class="boxed">
                             <input type="number" name="attr_intelligence_base" value="10" class="baseattr" title="@{intelligence}" />
                             <input type="hidden" name="attr_intelligence" value="10" />
-                            <input type="hidden" name="attr_intelligence_flag" value="0" class="attr-flag" />
+                            <input type="hidden" name="attr_intelligence_bonus" value="0" class="attr-flag" />
                             <span name="attr_intelligence" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
@@ -2561,7 +2561,7 @@
                         <div class="boxed">
                             <input type="number" name="attr_wisdom_base" value="10" class="baseattr" title="@{wisdom}" />
                             <input type="hidden" name="attr_wisdom" value="10" />
-                            <input type="hidden" name="attr_wisdom_flag" value="0" class="attr-flag" />
+                            <input type="hidden" name="attr_wisdom_bonus" value="0" class="attr-flag" />
                             <span name="attr_wisdom" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
@@ -2590,7 +2590,7 @@
                         <div class="boxed">
                             <input type="number" name="attr_charisma_base" value="10" class="baseattr" title="@{charisma}" />
                             <input type="hidden" name="attr_charisma" value="10" />
-                            <input type="hidden" name="attr_charisma_flag" value="0" class="attr-flag" />
+                            <input type="hidden" name="attr_charisma_bonus" value="0" class="attr-flag" />
                             <span name="attr_charisma" class="pseudoattr finalattr"></span>
                         </div>
                         <div class="boxed greybg">
@@ -2655,7 +2655,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_initiative_bonus_flag" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_initiative_bonus" class="attr-flag" value="0" />
                             <span name="attr_initiative" class="pseudoattr" title="@{initiative}"></span>
                         </div>
                         <div class="boxed">
@@ -2700,7 +2700,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_ac_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_ac_bonus" class="attr-flag" value="0" />
                         <span name="attr_ac" class="pseudoattr" title="@{ac}"></span>
                     </div>
                     <div class="boxed">
@@ -2713,7 +2713,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_ac_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_ac_bonus" class="attr-flag" value="0" />
                         <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
                     </div>
                     <div class="blacklabel flatfooted">
@@ -2723,7 +2723,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_ac_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_ac_bonus" class="attr-flag" value="0" />
                         <span name="attr_ac_flatfooted" class="pseudoattr" title="@{ac_flatfooted}"></span>
                     </div>
                 </div>
@@ -2802,7 +2802,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_fortitude_bonus_flag" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_fortitude_bonus" class="attr-flag" value="0" />
                             <span name="attr_fortitude" class="pseudoattr" title="@{fortitude}"></span>
                         </div>
                         <div class="boxed">
@@ -2817,7 +2817,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_reflex_bonus_flag" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_reflex_bonus" class="attr-flag" value="0" />
                             <span name="attr_reflex" class="pseudoattr" title="@{reflex}"></span>
                         </div>
                         <div class="boxed">
@@ -2832,7 +2832,7 @@
                             </div>
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_will_bonus_flag" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_will_bonus" class="attr-flag" value="0" />
                             <span name="attr_will" class="pseudoattr" title="@{will}"></span>
                         </div>
                         <div class="boxed">
@@ -2960,7 +2960,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_cmb_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_cmb_bonus" class="attr-flag" value="0" />
                         <span name="attr_cmb_mod" class="pseudoattr" title="@{cmb_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -3025,7 +3025,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_melee_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_melee_bonus" class="attr-flag" value="0" />
                         <span name="attr_melee_mod" class="pseudoattr" title="@{melee_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -3038,7 +3038,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_ranged_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_ranged_bonus" class="attr-flag" value="0" />
                         <span name="attr_ranged_mod" class="pseudoattr" title="@{ranged_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -3135,7 +3135,7 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_cmd_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_cmd_bonus" class="attr-flag" value="0" />
                         <span name="attr_cmd_mod" class="pseudoattr" title="@{cmd_mod}"></span>
                     </div>
                     <div class="boxed">
@@ -3416,19 +3416,22 @@
                         </div>
                     </div>
                     <div class="boxed greybg">
-                        <input type="hidden" name="attr_speed_bonus_flag" class="attr-flag" value="0" />
+                        <input type="hidden" name="attr_speed_bonus" class="attr-flag" value="0" />
                         <span name="attr_speed" class="pseudoattr" title="@{speed}"></span>
                     </div>
                     <div class="boxed">
                         <input type="number" name="attr_speed_bonus" class="boxed" value="0" title="@{speed_bonus}" />
                     </div>
                     <div class="boxed greybg margindent">
+                        <input type="hidden" name="attr_speed_bonus" class="attr-flag" value="0" />
                         <span name="attr_speed_run" class="pseudoattr" title="@{speed_run}"></span>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_speed_bonus" class="attr-flag" value="0" />
                         <span name="attr_speed_swim" class="pseudoattr" title="@{speed_swim}"></span>
                     </div>
                     <div class="boxed greybg">
+                        <input type="hidden" name="attr_speed_bonus" class="attr-flag" value="0" />
                         <span name="attr_speed_climb" class="pseudoattr" title="@{speed_climb}"></span>
                     </div>
                     <div class="boxed margindent">
@@ -5713,7 +5716,7 @@
                         <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
                             <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{class=@{caster1_class}}} {{roll=[[1d20+@{caster1_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster1_concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
-                            <input type="hidden" name="attr_caster1_concentration_bonus_flag" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_concentration_bonus" class="attr-flag" value="0" />
                             <span name="attr_caster1_concentration" class="pseudoattr number greybg underlined" title="@{caster1_concentration}"></span>
                             <span class="spacer"></span>
                             <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
@@ -5763,7 +5766,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_0" value="0" title="@{caster1_spells_bonus_level_0}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_0" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_0" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_0" class="pseudoattr" title="@{caster1_dc_level_0}"></span>
                         </div>
                         <div class="boxed">
@@ -5782,7 +5785,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_1" value="0" title="@{caster1_spells_bonus_level_1}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_1" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_1" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_1" class="pseudoattr" title="@{caster1_dc_level_1}"></span>
                         </div>
                         <div class="boxed">
@@ -5801,7 +5804,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_2" value="0" title="@{caster1_spells_bonus_level_2}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_2" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_2" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_2" class="pseudoattr" title="@{caster1_dc_level_2}"></span>
                         </div>
                         <div class="boxed">
@@ -5820,7 +5823,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_3" value="0" title="@{caster1_spells_bonus_level_3}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_3" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_3" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_3" class="pseudoattr" title="@{caster1_dc_level_3}"></span>
                         </div>
                         <div class="boxed">
@@ -5839,7 +5842,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_4" value="0" title="@{caster1_spells_bonus_level_4}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_4" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_4" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_4" class="pseudoattr" title="@{caster1_dc_level_4}"></span>
                         </div>
                         <div class="boxed">
@@ -5858,7 +5861,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_5" value="0" title="@{caster1_spells_bonus_level_5}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_5" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_5" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_5" class="pseudoattr" title="@{caster1_dc_level_5}"></span>
                         </div>
                         <div class="boxed">
@@ -5877,7 +5880,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_6" value="0" title="@{caster1_spells_bonus_level_6}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_6" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_6" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_6" class="pseudoattr" title="@{caster1_dc_level_6}"></span>
                         </div>
                         <div class="boxed">
@@ -5896,7 +5899,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_7" value="0" title="@{caster1_spells_bonus_level_7}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_7" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_7" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_7" class="pseudoattr" title="@{caster1_dc_level_7}"></span>
                         </div>
                         <div class="boxed">
@@ -5915,7 +5918,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_8" value="0" title="@{caster1_spells_bonus_level_8}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_8" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_8" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_8" class="pseudoattr" title="@{caster1_dc_level_8}"></span>
                         </div>
                         <div class="boxed">
@@ -5934,7 +5937,7 @@
                             <input type="number" name="attr_caster1_spells_bonus_level_9" value="0" title="@{caster1_spells_bonus_level_9}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster1_dcflag_level_9" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster1_dcbonus_level_9" class="attr-flag" value="0" />
                             <span name="attr_caster1_dc_level_9" class="pseudoattr" title="@{caster1_dc_level_9}"></span>
                         </div>
                         <div class="boxed">
@@ -5968,7 +5971,7 @@
                         <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
                             <button class="myrol" type="roll" name="Caster2ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{class=@{caster2_class}}} {{roll=[[1d20+@{caster2_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster2_concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
-                            <input type="hidden" name="attr_caster2_concentration_bonus_flag" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_concentration_bonus" class="attr-flag" value="0" />
                             <span name="attr_caster2_concentration" class="pseudoattr number greybg underlined" title="@{caster2_concentration}"></span>
                             <span class="spacer"></span>
                             <span class="lab" data-i18n="temp" data-i18n-title="temp-adjustment" title="Temp Adjustment">Temp</span>
@@ -6018,7 +6021,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_0" value="0" title="@{caster2_spells_bonus_level_0}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_0" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_0" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_0" class="pseudoattr" title="@{caster2_dc_level_0}"></span>
                         </div>
                         <div class="boxed">
@@ -6037,7 +6040,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_1" value="0" title="@{caster2_spells_bonus_level_1}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_1" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_1" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_1" class="pseudoattr" title="@{caster2_dc_level_1}"></span>
                         </div>
                         <div class="boxed">
@@ -6056,7 +6059,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_2" value="0" title="@{caster2_spells_bonus_level_2}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_2" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_2" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_2" class="pseudoattr" title="@{caster2_dc_level_2}"></span>
                         </div>
                         <div class="boxed">
@@ -6075,7 +6078,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_3" value="0" title="@{caster2_spells_bonus_level_3}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_3" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_3" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_3" class="pseudoattr" title="@{caster2_dc_level_3}"></span>
                         </div>
                         <div class="boxed">
@@ -6094,7 +6097,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_4" value="0" title="@{caster2_spells_bonus_level_4}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_4" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_4" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_4" class="pseudoattr" title="@{caster2_dc_level_4}"></span>
                         </div>
                         <div class="boxed">
@@ -6113,7 +6116,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_5" value="0" title="@{caster2_spells_bonus_level_5}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_5" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_5" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_5" class="pseudoattr" title="@{caster2_dc_level_5}"></span>
                         </div>
                         <div class="boxed">
@@ -6132,7 +6135,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_6" value="0" title="@{caster2_spells_bonus_level_6}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_6" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_6" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_6" class="pseudoattr" title="@{caster2_dc_level_6}"></span>
                         </div>
                         <div class="boxed">
@@ -6151,7 +6154,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_7" value="0" title="@{caster2_spells_bonus_level_7}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_7" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_7" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_7" class="pseudoattr" title="@{caster2_dc_level_7}"></span>
                         </div>
                         <div class="boxed">
@@ -6170,7 +6173,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_8" value="0" title="@{caster2_spells_bonus_level_8}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_8" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_8" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_8" class="pseudoattr" title="@{caster2_dc_level_8}"></span>
                         </div>
                         <div class="boxed">
@@ -6189,7 +6192,7 @@
                             <input type="number" name="attr_caster2_spells_bonus_level_9" value="0" title="@{caster2_spells_bonus_level_9}" />
                         </div>
                         <div class="boxed greybg">
-                            <input type="hidden" name="attr_caster2_dcflag_level_9" class="attr-flag" value="0" />
+                            <input type="hidden" name="attr_caster2_dcbonus_level_9" class="attr-flag" value="0" />
                             <span name="attr_caster2_dc_level_9" class="pseudoattr" title="@{caster2_dc_level_9}"></span>
                         </div>
                         <div class="boxed">
@@ -6245,7 +6248,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -6418,7 +6421,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -6595,7 +6598,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -6772,7 +6775,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -6949,7 +6952,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -7127,7 +7130,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -7304,7 +7307,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -7481,7 +7484,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -7658,7 +7661,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -7835,7 +7838,7 @@
                             <div class="myrow right">
                                 <input type="hidden" name="attr_rollcontent" />
                                 <button class="myrol" type="roll" name="SpellRoll" data-i18n-title="cast-spell" title="Cast spell" value="@{rollcontent}"><span class="pseudoattr greybg underlined spelldsp" name="attr_spelldisplay"></span></button>
-                                <input type="hidden" class="attr-flag" name="attr_spellprepared-flag" /><span></span>
+                                <input type="hidden" class="attr-flag" name="attr_spellprepared" /><span></span>
                                 <div class="dots">
                                     <input type="radio" name="attr_spellprepared" value="0" checked="checked" data-i18n-title="prepared-click" title="Prepared. Click to reset." /><span></span>
                                     <input type="radio" name="attr_spellprepared" value="1" data-i18n-title="prepared-once" title="Prepared once" /><span></span>
@@ -8956,7 +8959,6 @@
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
             var update = {};
             update["initiative"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
-            update["initiative_bonus_flag"] = (parseInt(v.initiative_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -9081,8 +9083,7 @@
             setAttrs({
                 "ac": ac,
                 "ac_touch": actouch,
-                "ac_flatfooted": acff,
-                "ac_bonus_flag": flag
+                "ac_flatfooted": acff
             });
         });
     };
@@ -9099,7 +9100,6 @@
                             + (parseInt(v.ac_deflection) || 0)
                             + (parseInt(v.cmd_misc) || 0)
                             + (parseInt(v.cmd_bonus) || 0);
-            update["cmd_bonus_flag"] = (parseInt(v.cmd_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
         return;
@@ -9111,7 +9111,6 @@
         getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
-            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -9142,7 +9141,6 @@
             var babarray = JSON.parse("[" + v.bab_multi + "]");
             var atkarray = [];
             update[attr + "_mod"] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
-            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             if (babarray.length) {
                 var tmp = 0;
                 _.each(babarray, function(babval) {
@@ -9578,7 +9576,6 @@
             var speed = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
             var fourth = calc_round_speed(speed/4);
             update["speed"] = speed;
-            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
             update["speed_run"] = (speed * runfac);
             update["speed_swim"] = fourth;
             update["speed_climb"] = fourth;
@@ -9718,7 +9715,6 @@
         getAttrs(fields, function(v) {
             var update = {};
             update["caster" + cster + "_concentration"] = (parseInt(v["caster" + cster + "_level"]) || 0) + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_concentration_misc"]) || 0) + (parseInt(v["caster" + cster + "_concentration_bonus"]) || 0);
-            update["caster" + cster + "_concentration_bonus_flag"] = (parseInt(v["caster" + cster + "_concentration_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update, {silent: true});
         });
     };
@@ -9741,7 +9737,6 @@
                 var i = 0;
                 for (i = minlvl; i < maxlvl; i++) {
                     update["caster" + cster + "_dc_level_" + i] = 10 + i + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_dc_misc"]) || 0) + (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0);
-                    update["caster" + cster + "_dcflag_level_" + i] = (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
                 }
                 setAttrs(update, {silent: false});
             });
@@ -9759,11 +9754,6 @@
         var update = {};
         var repsec = src.substr(0,17);
         var level = repsec.charAt(repsec.length - 1);
-        if (val != "") {
-            var splid = src.substring(18, 38);
-            var prep = parseInt(val) || 0;
-            update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
-        }
         getSectionIDs("repeating_spell-" + level, function(idarray) {
             var spell_attribs = ["caster1_spells_total_level_" + level];
             _.each(idarray, function(spellid) {

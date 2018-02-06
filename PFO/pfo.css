@@ -711,10 +711,10 @@ select.sheet-size {
     display: none;
 }
 /* ===== FLAGS ===== */
-.sheet-boxed .sheet-attr-flag[value="1"] + span,
-.sheet-spellcasting .sheet-attr-flag[value="1"] + span {color: #501414;}
-.sheet-boxed .sheet-attr-flag[value="1"] + span:after,
-.sheet-spellcasting .sheet-attr-flag[value="1"] + span:after {
+.sheet-boxed .sheet-attr-flag:not([value="0"]) + span,
+.sheet-spellcasting .sheet-attr-flag:not([value="0"]) + span {color: #501414;}
+.sheet-boxed .sheet-attr-flag:not([value="0"]) + span:after,
+.sheet-spellcasting .sheet-attr-flag:not([value="0"]) + span:after {
     content: "e";
     font-family: "Pictos";
     font-size: 0.8em;
@@ -722,8 +722,8 @@ select.sheet-size {
     position: absolute;
     margin-left: 1px;
 }
-.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr{color: #501414;}
-.sheet-boxed .sheet-attr-flag[value="1"] + .sheet-finalattr:after{
+.sheet-boxed .sheet-attr-flag:not([value="0"]) + .sheet-finalattr{color: #501414;}
+.sheet-boxed .sheet-attr-flag:not([value="0"]) + .sheet-finalattr:after{
     content: "e";
     font-family: "Pictos";
     font-size: 0.8em;
@@ -758,7 +758,7 @@ select.sheet-size {
     color: #BE202E;
     background: #DDD;
 }
-.sheet-spell .sheet-attr-flag[value="1"] + span:after {
+.sheet-spell .sheet-attr-flag:not([value="0"]) + span:after {
     content: "g";
 }
 

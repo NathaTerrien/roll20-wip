@@ -724,7 +724,6 @@
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
             var update = {};
             update["initiative"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
-            update["initiative_bonus_flag"] = (parseInt(v.initiative_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -849,8 +848,7 @@
             setAttrs({
                 "ac": ac,
                 "ac_touch": actouch,
-                "ac_flatfooted": acff,
-                "ac_bonus_flag": flag
+                "ac_flatfooted": acff
             });
         });
     };
@@ -867,7 +865,6 @@
                             + (parseInt(v.ac_deflection) || 0)
                             + (parseInt(v.cmd_misc) || 0)
                             + (parseInt(v.cmd_bonus) || 0);
-            update["cmd_bonus_flag"] = (parseInt(v.cmd_bonus) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
         return;
@@ -879,7 +876,6 @@
         getAttrs(fields, function(v) {
             var update = {};
             update[attr] = (parseInt(v[attr + "_base"]) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
-            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update);
         });
     };
@@ -910,7 +906,6 @@
             var babarray = JSON.parse("[" + v.bab_multi + "]");
             var atkarray = [];
             update[attr + "_mod"] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
-            update[attr + "_bonus_flag"] = (parseInt(v[attr + "_bonus"]) || 0) !=0 ? 1 : 0;
             if (babarray.length) {
                 var tmp = 0;
                 _.each(babarray, function(babval) {
@@ -1346,7 +1341,6 @@
             var speed = (parseInt(v.speed_base) || 30) + (parseInt(v.speed_bonus) || 0);
             var fourth = calc_round_speed(speed/4);
             update["speed"] = speed;
-            update["speed_bonus_flag"] = ((parseInt(v.speed_bonus) || 0) != 0) ? 1 : 0;
             update["speed_run"] = (speed * runfac);
             update["speed_swim"] = fourth;
             update["speed_climb"] = fourth;
@@ -1486,7 +1480,6 @@
         getAttrs(fields, function(v) {
             var update = {};
             update["caster" + cster + "_concentration"] = (parseInt(v["caster" + cster + "_level"]) || 0) + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_concentration_misc"]) || 0) + (parseInt(v["caster" + cster + "_concentration_bonus"]) || 0);
-            update["caster" + cster + "_concentration_bonus_flag"] = (parseInt(v["caster" + cster + "_concentration_bonus"]) || 0) !=0 ? 1 : 0;
             setAttrs(update, {silent: true});
         });
     };
@@ -1509,7 +1502,6 @@
                 var i = 0;
                 for (i = minlvl; i < maxlvl; i++) {
                     update["caster" + cster + "_dc_level_" + i] = 10 + i + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_dc_misc"]) || 0) + (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0);
-                    update["caster" + cster + "_dcflag_level_" + i] = (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0) !=0 ? 1 : 0;
                 }
                 setAttrs(update, {silent: false});
             });
@@ -1527,11 +1519,6 @@
         var update = {};
         var repsec = src.substr(0,17);
         var level = repsec.charAt(repsec.length - 1);
-        if (val != "") {
-            var splid = src.substring(18, 38);
-            var prep = parseInt(val) || 0;
-            update["repeating_spell-" + level + "_" + splid + "_spellprepared-flag"] = (prep > 0) ? 1 : 0;
-        }
         getSectionIDs("repeating_spell-" + level, function(idarray) {
             var spell_attribs = ["caster1_spells_total_level_" + level];
             _.each(idarray, function(spellid) {
