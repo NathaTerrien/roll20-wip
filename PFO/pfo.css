@@ -1086,6 +1086,7 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-npcatk .sheet-attack:hover .sheet-options-flag + span,
 .sheet-feat:hover .sheet-options-flag + span,
 .sheet-ability:hover .sheet-options-flag + span,
+.sheet-metamagic:hover .sheet-options-flag + span,
 .sheet-encumbrance:hover .sheet-options-flag + span,
 .sheet-speeds:hover .sheet-options-flag + span {
     display: block;
