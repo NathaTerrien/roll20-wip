@@ -2276,7 +2276,7 @@
             <fieldset class="repeating_abilities">
                 <div class="ability compendium-drop-target">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
+                    <button class="myrol underl" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
                         <input type="hidden" class="optional-flag" name="attr_type" value="" /><span class="optional inl bold">(<span name="attr_type"></span>)</span></button>
                     <span style="display: inline;" name="attr_description"></span>
                     <div class="options">
@@ -5955,7 +5955,7 @@
                     </div>
                 </div> <!-- END CASTER CLASS 1 -->
                 <div class="spacer"></div>
-                <input type="hidden" class="optional-flag0" name="attr_spellabilities_flag" value="0" /><div class="optional blk bordered titled inbox"> <!-- CASTER CLASS 2 -->
+                <input type="hidden" class="optional-flag0" name="attr_caster2_flag" value="0" /><div class="optional blk bordered titled inbox"> <!-- CASTER CLASS 2 -->
                     <div class="myrow">
                         <span class="lbl" data-i18n="class">Class</span>
                         <span class="roundblack">2</span>
@@ -6238,7 +6238,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_0" title="@{caster1_spells_prepared_level_0}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_0" title="@{caster1_spells_total_level_0}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_0" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_0" title="@{caster2_spells_prepared_level_0}"></span>
@@ -6423,7 +6423,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_1" title="@{caster1_spells_prepared_level_1}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_1" title="@{caster1_spells_total_level_1}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_1" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_1" title="@{caster2_spells_prepared_level_1}"></span>
@@ -6614,7 +6614,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_2" title="@{caster1_spells_prepared_level_2}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_2" title="@{caster1_spells_total_level_2}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_2" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_2" title="@{caster2_spells_prepared_level_2}"></span>
@@ -6803,7 +6803,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_3" title="@{caster1_spells_prepared_level_3}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_3" title="@{caster1_spells_total_level_3}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_3" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_3" title="@{caster2_spells_prepared_level_3}"></span>
@@ -6994,7 +6994,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_4" title="@{caster1_spells_prepared_level_4}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_4" title="@{caster1_spells_total_level_4}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_4" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_4" title="@{caster2_spells_prepared_level_4}"></span>
@@ -7183,7 +7183,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_5" title="@{caster1_spells_prepared_level_5}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_5" title="@{caster1_spells_total_level_5}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_5" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_5" title="@{caster2_spells_prepared_level_5}"></span>
@@ -7374,7 +7374,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_6" title="@{caster1_spells_prepared_level_6}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_6" title="@{caster1_spells_total_level_6}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_6" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_6" title="@{caster2_spells_prepared_level_6}"></span>
@@ -7563,7 +7563,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_7" title="@{caster1_spells_prepared_level_7}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_7" title="@{caster1_spells_total_level_7}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_7" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_7" title="@{caster2_spells_prepared_level_7}"></span>
@@ -7754,7 +7754,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_8" title="@{caster1_spells_prepared_level_8}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_8" title="@{caster1_spells_total_level_8}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_8" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_8" title="@{caster2_spells_prepared_level_8}"></span>
@@ -7943,7 +7943,7 @@
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_9" title="@{caster1_spells_prepared_level_9}"></span>
                             <span class="lbl">/</span>
                             <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_9" title="@{caster1_spells_total_level_9}"></span>
-                            <input type="hidden" name="attr_spellabilities_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                            <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_9" value="0" />
                                 <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster2_spells_prepared_level_9" title="@{caster2_spells_prepared_level_9}"></span>
@@ -8476,7 +8476,8 @@
                         </select>
                     </div>
                     <div class="myrow padindent"><span data-i18n="save-dc-misc-bonus">Save DC Misc Bonus</span>:<input type="number" name="attr_caster1_dc_misc" value="0" class="sml underlined" title="@{caster1_dc_misc}" /></div>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_spellabilities_flag" value="1" title="@{spellabilities_flag}" /><span></span><span data-i18n="second-caster-class:">Second Caster Class:</span></div>
+                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_caster1_spell_failure" value="1" title="@{caster1_spell_failure}" checked="checked" /><span></span><span data-i18n="armor-spell-failure">Armor spell failure</span></div>
+                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_caster2_flag" value="1" title="@{caster2_flag}" /><span></span><span data-i18n="second-caster-class:">Second Caster Class:</span></div>
                     <div class="myrow padindent">
                         <span data-i18n="ability">Ability</span>:
                         <select name="attr_caster2_ability" class="underlined" title="@{caster2_ability}">
@@ -8489,6 +8490,7 @@
                         </select>
                     </div>
                     <div class="myrow padindent"><span data-i18n="save-dc-misc-bonus">Save DC Misc Bonus</span>:<input type="number" name="attr_caster2_dc_misc" value="0" class="sml underlined" title="@{caster2_dc_misc}" /></div>
+                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_caster2_spell_failure" value="1" title="@{caster2_spell_failure}" checked="checked" /><span></span><span data-i18n="armor-spell-failure">Armor spell failure</span></div>
             </div>
         </div>
         <div class="col1third">
@@ -8997,8 +8999,16 @@
     });
 
     // SPELLS - SPELLCASTING
+    // -- Armor spell failure
+    on("change:armor_spell_failure change:caster1_spell_failure change:caster2_spell_failure", function() {
+        getAttrs(["armor_spell_failure","caster1_spell_failure","caster2_flag","caster2_spell_failure"], function(v) {
+            if( (v.armor_spell_failure != "0") && ((v.caster1_spell_failure == "1") || ((v.caster2_flag == "1") && (v.caster2_spell_failure == "1"))) ) {
+                update_all_spells("all");
+            }
+        });
+    });
     // -- Musticasting
-    on("change:spellabilities_flag change:caster1_class change:caster2_class", function(){
+    on("change:caster1_class change:caster2_flag change:caster2_class", function(){
        update_all_spells("all");
     });
     // -- Concentration & DCs
@@ -10151,7 +10161,7 @@
         }
     };
     var do_update_spell = function(spell_level,spell_array) {
-        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"spellabilities_flag","caster1_class","caster2_class"]; // "caster3_dc_level_" + spell_level, "caster3_class"
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"caster2_flag","caster1_class","caster2_class","armor_spell_failure","caster1_spell_failure","caster2_spell_failure","npc"]; // "caster3_dc_level_" + spell_level, "caster3_class"
         _.each(spell_array, function(spellid) {
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelllevel");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcaster");
@@ -10218,7 +10228,7 @@
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                     // Multicasting
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
-                    if (v.spellabilities_flag == "1") {
+                    if (v.caster2_flag == "1") {
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : " ";
                     } else {
@@ -10230,11 +10240,19 @@
                 // == Save DC
                 var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
                 // == Rolls handling
+                // base
                 rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + "}}{{type=spell}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}";
+                // spell level
                 if (spell_level == "like") {
-                    rollbase += "{{level=" + v.caster2_level + "}}";
+                    if (v.npc == "1") {
+                        rollbase += "{{level=" + v.caster2_level + "}}";
+                    }
                 } else {
                     rollbase += "{{level=" + spell_level + "}}";
+                }
+                // caster class
+                if ((v.npc == "0") && (v.caster2_flag == "1")) {
+                    rollbase += "{{casterclass=" + ((v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "1") ? v.caster1_class : v.caster2_class) + "}}";
                 }
                 // school
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"].length != 0) {rollbase += "{{school=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"] + "}}";}
@@ -10278,6 +10296,13 @@
                         stemp = "" + dmg2base + "+@{rollmod_damage}[BONUS]";
                         rollbase += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
                         if(atkflag != "0") {rollbase += "{{dmg2crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";}
+                    }
+                }
+                // spell failure
+                if ((v.npc == "0") && (spell_level != "like")) {
+                    if( (v.armor_spell_failure != "0") && ( ((v.caster1_spell_failure == "1") && (v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "1")) || ((v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "2") && (v.caster2_spell_failure == "1"))) ) {
+                        rollbase += "{{spellfailureroll=[[1d100]]}}";
+                        rollbase += "{{spellfailure=[[" + v.armor_spell_failure + "]]}}";
                     }
                 }
                 // notes

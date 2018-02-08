@@ -435,8 +435,16 @@
     });
 
     // SPELLS - SPELLCASTING
+    // -- Armor spell failure
+    on("change:armor_spell_failure change:caster1_spell_failure change:caster2_spell_failure", function() {
+        getAttrs(["armor_spell_failure","caster1_spell_failure","caster2_flag","caster2_spell_failure"], function(v) {
+            if( (v.armor_spell_failure != "0") && ((v.caster1_spell_failure == "1") || ((v.caster2_flag == "1") && (v.caster2_spell_failure == "1"))) ) {
+                update_all_spells("all");
+            }
+        });
+    });
     // -- Musticasting
-    on("change:spellabilities_flag change:caster1_class change:caster2_class", function(){
+    on("change:caster1_class change:caster2_flag change:caster2_class", function(){
        update_all_spells("all");
     });
     // -- Concentration & DCs
@@ -1589,7 +1597,7 @@
         }
     };
     var do_update_spell = function(spell_level,spell_array) {
-        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"spellabilities_flag","caster1_class","caster2_class"]; // "caster3_dc_level_" + spell_level, "caster3_class"
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"caster2_flag","caster1_class","caster2_class","armor_spell_failure","caster1_spell_failure","caster2_spell_failure","npc"]; // "caster3_dc_level_" + spell_level, "caster3_class"
         _.each(spell_array, function(spellid) {
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelllevel");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcaster");
@@ -1656,7 +1664,7 @@
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                     // Multicasting
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
-                    if (v.spellabilities_flag == "1") {
+                    if (v.caster2_flag == "1") {
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : " ";
                     } else {
@@ -1668,11 +1676,19 @@
                 // == Save DC
                 var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
                 // == Rolls handling
+                // base
                 rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + "}}{{type=spell}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}";
+                // spell level
                 if (spell_level == "like") {
-                    rollbase += "{{level=" + v.caster2_level + "}}";
+                    if (v.npc == "1") {
+                        rollbase += "{{level=" + v.caster2_level + "}}";
+                    }
                 } else {
                     rollbase += "{{level=" + spell_level + "}}";
+                }
+                // caster class
+                if ((v.npc == "0") && (v.caster2_flag == "1")) {
+                    rollbase += "{{casterclass=" + ((v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "1") ? v.caster1_class : v.caster2_class) + "}}";
                 }
                 // school
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"].length != 0) {rollbase += "{{school=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"] + "}}";}
@@ -1716,6 +1732,13 @@
                         stemp = "" + dmg2base + "+@{rollmod_damage}[BONUS]";
                         rollbase += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
                         if(atkflag != "0") {rollbase += "{{dmg2crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";}
+                    }
+                }
+                // spell failure
+                if ((v.npc == "0") && (spell_level != "like")) {
+                    if( (v.armor_spell_failure != "0") && ( ((v.caster1_spell_failure == "1") && (v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "1")) || ((v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "2") && (v.caster2_spell_failure == "1"))) ) {
+                        rollbase += "{{spellfailureroll=[[1d100]]}}";
+                        rollbase += "{{spellfailure=[[" + v.armor_spell_failure + "]]}}";
                     }
                 }
                 // notes
