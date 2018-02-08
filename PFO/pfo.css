@@ -472,7 +472,7 @@ input[type="text"].sheet-std {
     display: inline-block;
     position: relative;
 }
-
+.sheet-spells .sheet-pseudoattr.sheet-sml {width: 25px;}
 .sheet-fullpc .sheet-money .sheet-blacklabel,
 .sheet-fullpc .sheet-feats .sheet-blacklabel,
 .sheet-fullpc .sheet-traits .sheet-blacklabel,
@@ -725,9 +725,11 @@ select.sheet-size {
 }
 /* ===== FLAGS ===== */
 .sheet-boxed .sheet-attr-flag:not([value="0"]) + span,
-.sheet-spellcasting .sheet-attr-flag:not([value="0"]) + span {color: #501414;}
+.sheet-spellcasting .sheet-attr-flag:not([value="0"]) + span,
+.sheet-spells .sheet-attr-flag:not([value="0"]) + span.sheet-prepared {color: #501414;}
 .sheet-boxed .sheet-attr-flag:not([value="0"]) + span:after,
-.sheet-spellcasting .sheet-attr-flag:not([value="0"]) + span:after {
+.sheet-spellcasting .sheet-attr-flag:not([value="0"]) + span:after,
+.sheet-spells .sheet-attr-flag:not([value="0"]) +  span.sheet-prepared:after {
     content: "e";
     font-family: "Pictos";
     font-size: 0.8em;

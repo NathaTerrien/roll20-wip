@@ -440,25 +440,28 @@
        update_all_spells("all");
     });
     // -- Concentration & DCs
-    on("change:caster1_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
-    on("change:caster1_ability_mod", function(e) {
+    on("change:caster1_ability change:caster2_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
+    on("change:caster1_ability_mod change:caster2_ability_mod", function(e) {
         update_concentration(e.sourceAttribute);
         update_spellsdc(e.sourceAttribute);
     });
-    on("change:caster1_level", function(e) {
+    on("change:caster1_level change:caster2_level", function(e) {
         if(pfoglobals_ispc) {
            update_concentration(e.sourceAttribute);
         }
     });
-    on("change:caster1_concentration_misc change:caster1_concentration_bonus", function(e) {
+    on("change:caster1_concentration_misc change:caster1_concentration_bonus change:caster2_concentration_misc change:caster2_concentration_bonus", function(e) {
         update_concentration(e.sourceAttribute);
     });
-    on("change:caster1_dc_misc change:caster1_dcbonus_level_0 change:caster1_dcbonus_level_1 change:caster1_dcbonus_level_2 change:caster1_dcbonus_level_3 change:caster1_dcbonus_level_4 change:caster1_dcbonus_level_5 change:caster1_dcbonus_level_6 change:caster1_dcbonus_level_7 change:caster1_dcbonus_level_8 change:caster1_dcbonus_level_9", function(e) {
+    on("change:caster1_dc_misc change:caster1_dcbonus_level_0 change:caster1_dcbonus_level_1 change:caster1_dcbonus_level_2 change:caster1_dcbonus_level_3 change:caster1_dcbonus_level_4 change:caster1_dcbonus_level_5 change:caster1_dcbonus_level_6 change:caster1_dcbonus_level_7 change:caster1_dcbonus_level_8 change:caster1_dcbonus_level_9 change:caster2_dc_misc change:caster2_dcbonus_level_0 change:caster2_dcbonus_level_1 change:caster2_dcbonus_level_2 change:caster2_dcbonus_level_3 change:caster2_dcbonus_level_4 change:caster2_dcbonus_level_5 change:caster2_dcbonus_level_6 change:caster2_dcbonus_level_7 change:caster2_dcbonus_level_8 change:caster2_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
     });
     // -- Prepared / Total
     on("change:caster1_spells_perday_level_0 change:caster1_spells_perday_level_1 change:caster1_spells_perday_level_2 change:caster1_spells_perday_level_3 change:caster1_spells_perday_level_4 change:caster1_spells_perday_level_5 change:caster1_spells_perday_level_6 change:caster1_spells_perday_level_7 change:caster1_spells_perday_level_8 change:caster1_spells_perday_level_9 change:caster1_spells_bonus_level_0 change:caster1_spells_bonus_level_1 change:caster1_spells_bonus_level_2 change:caster1_spells_bonus_level_3 change:caster1_spells_bonus_level_4 change:caster1_spells_bonus_level_5 change:caster1_spells_bonus_level_6 change:caster1_spells_bonus_level_7 change:caster1_spells_bonus_level_8 change:caster1_spells_bonus_level_9", function(e) {
         update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),1);
+    });
+    on("change:caster2_spells_perday_level_0 change:caster2_spells_perday_level_1 change:caster2_spells_perday_level_2 change:caster2_spells_perday_level_3 change:caster2_spells_perday_level_4 change:caster2_spells_perday_level_5 change:caster2_spells_perday_level_6 change:caster2_spells_perday_level_7 change:caster2_spells_perday_level_8 change:caster2_spells_perday_level_9 change:caster2_spells_bonus_level_0 change:caster2_spells_bonus_level_1 change:caster2_spells_bonus_level_2 change:caster2_spells_bonus_level_3 change:caster2_spells_bonus_level_4 change:caster2_spells_bonus_level_5 change:caster2_spells_bonus_level_6 change:caster2_spells_bonus_level_7 change:caster2_spells_bonus_level_8 change:caster2_spells_bonus_level_9", function(e) {
+        update_spells_totals(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),2);
     });
     on("change:repeating_spell-0:spellprepared change:repeating_spell-1:spellprepared change:repeating_spell-2:spellprepared change:repeating_spell-3:spellprepared change:repeating_spell-4:spellprepared change:repeating_spell-5:spellprepared change:repeating_spell-6:spellprepared change:repeating_spell-7:spellprepared change:repeating_spell-8:spellprepared change:repeating_spell-9:spellprepared", function(e) {
         update_spells_prepared(e.sourceAttribute,e.newValue);
@@ -469,47 +472,52 @@
     });
     // -- Rolls / Display
     on("change:caster1_dc_level_0 change:caster1_dc_level_1 change:caster1_dc_level_2 change:caster1_dc_level_3 change:caster1_dc_level_4 change:caster1_dc_level_5 change:caster1_dc_level_6 change:caster1_dc_level_7 change:caster1_dc_level_8 change:caster1_dc_level_9", function(e){
-        update_spells(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),"all","");
+        update_spells(e.sourceAttribute.charAt(e.sourceAttribute.length - 1),"all");
     });
     on("change:repeating_spell-0:spellname change:repeating_spell-0:spellschool change:repeating_spell-0:spellclasslevel change:repeating_spell-0:spellcastingtime change:repeating_spell-0:spellcomponent change:repeating_spell-0:spellrange change:repeating_spell-0:spellarea change:repeating_spell-0:spelltargets change:repeating_spell-0:spelleffect change:repeating_spell-0:spellduration change:repeating_spell-0:spellsaveflag change:repeating_spell-0:spellsave change:repeating_spell-0:spelldc_mod change:repeating_spell-0:spellresistanceflag change:repeating_spell-0:spellresistance change:repeating_spell-0:spellatkflag change:repeating_spell-0:spellatktype change:repeating_spell-0:spellatkmod change:repeating_spell-0:spellatkcritrange change:repeating_spell-0:spelldmgcritmulti change:repeating_spell-0:spelldmgflag change:repeating_spell-0:spelldmg change:repeating_spell-0:spelldmgtype change:repeating_spell-0:spelldmg2flag change:repeating_spell-0:spelldmg2 change:repeating_spell-0:spelldmg2type change:repeating_spell-0:spelldescflag change:repeating_spell-0:spelldesc change:repeating_spell-0:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(0,spellid,"");
+        update_spells(0,spellid);
     });
     on("change:repeating_spell-1:spellname change:repeating_spell-1:spellschool change:repeating_spell-1:spellclasslevel change:repeating_spell-1:spellcastingtime change:repeating_spell-1:spellcomponent change:repeating_spell-1:spellrange change:repeating_spell-1:spellarea change:repeating_spell-1:spelltargets change:repeating_spell-1:spelleffect change:repeating_spell-1:spellduration change:repeating_spell-1:spellsaveflag change:repeating_spell-1:spellsave change:repeating_spell-1:spelldc_mod change:repeating_spell-1:spellresistanceflag change:repeating_spell-1:spellresistance change:repeating_spell-1:spellatkflag change:repeating_spell-1:spellatktype change:repeating_spell-1:spellatkmod change:repeating_spell-1:spellatkcritrange change:repeating_spell-1:spelldmgcritmulti change:repeating_spell-1:spelldmgflag change:repeating_spell-1:spelldmg change:repeating_spell-1:spelldmgtype change:repeating_spell-1:spelldmg2flag change:repeating_spell-1:spelldmg2 change:repeating_spell-1:spelldmg2type change:repeating_spell-1:spelldescflag change:repeating_spell-1:spelldesc change:repeating_spell-1:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(1,spellid,"");
+        update_spells(1,spellid);
     });
     on("change:repeating_spell-2:spellname change:repeating_spell-2:spellschool change:repeating_spell-2:spellclasslevel change:repeating_spell-2:spellcastingtime change:repeating_spell-2:spellcomponent change:repeating_spell-2:spellrange change:repeating_spell-2:spellarea change:repeating_spell-2:spelltargets change:repeating_spell-2:spelleffect change:repeating_spell-2:spellduration change:repeating_spell-2:spellsaveflag change:repeating_spell-2:spellsave change:repeating_spell-2:spelldc_mod change:repeating_spell-2:spellresistanceflag change:repeating_spell-2:spellresistance change:repeating_spell-2:spellatkflag change:repeating_spell-2:spellatktype change:repeating_spell-2:spellatkmod change:repeating_spell-2:spellatkcritrange change:repeating_spell-2:spelldmgcritmulti change:repeating_spell-2:spelldmgflag change:repeating_spell-2:spelldmg change:repeating_spell-2:spelldmgtype change:repeating_spell-2:spelldmg2flag change:repeating_spell-2:spelldmg2 change:repeating_spell-2:spelldmg2type change:repeating_spell-2:spelldescflag change:repeating_spell-2:spelldesc change:repeating_spell-2:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(2,spellid,"");
+        update_spells(2,spellid);
     });
     on("change:repeating_spell-3:spellname change:repeating_spell-3:spellschool change:repeating_spell-3:spellclasslevel change:repeating_spell-3:spellcastingtime change:repeating_spell-3:spellcomponent change:repeating_spell-3:spellrange change:repeating_spell-3:spellarea change:repeating_spell-3:spelltargets change:repeating_spell-3:spelleffect change:repeating_spell-3:spellduration change:repeating_spell-3:spellsaveflag change:repeating_spell-3:spellsave change:repeating_spell-3:spelldc_mod change:repeating_spell-3:spellresistanceflag change:repeating_spell-3:spellresistance change:repeating_spell-3:spellatkflag change:repeating_spell-3:spellatktype change:repeating_spell-3:spellatkmod change:repeating_spell-3:spellatkcritrange change:repeating_spell-3:spelldmgcritmulti change:repeating_spell-3:spelldmgflag change:repeating_spell-3:spelldmg change:repeating_spell-3:spelldmgtype change:repeating_spell-3:spelldmg2flag change:repeating_spell-3:spelldmg2 change:repeating_spell-3:spelldmg2type change:repeating_spell-3:spelldescflag change:repeating_spell-3:spelldesc change:repeating_spell-3:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(3,spellid,"");
+        update_spells(3,spellid);
     });
     on("change:repeating_spell-4:spellname change:repeating_spell-4:spellschool change:repeating_spell-4:spellclasslevel change:repeating_spell-4:spellcastingtime change:repeating_spell-4:spellcomponent change:repeating_spell-4:spellrange change:repeating_spell-4:spellarea change:repeating_spell-4:spelltargets change:repeating_spell-4:spelleffect change:repeating_spell-4:spellduration change:repeating_spell-4:spellsaveflag change:repeating_spell-4:spellsave change:repeating_spell-4:spelldc_mod change:repeating_spell-4:spellresistanceflag change:repeating_spell-4:spellresistance change:repeating_spell-4:spellatkflag change:repeating_spell-4:spellatktype change:repeating_spell-4:spellatkmod change:repeating_spell-4:spellatkcritrange change:repeating_spell-4:spelldmgcritmulti change:repeating_spell-4:spelldmgflag change:repeating_spell-4:spelldmg change:repeating_spell-4:spelldmgtype change:repeating_spell-4:spelldmg2flag change:repeating_spell-4:spelldmg2 change:repeating_spell-4:spelldmg2type change:repeating_spell-4:spelldescflag change:repeating_spell-4:spelldesc change:repeating_spell-4:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(4,spellid,"");
+        update_spells(4,spellid);
     });
     on("change:repeating_spell-5:spellname change:repeating_spell-5:spellschool change:repeating_spell-5:spellclasslevel change:repeating_spell-5:spellcastingtime change:repeating_spell-5:spellcomponent change:repeating_spell-5:spellrange change:repeating_spell-5:spellarea change:repeating_spell-5:spelltargets change:repeating_spell-5:spelleffect change:repeating_spell-5:spellduration change:repeating_spell-5:spellsaveflag change:repeating_spell-5:spellsave change:repeating_spell-5:spelldc_mod change:repeating_spell-5:spellresistanceflag change:repeating_spell-5:spellresistance change:repeating_spell-5:spellatkflag change:repeating_spell-5:spellatktype change:repeating_spell-5:spellatkmod change:repeating_spell-5:spellatkcritrange change:repeating_spell-5:spelldmgcritmulti change:repeating_spell-5:spelldmgflag change:repeating_spell-5:spelldmg change:repeating_spell-5:spelldmgtype change:repeating_spell-5:spelldmg2flag change:repeating_spell-5:spelldmg2 change:repeating_spell-5:spelldmg2type change:repeating_spell-5:spelldescflag change:repeating_spell-5:spelldesc change:repeating_spell-5:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(5,spellid,"");
+        update_spells(5,spellid);
     });
     on("change:repeating_spell-6:spellname change:repeating_spell-6:spellschool change:repeating_spell-6:spellclasslevel change:repeating_spell-6:spellcastingtime change:repeating_spell-6:spellcomponent change:repeating_spell-6:spellrange change:repeating_spell-6:spellarea change:repeating_spell-6:spelltargets change:repeating_spell-6:spelleffect change:repeating_spell-6:spellduration change:repeating_spell-6:spellsaveflag change:repeating_spell-6:spellsave change:repeating_spell-6:spelldc_mod change:repeating_spell-6:spellresistanceflag change:repeating_spell-6:spellresistance change:repeating_spell-6:spellatkflag change:repeating_spell-6:spellatktype change:repeating_spell-6:spellatkmod change:repeating_spell-6:spellatkcritrange change:repeating_spell-6:spelldmgcritmulti change:repeating_spell-6:spelldmgflag change:repeating_spell-6:spelldmg change:repeating_spell-6:spelldmgtype change:repeating_spell-6:spelldmg2flag change:repeating_spell-6:spelldmg2 change:repeating_spell-6:spelldmg2type change:repeating_spell-6:spelldescflag change:repeating_spell-6:spelldesc change:repeating_spell-6:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(6,spellid,"");
+        update_spells(6,spellid);
     });
     on("change:repeating_spell-7:spellname change:repeating_spell-7:spellschool change:repeating_spell-7:spellclasslevel change:repeating_spell-7:spellcastingtime change:repeating_spell-7:spellcomponent change:repeating_spell-7:spellrange change:repeating_spell-7:spellarea change:repeating_spell-7:spelltargets change:repeating_spell-7:spelleffect change:repeating_spell-7:spellduration change:repeating_spell-7:spellsaveflag change:repeating_spell-7:spellsave change:repeating_spell-7:spelldc_mod change:repeating_spell-7:spellresistanceflag change:repeating_spell-7:spellresistance change:repeating_spell-7:spellatkflag change:repeating_spell-7:spellatktype change:repeating_spell-7:spellatkmod change:repeating_spell-7:spellatkcritrange change:repeating_spell-7:spelldmgcritmulti change:repeating_spell-7:spelldmgflag change:repeating_spell-7:spelldmg change:repeating_spell-7:spelldmgtype change:repeating_spell-7:spelldmg2flag change:repeating_spell-7:spelldmg2 change:repeating_spell-7:spelldmg2type change:repeating_spell-7:spelldescflag change:repeating_spell-7:spelldesc change:repeating_spell-7:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(7,spellid,"");
+        update_spells(7,spellid);
     });
     on("change:repeating_spell-8:spellname change:repeating_spell-8:spellschool change:repeating_spell-8:spellclasslevel change:repeating_spell-8:spellcastingtime change:repeating_spell-8:spellcomponent change:repeating_spell-8:spellrange change:repeating_spell-8:spellarea change:repeating_spell-8:spelltargets change:repeating_spell-8:spelleffect change:repeating_spell-8:spellduration change:repeating_spell-8:spellsaveflag change:repeating_spell-8:spellsave change:repeating_spell-8:spelldc_mod change:repeating_spell-8:spellresistanceflag change:repeating_spell-8:spellresistance change:repeating_spell-8:spellatkflag change:repeating_spell-8:spellatktype change:repeating_spell-8:spellatkmod change:repeating_spell-8:spellatkcritrange change:repeating_spell-8:spelldmgcritmulti change:repeating_spell-8:spelldmgflag change:repeating_spell-8:spelldmg change:repeating_spell-8:spelldmgtype change:repeating_spell-8:spelldmg2flag change:repeating_spell-8:spelldmg2 change:repeating_spell-8:spelldmg2type change:repeating_spell-8:spelldescflag change:repeating_spell-8:spelldesc change:repeating_spell-8:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(8,spellid,"");
+        update_spells(8,spellid);
     });
     on("change:repeating_spell-9:spellname change:repeating_spell-9:spellschool change:repeating_spell-9:spellclasslevel change:repeating_spell-9:spellcastingtime change:repeating_spell-9:spellcomponent change:repeating_spell-9:spellrange change:repeating_spell-9:spellarea change:repeating_spell-9:spelltargets change:repeating_spell-9:spelleffect change:repeating_spell-9:spellduration change:repeating_spell-9:spellsaveflag change:repeating_spell-9:spellsave change:repeating_spell-9:spelldc_mod change:repeating_spell-9:spellresistanceflag change:repeating_spell-9:spellresistance change:repeating_spell-9:spellatkflag change:repeating_spell-9:spellatktype change:repeating_spell-9:spellatkmod change:repeating_spell-9:spellatkcritrange change:repeating_spell-9:spelldmgcritmulti change:repeating_spell-9:spelldmgflag change:repeating_spell-9:spelldmg change:repeating_spell-9:spelldmgtype change:repeating_spell-9:spelldmg2flag change:repeating_spell-9:spelldmg2 change:repeating_spell-9:spelldmg2type change:repeating_spell-9:spelldescflag change:repeating_spell-9:spelldesc change:repeating_spell-9:notes", function(e) {
         var spellid = e.sourceAttribute.substring(18, 38);
-        update_spells(9,spellid,"");
+        update_spells(9,spellid);
+    });
+    // --- PC/NPC Spell-like abilities
+    on("change:repeating_spell-like:spellname change:repeating_spell-like:spellschool change:repeating_spell-like:spellclasslevel change:repeating_spell-like:spellcastingtime change:repeating_spell-like:spellrange change:repeating_spell-like:spellarea change:repeating_spell-like:spelltargets change:repeating_spell-like:spelleffect change:repeating_spell-like:spellduration change:repeating_spell-like:spellsaveflag change:repeating_spell-like:spellsave change:repeating_spell-like:spelldc_mod change:repeating_spell-like:spellresistanceflag change:repeating_spell-like:spellresistance change:repeating_spell-like:spellatkflag change:repeating_spell-like:spellatktype change:repeating_spell-like:spellatkmod change:repeating_spell-like:spellatkcritrange change:repeating_spell-like:spelldmgcritmulti change:repeating_spell-like:spelldmgflag change:repeating_spell-like:spelldmg change:repeating_spell-like:spelldmgtype change:repeating_spell-like:spelldmg2flag change:repeating_spell-like:spelldmg2 change:repeating_spell-like:spelldmg2type change:repeating_spell-like:spelldescflag change:repeating_spell-like:spelldesc change:repeating_spell-like:notes change:repeating_spell-like:timesperday change:repeating_spell-like:perday_max", function(e) {
+        var spellid = e.sourceAttribute.substring(21, 41);
+        update_spells("like",spellid);
     });
 
     // === NPC
@@ -529,11 +537,6 @@
     on("change:repeating_npcatk-ranged:atkname change:repeating_npcatk-ranged:atkmod change:repeating_npcatk-ranged:multipleatk_flag change:repeating_npcatk-ranged:atkmod2 change:repeating_npcatk-ranged:atkmod3 change:repeating_npcatk-ranged:atkmod4 change:repeating_npcatk-ranged:atkmod5 change:repeating_npcatk-ranged:atkmod6 change:repeating_npcatk-ranged:atkmod7 change:repeating_npcatk-ranged:atkmod8 change:repeating_npcatk-ranged:atkmod9 change:repeating_npcatk-ranged:atkcritrange change:repeating_npcatk-ranged:atkrange change:repeating_npcatk-ranged:dmgflag change:repeating_npcatk-ranged:dmgbase change:repeating_npcatk-ranged:dmgtype change:repeating_npcatk-ranged:dmgcritmulti change:repeating_npcatk-ranged:dmg2flag change:repeating_npcatk-ranged:dmg2base change:repeating_npcatk-ranged:dmg2type change:repeating_npcatk-ranged:dmg2critmulti", function(e) {
             var atkid = e.sourceAttribute.substring(24, 44);
             update_npc_attack("ranged",atkid);
-    });
-    // --- NPC Spell-like abilities
-    on("change:repeating_spell-like:spellname change:repeating_spell-like:spellschool change:repeating_spell-like:spellclasslevel change:repeating_spell-like:spellcastingtime change:repeating_spell-like:spellrange change:repeating_spell-like:spellarea change:repeating_spell-like:spelltargets change:repeating_spell-like:spelleffect change:repeating_spell-like:spellduration change:repeating_spell-like:spellsaveflag change:repeating_spell-like:spellsave change:repeating_spell-like:spelldc_mod change:repeating_spell-like:spellresistanceflag change:repeating_spell-like:spellresistance change:repeating_spell-like:spellatkflag change:repeating_spell-like:spellatktype change:repeating_spell-like:spellatkmod change:repeating_spell-like:spellatkcritrange change:repeating_spell-like:spelldmgcritmulti change:repeating_spell-like:spelldmgflag change:repeating_spell-like:spelldmg change:repeating_spell-like:spelldmgtype change:repeating_spell-like:spelldmg2flag change:repeating_spell-like:spelldmg2 change:repeating_spell-like:spelldmg2type change:repeating_spell-like:spelldescflag change:repeating_spell-like:spelldesc change:repeating_spell-like:notes change:repeating_spell-like:timesperday change:repeating_spell-like:perday_max", function(e) {
-        var spellid = e.sourceAttribute.substring(21, 41);
-        update_spells("like",spellid,"");
     });
 
     // === CONFIGURATION
@@ -1524,17 +1527,25 @@
         var repsec = src.substr(0,17);
         var level = repsec.charAt(repsec.length - 1);
         getSectionIDs("repeating_spell-" + level, function(idarray) {
-            var spell_attribs = ["caster1_spells_total_level_" + level];
+            var spell_attribs = ["caster1_spells_total_level_" + level,"caster2_spells_total_level_" + level];
             _.each(idarray, function(spellid) {
                 spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellprepared");
+                spell_attribs.push("repeating_spell-" + level + "_" + spellid + "_spellcaster");
             });
             getAttrs(spell_attribs, function(v) {
-                var total = 0;
+                var total1 = 0;
+                var total2 = 0;
                 _.each(idarray, function(id) {
-                    total += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
+                    if (v["repeating_spell-" + level + "_" + id + "_spellcaster"] == "2") {
+                        total2 += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
+                    } else {
+                        total1 += parseInt(v["repeating_spell-" + level + "_" + id + "_spellprepared"]) || 0;
+                    }
                 });
-                update["spells_prepared_level_" + level] = total;
-                update["spells_prepared_flag_" + level] = (total > (parseInt(v["caster1_spells_total_level_" + level]) || 0)) ? 1 : 0;
+                update["caster1_spells_prepared_level_" + level] = total1;
+                update["caster1_spells_prepared_flag_" + level] = (total1 > (parseInt(v["caster1_spells_total_level_" + level]) || 0)) ? 1 : 0;
+                update["caster2_spells_prepared_level_" + level] = total2;
+                update["caster2_spells_prepared_flag_" + level] = (total2 > (parseInt(v["caster2_spells_total_level_" + level]) || 0)) ? 1 : 0;
                 setAttrs(update, {silent: true});
             });
         });
@@ -1644,14 +1655,14 @@
                 } else {
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                     // Multicasting
-                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : "";
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
                     if (v.spellabilities_flag == "1") {
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : "";
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : " ";
                     } else {
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 1;
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 0;
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = "";
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = " ";
                     }
                 }
                 // == Save DC
