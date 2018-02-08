@@ -435,6 +435,10 @@
     });
 
     // SPELLS - SPELLCASTING
+    // -- Musticasting
+    on("change:spellabilities_flag change:caster1_class change:caster2_class", function(){
+       update_all_spells("all");
+    });
     // -- Concentration & DCs
     on("change:caster1_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
     on("change:caster1_ability_mod", function(e) {
@@ -535,7 +539,7 @@
     // === CONFIGURATION
     on("change:whispertype change:rollshowchar", function(){
        update_attacks("all","");
-       update_all_spells("all","");
+       update_all_spells("all");
     });
     on("change:rollmod_attack change:rollnotes_attack change:rollmod_damage", function(){
        update_attacks("all","all","");
@@ -1535,27 +1539,28 @@
             });
         });
     };
-    var update_all_spells = function(update_id, source) {
-        update_spells(0,update_id,source);
-        update_spells(1,update_id,source);
-        update_spells(2,update_id,source);
-        update_spells(3,update_id,source);
-        update_spells(4,update_id,source);
-        update_spells(5,update_id,source);
-        update_spells(6,update_id,source);
-        update_spells(7,update_id,source);
-        update_spells(8,update_id,source);
-        update_spells(9,update_id,source);
+    var update_all_spells = function(update_id) {
+        update_spells(0,update_id);
+        update_spells(1,update_id);
+        update_spells(2,update_id);
+        update_spells(3,update_id);
+        update_spells(4,update_id);
+        update_spells(5,update_id);
+        update_spells(6,update_id);
+        update_spells(7,update_id);
+        update_spells(8,update_id);
+        update_spells(9,update_id);
+        update_spells("like",update_id);
     };
-    var update_spells = function(level,update_id, source) {
+    var update_spells = function(level,update_id) {
         console.log("DOING UPDATE_SPELLS: " + level + " / " + update_id);
         if(update_id.substring(0,1) === "-" && update_id.length === 20) {
-            do_update_spell(level,[update_id], source);
+            do_update_spell(level,[update_id]);
         }
         else if(["strength","dexterity","constitution","intelligence","wisdom","charisma","melee","ranged","cmb","all"].includes(update_id)) {
             getSectionIDs("repeating_spell-" + level, function(idarray) {
                 if(update_id === "all") {
-                    do_update_spell(level,idarray,source);
+                    do_update_spell(level,idarray);
                 } else {
                     var spell_attribs = [];
                     _.each(idarray, function(spellid) {
@@ -1566,14 +1571,14 @@
                         _.each(idarray, function(id) {
                             if(v["repeating_spell-" + level + "_" + id + "_spellatktype"] && v["repeating_spell-" + level + "_" + id + "_spellatktype"].includes(update_id)) {attr_spell_ids.push(id);}
                         });
-                        if(attr_spell_ids.length > 0) {do_update_spell(level,attr_spell_ids,source);}
+                        if(attr_spell_ids.length > 0) {do_update_spell(level,attr_spell_ids);}
                     });
                 }
             });
         }
     };
-    var do_update_spell = function(spell_level,spell_array, source) {
-        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level]; // "caster3_dc_level_" + spell_level
+    var do_update_spell = function(spell_level,spell_array) {
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"spellabilities_flag","caster1_class","caster2_class"]; // "caster3_dc_level_" + spell_level, "caster3_class"
         _.each(spell_array, function(spellid) {
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelllevel");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcaster");
@@ -1638,6 +1643,16 @@
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = (v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "per-day") ? 1 : 0;
                 } else {
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
+                    // Multicasting
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : "";
+                    if (v.spellabilities_flag == "1") {
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : "";
+                    } else {
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 1;
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 0;
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = "";
+                    }
                 }
                 // == Save DC
                 var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
