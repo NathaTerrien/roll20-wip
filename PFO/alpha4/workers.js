@@ -1437,7 +1437,7 @@
         }
     };
     var check_encumbrance = function() {
-        var fields = ["encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_race","encumbrance"];
+        var fields = ["encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_race","encumbrance","encumbrance_display"];
         getAttrs(fields, function(v) {
             var update = {};
             var checkpen = 0;
@@ -1446,12 +1446,14 @@
             var dexmax = 99;
             var maxab = "-";
             var runfactor = 4;
+            var display = "";
             var weight = parseInt(v.encumbrance_gear_weight) || 0;
             var light = parseInt(v.encumbrance_load_light) || 1;
             var medium = parseInt(v.encumbrance_load_medium) || 2;
             var heavy = parseInt(v.encumbrance_load_heavy) || 3;
             var prevenc = v.encumbrance; // light / medium / heavy / over
             var newenc = prevenc;
+            if (typeof v.encumbrance_display !== 'undefined') {display = v.encumbrance_display;}
             if((weight > light) && (weight <= medium)) {
                 newenc = "medium";
                 checkpen = -3;
@@ -1473,7 +1475,7 @@
             } else {
                 newenc = "light";
             }
-            if(prevenc != newenc) {
+            if((prevenc != newenc) || (display == "")) {
                 if (dexmax < 99) {
                     maxab = dexmax;
                 }

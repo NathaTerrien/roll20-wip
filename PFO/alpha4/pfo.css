@@ -1199,8 +1199,9 @@ input.sheet-tabconf:checked + span{
 }
 /* ===== REPEATING SECTIONS CTRL ===== */
 .sheet-fullpc .repcontrol {
+    margin-top: 2px;
     min-height: 27px;
-    width: 80%;
+    width: 90%;
     text-align: center;
 }
 .repcontrol .btn {
@@ -1208,8 +1209,9 @@ input.sheet-tabconf:checked + span{
     color: white !important;
     background: none;
     box-shadow: none;
+    font-size: 0;
 }
-.sheet-fullpc .repcontrol .btn {padding: 4px 4px 4px 4px;}
+.sheet-fullpc .repcontrol .btn {padding: 0px 0px 0px 0px;}
 .sheet-statblock .repcontrol .btn {
     padding: 0px 0px 0px 0px;
     margin-left: 10px;
@@ -1225,16 +1227,18 @@ input.sheet-tabconf:checked + span{
     color: black;
     display: inline-block;
 }
-.sheet-fullpc .repcontrol  .repcontrol_add:before {
+.sheet-fullpc .repcontrol  .repcontrol_add:before,
+.sheet-fullpc .repcontrol .repcontrol_edit:after {
     border: 1px solid black;
     border-radius: 50%;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 3px;
     height: 12px;
     width: 12px;
-    padding: 4px;
     line-height: 12px;
 }
-.sheet-statblock .repcontrol .repcontrol_add:before{
+.sheet-statblock .repcontrol .repcontrol_add:before,
+.sheet-statblock .repcontrol .repcontrol_edit:after {
     font-size: 12px;
     padding: 2px;
     height: 10px;
@@ -1248,22 +1252,6 @@ input.sheet-tabconf:checked + span{
     color: black;
     display: inline-block;
 }
-.sheet-fullpc .repcontrol .repcontrol_edit:after{
-    border: 1px solid black;
-    border-radius: 50%;
-    font-size: 14px;
-    padding: 4px;
-    height: 12px;
-    width: 12px;
-    line-height: 12px;
-}
-.sheet-statblock .repcontrol .repcontrol_edit:after{
-    font-size: 12px;
-    padding: 2px;
-    height: 10px;
-    width: 10px;
-    line-height: 10px;
-}
 .editmode ~ .repcontrol .repcontrol_edit:after {
     content: ')';
     vertical-align: bottom;
@@ -1274,14 +1262,17 @@ input.sheet-tabconf:checked + span{
     color: #C3996B;
     border-color: #C3996B;
 }
-.itemcontrol {z-index: 10;}
-.itemcontrol .repcontrol_del {
+.repcontainer .repitem .itemcontrol {z-index: 10;}
+.repcontainer .repitem .itemcontrol .repcontrol_del {
+    float: right;
     font-size: 10px;
     padding: 0px;
     height: 18px;
     width: 18px;
 }
-.itemcontrol .repcontrol_move {
+.repcontainer .repitem .itemcontrol .repcontrol_move {
+    cursor: move;
+    float: left;
     font-size: 10px;
     padding: 0px;
     height: 18px;
