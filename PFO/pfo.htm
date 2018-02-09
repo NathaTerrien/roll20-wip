@@ -9482,7 +9482,11 @@
         var fields = ["bab","bab_multi","bab_size",attr + "_ability_mod",attr + "_misc",attr + "_bonus"];
         getAttrs(fields, function(v) {
             var update = {};
-            var babarray = JSON.parse("[" + v.bab_multi + "]");
+            if (typeof v.bab_multi !== 'undefined') {
+                var babarray = JSON.parse("[" + v.bab_multi + "]");
+            } else {
+                var babarray = [];
+            }
             var atkarray = [];
             update[attr + "_mod"] = (parseInt(v.bab) || 0) + (parseInt(v.bab_size) || 0) + (parseInt(v[attr + "_ability_mod"]) || 0) + (parseInt(v[attr + "_misc"]) || 0) + (parseInt(v[attr + "_bonus"]) || 0);
             if (babarray.length) {
