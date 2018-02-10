@@ -1289,3 +1289,133 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-npcatk.sheet-ranged .repcontainer {max-width: 545px;}
 .sheet-statblock .sheet-npcatk.sheet-special .repcontainer {max-width: 500px;}
 .sheet-statblock .sheet-npcatk.sheet-spells .repcontainer {max-width: 540px;}
+
+/* ===== ROLL TEMPLATES ===== */
+
+/* Rolls */
+.sheet-rolltemplate-pc .inlinerollresult,
+.sheet-rolltemplate-npc .inlinerollresult {
+    background-color: transparent;
+    color: black;
+    border: none;
+    padding: 0px 0px;
+    font-weight: bold;
+    cursor: help;
+    font-size: 1.8em;
+    font-family: 'Times New Roman';
+    line-height: 1.3em;
+}
+.sheet-rolltemplate-pc .sheet-success,
+.sheet-rolltemplate-npc .sheet-success {
+    color: #247305;
+}
+.sheet-rolltemplate-pc .sheet-failure,
+.sheet-rolltemplate-npc .sheet-failure {
+    color: #BE202E;
+}
+.sheet-rolltemplate-pc .inlinerollresult.fullcrit,
+.sheet-rolltemplate-npc .inlinerollresult.fullcrit {
+    border: none;
+    color: #247305;
+}
+.sheet-rolltemplate-pc .inlinerollresult.importantroll,
+.sheet-rolltemplate-npc .inlinerollresult.importantroll {
+    border: none;
+    color: #4A57ED;
+}
+.sheet-rolltemplate-pc .inlinerollresult.fullfail,
+.sheet-rolltemplate-npc .inlinerollresult.fullfail {
+    border: none;
+    color: #BE202E;
+}
+
+.sheet-rolltemplate-pc div,
+.sheet-rolltemplate-pc span,
+.sheet-rolltemplate-pc img,
+.sheet-rolltemplate-npc div,
+.sheet-rolltemplate-npc span,
+.sheet-rolltemplate-npc img {
+    box-sizing: border-box;
+}
+.sheet-rolltemplate-pc div,
+.sheet-rolltemplate-npc div {
+    margin: 0px;
+    padding: 0px;
+}
+.sheet-rolltemplate-pc img,
+.sheet-rolltemplate-npc img {
+    margin: 0px;
+    padding: 0px;
+}
+.sheet-rolltemplate-pc .sheet-center,
+.sheet-rolltemplate-npc .sheet-center {text-align: center;}
+.sheet-rolltemplate-pc .sheet-inlblk,
+.sheet-rolltemplate-npc .sheet-inlblk {display: inline-block;}
+.sheet-rolltemplate-pc .sheet-inl,
+.sheet-rolltemplate-npc .sheet-inl {display: inline;}
+
+.sheet-rolltemplate-pc div.sheet-blacklabel{
+    display: inline-block;
+    background-color: black;
+    color: white;
+    vertical-align: top;
+    height: 35px;
+    text-transform: uppercase;
+    border: none;
+}
+.sheet-rolltemplate-pc div.sheet-blacklabel::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd{
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 0px 0px 0px;
+    max-width: 165px;
+}
+.sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
+    display: block;
+    font-family: "Times New Roman";
+    font-size: 1.0em;
+    font-weight: bold;
+    line-height: 1.0em;
+    padding-left: 1px;
+}
+.sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
+    display: block;
+    font-family: sans-serif;
+    font-size: 0.65em;
+    line-height: 0.65em;
+    margin-top: 2px;
+    padding-left: 1px;
+}
+.sheet-rolltemplate-pc img.sheet-brdleft,
+.sheet-rolltemplate-pc img.sheet-brdright {
+    display: inline-block;
+    height: inherit;
+}
+.sheet-rolltemplate-pc img.sheet-brdleft {
+    float: left;
+    clear: left;
+    margin-right: 4px;
+}
+.sheet-rolltemplate-pc img.sheet-brdright {
+    float: right;
+    clear: right;
+    margin-left: 4px;
+}
+
+.sheet-rolltemplate-pc .sheet-bordered{
+    border: 1px solid black;
+    background-color: white;
+    text-align: left;
+    vertical-align: top;
+}
+
+.sheet-rolltemplate-pc .sheet-resright {
+    display: inline;
+    float: right;
+    margin-right: 3px;
+    clear: both;
+}
