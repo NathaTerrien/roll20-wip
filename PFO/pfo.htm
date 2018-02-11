@@ -8563,7 +8563,7 @@
         {{#name}}
             {{#rollTotal() showchar 1}}
                 <!--  <div class="blacklabel name"><div class="blackbgrd"><span class="sml">{{charname}}</span></div></div> -->
-                <div class="myrow"><span class="smallname">{{charname}}</span></div>
+                <div class="myrow"><span class="smallname bold">{{charname}}</span></div>
             {{/rollTotal() showchar 1}}
             <div>
                 <div class="blacklabel top">
@@ -8575,10 +8575,47 @@
                     </div>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
-                {{#roll}}<div class="resright">{{roll}}</div>{{/roll}}
-                {{#attack}}
+                {{^roll1}}
+                    {{#roll}}<div class="resright">{{roll}}</div>{{/roll}}
+                    {{#attack}}
+                        {{#rollWasCrit() roll}}
+                            <div class="right">
+                                <span class="symbol">t</span>
+                                {{critconfirm}}
+                                <div class="blacklabel med">
+                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                    <div class="blackbgrd">
+                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/rollWasCrit() roll}}
+                    {{/attack}}
+                {{/roll1}}
+            </div>
+        {{/name}}
+        {{#smallname}}
+            <div class="myrow">
+                {{#rollTotal() showchar 1}}
+                    <span class="smallname bold">{{charname}}</span>
+                    <span class="smallname">/</span>
+                {{/rollTotal() showchar 1}}
+                <span class="smallname bold">{{smallname}}</span>
+            </div>
+        {{/smallname}}
+        {{#attack}}
+            {{#roll1}}
+                <div class="inlblk nowrap">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#1</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll}}
                     {{#rollWasCrit() roll}}
-                        <div class="right">
+                        <div class="inlblk">
                             <span class="symbol">t</span>
                             {{critconfirm}}
                             <div class="blacklabel med">
@@ -8589,20 +8626,7 @@
                             </div>
                         </div>
                     {{/rollWasCrit() roll}}
-                {{/attack}}
-            </div>
-        {{/name}}
-        {{#smallname}}
-            <div class="myrow">
-                {{#rollTotal() showchar 1}}
-                    <span class="smallname">{{charname}}</span>
-                    <span class="smallname">/</span>
-                {{/rollTotal() showchar 1}}
-                <span class="smallname">{{smallname}}</span>
-            </div>
-        {{/smallname}}
-        {{#attack}}
-            {{#roll1}}
+                </div>
                 <div class="inlblk nowrap">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">

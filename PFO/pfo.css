@@ -1373,13 +1373,19 @@ input.sheet-tabconf:checked + span{
     margin: 1px 0px 1px 0px;
 }
 
+.sheet-rolltemplate-pc div.sheet-charname {
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 1px;
+    padding: 1px 1px 1px 2px;
+}
 .sheet-rolltemplate-pc div.sheet-notes,
 .sheet-rolltemplate-npc div.sheet-notes {
     max-height: 250px;
     overflow-y: auto;
     background-color: #DDD;
     border: 1px solid #BBB;
-    margin-top: 2px;
+    margin-top: 1px;
     padding: 1px 1px 1px 2px;
 }
 
@@ -1388,7 +1394,7 @@ input.sheet-tabconf:checked + span{
     overflow-y: auto;
     background-color: white;
     border: 1px solid black;
-    margin-top: 2px;
+    margin-top: 1px;
     padding: 1px 1px 1px 2px;
 }
 
