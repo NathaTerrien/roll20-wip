@@ -1021,9 +1021,9 @@
                 var rolldmg = "";
                 var rolltype = "";
                 var rollnotes = "";
-                var rollbasetemplate = "default";
-                var rollatktemplate = "default";
-                var rolldmgtemplate = "default";
+                var rollbasetemplate = "pc";
+                var rollatktemplate = "pc";
+                var rolldmgtemplate = "pc";
                 var atkname = v["repeating_attacks_" + attackid + "_atkname"];
                 var atkflag = v["repeating_attacks_" + attackid + "_atkflag"];
                 var atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0;
@@ -1101,18 +1101,18 @@
                 }
                 // roll attack
                 if(atkflag != "0") {
-                    rollatk = "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
+                    rollatk = "{{roll=[[1d20cs>" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
                     rollatk += "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     if (atktypearray.length > 1) {
-                        rollatk1 = "{{roll1=[[1d20cs" + atkcritrange + "+" + atktypearray[1] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        rollatk1 = "{{roll1=[[1d20cs>" + atkcritrange + "+" + atktypearray[1] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                         rollatk1 += "{{critconfirm1=[[1d20cs20+" + atktypearray[1] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     }
                     if (atktypearray.length > 2) {
-                        rollatk2 = "{{roll2=[[1d20cs" + atkcritrange + "+" + atktypearray[2] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        rollatk2 = "{{roll2=[[1d20cs>" + atkcritrange + "+" + atktypearray[2] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                         rollatk2 += "{{critconfirm2=[[1d20cs20+" + atktypearray[2] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     }
                     if (atktypearray.length > 3) {
-                        rollatk3 = "{{roll3=[[1d20cs" + atkcritrange + "+" + atktypearray[3] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        rollatk3 = "{{roll3=[[1d20cs>" + atkcritrange + "+" + atktypearray[3] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                         rollatk3 += "{{critconfirm3=[[1d20cs20+" + atktypearray[3] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     }
                     rolltype += "attack";
@@ -1202,7 +1202,7 @@
                 for (var i = 2; i < 10; i++) {
                     if (v[base  + "atkmod" + i] != "") {
                         display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
-                        multi += "{{roll" + i + "=[[1d20cs@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + i + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        multi += "{{roll" + i + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + i + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     }
                 }
             }
@@ -1724,7 +1724,7 @@
                 if(atkflag != "0") {
                     if (atktype != "0") {atktype = "@{" + atktype + "_mod}";}
                     if (atkmod.length == 0) {atkmod = "0";}
-                    rollbase += atkflag + "{{roll=[[1d20cs" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollbase += atkflag + "{{roll=[[1d20cs>" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     rollbase += "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
                 }
                 // roll damage
