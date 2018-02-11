@@ -1411,6 +1411,18 @@ input.sheet-tabconf:checked + span{
     vertical-align: top;
 }
 
+.sheet-rolltemplate-pc .sheet-symbol,
+.sheet-rolltemplate-npc .sheet-symbol {
+    font-family: "Pictos Custom";
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.sheet-rolltemplate-pc .sheet-smallname {
+    font-family: 'Times New Roman';
+    color: #666;
+    font-size: 0.9em;
+}
+
 /* top bands */
 .sheet-rolltemplate-pc div.sheet-blacklabel {
     display: inline-block;
@@ -1424,11 +1436,11 @@ input.sheet-tabconf:checked + span{
     width: calc(100% - 59px);
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top {
-    height: 35px;
+    min-height: 35px;
     width: calc(100% - 30px);
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
-    height: 27px;
+    height: 24px;
     /* width: calc(100% - 36px);
     text-align: right; */
 }
@@ -1441,8 +1453,10 @@ input.sheet-tabconf:checked + span{
     display: inline-block;
     vertical-align: top;
     padding: 0px 0px 0px 0px;
-    max-width: calc(100% - 40px);
 }
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med  .sheet-blackbgrd {padding: 0px 2px 0px 2px;}
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-name .sheet-blackbgrd,
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top .sheet-blackbgrd {max-width: calc(100% - 40px);}
 .sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd .sheet-big {
     display: inline-block;
     font-family: "Times New Roman";
@@ -1455,6 +1469,7 @@ input.sheet-tabconf:checked + span{
     display: inline;
     font-size: 0.80em;
     line-height: 0.85em;
+    text-transform: initial;
 }
 .sheet-rolltemplate-pc .sheet-blacklabel .sheet-blackbgrd .sheet-secondary {
     display: inline-block;
@@ -1480,6 +1495,7 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc img.sheet-brdright {
     display: inline-block;
     height: inherit;
+    max-height: 35px;
 }
 .sheet-rolltemplate-pc img.sheet-brdleft {
     float: left;

@@ -8560,60 +8560,52 @@
 <!-- ROLL TEMPLATES -->
 <rolltemplate class="sheet-rolltemplate-pc">
     <div class="bordered">
-        {{#rollTotal() showchar 1}}
-            <div class="blacklabel name"><div class="blackbgrd"><span class="sml">{{charname}}</span></div></div>
-        {{/rollTotal() showchar 1}}
-        <div>
-            <div class="blacklabel top">
-                <div class="blackbgrd">
-                    <span class="big">{{name}}</span>
-                    {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
-                    {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
+        {{#name}}
+            {{#rollTotal() showchar 1}}
+                <div class="blacklabel name"><div class="blackbgrd"><span class="sml">{{charname}}</span></div></div>
+            {{/rollTotal() showchar 1}}
+            <div>
+                <div class="blacklabel top">
+                    <div class="blackbgrd">
+                        <span class="big">{{name}}</span>
+                        {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
+                        {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
+                        {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-            </div>
-            {{^roll1}}
                 {{#roll}}<div class="resright">{{roll}}</div>{{/roll}}
                 {{#attack}}
                     {{#rollWasCrit() roll}}
                         <div class="right">
+                            <span class="symbol">t</span>
                             {{critconfirm}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                                 <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit" data-i18n-title="crit-confirm" title="Crit confirm">Crit</span>
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
                                 </div>
                             </div>
                         </div>
                     {{/rollWasCrit() roll}}
                 {{/attack}}
-            {{/roll1}}
-        </div>
+            </div>
+        {{/name}}
+        {{#smallname}}
+            <div class="myrow">
+                {{#rollTotal() showchar 1}}
+                    <span class="smallname">{{charname}}</span>
+                    <span class="smallname">/</span>
+                {{/rollTotal() showchar 1}}
+                <span class="smallname">{{smallname}}</span>
+            </div>
+        {{/smallname}}
         {{#attack}}
             {{#roll1}}
                 <div class="inlblk nowrap">
                     <div class="blacklabel med">
-                        <div class="blackbgrd">
-                            <span class="secondary">#1</span>
-                        </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                    {{roll}}
-                    {{#rollWasCrit() roll}}
-                        <div class="inlblk">
-                            {{critconfirm}}
-                            <div class="blacklabel med">
-                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit" data-i18n-title="crit-confirm" title="Crit confirm">Crit</span>
-                                </div>
-                            </div>
-                        </div>
-                    {{/rollWasCrit() roll}}
-                </div>
-                <div class="inlblk nowrap">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
+                            <span class="secondary" data-i18n="atk">Atk</span>
                             <span class="secondary">#2</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
@@ -8621,11 +8613,12 @@
                     {{roll1}}
                     {{#rollWasCrit() roll1}}
                         <div class="inlblk">
+                            <span class="symbol">t</span>
                             {{critconfirm1}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                                 <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit" data-i18n-title="crit-confirm" title="Crit confirm">Crit</span>
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
                                 </div>
                             </div>
                         </div>
@@ -8635,7 +8628,8 @@
             {{#roll2}}
                 <div class="inlblk nowrap">
                     <div class="blacklabel med">
-                        <div class="blackbgrd">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
+                            <span class="secondary" data-i18n="atk">Atk</span>
                             <span class="secondary">#3</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
@@ -8643,11 +8637,12 @@
                     {{roll2}}
                     {{#rollWasCrit() roll2}}
                         <div class="inlblk">
+                            <span class="symbol">t</span>
                             {{critconfirm2}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                                 <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit" data-i18n-title="crit-confirm" title="Crit confirm">Crit</span>
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
                                 </div>
                             </div>
                         </div>
@@ -8657,7 +8652,8 @@
             {{#roll3}}
                 <div class="inlblk nowrap">
                     <div class="blacklabel med">
-                        <div class="blackbgrd">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
+                            <span class="secondary" data-i18n="atk">Atk</span>
                             <span class="secondary">#4</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
@@ -8665,11 +8661,12 @@
                     {{roll3}}
                     {{#rollWasCrit() roll3}}
                         <div class="inlblk">
+                            <span class="symbol">t</span>
                             {{critconfirm3}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                                 <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit" data-i18n-title="crit-confirm" title="Crit confirm">Crit</span>
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
                                 </div>
                             </div>
                         </div>
@@ -8677,8 +8674,43 @@
                 </div>
             {{/roll3}}
         {{/attack}}
+        {{#damage}}
+            {{#dmg1flag}}
+                <div class="myrow">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
+                            <span class="secondary" data-i18n="damage:">Damage:</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{dmg1}}
+                    <span class="lbl bold" data-i18n="crit:">Crit:</span>
+                    {{dmg1crit}}
+                    <span class="lbl">{{dmg1type}}</span>
+                </div>
+            {{/dmg1flag}}
+            {{#dmg2flag}}
+                <div class="myrow">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
+                            <span class="secondary" data-i18n="damage2:">Damage2:</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{dmg2}}
+                    <span class="lbl bold" data-i18n="crit:">Crit:</span>
+                    {{dmg2crit}}
+                    <span class="lbl">{{dmg2type}}</span>
+                </div>
+            {{/dmg2flag}}
+        {{/damage}}
         {{#shortdesc}}<div class="myrow center"><span class="notes ital">{{shortdesc}}</span></div>{{/shortdesc}}
-        {{#atkvs}}<div class="myrow center"><span class="notes ital">{{atkvs}}</span></div>{{/atkvs}}
+        {{#range}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="range:">Range:</span>
+                <span class="notes inl">{{range}}</span>
+            </div>
+        {{/range}}
         {{#prerequisites}}
             <div class="myrow">
                 <span class="lbl bold" data-i18n="prerequisites:">Prerequisites:</span>
@@ -9817,11 +9849,11 @@
                 // == Rolls handling
                 // desc
                 if(descflag != "0") {
-                    atkdesc = "{{desc=" + atkdesc + "}}";
+                    atkdesc = "{{descflag=[[1]]}}{{desc=" + atkdesc + "}}";
                 }
                 // notes
                 if(v["rollnotes_attack"] != "0") {
-                    rollnotes = "{{shownotes=1}}{{notes=" + atknotes + "}}";
+                    rollnotes = "{{shownotes=[[1]]}}{{notes=" + atknotes + "}}";
                 }
                 // range
                 if(atkrange.length != 0) {
@@ -9848,17 +9880,17 @@
                     // desc
                     if(descflag != "0") {
                         rollatk += atkdesc;
-                        rollatk1 += (rollatk1.trim().length > 0) ? atkdesc : "";
-                        rollatk2 += (rollatk2.trim().length > 0) ? atkdesc : "";
-                        rollatk3 += (rollatk3.trim().length > 0) ? atkdesc : "";
+                        // rollatk1 += (rollatk1.trim().length > 0) ? atkdesc : "";
+                        // rollatk2 += (rollatk2.trim().length > 0) ? atkdesc : "";
+                        // rollatk3 += (rollatk3.trim().length > 0) ? atkdesc : "";
                         rollbase += atkdesc;
                     }
                     // notes
                     if(v["rollnotes_attack"] != "0") {
                         rollatk += rollnotes;
-                        rollatk1 += (rollatk1.trim().length > 0) ? rollnotes : "";
-                        rollatk2 += (rollatk2.trim().length > 0) ? rollnotes : "";
-                        rollatk3 += (rollatk3.trim().length > 0) ? rollnotes : "";
+                        // rollatk1 += (rollatk1.trim().length > 0) ? rollnotes : "";
+                        // rollatk2 += (rollatk2.trim().length > 0) ? rollnotes : "";
+                        // rollatk3 += (rollatk3.trim().length > 0) ? rollnotes : "";
                         rollbase += rollnotes;
                     }
                 }
@@ -9893,16 +9925,16 @@
                     rollatk = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk;
                 }
                 if (rollatk1.trim().length > 0) {
-                    rollatk1 = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk1;
+                    rollatk1 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk1;
                 }
                 if (rollatk2.trim().length > 0) {
-                    rollatk2 = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk2;
+                    rollatk2 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk2;
                 }
                 if (rollatk3.trim().length > 0) {
-                    rollatk3 = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk3;
+                    rollatk3 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk3;
                 }
                 if (rolldmg.trim().length > 0) {
-                    rolldmg = "@{whispertype} &{template:" + rolldmgtemplate + "}{{name=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmg;
+                    rolldmg = "@{whispertype} &{template:" + rolldmgtemplate + "}{{smallname=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmg;
                 }
                 update["repeating_attacks_" + attackid + "_rollbase"] = rollbase;
                 update["repeating_attacks_" + attackid + "_rollbase_atk"] = rollatk;

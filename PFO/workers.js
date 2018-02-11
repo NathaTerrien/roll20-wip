@@ -1089,11 +1089,11 @@
                 // == Rolls handling
                 // desc
                 if(descflag != "0") {
-                    atkdesc = "{{desc=" + atkdesc + "}}";
+                    atkdesc = "{{descflag=[[1]]}}{{desc=" + atkdesc + "}}";
                 }
                 // notes
                 if(v["rollnotes_attack"] != "0") {
-                    rollnotes = "{{shownotes=1}}{{notes=" + atknotes + "}}";
+                    rollnotes = "{{shownotes=[[1]]}}{{notes=" + atknotes + "}}";
                 }
                 // range
                 if(atkrange.length != 0) {
@@ -1120,17 +1120,17 @@
                     // desc
                     if(descflag != "0") {
                         rollatk += atkdesc;
-                        rollatk1 += (rollatk1.trim().length > 0) ? atkdesc : "";
-                        rollatk2 += (rollatk2.trim().length > 0) ? atkdesc : "";
-                        rollatk3 += (rollatk3.trim().length > 0) ? atkdesc : "";
+                        // rollatk1 += (rollatk1.trim().length > 0) ? atkdesc : "";
+                        // rollatk2 += (rollatk2.trim().length > 0) ? atkdesc : "";
+                        // rollatk3 += (rollatk3.trim().length > 0) ? atkdesc : "";
                         rollbase += atkdesc;
                     }
                     // notes
                     if(v["rollnotes_attack"] != "0") {
                         rollatk += rollnotes;
-                        rollatk1 += (rollatk1.trim().length > 0) ? rollnotes : "";
-                        rollatk2 += (rollatk2.trim().length > 0) ? rollnotes : "";
-                        rollatk3 += (rollatk3.trim().length > 0) ? rollnotes : "";
+                        // rollatk1 += (rollatk1.trim().length > 0) ? rollnotes : "";
+                        // rollatk2 += (rollatk2.trim().length > 0) ? rollnotes : "";
+                        // rollatk3 += (rollatk3.trim().length > 0) ? rollnotes : "";
                         rollbase += rollnotes;
                     }
                 }
@@ -1165,16 +1165,16 @@
                     rollatk = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk;
                 }
                 if (rollatk1.trim().length > 0) {
-                    rollatk1 = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk1;
+                    rollatk1 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk1;
                 }
                 if (rollatk2.trim().length > 0) {
-                    rollatk2 = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk2;
+                    rollatk2 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk2;
                 }
                 if (rollatk3.trim().length > 0) {
-                    rollatk3 = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk3;
+                    rollatk3 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk3;
                 }
                 if (rolldmg.trim().length > 0) {
-                    rolldmg = "@{whispertype} &{template:" + rolldmgtemplate + "}{{name=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmg;
+                    rolldmg = "@{whispertype} &{template:" + rolldmgtemplate + "}{{smallname=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmg;
                 }
                 update["repeating_attacks_" + attackid + "_rollbase"] = rollbase;
                 update["repeating_attacks_" + attackid + "_rollbase_atk"] = rollatk;
