@@ -1301,9 +1301,13 @@ input.sheet-tabconf:checked + span{
     padding: 0px 0px;
     font-weight: bold;
     cursor: help;
-    font-size: 1.7em;
+    font-size: 1.55em; /* 1.7em; */
     font-family: 'Times New Roman';
-    line-height: 1.2em;
+    /* line-height: 1.2em; */
+}
+.sheet-rolltemplate-pc .sheet-resright .inlinerollresult {
+    font-size: 1.8em;
+    line-height: 1.4em;
 }
 .sheet-rolltemplate-pc .sheet-success,
 .sheet-rolltemplate-npc .sheet-success {
@@ -1373,17 +1377,19 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-npc div.sheet-notes {
     max-height: 250px;
     overflow-y: auto;
-    background-color: rgb(250,250,250);
-    border: 1px solid #DDD;
+    background-color: #DDD;
+    border: 1px solid #BBB;
+    margin-top: 2px;
+    padding: 1px 1px 1px 2px;
 }
 
 .sheet-rolltemplate-pc div.sheet-desc {
     max-height: 250px;
     overflow-y: auto;
     background-color: white;
-    border-width: 0px 1px 1px 1px;
-    border-style: solid;
-    border-color: black;
+    border: 1px solid black;
+    margin-top: 2px;
+    padding: 1px 1px 1px 2px;
 }
 
 .sheet-rolltemplate-pc span.sheet-notes,
@@ -1396,12 +1402,12 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc .sheet-lbl,
 .sheet-rolltemplate-npc .sheet-lbl {
     text-align: left;
-    vertical-align: bottom;
     font-family: sans-serif;
     font-size: 0.95em;
     line-height: 1.2em;
     text-transform: capitalize;
     white-space: pre;
+    color: black;
 }
 
 .sheet-rolltemplate-pc .sheet-bordered{
@@ -1418,8 +1424,8 @@ input.sheet-tabconf:checked + span{
     font-weight: bold;
 }
 .sheet-rolltemplate-pc .sheet-smallname {
-    font-family: 'Times New Roman';
-    color: #666;
+    font-family: sans-serif;
+    color: #333;
     font-size: 0.9em;
 }
 
@@ -1440,7 +1446,7 @@ input.sheet-tabconf:checked + span{
     width: calc(100% - 30px);
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
-    height: 24px;
+    height: 20px;
     /* width: calc(100% - 36px);
     text-align: right; */
 }
@@ -1454,14 +1460,17 @@ input.sheet-tabconf:checked + span{
     vertical-align: top;
     padding: 0px 0px 0px 0px;
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med  .sheet-blackbgrd {padding: 0px 2px 0px 2px;}
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med .sheet-blackbgrd {
+    min-width: 40px;
+    padding: 0px 2px 0px 2px;
+}
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-name .sheet-blackbgrd,
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top .sheet-blackbgrd {max-width: calc(100% - 40px);}
 .sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd .sheet-big {
-    display: inline-block;
+    display: inline;
     font-family: "Times New Roman";
     font-size: 1.0em;
-    font-weight: bold;
+    /* font-weight: bold; */
     line-height: 1.0em;
     padding-left: 1px;
 }
@@ -1474,7 +1483,6 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc .sheet-blacklabel .sheet-blackbgrd .sheet-secondary {
     display: inline-block;
     font-size: 0.9em;
-    line-height: 2.0em;
     text-transform: initial;
     white-space: nowrap;
 }
@@ -1484,12 +1492,13 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd .sheet-sml {
     display: block;
     font-family: sans-serif;
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 1em;
     font-style: italic;
     color: #E6DD94;
     margin-left: 1px;
     text-transform: none;
+    padding-top: 2px;
 }
 .sheet-rolltemplate-pc img.sheet-brdleft,
 .sheet-rolltemplate-pc img.sheet-brdright {

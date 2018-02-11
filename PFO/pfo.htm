@@ -8562,7 +8562,8 @@
     <div class="bordered">
         {{#name}}
             {{#rollTotal() showchar 1}}
-                <div class="blacklabel name"><div class="blackbgrd"><span class="sml">{{charname}}</span></div></div>
+                <!--  <div class="blacklabel name"><div class="blackbgrd"><span class="sml">{{charname}}</span></div></div> -->
+                <div class="myrow"><span class="smallname">{{charname}}</span></div>
             {{/rollTotal() showchar 1}}
             <div>
                 <div class="blacklabel top">
@@ -8676,31 +8677,29 @@
         {{/attack}}
         {{#damage}}
             {{#dmg1flag}}
-                <div class="myrow">
+                <div>
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary" data-i18n="damage:">Damage:</span>
+                            <span class="secondary yellow" data-i18n="dmg">Dmg</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{dmg1}}
-                    <span class="lbl bold" data-i18n="crit:">Crit:</span>
-                    {{dmg1crit}}
-                    <span class="lbl">{{dmg1type}}</span>
+                    {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
+                    <span class="notes inl">{{dmg1type}}</span>
                 </div>
             {{/dmg1flag}}
             {{#dmg2flag}}
-                <div class="myrow">
+                <div>
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary" data-i18n="damage2:">Damage2:</span>
+                            <span class="secondary yellow" data-i18n="dmg-2">Dmg 2</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{dmg2}}
-                    <span class="lbl bold" data-i18n="crit:">Crit:</span>
-                    {{dmg2crit}}
-                    <span class="lbl">{{dmg2type}}</span>
+                    {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
+                    <span class="notes inl">{{dmg2type}}</span>
                 </div>
             {{/dmg2flag}}
         {{/damage}}
@@ -9900,12 +9899,12 @@
                     if(dmgflag != "0") {
                         stemp = dmgbase + "+" + dmgattr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS]";
                         rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
-                        if(atkflag != "0") {rolldmg += "{{dmg1crit=[[(" + stemp + ")*" + dmgcritmulti + "]]}}";}
+                        if (dmgcritmulti > 1) {rolldmg += "{{dmg1crit=[[(" + stemp + ")*" + dmgcritmulti + "]]}}";}
                     }
                     if(dmg2flag != "0") {
                         stemp = dmg2base + "+" + dmg2attr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS]";
                         rolldmg += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
-                        if(atkflag != "0") {rolldmg += "{{dmg2crit=[[(" + stemp + ")*" + dmg2critmulti + "]]}}";}
+                        if (dmg2critmulti > 1) {rolldmg += "{{dmg2crit=[[(" + stemp + ")*" + dmg2critmulti + "]]}}";}
                     }
                     // desc
                     if((descflag != "0") && (atkflag == "0")) {
