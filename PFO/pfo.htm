@@ -442,10 +442,10 @@
                 <span name="attr_npc_type"></span>
             </div>
             <div class="myrow">
-                <button class="myrol" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:default} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative}[MOD] &{tracker}]]}}"><span class="bold" data-i18n="init">Init</span>&nbsp;<span name="attr_initiative"></span></button>;
+                <button class="myrol" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:npc} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative}[MOD] &{tracker}]]}}"><span class="bold" data-i18n="init">Init</span>&nbsp;<span name="attr_initiative"></span></button>;
                 <span class="bold" data-i18n="senses">Senses</span>
                 <span name="attr_senses"></span>;
-                <button class="myrol" type="roll" name="perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span class="bold" data-i18n="perception">Perception</span>&nbsp;<span name="attr_perception"></span></button>
+                <button class="myrol" type="roll" name="perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span class="bold" data-i18n="perception">Perception</span>&nbsp;<span name="attr_perception"></span></button>
             </div>
             <input type="hidden" class="optional-flag" name="attr_aura" value="" /><div class="myrow optional blk">
                 <span class="bold" data-i18n="aura">Aura</span>
@@ -469,18 +469,18 @@
                 /
                 <span name="attr_hp_max" title="@{hp_max}"></span>
                 <input type="hidden" class="optional-flag" name="attr_hp_notes" value="" /><span class="optional inl">(<span name="attr_hp_notes"></span>)</span>
-                <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:default} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}">(<span name="attr_hd_roll"></span>)</button>
+                <button class="myrol" type="roll" name="HpRoll" data-i18n-title="roll-hp" title="Roll HP" value="@{whispertype} &{template:npc} {{name=^{hp-u}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd_roll}]]}}">(<span name="attr_hd_roll"></span>)</button>
                 <span class="bold margindent" data-i18n="hit-dice">Hit Dice</span>
-                <button class="myrol" type="roll" name="HdRoll" data-i18n-title="roll-hd" title="Roll HD" value="@{whispertype} &{template:default} {{name=^{hit-dice}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd}]]}}"><span name="attr_hd"></span></button>
+                <button class="myrol" type="roll" name="HdRoll" data-i18n-title="roll-hd" title="Roll HD" value="@{whispertype} &{template:npc} {{name=^{hit-dice}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[@{hd}]]}}"><span name="attr_hd"></span></button>
                 <span class="bold margindent" data-i18n="sr-u">SR</span>
                 <span name="attr_sr"></span>
             </div>
             <div class="myrow">
-                <button class="myrol" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:default} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]]]}}"><span class="bold" data-i18n="fort">Fort</span>
+                <button class="myrol" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:npc} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]]]}}"><span class="bold" data-i18n="fort">Fort</span>
                     <span name="attr_fortitude"></span>,</button>
-                <button class="myrol" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:default} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]]]}}"><span class="bold" data-i18n="ref">Ref</span>
+                <button class="myrol" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:npc} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]]]}}"><span class="bold" data-i18n="ref">Ref</span>
                     <span name="attr_reflex"></span>,</button>
-                <button class="myrol" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:default} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]]]}}"><span class="bold" data-i18n="will">Will</span>
+                <button class="myrol" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:npc} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]]]}}"><span class="bold" data-i18n="will">Will</span>
                     <span name="attr_will"></span></button>
                 <input type="hidden" class="optional-flag" name="attr_saves_modifiers" value="" /><span class="optional inl">(<span name="attr_saves_modifiers"></span>)</span>
             </div>
@@ -525,7 +525,7 @@
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -594,7 +594,7 @@
             <fieldset class="repeating_npcatk-ranged">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} {{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} {{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -667,7 +667,7 @@
             <fieldset class="repeating_npcatk-special">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:default} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} @{rangeflag} @{areaflag} @{effectflag} @{atksaveflag} @{atkflag} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkname"></span></button>
                     <input type="hidden" class="optional-flag" name="attr_perday_max" value="" /><span class="optional inl">(<input type="number" class="spsml center" name="attr_perday" value="0" data-i18n-title="#-used" title="# used" />/<span name="attr_perday_max" data-i18n-title="max-#-per-day" title="Max # per day"></span>)</span>
                     <div class="options">
                         <div class="myrow">
@@ -739,7 +739,7 @@
             <div class="myrow">
                 <span class="bold" data-i18n="spell-like-abilities">Spell-Like Abilities</span>
                 (<span data-i18n="cl-u">CL</span> <span name="attr_caster2_level"></span>;
-                <button class="myrol" type="roll" name="Caster2ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster2_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster2_concentration"></span></button>)
+                <button class="myrol" type="roll" name="Caster2ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:npc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster2_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster2_concentration"></span></button>)
             </div>
             <fieldset class="repeating_spell-like"> <!-- REPEATING SPELL-LIKE -->
                 <input type="hidden" name="attr_spelllevel" value="like" />
@@ -864,7 +864,7 @@
         <input type="hidden" class="optional-flag0" name="attr_spells_flag" value="0" /><div class="optional blk npcatk spells"> <!-- SPELLS -->
             <div class="myrow">
                 <span class="bold" data-i18n="spells-prepared">Spells Prepared</span>
-                (<span data-i18n="cl-u">CL</span> <span name="attr_caster1_level"></span>; <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:default} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster1_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster1_concentration"></span></button>)
+                (<span data-i18n="cl-u">CL</span> <span name="attr_caster1_level"></span>; <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:npc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{caster1_concentration}[MOD]]]}}"><span data-i18n="concentration">Concentration</span> +<span name="attr_caster1_concentration"></span></button>)
                 <span class="blk" name="attr_caster1_spells_notes"></span>
             </div>
             <input type="hidden" class="optional-flag0" name="attr_caster1_spells_perday_level_9" value="0" /><div class="optional blk grtopbrd"> <!-- Spells lvl 9 -->
@@ -2134,24 +2134,24 @@
     <div class="npc-display"> <!-- Display STATISTICS -->
         <span class="npc-section" data-i18n="statistics">Statistics</span>
         <div class="myrow">
-            <button class="myrol" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:default} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]]]}}"><span class="bold" data-i18n="str-u">STR</span>
+            <button class="myrol" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:npc} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]]]}}"><span class="bold" data-i18n="str-u">STR</span>
             <span name="attr_strength"></span> (<span name="attr_strength_mod"></span>)</button>,
-            <button class="myrol" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:default} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]]]}}"><span class="bold" data-i18n="dex-u">DEX</span>
+            <button class="myrol" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:npc} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]]]}}"><span class="bold" data-i18n="dex-u">DEX</span>
             <span name="attr_dexterity"></span> (<span name="attr_dexterity_mod"></span>)</button>,
-            <button class="myrol" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:default} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]]]}}"><span class="bold" data-i18n="con-u">CON</span>
+            <button class="myrol" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:npc} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]]]}}"><span class="bold" data-i18n="con-u">CON</span>
             <span name="attr_constitution"></span> (<span name="attr_constitution_mod"></span>)</button>,
-            <button class="myrol" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:default} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]]]}}"><span class="bold" data-i18n="int-u">INT</span>
+            <button class="myrol" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:npc} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]]]}}"><span class="bold" data-i18n="int-u">INT</span>
             <span name="attr_intelligence"></span> (<span name="attr_intelligence_mod"></span>)</button>,
-            <button class="myrol" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="wisdom roll" value="@{whispertype} &{template:default} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]]]}}"><span class="bold" data-i18n="wis-u">WIS</span>
+            <button class="myrol" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="wisdom roll" value="@{whispertype} &{template:npc} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]]]}}"><span class="bold" data-i18n="wis-u">WIS</span>
             <span name="attr_wisdom"></span> (<span name="attr_wisdom_mod"></span>)</button>,
-            <button class="myrol" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="charisma roll" value="@{whispertype} &{template:default} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]]]}}"><span class="bold" data-i18n="cha-u">CHA</span>
+            <button class="myrol" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="charisma roll" value="@{whispertype} &{template:npc} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]]]}}"><span class="bold" data-i18n="cha-u">CHA</span>
             <span name="attr_charisma"></span> (<span name="attr_charisma_mod"></span>)</button>
         </div>
         <div class="myrow">
             <span class="bold" data-i18n="base-atk">Base Atk</span>
             <span name="attr_bab"></span>
             ;
-            <button class="myrol" type="roll" name="CmbRoll" value="@{whispertype} &{template:default} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{cmb_mod}[MOD]]]}}"><span class="bold" data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span> <span name="attr_cmb_mod"></span></button>
+            <button class="myrol" type="roll" name="CmbRoll" value="@{whispertype} &{template:npc} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{cmb_mod}[MOD]]]}}"><span class="bold" data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span> <span name="attr_cmb_mod"></span></button>
             <input type="hidden" class="optional-flag" name="attr_cmb_notes" value="" /><span class="optional inl">(<span name="attr_cmb_notes"></span>)</span>
             ;
             <span class="bold" data-i18n="cmd-u">CMD</span>
@@ -2163,7 +2163,7 @@
             <fieldset class="repeating_feats">
                 <div class="feat compendium-drop-target">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}} @{descflag}"><span name="attr_name"></span></button>
+                    <button class="myrol underl" type="roll" name="FeatShow" data-i18n-title="show-feat" title="Show Feat" value="@{whispertype} &{template:npc} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{feattype=^{@{type}}}} {{prerequisites=@{prerequisites}}} {{benefits=@{benefits}}} {{normal=@{normal}}} {{special=@{special}}} @{descflag}"><span name="attr_name"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -2222,41 +2222,41 @@
         </div>  <!-- END Feats -->
         <div class="myrow">
             <span class="bold" data-i18n="skills">Skills</span>
-            <input type="hidden" class="optional-flag0" name="attr_acrobatics_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Acrobatics" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{acrobatics}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{acrobatics}[MOD]]]}}"><span data-i18n="acrobatics">Acrobatics</span> <span name="attr_acrobatics_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_appraise" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Appraise" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{appraise}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{appraise}[MOD]]]}}"><span data-i18n="appraise">Appraise</span> <span name="attr_appraise_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_bluff_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Bluff" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{bluff}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{bluff}[MOD]]]}}"><span data-i18n="bluff">Bluff</span> <span name="attr_bluff_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_climb_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Climb" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{climb}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{climb}[MOD]]]}}"><span data-i18n="climb">Climb</span> <span name="attr_climb_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_craft_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{craft}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{craft}[MOD]]]}}"><span data-i18n="craft">Craft</span> <span name="attr_craft_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_diplomacy_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Diplomacy" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{diplomacy}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{diplomacy}[MOD]]]}}"><span data-i18n="diplomacy">Diplomacy</span> <span name="attr_diplomacy_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_disable_device_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="DisableDevice" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{disable_device}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{disable_device}[MOD]]]}}"><span data-i18n="disable_device">Disable Device</span> <span name="attr_disable_device_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_disguise_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Disguise" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{disguise}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{disguise}[MOD]]]}}"><span data-i18n="disguise">Disguise</span> <span name="attr_disguise_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_escape_artist_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="EscapeArtist" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{escape_artist}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{escape_artist}[MOD]]]}}"><span data-i18n="escape_artist">Escape Artist</span> <span name="attr_escape_artist_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_fly_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Fly" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{fly}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fly}[MOD]]]}}"><span data-i18n="fly">Fly</span> <span name="attr_fly_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_handle_animal_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="HandleAnimal" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{handle_animal}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{handle_animal}[MOD]]]}}"><span data-i18n="handle_animal">Handle Animal</span> <span name="attr_handle_animal_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_heal_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Heal" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{heal}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{heal}[MOD]]]}}"><span data-i18n="heal">Heal</span> <span name="attr_heal_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_intimidate_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Intimidate" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{intimidate}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intimidate}[MOD]]]}}"><span data-i18n="intimidate">Intimidate</span> <span name="attr_intimidate_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_arcana_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeArcana" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_arcana}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_arcana}[MOD]]]}}"><span data-i18n="knowledge_arcana">Knowledge Arcana</span> <span name="attr_knowledge_arcana_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_dungeoneering_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeDungeoneering" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_dungeoneering}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_dungeoneering}[MOD]]]}}"><span data-i18n="knowledge_dungeoneering">Knowledge Dungeoneering</span> <span name="attr_knowledge_dungeoneering_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_engineering_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeEngineering" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_engineering}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_engineering}[MOD]]]}}"><span data-i18n="knowledge_engineering">Knowledge Engineering</span> <span name="attr_knowledge_engineering_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_geography_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeGeography" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_geography}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_geography}[MOD]]]}}"><span data-i18n="knowledge_geography">Knowledge Geography</span> <span name="attr_knowledge_geography_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_history_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeHistory" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_history}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_history}[MOD]]]}}"><span data-i18n="knowledge_history">Knowledge History</span> <span name="attr_knowledge_history_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_local_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeLocal" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_local}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_local}[MOD]]]}}"><span data-i18n="knowledge_local">Knowledge Local</span> <span name="attr_knowledge_local_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_nature_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeNature" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_nature}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_nature}[MOD]]]}}"><span data-i18n="knowledge_nature">Knowledge Nature</span> <span name="attr_knowledge_nature_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_nobility_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeNobility" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_nobility}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_nobility}[MOD]]]}}"><span data-i18n="knowledge_nobility">Knowledge Nobility</span> <span name="attr_knowledge_nobility_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_planes_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgePlanes" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_planes}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_planes}[MOD]]]}}"><span data-i18n="knowledge_planes">Knowledge Planes</span> <span name="attr_knowledge_planes_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_knowledge_religion_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeReligion" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{knowledge_religion}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_religion}[MOD]]]}}"><span data-i18n="knowledge_religion">Knowledge Religion</span> <span name="attr_knowledge_religion_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_linguistics_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Linguistics" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{linguistics}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{linguistics}[MOD]]]}}"><span data-i18n="linguistics">Linguistics</span> <span name="attr_linguistics_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_perception_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span data-i18n="perception">Perception</span> <span name="attr_perception_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_perform_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Perform" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{perform}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perform}[MOD]]]}}"><span data-i18n="perform">Perform</span> <span name="attr_perform_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_profession_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Profession" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{profession}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{profession}[MOD]]]}}"><span data-i18n="profession">Profession</span> <span name="attr_profession_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_ride_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Ride" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{ride}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{ride}[MOD]]]}}"><span data-i18n="ride">Ride</span> <span name="attr_ride_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_sense_motive_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="SenseMotive" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{sense_motive}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{sense_motive}[MOD]]]}}"><span data-i18n="sense_motive">Sense Motive</span> <span name="attr_sense_motive_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_sleight_of_hand_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="SleightOfHand" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{sleight_of_hand}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{sleight_of_hand}[MOD]]]}}"><span data-i18n="sleight_of_hand">Sleight Of Hand</span> <span name="attr_sleight_of_hand_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_spellcraft_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Spellcraft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{spellcraft}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{spellcraft}[MOD]]]}}"><span data-i18n="spellcraft">Spellcraft</span> <span name="attr_spellcraft_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_stealth_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Stealth" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{stealth}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{stealth}[MOD]]]}}"><span data-i18n="stealth">Stealth</span> <span name="attr_stealth_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_survival_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Survival" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{survival}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{survival}[MOD]]]}}"><span data-i18n="survival">Survival</span> <span name="attr_survival_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_swim_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Swim" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{swim}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{swim}[MOD]]]}}"><span data-i18n="swim">Swim</span> <span name="attr_swim_display"></span></button>,</span>
-            <input type="hidden" class="optional-flag0" name="attr_use_magic_device_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="UseMagicDevice" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:default} {{name=^{use_magic_device}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{use_magic_device}[MOD]]]}}"><span data-i18n="use_magic_device">Use Magic Device</span> <span name="attr_use_magic_device_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_acrobatics_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Acrobatics" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{acrobatics}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{acrobatics}[MOD]]]}}"><span data-i18n="acrobatics">Acrobatics</span> <span name="attr_acrobatics_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_appraise" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Appraise" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{appraise}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{appraise}[MOD]]]}}"><span data-i18n="appraise">Appraise</span> <span name="attr_appraise_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_bluff_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Bluff" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{bluff}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{bluff}[MOD]]]}}"><span data-i18n="bluff">Bluff</span> <span name="attr_bluff_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_climb_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Climb" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{climb}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{climb}[MOD]]]}}"><span data-i18n="climb">Climb</span> <span name="attr_climb_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_craft_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Craft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{craft}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{craft}[MOD]]]}}"><span data-i18n="craft">Craft</span> <span name="attr_craft_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_diplomacy_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Diplomacy" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{diplomacy}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{diplomacy}[MOD]]]}}"><span data-i18n="diplomacy">Diplomacy</span> <span name="attr_diplomacy_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_disable_device_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="DisableDevice" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{disable_device}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{disable_device}[MOD]]]}}"><span data-i18n="disable_device">Disable Device</span> <span name="attr_disable_device_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_disguise_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Disguise" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{disguise}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{disguise}[MOD]]]}}"><span data-i18n="disguise">Disguise</span> <span name="attr_disguise_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_escape_artist_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="EscapeArtist" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{escape_artist}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{escape_artist}[MOD]]]}}"><span data-i18n="escape_artist">Escape Artist</span> <span name="attr_escape_artist_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_fly_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Fly" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{fly}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fly}[MOD]]]}}"><span data-i18n="fly">Fly</span> <span name="attr_fly_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_handle_animal_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="HandleAnimal" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{handle_animal}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{handle_animal}[MOD]]]}}"><span data-i18n="handle_animal">Handle Animal</span> <span name="attr_handle_animal_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_heal_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Heal" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{heal}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{heal}[MOD]]]}}"><span data-i18n="heal">Heal</span> <span name="attr_heal_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_intimidate_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Intimidate" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{intimidate}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intimidate}[MOD]]]}}"><span data-i18n="intimidate">Intimidate</span> <span name="attr_intimidate_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_arcana_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeArcana" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_arcana}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_arcana}[MOD]]]}}"><span data-i18n="knowledge_arcana">Knowledge Arcana</span> <span name="attr_knowledge_arcana_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_dungeoneering_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeDungeoneering" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_dungeoneering}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_dungeoneering}[MOD]]]}}"><span data-i18n="knowledge_dungeoneering">Knowledge Dungeoneering</span> <span name="attr_knowledge_dungeoneering_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_engineering_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeEngineering" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_engineering}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_engineering}[MOD]]]}}"><span data-i18n="knowledge_engineering">Knowledge Engineering</span> <span name="attr_knowledge_engineering_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_geography_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeGeography" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_geography}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_geography}[MOD]]]}}"><span data-i18n="knowledge_geography">Knowledge Geography</span> <span name="attr_knowledge_geography_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_history_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeHistory" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_history}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_history}[MOD]]]}}"><span data-i18n="knowledge_history">Knowledge History</span> <span name="attr_knowledge_history_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_local_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeLocal" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_local}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_local}[MOD]]]}}"><span data-i18n="knowledge_local">Knowledge Local</span> <span name="attr_knowledge_local_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_nature_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeNature" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_nature}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_nature}[MOD]]]}}"><span data-i18n="knowledge_nature">Knowledge Nature</span> <span name="attr_knowledge_nature_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_nobility_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeNobility" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_nobility}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_nobility}[MOD]]]}}"><span data-i18n="knowledge_nobility">Knowledge Nobility</span> <span name="attr_knowledge_nobility_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_planes_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgePlanes" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_planes}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_planes}[MOD]]]}}"><span data-i18n="knowledge_planes">Knowledge Planes</span> <span name="attr_knowledge_planes_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_knowledge_religion_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="KnowledgeReligion" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{knowledge_religion}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{knowledge_religion}[MOD]]]}}"><span data-i18n="knowledge_religion">Knowledge Religion</span> <span name="attr_knowledge_religion_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_linguistics_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Linguistics" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{linguistics}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{linguistics}[MOD]]]}}"><span data-i18n="linguistics">Linguistics</span> <span name="attr_linguistics_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_perception_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Perception" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{perception}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perception}[MOD]]]}}"><span data-i18n="perception">Perception</span> <span name="attr_perception_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_perform_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Perform" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{perform}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{perform}[MOD]]]}}"><span data-i18n="perform">Perform</span> <span name="attr_perform_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_profession_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Profession" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{profession}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{profession}[MOD]]]}}"><span data-i18n="profession">Profession</span> <span name="attr_profession_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_ride_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Ride" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{ride}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{ride}[MOD]]]}}"><span data-i18n="ride">Ride</span> <span name="attr_ride_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_sense_motive_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="SenseMotive" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{sense_motive}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{sense_motive}[MOD]]]}}"><span data-i18n="sense_motive">Sense Motive</span> <span name="attr_sense_motive_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_sleight_of_hand_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="SleightOfHand" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{sleight_of_hand}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{sleight_of_hand}[MOD]]]}}"><span data-i18n="sleight_of_hand">Sleight Of Hand</span> <span name="attr_sleight_of_hand_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_spellcraft_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Spellcraft" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{spellcraft}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{spellcraft}[MOD]]]}}"><span data-i18n="spellcraft">Spellcraft</span> <span name="attr_spellcraft_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_stealth_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Stealth" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{stealth}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{stealth}[MOD]]]}}"><span data-i18n="stealth">Stealth</span> <span name="attr_stealth_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_survival_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Survival" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{survival}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{survival}[MOD]]]}}"><span data-i18n="survival">Survival</span> <span name="attr_survival_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_swim_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="Swim" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{swim}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{swim}[MOD]]]}}"><span data-i18n="swim">Swim</span> <span name="attr_swim_display"></span></button>,</span>
+            <input type="hidden" class="optional-flag0" name="attr_use_magic_device_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="UseMagicDevice" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{use_magic_device}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{use_magic_device}[MOD]]]}}"><span data-i18n="use_magic_device">Use Magic Device</span> <span name="attr_use_magic_device_display"></span></button>,</span>
             <input type="hidden" class="optional-flag" name="attr_skills_racial_modifiers" value="" /><span class="optional inl"><span class="bold" data-i18n="racial-modifiers">Racial Modifiers</span>&nbsp;<span name="attr_skills_racial_modifiers"></span></span>
         </div>
         <div class="myrow">
@@ -2276,9 +2276,9 @@
             <fieldset class="repeating_abilities">
                 <div class="ability compendium-drop-target">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:default} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
+                    <button class="myrol underl" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:npc} {{name=@{name}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
                         <input type="hidden" class="optional-flag" name="attr_type" value="" /><span class="optional inl bold">(<span name="attr_type"></span>)</span></button>
-                    <span style="display: inline;" name="attr_description"></span>
+                    <span style="display: inline;" name="attr_description"></span>s
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -8577,7 +8577,7 @@
     {{/smallname}}
     <div class="bordered">
         {{#name}}
-            <div>
+            <div class="mrgbot1">
                 <div class="blacklabel top">
                     <div class="blackbgrd">
                         <span class="big">{{name}}</span>
@@ -8610,7 +8610,7 @@
         {{#attack}}
             {{#roll1}}
                 {{#roll}}
-                    <div class="inlblk nowrap">
+                    <div class="inlblk nowrap mrgbot1">
                         <div class="blacklabel med">
                             <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
                                 <span class="secondary" data-i18n="atk">Atk</span>
@@ -8620,7 +8620,7 @@
                         </div>
                         {{roll}}
                         {{#rollWasCrit() roll}}
-                            <div class="inlblk">
+                            <div class="inlblk mrgbot1">
                                 <span class="symbol">t</span>
                                 {{critconfirm}}
                                 <div class="blacklabel med">
@@ -8634,7 +8634,7 @@
                     </div>
                 {{/roll}}
                 <div class="inlblk nowrap">
-                    <div class="blacklabel med">
+                    <div class="blacklabel med mrgbot1">
                         <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
                             <span class="secondary" data-i18n="atk">Atk</span>
                             <span class="secondary">#2</span>
@@ -8643,7 +8643,7 @@
                     </div>
                     {{roll1}}
                     {{#rollWasCrit() roll1}}
-                        <div class="inlblk">
+                        <div class="inlblk mrgbot1">
                             <span class="symbol">t</span>
                             {{critconfirm1}}
                             <div class="blacklabel med">
@@ -8657,7 +8657,7 @@
                 </div>
             {{/roll1}}
             {{#roll2}}
-                <div class="inlblk nowrap">
+                <div class="inlblk nowrap mrgbot1">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8667,7 +8667,7 @@
                     </div>
                     {{roll2}}
                     {{#rollWasCrit() roll2}}
-                        <div class="inlblk">
+                        <div class="inlblk mrgbot1">
                             <span class="symbol">t</span>
                             {{critconfirm2}}
                             <div class="blacklabel med">
@@ -8681,7 +8681,7 @@
                 </div>
             {{/roll2}}
             {{#roll3}}
-                <div class="inlblk nowrap">
+                <div class="inlblk nowrap mrgbot1">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8691,7 +8691,7 @@
                     </div>
                     {{roll3}}
                     {{#rollWasCrit() roll3}}
-                        <div class="inlblk">
+                        <div class="inlblk mrgbot1">
                             <span class="symbol">t</span>
                             {{critconfirm3}}
                             <div class="blacklabel med">
@@ -8849,6 +8849,403 @@
 </rolltemplate>
 
 <rolltemplate class="sheet-rolltemplate-npc">
+    {{#name}}
+        {{#rollTotal() showchar 1}}
+            <div class="charname">
+                <span class="smallname bold">{{charname}}</span>
+            </div>
+        {{/rollTotal() showchar 1}}
+    {{/name}}
+    {{#smallname}}
+        <div class="charname">
+            {{#rollTotal() showchar 1}}
+                <span class="smallname bold">{{charname}}</span>
+                <span class="smallname">/</span>
+            {{/rollTotal() showchar 1}}
+            <span class="smallname bold">{{smallname}}</span>
+        </div>
+    {{/smallname}}
+    <div class="bordered">
+        {{#name}}
+            <div class="mrgbot1">
+                <div class="blacklabel top">
+                    <div class="blackbgrd">
+                        <span class="big">{{name}}</span>
+                        {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
+                        {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
+                        {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
+                        {{#casterclass}}<span class="med">({{casterclass}}</span>{{#level}}<span class="med"> {{level}}</span>{{/level}}<span class="med">)</span>{{/casterclass}}
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                {{^roll1}}
+                    {{#roll}}<div class="resright">{{roll}}</div>{{/roll}}
+                    {{#attack}}
+                        {{#rollWasCrit() roll}}
+                            <div class="right">
+                                <span class="symbol">t</span>
+                                {{critconfirm}}
+                                <div class="blacklabel med">
+                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                    <div class="blackbgrd">
+                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/rollWasCrit() roll}}
+                    {{/attack}}
+                {{/roll1}}
+            </div>
+        {{/name}}
+        {{#attack}}
+            {{#roll1}}
+                {{#roll}}
+                    <div class="inlblk nowrap mrgbot1">
+                        <div class="blacklabel med">
+                            <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
+                                <span class="secondary" data-i18n="atk">Atk</span>
+                                <span class="secondary">#1</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        </div>
+                        {{roll}}
+                        {{#rollWasCrit() roll}}
+                            <div class="inlblk mrgbot1">
+                                <span class="symbol">t</span>
+                                {{critconfirm}}
+                                <div class="blacklabel med">
+                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                    <div class="blackbgrd">
+                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/rollWasCrit() roll}}
+                    </div>
+                {{/roll}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#2</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll1}}
+                    {{#rollWasCrit() roll1}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm1}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll1}}
+                </div>
+            {{/roll1}}
+            {{#roll2}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#3</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll2}}
+                    {{#rollWasCrit() roll2}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm2}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll2}}
+                </div>
+            {{/roll2}}
+            {{#roll3}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#4</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll3}}
+                    {{#rollWasCrit() roll3}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm3}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll3}}
+                </div>
+            {{/roll3}}
+            {{#roll4}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-5" title="Attack roll #5">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#5</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll4}}
+                    {{#rollWasCrit() roll4}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm4}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll4}}
+                </div>
+            {{/roll4}}
+            {{#roll5}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-6" title="Attack roll #6">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#6</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll5}}
+                    {{#rollWasCrit() roll5}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm5}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll5}}
+                </div>
+            {{/roll5}}
+            {{#roll6}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-7" title="Attack roll #7">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#7</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll6}}
+                    {{#rollWasCrit() roll6}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm6}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll6}}
+                </div>
+            {{/roll6}}
+            {{#roll7}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-8" title="Attack roll #8">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#8</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll7}}
+                    {{#rollWasCrit() roll7}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm6}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll7}}
+                </div>
+            {{/roll7}}
+            {{#roll8}}
+                <div class="inlblk nowrap mrgbot1">
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="attack-roll-9" title="Attack roll #9">
+                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary">#9</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll8}}
+                    {{#rollWasCrit() roll8}}
+                        <div class="inlblk mrgbot1">
+                            <span class="symbol">t</span>
+                            {{critconfirm6}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/rollWasCrit() roll8}}
+                </div>
+            {{/roll8}}
+        {{/attack}}
+        {{#damage}}
+            {{#dmg1flag}}
+                <div>
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
+                            <span class="secondary yellow" data-i18n="dmg">Dmg</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{dmg1}}
+                    {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
+                    <span class="notes inl bottom">{{dmg1type}}</span>
+                </div>
+            {{/dmg1flag}}
+            {{#dmg2flag}}
+                <div>
+                    <div class="blacklabel med">
+                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
+                            <span class="secondary yellow" data-i18n="dmg-2">Dmg 2</span>
+                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{dmg2}}
+                    {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
+                    <span class="notes inl bottom">{{dmg2type}}</span>
+                </div>
+            {{/dmg2flag}}
+        {{/damage}}
+        {{#sr}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="spell-resistance:">Spell Resistance:</span>
+                <span class="notes inl">{{spellresistance}}</span>
+            </div>
+        {{/sr}}
+        {{#save}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="saving-throw:">Saving Throw:</span>
+                <span class="notes inl">{{saveeffect}}</span>
+                <span class="lbl bold" data-i18n="dc-u">DC</span>
+                {{savedc}}
+            </div>
+        {{/save}}
+        {{#school}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="school:">School:</span>
+                <span class="notes inl">{{school}}</span>
+            </div>
+        {{/school}}
+        {{#castingtime}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="casting-time:">Casting time:</span>
+                <span class="notes inl">{{castingtime}}</span>
+            </div>
+        {{/castingtime}}
+        {{#component}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="components:">Components:</span>
+                <span class="notes inl">{{component}}</span>
+            </div>
+        {{/component}}
+        {{#range}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="range:">Range:</span>
+                <span class="notes inl">{{range}}</span>
+            </div>
+        {{/range}}
+        {{#area}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="area:">Area:</span>
+                <span class="notes inl">{{area}}</span>
+            </div>
+        {{/area}}
+        {{#targets}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="targets:">Targets:</span>
+                <span class="notes inl">{{targets}}</span>
+            </div>
+        {{/targets}}
+        {{#effect}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="effect:">Effect:</span>
+                <span class="notes inl">{{effect}}</span>
+            </div>
+        {{/effect}}
+        {{#duration}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="duration:">Duration:</span>
+                <span class="notes inl">{{duration}}</span>
+            </div>
+        {{/duration}}
+        {{#prerequisites}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="prerequisites:">Prerequisites:</span>
+                <span class="notes inl">{{prerequisites}}</span>
+            </div>
+        {{/prerequisites}}
+        {{#benefits}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="benefits:">Benefits:</span>
+                <span class="notes inl">{{benefits}}</span>
+            </div>
+        {{/benefits}}
+        {{#normal}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="normal:">Normal:</span>
+                <span class="notes inl">{{normal}}</span>
+            </div>
+        {{/normal}}
+        {{#special}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="special:">Special:</span>
+                <span class="notes inl">{{special}}</span>
+            </div>
+        {{/special}}
+
+    </div>
+    {{#descflag}}
+        {{#desc}}
+            <div class="desc">
+                <span class="notes inl ital">{{desc}}</span>
+            </div>
+        {{/desc}}
+    {{/descflag}}
+    {{#rollTotal() shownotes 1}}
+        {{#notes}}
+            <div class="notes">
+                <span class="lbl bold" data-i18n="notes">Notes</span>
+                <span class="notes inl ital">{{notes}}</span>
+            </div>
+        {{/notes}}
+    {{/rollTotal() shownotes 1}}
 </rolltemplate>
 
 <!-- WORKERS -->
@@ -10051,7 +10448,7 @@
                 for (var i = 2; i < 10; i++) {
                     if (v[base  + "atkmod" + i] != "") {
                         display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
-                        multi += "{{roll" + i + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + i + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        multi += "{{roll" + (i-1) + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + (i-1) + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     }
                 }
             }

@@ -1196,7 +1196,7 @@
                 for (var i = 2; i < 10; i++) {
                     if (v[base  + "atkmod" + i] != "") {
                         display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
-                        multi += "{{roll" + i + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + i + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        multi += "{{roll" + (i-1) + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + (i-1) + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
                     }
                 }
             }
