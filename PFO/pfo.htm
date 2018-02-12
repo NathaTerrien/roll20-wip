@@ -8577,7 +8577,7 @@
     {{/smallname}}
     <div class="bordered">
         {{#name}}
-            <div class="mrgbot1 vtop">
+            <div class="vtop">
                 <div class="blacklabel top">
                     <div class="blackbgrd">
                         <span class="big">{{name}}</span>
@@ -8588,29 +8588,29 @@
                     </div>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
-                {{^roll1}}
-                    {{#roll}}<div class="resright">{{roll}}</div>{{/roll}}
-                    {{#attack}}
-                        {{#rollWasCrit() roll}}
-                            <div class="right mrgtop1 vtop">
-                                <span class="symbol">t</span>
-                                {{critconfirm}}
-                                <div class="blacklabel med">
-                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                    <div class="blackbgrd">
-                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                    </div>
+                {{^roll1}}{{#roll}}<div class="resright">{{roll}}</div>{{/roll}}{{/roll1}}
+            </div>
+            {{^roll1}}
+                {{#attack}}
+                    {{#rollWasCrit() roll}}
+                        <div class="right vtop">
+                            <span class="symbol">t</span>
+                            {{critconfirm}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
                                 </div>
                             </div>
-                        {{/rollWasCrit() roll}}
-                    {{/attack}}
-                {{/roll1}}
-            </div>
+                        </div>
+                    {{/rollWasCrit() roll}}
+                {{/attack}}
+            {{/roll1}}
         {{/name}}
         {{#attack}}
             {{#roll1}}
                 {{#roll}}
-                    <div class="inlblk nowrap mrgbot1 vtop">
+                    <div class="inlblk nowrap vtop">
                         <div class="blacklabel med">
                             <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
                                 <span class="secondary" data-i18n="atk">Atk</span>
@@ -8620,7 +8620,7 @@
                         </div>
                         {{roll}}
                         {{#rollWasCrit() roll}}
-                            <div class="inlblk mrgbot1 vtop">
+                            <div class="inlblk vtop right">
                                 <span class="symbol">t</span>
                                 {{critconfirm}}
                                 <div class="blacklabel med">
@@ -8633,7 +8633,7 @@
                         {{/rollWasCrit() roll}}
                     </div>
                 {{/roll}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8643,7 +8643,7 @@
                     </div>
                     {{roll1}}
                     {{#rollWasCrit() roll1}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop right">
                             <span class="symbol">t</span>
                             {{critconfirm1}}
                             <div class="blacklabel med">
@@ -8657,7 +8657,7 @@
                 </div>
             {{/roll1}}
             {{#roll2}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8667,7 +8667,7 @@
                     </div>
                     {{roll2}}
                     {{#rollWasCrit() roll2}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop right">
                             <span class="symbol">t</span>
                             {{critconfirm2}}
                             <div class="blacklabel med">
@@ -8681,7 +8681,7 @@
                 </div>
             {{/roll2}}
             {{#roll3}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8691,7 +8691,7 @@
                     </div>
                     {{roll3}}
                     {{#rollWasCrit() roll3}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop right">
                             <span class="symbol">t</span>
                             {{critconfirm3}}
                             <div class="blacklabel med">
@@ -8707,7 +8707,7 @@
         {{/attack}}
         {{#damage}}
             {{#dmg1flag}}
-                <div class="mrgbot1 vtop">
+                <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
                             <span class="secondary yellow" data-i18n="dmg">Dmg</span>
@@ -8716,11 +8716,11 @@
                     </div>
                     {{dmg1}}
                     {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
-                    <span class="notes inl bottom">{{dmg1type}}</span>
+                    <span class="notes inl">{{dmg1type}}</span>
                 </div>
             {{/dmg1flag}}
             {{#dmg2flag}}
-                <div class="mrgbot1 vtop">
+                <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
                             <span class="secondary yellow" data-i18n="dmg-2">Dmg 2</span>
@@ -8729,7 +8729,7 @@
                     </div>
                     {{dmg2}}
                     {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
-                    <span class="notes inl bottom">{{dmg2type}}</span>
+                    <span class="notes inl">{{dmg2type}}</span>
                 </div>
             {{/dmg2flag}}
         {{/damage}}
@@ -8867,7 +8867,7 @@
     {{/smallname}}
     <div class="bordered">
         {{#name}}
-            <div class="mrgbot1 vtop">
+            <div class="vtop">
                 <div class="blacklabel top">
                     <div class="blackbgrd">
                         <span class="big">{{name}}</span>
@@ -8878,29 +8878,29 @@
                     </div>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
-                {{^roll1}}
-                    {{#roll}}<div class="resright">{{roll}}</div>{{/roll}}
-                    {{#attack}}
-                        {{#rollWasCrit() roll}}
-                            <div class="right mrgtop1 vtop">
-                                <span class="symbol">t</span>
-                                {{critconfirm}}
-                                <div class="blacklabel med">
-                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                    <div class="blackbgrd">
-                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                    </div>
+                {{^roll1}}{{#roll}}<div class="resright">{{roll}}</div>{{/roll}}{{/roll1}}
+            </div>
+            {{^roll1}}
+                {{#attack}}
+                    {{#rollWasCrit() roll}}
+                        <div class="right vtop">
+                            <span class="symbol">t</span>
+                            {{critconfirm}}
+                            <div class="blacklabel med">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <div class="blackbgrd">
+                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
                                 </div>
                             </div>
-                        {{/rollWasCrit() roll}}
-                    {{/attack}}
-                {{/roll1}}
-            </div>
+                        </div>
+                    {{/rollWasCrit() roll}}
+                {{/attack}}
+            {{/roll1}}
         {{/name}}
         {{#attack}}
             {{#roll1}}
                 {{#roll}}
-                    <div class="inlblk nowrap mrgbot1 vtop">
+                    <div class="inlblk nowrap vtop">
                         <div class="blacklabel med">
                             <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
                                 <span class="secondary" data-i18n="atk">Atk</span>
@@ -8910,7 +8910,7 @@
                         </div>
                         {{roll}}
                         {{#rollWasCrit() roll}}
-                            <div class="inlblk mrgbot1 vtop">
+                            <div class="inlblk vtop">
                                 <span class="symbol">t</span>
                                 {{critconfirm}}
                                 <div class="blacklabel med">
@@ -8923,7 +8923,7 @@
                         {{/rollWasCrit() roll}}
                     </div>
                 {{/roll}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8933,7 +8933,7 @@
                     </div>
                     {{roll1}}
                     {{#rollWasCrit() roll1}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm1}}
                             <div class="blacklabel med">
@@ -8947,7 +8947,7 @@
                 </div>
             {{/roll1}}
             {{#roll2}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8957,7 +8957,7 @@
                     </div>
                     {{roll2}}
                     {{#rollWasCrit() roll2}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm2}}
                             <div class="blacklabel med">
@@ -8971,7 +8971,7 @@
                 </div>
             {{/roll2}}
             {{#roll3}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -8981,7 +8981,7 @@
                     </div>
                     {{roll3}}
                     {{#rollWasCrit() roll3}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm3}}
                             <div class="blacklabel med">
@@ -8995,7 +8995,7 @@
                 </div>
             {{/roll3}}
             {{#roll4}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-5" title="Attack roll #5">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -9005,7 +9005,7 @@
                     </div>
                     {{roll4}}
                     {{#rollWasCrit() roll4}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm4}}
                             <div class="blacklabel med">
@@ -9019,7 +9019,7 @@
                 </div>
             {{/roll4}}
             {{#roll5}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-6" title="Attack roll #6">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -9029,7 +9029,7 @@
                     </div>
                     {{roll5}}
                     {{#rollWasCrit() roll5}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm5}}
                             <div class="blacklabel med">
@@ -9043,7 +9043,7 @@
                 </div>
             {{/roll5}}
             {{#roll6}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-7" title="Attack roll #7">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -9053,7 +9053,7 @@
                     </div>
                     {{roll6}}
                     {{#rollWasCrit() roll6}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm6}}
                             <div class="blacklabel med">
@@ -9067,7 +9067,7 @@
                 </div>
             {{/roll6}}
             {{#roll7}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-8" title="Attack roll #8">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -9077,7 +9077,7 @@
                     </div>
                     {{roll7}}
                     {{#rollWasCrit() roll7}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm6}}
                             <div class="blacklabel med">
@@ -9091,7 +9091,7 @@
                 </div>
             {{/roll7}}
             {{#roll8}}
-                <div class="inlblk nowrap mrgbot1 vtop">
+                <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-9" title="Attack roll #9">
                             <span class="secondary" data-i18n="atk">Atk</span>
@@ -9101,7 +9101,7 @@
                     </div>
                     {{roll8}}
                     {{#rollWasCrit() roll8}}
-                        <div class="inlblk mrgbot1 vtop">
+                        <div class="inlblk vtop">
                             <span class="symbol">t</span>
                             {{critconfirm6}}
                             <div class="blacklabel med">
@@ -9117,7 +9117,7 @@
         {{/attack}}
         {{#damage}}
             {{#dmg1flag}}
-                <div class="mrgbot1 vtop">
+                <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
                             <span class="secondary yellow" data-i18n="dmg">Dmg</span>
@@ -9126,11 +9126,11 @@
                     </div>
                     {{dmg1}}
                     {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
-                    <span class="notes inl bottom">{{dmg1type}}</span>
+                    <span class="notes inl">{{dmg1type}}</span>
                 </div>
             {{/dmg1flag}}
             {{#dmg2flag}}
-                <div class="mrgbot1 vtop">
+                <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
                             <span class="secondary yellow" data-i18n="dmg-2">Dmg 2</span>
@@ -9139,7 +9139,7 @@
                     </div>
                     {{dmg2}}
                     {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
-                    <span class="notes inl bottom">{{dmg2type}}</span>
+                    <span class="notes inl">{{dmg2type}}</span>
                 </div>
             {{/dmg2flag}}
         {{/damage}}
