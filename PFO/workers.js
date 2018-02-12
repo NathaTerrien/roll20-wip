@@ -1120,17 +1120,11 @@
                     // desc
                     if(descflag != "0") {
                         rollatk += atkdesc;
-                        // rollatk1 += (rollatk1.trim().length > 0) ? atkdesc : "";
-                        // rollatk2 += (rollatk2.trim().length > 0) ? atkdesc : "";
-                        // rollatk3 += (rollatk3.trim().length > 0) ? atkdesc : "";
                         rollbase += atkdesc;
                     }
                     // notes
                     if(v["rollnotes_attack"] != "0") {
                         rollatk += rollnotes;
-                        // rollatk1 += (rollatk1.trim().length > 0) ? rollnotes : "";
-                        // rollatk2 += (rollatk2.trim().length > 0) ? rollnotes : "";
-                        // rollatk3 += (rollatk3.trim().length > 0) ? rollnotes : "";
                         rollbase += rollnotes;
                     }
                 }
@@ -1622,6 +1616,7 @@
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellsave");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellresistance");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatktype");
@@ -1648,7 +1643,10 @@
                 var update = {};
                 var stemp = "";
                 var rollbase = "";
-                var rollbasetemplate = "default";
+                var rollbasetemplate = "pc";
+                if (v.npc == "1") {
+                    rollbasetemplate = "npc";
+                }
                 var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"];
                 //var atktype = parseInt(v[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] + "_mod"]) || 0;
                 var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"];
@@ -1715,11 +1713,11 @@
                 // duration
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"].length != 0) {rollbase += "{{duration=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"] + "}}";}
                 // saving throw
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {rollbase += "{{save=1}}{{savedc=" + savedc + "}}{{saveeffect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellsave"] + "}}";}
+                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {rollbase += "{{save=1}}{{savedc=[[" + savedc + "]]}}{{saveeffect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellsave"] + "}}";}
                 // spell resistance
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {rollbase += "{{sr=1}}{{spellresistance=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistance"] + "}}";}
+                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag"] != "0") {rollbase += "{{sr=1}}{{spellresistance=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistance"] + "}}";}
                 // desc
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {rollbase += "{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";}
+                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {rollbase += "{{descflag=[[1]]}}{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";}
                 // roll attack
                 if(atkflag != "0") {
                     if (atktype != "0") {atktype = "@{" + atktype + "_mod}";}
@@ -1748,7 +1746,7 @@
                     }
                 }
                 // notes
-                if(v["rollnotes_spell"] != "0") {rollbase += "{{shownotes=1}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";}
+                if(v["rollnotes_spell"] != "0") {rollbase += "{{shownotes=[[1]]}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";}
                 // == update
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spelldc"] = savedc;
                 update["repeating_spell-" + spell_level + "_" + spellid + "_rollcontent"] = rollbase;

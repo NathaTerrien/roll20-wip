@@ -5716,7 +5716,7 @@
                     <div class="concentration"> <!-- CONCENTRATION -->
                         <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
-                            <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:pc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{class=@{caster1_class}}} {{roll=[[1d20+@{caster1_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster1_concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
+                            <button class="myrol" type="roll" name="Caster1ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:pc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{casterclass=@{caster1_class}}} {{level=@{caster1_level}}} {{roll=[[1d20+@{caster1_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster1_concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
                             <input type="hidden" name="attr_caster1_concentration_bonus" class="attr-flag" value="0" />
                             <span name="attr_caster1_concentration" class="pseudoattr number greybg underlined" title="@{caster1_concentration}"></span>
                             <span class="spacer"></span>
@@ -5972,7 +5972,7 @@
                     <div class="concentration"> <!-- CONCENTRATION -->
                         <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
-                            <button class="myrol" type="roll" name="Caster2ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:pc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{class=@{caster2_class}}} {{roll=[[1d20+@{caster2_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster2_concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
+                            <button class="myrol" type="roll" name="Caster2ConcentrationRoll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{whispertype} &{template:pc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{casterclass=@{caster2_class}}} {{level=@{caster2_level}}} {{roll=[[1d20+@{caster2_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster2_concentration_notes}}}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
                             <input type="hidden" name="attr_caster2_concentration_bonus" class="attr-flag" value="0" />
                             <span name="attr_caster2_concentration" class="pseudoattr number greybg underlined" title="@{caster2_concentration}"></span>
                             <span class="spacer"></span>
@@ -8559,12 +8559,24 @@
 
 <!-- ROLL TEMPLATES -->
 <rolltemplate class="sheet-rolltemplate-pc">
+    {{#name}}
+        {{#rollTotal() showchar 1}}
+            <div class="charname">
+                <span class="smallname bold">{{charname}}</span>
+            </div>
+        {{/rollTotal() showchar 1}}
+    {{/name}}
+    {{#smallname}}
+        <div class="charname">
+            {{#rollTotal() showchar 1}}
+                <span class="smallname bold">{{charname}}</span>
+                <span class="smallname">/</span>
+            {{/rollTotal() showchar 1}}
+            <span class="smallname bold">{{smallname}}</span>
+        </div>
+    {{/smallname}}
     <div class="bordered">
         {{#name}}
-            {{#rollTotal() showchar 1}}
-                <!--  <div class="blacklabel name"><div class="blackbgrd"><span class="sml">{{charname}}</span></div></div> -->
-                <div class="myrow"><span class="smallname bold">{{charname}}</span></div>
-            {{/rollTotal() showchar 1}}
             <div>
                 <div class="blacklabel top">
                     <div class="blackbgrd">
@@ -8572,6 +8584,7 @@
                         {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
                         {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
                         {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
+                        {{#casterclass}}<span class="med">({{casterclass}}</span>{{#level}}<span class="med"> {{level}}</span>{{/level}}<span class="med">)</span>{{/casterclass}}
                     </div>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
@@ -8594,39 +8607,32 @@
                 {{/roll1}}
             </div>
         {{/name}}
-        {{#smallname}}
-            <div class="myrow">
-                {{#rollTotal() showchar 1}}
-                    <span class="smallname bold">{{charname}}</span>
-                    <span class="smallname">/</span>
-                {{/rollTotal() showchar 1}}
-                <span class="smallname bold">{{smallname}}</span>
-            </div>
-        {{/smallname}}
         {{#attack}}
             {{#roll1}}
-                <div class="inlblk nowrap">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
-                            <span class="secondary" data-i18n="atk">Atk</span>
-                            <span class="secondary">#1</span>
+                {{#roll}}
+                    <div class="inlblk nowrap">
+                        <div class="blacklabel med">
+                            <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
+                                <span class="secondary" data-i18n="atk">Atk</span>
+                                <span class="secondary">#1</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                    </div>
-                    {{roll}}
-                    {{#rollWasCrit() roll}}
-                        <div class="inlblk">
-                            <span class="symbol">t</span>
-                            {{critconfirm}}
-                            <div class="blacklabel med">
-                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                        {{roll}}
+                        {{#rollWasCrit() roll}}
+                            <div class="inlblk">
+                                <span class="symbol">t</span>
+                                {{critconfirm}}
+                                <div class="blacklabel med">
+                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                    <div class="blackbgrd">
+                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {{/rollWasCrit() roll}}
-                </div>
+                        {{/rollWasCrit() roll}}
+                    </div>
+                {{/roll}}
                 <div class="inlblk nowrap">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
@@ -8710,7 +8716,7 @@
                     </div>
                     {{dmg1}}
                     {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
-                    <span class="notes inl">{{dmg1type}}</span>
+                    <span class="notes inl bottom">{{dmg1type}}</span>
                 </div>
             {{/dmg1flag}}
             {{#dmg2flag}}
@@ -8723,17 +8729,82 @@
                     </div>
                     {{dmg2}}
                     {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
-                    <span class="notes inl">{{dmg2type}}</span>
+                    <span class="notes inl bottom">{{dmg2type}}</span>
                 </div>
             {{/dmg2flag}}
         {{/damage}}
         {{#shortdesc}}<div class="myrow center"><span class="notes ital">{{shortdesc}}</span></div>{{/shortdesc}}
+        {{#spellfailureroll}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="spell-failure">Spell Failure</span>
+                {{spellfailureroll}} <span class="notes inl">></span> {{spellfailure}}
+                {{#rollGreater() spellfailureroll spellfailure}}<span class="lbl bold" style="color: #247305;" data-i18n="success">Success</span>{{/rollGreater() spellfailureroll spellfailure}}
+                {{#rollTotal() spellfailureroll spellfailure}}<span class="lbl bold" style="color: #BE202E;" data-i18n="failure">Failure</span>{{/rollTotal() spellfailureroll spellfailure}}
+                {{#rollLess() spellfailureroll spellfailure}}<span class="lbl bold" style="color: #BE202E;" data-i18n="failure">Failure</span>{{/rollLess() spellfailureroll spellfailure}}
+            </div>
+        {{/spellfailureroll}}
+        {{#sr}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="spell-resistance:">Spell Resistance:</span>
+                <span class="notes inl">{{spellresistance}}</span>
+            </div>
+        {{/sr}}
+        {{#save}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="saving-throw:">Saving Throw:</span>
+                <span class="notes inl">{{saveeffect}}</span>
+                <span class="lbl bold" data-i18n="dc-u">DC</span>
+                {{savedc}}
+            </div>
+        {{/save}}
+        {{#school}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="school:">School:</span>
+                <span class="notes inl">{{school}}</span>
+            </div>
+        {{/school}}
+        {{#castingtime}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="casting-time:">Casting time:</span>
+                <span class="notes inl">{{castingtime}}</span>
+            </div>
+        {{/castingtime}}
+        {{#component}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="components:">Components:</span>
+                <span class="notes inl">{{component}}</span>
+            </div>
+        {{/component}}
         {{#range}}
             <div class="myrow">
                 <span class="lbl bold" data-i18n="range:">Range:</span>
                 <span class="notes inl">{{range}}</span>
             </div>
         {{/range}}
+        {{#area}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="area:">Area:</span>
+                <span class="notes inl">{{area}}</span>
+            </div>
+        {{/area}}
+        {{#targets}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="targets:">Targets:</span>
+                <span class="notes inl">{{targets}}</span>
+            </div>
+        {{/targets}}
+        {{#effect}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="effect:">Effect:</span>
+                <span class="notes inl">{{effect}}</span>
+            </div>
+        {{/effect}}
+        {{#duration}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="duration:">Duration:</span>
+                <span class="notes inl">{{duration}}</span>
+            </div>
+        {{/duration}}
         {{#prerequisites}}
             <div class="myrow">
                 <span class="lbl bold" data-i18n="prerequisites:">Prerequisites:</span>
@@ -8758,6 +8829,7 @@
                 <span class="notes inl">{{special}}</span>
             </div>
         {{/special}}
+
     </div>
     {{#descflag}}
         {{#desc}}
@@ -9903,17 +9975,11 @@
                     // desc
                     if(descflag != "0") {
                         rollatk += atkdesc;
-                        // rollatk1 += (rollatk1.trim().length > 0) ? atkdesc : "";
-                        // rollatk2 += (rollatk2.trim().length > 0) ? atkdesc : "";
-                        // rollatk3 += (rollatk3.trim().length > 0) ? atkdesc : "";
                         rollbase += atkdesc;
                     }
                     // notes
                     if(v["rollnotes_attack"] != "0") {
                         rollatk += rollnotes;
-                        // rollatk1 += (rollatk1.trim().length > 0) ? rollnotes : "";
-                        // rollatk2 += (rollatk2.trim().length > 0) ? rollnotes : "";
-                        // rollatk3 += (rollatk3.trim().length > 0) ? rollnotes : "";
                         rollbase += rollnotes;
                     }
                 }
@@ -10405,6 +10471,7 @@
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellsave");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod");
+            spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellresistance");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellatktype");
@@ -10431,7 +10498,10 @@
                 var update = {};
                 var stemp = "";
                 var rollbase = "";
-                var rollbasetemplate = "default";
+                var rollbasetemplate = "pc";
+                if (v.npc == "1") {
+                    rollbasetemplate = "npc";
+                }
                 var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"];
                 //var atktype = parseInt(v[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] + "_mod"]) || 0;
                 var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"];
@@ -10498,11 +10568,11 @@
                 // duration
                 if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"].length != 0) {rollbase += "{{duration=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"] + "}}";}
                 // saving throw
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {rollbase += "{{save=1}}{{savedc=" + savedc + "}}{{saveeffect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellsave"] + "}}";}
+                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {rollbase += "{{save=1}}{{savedc=[[" + savedc + "]]}}{{saveeffect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellsave"] + "}}";}
                 // spell resistance
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {rollbase += "{{sr=1}}{{spellresistance=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistance"] + "}}";}
+                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag"] != "0") {rollbase += "{{sr=1}}{{spellresistance=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistance"] + "}}";}
                 // desc
-                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {rollbase += "{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";}
+                if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {rollbase += "{{descflag=[[1]]}}{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";}
                 // roll attack
                 if(atkflag != "0") {
                     if (atktype != "0") {atktype = "@{" + atktype + "_mod}";}
@@ -10531,7 +10601,7 @@
                     }
                 }
                 // notes
-                if(v["rollnotes_spell"] != "0") {rollbase += "{{shownotes=1}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";}
+                if(v["rollnotes_spell"] != "0") {rollbase += "{{shownotes=[[1]]}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";}
                 // == update
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spelldc"] = savedc;
                 update["repeating_spell-" + spell_level + "_" + spellid + "_rollcontent"] = rollbase;

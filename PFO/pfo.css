@@ -1301,9 +1301,10 @@ input.sheet-tabconf:checked + span{
     padding: 0px 0px;
     font-weight: bold;
     cursor: help;
-    font-size: 1.55em; /* 1.7em; */
+    font-size: 1.55em;
     font-family: 'Times New Roman';
-    /* line-height: 1.2em; */
+    line-height: 0.9em;
+    vertical-align: bottom;
 }
 .sheet-rolltemplate-pc .sheet-resright .inlinerollresult {
     font-size: 1.8em;
@@ -1366,6 +1367,8 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-npc .sheet-bold {font-weight: bold;}
 .sheet-rolltemplate-pc .sheet-nowrap,
 .sheet-rolltemplate-npc .sheet-nowrap {white-space: nowrap;}
+.sheet-rolltemplate-pc .sheet-bottom,
+.sheet-rolltemplate-npc .sheet-bottom {vertical-align: bottom;}
 
 .sheet-rolltemplate-pc .sheet-myrow,
 .sheet-rolltemplate-npc .sheet-myrow {
@@ -1375,26 +1378,27 @@ input.sheet-tabconf:checked + span{
 
 .sheet-rolltemplate-pc div.sheet-charname {
     background-color: white;
-    border: 1px solid black;
-    margin-bottom: 1px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 1px 0px 1px;
     padding: 1px 1px 1px 2px;
 }
 .sheet-rolltemplate-pc div.sheet-notes,
 .sheet-rolltemplate-npc div.sheet-notes {
-    max-height: 250px;
+    max-height: 220px;
     overflow-y: auto;
     background-color: #DDD;
     border: 1px solid #BBB;
-    margin-top: 1px;
+    margin-top: 2px;
     padding: 1px 1px 1px 2px;
 }
 
 .sheet-rolltemplate-pc div.sheet-desc {
-    max-height: 250px;
+    max-height: 220px;
     overflow-y: auto;
     background-color: white;
     border: 1px solid black;
-    margin-top: 1px;
+    margin-top: 2px;
     padding: 1px 1px 1px 2px;
 }
 
@@ -1403,6 +1407,7 @@ input.sheet-tabconf:checked + span{
     font-family: sans-serif;
     font-size: 0.9em;
     color: black;
+    line-height: 0.9;
 }
 
 .sheet-rolltemplate-pc .sheet-lbl,
@@ -1428,6 +1433,7 @@ input.sheet-tabconf:checked + span{
     font-family: "Pictos Custom";
     font-size: 1.3em;
     font-weight: bold;
+    vertical-align: bottom;
 }
 .sheet-rolltemplate-pc .sheet-smallname {
     font-family: sans-serif;
