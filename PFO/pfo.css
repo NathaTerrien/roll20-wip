@@ -1302,13 +1302,15 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc .inlinerollresult,
 .sheet-rolltemplate-npc .inlinerollresult {
     background-color: transparent;
-    color: black;
     border: none;
     padding: 0px 0px;
     font-weight: bold;
     cursor: help;
     font-size: 1.25em;
 }
+.sheet-rolltemplate-pc .inlinerollresult {color: #182C4A;}
+.sheet-rolltemplate-npc .inlinerollresult {color: #501414;}
+
 .sheet-rolltemplate-pc .sheet-resright .inlinerollresult,
 .sheet-rolltemplate-npc .sheet-resright .inlinerollresult {
     font-size: 1.6em;
@@ -1379,7 +1381,7 @@ input.sheet-tabconf:checked + span{
     padding: 0px 1px 0px 2px;
 }
 .sheet-rolltemplate-pc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,white,#D8DBE6);}
-.sheet-rolltemplate-npc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,white,#F5D6D6);}
+.sheet-rolltemplate-npc .sheet-bordered .sheet-myrow:nth-child(odd) {background: linear-gradient(to left,white,#F5D6D6);}
 
 .sheet-rolltemplate-pc div.sheet-charname,
 .sheet-rolltemplate-npc div.sheet-charname {
@@ -1397,10 +1399,18 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-npc div.sheet-notes {
     max-height: 220px;
     overflow-y: auto;
-    background-color: #DDD;
-    border: 1px solid #BBB;
+    border-width: 1px;
+    border-style: solid;
     margin-top: 2px;
     padding: 1px 1px 1px 2px;
+}
+.sheet-rolltemplate-pc div.sheet-notes{
+    background-color: #D8DBE6; /* #DDD */
+    border-color: #182C4A; /* #BBB; */
+}
+.sheet-rolltemplate-npc div.sheet-notes {
+    background-color: #F5D6D6;
+    border-color: #501414;
 }
 
 .sheet-rolltemplate-pc div.sheet-desc,
