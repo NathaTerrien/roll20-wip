@@ -1294,6 +1294,7 @@ input.sheet-tabconf:checked + span{
  PC dark blue: #182C4A
  PC light blue: #D8DBE6
  NPC dark red: #501414
+ NPC light red (90%): #F5D6D6
  background: linear-gradient(to left,white,#D8DBE6);
 */
 
@@ -1378,6 +1379,7 @@ input.sheet-tabconf:checked + span{
     padding: 0px 1px 0px 2px;
 }
 .sheet-rolltemplate-pc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,white,#D8DBE6);}
+.sheet-rolltemplate-npc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,white,#F5D6D6);}
 
 .sheet-rolltemplate-pc div.sheet-charname,
 .sheet-rolltemplate-npc div.sheet-charname {
