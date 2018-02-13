@@ -1291,8 +1291,10 @@ input.sheet-tabconf:checked + span{
 .sheet-statblock .sheet-npcatk.sheet-spells .repcontainer {max-width: 540px;}
 
 /* ===== ROLL TEMPLATES =====
- NPC dark blue: #182C4A
- NPC light blue: #D8DBE6
+ PC dark blue: #182C4A
+ PC light blue: #D8DBE6
+ NPC dark red: #501414
+ background: linear-gradient(to left,white,#D8DBE6);
 */
 
 /* Rolls */
@@ -1370,11 +1372,12 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-npc .sheet-nowrap {white-space: nowrap;}
 .sheet-rolltemplate-pc .sheet-vtop,
 .sheet-rolltemplate-npc .sheet-vtop {vertical-align: top;}
+
 .sheet-rolltemplate-pc .sheet-myrow,
 .sheet-rolltemplate-npc .sheet-myrow {
-    padding-left: 2px;
-    margin: 1px 0px 1px 0px;
+    padding: 0px 1px 0px 2px;
 }
+.sheet-rolltemplate-pc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,white,#D8DBE6);}
 
 .sheet-rolltemplate-pc div.sheet-charname,
 .sheet-rolltemplate-npc div.sheet-charname {
@@ -1385,8 +1388,8 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc div.sheet-charname {background-color: white;}
 .sheet-rolltemplate-npc div.sheet-charname {background-color: white; /* #D8DBE6;*/}
 
-.sheet-rolltemplate-pc div.sheet-charname {border-color: black;}
-.sheet-rolltemplate-npc div.sheet-charname {border-color: #182C4A;}
+.sheet-rolltemplate-pc div.sheet-charname {border-color: #182C4A;}
+.sheet-rolltemplate-npc div.sheet-charname {border-color: #501414;}
 
 .sheet-rolltemplate-pc div.sheet-notes,
 .sheet-rolltemplate-npc div.sheet-notes {
@@ -1409,10 +1412,10 @@ input.sheet-tabconf:checked + span{
 }
 .sheet-rolltemplate-pc div.sheet-desc {
     background-color: white;
-    border-color: black;
+    border-color: #182C4A;
 }
 .sheet-rolltemplate-npc div.sheet-desc {
-    border-color: #182C4A;
+    border-color: #501414;
     background-color: white; /* #D8DBE6;*/
 }
 
@@ -1431,8 +1434,9 @@ input.sheet-tabconf:checked + span{
     line-height: 1em;
     text-transform: capitalize;
     white-space: pre;
-    color: black;
 }
+.sheet-rolltemplate-pc .sheet-lbl {color: #182C4A;}
+.sheet-rolltemplate-npc .sheet-lbl {color: #501414;}
 
 .sheet-rolltemplate-pc .sheet-bordered,
 .sheet-rolltemplate-npc .sheet-bordered {
@@ -1443,11 +1447,11 @@ input.sheet-tabconf:checked + span{
 }
 .sheet-rolltemplate-pc .sheet-bordered {
     background-color: white;
-    border-color: black;
+    border-color: #182C4A;
 }
 .sheet-rolltemplate-npc .sheet-bordered {
     background-color: white; /* #D8DBE6;*/
-    border-color: #182C4A;
+    border-color: #501414;
 }
 
 .sheet-rolltemplate-pc .sheet-symbol,
@@ -1462,8 +1466,8 @@ input.sheet-tabconf:checked + span{
     font-family: sans-serif;
     font-size: 0.9em;
 }
-.sheet-rolltemplate-pc .sheet-smallname {color: #333;}
-.sheet-rolltemplate-npc .sheet-smallname {color: #182C4A;}
+.sheet-rolltemplate-pc .sheet-smallname {color: #182C4A;} /* #333 */
+.sheet-rolltemplate-npc .sheet-smallname {color: #501414;}
 
 /* top bands */
 .sheet-rolltemplate-pc img.sheet-brdright,
@@ -1489,11 +1493,11 @@ input.sheet-tabconf:checked + span{
     position: relative;
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel {
-        background-color: black;
+        background-color: #182C4A;
         color: white;
 }
 .sheet-rolltemplate-npc div.sheet-blacklabel {
-        background-color: #182C4A;
+        background-color: #501414;
         color: white;
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel .sheet-blackbgrd,
