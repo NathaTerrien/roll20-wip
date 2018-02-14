@@ -1307,6 +1307,7 @@ input.sheet-tabconf:checked + span{
     font-weight: bold;
     cursor: help;
     font-size: 1.25em;
+    padding: 2px;
 }
 .sheet-rolltemplate-pc .inlinerollresult {color: #182C4A;}
 .sheet-rolltemplate-npc .inlinerollresult {color: #501414;}
@@ -1340,6 +1341,16 @@ input.sheet-tabconf:checked + span{
     color: #BE202E;
 }
 
+/* flex */
+.sheet-rolltemplate-pc .sheet-flexatk {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.sheet-rolltemplate-pc .sheet-flexitem {
+    white-space: nowrap;
+    display: inline-block;
+}
 /* classes */
 .sheet-rolltemplate-pc div,
 .sheet-rolltemplate-pc span,
@@ -1521,8 +1532,7 @@ input.sheet-tabconf:checked + span{
 /* top */
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-top {
-    min-height: 35px;
-    max-height: 35px;
+    height: 36px;
     width: 82%;
     max-width: 82%;
     vertical-align: top;
@@ -1534,27 +1544,25 @@ input.sheet-tabconf:checked + span{
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top img.sheet-brdright,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-top img.sheet-brdright {
-    width: 25px;
-    height: 35px;
+    width: 26px;
+    height: 36px;
 }
 /* med */
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
-    min-height: 19px;
-    max-height: 19px;
-    min-width: 60px;
+    height: 20px;
+    min-width: 75px;
     vertical-align: top;
 }
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
-    min-height: 19px;
-    max-height: 19px;
-    min-width: 40px;
+    height: 20px;
+    min-width: 75px;
     vertical-align: top;
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med img.sheet-brdright,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med img.sheet-brdright {
-    height: 19px;
+    height: 20px;
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med .sheet-blackbgrd {padding: 0px 20px 0px 2px;}
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med .sheet-blackbgrd {padding: 0px 2px 0px 2px;}

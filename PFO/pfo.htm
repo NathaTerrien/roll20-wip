@@ -8608,20 +8608,24 @@
             {{/roll1}}
         {{/name}}
         {{#attack}}
-            {{#roll1}}
-                {{#roll}}
-                    <div class="inlblk nowrap vtop">
-                        <div class="blacklabel med">
-                            <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
-                                <span class="secondary" data-i18n="atk">Atk</span>
-                                <span class="secondary">#1</span>
+            <div class="flexatk">
+                {{#roll1}}
+                    {{#roll}}
+                        <div class="flexitem">
+                            <div class="blacklabel med">
+                                <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
+                                    <span class="secondary" data-i18n="attack">Attack</span>
+                                    <span class="secondary">#1</span>
+                                </div>
+                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                             </div>
-                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                            {{roll}}
                         </div>
-                        {{roll}}
                         {{#rollWasCrit() roll}}
-                            <div class="inlblk vtop right">
+                            <div class="flexitem">
                                 <span class="symbol">t</span>
+                            </div>
+                            <div class="flexitem right">
                                 {{critconfirm}}
                                 <div class="blacklabel med">
                                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -8631,20 +8635,22 @@
                                 </div>
                             </div>
                         {{/rollWasCrit() roll}}
-                    </div>
-                {{/roll}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
-                            <span class="secondary" data-i18n="atk">Atk</span>
-                            <span class="secondary">#2</span>
+                    {{/roll}}
+                    <div class="flexitem">
+                        <div class="blacklabel med">
+                            <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
+                                <span class="secondary" data-i18n="attack">Attack</span>
+                                <span class="secondary">#2</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        {{roll1}}
                     </div>
-                    {{roll1}}
                     {{#rollWasCrit() roll1}}
-                        <div class="inlblk vtop right">
+                        <div class="flexitem">
                             <span class="symbol">t</span>
+                        </div>
+                        <div class="flexitem right">
                             {{critconfirm1}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -8654,21 +8660,23 @@
                             </div>
                         </div>
                     {{/rollWasCrit() roll1}}
-                </div>
-            {{/roll1}}
-            {{#roll2}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
-                            <span class="secondary" data-i18n="atk">Atk</span>
-                            <span class="secondary">#3</span>
+                {{/roll1}}
+                {{#roll2}}
+                    <div class="flexitem">
+                        <div class="blacklabel med">
+                            <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
+                                <span class="secondary" data-i18n="attack">Attack</span>
+                                <span class="secondary">#3</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        {{roll2}}
                     </div>
-                    {{roll2}}
                     {{#rollWasCrit() roll2}}
-                        <div class="inlblk vtop right">
+                        <div class="flexitem">
                             <span class="symbol">t</span>
+                        </div>
+                        <div class="flexitem right">
                             {{critconfirm2}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -8678,21 +8686,23 @@
                             </div>
                         </div>
                     {{/rollWasCrit() roll2}}
-                </div>
-            {{/roll2}}
-            {{#roll3}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
-                            <span class="secondary" data-i18n="atk">Atk</span>
-                            <span class="secondary">#4</span>
+                {{/roll2}}
+                {{#roll3}}
+                    <div class="flexitem">
+                        <div class="blacklabel med">
+                            <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
+                                <span class="secondary" data-i18n="attack">Attack</span>
+                                <span class="secondary">#4</span>
+                            </div>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
-                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                        {{roll3}}
                     </div>
-                    {{roll3}}
                     {{#rollWasCrit() roll3}}
-                        <div class="inlblk vtop right">
+                        <div class="flexitem">
                             <span class="symbol">t</span>
+                        </div>
+                        <div class="flexitem right">
                             {{critconfirm3}}
                             <div class="blacklabel med">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
@@ -8702,15 +8712,15 @@
                             </div>
                         </div>
                     {{/rollWasCrit() roll3}}
-                </div>
-            {{/roll3}}
+                {{/roll3}}
+            </div> <!-- END flexatk -->
         {{/attack}}
         {{#damage}}
             {{#dmg1flag}}
                 <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="dmg">Dmg</span>
+                            <span class="secondary yellow" data-i18n="damage">Damage</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
@@ -8723,7 +8733,7 @@
                 <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="dmg-2">Dmg 2</span>
+                            <span class="secondary yellow" data-i18n="damage2">Damage2</span>
                         </div>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
@@ -8901,7 +8911,7 @@
                     <div class="inlblk nowrap vtop">
                         <div class="blacklabel med">
                             <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
-                                <span class="secondary" data-i18n="atk">Atk</span>
+                                <span class="secondary" data-i18n="attack">Attack</span>
                                 <span class="secondary">#1</span>
                             </div>
                         </div>
@@ -8922,7 +8932,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#2</span>
                         </div>
                     </div>
@@ -8944,7 +8954,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#3</span>
                         </div>
                     </div>
@@ -8966,7 +8976,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#4</span>
                         </div>
                     </div>
@@ -8988,7 +8998,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-5" title="Attack roll #5">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#5</span>
                         </div>
                     </div>
@@ -9010,7 +9020,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-6" title="Attack roll #6">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#6</span>
                         </div>
                     </div>
@@ -9032,7 +9042,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-7" title="Attack roll #7">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#7</span>
                         </div>
                     </div>
@@ -9054,7 +9064,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-8" title="Attack roll #8">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#8</span>
                         </div>
                     </div>
@@ -9076,7 +9086,7 @@
                 <div class="inlblk nowrap vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="attack-roll-9" title="Attack roll #9">
-                            <span class="secondary" data-i18n="atk">Atk</span>
+                            <span class="secondary" data-i18n="attack">Attack</span>
                             <span class="secondary">#9</span>
                         </div>
                     </div>
@@ -9100,7 +9110,7 @@
                 <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="dmg">Dmg</span>
+                            <span class="secondary yellow" data-i18n="damage">Damage</span>
                         </div>
                     </div>
                     {{dmg1}}
@@ -9112,7 +9122,7 @@
                 <div class="vtop">
                     <div class="blacklabel med">
                         <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="dmg-2">Dmg 2</span>
+                            <span class="secondary yellow" data-i18n="damage2">Damage2</span>
                         </div>
                     </div>
                     {{dmg2}}
