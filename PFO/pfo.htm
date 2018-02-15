@@ -8561,31 +8561,24 @@
 <rolltemplate class="sheet-rolltemplate-pc">
     {{#name}}
         {{#rollTotal() showchar 1}}
-            <div class="charname">
-                <span class="smallname bold">{{charname}}</span>
-            </div>
+            <div class="charname smallname bold">{{charname}}</div>
         {{/rollTotal() showchar 1}}
     {{/name}}
     {{#smallname}}
-        <div class="charname">
-            {{#rollTotal() showchar 1}}
-                <span class="smallname bold">{{charname}}</span>
-                <span class="smallname">/</span>
-            {{/rollTotal() showchar 1}}
-            <span class="smallname bold">{{smallname}}</span>
+        <div class="charname smallname bold">
+            {{#rollTotal() showchar 1}}{{charname}} /{{/rollTotal() showchar 1}}
+            {{smallname}}
         </div>
     {{/smallname}}
     <div class="bordered">
         {{#name}}
             <div class="vtop">
                 <div class="blacklabel top">
-                    <div class="blackbgrd">
-                        <span class="big">{{name}}</span>
-                        {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
-                        {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
-                        {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
-                        {{#casterclass}}<span class="med">({{casterclass}}</span>{{#level}}<span class="med"> {{level}}</span>{{/level}}<span class="med">)</span>{{/casterclass}}
-                    </div>
+                    <span class="big">{{name}}</span>
+                    {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
+                    {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
+                    {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
+                    {{#casterclass}}<span class="med">({{casterclass}}</span>{{#level}}<span class="med"> {{level}}</span>{{/level}}<span class="med">)</span>{{/casterclass}}
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 {{^roll1}}{{#roll}}<div class="resright">{{roll}}</div>{{/roll}}{{/roll1}}
@@ -8596,11 +8589,9 @@
                         <div class="right vtop">
                             <span class="symbol">t</span>
                             {{critconfirm}}
-                            <div class="blacklabel med">
+                            <div class="blacklabel med right yellow">
                                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
+                                <span data-i18n="crit-confirm">Crit confirm</span>
                             </div>
                         </div>
                     {{/rollWasCrit() roll}}
@@ -8608,120 +8599,88 @@
             {{/roll1}}
         {{/name}}
         {{#attack}}
-            <div class="flexatk">
-                {{#roll1}}
-                    {{#roll}}
-                        <div class="flexitem">
-                            <div class="blacklabel med">
-                                <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
-                                    <span class="secondary" data-i18n="attack">Attack</span>
-                                    <span class="secondary">#1</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
-                            {{roll}}
+            {{#roll1}}
+                {{#roll}}
+                    <div class="flexatk">
+                        <div class="blacklabel med">
+                            <span data-i18n="attack">Attack</span>
+                            <span data-i18n="#1">#1</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
+                        {{roll}}
+                        <div class="spacer"></div>
                         {{#rollWasCrit() roll}}
-                            <div class="flexitem">
-                                <span class="symbol">t</span>
-                            </div>
-                            <div class="flexitem right">
-                                {{critconfirm}}
-                                <div class="blacklabel med">
-                                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                    <div class="blackbgrd">
-                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                    </div>
-                                </div>
+                            <span class="symbol">t</span>
+                            {{critconfirm}}
+                            <div class="blacklabel med right yellow">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <span data-i18n="crit-confirm">Crit confirm</span>
                             </div>
                         {{/rollWasCrit() roll}}
-                    {{/roll}}
-                    <div class="flexitem">
-                        <div class="blacklabel med">
-                            <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
-                                <span class="secondary" data-i18n="attack">Attack</span>
-                                <span class="secondary">#2</span>
-                            </div>
-                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                        </div>
-                        {{roll1}}
                     </div>
+                {{/roll}}
+                <div class="flexatk">
+                    <div class="blacklabel med">
+                        <span data-i18n="attack">Attack</span>
+                        <span data-i18n="#2">#2</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                    </div>
+                    {{roll1}}
+                    <div class="spacer"></div>
                     {{#rollWasCrit() roll1}}
-                        <div class="flexitem">
-                            <span class="symbol">t</span>
-                        </div>
-                        <div class="flexitem right">
-                            {{critconfirm1}}
-                            <div class="blacklabel med">
-                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
+                        <span class="symbol">t</span>
+                        {{critconfirm1}}
+                        <div class="blacklabel med right yellow">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span data-i18n="crit-confirm">Crit confirm</span>
                         </div>
                     {{/rollWasCrit() roll1}}
-                {{/roll1}}
-                {{#roll2}}
-                    <div class="flexitem">
-                        <div class="blacklabel med">
-                            <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
-                                <span class="secondary" data-i18n="attack">Attack</span>
-                                <span class="secondary">#3</span>
-                            </div>
-                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                        </div>
-                        {{roll2}}
+                </div>
+            {{/roll1}}
+            {{#roll2}}
+                <div class="flexatk">
+                    <div class="blacklabel med">
+                        <span data-i18n="attack">Attack</span>
+                        <span data-i18n="#3">#3</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
+                    {{roll2}}
+                    <div class="spacer"></div>
                     {{#rollWasCrit() roll2}}
-                        <div class="flexitem">
-                            <span class="symbol">t</span>
-                        </div>
-                        <div class="flexitem right">
-                            {{critconfirm2}}
-                            <div class="blacklabel med">
-                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
+                        <span class="symbol">t</span>
+                        {{critconfirm2}}
+                        <div class="blacklabel med right yellow">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span data-i18n="crit-confirm">Crit confirm</span>
                         </div>
                     {{/rollWasCrit() roll2}}
-                {{/roll2}}
-                {{#roll3}}
-                    <div class="flexitem">
-                        <div class="blacklabel med">
-                            <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
-                                <span class="secondary" data-i18n="attack">Attack</span>
-                                <span class="secondary">#4</span>
-                            </div>
-                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                        </div>
-                        {{roll3}}
+                </div>
+            {{/roll2}}
+            {{#roll3}}
+                <div class="flexatk">
+                    <div class="blacklabel med">
+                        <span data-i18n="attack">Attack</span>
+                        <span data-i18n="#4">#4</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
+                    {{roll3}}
+                    <div class="spacer"></div>
                     {{#rollWasCrit() roll3}}
-                        <div class="flexitem">
-                            <span class="symbol">t</span>
-                        </div>
-                        <div class="flexitem right">
-                            {{critconfirm3}}
-                            <div class="blacklabel med">
-                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
+                        <span class="symbol">t</span>
+                        {{critconfirm3}}
+                        <div class="blacklabel med right yellow">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span data-i18n="crit-confirm">Crit confirm</span>
                         </div>
                     {{/rollWasCrit() roll3}}
-                {{/roll3}}
-            </div> <!-- END flexatk -->
+                </div>
+            {{/roll3}}
         {{/attack}}
         {{#damage}}
             {{#dmg1flag}}
-                <div class="vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="damage">Damage</span>
-                        </div>
+                <div class="flexdmg">
+                    <div class="blacklabel med yellow">
+                        <span data-i18n="damage">Damage</span>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{dmg1}}
@@ -8730,11 +8689,9 @@
                 </div>
             {{/dmg1flag}}
             {{#dmg2flag}}
-                <div class="vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="damage2">Damage2</span>
-                        </div>
+                <div class="flexdmg">
+                    <div class="blacklabel med yellow">
+                        <span data-i18n="damage2">Damage2</span>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{dmg2}}
@@ -8861,31 +8818,25 @@
 <rolltemplate class="sheet-rolltemplate-npc">
     {{#name}}
         {{#rollTotal() showchar 1}}
-            <div class="charname">
-                <span class="smallname bold">{{charname}}</span>
-            </div>
+            <div class="charname smallname bold">{{charname}}</div>
         {{/rollTotal() showchar 1}}
     {{/name}}
     {{#smallname}}
-        <div class="charname">
-            {{#rollTotal() showchar 1}}
-                <span class="smallname bold">{{charname}}</span>
-                <span class="smallname">/</span>
-            {{/rollTotal() showchar 1}}
-            <span class="smallname bold">{{smallname}}</span>
+        <div class="charname smallname bold">
+            {{#rollTotal() showchar 1}}{{charname}} /{{/rollTotal() showchar 1}}
+            {{smallname}}
         </div>
     {{/smallname}}
     <div class="bordered">
         {{#name}}
             <div class="vtop">
                 <div class="blacklabel top">
-                    <div class="blackbgrd">
-                        <span class="big">{{name}}</span>
-                        {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
-                        {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
-                        {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
-                        {{#casterclass}}<span class="med">({{casterclass}}</span>{{#level}}<span class="med"> {{level}}</span>{{/level}}<span class="med">)</span>{{/casterclass}}
-                    </div>
+                    <span class="big">{{name}}</span>
+                    {{#feattype}}<span class="med">({{feattype}})</span>{{/feattype}}
+                    {{#abilitytype}}<span class="med">({{abilitytype}})</span>{{/abilitytype}}
+                    {{#atkvs}}<span class="med">{{atkvs}}</span>{{/atkvs}}
+                    {{#casterclass}}<span class="med">({{casterclass}}</span>{{#level}}<span class="med"> {{level}}</span>{{/level}}<span class="med">)</span>{{/casterclass}}
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 {{^roll1}}{{#roll}}<div class="resright">{{roll}}</div>{{/roll}}{{/roll1}}
             </div>
@@ -8895,10 +8846,9 @@
                         <div class="right vtop">
                             <span class="symbol">t</span>
                             {{critconfirm}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
+                            <div class="blacklabel med right yellow">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <span data-i18n="crit-confirm">Crit confirm</span>
                             </div>
                         </div>
                     {{/rollWasCrit() roll}}
@@ -8908,210 +8858,87 @@
         {{#attack}}
             {{#roll1}}
                 {{#roll}}
-                    <div class="inlblk nowrap vtop">
+                    <div class="flexatk">
                         <div class="blacklabel med">
-                            <div class="blackbgrd" data-i18n-title="attack-roll" title="Attack roll">
-                                <span class="secondary" data-i18n="attack">Attack</span>
-                                <span class="secondary">#1</span>
-                            </div>
+                            <span data-i18n="attack">Attack</span>
+                            <span data-i18n="#1">#1</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         {{roll}}
+                        <div class="spacer"></div>
                         {{#rollWasCrit() roll}}
-                            <div class="inlblk vtop">
-                                <span class="symbol">t</span>
-                                {{critconfirm}}
-                                <div class="blacklabel med">
-                                    <div class="blackbgrd">
-                                        <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                    </div>
-                                </div>
+                            <span class="symbol">t</span>
+                            {{critconfirm}}
+                            <div class="blacklabel med right yellow">
+                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                                <span data-i18n="crit-confirm">Crit confirm</span>
                             </div>
                         {{/rollWasCrit() roll}}
                     </div>
                 {{/roll}}
-                <div class="inlblk nowrap vtop">
+                <div class="flexatk">
                     <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-2" title="Attack roll #2">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#2</span>
-                        </div>
+                        <span data-i18n="attack">Attack</span>
+                        <span data-i18n="#2">#2</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{roll1}}
+                    <div class="spacer"></div>
                     {{#rollWasCrit() roll1}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm1}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
+                        <span class="symbol">t</span>
+                        {{critconfirm1}}
+                        <div class="blacklabel med right yellow">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span data-i18n="crit-confirm">Crit confirm</span>
                         </div>
                     {{/rollWasCrit() roll1}}
                 </div>
             {{/roll1}}
             {{#roll2}}
-                <div class="inlblk nowrap vtop">
+                <div class="flexatk">
                     <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-3" title="Attack roll #3">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#3</span>
-                        </div>
+                        <span data-i18n="attack">Attack</span>
+                        <span data-i18n="#3">#3</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{roll2}}
+                    <div class="spacer"></div>
                     {{#rollWasCrit() roll2}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm2}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
+                        <span class="symbol">t</span>
+                        {{critconfirm2}}
+                        <div class="blacklabel med right yellow">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span data-i18n="crit-confirm">Crit confirm</span>
                         </div>
                     {{/rollWasCrit() roll2}}
                 </div>
             {{/roll2}}
             {{#roll3}}
-                <div class="inlblk nowrap vtop">
+                <div class="flexatk">
                     <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-4" title="Attack roll #4">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#4</span>
-                        </div>
+                        <span data-i18n="attack">Attack</span>
+                        <span data-i18n="#4">#4</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{roll3}}
+                    <div class="spacer"></div>
                     {{#rollWasCrit() roll3}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm3}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
+                        <span class="symbol">t</span>
+                        {{critconfirm3}}
+                        <div class="blacklabel med right yellow">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span data-i18n="crit-confirm">Crit confirm</span>
                         </div>
                     {{/rollWasCrit() roll3}}
                 </div>
             {{/roll3}}
-            {{#roll4}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-5" title="Attack roll #5">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#5</span>
-                        </div>
-                    </div>
-                    {{roll4}}
-                    {{#rollWasCrit() roll4}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm4}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
-                        </div>
-                    {{/rollWasCrit() roll4}}
-                </div>
-            {{/roll4}}
-            {{#roll5}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-6" title="Attack roll #6">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#6</span>
-                        </div>
-                    </div>
-                    {{roll5}}
-                    {{#rollWasCrit() roll5}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm5}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
-                        </div>
-                    {{/rollWasCrit() roll5}}
-                </div>
-            {{/roll5}}
-            {{#roll6}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-7" title="Attack roll #7">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#7</span>
-                        </div>
-                    </div>
-                    {{roll6}}
-                    {{#rollWasCrit() roll6}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm6}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
-                        </div>
-                    {{/rollWasCrit() roll6}}
-                </div>
-            {{/roll6}}
-            {{#roll7}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-8" title="Attack roll #8">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#8</span>
-                        </div>
-                    </div>
-                    {{roll7}}
-                    {{#rollWasCrit() roll7}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm6}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
-                        </div>
-                    {{/rollWasCrit() roll7}}
-                </div>
-            {{/roll7}}
-            {{#roll8}}
-                <div class="inlblk nowrap vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="attack-roll-9" title="Attack roll #9">
-                            <span class="secondary" data-i18n="attack">Attack</span>
-                            <span class="secondary">#9</span>
-                        </div>
-                    </div>
-                    {{roll8}}
-                    {{#rollWasCrit() roll8}}
-                        <div class="inlblk vtop">
-                            <span class="symbol">t</span>
-                            {{critconfirm6}}
-                            <div class="blacklabel med">
-                                <div class="blackbgrd">
-                                    <span class="secondary yellow" data-i18n="crit-confirm">Crit confirm</span>
-                                </div>
-                            </div>
-                        </div>
-                    {{/rollWasCrit() roll8}}
-                </div>
-            {{/roll8}}
         {{/attack}}
         {{#damage}}
             {{#dmg1flag}}
-                <div class="vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="damage">Damage</span>
-                        </div>
+                <div class="flexdmg">
+                    <div class="blacklabel med yellow">
+                        <span data-i18n="damage">Damage</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{dmg1}}
                     {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
@@ -9119,11 +8946,10 @@
                 </div>
             {{/dmg1flag}}
             {{#dmg2flag}}
-                <div class="vtop">
-                    <div class="blacklabel med">
-                        <div class="blackbgrd" data-i18n-title="damage-roll" title="Damage roll">
-                            <span class="secondary yellow" data-i18n="damage2">Damage2</span>
-                        </div>
+                <div class="flexdmg">
+                    <div class="blacklabel med yellow">
+                        <span data-i18n="damage2">Damage2</span>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                     {{dmg2}}
                     {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
@@ -9131,6 +8957,15 @@
                 </div>
             {{/dmg2flag}}
         {{/damage}}
+        {{#spellfailureroll}}
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="spell-failure">Spell Failure</span>
+                {{spellfailureroll}} <span class="notes inl">></span> {{spellfailure}}
+                {{#rollGreater() spellfailureroll spellfailure}}<span class="lbl bold" style="color: #247305;" data-i18n="success">Success</span>{{/rollGreater() spellfailureroll spellfailure}}
+                {{#rollTotal() spellfailureroll spellfailure}}<span class="lbl bold" style="color: #BE202E;" data-i18n="failure">Failure</span>{{/rollTotal() spellfailureroll spellfailure}}
+                {{#rollLess() spellfailureroll spellfailure}}<span class="lbl bold" style="color: #BE202E;" data-i18n="failure">Failure</span>{{/rollLess() spellfailureroll spellfailure}}
+            </div>
+        {{/spellfailureroll}}
         {{#sr}}
             <div class="myrow">
                 <span class="lbl bold" data-i18n="spell-resistance:">Spell Resistance:</span>
