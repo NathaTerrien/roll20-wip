@@ -1397,7 +1397,7 @@ input.sheet-tabconf:checked + span{
     padding: 0px 1px 0px 2px;
 }
 .sheet-rolltemplate-pc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,white,#D8DBE6);}
-.sheet-rolltemplate-npc .sheet-bordered .sheet-myrow:nth-child(odd) {background: linear-gradient(to left,#c3996b7a,white);}
+.sheet-rolltemplate-npc .sheet-bordered .sheet-myrow:nth-child(even) {background: linear-gradient(to left,#c3996b7a,white);}
 
 .sheet-rolltemplate-pc div.sheet-charname {
     border-style: solid;
