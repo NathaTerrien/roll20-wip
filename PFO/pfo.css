@@ -1317,7 +1317,7 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-npc .inlinerollresult {color: #222;}
 
 .sheet-rolltemplate-pc .sheet-resright .inlinerollresult,
-.sheet-rolltemplate-npc .sheet-resright .inlinerollresult {
+.sheet-rolltemplate-npc .sheet-bigres .inlinerollresult {
     font-size: 1.6em;
     line-height: 1.45em;
 }
@@ -1505,18 +1505,14 @@ input.sheet-tabconf:checked + span{
 
 /* top bands */
 .sheet-rolltemplate-pc img.sheet-brdright,
-.sheet-rolltemplate-npc img.sheet-brdright,
-.sheet-rolltemplate-pc img.sheet-brdleft,
-.sheet-rolltemplate-npc img.sheet-brdleft {
+.sheet-rolltemplate-pc img.sheet-brdleft {
     display: inline-block;
     position: absolute;
     vertical-align: top;
     top: 0px;
 }
-.sheet-rolltemplate-pc img.sheet-brdleft,
-.sheet-rolltemplate-npc img.sheet-brdleft {left: 0px;}
-.sheet-rolltemplate-pc img.sheet-brdright,
-.sheet-rolltemplate-npc img.sheet-brdright {right: 0px;}
+.sheet-rolltemplate-pc img.sheet-brdleft {left: 0px;}
+.sheet-rolltemplate-pc img.sheet-brdright {right: 0px;}
 
 .sheet-rolltemplate-pc div.sheet-blacklabel,
 .sheet-rolltemplate-npc div.sheet-blacklabel {
@@ -1531,8 +1527,8 @@ input.sheet-tabconf:checked + span{
     color: white;
 }
 .sheet-rolltemplate-npc div.sheet-blacklabel {
-    background-color: #3C2517;
-    color: #f5f0eb;
+    background-color: transparent;
+    color: #3C2517;
     font-weight: bold;
 }
 /* top */
@@ -1557,8 +1553,7 @@ input.sheet-tabconf:checked + span{
     height: 36px;
 }
 /* med */
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med,
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
     height: 20px;
     min-width: 75px;
     vertical-align: top;
@@ -1566,13 +1561,26 @@ input.sheet-tabconf:checked + span{
     white-space: nowrap;
     line-height: 1.5em;
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-right,
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-right {
+.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
+    height: 20px;
+    min-width: 70px;
+    text-align: center;
+    vertical-align: top;
+    padding: 0px 2px 0px 2px;
+    white-space: nowrap;
+    line-height: 1.5em;
+    background: linear-gradient(to right,#c3996b7a,white);
+}
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-right {
     padding: 0px 2px 0px 20px;
     text-align: right;
 }
+.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-right {
+    text-align: right;
+    background: linear-gradient(to left,#c3996b7a,white);
+}
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-yellow {color: #E6DD94;}
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-yellow {color: #E6DD94;}
+.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-yellow {color: #501414;}
 
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
@@ -1582,7 +1590,7 @@ input.sheet-tabconf:checked + span{
 }
 
 .sheet-rolltemplate-pc div.sheet-blacklabel .sheet-big,
-.sheet-rolltemplate-npc div.sheet-blacklabel .sheet-big {
+.sheet-rolltemplate-npc .sheet-big {
     display: inline;
     font-family: sans-serif;
     font-size: 1.0em;
@@ -1591,6 +1599,7 @@ input.sheet-tabconf:checked + span{
     font-weight: bold;
     text-transform: uppercase;
 }
+.sheet-rolltemplate-npc .sheet-big {color: #3C2517;}
 
 .sheet-rolltemplate-pc .sheet-resright,
 .sheet-rolltemplate-npc .sheet-resright {
