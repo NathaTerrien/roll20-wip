@@ -1352,6 +1352,9 @@ input.sheet-tabconf:checked + span{
     justify-content: space-between;
     align-items: center;
 }
+.sheet-rolltemplate-pc .sheet-flexatk {border-top: 1px dotted #182C4A;}
+.sheet-rolltemplate-npc .sheet-flexatk {border-top: 1px dotted #3C2517;}
+
 .sheet-rolltemplate-pc .sheet-spacer,
 .sheet-rolltemplate-npc .sheet-spacer {flex-grow: 2;}
 .sheet-rolltemplate-pc .sheet-flexdmg,
@@ -1625,28 +1628,32 @@ input.sheet-tabconf:checked + span{
     height: 36px;
 }
 /* med */
+.sheet-rolltemplate-pc span.sheet-med {
+    font-weight: normal;
+    font-size: 0.9em;
+}
 .sheet-rolltemplate-npc span.sheet-med {
     font-style: italic;
     color: #3C2517;
     font-size: 0.9em;
     font-weight: bold;
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
-    height: 20px;
-    min-width: 75px;
-    vertical-align: top;
-    padding: 0px 20px 0px 2px;
-    white-space: nowrap;
-    line-height: 1.5em;
-}
+
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
     height: 20px;
-    min-width: 70px;
-    text-align: center;
     vertical-align: top;
-    padding: 0px 2px 0px 2px;
     white-space: nowrap;
     line-height: 1.5em;
+    font-weight: bold;
+}
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
+    min-width: 75px;
+    padding: 0px 20px 0px 2px;
+}
+.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
+    min-width: 70px;
+    padding: 0px 2px 0px 2px;
     background: linear-gradient(to right,#c3996b7a,white);
 }
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-right {
@@ -1657,8 +1664,14 @@ input.sheet-tabconf:checked + span{
     text-align: right;
     background: linear-gradient(to left,#c3996b7a,white);
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-yellow {color: #E6DD94;}
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-yellow {color: #501414;}
+.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-yellow {
+    color: #E6DD94;
+    font-weight: normal;
+}
+.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-yellow {
+    color: #501414;
+    font-weight: normal;
+}
 
 .sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
 .sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med img.sheet-brdleft,

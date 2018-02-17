@@ -265,7 +265,7 @@
 
     // === WEAPONS / ATTACKS
     // -- Display and roll calculation
-    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
+    on("change:repeating_attacks:atkname change:repeating_attacks:atkflag change:repeating_attacks:atktype change:repeating_attacks:atktype2 change:repeating_attacks:atkmod change:repeating_attacks:atkcritrange change:repeating_attacks:atkrange change:repeating_attacks:dmgflag change:repeating_attacks:dmgbase change:repeating_attacks:dmgattr change:repeating_attacks:dmgmod change:repeating_attacks:dmgcritmulti change:repeating_attacks:dmgtype change:repeating_attacks:dmg2flag change:repeating_attacks:dmg2base change:repeating_attacks:dmg2attr change:repeating_attacks:dmg2mod change:repeating_attacks:dmg2critmulti change:repeating_attacks:dmg2type change:repeating_attacks:descflag change:repeating_attacks:atkdesc change:repeating_attacks:notes", function(e) {
         var attackid = e.sourceAttribute.substring(18, 38);
         update_attacks(attackid);
     });
@@ -855,7 +855,7 @@
             var flag = bonus !=0 ? 1 : 0;
             ac = base + bonus + ability + armor + shield + size + natural + deflection + misc + dodge;
             if (noflatflooted == 1) {acff = ac;}
-            else {acff = base + bonus + armor + shield + size + natural + deflection + misc;}
+            else {acff = base + bonus + ( (ability < 0) ? ability : 0 ) + armor + shield + size + natural + deflection + misc;}
             acff += flatfooted_bonus;
             actouch = base + bonus + ability + size + deflection + misc + dodge;
             if (touchshield == 1) {actouch += shield;}
@@ -908,6 +908,7 @@
         } while (multi > 0);
         update["bab_multi"] = babarray;
         setAttrs(update, {silent: true}, function() {
+            update_attacks("bab");
             update_babs("cmb");
             update_babs("melee");
             update_babs("ranged");
@@ -945,7 +946,7 @@
         if(update_id.substring(0,1) === "-" && update_id.length === 20) {
             do_update_attack([update_id]);
         }
-        else if(["strength","dexterity","constitution","intelligence","wisdom","charisma","melee","ranged","cmb","all"].includes(update_id)) {
+        else if(["strength","dexterity","constitution","intelligence","wisdom","charisma","melee","ranged","cmb","bab","all"].includes(update_id)) {
             getSectionIDs("repeating_attacks", function(idarray) {
                 if(update_id === "all") {
                     do_update_attack(idarray);
@@ -953,13 +954,17 @@
                     var attack_attribs = [];
                     _.each(idarray, function(id) {
                         attack_attribs.push("repeating_attacks_" + id + "_atktype");
+                        attack_attribs.push("repeating_attacks_" + id + "_atktype2");
                         attack_attribs.push("repeating_attacks_" + id + "_dmgattr");
                         attack_attribs.push("repeating_attacks_" + id + "_dmg2attr");
                     });
                     getAttrs(attack_attribs, function(v) {
                         var attr_attack_ids = [];
                         _.each(idarray, function(id) {
-                            if((v["repeating_attacks_" + id + "_atktype"] && v["repeating_attacks_" + id + "_atktype"].includes(update_id)) || (v["repeating_attacks_" + id + "_dmgattr"] && v["repeating_attacks_" + id + "_dmgattr"].includes(update_id)) || (v["repeating_attacks_" + id + "_dmg2attr"] && v["repeating_attacks_" + id + "_dmg2attr"].includes(update_id))) {
+                            if( (v["repeating_attacks_" + id + "_atktype"] && v["repeating_attacks_" + id + "_atktype"].includes(update_id)) ||
+                                (v["repeating_attacks_" + id + "_atktype2"] && v["repeating_attacks_" + id + "_atktype2"].includes(update_id)) ||
+                                (v["repeating_attacks_" + id + "_dmgattr"] && v["repeating_attacks_" + id + "_dmgattr"].includes(update_id)) ||
+                                (v["repeating_attacks_" + id + "_dmg2attr"] && v["repeating_attacks_" + id + "_dmg2attr"].includes(update_id))) {
                                 attr_attack_ids.push(id);
                             }
                         });
@@ -972,11 +977,12 @@
         };
     };
     var do_update_attack = function(attack_array) {
-        var attack_attribs = ["strength_mod","strength_oneandahalf_mod","strength_half_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar","melee_multi","ranged_multi","cmb_multi"];
+        var attack_attribs = ["strength_mod","strength_oneandahalf_mod","strength_half_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","bab","rollmod_attack","rollnotes_attack","rollmod_damage","whispertype","rollshowchar","bab_multi","melee_multi","ranged_multi","cmb_multi"];
         _.each(attack_array, function(attackid) {
             attack_attribs.push("repeating_attacks_" + attackid + "_atkname");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkflag");
             attack_attribs.push("repeating_attacks_" + attackid + "_atktype");
+            attack_attribs.push("repeating_attacks_" + attackid + "_atktype2");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkmod");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkvs");
             attack_attribs.push("repeating_attacks_" + attackid + "_atkcritrange");
@@ -1001,6 +1007,8 @@
             _.each(attack_array, function(attackid) {
                 console.log("UPDATING ATTACK: " + attackid);
                 var update = {};
+                var i = 0;
+                var tmpint = 0;
                 var stemp = "";
                 var atkbonus = 0;
                 var atkbonusdisplay = "-";
@@ -1019,14 +1027,18 @@
                 var rollatk2 = " ";
                 var rollatk3 = " ";
                 var rolldmg = "";
+                var rolldmgonly = "";
                 var rolltype = "";
                 var rollnotes = "";
-                var rollbasetemplate = "pc";
-                var rollatktemplate = "pc";
-                var rolldmgtemplate = "pc";
                 var atkname = v["repeating_attacks_" + attackid + "_atkname"];
                 var atkflag = v["repeating_attacks_" + attackid + "_atkflag"];
-                var atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0;
+                var atktype = 0;
+                if (v["repeating_attacks_" + attackid + "_atktype"] == "bab") {
+                    atktype = parseInt(v.bab) || 0;
+                } else {
+                    atktype = parseInt(v[v["repeating_attacks_" + attackid + "_atktype"] + "_mod"]) || 0;
+                }
+                var atktype2 = parseInt(v[v["repeating_attacks_" + attackid + "_atktype2"] + "_mod"]) || 0;
                 var atktypearray = [];
                 var atkmod = v["repeating_attacks_" + attackid + "_atkmod"];
                 var atkvs = v["repeating_attacks_" + attackid + "_atkvs"];
@@ -1047,33 +1059,39 @@
                 var descflag = v["repeating_attacks_" + attackid + "_descflag"];
                 var atkdesc = v["repeating_attacks_" + attackid + "_atkdesc"];
                 var atknotes = v["repeating_attacks_" + attackid + "_notes"];
-                var tmpint = 0;
-                var i = 0;
                 // Handling empty values
                 if (atkmod.length == 0) {atkmod = "0";}
                 if (dmgmod.length == 0) {dmgmod = "0";}
                 if (dmg2mod.length == 0) {dmg2mod = "0";}
                 // Multi attack base handling
-                if (["melee","ranged","cmb"].includes(v["repeating_attacks_" + attackid + "_atktype"])) {
+                if (["bab","melee","ranged","cmb"].includes(v["repeating_attacks_" + attackid + "_atktype"])) {
                     atktypearray = JSON.parse("[" + v[v["repeating_attacks_" + attackid + "_atktype"] + "_multi"] + "]");
                 }
                 // == Display handling
-                atkbonus = atktype + (parseInt(atkmod) || 0);
+                atkbonus = atktype + atktype2 + (parseInt(atkmod) || 0);
                 atkdmgbonus = dmgattr + (parseInt(dmgmod) || 0);
                 atkdmg2bonus = dmg2attr + (parseInt(dmg2mod) || 0);
                 if(atkflag != "0") {
-                    atkdisplay = " (" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + " " + pfoglobals_i18n_obj["vs"] + " " + pfoglobals_i18n_obj[atkvs] + ")";
+                    atkdisplay ="";
+                    if (v["repeating_attacks_" + attackid + "_atktype"] != "0") {
+                        atkdisplay += pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]];
+                    }
+                    if (v["repeating_attacks_" + attackid + "_atktype2"] != "0") {
+                        if (atkdisplay.trim().length >0) {atkdisplay += "+";}
+                        atkdisplay += pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype2"]];
+                    }
+                    atkdisplay = "(" + atkdisplay + " " + pfoglobals_i18n_obj["vs"] + " " + pfoglobals_i18n_obj[atkvs] + ")";
                     atkbonusdisplay = "" + (atkbonus < 0 ? "" : "+") + atkbonus;
                     if (atktypearray.length > 1) {
-                        tmpint = (parseInt(atktypearray[1]) || 0) + (parseInt(atkmod) || 0);
+                        tmpint = (parseInt(atktypearray[1]) || 0) + atktype2 + (parseInt(atkmod) || 0);
                         atkbonusdisplay1 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
                     }
                     if (atktypearray.length > 2) {
-                        tmpint = (parseInt(atktypearray[2]) || 0) + (parseInt(atkmod) || 0);
+                        tmpint = (parseInt(atktypearray[2]) || 0) + atktype2 + (parseInt(atkmod) || 0);
                         atkbonusdisplay2 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
                     }
                     if (atktypearray.length > 3) {
-                        tmpint = (parseInt(atktypearray[3]) || 0) + (parseInt(atkmod) || 0);
+                        tmpint = (parseInt(atktypearray[3]) || 0) + atktype2 + (parseInt(atkmod) || 0);
                         atkbonusdisplay3 = "/" + (tmpint < 0 ? "" : "+") + tmpint;
                     }
                 }
@@ -1101,19 +1119,31 @@
                 }
                 // roll attack
                 if(atkflag != "0") {
-                    rollatk = "{{roll=[[1d20cs>" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}{{atkvs=" + atkdisplay + "}}";
-                    rollatk += "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    stemp = atktype + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+"
+                            + atktype2 + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype2"]] + "]+"
+                            + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    rollatk = "{{roll=[[1d20cs>" + atkcritrange + "+" + stemp + "{{atkvs=" + atkdisplay + "}}";
+                    rollatk += "{{critconfirm=[[1d20cs20+" + stemp;
                     if (atktypearray.length > 1) {
-                        rollatk1 = "{{roll1=[[1d20cs>" + atkcritrange + "+" + atktypearray[1] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
-                        rollatk1 += "{{critconfirm1=[[1d20cs20+" + atktypearray[1] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        stemp = atktypearray[1] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+"
+                                + atktype2 + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype2"]] + "]+"
+                                + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        rollatk1 = "{{roll1=[[1d20cs>" + atkcritrange + "+" + stemp;
+                        rollatk1 += "{{critconfirm1=[[1d20cs20+" + stemp;
                     }
                     if (atktypearray.length > 2) {
-                        rollatk2 = "{{roll2=[[1d20cs>" + atkcritrange + "+" + atktypearray[2] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
-                        rollatk2 += "{{critconfirm2=[[1d20cs20+" + atktypearray[2] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        stemp = atktypearray[2] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+"
+                                + atktype2 + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype2"]] + "]+"
+                                + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        rollatk2 = "{{roll2=[[1d20cs>" + atkcritrange + "+" + stemp;
+                        rollatk2 += "{{critconfirm2=[[1d20cs20+" + stemp;
                     }
                     if (atktypearray.length > 3) {
-                        rollatk3 = "{{roll3=[[1d20cs>" + atkcritrange + "+" + atktypearray[3] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
-                        rollatk3 += "{{critconfirm3=[[1d20cs20+" + atktypearray[3] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+" + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        stemp = atktypearray[3] + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype"]] + "]+"
+                                + atktype2 + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_atktype2"]] + "]+"
+                                + atkmod + "[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        rollatk3 = "{{roll3=[[1d20cs>" + atkcritrange + "+" + stemp;
+                        rollatk3 += "{{critconfirm3=[[1d20cs20+" + stemp;
                     }
                     rolltype += "attack";
                     rollbase += atkflag + atkrange + rollatk + rollatk1 + rollatk2 + rollatk3;
@@ -1129,53 +1159,111 @@
                     }
                 }
                 // roll damage
-                if((dmgflag != "0") || (dmg2flag != "0")) {
+                if( (dmgflag != "0") || (dmg2flag != "0") ) {
                     rolltype += "damage";
                     if(dmgflag != "0") {
                         stemp = dmgbase + "+" + dmgattr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS]";
-                        rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
-                        if (dmgcritmulti > 1) {rolldmg += "{{dmg1crit=[[(" + stemp + ")*" + dmgcritmulti + "]]}}";}
+                        if ( (atkflag != "0") && (atktypearray.length > 1) ) {
+                            // One damage roll per attack
+                            rolldmg += "{{rolldmg1=[[" + stemp + "]]}}{{rolldmg1type=" + dmgtype +"}}";
+                            if (atktypearray.length > 1) {rolldmg += "{{roll1dmg1=[[" + stemp + "]]}}{{roll1dmg1type=" + dmgtype +"}}";}
+                            if (atktypearray.length > 2) {rolldmg += "{{roll2dmg1=[[" + stemp + "]]}}{{roll2dmg1type=" + dmgtype +"}}";}
+                            if (atktypearray.length > 3) {rolldmg += "{{roll3dmg1=[[" + stemp + "]]}}{{roll3dmg1type=" + dmgtype +"}}";}
+                        } else {
+                            // No attack (damage only) or just one attack
+                            rolldmg += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
+                        }
+                        rolldmgonly += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
+                        if (dmgcritmulti > 1) {
+                            // Critical damage
+                            stemp = "";
+                            for (i=1; i <= dmgcritmulti; i++) {
+                                stemp += ((stemp.length > 0) ? "+" : "") + dmgbase;
+                            }
+                            stemp = "[[((" + stemp + ")+(" + dmgattr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS])*" + dmgcritmulti + ")]]";
+                            if ( (atkflag != "0") && (atktypearray.length > 1) ) {
+                                // One crit damage roll per attack
+                                rolldmg += "{{rolldmg1crit=" + stemp + "}}";
+                                if (atktypearray.length > 1) {rolldmg += "{{roll1dmg1crit=" + stemp + "}}";}
+                                if (atktypearray.length > 2) {rolldmg += "{{roll2dmg1crit=" + stemp + "}}";}
+                                if (atktypearray.length > 3) {rolldmg += "{{roll3dmg1crit=" + stemp + "}}";}
+                            } else {
+                                // No attack (damage only) or just one attack
+                                rolldmg += "{{dmg1crit=" + stemp + "}}";
+                            }
+                            rolldmgonly += "{{dmg1crit=" + stemp + "}}";
+                        }
                     }
                     if(dmg2flag != "0") {
                         stemp = dmg2base + "+" + dmg2attr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS]";
-                        rolldmg += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
-                        if (dmg2critmulti > 1) {rolldmg += "{{dmg2crit=[[(" + stemp + ")*" + dmg2critmulti + "]]}}";}
+                        if ( (atkflag != "0") && (atktypearray.length > 1) ) {
+                            // One damage roll per attack
+                            rolldmg += "{{rolldmg2=[[" + stemp + "]]}}{{rolldmg2type=" + dmg2type +"}}";
+                            if (atktypearray.length > 1) {rolldmg += "{{roll1dmg2=[[" + stemp + "]]}}{{roll1dmg2type=" + dmg2type +"}}";}
+                            if (atktypearray.length > 2) {rolldmg += "{{roll2dmg2=[[" + stemp + "]]}}{{roll2dmg2type=" + dmg2type +"}}";}
+                            if (atktypearray.length > 3) {rolldmg += "{{roll3dmg2=[[" + stemp + "]]}}{{roll3dmg2type=" + dmg2type +"}}";}
+                        } else {
+                            // No attack (damage only) or just one attack
+                            rolldmg += dmg2flag + "{{dmg2=[[" + stemp + "]]}}{{dmg2type=" + dmg2type +"}}";
+                        }
+                        rolldmgonly += dmg2flag + "{{dmg2=[[" + stemp + "]]}}{{dmg2type=" + dmg2type +"}}";
+                        if (dmg2critmulti > 1) {
+                            // Critical damage
+                            stemp = "";
+                            for (i=1; i <= dmg2critmulti; i++) {
+                                stemp += ((stemp.length > 0) ? "+" : "") + dmg2base;
+                            }
+                            stemp = "[[((" + stemp + ")+(" + dmg2attr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS])*" + dmg2critmulti + ")]]";
+                            if ( (atkflag != "0") && (atktypearray.length > 1) ) {
+                                // One crit damage roll per attack
+                                rolldmg += "{{rolldmg2crit=" + stemp + "}}";
+                                if (atktypearray.length > 1) {rolldmg += "{{roll1dmg2crit=" + stemp + "}}";}
+                                if (atktypearray.length > 2) {rolldmg += "{{roll2dmg2crit=" + stemp + "}}";}
+                                if (atktypearray.length > 3) {rolldmg += "{{roll3dmg2crit=" + stemp + "}}";}
+                            } else {
+                                // No attack (damage only) or just one attack
+                                rolldmg += "{{dmg2crit=" + stemp + "}}";
+                            }
+                            rolldmgonly += "{{dmg2crit=" + stemp + "}}";
+                        }
                     }
                     // desc
                     if((descflag != "0") && (atkflag == "0")) {
                         rolldmg += atkdesc;
+                        rolldmgonly += atkdesc;
                     }
                     // notes
                     if((v["rollnotes_attack"] != "0") && (atkflag == "0")) {
                         rolldmg += rollnotes;
+                        rolldmgonly += rollnotes;
                     }
                     rollbase += rolldmg;
                 }
                 // final rolls values
                 if (rollbase.trim().length > 0) {
-                    rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + atkname + "}}{{type=" + rolltype + "}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rollbase;
+                    rollbase = "@{whispertype} &{template:pc" + "}{{name=" + atkname + "}}{{type=" + rolltype + "}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rollbase;
                 }
                 if (rollatk.trim().length > 0) {
-                    rollatk = "@{whispertype} &{template:" + rollatktemplate + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk;
+                    rollatk = "@{whispertype} &{template:pc" + "}{{name=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + atkrange + rollatk;
                 }
                 if (rollatk1.trim().length > 0) {
-                    rollatk1 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk1;
+                    rollatk1 = "@{whispertype} &{template:pc" + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk1;
                 }
                 if (rollatk2.trim().length > 0) {
-                    rollatk2 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk2;
+                    rollatk2 = "@{whispertype} &{template:pc" + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk2;
                 }
                 if (rollatk3.trim().length > 0) {
-                    rollatk3 = "@{whispertype} &{template:" + rollatktemplate + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk3;
+                    rollatk3 = "@{whispertype} &{template:pc" + "}{{smallname=" + atkname + "}}{{type=attack}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + atkflag + rollatk3;
                 }
                 if (rolldmg.trim().length > 0) {
-                    rolldmg = "@{whispertype} &{template:" + rolldmgtemplate + "}{{smallname=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmg;
+                    rolldmgonly = "@{whispertype} &{template:pc" + "}{{smallname=" + atkname + "}}{{type=damage}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}" + rolldmgonly;
                 }
                 update["repeating_attacks_" + attackid + "_rollbase"] = rollbase;
                 update["repeating_attacks_" + attackid + "_rollbase_atk"] = rollatk;
                 update["repeating_attacks_" + attackid + "_rollbase_atk1"] = rollatk1;
                 update["repeating_attacks_" + attackid + "_rollbase_atk2"] = rollatk2;
                 update["repeating_attacks_" + attackid + "_rollbase_atk3"] = rollatk3;
-                update["repeating_attacks_" + attackid + "_rollbase_dmg"] = rolldmg;
+                update["repeating_attacks_" + attackid + "_rollbase_dmg"] = rolldmgonly;
                 // == update
                 setAttrs(update, {silent: true});
             });
@@ -1743,12 +1831,26 @@
                     if(dmgflag != "0") {
                         stemp = "" + dmgbase + "+@{rollmod_damage}[BONUS]";
                         rollbase += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
-                        if(atkflag != "0") {rollbase += "{{dmg1crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";}
+                        if( (atkflag != "0") && (dmgcritmulti >1) ) {
+                            // Critical damage
+                            stemp = "";
+                            for (i=1; i <= dmgcritmulti; i++) {
+                                stemp += ((stemp.length > 0) ? "+" : "") + dmgbase;
+                            }
+                            rollbase += "{{dmg1crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
+                        }
                     }
                     if(dmg2flag != "0") {
                         stemp = "" + dmg2base + "+@{rollmod_damage}[BONUS]";
                         rollbase += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
-                        if(atkflag != "0") {rollbase += "{{dmg2crit=[[(" + stemp +")*" + dmgcritmulti + "]]}}";}
+                        if( (atkflag != "0") && (dmgcritmulti >1) ) {
+                            // Critical damage
+                            stemp = "";
+                            for (i=1; i <= dmgcritmulti; i++) {
+                                stemp += ((stemp.length > 0) ? "+" : "") + dmg2base;
+                            }
+                            rollbase += "{{dmg2crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
+                        }
                     }
                 }
                 // spell failure
@@ -1776,6 +1878,7 @@
         pfoglobals_i18n_obj["intelligence"] = getTranslationByKey("int-u");
         pfoglobals_i18n_obj["wisdom"] = getTranslationByKey("wis-u");
         pfoglobals_i18n_obj["charisma"] = getTranslationByKey("cha-u");
+        pfoglobals_i18n_obj["bab"] = getTranslationByKey("bab-u");
         pfoglobals_i18n_obj["melee"] = getTranslationByKey("melee");
         pfoglobals_i18n_obj["ranged"] = getTranslationByKey("ranged");
         pfoglobals_i18n_obj["cmb"] = getTranslationByKey("cmb-u");
