@@ -525,7 +525,7 @@
             <fieldset class="repeating_npcatk-melee">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}} @{multipleatk} @{descflag}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -594,7 +594,7 @@
             <fieldset class="repeating_npcatk-ranged">
                 <div class="attack">
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
-                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{range=@{atkrange}}} {{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}} @{multipleatk} @{dmgflag} @{dmg2flag} @{descflag}"><span name="attr_atkdisplay"></span></button>
+                    <button class="myrol underl" type="roll" name="AtkDmgRoll" data-i18n-title="attack-damage-roll" title="Attack & Damage roll" value="@{whispertype} &{template:npc} {{name=@{atkname}}} {{type=attackdamage}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{attack=1}} @{multipleatk} @{descflag} {{range=@{atkrange}}}"><span name="attr_atkdisplay"></span></button>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -9110,28 +9110,30 @@
                 </div>
             {{/roll8}}
         {{/attack}}
-        {{#damage}}
-            {{#dmg1flag}}
-                <div class="vtop">
-                    <div class="blacklabel med yellow">
-                        <span data-i18n="damage">Damage</span>
+        {{#attack}}
+            {{#damage}}
+                {{#dmg1flag}}
+                    <div class="vtop">
+                        <div class="blacklabel med yellow">
+                            <span data-i18n="damage">Damage</span>
+                        </div>
+                        {{dmg1}}
+                        {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
+                        <span class="notes inl">{{dmg1type}}</span>
                     </div>
-                    {{dmg1}}
-                    {{#dmg1crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg1crit}}{{/dmg1crit}}
-                    <span class="notes inl">{{dmg1type}}</span>
-                </div>
-            {{/dmg1flag}}
-            {{#dmg2flag}}
-                <div class="vtop">
-                    <div class="blacklabel med yellow">
-                        <span data-i18n="damage2">Damage2</span>
+                {{/dmg1flag}}
+                {{#dmg2flag}}
+                    <div class="vtop">
+                        <div class="blacklabel med yellow">
+                            <span data-i18n="damage2">Damage2</span>
+                        </div>
+                        {{dmg2}}
+                        {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
+                        <span class="notes inl">{{dmg2type}}</span>
                     </div>
-                    {{dmg2}}
-                    {{#dmg2crit}}<span class="symbol" data-i18n-title="critical-damage" title="Critical damage">t</span> {{dmg2crit}}{{/dmg2crit}}
-                    <span class="notes inl">{{dmg2type}}</span>
-                </div>
-            {{/dmg2flag}}
-        {{/damage}}
+                {{/dmg2flag}}
+            {{/damage}}
+        {{/attack}}
         {{#sr}}
             <div class="myrow">
                 <span class="lbl bold" data-i18n="spell-resistance:">Spell Resistance:</span>

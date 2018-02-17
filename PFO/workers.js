@@ -1287,17 +1287,44 @@
         var update = {};
         var display = "";
         var multi = "";
+        var sdmg1 = "";
+        var sdmg2 = "";
+        var scrit1 = "";
+        var scrit2 = "";
         var base = "repeating_npcatk-" + type + "_" + id + "_";
         var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "multipleatk_flag",base + "atkmod2",base + "atkmod3",base + "atkmod4",base + "atkmod5",base + "atkmod6",base + "atkmod7",base + "atkmod8",base + "atkmod9",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
         if(type == "ranged") {fields.push(base + "atkrange");}
         getAttrs(fields, function(v){
             display = v[base + "atkname"];
             display += " " + (((parseInt(v[base  + "atkmod"]) || 0) > 0) ? "+" : "") + v[base  + "atkmod"];
+            var dmgcritmulti = parseInt(v[base + "dmgcritmulti"]) || 1;
+            var dmg2critmulti = parseInt(v[base + "dmg2critmulti"]) || 1;
+
+            // {{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}
+            // {{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}
+            // {{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}
+            // {{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}
+
+            // Damage
+               // TODO
+            // Multi attack
             if(v[base + "multipleatk_flag"] == "1"){
                 for (var i = 2; i < 10; i++) {
                     if (v[base  + "atkmod" + i] != "") {
                         display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
                         multi += "{{roll" + (i-1) + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + (i-1) + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                        if(v[base + "dmgflag"] == "1") {
+                            multi += "{{roll" + (i-1) + "dmg1=[[" + sdmg1 + "]]}}{{roll" + (i-1) + "dmg1type=" + v[base + "dmgtype"] +"}}";
+                            if(dmgcritmulti > 1) {
+                                multi += "{{roll" + (i-1) + "dmg1crit=[[" + scrit1 + "]]}}";
+                            }
+                        }
+                        if(v[base + "dmg2flag"] == "1") {
+                            multi += "{{roll" + (i-1) + "dmg2=[[" + sdmg2 + "]]}}{{roll" + (i-1) + "dmg2type=" + v[base + "dmg2type"] +"}}";
+                            if(dmg2critmulti > 1) {
+                                multi += "{{roll" + (i-1) + "dmg2crit=[[" + scrit2 + "]]}}";
+                            }
+                        }
                     }
                 }
             }
@@ -2092,6 +2119,23 @@
         update_all_spells("all");
         doneupdating();
     };
+    var update_to_1_02 = function(doneupdating) {
+        /* TODO :
+            repeating_npcatk-melee:dmgflag ,
+            repeating_npcatk-ranged:dmgflag :
+                1 = {{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}
+                1 = {{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}
+            repeating_npcatk-melee:dmg2flag ,
+            repeating_npcatk-ranged:dmg2flag :
+                1 = {{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}
+                1 = {{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}
+            silent setAttrs and on return :
+                update_npc_attacks_all();
+                update_attacks("all");
+                update_all_spells("all");
+        */
+        doneupdating();
+    };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
@@ -2106,6 +2150,11 @@
             } else if (vrs < 1.01) {
                 update_to_1_01(function () {
                     setAttrs({"version": "1.01"});
+                    versioning();
+                });
+            } else if (vrs < 1.02) {
+                update_to_1_02(function () {
+                    setAttrs({"version": "1.02"});
                     versioning();
                 });
             }
