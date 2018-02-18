@@ -2634,41 +2634,36 @@
                 </div> <!-- END charisma -->
             </div>  <!-- END abilities -->
             <div class="subcol hpinit">
-                <div class="hpvalues"> <!-- HP -->
-                    <div class="myrow labline">
-                        <span class="lab">&nbsp;</span>
-                        <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
-                        <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
-                    </div>
-                    <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:pc} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hp-u">HP</span></button>
-                                <span class="sml" data-i18n="hit-points" data-i18n-title="hit-points" title="Hit Points">Hit Points</span>
-                            </div>
+                <div class="myrow center"> <!-- HP -->
+                    <div class="blacklabel">
+                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                        <div class="blackbgrd">
+                            <button class="myrol big only" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:pc} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hit-points">Hit Points</span></button>
                         </div>
-                        <div class="boxed">
-                            <input type="number" name="attr_hp" class="nospin boxed" value="0" title="@{hp}" />
-                        </div>
-                        <div class="boxed">
-                            <input type="number" name="attr_hp_max" class="nospin boxed" value="0" title="@{hp_max}" />
-                        </div>
+                        <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
-                    <div class="myrow labline top">
-                        <span class="lab">&nbsp;</span>
-                        <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonlethal</span>
+                </div>
+                <div class="myrow hpvalues center labline">
+                    <span class="lab" data-i18n="curr" data-i18n-title="current" title="Current">curr</span>
+                    <span class="lab" data-i18n="max" data-i18n-title="maximum" title="Maximum">max</span>
+                    <span class="lab margindent" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonlethal</span>
+                </div>
+                <div class="myrow hpvalues center">
+                    <div class="boxed">
+                        <input type="number" name="attr_hp" class="nospin boxed" value="0" title="@{hp}" />
                     </div>
-                    <div class="myrow">
-                        <span class="lab">&nbsp;</span>
-                        <div class="boxed">
-                            <input type="number" name="attr_nonlethaldmg" class="nospin boxed" value="0" title="@{nonlethaldmg}" />
-                        </div>
+                    <div class="boxed">
+                        <input type="number" name="attr_hp_max" class="nospin boxed" value="0" title="@{hp_max}" />
                     </div>
-                    <div class="autoex bordered spell">
-                        <span name="attr_dr"></span>
-                        <textarea name="attr_dr" spellcheck="false" data-i18n-placeholder="damage-reduction" placeholder="Damage Reduction"></textarea>
+                    <div class="boxed margindent">
+                        <input type="number" name="attr_nonlethaldmg" class="nospin boxed" value="0" title="@{nonlethaldmg}" />
                     </div>
-                </div> <!-- END HP -->
+                </div>
+                <div class="autoex hpvalues bordered spell">
+                    <span name="attr_dr"></span>
+                    <textarea name="attr_dr" spellcheck="false" data-i18n-placeholder="damage-reduction-immunities" placeholder="Damage Reduction, Immunities..." data-i18n-title="damage-reduction-immunities" title="Damage Reduction, Immunities..."></textarea>
+                </div>
+                 <!-- END HP -->
                 <div class="spacer"></div>
                 <div class="initiative"> <!-- INITIATIVE -->
                     <input class="options-flag" name="attr_options-flag-initiative" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>

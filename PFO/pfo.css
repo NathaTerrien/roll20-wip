@@ -287,7 +287,6 @@ div.sheet-subcol.sheet-hpinit {
     width: 170px;
     max-width: 170px;
 }
-div.sheet-hpvalues,
 div.sheet-initiative {display: block;}
 .sheet-identity span{
     display: block;
@@ -303,11 +302,9 @@ div.sheet-initiative {display: block;}
     margin-left: 5px;
     margin-right: 5px;
 }
-.sheet-hpvalues div.sheet-blacklabel,
 .sheet-initiative div.sheet-blacklabel {width: 70px;}
 
-.sheet-initiative div.sheet-boxed,
-.sheet-hpvalues div.sheet-boxed {margin-left: 5px;}
+.sheet-initiative div.sheet-boxed {margin-left: 5px;}
 
 .sheet-acvalues div.sheet-blacklabel.sheet-ac {width: 40px;}
 .sheet-acvalues div.sheet-blacklabel.sheet-touch {width: 72px;}
@@ -534,21 +531,14 @@ span.sheet-lab {
 .sheet-lab.sheet-right{text-align: right;}
 .sheet-abilities .sheet-lab:first-child {width: 80px;}
 .sheet-abilities .sheet-lab {width: 50px;}
-.sheet-hpvalues .sheet-lab,
-.sheet-initiative .sheet-lab {
-    width: 45px;
-}
-.sheet-hpvalues .sheet-lab:first-child{
-    width: 70px;
-}
+.sheet-hpvalues .sheet-lab {width: 40px;}
+.sheet-initiative .sheet-lab {width: 45px;}
 .sheet-acvalues .sheet-lab,
 .sheet-saves .sheet-lab,
 .sheet-babs .sheet-lab,
 .sheet-attackmods .sheet-lab,
 .sheet-defenses .sheet-lab,
-.sheet-speeds .sheet-lab {
-    width: 40px;
-}
+.sheet-speeds .sheet-lab {width: 40px;}
 
 .sheet-lbl {
     text-align: left;
@@ -1197,6 +1187,10 @@ input.sheet-tabconf:checked + span{
     white-space: pre-wrap;
     text-align: inherit;
     min-height: inherit;
+}
+.sheet-hpvalues.sheet-autoex {
+    font-size: 1.15em;
+    line-height: 1.15em;
 }
 /* ===== REPEATING SECTIONS CTRL ===== */
 .sheet-fullpc .repcontrol {
