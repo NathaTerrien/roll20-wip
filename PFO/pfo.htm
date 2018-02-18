@@ -186,6 +186,16 @@
                     <input type="text" name="attr_caster1_spells_notes" class="underlined senses" spellcheck="false" title="@{caster1_spells_notes}" />
                 </div>
                 <div class="spacer"></div>
+                <div class="myrow bold greybg padindent"> <!-- input TACTICS -->
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="tactics">Tactics</span>
+                    </div>
+                </div>
+                <div class="autoex">
+                    <span name="attr_tactics"></span>
+                    <textarea name="attr_tactics" accept="Tactics" class="underlined" spellcheck="false" data-i18n-placeholder="tactics" placeholder="tactics" title="@{tactics}"></textarea>
+                </div>
+                <div class="spacer"></div>
                 <div class="myrow bold greybg padindent"> <!-- input STATISTICS -->
                     <div class="blackbgrd">
                         <span class="big only" data-i18n="statistics">Statistics</span>
@@ -366,8 +376,15 @@
                     <input type="text" name="attr_languages" accept="Languages" class="underlined aura" spellcheck="false" title="@{languages}" />
                 </div>
                 <div class="myrow">
-                    <span class="lbl bold" data-i18n="sq-u" data-i18n="special-qualities" title="Special Qualities">SQ</span>
+                    <span class="lbl bold" data-i18n="sq-u" data-i18n-title="special-qualities" title="Special Qualities">SQ</span>
                     <input type="text" name="attr_sq" accept="SQ" class="underlined aura" spellcheck="false" title="@{sq}" />
+                </div>
+                <div class="myrow">
+                    <span class="lbl bold" data-i18n="combat-gear">Combat Gear</span>
+                    <div class="autoex">
+                        <span name="attr_combat_gear"></span>
+                        <textarea name="attr_combat_gear" accept="Combat Gear" class="underlined" spellcheck="false" data-i18n-placeholder="combat-gear" placeholder="Combat Gear" title="@{combat_gear}"></textarea>
+                    </div>
                 </div>
                 <div class="spacer"></div>
                 <div class="myrow bold greybg padindent"> <!-- input ECOLOGY -->
@@ -2131,6 +2148,10 @@
             </div><!-- END Spells lvl 0 -->
         </div> <!-- END SPELLS -->
     </div> <!-- END Display OFFENSE -->
+    <input type="hidden" class="optional-flag" name="attr_tactics" value="" /><div class="npc-display optional blk"> <!-- Display TACTICS -->
+        <span class="npc-section" data-i18n="tactics">Tactics</span>
+        <span name="attr_tactics"></span>
+    </div>
     <div class="npc-display"> <!-- Display STATISTICS -->
         <span class="npc-section" data-i18n="statistics">Statistics</span>
         <div class="myrow">
@@ -2266,6 +2287,10 @@
         <input type="hidden" class="optional-flag" name="attr_sq" value="" /><div class="myrow optional blk">
             <span class="bold" data-i18n="sq-u">SQ</span>
             <span name="attr_sq"></span>
+        </div>
+        <input type="hidden" class="optional-flag" name="attr_combat_gear" value="" /><div class="myrow optional blk">
+            <span class="bold" data-i18n="combat-gear">Combat Gear</span>
+            <span name="attr_combat_gear"></span>
         </div>
     </div> <!-- END Display STATISTICS -->
     <input type="hidden" class="optional-flag0" name="attr_special_abilities_flag" value="1" /><div class="specabilities optional blk"> <!-- Display SPECIAL ABILITIES -->
@@ -2632,16 +2657,16 @@
                     <div class="myrow labline top">
                         <span class="lab">&nbsp;</span>
                         <span class="lab" data-i18n="nonlethal" data-i18n-title="nonlethal-damage" title="Nonlethal Damage">nonlethal</span>
-                        <span class="lab" data-i18n="dr-u" data-i18n-title="damage-reduction" title="Damage Reduction">DR</span>
                     </div>
                     <div class="myrow">
                         <span class="lab">&nbsp;</span>
                         <div class="boxed">
                             <input type="number" name="attr_nonlethaldmg" class="nospin boxed" value="0" title="@{nonlethaldmg}" />
                         </div>
-                        <div class="boxed">
-                            <input type="number" name="attr_dr" class="nospin boxed" value="0" title="@{dr}" />
-                        </div>
+                    </div>
+                    <div class="autoex bordered spell">
+                        <span name="attr_dr"></span>
+                        <textarea name="attr_dr" spellcheck="false" data-i18n-placeholder="damage-reduction" placeholder="Damage Reduction"></textarea>
                     </div>
                 </div> <!-- END HP -->
                 <div class="spacer"></div>
