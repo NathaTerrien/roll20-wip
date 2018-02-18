@@ -1,3 +1,14 @@
+-------------------------------
+Multi classing
+Readonly :
+class (210px)
+level 1 (35px)
+bab 0
+fortitude_base
+reflex_base
+will_base
+
+-------------------------------
 skill_check_penalty
 
 armor_check_penalty

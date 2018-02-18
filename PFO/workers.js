@@ -1951,6 +1951,7 @@
         getAttrs(["character_name"], function(v) {
             console.log("Initializing character " + v.character_name);
             var update = {};
+            // Attributes
             update["strength_mod"] = 0;
             update["dexterity_mod"] = 0;
             update["constitution_mod"] = 0;
@@ -1988,6 +1989,7 @@
             update["reflex"] = 0;
             update["will"] = 0;
             // BABs
+            update["bab"] = 0;
             update["cmb_mod"] = 0;
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
