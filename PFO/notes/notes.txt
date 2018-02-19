@@ -1,60 +1,7 @@
+TODO :
+- settings
+- concentration rolls
+
+------------------------------------
 BUGS :
-- AC abilities
-- Spell like abilitie / notes
 
--------------------------------
-Multi classing
-Readonly :
-class (210px)
-level 1 (35px)
-bab 0
-fortitude_base
-reflex_base
-will_base
-
-                    <div class="myrow padindent"><span data-i18n="base-fortitude">Base Fortitude</span>:<input type="number" name="attr_fortitude_base" value="0" class="nospin sml underlined" title="@{fortitude_base}" /></div>
-                    <div class="myrow padindent"><span data-i18n="base-reflex">Base Reflex</span>:<input type="number" name="attr_reflex_base" value="0" class="nospin sml underlined" title="@{reflex_base}" /></div>
-                    <div class="myrow padindent"><span data-i18n="base-will">Base Will</span>:<input type="number" name="attr_will_base" value="0" class="nospin sml underlined" title="@{will_base}" /></div>
-
--------------------------------
-skill_check_penalty
-
-armor_check_penalty
-armor_run_factor
-
-encumbrance_check_penalty
-encumbrance_ability_maximum
-encumbrance_run_factor
-
-speed_base
-speed_bonus
-speed_encumbrance
-speed_armor
-speed_run_factor
-speed_run
-speed_swim
-speed_climb
-
-// speed_base = speed_race + speed_bonus
-update_speed_base
-
-// speed_encumbrance = encumbrance(speed_base)
-
-// speed_armor = armor(speed_base)
-
-// speed_run_factor = Min(encumbrance_run_factor, armor_run_factor)
-
-// speed = Min(speed_encumbrance, speed_armor)
-// speed_run = speed * speed_run_factor
-// speed_swim = speed/4 + speed_swim_bonus (?)
-// speed_climb = speed/4 + speed_cllimb_bonus (?)
-
-change:speed_race change:speed_bonus
- update_speed_base
-
-change:speed_base change:speed_encumbrance change:speed_armor change:armor_run_factor change:encumbrance_run_factor
- update_speed
-
-change:repeating_acitems:run_factor
-
-speed_notmodified

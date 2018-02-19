@@ -169,9 +169,14 @@
     });
 
     // === AC
-    on("change:ac_ability_maximum change:encumbrance_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(e){
+    on("change:ac_ability_maximum change:encumbrance_ability_maximum", function(e){
         if(pfoglobals_ispc) {
             update_ac_ability(e.sourceAttribute);
+        }
+    });
+    on("change:ac_ability_primary change:ac_ability_secondary", function(e){
+        if(pfoglobals_ispc) {
+            update_ac_ability(e.newValue);
         }
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
@@ -1837,7 +1842,7 @@
         }
     };
     var do_update_spell = function(spell_level,spell_array) {
-        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"caster1_flag","caster2_flag","caster1_class","caster2_class","armor_spell_failure","caster1_spell_failure","caster2_spell_failure","npc"]; // "caster3_dc_level_" + spell_level, "caster3_class"
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"caster1_flag","caster2_flag","caster1_class","caster2_class","armor_spell_failure","caster1_spell_failure","caster2_spell_failure","npc"];
         _.each(spell_array, function(spellid) {
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelllevel");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcaster");
@@ -2010,7 +2015,9 @@
                     }
                 }
                 // notes
-                if(v["rollnotes_spell"] != "0") {rollbase += "{{shownotes=[[1]]}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";}
+                if (v.npc == "0") {
+                    if(v["rollnotes_spell"] != "0") {rollbase += "{{shownotes=[[1]]}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";}
+                }
                 // == update
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spelldc"] = savedc;
                 update["repeating_spell-" + spell_level + "_" + spellid + "_rollcontent"] = rollbase;

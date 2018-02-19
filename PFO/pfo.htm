@@ -2303,7 +2303,7 @@
                     <input class="options-flag" name="attr_options-flag" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options" checked="checked"><span>y</span>
                     <button class="myrol underl" type="roll" name="AbilityShow" data-i18n-title="show-ability" title="Show Ability" value="@{whispertype} &{template:npc} {{name=@{name}}} {{type=feat}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{abilitytype=@{type}}} @{descflag}"><span class="bold" name="attr_name"></span>
                         <input type="hidden" class="optional-flag" name="attr_type" value="" /><span class="optional inl bold">(<span name="attr_type"></span>)</span></button>
-                    <span style="display: inline;" name="attr_description"></span>s
+                    <span style="display: inline;" name="attr_description"></span>
                     <div class="options">
                         <div class="myrow">
                             <span class="lbl" data-i18n="name">Name</span>
@@ -8255,6 +8255,11 @@
                                             <textarea name="attr_spelldesc" accept="Content" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{repeating_spell-like_$id_spelldesc}"></textarea>
                                         </div>
                                     </div>
+                                    <span class="lbl" data-i18n="notes:">Notes:</span>
+                                    <div class="autoex">
+                                        <span name="attr_notes"></span>
+                                        <textarea name="attr_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{repeating_spell-like_$id_notes}"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </fieldset> <!-- END REPEATING SPELL-LIKE -->
@@ -9731,9 +9736,14 @@
     });
 
     // === AC
-    on("change:ac_ability_maximum change:encumbrance_ability_maximum change:ac_ability_primary change:ac_ability_secondary", function(e){
+    on("change:ac_ability_maximum change:encumbrance_ability_maximum", function(e){
         if(pfoglobals_ispc) {
             update_ac_ability(e.sourceAttribute);
+        }
+    });
+    on("change:ac_ability_primary change:ac_ability_secondary", function(e){
+        if(pfoglobals_ispc) {
+            update_ac_ability(e.newValue);
         }
     });
     on("change:ac_bonus change:ac_armor change:ac_shield change:ac_ability_mod change:ac_size change:ac_natural change:ac_deflection change:ac_misc change:ac_dodge change:ac_touch_bonus change:ac_flatfooted_bonus change:ac_noflatflooted change:ac_touchshield", function(){
