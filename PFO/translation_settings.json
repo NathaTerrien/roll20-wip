@@ -1,0 +1,7 @@
+{
+    "whisp-rolls-gm-info": "All sheet rolls are sent to all players in chat by default. Query Whisper option gives you a prompt with each roll of whether or not the roll should be sent privately only to yourself and the GM. Always Whisper Rolls will send all rolls only to yourself and the GM.",
+    "char-to-templates-info": "Character names are added to the roll template by default (PC and NPC).",
+    "on": "On",
+    "off": "Off",
+    "npc-info":"The NPC option sets new characters to default to the NPC card style sheet. Useful if the player characters have already been created and all new character sheets added to the game will likely representing non player characters.",
+}
