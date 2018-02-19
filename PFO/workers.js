@@ -123,6 +123,44 @@
         }
     });
 
+    // === Class / Multiclassing / Musticasting
+    on("change:class1_name change:class2_name change:class3_name change:caster1_flag change:caster2_flag", function(e) {
+        if(pfoglobals_ispc) {
+            update_class_names();
+        }
+    });
+    on("change:caster1_class change:caster2_class", function(e){
+       if(pfoglobals_ispc) {
+            update_all_spells("all");
+        }
+    });
+    on("change:class1_level change:class2_level change:class3_level", function(e) {
+        if(pfoglobals_ispc) {
+            update_class_numbers("level");
+            update_class_names();
+        }
+    });
+    on("change:class1_bab change:class2_bab change:class3_bab", function(e) {
+        if(pfoglobals_ispc) {
+            update_class_numbers("bab");
+        }
+    });
+    on("change:class1_fortitude change:class2_fortitude change:class3_fortitude", function(e) {
+        if(pfoglobals_ispc) {
+            update_class_numbers("fortitude");
+        }
+    });
+    on("change:class1_reflex change:class2_reflex change:class3_reflex", function(e) {
+        if(pfoglobals_ispc) {
+            update_class_numbers("reflex");
+        }
+    });
+    on("change:class1_will change:class2_will change:class3_will", function(e) {
+        if(pfoglobals_ispc) {
+            update_class_numbers("will");
+        }
+    });
+
     // === Initiative
     on("change:initiative_misc change:initiative_bonus", function() {
         if(pfoglobals_ispc) {
@@ -443,10 +481,6 @@
             }
         });
     });
-    // -- Musticasting
-    on("change:caster1_class change:caster2_flag change:caster2_class", function(){
-       update_all_spells("all");
-    });
     // -- Concentration & DCs
     on("change:caster1_ability change:caster2_ability", function(e) {update_flex_ability(e.newValue,e.sourceAttribute);});
     on("change:caster1_ability_mod change:caster2_ability_mod", function(e) {
@@ -739,6 +773,57 @@
         getAttrs(["dexterity_mod","initiative_misc","initiative_bonus"], function(v) {
             var update = {};
             update["initiative"] = (parseInt(v.dexterity_mod) || 0) + (parseInt(v.initiative_misc) || 0) + (parseInt(v.initiative_bonus) || 0);
+            setAttrs(update);
+        });
+    };
+
+    // === Class / Mutliclassing / Multicasting
+    var update_class_names = function() {
+        var fields = ["class1_name","class2_name","class3_name","caster1_flag","caster2_flag","class1_level","class2_level","class3_level"];
+        var update = {};
+        getAttrs(fields, function(v) {
+            var cls = "";
+            var cc1 = " ";
+            var cc2 = " ";
+            if (typeof v.class1_name != "undefined") {
+                if (v.class1_name.length > 0) {
+                    cls += v.class1_name;
+                    if (v.caster1_flag != "0") {
+                        cc1 = v.class1_name;
+                    }
+                }
+            }
+            if (typeof v.class2_name != "undefined") {
+                if (v.class2_name.length > 0) {
+                    cls += (cls.length > 0) ? (" " + (parseInt(v.class1_level) || 1) + ", ") : "";
+                    cls += v.class2_name + " " + (parseInt(v.class2_level) || 0);
+                    if (v.caster2_flag != "0") {
+                        cc2 = v.class2_name;
+                    }
+                }
+            }
+            if (typeof v.class3_name != "undefined") {
+                if (v.class3_name.length > 0) {
+                    cls += ((cls.length > 0) ? ", " : "") + v.class3_name + " " + (parseInt(v.class3_level) || 0);
+                }
+            }
+            update["class"] = cls;
+            update["caster1_class"] = cc1;
+            update["caster2_class"] = cc2;
+            update["caster_flag"] = (parseInt(v.caster1_flag) || 0) + (parseInt(v.caster2_flag) || 0);
+            setAttrs(update);
+        });
+    };
+    var update_class_numbers = function(attr) {
+        var fields = ["class1_" + attr,"class2_" + attr,"class3_" + attr ];
+        var update = {};
+        getAttrs(fields, function(v) {
+            var finalattr = "";
+            var total = 0;
+            total = (parseInt(v["class1_" + attr]) || 0) + (parseInt(v["class2_" + attr]) || 0) + (parseInt(v["class3_" + attr]) || 0);
+            if (["level","bab"].includes(attr)) {finalattr = attr;}
+            else {finalattr = attr + "_base";}
+            update[finalattr] = total;
             setAttrs(update);
         });
     };
@@ -1271,11 +1356,17 @@
     };
     // --- NPC attacks
     var update_npc_attacks_all = function() {
+        update_npc_attacks_melee();
+        update_npc_attacks_ranged();
+    };
+    var update_npc_attacks_melee = function() {
         getSectionIDs("repeating_npcatk-melee", function(idarray) {
             _.each(idarray, function(id) {
                 update_npc_attack("melee",id);
             });
         });
+    };
+    var update_npc_attacks_ranged = function () {
         getSectionIDs("repeating_npcatk-ranged", function(idarray) {
             _.each(idarray, function(id) {
                 update_npc_attack("ranged",id);
@@ -1746,7 +1837,7 @@
         }
     };
     var do_update_spell = function(spell_level,spell_array) {
-        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"caster2_flag","caster1_class","caster2_class","armor_spell_failure","caster1_spell_failure","caster2_spell_failure","npc"]; // "caster3_dc_level_" + spell_level, "caster3_class"
+        var spell_attribs = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","melee_mod","ranged_mod","cmb_mod","rollmod_attack","rollnotes_spell","rollmod_damage","whispertype","rollshowchar","caster1_level", "caster1_dc_level_" + spell_level,"caster2_level","caster2_dc_level_" + spell_level,"caster1_flag","caster2_flag","caster1_class","caster2_class","armor_spell_failure","caster1_spell_failure","caster2_spell_failure","npc"]; // "caster3_dc_level_" + spell_level, "caster3_class"
         _.each(spell_array, function(spellid) {
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spelllevel");
             spell_attribs.push("repeating_spell-" + spell_level + "_" + spellid + "_spellcaster");
@@ -1809,21 +1900,31 @@
                 var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"];
                 var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"];
                 var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"];
-                // == Display handling
+                // == Display and Multiclass handling
                 if (spell_level == "like") {
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = (v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "per-day") ? 1 : 0;
                 } else {
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                     // Multicasting
-                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
-                    if (v.caster2_flag == "1") {
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
+                    if ((v.caster1_flag == "1") && (typeof v.caster1_class != "undefined")) {
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
+                    } else {
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = " ";
+                    }
+                    if ((v.caster2_flag == "1") && (typeof v.caster2_class != "undefined")) {
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : " ";
                     } else {
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 1;
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 0;
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = " ";
+                    }
+                    if ((v.caster1_flag == "1") && (v.caster2_flag == "1")) {
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
+                    } else {
+                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 0;
+                        if (v.caster1_flag == "1") {
+                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 1;
+                        }
+                        else if (v.caster2_flag == "1") {update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 2;}
                     }
                 }
                 // == Save DC
@@ -1840,7 +1941,7 @@
                     rollbase += "{{level=" + spell_level + "}}";
                 }
                 // caster class
-                if ((v.npc == "0") && (v.caster2_flag == "1")) {
+                if ((v.npc == "0") && (v.caster1_flag == "1") && (v.caster2_flag == "1") && (typeof v.caster1_class != "undefined") && (typeof v.caster2_class != "undefined")) {
                     rollbase += "{{casterclass=" + ((v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] == "1") ? v.caster1_class : v.caster2_class) + "}}";
                 }
                 // school
@@ -2146,26 +2247,74 @@
         doneupdating();
     };
     var update_to_1_02 = function(doneupdating) {
-        /* TODO :
-            repeating_npcatk-melee:dmgflag ,
-            repeating_npcatk-ranged:dmgflag :
-                1 = {{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}
-                1 = {{damage=1}} {{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}
-            repeating_npcatk-melee:dmg2flag ,
-            repeating_npcatk-ranged:dmg2flag :
-                1 = {{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}
-                1 = {{damage=1}} {{dmg2flag=1}}{{dmg2=[[@{dmg2base}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg2type=@{dmg2type}}}{{dmg2crit=[[(@{dmg2base}[MOD]+@{rollmod_damage}[BONUS])*@{dmg2critmulti}]]}}
-            silent setAttrs and on return :
-                update_npc_attacks_all();
-                update_attacks("all");
-                update_all_spells("all");
-        */
+        // Multi class
+        getAttrs(["class","level","caster1_class","caster1_level"], function(v) {
+            var update = {};
+            if(typeof v.class != "undefined") {
+                update["class1_name"] = v.class;
+            }
+            if(typeof v.level != "undefined") {
+                update["class1_level"] = v.level;
+            }
+            if(typeof v.caster1_class != "undefined") {
+                update["caster1_flag"] = ((v.caster1_class.length > 0) || ((parseInt(v.caster1_level) || 0) > 0)) ? 1 : 0;
+            }
+            setAttrs(update,{"silent": true});
+        });
+        // NPC Attacks
+        getSectionIDs("repeating_npcatk-melee", function(idarray) {
+            var update = {};
+            var fields = [];
+            if ( (parseInt(idarray.length) || 0) > 0) {
+                _.each(idarray, function(id) {
+                    fields.push("repeating_npcatk-melee_" + id + "_dmgflag");
+                    fields.push("repeating_npcatk-melee_" + id + "_dmg2flag");
+                });
+                getAttrs(fields, function(v) {
+                    _.each(idarray, function(id) {
+                        if(v["repeating_npcatk-melee_" + id + "_dmgflag"] != "0") {
+                            update["repeating_npcatk-melee_" + id + "_dmgflag"] = 1;
+                        }
+                        if(v["repeating_npcatk-melee_" + id + "_dmg2flag"] != "0") {
+                            update["repeating_npcatk-melee_" + id + "_dmg2flag"] = 1;
+                        }
+                    });
+                    setAttrs(update,{"silent": true}, function() {update_npc_attacks_melee();});
+                });
+
+            }
+        });
+        getSectionIDs("repeating_npcatk-ranged", function(idarray){
+            var update = {};
+            var fields = [];
+            if ( (parseInt(idarray.length) || 0) > 0) {
+                _.each(idarray, function(id) {
+                    fields.push("repeating_npcatk-ranged_" + id + "_dmgflag");
+                    fields.push("repeating_npcatk-ranged_" + id + "_dmg2flag");
+                });
+                getAttrs(fields, function(v) {
+                    _.each(idarray, function(id) {
+                        if(v["repeating_npcatk-ranged_" + id + "_dmgflag"] != "0") {
+                            update["repeating_npcatk-ranged_" + id + "_dmgflag"] = 1;
+                        }
+                        if(v["repeating_npcatk-ranged_" + id + "_dmg2flag"] != "0") {
+                            update["repeating_npcatk-ranged_" + id + "_dmg2flag"] = 1;
+                        }
+                    });
+                    setAttrs(update,{"silent": true}, function() {update_npc_attacks_ranged();});
+                });
+
+            }
+        });
+        // Spells
+        update_all_spells("all");
+        // End
         doneupdating();
     };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
-            if (vrs === 1.01) {
+            if (vrs === 1.02) {
                 console.log("Pathfinder by Roll20 v" + vrs);
                 return;
             } else if (vrs < 1.0) {
@@ -2179,12 +2328,10 @@
                     versioning();
                 });
             } else if (vrs < 1.02) {
-                /*
                 update_to_1_02(function () {
                     setAttrs({"version": "1.02"});
                     versioning();
                 });
-                */
             }
         });
     };

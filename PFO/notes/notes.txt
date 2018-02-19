@@ -1,3 +1,7 @@
+BUGS :
+- AC abilities
+- Spell like abilitie / notes
+
 -------------------------------
 Multi classing
 Readonly :

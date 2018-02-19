@@ -1183,11 +1183,17 @@
     };
     // --- NPC attacks
     var update_npc_attacks_all = function() {
+        update_npc_attacks_melee();
+        update_npc_attacks_ranged();
+    };
+    var update_npc_attacks_melee = function() {
         getSectionIDs("repeating_npcatk-melee", function(idarray) {
             _.each(idarray, function(id) {
                 update_npc_attack("melee",id);
             });
         });
+    };
+    var update_npc_attacks_ranged = function () {}
         getSectionIDs("repeating_npcatk-ranged", function(idarray) {
             _.each(idarray, function(id) {
                 update_npc_attack("ranged",id);
