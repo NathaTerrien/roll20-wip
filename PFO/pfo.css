@@ -31,6 +31,7 @@ img{
     padding: 0px;
 }
 /* ==== CLASSES ==== */
+.sheet-help {cursor: help;}
 .sheet-debug{
     border: 1px solid red;
 }
@@ -74,13 +75,16 @@ img{
 .sheet-upper {
     text-transform: uppercase;
 }
-.sheet-labline{
+.sheet-labline {
     line-height: 1em;
 }
-.sheet-labline.sheet-top{
+.sheet-labline.sheet-right {
+    text-align: right;
+}
+.sheet-labline.sheet-top {
     margin-top: 2px;
 }
-.sheet-labline.sheet-bottom{
+.sheet-labline.sheet-bottom {
     margin-bottom: 2px;
 }
 .sheet-invisible {
@@ -167,8 +171,8 @@ div.sheet-colhalf{
 div.sheet-col1third{
     display: inline-block;
     vertical-align: top;
-    width: 279px;
-    max-width: 279px;
+    width: 276px;
+    max-width: 276px;
     margin: 1px;
     text-align: center;
 }
@@ -603,6 +607,31 @@ span.sheet-npc-section {
     margin-top: 10px;
     padding-left: 2px;
 }
+
+.sheet-multiclass {white-space: nowrap;}
+.sheet-multiclass .sheet-lab {
+    width: 30px;
+    font-weight: bold;
+}
+.sheet-labline.sheet-multiclass.sheet-bord {border-bottom: 1px dotted #CCC;}
+.sheet-multiclass .sheet-lab.sheet-spellcasting {
+    width: 176px;
+    text-transform: uppercase;
+    text-align: left;
+}
+.sheet-multiclass .sheet-lab.sheet-class {width: 140px;}
+.sheet-multiclass .sheet-lab.sheet-fav {width: 15px;}
+.sheet-multiclass .sheet-lab.sheet-hd {width: 24px;}
+.sheet-multiclass .sheet-lab.sheet-spell {
+    width: 24px;
+    text-align: right;
+}
+.sheet-multiclass .sheet-ability {width: 70px;}
+.sheet-multiclass .sheet-lab.sheet-fail {
+    width: 20px;
+    text-align: left;
+}
+.sheet-multiclass .sheet-boxed {width: 30px;}
 
 /* ===== INPUTS ===== */
 input, textarea{

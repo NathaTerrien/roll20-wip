@@ -8353,14 +8353,263 @@
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
-                <div class="myrow">
+                <div class="labline top help multiclass right">
+                    <span class="lab spellcasting" data-i18n="spellcasting">Spellcasting</span>
+                </div>
+                <div class="labline top help multiclass bord">
+                    <span class="roundblack">?</span>
+                    <span class="lab class" data-i18n="class" data-i18n-title="class-name" title="Class name">Class</span>
+                    <span class="lab fav" data-i18n="f-u" data-i18n-title="favored-class" title="Favored Class">F</span>
+                    <span class="lab" data-i18n="lvl" data-i18n-title="level" title="Level">Lvl</span>
+                    <span class="lab hd" data-i18n="hd-u" data-i18n-title="hit-dice" title="Hit Dice">HD</span>
+                    <span class="lab" data-i18n="bab-u" data-i18n-title="base-attack-bonus" title="Base Attack Bonus">BAB</span>
+                    <span class="lab" data-i18n="fort-u" data-i18n-title="fortitude" title="Fortitude">FORT</span>
+                    <span class="lab" data-i18n="ref-u" data-i18n-title="reflex" title="Reflex">REF</span>
+                    <span class="lab" data-i18n="will-u" data-i18n-title="will" title="Will">WILL</span>
+                    <span class="lab spell" data-i18n="sc-u" data-i18n-title="spellcasting" title="Spellcasting">SC</span>
+                    <span class="lab" data-i18n="cl-u" data-i18n-title="caster-level" title="Caster Level">CL</span>
+                    <span class="lab ability" data-i18n="ability" data-i18n-title="casting-ability" title="Casting Ability">Ability</span>
+                    <span class="lab" data-i18n="dc-u" data-i18n-title="save-dc-misc-bonus" title="Save DC Misc Bonus">DC</span>
+                    <span class="lab fail" data-i18n="sf-u" data-i18n-title="armor-spell-failure" title="Armor spell failure">SF</span>
+                </div>
+                <div class="myrow multiclass">
                     <span class="roundblack">1</span>
-                    <input type="text" name="attr_class1_name" class="underlined" title="@{class1_name}" />
+                    <input type="text" name="attr_class1_name" spellcheck="false" class="underlined medium" title="@{class1_name}" />
                     <input type="radio" name="attr_class_favored" class="sheet-pseudocheck" value="1" checked="checked" title="@{class_favored}" /><span></span>
+                    <input type="number" name="attr_class1_level" value="1" class="nospin underlined sml" title="@{class1_level}" />
+                    <select name="attr_hitdietype" class="underlined" title="@{hitdietype}">
+                        <option value="4">D4</option>
+                        <option value="6">D6</option>
+                        <option value="8" selected="selected">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                    </select>
+                    <input type="number" name="attr_class1_bab" value="0" class="nospin underlined sml" title="@{class1_bab}" />
+                    <input type="number" name="attr_class1_fortitude" value="0" class="nospin underlined sml" title="@{class1_fortitude}" />
+                    <input type="number" name="attr_class1_reflex" value="0" class="nospin underlined sml" title="@{class1_reflex}" />
+                    <input type="number" name="attr_class1_will" value="0" class="nospin underlined sml" title="@{class1_will}" />
+                    <input class="pseudocheck margindent" type="checkbox" name="attr_caster1_flag" value="1" title="@{caster1_flag}" /><span></span>
+                    <input type="number" name="attr_caster1_level" value="0" class="nospin underlined sml" title="@{caster1_level}" />
+                    <select name="attr_caster1_ability" class="underlined ability" title="@{caster1_ability}">
+                        <option value="strength" data-i18n="strength">Strength</option>
+                        <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                        <option value="constitution" data-i18n="constitution">Constitution</option>
+                        <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
+                        <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                        <option value="charisma" data-i18n="charisma">Charisma</option>
+                    </select>
+                    <input type="number" name="attr_caster1_dc_misc" value="0" class="nospin sml underlined" title="@{caster1_dc_misc}" />
+                    <input class="pseudocheck" type="checkbox" name="attr_caster1_spell_failure" value="1" title="@{caster1_spell_failure}" checked="checked" /><span></span>
+                </div>
+                <div class="myrow multiclass">
+                    <span class="roundblack">2</span>
+                    <input type="text" name="attr_class2_name" spellcheck="false" class="underlined medium" title="@{class2_name}" />
+                    <input type="radio" name="attr_class_favored" class="sheet-pseudocheck" value="1" title="@{class_favored}" /><span></span>
+                    <input type="number" name="attr_class2_level" value="0" class="nospin underlined sml" title="@{class2_level}" />
+                    <select name="attr_class2_hitdietype" class="underlined" title="@{class2_hitdietype}">
+                        <option value="4">D4</option>
+                        <option value="6">D6</option>
+                        <option value="8" selected="selected">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                    </select>
+                    <input type="number" name="attr_class2_bab" value="0" class="nospin underlined sml" title="@{class2_bab}" />
+                    <input type="number" name="attr_class2_fortitude" value="0" class="nospin underlined sml" title="@{class2_fortitude}" />
+                    <input type="number" name="attr_class2_reflex" value="0" class="nospin underlined sml" title="@{class2_reflex}" />
+                    <input type="number" name="attr_class2_will" value="0" class="nospin underlined sml" title="@{class2_will}" />
+                    <input class="pseudocheck margindent" type="checkbox" name="attr_caster2_flag" value="1" title="@{caster2_flag}" /><span></span>
+                    <input type="number" name="attr_caster2_level" value="0" class="nospin underlined sml" title="@{caster2_level}" />
+                    <select name="attr_caster2_ability" class="underlined ability" title="@{caster2_ability}">
+                        <option value="strength" data-i18n="strength">Strength</option>
+                        <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                        <option value="constitution" data-i18n="constitution">Constitution</option>
+                        <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
+                        <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                        <option value="charisma" data-i18n="charisma">Charisma</option>
+                    </select>
+                    <input type="number" name="attr_caster2_dc_misc" value="0" class="nospin sml underlined" title="@{caster2_dc_misc}" />
+                    <input class="pseudocheck" type="checkbox" name="attr_caster2_spell_failure" value="1" title="@{caster2_spell_failure}" checked="checked" /><span></span>
+                </div>
+                <div class="myrow multiclass">
+                    <span class="roundblack">3</span>
+                    <input type="text" name="attr_class3_name" spellcheck="false" class="underlined medium" title="@{class3_name}" />
+                    <input type="radio" name="attr_class_favored" class="sheet-pseudocheck" value="1" title="@{class_favored}" /><span></span>
+                    <input type="number" name="attr_class3_level" value="0" class="nospin underlined sml" title="@{class3_level}" />
+                    <select name="attr_class3_hitdietype" class="underlined" title="@{class3_hitdietype}">
+                        <option value="4">D4</option>
+                        <option value="6">D6</option>
+                        <option value="8" selected="selected">D8</option>
+                        <option value="10">D10</option>
+                        <option value="12">D12</option>
+                    </select>
+                    <input type="number" name="attr_class3_bab" value="0" class="nospin underlined sml" title="@{class3_bab}" />
+                    <input type="number" name="attr_class3_fortitude" value="0" class="nospin underlined sml" title="@{class3_fortitude}" />
+                    <input type="number" name="attr_class3_reflex" value="0" class="nospin underlined sml" title="@{class3_reflex}" />
+                    <input type="number" name="attr_class3_will" value="0" class="nospin underlined sml" title="@{class3_will}" />
+                </div>
+                <div class="spacer"></div>
+                <div class="myrow multiclass" style="padding-left: 175px;">
+                    <div class="boxed greybg">
+                        <span name="attr_level" class="pseudoattr" title="@{level}"></span>
+                    </div>
+                    <div class="boxed greybg" style="margin-left: 27px;">
+                        <span name="attr_bab" class="pseudoattr" title="@{bab}"></span>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_fortitude_base" class="pseudoattr" title="@{fortitude_base}"></span>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_reflex_base" class="pseudoattr" title="@{reflex_base}"></span>
+                    </div>
+                    <div class="boxed greybg">
+                        <span name="attr_will_base" class="pseudoattr" title="@{will_base}"></span>
+                    </div>
                 </div>
             </div>
+            <div class="spacer"></div>
+            <div class="col1third"> <!-- RACE and AC -->
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="race">Race</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="myrow">
+                        <span data-i18n="speed">Speed</span>:
+                        <input type="number" name="attr_speed_race" value="30" class="nospin sml underlined" title="@{speed_race}" />
+                        <span data-i18n="ft.">Ft.</span>
+                    </div>
+                    <div class="myrow padindent">
+                        <input class="pseudocheck" type="checkbox" name="attr_speed_notmodified" value="1" title="@{speed_notmodified}" /><span></span>
+                        <span data-i18n="speed-never-modified">Never modified by armor or encumbrance</span>
+                    </div>
+                </div>
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="armor-class">Armor Class</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="myrow padindent">
+                        <span data-i18n="primary-ability-modifier">Primary ability modifier</span>:
+                        <select name="attr_ac_ability_primary" class="underlined" title="@{ac_ability_primary}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent">
+                        <span data-i18n="secondary-ability-modifier">Secondary ability modifier</span>:
+                        <select name="attr_ac_ability_secondary" class="underlined" title="@{ac_ability_secondary}">
+                            <option value="none" data-i18n="none" selected="selected">None</option>
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent"><span data-i18n="dodge-bonus">Dodge bonus</span>:<input type="number" name="attr_ac_dodge" value="0" class="nospin sml underlined" title="@{ac_dodge}" /></div>
+                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_noflatflooted" value="1" title="@{ac_noflatflooted}" /><span></span><span data-i18n="cannot-be-caught-flat-footed">Cannot be caught Flat-Footed</span></div>
+                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_touchshield" value="1" title="@{ac_touchshield}" /><span></span><span data-i18n="shield-bonus-added-to-touch-ac">Shield bonus added to Touch AC</span></div>
+                </div>
+            </div> <!-- END RACE and AC -->
+            <div class="col1third"> <!-- SAVES and ATTACKS -->
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="saving-throws">Saving Throws</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="myrow padindent">
+                        <span data-i18n="fortitude-ability">Fortitude Ability</span>:
+                        <select name="attr_fortitude_ability" class="underlined" title="@{fortitude_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution" selected="selected">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent">
+                        <span data-i18n="reflex-ability">Reflex Ability</span>:
+                        <select name="attr_reflex_ability" class="underlined" title="@{reflex_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent">
+                        <span data-i18n="will-ability">Will Ability</span>:
+                        <select name="attr_will_ability" class="underlined" title="@{will_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom" selected="selected">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="blacklabel">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <div class="blackbgrd">
+                        <span class="big only" data-i18n="attacks">Attacks</span>
+                    </div>
+                    <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
+                </div>
+                <div class="bordered titled inbox">
+                    <div class="myrow padindent">
+                        <span data-i18n="cmb-ability">CMB Ability</span>:
+                        <select name="attr_cmb_ability" class="underlined" title="@{cmb_ability}">
+                            <option value="strength" data-i18n="strength" selected="selected">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent">
+                        <span data-i18n="melee-ability">Melee Ability</span>:
+                        <select name="attr_melee_ability" class="underlined" title="@{melee_ability}">
+                            <option value="strength" data-i18n="strength" selected="selected">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                    <div class="myrow padindent">
+                        <span data-i18n="ranged-ability">Ranged Ability</span>:
+                        <select name="attr_ranged_ability" class="underlined" title="@{ranged_ability}">
+                            <option value="strength" data-i18n="strength">Strength</option>
+                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
+                            <option value="constitution" data-i18n="constitution">Constitution</option>
+                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
+                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
+                            <option value="charisma" data-i18n="charisma">Charisma</option>
+                        </select>
+                    </div>
+                </div>
+            </div> <!-- END SAVES and ATTACKS -->
         </div>
-        <div class="col1third">
+        <div class="col1third"> <!-- ROLLS and MISC -->
             <div class="blacklabel">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
                 <div class="blackbgrd">
@@ -8409,182 +8658,7 @@
             <div class="myrow right">
                 <span data-i18n="version">Version</span>&nbsp;<span name="attr_version"></span>
             </div>
-        </div>
-        <div class="spacer"></div>
-        <div class="col1third">
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="class">class</span>
-                </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-            </div>
-            <div class="bordered titled inbox">
-                <span data-i18n="hit-die">Hit Die</span>:
-                    <select name="attr_hitdietype" class="underlined" title="@{hitdietype}">
-                        <option value="4">D4</option>
-                        <option value="6">D6</option>
-                        <option value="8" selected="selected">D8</option>
-                        <option value="10">D10</option>
-                        <option value="12">D12</option>
-                    </select>
-                <span class="block" data-i18n="armor-class:">Armor Class:</span>
-                    <div class="myrow padindent">
-                        <span data-i18n="primary-ability-modifier">Primary ability modifier</span>:
-                        <select name="attr_ac_ability_primary" class="underlined" title="@{ac_ability_primary}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent">
-                        <span data-i18n="secondary-ability-modifier">Secondary ability modifier</span>:
-                        <select name="attr_ac_ability_secondary" class="underlined" title="@{ac_ability_secondary}">
-                            <option value="none" data-i18n="none" selected="selected">None</option>
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent"><span data-i18n="dodge-bonus">Dodge bonus</span>:<input type="number" name="attr_ac_dodge" value="0" class="nospin sml underlined" title="@{ac_dodge}" /></div>
-                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_noflatflooted" value="1" title="@{ac_noflatflooted}" /><span></span><span data-i18n="cannot-be-caught-flat-footed">Cannot be caught Flat-Footed</span></div>
-                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_ac_touchshield" value="1" title="@{ac_touchshield}" /><span></span><span data-i18n="shield-bonus-added-to-touch-ac">Shield bonus added to Touch AC</span></div>
-                <span class="block" data-i18n="saving-throws:">Saving Throws:</span>
-                    <div class="myrow padindent"><span data-i18n="base-fortitude">Base Fortitude</span>:<input type="number" name="attr_fortitude_base" value="0" class="nospin sml underlined" title="@{fortitude_base}" /></div>
-                    <div class="myrow padindent">
-                        <span data-i18n="fortitude-ability">Fortitude Ability</span>:
-                        <select name="attr_fortitude_ability" title="@{fortitude_ability}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution" selected="selected">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent"><span data-i18n="base-reflex">Base Reflex</span>:<input type="number" name="attr_reflex_base" value="0" class="nospin sml underlined" title="@{reflex_base}" /></div>
-                    <div class="myrow padindent">
-                        <span data-i18n="reflex-ability">Reflex Ability</span>:
-                        <select name="attr_reflex_ability" class="underlined" title="@{reflex_ability}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent"><span data-i18n="base-will">Base Will</span>:<input type="number" name="attr_will_base" value="0" class="nospin sml underlined" title="@{will_base}" /></div>
-                    <div class="myrow padindent">
-                        <span data-i18n="will-ability">Will Ability</span>:
-                        <select name="attr_will_ability" class="underlined" title="@{will_ability}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom" selected="selected">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                <span class="block" data-i18n="attacks:">Attacks:</span>
-                    <div class="myrow padindent">
-                        <span data-i18n="cmb-ability">CMB Ability</span>:
-                        <select name="attr_cmb_ability" class="underlined" title="@{cmb_ability}">
-                            <option value="strength" data-i18n="strength" selected="selected">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent">
-                        <span data-i18n="melee-ability">Melee Ability</span>:
-                        <select name="attr_melee_ability" class="underlined" title="@{melee_ability}">
-                            <option value="strength" data-i18n="strength" selected="selected">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent">
-                        <span data-i18n="ranged-ability">Ranged Ability</span>:
-                        <select name="attr_ranged_ability" class="underlined" title="@{ranged_ability}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity" selected="selected">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-            </div>
-        </div>
-        <div class="col1third">
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="race">Race</span>
-                </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-            </div>
-            <div class="bordered titled inbox">
-                <div class="myrow">
-                    <span data-i18n="speed">Speed</span>:
-                    <input type="number" name="attr_speed_race" value="30" class="nospin sml underlined" title="@{speed_race}" />
-                    <span data-i18n="ft.">Ft.</span>
-                </div>
-                <div class="myrow padindent">
-                    <input class="pseudocheck" type="checkbox" name="attr_speed_notmodified" value="1" title="@{speed_notmodified}" /><span></span>
-                    <span data-i18n="speed-never-modified">Never modified by armor or encumbrance</span>
-                </div>
-            </div>
-            <div class="blacklabel">
-                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="spellcasting">Spellcasting</span>
-                </div>
-                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-            </div>
-            <div class="bordered titled inbox">
-                <span class="block" data-i18n="main-caster-class:">Main Caster Class:</span>
-                    <div class="myrow padindent">
-                        <span data-i18n="ability">Ability</span>:
-                        <select name="attr_caster1_ability" class="underlined" title="@{caster1_ability}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent"><span data-i18n="save-dc-misc-bonus">Save DC Misc Bonus</span>:<input type="number" name="attr_caster1_dc_misc" value="0" class="nospin sml underlined" title="@{caster1_dc_misc}" /></div>
-                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_caster1_spell_failure" value="1" title="@{caster1_spell_failure}" checked="checked" /><span></span><span data-i18n="armor-spell-failure">Armor spell failure</span></div>
-                <div class="myrow"><input class="pseudocheck" type="checkbox" name="attr_caster2_flag" value="1" title="@{caster2_flag}" /><span></span><span data-i18n="second-caster-class:">Second Caster Class:</span></div>
-                    <div class="myrow padindent">
-                        <span data-i18n="ability">Ability</span>:
-                        <select name="attr_caster2_ability" class="underlined" title="@{caster2_ability}">
-                            <option value="strength" data-i18n="strength">Strength</option>
-                            <option value="dexterity" data-i18n="dexterity">Dexterity</option>
-                            <option value="constitution" data-i18n="constitution">Constitution</option>
-                            <option value="intelligence" data-i18n="intelligence" selected="selected">Intelligence</option>
-                            <option value="wisdom" data-i18n="wisdom">Wisdom</option>
-                            <option value="charisma" data-i18n="charisma">Charisma</option>
-                        </select>
-                    </div>
-                    <div class="myrow padindent"><span data-i18n="save-dc-misc-bonus">Save DC Misc Bonus</span>:<input type="number" name="attr_caster2_dc_misc" value="0" class="nospin sml underlined" title="@{caster2_dc_misc}" /></div>
-                    <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_caster2_spell_failure" value="1" title="@{caster2_spell_failure}" checked="checked" /><span></span><span data-i18n="armor-spell-failure">Armor spell failure</span></div>
-            </div>
-        </div>
+        </div> <!-- END ROLLS and MISC -->
     </div> <!-- END TAB CONFIGURATION -->
 </div>  <!-- END PC SHEET -->
 

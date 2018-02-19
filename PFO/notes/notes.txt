@@ -8,6 +8,10 @@ fortitude_base
 reflex_base
 will_base
 
+                    <div class="myrow padindent"><span data-i18n="base-fortitude">Base Fortitude</span>:<input type="number" name="attr_fortitude_base" value="0" class="nospin sml underlined" title="@{fortitude_base}" /></div>
+                    <div class="myrow padindent"><span data-i18n="base-reflex">Base Reflex</span>:<input type="number" name="attr_reflex_base" value="0" class="nospin sml underlined" title="@{reflex_base}" /></div>
+                    <div class="myrow padindent"><span data-i18n="base-will">Base Will</span>:<input type="number" name="attr_will_base" value="0" class="nospin sml underlined" title="@{will_base}" /></div>
+
 -------------------------------
 skill_check_penalty
 

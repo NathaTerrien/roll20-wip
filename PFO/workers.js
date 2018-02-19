@@ -1979,17 +1979,20 @@
             update["ac_touch"] = 0;
             update["ac_flatfooted"] = 0;
             // Saves
+            update["fortitude_base"] = 0;
+            update["reflex_base"] = 0;
+            update["will_base"] = 0;
             update["fortitude_ability_mod"] = 0;
             update["reflex_ability_mod"] = 0;
             update["will_ability_mod"] = 0;
-            update["cmb_ability_mod"] = 0;
-            update["melee_ability_mod"] = 0;
-            update["ranged_ability_mod"] = 0;
             update["fortitude"] = 0;
             update["reflex"] = 0;
             update["will"] = 0;
             // BABs
             update["bab"] = 0;
+            update["cmb_ability_mod"] = 0;
+            update["melee_ability_mod"] = 0;
+            update["ranged_ability_mod"] = 0;
             update["cmb_mod"] = 0;
             update["melee_mod"] = 0;
             update["ranged_mod"] = 0;
