@@ -111,7 +111,7 @@
                     }
                 }
                 else {
-                    default_attr["bar2_link"] = "ac";
+                    default_attr["bar3_link"] = "ac";
                 }
                 setDefaultToken(default_attr);
             });
@@ -2429,7 +2429,7 @@
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
-            if (vrs === 1.02) {
+            if (vrs === 1.03) {
                 console.log("Pathfinder by Roll20 v" + vrs);
                 return;
             } else if (vrs < 1.0) {
@@ -2447,6 +2447,8 @@
                     setAttrs({"version": "1.02"});
                     versioning();
                 });
+            } else if (vrs < 1.03) {
+                setAttrs({"version": "1.03"},{"silent": true},function() {versioning();});
             }
         });
     };
