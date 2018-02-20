@@ -19,7 +19,7 @@
     });
 
     // === Abilities
-    on("change:strength_base change:strength_bonus", function() {
+    on("change:strength_base change:strength_race change:strength_bonus", function() {
         update_attr("strength");
     });
     on("change:strength", function() {
@@ -28,31 +28,31 @@
             update_encumbrance_load();
         }
     });
-    on("change:dexterity_base change:dexterity_bonus", function() {
+    on("change:dexterity_base change:dexterity_race change:dexterity_bonus", function() {
         update_attr("dexterity");
     });
     on("change:dexterity", function() {
         update_mod("dexterity");
     });
-    on("change:constitution_base change:constitution_bonus", function() {
+    on("change:constitution_base change:constitution_race change:constitution_bonus", function() {
         update_attr("constitution");
     });
     on("change:constitution", function() {
         update_mod("constitution");
     });
-    on("change:intelligence_base change:intelligence_bonus", function() {
+    on("change:intelligence_base change:intelligence_race change:intelligence_bonus", function() {
         update_attr("intelligence");
     });
     on("change:intelligence", function() {
         update_mod("intelligence");
     });
-    on("change:wisdom_base change:wisdom_bonus", function() {
+    on("change:wisdom_base change:wisdom_race change:wisdom_bonus", function() {
         update_attr("wisdom");
     });
     on("change:wisdom", function() {
         update_mod("wisdom");
     });
-    on("change:charisma_base change:charisma_bonus", function() {
+    on("change:charisma_base change:charisma_race change:charisma_bonus", function() {
         update_attr("charisma");
     });
     on("change:charisma", function() {
@@ -600,12 +600,13 @@
     // === ABILITIES and MODS
     var update_attr = function(attr) {
         var update = {};
-        var attr_fields = [attr + "_base",attr + "_bonus"];
+        var attr_fields = [attr + "_base",attr + "_race", attr + "_bonus"];
         getAttrs(attr_fields, function(v) {
             var base = parseInt(v[attr + "_base"]) || 10;
+            var race = parseInt(v[attr + "_race"]) || 0;
             var bonus = parseInt(v[attr + "_bonus"]) || 0;
             update[attr + "_flag"] = bonus != 0 ? 1 : 0;
-            update[attr] = base + bonus;
+            update[attr] = base + race + bonus;
             setAttrs(update);
         });
     };
