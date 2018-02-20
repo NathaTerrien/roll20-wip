@@ -8695,6 +8695,16 @@
 
 <!-- HIDDEN ATTRIBUTES -->
 <input type="hidden" name="none_mod" value="0" />
+<input type="hidden" name="cd_bar1_v" value="hp_max" />
+<input type="hidden" name="cd_bar1_m" value="hp_max" />
+<input type="hidden" name="cd_bar1_l" value="" />
+<input type="hidden" name="cd_bar2_v" value="" />
+<input type="hidden" name="cd_bar2_m" value="" />
+<input type="hidden" name="cd_bar2_l" value="" />
+<input type="hidden" name="cd_bar3_v" value="" />
+<input type="hidden" name="cd_bar3_m" value="" />
+<input type="hidden" name="cd_bar3_l" value="ac" />
+
 <!-- HIDDEN TRANSLATION TEXT -->
 <div style="display: none;">
     <span data-i18n="combat-maneuver">Combat Maneuver</span>
@@ -9621,6 +9631,111 @@
         });
         loadi18n();
         versioning();
+    });
+
+    // === Drop
+    on("sheet:compendium-drop", function() {
+        getAttrs(["hp_max","ac","size","cd_bar1_v","cd_bar1_m","cd_bar1_l","cd_bar2_v","cd_bar2_m","cd_bar2_l","cd_bar3_v","cd_bar3_m","cd_bar3_l"], function(v) {
+            var default_attr = {};
+            default_attr["width"] = 70;
+            default_attr["height"] = 70;
+            if(v["size"]) {
+                var squares = 1.0;
+                var squarelength = 70;
+                switch(v["size"]) {
+                    case "fine":
+                        squares = 0.5;
+                        break;
+                    case "diminutive":
+                        squares = 0.5;
+                        break;
+                    case "tiny":
+                        squares = 0.5;
+                        break;
+                    case "small":
+                        squares = 0.75;
+                        break;
+                    case "medium":
+                        squares = 1.0;
+                        break;
+                    case "large":
+                        squares = 2.0;
+                        break;
+                    case "huge":
+                        squares = 3.0;
+                        break;
+                    case "gargantuan":
+                        squares = 4.0;
+                        break;
+                    case "colossal":
+                        squares = 5.0;
+                        break;
+                }
+                var squaresize = parseInt(squarelength * squares);
+                default_attr["width"] = squaresize;
+                default_attr["height"] = squaresize;
+            }
+
+            var getList = {};
+            for(x = 1; x<=3; x++) {
+                _.each(["v", "m"], function(letter) {
+                    var keyname = "cd_bar" + x + "_" + letter;
+                    if(v[keyname] != undefined && isNaN(v[keyname])) {
+                        getList[keyname] = v[keyname];
+                    }
+                });
+            }
+
+            getAttrs(_.values(getList), function(values) {
+                _.each(_.keys(getList), function(keyname) {
+                    v[keyname] = values[getList[keyname]] == undefined ? "" : values[getList[keyname]];
+                });
+
+                if(v["cd_bar1_l"]) {
+                    default_attr["bar1_link"] = v["cd_bar1_l"];
+                }
+                else if(v["cd_bar1_v"] || v["cd_bar1_m"]) {
+                    if(v["cd_bar1_v"]) {
+                        default_attr["bar1_value"] = v["cd_bar1_v"];
+                    }
+                    if(v["cd_bar1_m"]) {
+                        default_attr["bar1_max"] = v["cd_bar1_m"];
+                    }
+                }
+                else {
+                    default_attr["bar1_value"] = v["hp_max"];
+                    default_attr["bar1_max"] = v["hp_max"];
+                }
+
+                if(v["cd_bar2_l"]) {
+                    default_attr["bar2_link"] = v["cd_bar2_l"];
+                }
+                else if(v["cd_bar2_v"] || v["cd_bar2_m"]) {
+                    if(v["cd_bar2_v"]) {
+                        default_attr["bar2_value"] = v["cd_bar2_v"];
+                    }
+                    if(v["cd_bar2_m"]) {
+                        default_attr["bar2_max"] = v["cd_bar2_m"];
+                    }
+                }
+
+                if(v["cd_bar3_l"]) {
+                    default_attr["bar3_link"] = v["cd_bar3_l"];
+                }
+                else if(v["cd_bar3_v"] || v["cd_bar3_m"]) {
+                    if(v["cd_bar3_v"]) {
+                        default_attr["bar3_value"] = v["cd_bar3_v"];
+                    }
+                    if(v["cd_bar3_m"]) {
+                        default_attr["bar3_max"] = v["cd_bar3_m"];
+                    }
+                }
+                else {
+                    default_attr["bar2_link"] = "ac";
+                }
+                setDefaultToken(default_attr);
+            });
+        });
     });
 
     // === Generals
