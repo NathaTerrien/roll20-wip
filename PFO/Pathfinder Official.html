@@ -5734,7 +5734,7 @@
                     </div>
                     <div class="spacer"></div>
                     <div class="concentration"> <!-- CONCENTRATION -->
-                        <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                        <input class="options-flag" name="attr_options-flag-caster1-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
                             <button class="myrol" type="roll" name="roll_caster1_concentration_roll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{caster1_concentration_roll}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
                             <input type="hidden" name="attr_caster1_concentration_roll" value="@{whispertype} &{template:pc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{casterclass=@{caster1_class}}} {{level=@{caster1_level}}} {{roll=[[1d20+@{caster1_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster1_concentration_notes}}}" />
@@ -5983,7 +5983,7 @@
                     </div>
                     <div class="spacer"></div>
                     <div class="concentration"> <!-- CONCENTRATION -->
-                        <input class="options-flag" name="attr_options-flag-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+                        <input class="options-flag" name="attr_options-flag-caster2-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
                             <button class="myrol" type="roll" name="roll_caster2_concentration_roll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{caster2_concentration_roll}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
                             <input type="hidden" name="attr_caster2_concentration_roll" value="@{whispertype} &{template:pc} {{name=^{concentration}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{casterclass=@{caster2_class}}} {{level=@{caster2_level}}} {{roll=[[1d20+@{caster2_concentration}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{caster2_concentration_notes}}}" />
@@ -10381,7 +10381,7 @@
                 setAttrs(update);
             });
         } else {
-            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability","caster1_ability"];
+            var fields = ["fortitude_ability","reflex_ability","will_ability","cmb_ability","melee_ability","ranged_ability","acrobatics_ability","appraise_ability","bluff_ability","climb_ability","craft_ability","diplomacy_ability","disable_device_ability","disguise_ability","escape_artist_ability","fly_ability","handle_animal_ability","heal_ability","intimidate_ability","knowledge_arcana_ability","knowledge_dungeoneering_ability","knowledge_engineering_ability","knowledge_geography_ability","knowledge_history_ability","knowledge_local_ability","knowledge_nature_ability","knowledge_nobility_ability","knowledge_planes_ability","knowledge_religion_ability","linguistics_ability","perception_ability","perform_ability","profession_ability","ride_ability","sense_motive_ability","sleight_of_hand_ability","spellcraft_ability","stealth_ability","survival_ability","swim_ability","use_magic_device_ability","caster1_ability","caster2_ability"];
             var flexes = [];
             getAttrs(fields, function(ablts) {
                 _.each(fields, function(field){
