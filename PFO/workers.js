@@ -1239,12 +1239,14 @@
                 var atkrange = v["repeating_attacks_" + attackid + "_atkrange"];
                 var dmgflag = v["repeating_attacks_" + attackid + "_dmgflag"];
                 var dmgbase = v["repeating_attacks_" + attackid + "_dmgbase"];
+                if (dmgbase.length == 0) {dmgbase = "0";}
                 var dmgattr = parseInt(v[v["repeating_attacks_" + attackid + "_dmgattr"] + "_mod"]) || 0;
                 var dmgmod = v["repeating_attacks_" + attackid + "_dmgmod"];
                 var dmgcritmulti = parseInt(v["repeating_attacks_" + attackid + "_dmgcritmulti"]) || 1;
                 var dmgtype = v["repeating_attacks_" + attackid + "_dmgtype"];
                 var dmg2flag = v["repeating_attacks_" + attackid + "_dmg2flag"];
                 var dmg2base = v["repeating_attacks_" + attackid + "_dmg2base"];
+                if (dmg2base.length == 0) {dmg2base = "0";}
                 var dmg2attr = parseInt(v[v["repeating_attacks_" + attackid + "_dmg2attr"] + "_mod"]) || 0;
                 var dmg2mod = v["repeating_attacks_" + attackid + "_dmg2mod"];
                 var dmg2critmulti = parseInt(v["repeating_attacks_" + attackid + "_dmg2critmulti"]) || 1;
@@ -1258,7 +1260,13 @@
                 if (dmg2mod.length == 0) {dmg2mod = "0";}
                 // Multi attack base handling
                 if (["bab","melee","ranged","cmb"].includes(v["repeating_attacks_" + attackid + "_atktype"])) {
-                    atktypearray = JSON.parse("[" + v[v["repeating_attacks_" + attackid + "_atktype"] + "_multi"] + "]");
+                    var multi = "";
+                    if(typeof v[v["repeating_attacks_" + attackid + "_atktype"] + "_multi"] != "undefined") {
+                        multi = v[v["repeating_attacks_" + attackid + "_atktype"] + "_multi"];
+                    } else {
+                        multi = atktype;
+                    }
+                    atktypearray = JSON.parse("[" + multi + "]");
                 }
                 // == Display handling
                 atkbonus = atktype + atktype2 + (parseInt(atkmod) || 0);
@@ -2012,10 +2020,12 @@
                 var atkcritrange = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkcritrange"]) || 20;
                 var dmgflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgflag"];
                 var dmgbase = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg"];
+                if (dmgbase.length == 0) {dmgbase = "0";}
                 var dmgcritmulti = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgcritmulti"]) || 1;
                 var dmgtype = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgtype"];
                 var dmg2flag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag"];
                 var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"];
+                if (dmg2base.length == 0) {dmg2base = "0";}
                 var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"];
                 var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"];
                 // == Display and Multiclass handling
