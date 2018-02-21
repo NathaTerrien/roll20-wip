@@ -1867,10 +1867,18 @@
         }
     };
     var update_spells_totals = function(level,cster) {
-        var fields = ["caster" + cster + "_spells_perday_level_" + level,"caster" + cster + "_spells_bonus_level_" + level];
+        var fields = ["caster" + cster + "_spells_perday_level_" + level,"caster" + cster + "_spells_bonus_level_" + level, "caster1_spells_total_level_" + level, "caster2_spells_total_level_" + level];
         getAttrs(fields, function(v) {
             var update = {};
-            update["caster" + cster + "_spells_total_level_" + level] = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
+            var cstertot = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
+            var tot = 0;
+            if (cster == 1) {
+                tot = cstertot + (parseInt(v["caster2_spells_total_level_" + level]) || 0);
+            } else {
+                tot = cstertot + (parseInt(v["caster1_spells_total_level_" + level]) || 0);
+            }
+            update["caster" + cster + "_spells_total_level_" + level] = cstertot;
+            update["caster_spells_total_level_" + level] = tot;
             setAttrs(update, {silent: true});
         });
     };
@@ -2426,6 +2434,13 @@
         // End
         doneupdating();
     };
+    var update_to_1_03 = function(doneupdating) {
+        getAttrs(["caster1_flag","caster2_flag"], function(v) {
+            var cflg = (parseInt(v.caster1_flag) || 0) + (parseInt(v.caster2_flag) || 0);
+            setAttrs({"caster_flag": cflg},{"silent": true}, function() {doneupdating();});
+        });
+        // TODO caster_spells_total_level_X = caster1_spells_total_level_X + caster2_spells_total_level_X
+    };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
@@ -2448,7 +2463,10 @@
                     versioning();
                 });
             } else if (vrs < 1.03) {
-                setAttrs({"version": "1.03"},{"silent": true},function() {versioning();});
+                update_to_1_03(function () {
+                    setAttrs({"version": "1.03"});
+                    versioning();
+                });
             }
         });
     };

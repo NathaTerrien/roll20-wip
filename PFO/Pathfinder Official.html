@@ -2445,7 +2445,7 @@
     <!-- PSEUDO TABS -->
     <input type="radio" name="attr_tabcurrent" class="tabmain" value="tabmain" /><span data-i18n="tab-main">Main</span>
     <input type="radio" name="attr_tabcurrent" class="tabadd" value="tabadd" /><span data-i18n="tab-additional">Additional</span>
-    <input type="radio" name="attr_tabcurrent" class="tabspell" value="tabspell" /><span data-i18n="tab-spells">Spells</span>
+    <input type="hidden" name="attr_caster_flag" class="optional-flag0" value="0" /><input type="radio" name="attr_tabcurrent" class="tabspell optional inl" value="tabspell" /><span class="optional inl" data-i18n="tab-spells">Spells</span>
     <input type="radio" name="attr_tabcurrent" class="tabconf" value="tabconf" checked="checked" /><span data-i18n="tab-configuration">Configuration</span>
     <div class="tabmain"> <!-- TAB MAIN -->
         <div class="colhalf"> <!-- tab1 col1 -->
@@ -6234,7 +6234,7 @@
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="myrow"> <!-- LVL 0-1 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 0 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_0" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 0 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -6245,11 +6245,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_0" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_0" title="@{caster1_spells_prepared_level_0}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_0" title="@{caster1_spells_total_level_0}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_0" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_0" title="@{caster1_spells_prepared_level_0}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_0" title="@{caster1_spells_total_level_0}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_0" value="0" />
@@ -6421,7 +6423,7 @@
                             </div>
                         </fieldset> <!-- END REPEATING 0 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 0 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 1 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_1" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 1 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -6432,11 +6434,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_1" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_1" title="@{caster1_spells_prepared_level_1}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_1" title="@{caster1_spells_total_level_1}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_1" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_1" title="@{caster1_spells_prepared_level_1}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_1" title="@{caster1_spells_total_level_1}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_1" value="0" />
@@ -6614,7 +6618,7 @@
                     </div>  <!-- END SPELLS LEVEL 1 -->
                 </div> <!-- END LVL 0-1 -->
                 <div class="myrow"> <!-- LVL 2-3 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 2 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_2" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 2 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -6625,11 +6629,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_2" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_2" title="@{caster1_spells_prepared_level_2}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_2" title="@{caster1_spells_total_level_2}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_2" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_2" title="@{caster1_spells_prepared_level_2}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_2" title="@{caster1_spells_total_level_2}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_2" value="0" />
@@ -6805,7 +6811,7 @@
                             </div>
                         </fieldset> <!-- END REPEATING 2 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 2 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 3 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_3" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 3 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -6816,11 +6822,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_3" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_3" title="@{caster1_spells_prepared_level_3}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_3" title="@{caster1_spells_total_level_3}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_3" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_3" title="@{caster1_spells_prepared_level_3}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_3" title="@{caster1_spells_total_level_3}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_3" value="0" />
@@ -6998,7 +7006,7 @@
                     </div> <!-- END SPELLS LEVEL 3 -->
                 </div> <!-- END LVL 2-3 -->
                 <div class="myrow"> <!-- LVL 4-5 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 4 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_4" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 4 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -7009,11 +7017,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_4" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_4" title="@{caster1_spells_prepared_level_4}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_4" title="@{caster1_spells_total_level_4}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_4" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_4" title="@{caster1_spells_prepared_level_4}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_4" title="@{caster1_spells_total_level_4}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_4" value="0" />
@@ -7189,7 +7199,7 @@
                             </div>
                         </fieldset> <!-- END REPEATING 2 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 4 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 5 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_5" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 5 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -7200,11 +7210,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_5" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_5" title="@{caster1_spells_prepared_level_5}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_5" title="@{caster1_spells_total_level_5}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_5" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_5" title="@{caster1_spells_prepared_level_5}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_5" title="@{caster1_spells_total_level_5}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_5" value="0" />
@@ -7382,7 +7394,7 @@
                     </div> <!-- END SPELLS LEVEL 5 -->
                 </div> <!-- END LVL 4-5 -->
                 <div class="myrow"> <!-- LVL 6-7 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 6 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_6" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 6 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -7393,11 +7405,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_6" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_6" title="@{caster1_spells_prepared_level_6}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_6" title="@{caster1_spells_total_level_6}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_6" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_6" title="@{caster1_spells_prepared_level_6}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_6" title="@{caster1_spells_total_level_6}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_6" value="0" />
@@ -7573,7 +7587,7 @@
                             </div>
                         </fieldset> <!-- END REPEATING 6 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 6 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 7 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_7" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 7 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -7584,11 +7598,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_7" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_7" title="@{caster1_spells_prepared_level_7}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_7" title="@{caster1_spells_total_level_7}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_7" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_7" title="@{caster1_spells_prepared_level_7}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_7" title="@{caster1_spells_total_level_7}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_7" value="0" />
@@ -7766,7 +7782,7 @@
                     </div> <!-- END SPELLS LEVEL 7 -->
                 </div> <!-- END LVL 6-7 -->
                 <div class="myrow"> <!-- LVL 8-9 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 8 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_8" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 8 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -7777,11 +7793,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_8" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_8" title="@{caster1_spells_prepared_level_8}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_8" title="@{caster1_spells_total_level_8}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_8" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_8" title="@{caster1_spells_prepared_level_8}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_8" title="@{caster1_spells_total_level_8}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_8" value="0" />
@@ -7957,7 +7975,7 @@
                             </div>
                         </fieldset> <!-- END REPEATING 8 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 8 -->
-                    <div class="col1third"> <!-- SPELLS LEVEL 9 -->
+                    <input type="hidden" name="attr_caster_spells_total_level_9" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 9 -->
                         <div class="myrow">
                             <div class="blacklabel">
                                 <div class="blackbgrd weapon">
@@ -7968,11 +7986,13 @@
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
-                            <span class="roundblack margindent">1</span>
-                            <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_9" value="0" />
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_9" title="@{caster1_spells_prepared_level_9}"></span>
-                            <span class="lbl">/</span>
-                            <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_9" title="@{caster1_spells_total_level_9}"></span>
+                            <input type="hidden" name="attr_caster1_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
+                                <span class="roundblack margindent">1</span>
+                                <input type="hidden" class="attr-flag" name="attr_caster1_spells_prepared_flag_9" value="0" />
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_prepared_level_9" title="@{caster1_spells_prepared_level_9}"></span>
+                                <span class="lbl">/</span>
+                                <span class="prepared pseudoattr sml greybg underlined center" name="attr_caster1_spells_total_level_9" title="@{caster1_spells_total_level_9}"></span>
+                            </div>
                             <input type="hidden" name="attr_caster2_flag" value="0" class="optional-flag0" /><div class="optional inl margindent">
                                 <span class="roundblack margindent">2</span>
                                 <input type="hidden" class="attr-flag" name="attr_caster2_spells_prepared_flag_9" value="0" />
@@ -11487,10 +11507,18 @@
         }
     };
     var update_spells_totals = function(level,cster) {
-        var fields = ["caster" + cster + "_spells_perday_level_" + level,"caster" + cster + "_spells_bonus_level_" + level];
+        var fields = ["caster" + cster + "_spells_perday_level_" + level,"caster" + cster + "_spells_bonus_level_" + level, "caster1_spells_total_level_" + level, "caster2_spells_total_level_" + level];
         getAttrs(fields, function(v) {
             var update = {};
-            update["caster" + cster + "_spells_total_level_" + level] = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
+            var cstertot = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
+            var tot = 0;
+            if (cster == 1) {
+                tot = cstertot + (parseInt(v["caster2_spells_total_level_" + level]) || 0);
+            } else {
+                tot = cstertot + (parseInt(v["caster1_spells_total_level_" + level]) || 0);
+            }
+            update["caster" + cster + "_spells_total_level_" + level] = cstertot;
+            update["caster_spells_total_level_" + level] = tot;
             setAttrs(update, {silent: true});
         });
     };
@@ -12046,6 +12074,12 @@
         // End
         doneupdating();
     };
+    var update_to_1_03 = function(doneupdating) {
+        getAttrs(["caster1_flag","caster2_flag"], function(v) {
+            var cflg = (parseInt(v.caster1_flag) || 0) + (parseInt(v.caster2_flag) || 0);
+            setAttrs({"caster_flag": cflg},{"silent": true}, function() {doneupdating();});
+        });
+    };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
@@ -12068,7 +12102,10 @@
                     versioning();
                 });
             } else if (vrs < 1.03) {
-                setAttrs({"version": "1.03"},{"silent": true},function() {versioning();});
+                update_to_1_03(function () {
+                    setAttrs({"version": "1.03"});
+                    versioning();
+                });
             }
         });
     };

@@ -1161,11 +1161,17 @@ input.sheet-tabconf:checked + span{
 
 .sheet-optional-flag,
 .sheet-optional-flag0 {display: none;}
-.sheet-optional{display: none;}
+.sheet-optional,
+.sheet-tabspell.sheet-optional.sheet-inl,
+.sheet-tabspell.sheet-optional.sheet-inl + span.sheet-optional.sheet-inl,
+.sheet-spells .sheet-col1third.sheet-optional.sheet-inl {display: none;}
 .sheet-optional-flag:not([value=""]) + .sheet-optional.sheet-blk,
 .sheet-optional-flag0:not([value="0"]) + .sheet-optional.sheet-blk {display: block;}
 .sheet-optional-flag:not([value=""]) + .sheet-optional.sheet-inl,
-.sheet-optional-flag0:not([value="0"]) + .sheet-optional.sheet-inl {display: inline-block;}
+.sheet-optional-flag0:not([value="0"]) + .sheet-optional.sheet-inl,
+.sheet-optional-flag0:not([value="0"]) + .sheet-tabspell.sheet-optional.sheet-inl,
+.sheet-optional-flag0:not([value="0"]) + .sheet-tabspell.sheet-optional.sheet-inl + span.sheet-optional.sheet-inl,
+ .sheet-spells .sheet-optional-flag0:not([value="0"]) + .sheet-col1third.sheet-optional.sheet-inl {display: inline-block;}
 
 /* ===== AUTO EXPAND TEXTAREA ===== */
 .sheet-autoex {
