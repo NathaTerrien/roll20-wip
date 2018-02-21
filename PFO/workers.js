@@ -57,7 +57,7 @@
             }
 
             var getList = {};
-            for(x = 1; x<=3; x++) {
+            for(x = 1; x <= 3; x++) {
                 _.each(["v", "m"], function(letter) {
                     var keyname = "cd_bar" + x + "_" + letter;
                     if(v[keyname] != undefined && isNaN(v[keyname])) {
@@ -607,6 +607,10 @@
     });
     on("change:caster1_dc_misc change:caster1_dcbonus_level_0 change:caster1_dcbonus_level_1 change:caster1_dcbonus_level_2 change:caster1_dcbonus_level_3 change:caster1_dcbonus_level_4 change:caster1_dcbonus_level_5 change:caster1_dcbonus_level_6 change:caster1_dcbonus_level_7 change:caster1_dcbonus_level_8 change:caster1_dcbonus_level_9 change:caster2_dc_misc change:caster2_dcbonus_level_0 change:caster2_dcbonus_level_1 change:caster2_dcbonus_level_2 change:caster2_dcbonus_level_3 change:caster2_dcbonus_level_4 change:caster2_dcbonus_level_5 change:caster2_dcbonus_level_6 change:caster2_dcbonus_level_7 change:caster2_dcbonus_level_8 change:caster2_dcbonus_level_9", function(e) {
         update_spellsdc(e.sourceAttribute);
+    });
+    // -- Spell show flag per level
+    on("change:caster1_spells_known_level_0 change:caster1_spells_known_level_1 change:caster1_spells_known_level_2 change:caster1_spells_known_level_3 change:caster1_spells_known_level_4 change:caster1_spells_known_level_5 change:caster1_spells_known_level_6 change:caster1_spells_known_level_7 change:caster1_spells_known_level_8 change:caster1_spells_known_level_9 change:caster2_spells_known_level_0 change:caster2_spells_known_level_1 change:caster2_spells_known_level_2 change:caster2_spells_known_level_3 change:caster2_spells_known_level_4 change:caster2_spells_known_level_5 change:caster2_spells_known_level_6 change:caster2_spells_known_level_7 change:caster2_spells_known_level_8 change:caster2_spells_known_level_9 change:caster1_spells_total_level_0 change:caster1_spells_total_level_1 change:caster1_spells_total_level_2 change:caster1_spells_total_level_3 change:caster1_spells_total_level_4 change:caster1_spells_total_level_5 change:caster1_spells_total_level_6 change:caster1_spells_total_level_7 change:caster1_spells_total_level_8 change:caster1_spells_total_level_9 change:caster2_spells_total_level_0 change:caster2_spells_total_level_1 change:caster2_spells_total_level_2 change:caster2_spells_total_level_3 change:caster2_spells_total_level_4 change:caster2_spells_total_level_5 change:caster2_spells_total_level_6 change:caster2_spells_total_level_7 change:caster2_spells_total_level_8 change:caster2_spells_total_level_9", function(e){
+        update_spells_flag(e.sourceAttribute.charAt(e.sourceAttribute.length - 1));
     });
     // -- Prepared / Total
     on("change:caster1_spells_perday_level_0 change:caster1_spells_perday_level_1 change:caster1_spells_perday_level_2 change:caster1_spells_perday_level_3 change:caster1_spells_perday_level_4 change:caster1_spells_perday_level_5 change:caster1_spells_perday_level_6 change:caster1_spells_perday_level_7 change:caster1_spells_perday_level_8 change:caster1_spells_perday_level_9 change:caster1_spells_bonus_level_0 change:caster1_spells_bonus_level_1 change:caster1_spells_bonus_level_2 change:caster1_spells_bonus_level_3 change:caster1_spells_bonus_level_4 change:caster1_spells_bonus_level_5 change:caster1_spells_bonus_level_6 change:caster1_spells_bonus_level_7 change:caster1_spells_bonus_level_8 change:caster1_spells_bonus_level_9", function(e) {
@@ -1366,7 +1370,7 @@
                         if (dmgcritmulti > 1) {
                             // Critical damage
                             stemp = "";
-                            for (i=1; i <= dmgcritmulti; i++) {
+                            for(i = 1; i <= dmgcritmulti; i++) {
                                 stemp += ((stemp.length > 0) ? "+" : "") + dmgbase;
                             }
                             stemp = "[[((" + stemp + ")+(" + dmgattr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmgattr"]] + "]+" + dmgmod + "[MOD]+@{rollmod_damage}[BONUS])*" + dmgcritmulti + ")]]";
@@ -1399,7 +1403,7 @@
                         if (dmg2critmulti > 1) {
                             // Critical damage
                             stemp = "";
-                            for (i=1; i <= dmg2critmulti; i++) {
+                            for(i = 1; i <= dmg2critmulti; i++) {
                                 stemp += ((stemp.length > 0) ? "+" : "") + dmg2base;
                             }
                             stemp = "[[((" + stemp + ")+(" + dmg2attr + "[" + pfoglobals_i18n_obj[v["repeating_attacks_" + attackid + "_dmg2attr"]] + "]+" + dmg2mod + "[MOD]+@{rollmod_damage}[BONUS])*" + dmg2critmulti + ")]]";
@@ -1504,7 +1508,7 @@
                 multi += "{{rolldmg1=" + sdmg1 + "}}{{rolldmg1type=@{dmgtype}}}";
                 if(dmgcritmulti > 1) {
                     scrit1 = "";
-                    for (i=1; i <= dmgcritmulti; i++) {
+                    for(i = 1; i <= dmgcritmulti; i++) {
                         scrit1 += ((scrit1.length > 0) ? "+" : "") + v[base + "dmgbase"];
                     }
                     scrit1 = "[[(" + scrit1 + ")+(@{rollmod_damage}[BONUS]*" + dmgcritmulti + ")]]";
@@ -1516,7 +1520,7 @@
                 multi += "{{rolldmg2=" + sdmg2 + "}}{{rolldmg2type=@{dmg2type}}}";
                 if(dmg2critmulti > 1) {
                     scrit2 = "";
-                    for (i=1; i <= dmg2critmulti; i++) {
+                    for(i = 1; i <= dmg2critmulti; i++) {
                         scrit2 += ((scrit2.length > 0) ? "+" : "") + v[base + "dmg2base"];
                     }
                     scrit2 = "[[(" + scrit2 + ")+(@{rollmod_damage}[BONUS]*" + dmg2critmulti + ")]]";
@@ -1525,7 +1529,7 @@
             }
             // Multi attack
             if(v[base + "multipleatk_flag"] == "1"){
-                for (var i = 2; i < 10; i++) {
+                for(var i = 2; i < 10; i++) {
                     if (v[base  + "atkmod" + i] != "") {
                         display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
                         multi += "{{roll" + (i-1) + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + (i-1) + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
@@ -1859,27 +1863,29 @@
             getAttrs(fields, function(v) {
                 var update = {};
                 var i = 0;
-                for (i = minlvl; i < maxlvl; i++) {
+                for(i = minlvl; i < maxlvl; i++) {
                     update["caster" + cster + "_dc_level_" + i] = 10 + i + (parseInt(v["caster" + cster + "_ability_mod"]) || 0) + (parseInt(v["caster" + cster + "_dc_misc"]) || 0) + (parseInt(v["caster" + cster + "_dcbonus_level_" + i]) || 0);
                 }
                 setAttrs(update, {silent: false});
             });
         }
     };
+    var update_spells_flag = function(level) {
+        var fields = ["caster1_spells_known_level_" + level, "caster2_spells_known_level_" + level, "caster1_spells_total_level_" + level, "caster2_spells_total_level_" + level];
+        getAttrs(fields, function(v) {
+            var flag = "caster_spells_flag_level_" + level;
+            var update = {};
+            var tot = (parseInt(v["caster1_spells_known_level_" + level]) || 0) + (parseInt(v["caster2_spells_known_level_" + level]) || 0) + (parseInt(v["caster1_spells_total_level_" + level]) || 0) + (parseInt(v["caster2_spells_total_level_" + level]) || 0);
+            update[flag] = (tot > 0) ? 1 : 0;
+            setAttrs(update);
+        });
+    };
     var update_spells_totals = function(level,cster) {
-        var fields = ["caster" + cster + "_spells_perday_level_" + level,"caster" + cster + "_spells_bonus_level_" + level, "caster1_spells_total_level_" + level, "caster2_spells_total_level_" + level];
+        var fields = ["caster" + cster + "_spells_perday_level_" + level, "caster" + cster + "_spells_bonus_level_" + level];
         getAttrs(fields, function(v) {
             var update = {};
-            var cstertot = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
-            var tot = 0;
-            if (cster == 1) {
-                tot = cstertot + (parseInt(v["caster2_spells_total_level_" + level]) || 0);
-            } else {
-                tot = cstertot + (parseInt(v["caster1_spells_total_level_" + level]) || 0);
-            }
-            update["caster" + cster + "_spells_total_level_" + level] = cstertot;
-            update["caster_spells_total_level_" + level] = tot;
-            setAttrs(update, {silent: true});
+            update["caster" + cster + "_spells_total_level_" + level] = (parseInt(v["caster" + cster + "_spells_perday_level_" + level]) || 0) + (parseInt(v["caster" + cster + "_spells_bonus_level_" + level]) || 0);
+            setAttrs(update, {silent: false});
         });
     };
     var update_spells_prepared = function (src,val) {
@@ -2099,7 +2105,7 @@
                         if( (atkflag != "0") && (dmgcritmulti >1) ) {
                             // Critical damage
                             stemp = "";
-                            for (i=1; i <= dmgcritmulti; i++) {
+                            for(i = 1; i <= dmgcritmulti; i++) {
                                 stemp += ((stemp.length > 0) ? "+" : "") + dmgbase;
                             }
                             rollbase += "{{dmg1crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
@@ -2111,7 +2117,7 @@
                         if( (atkflag != "0") && (dmgcritmulti >1) ) {
                             // Critical damage
                             stemp = "";
-                            for (i=1; i <= dmgcritmulti; i++) {
+                            for(i = 1; i <= dmgcritmulti; i++) {
                                 stemp += ((stemp.length > 0) ? "+" : "") + dmg2base;
                             }
                             rollbase += "{{dmg2crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
@@ -2434,17 +2440,22 @@
         // End
         doneupdating();
     };
-    var update_to_1_03 = function(doneupdating) {
+    var update_to_1_04 = function(doneupdating) {
         getAttrs(["caster1_flag","caster2_flag"], function(v) {
             var cflg = (parseInt(v.caster1_flag) || 0) + (parseInt(v.caster2_flag) || 0);
+            if (cflg != 0) {
+                var i = 0;
+                for(i = 0; i < 10; i++) {
+                    update_spells_flag(i);
+                }
+            }
             setAttrs({"caster_flag": cflg},{"silent": true}, function() {doneupdating();});
         });
-        // TODO caster_spells_total_level_X = caster1_spells_total_level_X + caster2_spells_total_level_X
     };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
-            if (vrs === 1.03) {
+            if (vrs === 1.04) {
                 console.log("Pathfinder by Roll20 v" + vrs);
                 return;
             } else if (vrs < 1.0) {
@@ -2462,9 +2473,10 @@
                     setAttrs({"version": "1.02"});
                     versioning();
                 });
-            } else if (vrs < 1.03) {
-                update_to_1_03(function () {
-                    setAttrs({"version": "1.03"});
+            } else if (vrs < 1.04) {
+                console.log("Updating to 1.04");
+                update_to_1_04(function () {
+                    setAttrs({"version": "1.04"});
                     versioning();
                 });
             }
