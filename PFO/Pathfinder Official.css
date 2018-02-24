@@ -141,6 +141,7 @@ div.sheet-spacer{
     display: block;
     height: 6px;
 }
+.sheet-topspace {margin-top: 6px;}
 div.sheet-abilities{
     width: 250px;
     max-width: 250px;
@@ -165,6 +166,7 @@ div.sheet-col1third{
 .sheet-spells div.sheet-col1third {
     width: 275px;
     max-width: 275px;
+    text-align: left;
 }
 div.sheet-col2third{
     display: inline-block;
@@ -172,8 +174,9 @@ div.sheet-col2third{
     width: 560px;
     max-width: 560px;
 }
-div.sheet-blacklabel{
-    display: inline-block;
+.sheet-blacklabel{
+    display: inline-flex;
+    align-items: center;
     background-color: black;
     color: white;
     text-align: center;
@@ -182,59 +185,49 @@ div.sheet-blacklabel{
     text-transform: uppercase;
     border: none;
 }
-div.sheet-blacklabel.sheet-right {
-    text-align: right;
+.sheet-blacklabel.sheet-pnty {
+    flex-flow: row nowrap;
+    justify-content: space-between;
 }
-div.sheet-blacklabel::after{
-    content: "";
-    clear: both;
-    display: table;
+.sheet-blacklabel.sheet-sqr {
+    flex-flow: column wrap;
+    justify-content: center;
 }
-div.sheet-blacklabel .sheet-blackbgrd{
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-    padding: 0px 0px 0px 0px;
+.sheet-blacklabel.sheet-right {
+    flex-flow: row nowrap;
+    justify-content: flex-end;
 }
-div.sheet-blacklabel .sheet-blackbgrd .sheet-big{
+.sheet-blacklabel .sheet-big {
     display: inline-block;
     font-size: 1.3em;
     line-height: 1.0em;
     font-weight: bold;
 }
-div.sheet-blacklabel .sheet-blackbgrd .sheet-big.sheet-only{
-    padding-top: 3px;
+.sheet-blacklabel .sheet-big.sheet-only {
+    flex-grow: 2;
 }
-div.sheet-blacklabel .sheet-blackbgrd .sheet-med{
+.sheet-blacklabel .sheet-med {
     display: block;
     font-size: 0.80em;
     line-height: 0.85em;
 }
-div.sheet-blacklabel .sheet-blackbgrd .sheet-med.sheet-only{
-    padding-top: 13px;
+.sheet-blacklabel .sheet-med.sheet-only {
+    align-self: flex-end;
+    margin-bottom: 3px;
 }
-div.sheet-blacklabel .sheet-blackbgrd .sheet-sml{
+.sheet-blacklabel .sheet-sml {
     display: block;
     font-size: 0.65em;
     line-height: 0.65em;
     font-family: sans-serif;
-    margin-top: -1px;
 }
 img.sheet-brdleft,
 img.sheet-brdright {
     display: inline-block;
     height: inherit;
 }
-img.sheet-brdleft {
-    float: left;
-    clear: left;
-    margin-right: 4px;
-}
-img.sheet-brdright {
-    float: right;
-    clear: right;
-    margin-left: 4px;
-}
+img.sheet-brdleft {margin-right: 4px;}
+img.sheet-brdright {margin-left: 4px;}
 div.sheet-identity{
     display: inline-block;
     margin-left: 4px;
@@ -287,46 +280,46 @@ div.sheet-initiative {display: block;}
 }
 .sheet-identity input[type=text].sheet-medium {width: 139px;}
 .sheet-identity input[type=text].sheet-small {width: 46px;}
-.sheet-abilities div.sheet-blacklabel {width: 80px;}
+.sheet-abilities .sheet-blacklabel {width: 80px;}
 .sheet-abilities div.sheet-boxed{
     margin-left: 5px;
     margin-right: 5px;
 }
-.sheet-initiative div.sheet-blacklabel {width: 70px;}
+.sheet-initiative .sheet-blacklabel {width: 70px;}
 
 .sheet-initiative div.sheet-boxed {margin-left: 5px;}
 
-.sheet-acvalues div.sheet-blacklabel.sheet-ac {width: 40px;}
-.sheet-acvalues div.sheet-blacklabel.sheet-touch {width: 72px;}
-.sheet-acvalues div.sheet-blacklabel.sheet-flatfooted {width: 131px;}
+.sheet-acvalues .sheet-blacklabel.sheet-ac {width: 40px;}
+.sheet-acvalues .sheet-blacklabel.sheet-touch {width: 72px;}
+.sheet-acvalues .sheet-blacklabel.sheet-flatfooted {width: 131px;}
 
 div.sheet-save {display: inline-block;}
-.sheet-fortitude div.sheet-blacklabel {width: 58px;}
-.sheet-reflex div.sheet-blacklabel {width: 44px;}
-.sheet-will div.sheet-blacklabel{width: 55px;}
+.sheet-fortitude .sheet-blacklabel {width: 58px;}
+.sheet-reflex .sheet-blacklabel {width: 44px;}
+.sheet-will .sheet-blacklabel{width: 55px;}
 
-.sheet-babs div.sheet-blacklabel.sheet-bab {width: 215px;}
-.sheet-babs div.sheet-blacklabel.sheet-cmb {width: 75px;}
+.sheet-babs .sheet-blacklabel.sheet-bab {width: 215px;}
+.sheet-babs .sheet-blacklabel.sheet-cmb {width: 75px;}
 
-.sheet-attackmods div.sheet-blacklabel.sheet-melee,
-.sheet-attackmods div.sheet-blacklabel.sheet-ranged {width: 123px;}
+.sheet-attackmods .sheet-blacklabel.sheet-melee,
+.sheet-attackmods .sheet-blacklabel.sheet-ranged {width: 123px;}
 
-.sheet-defenses div.sheet-blacklabel.sheet-cmd {width: 84px;}
-.sheet-defenses div.sheet-blacklabel.sheet-sr {width: 205px;}
+.sheet-defenses .sheet-blacklabel.sheet-cmd {width: 84px;}
+.sheet-defenses .sheet-blacklabel.sheet-sr {width: 205px;}
 
-.sheet-speeds div.sheet-blacklabel.sheet-land {width: 70px;}
+.sheet-speeds .sheet-blacklabel.sheet-land {width: 70px;}
 
 div.sheet-acitems {width: 550px;}
-.sheet-acitems .sheet-blackbgrd.sheet-item {width: 190px;}
-.sheet-acitems .sheet-blackbgrd.sheet-equipped {width: 16px;}
-.sheet-acitems .sheet-blackbgrd.sheet-ac ,
-.sheet-acitems .sheet-blackbgrd.sheet-flat ,
-.sheet-acitems .sheet-blackbgrd.sheet-touch ,
-.sheet-acitems .sheet-blackbgrd.sheet-check ,
-.sheet-acitems .sheet-blackbgrd.sheet-max {width: 35px;}
+.sheet-acitems .sheet-item {width: 190px;}
+.sheet-acitems .sheet-equipped {width: 16px;}
+.sheet-acitems .sheet-ac ,
+.sheet-acitems .sheet-flat ,
+.sheet-acitems .sheet-touch ,
+.sheet-acitems .sheet-check ,
+.sheet-acitems .sheet-max {width: 40px;}
 .sheet-acitems .sheet-spacer.sheet-type,
-.sheet-acitems .sheet-blackbgrd.sheet-type {width: 60px;}
-.sheet-acitems .sheet-blackbgrd.sheet-spellfailure {width: 38px;}
+.sheet-acitems .sheet-type {width: 60px;}
+.sheet-acitems .sheet-spellfailure {width: 38px;}
 .sheet-acitems .sheet-lab.sheet-totals {width: 90px;}
 .sheet-acitems .sheet-lab.sheet-shield,
 .sheet-acitems .sheet-lab.sheet-armor {width: 50px;}
@@ -335,14 +328,15 @@ div.sheet-acitems {width: 550px;}
 .sheet-acitems .sheet-labline .sheet-lab {width: 34px;}
 .sheet-acitems .sheet-labline .sheet-speed {margin-left: 133px;}
 
+.sheet-attacks {text-align: right;}
 .sheet-attacks div.sheet-padindent {padding-left: 22px;}
 .sheet-attacks .sheet-dmgbase {width: 120px;}
 .sheet-attacks .sheet-dmgtype {width: 120px;}
 .sheet-attacks span.sheet-lbl.sheet-atk {width: 55px;}
-.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-weapon-title {width: 180px;}
-.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-atk-title {width: 105px;}
-.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-damage-title {width: 50px;}
-.sheet-attacks div.sheet-blacklabel .sheet-blackbgrd.sheet-ammo-title {width: 40px;}
+.sheet-attacks .sheet-blacklabel .sheet-weapon-title {width: 180px;}
+.sheet-attacks .sheet-blacklabel .sheet-atk-title {width: 105px;}
+.sheet-attacks .sheet-blacklabel .sheet-damage-title {width: 50px;}
+.sheet-attacks .sheet-blacklabel .sheet-ammo-title {width: 40px;}
 div.sheet-attack {margin-bottom: 2px;}
 .sheet-attack .sheet-weapon {
     display: inline-block;
@@ -379,8 +373,8 @@ div.sheet-attack {margin-bottom: 2px;}
 .sheet-attacks .sheet-ammo {width: 40px;}
 .sheet-attacks select.sheet-dmg {width: 70px;}
 
-.sheet-skills div.sheet-blacklabel {width: 85%;}
-.sheet-skills div.sheet-blacklabel.sheet-totalranks {
+.sheet-skills .sheet-blacklabel {width: 85%;}
+.sheet-skills .sheet-blacklabel.sheet-totalranks {
     width: 165px;
     margin-left: 133px;
 }
@@ -409,7 +403,7 @@ div.sheet-attack {margin-bottom: 2px;}
     margin: 0px 1px 0px 1px;
 }
 .sheet-spellcasting .sheet-perlevel .sheet-boxed {margin: 0px 1px 0px 1px;}
-.sheet-spells div.sheet-blacklabel {width: 60%;}
+.sheet-spells .sheet-blacklabel {width: 60%;}
 div.sheet-spell {margin-top: 2px;}
 .sheet-spell .sheet-lab {text-align: left;}
 span.sheet-std {width: 80px;}
@@ -471,10 +465,9 @@ input[type="text"].sheet-std {
     margin-right: -2px;
     margin-bottom: -2px;
 }
-.sheet-gear .sheet-qty  {width: 40px;}
+.sheet-gear .sheet-qty  {width: 50px;}
 .sheet-gear .sheet-total {width: 35px;}
 .sheet-gear .sheet-weight {width: 85px;}
-.sheet-gear .sheet-item {width: 130px;}
 .sheet-gear .sheet-wtotal {
     width: 45px;
     color: black;
@@ -810,12 +803,14 @@ button[type="roll"].sheet-myrol:hover{
 button[type="roll"].sheet-myrol:before{
     content: none;
 }
-div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big{
+.sheet-blacklabel button[type="roll"].sheet-myrol.sheet-big {
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
+    font-size: 1.3em;
+    line-height: 1.0em;
 }
-div.sheet-blacklabel .sheet-blackbgrd button[type="roll"].sheet-myrol.sheet-big.sheet-only{
-    padding-top: 3px;
+.sheet-blacklabel button[type="roll"].sheet-myrol.sheet-big.sheet-only {
+    flex-grow: 2;
 }
 button[type="roll"].sheet-myrol.sheet-margindent {margin-left: 14px;}
 .sheet-statblock  button[type="roll"].sheet-myrol{margin: 0px 0px 0px 0px;}
@@ -1604,32 +1599,32 @@ input.sheet-tabconf:checked + span{
 .sheet-rolltemplate-pc img.sheet-brdleft {left: 0px;}
 .sheet-rolltemplate-pc img.sheet-brdright {right: 0px;}
 
-.sheet-rolltemplate-pc div.sheet-blacklabel,
-.sheet-rolltemplate-npc div.sheet-blacklabel {
+.sheet-rolltemplate-pc .sheet-blacklabel,
+.sheet-rolltemplate-npc .sheet-blacklabel {
     display: inline-block;
     vertical-align: top;
     border: none;
     position: relative;
     font-size: 0.9em;
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel {
+.sheet-rolltemplate-pc .sheet-blacklabel {
     background-color: #182C4A;
     color: white;
 }
-.sheet-rolltemplate-npc div.sheet-blacklabel {
+.sheet-rolltemplate-npc .sheet-blacklabel {
     background-color: transparent;
     color: #3C2517;
     font-weight: bold;
 }
 /* top */
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-top {
     height: 36px;
     width: 85%;
     max-width: 85%;
     vertical-align: top;
     padding-right: 27px;
 }
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-top {
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-top {
     height: 36px;
     width: 78%;
     max-width: 78%;
@@ -1637,8 +1632,8 @@ input.sheet-tabconf:checked + span{
     padding-right: 27px;
 }
 
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-top img.sheet-brdright,
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-top img.sheet-brdright {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-top img.sheet-brdright,
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-top img.sheet-brdright {
     width: 26px;
     height: 36px;
 }
@@ -1654,48 +1649,48 @@ input.sheet-tabconf:checked + span{
     font-weight: bold;
 }
 
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med,
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-med,
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-med {
     height: 20px;
     vertical-align: top;
     white-space: nowrap;
     line-height: 1.5em;
     font-weight: bold;
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-med {
     min-width: 75px;
     padding: 0px 20px 0px 2px;
 }
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med {
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-med {
     min-width: 70px;
     padding: 0px 2px 0px 2px;
     background: linear-gradient(to right,#c3996b7a,white);
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-right {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-med.sheet-right {
     padding: 0px 2px 0px 20px;
     text-align: right;
 }
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-right {
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-med.sheet-right {
     text-align: right;
     background: linear-gradient(to left,#c3996b7a,white);
 }
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med.sheet-yellow {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-med.sheet-yellow {
     color: #E6DD94;
     font-weight: normal;
 }
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med.sheet-yellow {
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-med.sheet-yellow {
     color: #501414;
     font-weight: normal;
 }
 
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med img.sheet-brdleft,
-.sheet-rolltemplate-pc div.sheet-blacklabel.sheet-med img.sheet-brdright,
-.sheet-rolltemplate-npc div.sheet-blacklabel.sheet-med img.sheet-brdright {
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-med img.sheet-brdleft,
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-med img.sheet-brdleft,
+.sheet-rolltemplate-pc .sheet-blacklabel.sheet-med img.sheet-brdright,
+.sheet-rolltemplate-npc .sheet-blacklabel.sheet-med img.sheet-brdright {
     height: 20px;
 }
 
-.sheet-rolltemplate-pc div.sheet-blacklabel .sheet-big,
+.sheet-rolltemplate-pc .sheet-blacklabel .sheet-big,
 .sheet-rolltemplate-npc .sheet-big {
     display: inline;
     font-family: sans-serif;

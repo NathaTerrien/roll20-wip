@@ -585,8 +585,8 @@
     // SPELLS - SPELLCASTING
     // -- Armor spell failure
     on("change:armor_spell_failure change:caster1_spell_failure change:caster2_spell_failure", function() {
-        getAttrs(["armor_spell_failure","caster1_spell_failure","caster2_flag","caster2_spell_failure"], function(v) {
-            if( (v.armor_spell_failure != "0") && ((v.caster1_spell_failure == "1") || ((v.caster2_flag == "1") && (v.caster2_spell_failure == "1"))) ) {
+        getAttrs(["caster1_flag","caster2_flag"], function(v) {
+            if( (v.caster1_flag == "1") || (v.caster2_flag == "1") ) {
                 update_all_spells("all");
             }
         });
@@ -2014,7 +2014,6 @@
                     rollbasetemplate = "npc";
                 }
                 var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"];
-                //var atktype = parseInt(v[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] + "_mod"]) || 0;
                 var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"];
                 var atkmod = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkmod"];
                 var atkcritrange = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkcritrange"]) || 20;

@@ -2,26 +2,21 @@
 <div class="statblock"><!-- NPC SHEET -->
     <div class="head-info">
         <input checked="checked" class="options-flag" name="attr_options-flag-npc" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
-        <div class="myrow"><!-- Display Name and CR -->
-            <div class="blacklabel" style="width: 100%;text-align:left;">
-                <div class="blackbgrd" style="margin-left:14px;margin-right:6px;">
-                    <span class="big only" name="attr_character_name"></span>
-                </div>
-                <div class="blackbgrd">
-                    <input type="hidden" name="attr_npc_fromcompendium" class="fromcompendium" value="" />
-                    <button class="myrol" type="compendium" name="attr_npc_fromcompendium" data-i18n-title="open-compendium-item" title="Open Compendium Item"></button>
-                </div>
-                <div class="blackbgrd" style="float:right;clear:both;margin-right:6px;">
-                    <span class="big only" data-i18n="cr-u">CR</span>
-                    <span class="big only" name="attr_npc_cr" title="@{npc_cr}"></span>
-                </div>
+        <div class="blacklabel pnty" style="width: 100%;text-align:left;"> <!-- Display Name and CR -->
+            <div style="margin-left:14px;">
+                <span class="big" style="margin-right:6px;" name="attr_character_name"></span>
+                <input type="hidden" name="attr_npc_fromcompendium" class="fromcompendium" value="" />
+                <button class="myrol" type="compendium" name="attr_npc_fromcompendium" data-i18n-title="open-compendium-item" title="Open Compendium Item"></button>
+            </div>
+            <div style="margin-right:6px;">
+                <span class="big" data-i18n="cr-u">CR</span>
+                <span class="big" name="attr_npc_cr" title="@{npc_cr}"></span>
             </div>
         </div> <!-- END Display name and CR -->
-        <div class="options"> <!-- NPC OPTIONS BASE DROP -->
+        <div class="options" style="margin-bottom: 6px;"> <!-- NPC OPTIONS BASE DROP -->
             <div class="compendium-drop-target"><!-- NPC OPTIONS BASE DROP -->
                 <input type="hidden" name="attr_npc_fromcompendium" accept="uniqueName" />
-                <div class="spacer"></div>
-                <div class="myrow">
+                <div class="topspace myrow">
                     <span class="lbl" data-i18n="name">Name</span>
                     <input type="text" name="attr_character_name" accept="Name" class="underlined" spellcheck="false" title="@{character_name}" />
                     <span class="lbl margindent" data-i18n="cr-u">CR</span>
@@ -64,11 +59,8 @@
                     <span class="lbl" data-i18n="aura">Aura</span>
                     <input type="text" name="attr_aura" accept="Aura" class="underlined aura" spellcheck="false" title="@{aura}" />
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow bold greybg padindent"> <!-- input DEFENSE -->
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="defense">Defense</span>
-                    </div>
+                <div class="topspace myrow bold greybg padindent"> <!-- input DEFENSE -->
+                    <span data-i18n="defense">Defense</span>
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="ac-u">AC</span>
@@ -118,11 +110,8 @@
                     <span class="lbl right w100" data-i18n="weaknesses">Weaknesses</span>
                     <input type="text" name="attr_weaknesses" accept="Weaknesses" class="underlined" spellcheck="false" title="@{weaknesses}" />
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow bold greybg padindent"> <!-- input OFFENSE -->
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="offense">Offense</span>
-                    </div>
+                <div class="topspace myrow bold greybg padindent"> <!-- input OFFENSE -->
+                    <span data-i18n="offense">Offense</span>
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="speed">Speed</span>
@@ -185,21 +174,15 @@
                     <span class="lbl" data-i18n="bloodlines-domains-schools:">Bloodlines, Domains, Schools... :</span>
                     <input type="text" name="attr_caster1_spells_notes" class="underlined senses" spellcheck="false" title="@{caster1_spells_notes}" />
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow bold greybg padindent"> <!-- input TACTICS -->
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="tactics">Tactics</span>
-                    </div>
+                <div class="topspace myrow bold greybg padindent"> <!-- input TACTICS -->
+                    <span data-i18n="tactics">Tactics</span>
                 </div>
                 <div class="autoex">
                     <span name="attr_tactics"></span>
-                    <textarea name="attr_tactics" accept="Tactics" class="underlined" spellcheck="false" data-i18n-placeholder="tactics" placeholder="tactics" title="@{tactics}"></textarea>
+                    <textarea name="attr_tactics" accept="Tactics" spellcheck="false" data-i18n-placeholder="tactics" placeholder="tactics" title="@{tactics}"></textarea>
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow bold greybg padindent"> <!-- input STATISTICS -->
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="statistics">Statistics</span>
-                    </div>
+                <div class="topspace myrow bold greybg padindent"> <!-- input STATISTICS -->
+                    <span data-i18n="statistics">Statistics</span>
                 </div>
                 <div class="myrow">
                     <span class="lbl" data-i18n="str-u">STR</span>
@@ -386,40 +369,31 @@
                         <textarea name="attr_combat_gear" accept="Combat Gear" class="underlined" spellcheck="false" data-i18n-placeholder="combat-gear" placeholder="Combat Gear" title="@{combat_gear}"></textarea>
                     </div>
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow bold greybg padindent"> <!-- input ECOLOGY -->
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="ecology">Ecology</span>
-                    </div>
+                <div class="topspace myrow bold greybg padindent"> <!-- input ECOLOGY -->
+                    <span data-i18n="ecology">Ecology</span>
                 </div>
                 <div class="autoex">
                     <span name="attr_environment"></span>
                     <textarea name="attr_environment" accept="Environment" class="underlined" spellcheck="false" data-i18n-placeholder="environment" placeholder="Environment" title="@{environment}"></textarea>
                 </div>
                 <span class="lbl" data-i18n="environment">Environment</span>
-                <div class="spacer"></div>
-                <div class="autoex">
+                <div class="topspace autoex">
                     <span name="attr_organization"></span>
                     <textarea name="attr_organization" accept="Organization" class="underlined" spellcheck="false" data-i18n-placeholder="organization" placeholder="Organization" title="@{organization}"></textarea>
                 </div>
                 <span class="lbl" data-i18n="organization">Organization</span>
-                <div class="spacer"></div>
-                <div class="autoex">
+                <div class="topspace autoex">
                     <span name="attr_treasure"></span>
                     <textarea name="attr_treasure" accept="Treasure" class="underlined" spellcheck="false" data-i18n-placeholder="treasure" placeholder="Treasure" title="@{treasure}"></textarea>
                 </div>
                 <span class="lbl" data-i18n="treasure">Treasure</span>
-                <div class="spacer"></div>
-                <div class="autoex">
+                <div class="topspace autoex">
                     <span name="attr_background"></span>
                     <textarea name="attr_background" accept="Content" class="underlined" spellcheck="false" data-i18n-placeholder="description" placeholder="Description" title="@{background}"></textarea>
                 </div>
                 <span class="lbl" data-i18n="description">Description</span>
-                <div class="spacer"></div>
-                <div class="myrow bold greybg padindent"> <!-- input CONFIGURATION -->
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="tab-configuration">Configuration</span>
-                    </div>
+                <div class="topspace myrow bold greybg padindent"> <!-- input CONFIGURATION -->
+                    <span data-i18n="tab-configuration">Configuration</span>
                 </div>
                 <div class="myrow">
                     <span class="lbl bold" data-i18n="general">General</span>
@@ -443,7 +417,6 @@
                     </select>
                 </div>
             </div> <!-- END NPC OPTIONS BASE DROP -->
-            <div class="spacer"></div>
         </div>  <!-- END NPC options / base entry -->
         <div class="npc-display"> <!-- Display HEAD INFO -->
             <div class="myrow bold">
@@ -2450,7 +2423,7 @@
     <div class="tabmain"> <!-- TAB MAIN -->
         <div class="colhalf"> <!-- tab1 col1 -->
             <div class="abilities"> <!-- abilities -->
-                <div class="labline">
+                <div class="myrow labline top">
                     <span class="lab" data-i18n="ability-name" data-i18n-title="ability-name" title="Ability Name">Ability Name</span>
                     <span class="lab" data-i18n="score" data-i18n-title="ability-score" title="Score">Score</span>
                     <span class="lab" data-i18n="modifier" data-i18n-title="ability-modifier" title="Modifier">Modifier</span>
@@ -2459,11 +2432,9 @@
                 <div class="ability"> <!-- strength -->
                     <input class="options-flag" name="attr_options-flag-str" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:pc} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="str">str</span></button>
-                                <span class="sml" data-i18n="strength" data-i18n-title="strength" title="Strength">Strength</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="StrRoll" data-i18n-title="strength-roll" title="Strength roll" value="@{whispertype} &{template:pc} {{name=^{strength}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{strength_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{strength_notes}}}"><span data-i18n="str">str</span></button>
+                            <span class="sml" data-i18n="strength" data-i18n-title="strength" title="Strength">Strength</span>
                         </div>
                         <div class="boxed">
                             <input type="number" name="attr_strength_base" value="10" class="nospin baseattr" title="@{strength}" />
@@ -2490,11 +2461,9 @@
                 <div class="ability"> <!-- dexterity -->
                     <input class="options-flag" name="attr_options-flag-dex" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:pc} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{dexterity_notes}}}"><span data-i18n="dex">dex</span></button>
-                                <span class="sml" data-i18n="dexterity" data-i18n-title="dexterity" title="Dexterity">Dexterity</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="DexRoll" data-i18n-title="dexterity-roll" title="Dexterity roll" value="@{whispertype} &{template:pc} {{name=^{dexterity}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{dexterity_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{dexterity_notes}}}"><span data-i18n="dex">dex</span></button>
+                            <span class="sml" data-i18n="dexterity" data-i18n-title="dexterity" title="Dexterity">Dexterity</span>
                         </div>
                         <div class="boxed">
                             <input type="number" name="attr_dexterity_base" value="10" class="nospin baseattr" title="@{dexterity}" />
@@ -2519,11 +2488,9 @@
                 <div class="ability"> <!-- constitution -->
                     <input class="options-flag" name="attr_options-flag-con" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:pc} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{constitution_notes}}}"><span data-i18n="con">con</span></button>
-                                <span class="sml" data-i18n="constitution" data-i18n-title="constitution" title="Constitution">Constitution</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="ConRoll" data-i18n-title="constitution-roll" title="Constitution roll" value="@{whispertype} &{template:pc} {{name=^{constitution}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{constitution_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{constitution_notes}}}"><span data-i18n="con">con</span></button>
+                            <span class="sml" data-i18n="constitution" data-i18n-title="constitution" title="Constitution">Constitution</span>
                         </div>
                         <div class="boxed">
                             <input type="number" name="attr_constitution_base" value="10" class="nospin baseattr" title="@{constitution}" />
@@ -2548,11 +2515,9 @@
                 <div class="ability"> <!-- intelligence -->
                     <input class="options-flag" name="attr_options-flag-int" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:pc} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{intelligence_notes}}}"><span data-i18n="int">int</span></button>
-                                <span class="sml" data-i18n="intelligence" data-i18n-title="intelligence" title="Intelligence">Intelligence</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="IntRoll" data-i18n-title="intelligence-roll" title="Intelligence roll" value="@{whispertype} &{template:pc} {{name=^{intelligence}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{intelligence_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{intelligence_notes}}}"><span data-i18n="int">int</span></button>
+                            <span class="sml" data-i18n="intelligence" data-i18n-title="intelligence" title="Intelligence">Intelligence</span>
                         </div>
                         <div class="boxed">
                             <input type="number" name="attr_intelligence_base" value="10" class="nospin baseattr" title="@{intelligence}" />
@@ -2577,11 +2542,9 @@
                 <div class="ability"> <!-- wisdom -->
                     <input class="options-flag" name="attr_options-flag-wis" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="@{whispertype} &{template:pc} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{wisdom_notes}}}"><span data-i18n="wis">wis</span></button>
-                                <span class="sml" data-i18n="wisdom" data-i18n-title="wisdom" title="Wisdom">Wisdom</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="WisRoll" data-i18n-title="wisdom-roll" title="Wisdom roll" value="@{whispertype} &{template:pc} {{name=^{wisdom}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{wisdom_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{wisdom_notes}}}"><span data-i18n="wis">wis</span></button>
+                            <span class="sml" data-i18n="wisdom" data-i18n-title="wisdom" title="Wisdom">Wisdom</span>
                         </div>
                         <div class="boxed">
                             <input type="number" name="attr_wisdom_base" value="10" class="nospin baseattr" title="@{wisdom}" />
@@ -2606,11 +2569,9 @@
                 <div class="ability"> <!-- charisma -->
                     <input class="options-flag" name="attr_options-flag-cha" type="checkbox" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="@{whispertype} &{template:pc} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{charisma_notes}}}"><span data-i18n="cha">cha</span></button>
-                                <span class="sml" data-i18n="charisma" data-i18n-title="charisma" title="Charisma">Charisma</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="ChaRoll" data-i18n-title="charisma-roll" title="Charisma roll" value="@{whispertype} &{template:pc} {{name=^{charisma}}} {{type=ability}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{charisma_mod}[MOD]+@{rollmod_ability}[BONUS]]]}} {{shownotes=@{rollnotes_ability}}} {{notes=@{charisma_notes}}}"><span data-i18n="cha">cha</span></button>
+                            <span class="sml" data-i18n="charisma" data-i18n-title="charisma" title="Charisma">Charisma</span>
                         </div>
                         <div class="boxed">
                             <input type="number" name="attr_charisma_base" value="10" class="nospin baseattr" title="@{charisma}" />
@@ -2635,11 +2596,9 @@
             </div>  <!-- END abilities -->
             <div class="subcol hpinit">
                 <div class="myrow center"> <!-- HP -->
-                    <div class="blacklabel">
+                    <div class="blacklabel pnty">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <button class="myrol big only" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:pc} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hit-points">Hit Points</span></button>
-                        </div>
+                        <button class="myrol big" type="roll" name="HdRoll" data-i18n-title="hit-die-roll" title="Hit Die roll" value="@{whispertype} &{template:pc} {{name=^{hit-die}}} {{type=hp}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d@{hitdietype}+@{constitution_mod}[MOD]]]}}"><span data-i18n="hit-points">Hit Points</span></button>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                 </div>
@@ -2664,15 +2623,12 @@
                     <textarea name="attr_dr" spellcheck="false" data-i18n-placeholder="damage-reduction-immunities" placeholder="Damage Reduction, Immunities..." data-i18n-title="damage-reduction-immunities" title="Damage Reduction, Immunities..."></textarea>
                 </div>
                  <!-- END HP -->
-                <div class="spacer"></div>
-                <div class="initiative"> <!-- INITIATIVE -->
+                <div class="topspace initiative"> <!-- INITIATIVE -->
                     <input class="options-flag" name="attr_options-flag-initiative" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                     <div class="myrow">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:pc} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative}[MOD]+@{rollmod_initiative}[BONUS] &{tracker}]]}} {{shownotes=@{rollnotes_initiative}}} {{notes=@{initiative_notes}}}"><span data-i18n="init">Init</span></button>
-                                <span class="sml" data-i18n="initiative" data-i18n-title="initiative" title="Initiative">Initiative</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="InitRoll" data-i18n-title="initiative-roll" title="Initiative roll" value="@{whispertype} &{template:pc} {{name=^{initiative}}} {{type=initiative}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{initiative}[MOD]+@{rollmod_initiative}[BONUS] &{tracker}]]}} {{shownotes=@{rollnotes_initiative}}} {{notes=@{initiative_notes}}}"><span data-i18n="init">Init</span></button>
+                            <span class="sml" data-i18n="initiative" data-i18n-title="initiative" title="Initiative">Initiative</span>
                         </div>
                         <div class="boxed greybg">
                             <input type="hidden" name="attr_initiative_bonus" class="attr-flag" value="0" />
@@ -2710,14 +2666,11 @@
                     </div>
                 </div><!-- END initiative -->
             </div>
-            <div class="spacer"></div>
-            <div class="acvalues">
+            <div class="topspace acvalues">
                 <input class="options-flag" name="attr_options-flag-ac" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow"> <!-- AC -->
-                    <div class="blacklabel ac">
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="ac-u" data-i18n-title="armor-class" title="Armor Class">AC</span>
-                        </div>
+                    <div class="blacklabel sqr ac">
+                        <span class="big" data-i18n="ac-u" data-i18n-title="armor-class" title="Armor Class">AC</span>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_ac_bonus" class="attr-flag" value="0" />
@@ -2726,21 +2679,17 @@
                     <div class="boxed">
                         <input type="number" name="attr_ac_bonus" class="nospin boxed" value="0" title="@{ac_bonus}" />
                     </div>
-                    <div class="blacklabel touch">
-                        <div class="blackbgrd">
-                            <span class="big" data-i18n="touch">Touch</span>
-                            <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
-                        </div>
+                    <div class="blacklabel sqr touch">
+                        <span class="big" data-i18n="touch">Touch</span>
+                        <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_ac_bonus" class="attr-flag" value="0" />
                         <span name="attr_ac_touch" class="pseudoattr" title="@{ac_touch}"></span>
                     </div>
-                    <div class="blacklabel flatfooted">
-                        <div class="blackbgrd">
-                            <span class="big" data-i18n="flat-footed">Flat-footed</span>
-                            <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
-                        </div>
+                    <div class="blacklabel sqr flatfooted">
+                        <span class="big" data-i18n="flat-footed">Flat-footed</span>
+                        <span class="sml" data-i18n="armor-class" data-i18n-title="armor-class" title="Armor Class">Armor Class</span>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_ac_bonus" class="attr-flag" value="0" />
@@ -2808,18 +2757,15 @@
                     </div>
                 </div>
             </div>  <!-- END AC -->
-            <div class="spacer"></div>
-            <div class="saves"> <!-- SAVING THROWS -->
+            <div class="topspace saves"> <!-- SAVING THROWS -->
                 <input class="options-flag fortitude" name="attr_options-flag-fortitude" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <input class="options-flag reflex" name="attr_options-flag-reflex" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <input class="options-flag will" name="attr_options-flag-will" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow">
                     <div class="save fortitude">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:pc} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{fortitude_notes}}}"><span data-i18n="fort-u">FORT</span></button>
-                                <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="FortRoll" data-i18n-title="fortitude-roll" title="Fortitude roll" value="@{whispertype} &{template:pc} {{name=^{fortitude}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{fortitude}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{fortitude_notes}}}"><span data-i18n="fort-u">FORT</span></button>
+                            <span class="sml" data-i18n="fortitude" data-i18n-title="fortitude" title="Fortitude">Fortitude</span>
                         </div>
                         <div class="boxed greybg">
                             <input type="hidden" name="attr_fortitude_bonus" class="attr-flag" value="0" />
@@ -2830,11 +2776,9 @@
                         </div>
                     </div>
                     <div class="save reflex">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:pc} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{reflex_notes}}}"><span data-i18n="ref-u">REF</span></button>
-                                <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="RefRoll" data-i18n-title="reflex-roll" title="Reflex roll" value="@{whispertype} &{template:pc} {{name=^{reflex}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{reflex}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{reflex_notes}}}"><span data-i18n="ref-u">REF</span></button>
+                            <span class="sml" data-i18n="reflex" data-i18n-title="reflex" title="Reflex">Reflex</span>
                         </div>
                         <div class="boxed greybg">
                             <input type="hidden" name="attr_reflex_bonus" class="attr-flag" value="0" />
@@ -2845,11 +2789,9 @@
                         </div>
                     </div>
                     <div class="save will">
-                        <div class="blacklabel">
-                            <div class="blackbgrd">
-                                <button class="myrol big" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:pc} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{will_notes}}}"><span data-i18n="will-u">WILL</span></button>
-                                <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
-                            </div>
+                        <div class="blacklabel sqr">
+                            <button class="myrol big" type="roll" name="WillRoll" data-i18n-title="will-roll" title="Will roll" value="@{whispertype} &{template:pc} {{name=^{will}}} {{type=save}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{will}[MOD]+@{rollmod_save}[BONUS]]]}} {{shownotes=@{rollnotes_save}}} {{notes=@{will_notes}}}"><span data-i18n="will-u">WILL</span></button>
+                            <span class="sml" data-i18n="will" data-i18n-title="will" title="Will">Will</span>
                         </div>
                         <div class="boxed greybg">
                             <input type="hidden" name="attr_will_bonus" class="attr-flag" value="0" />
@@ -2959,25 +2901,20 @@
                     </div>
                 </div>
             </div> <!-- END SAVING THROWS -->
-            <div class="spacer"></div>
-            <div class="babs"> <!-- BABS -->
+            <div class="topspace babs"> <!-- BABS -->
                 <input class="options-flag bab" name="attr_options-flag-bab" type="checkbox" value="1" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                 <input class="options-flag cmb" name="attr_options-flag-cmb" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow">
-                    <div class="blacklabel bab">
+                    <div class="blacklabel pnty bab">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="base-attack-bonus">Base Attack Bonus</span>
-                        </div>
+                        <span class="big only" data-i18n="base-attack-bonus">Base Attack Bonus</span>
                     </div>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_bab" title="@{bab}" />
                     </div>
-                    <div class="blacklabel cmb">
+                    <div class="blacklabel pnty cmb">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <button class="myrol big only" type="roll" name="CmbRoll" value="@{whispertype} &{template:pc} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{cmb_mod}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{cmb_notes}}}"><span data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span></button>
-                        </div>
+                        <button class="myrol big only" type="roll" name="CmbRoll" value="@{whispertype} &{template:pc} {{name=^{combat-maneuver}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{cmb_mod}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{cmb_notes}}}"><span data-i18n="cmb-u" data-i18n-title="combat-maneuver-bonus" title="Combat Maneuver Bonus">CMB</span></button>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_cmb_bonus" class="attr-flag" value="0" />
@@ -3038,11 +2975,9 @@
                 <input class="options-flag melee" name="attr_options-flag-melee" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <input class="options-flag ranged" name="attr_options-flag-ranged" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow">
-                    <div class="blacklabel melee">
+                    <div class="blacklabel pnty melee">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <button class="myrol big only" type="roll" name="MeleeRoll" data-i18n-title="basic-melee-attack-roll" title="Basic Melee Attack Roll" value="@{whispertype} &{template:pc} {{name=^{melee}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{melee_mod}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{melee_notes}}}"><span data-i18n="melee">Melee</span></button>
-                        </div>
+                        <button class="myrol big only" type="roll" name="MeleeRoll" data-i18n-title="basic-melee-attack-roll" title="Basic Melee Attack Roll" value="@{whispertype} &{template:pc} {{name=^{melee}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{melee_mod}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{melee_notes}}}"><span data-i18n="melee">Melee</span></button>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_melee_bonus" class="attr-flag" value="0" />
@@ -3051,11 +2986,9 @@
                     <div class="boxed">
                         <input type="number" name="attr_melee_bonus" class="nospin boxed" value="0" title="@{melee_bonus}" />
                     </div>
-                    <div class="blacklabel ranged">
+                    <div class="blacklabel pnty ranged">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <button class="myrol big only" type="roll" name="RangedRoll" data-i18n-title="basic-ranged-attack-roll" title="Basic Ranged Attack Roll" value="@{whispertype} &{template:pc} {{name=^{ranged}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{ranged_mod}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{ranged_notes}}}"><span data-i18n="ranged">Ranged</span></button>
-                        </div>
+                        <button class="myrol big only" type="roll" name="RangedRoll" data-i18n-title="basic-ranged-attack-roll" title="Basic Ranged Attack Roll" value="@{whispertype} &{template:pc} {{name=^{ranged}}} {{type=attack}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20cs20+@{ranged_mod}[MOD]+@{rollmod_attack}[BONUS]]]}} {{shownotes=@{rollnotes_attack}}} {{notes=@{ranged_notes}}}"><span data-i18n="ranged">Ranged</span></button>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_ranged_bonus" class="attr-flag" value="0" />
@@ -3148,11 +3081,9 @@
                 <input class="options-flag cmd" name="attr_options-flag-cmd" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <input class="options-flag sr" name="attr_options-flag-sr" type="checkbox" value="1" data-i18n-title="show-hide-notes" title="Show/hide notes"><span>y</span>
                 <div class="myrow">
-                    <div class="blacklabel cmd">
+                    <div class="blacklabel pnty cmd">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="cmd-u" data-i18n-bonus="combat-maneuver-defense" title="Combat Maneuver Defense">CMD</span>
-                        </div>
+                        <span class="big only" data-i18n="cmd-u" data-i18n-bonus="combat-maneuver-defense" title="Combat Maneuver Defense">CMD</span>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_cmd_bonus" class="attr-flag" value="0" />
@@ -3161,11 +3092,9 @@
                     <div class="boxed">
                         <input type="number" name="attr_cmd_bonus" class="nospin boxed" value="0" title="@{cmd_bonus}" />
                     </div>
-                    <div class="blacklabel sr">
+                    <div class="blacklabel pnty sr">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="spell-resistance">Spell Resistance</span>
-                        </div>
+                        <span class="big only" data-i18n="spell-resistance">Spell Resistance</span>
                     </div>
                     <div class="boxed">
                         <input type="number" name="attr_sr" class="nospin boxed" value="0" title="@{sr}" />
@@ -3236,24 +3165,13 @@
                     </div>
                 </div>
             </div> <!-- END DEFENSES -->
-            <div class="spacer"></div>
-            <div class="attacks"> <!-- WEAPONS / ATTACKS -->
-                <div class="myrow right">
-                    <div class="blacklabel">
-                        <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd weapon-title">
-                            <span class="big only" data-i18n="weapons-attacks">Weapons / Attacks</span>
-                        </div>
-                        <div class="blackbgrd atk-title">
-                            <span class="med only" data-i18n="atk-u" >ATK</span>
-                        </div>
-                        <div class="blackbgrd damage-title">
-                            <span class="med only" data-i18n="dmg-u" >DMG</span>
-                        </div>
-                        <div class="blackbgrd ammo-title">
-                            <span class="med only" data-i18n="ammo" >Ammo</span>
-                        </div>
-                    </div>
+            <div class="topspace attacks"> <!-- WEAPONS / ATTACKS -->
+                <div class="blacklabel right">
+                    <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                    <span class="big only weapon-title" data-i18n="weapons-attacks">Weapons / Attacks</span>
+                    <span class="med only atk-title" data-i18n="atk-u" >ATK</span>
+                    <span class="med only damage-title" data-i18n="dmg-u" >DMG</span>
+                    <span class="med only ammo-title" data-i18n="ammo" >Ammo</span>
                 </div>
                 <div class="bordered titled inbox">
                     <div class="myrow"> <!-- REPEATING ATTACK -->
@@ -3431,14 +3349,11 @@
                     </div> <!-- END REPEATING ATTACK -->
                 </div>
             </div> <!-- END ATTACKS -->
-            <div class="spacer"></div>
-            <div class="speeds"> <!-- SPEEDS -->
+            <div class="topspace speeds"> <!-- SPEEDS -->
                 <input class="options-flag" name="attr_options-flag-speed" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow"> <!-- LAND SPEED -->
-                    <div class="blacklabel land">
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="speed">Speed</span>
-                        </div>
+                    <div class="blacklabel sqr land">
+                        <span class="big" data-i18n="speed">Speed</span>
                     </div>
                     <div class="boxed greybg">
                         <input type="hidden" name="attr_speed_bonus" class="attr-flag" value="0" />
@@ -3521,13 +3436,10 @@
                     </div>
                 </div>
             </div> <!-- END SPEEDS -->
-            <div class="spacer"></div>
-            <div class="myrow center languages"> <!-- SENSES -->
-                <div class="blacklabel">
+            <div class="topspace myrow center languages"> <!-- SENSES -->
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="senses">Senses</span>
-                    </div>
+                    <span class="big" data-i18n="senses">Senses</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -3537,13 +3449,10 @@
                     </div>
                 </div>
             </div> <!-- END LANGUAGES -->
-            <div class="spacer"></div>
-            <div class="myrow center languages"> <!-- LANGUAGES -->
-                <div class="blacklabel">
+            <div class="topspace myrow center languages"> <!-- LANGUAGES -->
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="languages">Languages</span>
-                    </div>
+                    <span class="big" data-i18n="languages">Languages</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -3556,11 +3465,9 @@
         </div>  <!-- END tab1 col1 -->
         <div class="colhalf"> <!-- tab1 col2 -->
             <div class="myrow center skills"> <!-- SKILLS -->
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="skills">Skills</span>
-                    </div>
+                    <span class="big" data-i18n="skills">Skills</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="myrow labline right top">
@@ -5237,13 +5144,10 @@
                         </div>
                     </div>
                 </fieldset>  <!-- END repeating custom skill -->
-                <div class="spacer"></div>
-                <div class="myrow"> <!-- TOTAL RANKS -->
-                    <div class="blacklabel totalranks">
+                <div class="topspace myrow"> <!-- TOTAL RANKS -->
+                    <div class="blacklabel pnty totalranks">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="total-ranks">Total Ranks</span>
-                        </div>
+                        <span class="big only" data-i18n="total-ranks">Total Ranks</span>
                     </div>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_skills_ranks_total" title="@{skills_ranks_total}"></span>
@@ -5258,33 +5162,15 @@
                 <div class="myrow right">
                     <div class="blacklabel right">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd item">
-                            <span class="big only" data-i18n="ac-items">AC Items</span>
-                        </div>
-                        <div class="blackbgrd equipped">
-                            <span class="med only" data-i18n="eq" data-i18n-title="equipped" title="Equipped">Eq</span>
-                        </div>
-                        <div class="blackbgrd ac">
-                            <span class="med only" data-i18n="ac-u" data-i18n-title="ac-bonus" title="AC Bonus">AC</span>
-                        </div>
-                        <div class="blackbgrd flat">
-                            <span class="med only" data-i18n="flat" data-i18n-title="flat-footed-bonus" title="Flat-footed Bonus">Flat</span>
-                        </div>
-                        <div class="blackbgrd touch">
-                            <span class="med only" data-i18n="touch" data-i18n-title="touch-bonus" title="Touch Bonus">Touch</span>
-                        </div>
-                        <div class="blackbgrd type">
-                            <span class="med only" data-i18n="type">Type</span>
-                        </div>
-                        <div class="blackbgrd check">
-                            <span class="med only" data-i18n="check" data-i18n-title="check-penalty" title="Check Penalty">Check</span>
-                        </div>
-                        <div class="blackbgrd max">
-                            <span class="med only" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Max Dex Bonus">Dex</span>
-                        </div>
-                        <div class="blackbgrd spellfailure">
-                            <span class="med only" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
-                        </div>
+                        <span class="big only item" data-i18n="ac-items">AC Items</span>
+                        <span class="med only equipped" data-i18n="eq" data-i18n-title="equipped" title="Equipped">Eq</span>
+                        <span class="med only ac" data-i18n="ac-u" data-i18n-title="ac-bonus" title="AC Bonus">AC</span>
+                        <span class="med only flat" data-i18n="flat" data-i18n-title="flat-footed-bonus" title="Flat-footed Bonus">Flat</span>
+                        <span class="med only touch" data-i18n="touch" data-i18n-title="touch-bonus" title="Touch Bonus">Touch</span>
+                        <span class="med only type" data-i18n="type">Type</span>
+                        <span class="med only check" data-i18n="check" data-i18n-title="check-penalty" title="Check Penalty">Check</span>
+                        <span class="med only max" data-i18n="dex" data-i18n-title="max-dex-bonus" title="Max Dex Bonus">Dex</span>
+                        <span class="med only spellfailure" data-i18n="spell" data-i18n-title="spell-failure" title="Spell Failure">Spell</span>
                     </div>
                 </div>
                 <div class="bordered titled inboxright">
@@ -5376,32 +5262,23 @@
         </div> <!-- END AC ITEMS -->
         <div class="col1third"> <!-- XP AND MONEY -->
             <div class="myrow right"> <!-- XP -->
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd margindent">
-                        <span class="big only" data-i18n="experience">Experience</span>
-                    </div>
-                    <div class="blackbgrd">
-                        <span class="med only" data-i18n="points">Points</span>
-                    </div>
-                    <div class="blackbgrd" style="margin-left: 17px;margin-right: 2px;">
-                        <span class="med only" data-i18n="next-level">Next Level</span>
-                    </div>
+                    <span class="big only" style="margin-right: 17px;" data-i18n="experience">Experience</span>
+                    <span class="med only" data-i18n="points">Points</span>
+                    <span class="med only" style="margin-left: 17px;margin-right: 2px;" data-i18n="next-level">Next Level</span>
                 </div>
                 <div class="bordered titled inboxright">
                     <div class="myrow right">
                         <input type="text" name="attr_xp" class="smlmed right" value="0" title="@{xp}" />
                         <input type="text" name="attr_xp_max" class="smlmed right" value="2000" title="@{xp_max}" />
                     </div>
-                    <div class="spacer"></div>
                 </div>
             </div> <!-- END XP -->
-            <div class="myrow center money"> <!-- MONEY -->
-                <div class="blacklabel">
+            <div class="topspace myrow center money"> <!-- MONEY -->
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="money">Money</span>
-                    </div>
+                    <span class="big only" data-i18n="money">Money</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -5430,24 +5307,14 @@
                 </div>
             </div> <!-- END MONEY -->
         </div> <!-- END XP AND MONEY -->
-        <div class="spacer"></div>
-        <div class="colhalf"> <!-- GEAR & ENCUMBRANCE -->
+        <div class="topspace colhalf"> <!-- GEAR & ENCUMBRANCE -->
             <div class="gear"> <!-- GEAR -->
                 <div class="myrow right">
-                    <div class="blacklabel title right">
+                    <div class="blacklabel right title">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd gear">
-                            <span class="big only" data-i18n="gear">Gear</span>
-                        </div>
-                        <div class="blackbgrd item">
-                            <span class="med only" data-i18n="item">Item</span>
-                        </div>
-                        <div class="blackbgrd qty">
-                            <span class="med only" data-i18n="qty" data-i18n-title="quantity" title="Quantity">Qty</span>
-                        </div>
-                        <div class="blackbgrd weight">
-                            <span class="med only" data-i18n="weight" >Weight</span>
-                        </div>
+                        <span class="big only" data-i18n="gear">Gear</span>
+                        <span class="med only qty" data-i18n="qty" data-i18n-title="quantity" title="Quantity">Qty</span>
+                        <span class="med only weight" data-i18n="weight" >Weight</span>
                     </div>
                 </div>
                 <div class="bordered titled inboxright">
@@ -5463,20 +5330,15 @@
                             <span class="pseudoattr greybg right underlined total margindent" name="attr_weight_total"></span>
                         </div>
                     </fieldset>
-                    <div class="myrow right">
-                        <div class="blacklabel total right">
-                            <div class="blackbgrd gear">
-                                <span class="big only" data-i18n="total-weight">Total Weight</span>
-                                <input type="hidden" name="attr_encumbrance" value="light" class="overload" />
-                                <span class="lbl margindent overload" name="attr_encumbrance_display"></span>
-                                <span name="attr_encumbrance_gear_weight" class="pseudoattr right greybg wtotal margindent"></span>
-                            </div>
-                        </div>
+                    <div class="blacklabel total right">
+                        <span class="big" data-i18n="total-weight">Total Weight</span>
+                        <input type="hidden" name="attr_encumbrance" value="light" class="overload" />
+                        <span class="lbl margindent overload" name="attr_encumbrance_display"></span>
+                        <span name="attr_encumbrance_gear_weight" class="pseudoattr right greybg wtotal margindent"></span>
                     </div>
                 </div>
             </div> <!-- END GEAR -->
-            <div class="spacer"></div>
-            <div class="myrow encumbrance"> <!-- ENCUMBRANCE -->
+            <div class="topspace myrow encumbrance"> <!-- ENCUMBRANCE -->
                 <input class="options-flag" name="attr_options-flag-encumbrance" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                 <div class="myrow center">
                     <span class="lab std right" data-i18n="light-load">Light Load</span>
@@ -5492,8 +5354,7 @@
                         <span class="pseudoattr" name="attr_encumbrance_load_heavy" title="@{encumbrance_load_heavy}"></span>
                     </div>
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow center">
+                <div class="topspace myrow center">
                     <span class="lab std right" data-i18n="lift-over-head">Lift Over Head</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_encumbrance_lift_head" title="@{encumbrance_lift_head}"></span>
@@ -5507,8 +5368,7 @@
                         <span class="pseudoattr" name="attr_encumbrance_drag_push" title="@{encumbrance_drag_push}"></span>
                     </div>
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow center">
+                <div class="topspace myrow center">
                     <span class="lab right" data-i18n="speed">Speed</span>
                     <div class="boxed greybg">
                         <span class="pseudoattr" name="attr_speed_encumbrance" title="@{speed_encumbrance}"></span>
@@ -5545,13 +5405,10 @@
                     </div>
                 </div>
             </div> <!-- ENCUMBRACE -->
-            <div class="spacer"></div>
-            <div class="myrow center"> <!-- ADDITIONAL GEAR -->
-                <div class="blacklabel">
+            <div class="topspace myrow center"> <!-- ADDITIONAL GEAR -->
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="additional-gear">Additional Gear</span>
-                    </div>
+                    <span class="big only" data-i18n="additional-gear">Additional Gear</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
             </div>
@@ -5565,11 +5422,9 @@
         <div class="colhalf padindent"> <!-- FEATS & TRAITS & BRACKGROUND -->
             <div class="feats"> <!-- FEATS -->
                 <div class="myrow center">
-                    <div class="blacklabel">
+                    <div class="blacklabel pnty">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="feats">Feats</span>
-                        </div>
+                        <span class="big only" data-i18n="feats">Feats</span>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                 </div>
@@ -5647,14 +5502,11 @@
                     </div>
                 </fieldset>
             </div> <!-- END FEATS -->
-            <div class="spacer"></div>
-            <div class="traits"> <!-- TRAITS -->
+            <div class="topspace traits"> <!-- TRAITS -->
                 <div class="myrow center">
-                    <div class="blacklabel">
+                    <div class="blacklabel pnty">
                         <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                        <div class="blackbgrd">
-                            <span class="big only" data-i18n="traits">Traits</span>
-                        </div>
+                        <span class="big only" data-i18n="traits">Traits</span>
                         <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                     </div>
                 </div>
@@ -5696,13 +5548,10 @@
                     </div>
                 </fieldset>
             </div> <!-- END TRAITS -->
-            <div class="spacer"></div>
-            <div class="myrow center"> <!-- BACKGROUND -->
-                <div class="blacklabel">
+            <div class="topspace myrow center"> <!-- BACKGROUND -->
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="notes">Notes</span>
-                    </div>
+                    <span class="big only" data-i18n="notes">Notes</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
             </div>
@@ -5717,11 +5566,9 @@
     <div class="tabspell"> <!-- TAB SPELLS -->
         <div class="col1third"> <!-- misc magic -->
             <div class="myrow center spellcasting"> <!-- SPELLCASTING -->
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="spellcasting">Spellcasting</span>
-                    </div>
+                    <span class="big" data-i18n="spellcasting">Spellcasting</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <input type="hidden" class="optional-flag0" name="attr_caster1_flag" value="0" /><div class="optional blk bordered titled inbox"> <!-- CASTER CLASS 1 -->
@@ -5732,8 +5579,7 @@
                         <span class="lbl margindent" data-i18n="ability-mod">Ability mod</span>
                         <span class="pseudoattr number greybg underlined" name="attr_caster1_ability_mod" title="@{caster1_ability_mod}"></span>
                     </div>
-                    <div class="spacer"></div>
-                    <div class="concentration"> <!-- CONCENTRATION -->
+                    <div class="topspace concentration"> <!-- CONCENTRATION -->
                         <input class="options-flag" name="attr_options-flag-caster1-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
                             <button class="myrol" type="roll" name="roll_caster1_concentration_roll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{caster1_concentration_roll}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
@@ -5767,8 +5613,7 @@
                             </div>
                         </div>
                     </div> <!-- END CONCENTRATION -->
-                    <div class="spacer"></div>
-                    <div class="myrow labline top perlevel">
+                    <div class="topspace myrow labline top perlevel">
                         <span class="lab" data-i18n="level" data-i18n-title="spell-level" title="Spell Level">Level</span>
                         <span class="lab" data-i18n="known" data-i18n-title="spells-known" title="Spells Known">Known</span>
                         <span class="lab" data-i18n="per-day" data-i18n-title="spells-per-day" title="Spells Per Day">per day</span>
@@ -5966,8 +5811,7 @@
                             <input type="number" class="nospin" name="attr_caster1_dcbonus_level_9" value="0" title="@{caster1_dcbonus_level_9}" />
                         </div>
                     </div>
-                    <div class="spacer"></div>
-                    <span class="lbl" data-i18n="bloodlines-domains-schools:">Bloodlines, Domains, Schools... :</span>
+                    <span class="topspace lbl" data-i18n="bloodlines-domains-schools:">Bloodlines, Domains, Schools... :</span>
                     <div class="autoex">
                         <span name="attr_caster1_spells_notes"></span>
                         <textarea name="attr_caster1_spells_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{caster1_spells_notes}"></textarea>
@@ -5981,8 +5825,7 @@
                         <span class="lbl margindent" data-i18n="ability-mod">Ability mod</span>
                         <span class="pseudoattr number greybg underlined" name="attr_caster2_ability_mod" title="@{caster2_ability_mod}"></span>
                     </div>
-                    <div class="spacer"></div>
-                    <div class="concentration"> <!-- CONCENTRATION -->
+                    <div class="topspace concentration"> <!-- CONCENTRATION -->
                         <input class="options-flag" name="attr_options-flag-caster2-concentration" type="checkbox" value="1" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
                         <div class="myrow padindent">
                             <button class="myrol" type="roll" name="roll_caster2_concentration_roll" data-i18n-title="concentration-roll" title="Concentration roll" value="@{caster2_concentration_roll}"><span class="lbl" data-i18n="concentration">Concentration</span></button>
@@ -6016,8 +5859,7 @@
                             </div>
                         </div>
                     </div> <!-- END CONCENTRATION -->
-                    <div class="spacer"></div>
-                    <div class="myrow labline top perlevel">
+                    <div class="topspace myrow labline top perlevel">
                         <span class="lab" data-i18n="level" data-i18n-title="spell-level" title="Spell Level">Level</span>
                         <span class="lab" data-i18n="known" data-i18n-title="spells-known" title="Spells Known">Known</span>
                         <span class="lab" data-i18n="per-day" data-i18n-title="spells-per-day" title="Spells Per Day">per day</span>
@@ -6215,8 +6057,7 @@
                             <input type="number" class="nospin" name="attr_caster2_dcbonus_level_9" value="0" title="@{caster2_dcbonus_level_9}" />
                         </div>
                     </div>
-                    <div class="spacer"></div>
-                    <span class="lbl" data-i18n="bloodlines-domains-schools:">Bloodlines, Domains, Schools... :</span>
+                    <span class="topspace lbl" data-i18n="bloodlines-domains-schools:">Bloodlines, Domains, Schools... :</span>
                     <div class="autoex">
                         <span name="attr_caster2_spells_notes"></span>
                         <textarea name="attr_caster2_spells_notes" spellcheck="false" data-i18n-placeholder="notes" placeholder="Notes" title="@{caster2_spells_notes}"></textarea>
@@ -6226,22 +6067,16 @@
         </div> <!-- END misc magic -->
         <div class="col2third spells"> <!-- SPELLS -->
             <div class="myrow center">
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="spells">Spells</span>
-                    </div>
+                    <span class="big only" data-i18n="spells">Spells</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="myrow"> <!-- LVL 0-1 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_0" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 0 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-0">Level 0</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-0">Level 0</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -6424,13 +6259,9 @@
                         </fieldset> <!-- END REPEATING 0 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 0 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_1" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 1 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-1">Level 1</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-1">Level 1</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -6619,13 +6450,9 @@
                 </div> <!-- END LVL 0-1 -->
                 <div class="myrow"> <!-- LVL 2-3 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_2" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 2 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-2">Level 2</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-2">Level 2</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -6812,13 +6639,9 @@
                         </fieldset> <!-- END REPEATING 2 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 2 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_3" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 3 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-3">Level 3</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-3">Level 3</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -7007,13 +6830,9 @@
                 </div> <!-- END LVL 2-3 -->
                 <div class="myrow"> <!-- LVL 4-5 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_4" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 4 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-4">Level 4</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-4">Level 4</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -7200,13 +7019,9 @@
                         </fieldset> <!-- END REPEATING 2 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 4 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_5" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 5 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-5">Level 5</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-5">Level 5</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -7395,13 +7210,9 @@
                 </div> <!-- END LVL 4-5 -->
                 <div class="myrow"> <!-- LVL 6-7 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_6" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 6 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-6">Level 6</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-6">Level 6</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -7588,13 +7399,9 @@
                         </fieldset> <!-- END REPEATING 6 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 6 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_7" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 7 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-7">Level 7</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-7">Level 7</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -7783,13 +7590,9 @@
                 </div> <!-- END LVL 6-7 -->
                 <div class="myrow"> <!-- LVL 8-9 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_8" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 8 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-8">Level 8</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-8">Level 8</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -7976,13 +7779,9 @@
                         </fieldset> <!-- END REPEATING 8 LVL SPELL -->
                     </div> <!-- END SPELLS LEVEL 8 -->
                     <input type="hidden" name="attr_caster_spells_flag_level_9" value="0" class="optional-flag0" /><div class="col1third optional inl"> <!-- SPELLS LEVEL 9 -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="level-9">Level 9</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="level-9">Level 9</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <div class="myrow right"> <!-- Prepared count -->
                             <span class="lbl" data-i18n="prepared" data-i18n-title="prepared-times" title="Prepared # times">Prepared</span>
@@ -8171,13 +7970,9 @@
                 </div> <!-- END LVL 8-9 -->
                 <div class="myrow"> <!-- SPELL-LIKE and METAMAGIC -->
                     <div class="col1third"> <!-- SPELL-LIKE ABILITIES -->
-                        <div class="myrow">
-                            <div class="blacklabel">
-                                <div class="blackbgrd weapon">
-                                    <span class="big only" data-i18n="spell-like">Spell-Like</span>
-                                </div>
-                                <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
-                            </div>
+                        <div class="blacklabel pnty">
+                            <span class="big only" data-i18n="spell-like">Spell-Like</span>
+                            <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                         </div>
                         <fieldset class="repeating_spell-like"> <!-- REPEATING SPELL-LIKE -->
                             <input type="hidden" name="attr_spelllevel" value="like" />
@@ -8304,14 +8099,10 @@
                             </div>
                         </fieldset> <!-- END REPEATING SPELL-LIKE -->
                     </div> <!-- END SPELL-LIKE ABILITIES -->
-                    <div class="col1third"> <!-- METAMAGIC -->
-                        <div class="myrow right">
-                            <div class="blacklabel">
-                                <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                                <div class="blackbgrd">
-                                    <span class="big only" data-i18n="metamagic">Metamagic</span>
-                                </div>
-                            </div>
+                    <div class="col1third" style="text-align: right;"> <!-- METAMAGIC -->
+                        <div class="blacklabel right">
+                            <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
+                            <span class="big only" data-i18n="metamagic">Metamagic</span>
                         </div>
                         <fieldset class="repeating_metamagic">
                             <div class="myrow metamagic underlined compendium-drop-target">
@@ -8377,11 +8168,9 @@
     </div> <!-- END TAB SPELLS -->
     <div class="tabconf"> <!-- TAB CONFIGURATION -->
         <div class="col2third">
-            <div class="blacklabel">
+            <div class="blacklabel pnty">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="class">class</span>
-                </div>
+                <span class="big only" data-i18n="class">class</span>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
@@ -8479,8 +8268,7 @@
                     <input type="number" name="attr_class3_reflex" value="0" class="nospin underlined sml" title="@{class3_reflex}" />
                     <input type="number" name="attr_class3_will" value="0" class="nospin underlined sml" title="@{class3_will}" />
                 </div>
-                <div class="spacer"></div>
-                <div class="myrow multiclass" style="padding-left: 175px;">
+                <div class="topspace myrow multiclass" style="padding-left: 175px;">
                     <div class="boxed greybg">
                         <span name="attr_level" class="pseudoattr" title="@{level}"></span>
                     </div>
@@ -8498,13 +8286,10 @@
                     </div>
                 </div>
             </div>
-            <div class="spacer"></div>
-            <div class="col1third"> <!-- RACE and AC -->
-                <div class="blacklabel">
+            <div class="topspace col1third"> <!-- RACE and AC -->
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="race">Race</span>
-                    </div>
+                    <span class="big only" data-i18n="race">Race</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -8537,11 +8322,9 @@
                         <span data-i18n="speed-never-modified">Never modified by armor or encumbrance</span>
                     </div>
                 </div>
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="armor-class">Armor Class</span>
-                    </div>
+                    <span class="big only" data-i18n="armor-class">Armor Class</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -8574,11 +8357,9 @@
                 </div>
             </div> <!-- END RACE and AC -->
             <div class="col1third"> <!-- SAVES and ATTACKS -->
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="saving-throws">Saving Throws</span>
-                    </div>
+                    <span class="big only" data-i18n="saving-throws">Saving Throws</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -8616,11 +8397,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="blacklabel">
+                <div class="blacklabel pnty">
                     <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                    <div class="blackbgrd">
-                        <span class="big only" data-i18n="attacks">Attacks</span>
-                    </div>
+                    <span class="big only" data-i18n="attacks">Attacks</span>
                     <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
                 </div>
                 <div class="bordered titled inbox">
@@ -8661,11 +8440,9 @@
             </div> <!-- END SAVES and ATTACKS -->
         </div>
         <div class="col1third"> <!-- ROLLS and MISC -->
-            <div class="blacklabel">
+            <div class="blacklabel pnty">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="rolls">Rolls</span>
-                </div>
+                <span class="big only" data-i18n="rolls">Rolls</span>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
@@ -8694,26 +8471,21 @@
                     <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_attack" value="[[1]]" checked="checked" title="@{rollnotes_attack}" /><span></span><span data-i18n="attack-rolls">Attack & CMB Rolls</span></div>
                     <div class="myrow padindent"><input class="pseudocheck" type="checkbox" name="attr_rollnotes_spell" value="[[1]]" checked="checked" title="@{rollnotes_spell}" /><span></span><span data-i18n="spell-rolls">Spell Rolls</span></div>
             </div>
-            <div class="spacer"></div>
-            <div class="blacklabel">
+            <div class="topspace blacklabel pnty">
                 <img class="brdleft" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdleft.png" />
-                <div class="blackbgrd">
-                    <span class="big only" data-i18n="misc-u">MISC</span>
-                </div>
+                <span class="big only" data-i18n="misc-u">MISC</span>
                 <img class="brdright" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/PFO/img/brdright.png" />
             </div>
             <div class="bordered titled inbox">
                 <input class="pseudocheck" type="checkbox" name="attr_npc" value="1" title="@{npc}" /><span></span><span data-i18n="npc-monster-statblock">NPC/Monster Statblock</span>
             </div>
-            <div class="spacer"></div>
-            <div class="myrow right">
+            <div class="topspace myrow right">
                 <span data-i18n="version">Version</span>&nbsp;<span name="attr_version"></span>
             </div>
         </div> <!-- END ROLLS and MISC -->
     </div> <!-- END TAB CONFIGURATION -->
 </div>  <!-- END PC SHEET -->
 <span style="text-align: center;margin-top: 6px;font-family: sans-serif;font-size: 0.8em;">&copy; 2018. Pathfinder, their respective logos, the Paizo golem, all Paizo titles, the Pathfinder Roleplaying Game rules, and Paizo’s character names and distinctive likenesses are property and copyright of Paizo, Inc. in the United States and other countries.</span>
-
 <!-- HIDDEN ATTRIBUTES -->
 <input type="hidden" name="none_mod" value="0" />
 <input type="hidden" name="cd_bar1_v" value="hp_max" />
@@ -8725,7 +8497,6 @@
 <input type="hidden" name="cd_bar3_v" value="" />
 <input type="hidden" name="cd_bar3_m" value="" />
 <input type="hidden" name="cd_bar3_l" value="ac" />
-
 <!-- HIDDEN TRANSLATION TEXT -->
 <div style="display: none;">
     <span data-i18n="combat-maneuver">Combat Maneuver</span>
@@ -8737,7 +8508,6 @@
     <span data-i18n="failure">Failure</span>
     <span data-i18n="caster-level">Caster Level</span>
 </div>
-
 <!-- ROLL TEMPLATES -->
 <rolltemplate class="sheet-rolltemplate-pc">
     {{#name}}
@@ -9110,7 +8880,6 @@
         {{/notes}}
     {{/rollTotal() shownotes 1}}
 </rolltemplate>
-
 <rolltemplate class="sheet-rolltemplate-npc">
     {{#name}}
         {{#rollTotal() showchar 1}}
@@ -9636,7 +9405,6 @@
         {{/notes}}
     {{/rollTotal() shownotes 1}}
 </rolltemplate>
-
 <!-- WORKERS -->
 <script type="text/worker">
     /* === GLOBAL VARIABLES === */
@@ -10226,8 +9994,8 @@
     // SPELLS - SPELLCASTING
     // -- Armor spell failure
     on("change:armor_spell_failure change:caster1_spell_failure change:caster2_spell_failure", function() {
-        getAttrs(["armor_spell_failure","caster1_spell_failure","caster2_flag","caster2_spell_failure"], function(v) {
-            if( (v.armor_spell_failure != "0") && ((v.caster1_spell_failure == "1") || ((v.caster2_flag == "1") && (v.caster2_spell_failure == "1"))) ) {
+        getAttrs(["caster1_flag","caster2_flag"], function(v) {
+            if( (v.caster1_flag == "1") || (v.caster2_flag == "1") ) {
                 update_all_spells("all");
             }
         });
@@ -11655,7 +11423,6 @@
                     rollbasetemplate = "npc";
                 }
                 var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"];
-                //var atktype = parseInt(v[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] + "_mod"]) || 0;
                 var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"];
                 var atkmod = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkmod"];
                 var atkcritrange = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkcritrange"]) || 20;

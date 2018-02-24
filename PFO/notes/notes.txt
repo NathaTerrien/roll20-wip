@@ -1,10 +1,9 @@
 TODO :
-- settings
-- concentration rolls
 
 ------------------------------------
 BUGS :
 
+------------------------------------
 
 %{-L2Puor4RyNIeGFOy8Pc|repeating_spell-1_-L2PvyAmh-OpXj19Omdv_concentration_roll}
 
