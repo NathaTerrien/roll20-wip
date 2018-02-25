@@ -587,7 +587,10 @@ span.sheet-npc-section {
     padding-left: 2px;
 }
 
-.sheet-multiclass {white-space: nowrap;}
+.sheet-multiclass {
+    text-align: left;
+    white-space: nowrap;
+}
 .sheet-multiclass .sheet-lab {
     width: 30px;
     font-weight: bold;
@@ -601,9 +604,10 @@ span.sheet-npc-section {
 .sheet-multiclass .sheet-lab.sheet-class {width: 140px;}
 .sheet-multiclass .sheet-lab.sheet-fav {width: 15px;}
 .sheet-multiclass .sheet-lab.sheet-hd {width: 24px;}
-.sheet-multiclass .sheet-lab.sheet-spell {
-    width: 24px;
-    text-align: right;
+.sheet-multiclass .sheet-lab.sheet-spell,
+.sheet-multiclass .sheet-spell {
+    width: 20px;
+    text-align: center;
 }
 .sheet-multiclass .sheet-ability {width: 70px;}
 .sheet-multiclass .sheet-lab.sheet-fail {
