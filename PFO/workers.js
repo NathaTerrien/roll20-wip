@@ -11,6 +11,15 @@
         });
         loadi18n();
         versioning();
+        // Query modifiers translation
+        setAttrs({
+            ask_modifier: getTranslationByKey("ask-modifier"),
+            ask_atk_modifier: getTranslationByKey("ask-atk-modifier"),
+            ask_dmg_modifier: getTranslationByKey("ask-dmg-modifier"),
+            ask_whisper: getTranslationByKey("ask-whisper"),
+            ask_public_roll: getTranslationByKey("ask-public-roll"),
+            ask_whisper_roll: getTranslationByKey("ask-whisper-roll")
+        },{silent: true});
     });
 
     // === Drop
