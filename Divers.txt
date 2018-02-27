@@ -9,6 +9,32 @@ Character   Replacement
 |   &#124;
 ,   &#44;
 
+---------------- MULTIPLE ON CHANGE --------------
+['estimation','forgea','apprentissagetechnologie','sensaiguise','force','acrobatie','diplomatie',
+'constitution','mé','multitache', 'dex', 'connaissancecode'].forEach(function (stat) {
+    on("change:classe change:lv_" +  stat.toLowerCase(), function () {
+        getAttrs(["classe", "b_" + stat, "lv_" + stat], function(values) {
+            const bonus = parseInt(values["b_" + stat])||0;
+            const C = values.classe;
+            const lv = parseInt(values["lv_" + stat])||0;
+            if(stat === "forgea"){
+                if(C === "Armurier"){
+                     setAttrs({
+                        ["b_" + stat]: lv + 4
+            });
+                };
+            };
+            if(stat === "mé"){
+                if(C === "Guerrier"){
+                     setAttrs({
+                        ["b_" + stat]: lv + 6
+                    });
+                };
+            };
+        });
+    });
+});
+
 --------------------------------------------------
 [i]Si vous aimez et utilisez [b][url=https://github.com/NathaTerrien/roll20-wip/blob/master/README.md]ma production[/url][/b] (*), vous pouvez me soutenir en faisant un [b][url=https://app.roll20.net/gift/forid/75857]petit don[/url][/b] sur Roll20, pour m'aider à payer l'abonnement pro :)
 (*) : - créations : Antika, Les Cahiers du Vastemonde, Chroniques Galactiques, Chroniques Oubliées, Cypher System, Dungen World, INS/MV 5E, Numenéra, Portes Monstres Trésors, Savage Worlds / Deadlands Reloaded, Supersix
