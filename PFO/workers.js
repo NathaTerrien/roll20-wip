@@ -236,6 +236,10 @@
             }
         }
     });
+    // HD
+    on("change:class_favored change:class1_hitdietype change:class2_hitdietype change:class3_hitdietype", function(){
+        update_hitdie();
+    });
 
     // === Class / Multiclassing / Musticasting
     on("change:class1_name change:class2_name change:class3_name change:caster1_flag change:caster2_flag", function(e) {
@@ -949,6 +953,15 @@
             else {finalattr = attr + "_base";}
             update[finalattr] = total;
             setAttrs(update);
+        });
+    };
+    var update_hitdie = function(){
+        var fields = ["class_favored","class1_hitdietype","class2_hitdietype","class3_hitdietype"];
+        var update = {};
+        getAttrs(fields, function(v) {
+            var fav = parseInt(v["class_favored"]) || 1;
+            update["hitdietype"] = v["class" + fav + "_hitdietype"];
+            setAttrs(update,{silent: true});
         });
     };
 
@@ -2207,6 +2220,7 @@
             update["wisdom_mod"] = 0;
             update["charisma_mod"] = 0;
             update["initiative"] = 0;
+            update["hitdietype"] = "D8";
             // Size
             update["ac_size"] = 0;
             update["bab_size"] = 0;
@@ -2470,10 +2484,14 @@
             setAttrs({"caster_flag": cflg},{"silent": true}, function() {doneupdating();});
         });
     };
+    var update_to_1_05 = function(doneupdating) {
+        update_hitdie();
+        doneupdating();
+    };
     var versioning = function() {
         getAttrs(["version"], function(v) {
             var vrs = parseFloat(v["version"]) || 0.0;
-            if (vrs === 1.04) {
+            if (vrs === 1.05) {
                 console.log("Pathfinder by Roll20 v" + vrs);
                 return;
             } else if (vrs < 1.0) {
@@ -2495,6 +2513,12 @@
                 console.log("Updating to 1.04");
                 update_to_1_04(function () {
                     setAttrs({"version": "1.04"});
+                    versioning();
+                });
+            } else if (vrs < 1.05) {
+                console.log("Updating to 1.05");
+                update_to_1_05(function () {
+                    setAttrs({"version": "1.05"});
                     versioning();
                 });
             }
