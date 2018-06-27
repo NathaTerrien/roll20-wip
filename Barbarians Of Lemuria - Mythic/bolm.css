@@ -12,13 +12,14 @@ span,
 input,
 select{
     box-sizing: border-box;
+    outline: none;
 }
 .sheet-debugred{
      border: 1px solid red;
 }
 div{
-    margin: none;
-    padding: none;
+    margin: 0px;
+    padding: 0px;
     background-color: transparent;
 }
 div.sheet-beast{
@@ -96,6 +97,7 @@ div.sheet-lignebrd{
     text-align: left;
     text-transform: uppercase;
     font-family: 'Contrail One';
+    line-height: 0.8em;
 }
 .sheet-libBlack3, .sheet-libBlack3b{
     background-color: transparent;
@@ -137,6 +139,7 @@ div.sheet-lignebrd{
     text-align: left;
     text-transform: uppercase;
     font-family: 'Contrail One';
+    line-height: 0.8em;
 }
 .sheet-libWhite2{
     background-color: transparent;
@@ -146,6 +149,7 @@ div.sheet-lignebrd{
     text-align: left;
     text-transform: uppercase;
     font-family: 'Contrail One';
+    line-height: 0.8em;
 }
 .sheet-vertical{
     position: absolute;
@@ -163,14 +167,15 @@ div.sheet-lignebrd{
 }
 input, textarea{
     display: inline-block;
-    padding: none;
-    margin: none;
+    padding: 0px;
+    margin: 0px;
     border: none;
     box-shadow: none;
     resize:none;
     color: #932315;
     z-index: 2;
     border-radius: 0;
+    font-family: "Arial";
 }
 input{
     background-color: transparent;
@@ -306,6 +311,7 @@ select{
     max-height 1.6em;
     font-weight:normal;
     border: none;
+    font-family: "Arial";
 }
 select:hover{
     border: 1px solid #932315;
