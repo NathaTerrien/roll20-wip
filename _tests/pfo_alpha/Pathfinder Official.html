@@ -734,12 +734,14 @@
                                 <input type="hidden" name="attr_fromcompendium" class="fromcompendium" value="" />
                                 <button class="myrol" type="compendium" name="attr_fromcompendium"  data-i18n-title="open-compendium-item" title="Open Compendium Item"></button>
                                 <span class="spacer"></span>
-                                <input type="radio" name="attr_timesperday" class="pseudocheck" value="constant" title="@{repeating_spell-like_$id_timesperday}" /><span></span>
-                                <span class="lbl" data-i18n="constant">constant</span>
-                                <input type="radio" name="attr_timesperday" class="pseudocheck" value="at-will" title="@{repeating_spell-like_$id_timesperday}" checked="checked" /><span></span>
-                                <span class="lbl" data-i18n="at-will">at will</span>
-                                <input type="radio" name="attr_timesperday" class="pseudocheck" value="per-day" title="@{repeating_spell-like_$id_timesperday}" /><span></span>
-                                <span class="lbl" data-i18n="per-day">per day</span>
+                                <select name="attr_timesperday">
+                                    <option value="constant" data-18n="constant">constant</option>
+                                    <option value="at-will" data-18n="at-will" checked="checked">at will</option>
+                                    <option value="per-day" data-18n="per-day">per day</option>
+                                    <option value="per-week" data-18n="per-week">per week</option>
+                                    <option value="per-month" data-18n="per-month">per month</option>
+                                    <option value="every-hours" data-18n="every-hours">every X hours</option>
+                                </select>
                                 <input type="number" class="nospin underlined spsml" name="attr_perday_max" value="1" title="@{repeating_spell-like_$id_perday_max}" />
                             </div>
                             <div class="myrow grtopbrd">
@@ -10827,11 +10829,17 @@
                         update[repsec + newrowid + "_timesperday"] = "at-will";
                     } else if(obj["Times Per Day"] == "Per Day") {
                         update[repsec + newrowid + "_timesperday"] = "per-day";
-                        if(obj["Number Per Day"]) {
-                            update[repsec + newrowid + "_perday_max"] = parseInt(obj["Number Per Day"]) || 0;
-                        }
+                    } else if(obj["Times Per Day"] == "Per Week") {
+                        update[repsec + newrowid + "_timesperday"] = "per-week";
+                    } else if(obj["Times Per Day"] == "Per Month") {
+                        update[repsec + newrowid + "_timesperday"] = "per-month";
+                    } else if(obj["Times Per Day"] == "Every X Hours") {
+                        update[repsec + newrowid + "_timesperday"] = "every-hours";
                     }
-                }
+                    if(obj["Number Per Day"]) {
+                        update[repsec + newrowid + "_perday_max"] = parseInt(obj["Number Per Day"]) || 0;
+                    }
+            }
                 if(! _.isEmpty(cdatarr)) {
                     var cdata = cdatarr.find(o => (o.name.toLowerCase() === obj["Spell"].toLowerCase() &&  o.data["Category"] === "Spells"));
                     if((typeof cdata !== "undefined") && (cdata.id)) {
@@ -12230,8 +12238,17 @@
                     var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"];
                     // == Display and Multiclass handling
                     if (spell_level == "like") {
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = (v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "per-day") ? 1 : 0;
+                        if(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "every-hours") {
+                            update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj["every-hours"].replace("X",v["repeating_spell-" + spell_level + "_" + spellid + "_perday_max"]);
+                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
+                        } else {
+                            update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
+                            if(["per-day","per-week","per-month"].includes(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"])) {
+                                update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 1;
+                            } else {
+                                update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
+                            }
+                        }
                     } else {
                         update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
                         // Multicasting
@@ -12832,6 +12849,9 @@
         pfoglobals_i18n_obj["constant"] = getTranslationByKey("constant");
         pfoglobals_i18n_obj["at-will"] = getTranslationByKey("at-will");
         pfoglobals_i18n_obj["per-day"] = getTranslationByKey("per-day");
+        pfoglobals_i18n_obj["per-week"] = getTranslationByKey("per-week");
+        pfoglobals_i18n_obj["per-month"] = getTranslationByKey("per-month");
+        pfoglobals_i18n_obj["every-hours"] = getTranslationByKey("every-hours");
         pfoglobals_i18n_obj["bleed"] = getTranslationByKey("bleed");
         pfoglobals_i18n_obj["dazed"] = getTranslationByKey("dazed");
         pfoglobals_i18n_obj["dying"] = getTranslationByKey("dying");
