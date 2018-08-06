@@ -1,6 +1,13 @@
 <!-- === SHEETS === -->
 <input type="checkbox" class="npc_toggle" name="attr_npc" value="1" style="display: none;" />
 <div class="statblock"><!-- NPC SHEET -->
+    <input type="hidden" class="optional-flag0" name="attr_build-flag-npc" value="0" />
+    <div class="optional blk building">
+        <div class="buildingtext">
+            <img style="width: 270px;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Pathfinder%20Official/img/logo.png" />
+            <span data-18n="building-npc">BUILDING NPC ...</span>
+        </div>
+    </div>
     <div class="head-info compendium-drop-target bestiary">
         <input type="hidden" name="attr_npcdrop_name" accept="Name" />
         <input type="hidden" name="attr_npcdrop_uniq" accept="uniqueName" />
@@ -10,7 +17,7 @@
         <div class="blacklabel pnty" style="width: 100%;text-align:left;">  <!-- Display Name and CR -->
             <div style="margin-left:14px;">
                 <span class="big" style="margin-right:6px;" name="attr_character_name"></span>
-                <input type="hidden" name="attr_npc_fromcompendium" class="fromcompendium" value="" />
+                <input type="hidden" name="attrk_npc_fromcompendium" class="fromcompendium" value="" />
                 <button class="myrol" type="compendium" name="attr_npc_fromcompendium" data-i18n-title="open-compendium-item" title="Open Compendium Item"></button>
             </div>
             <div style="margin-right:6px;">
@@ -9842,13 +9849,21 @@
     // --- NPC Compendium drops
     on("change:npcdrop_data", (e) => {
         if(typeof e.newValue !== "undefined") {
-            var cdata = JSON.parse(e.newValue) || {};
+            var cdata;
+            try{
+                cdata = JSON.parse(e.newValue) || {};
+            }
+            catch(error){
+                cdata = {};
+            }
             if(! _.isEmpty(cdata)) {
                 // console.log("*** DEBUG change:npcdrop_data: " + JSON.stringify(cdata,null,"  "));
                 var category = cdata["Category"].toLowerCase();
                 if(category == "bestiary") {
-                    getAttrs(["npcdrop_name","npcdrop_uniq"], (v) => {
-                        update_npc_drop(cdata,v);
+                    setAttrs({"npc": 1,"options-flag-npc": 0,"build-flag-npc": 1},{silent: true}, ()=>{
+                        getAttrs(["npcdrop_name","npcdrop_uniq"], (v) => {
+                            update_npc_drop(cdata,v);
+                        });
                     });
                 }
             }
@@ -9856,7 +9871,13 @@
     });
     on("change:npcsplike_data", (e) => {
         if(typeof e.newValue !== "undefined") {
-            var cdata = JSON.parse(e.newValue) || {};
+            var cdata;
+            try{
+                cdata = JSON.parse(e.newValue) || {};
+            }
+            catch(error){
+                cdata = {};
+            }
             if(! _.isEmpty(cdata)) {
                 // console.log("*** DEBUG change:npcsplike_data: " + JSON.stringify(cdata,null,"  "));
                 var category = cdata["Category"].toLowerCase();
@@ -9870,7 +9891,7 @@
                         var tmpupd = {};
 
                         obj["Name"] = v.npcsplike_name;
-                        obj["Times Per Day"] = "At Will";
+                        obj["Frequency"] = "At Will";
                         obj["Spell"] = v.npcsplike_name;
                         objs.push(obj);
 
@@ -9900,7 +9921,13 @@
     });
     on("change:npcspl0_data change:npcspl1_data change:npcspl2_data change:npcspl3_data change:npcspl4_data change:npcspl5_data change:npcspl6_data change:npcspl7_data change:npcspl8_data change:npcspl9_data", (e) => {
         if(typeof e.newValue !== "undefined") {
-            var cdata = JSON.parse(e.newValue) || {};
+            var cdata;
+            try{
+                cdata = JSON.parse(e.newValue) || {};
+            }
+            catch(error){
+                cdata = {};
+            }
             if(! _.isEmpty(cdata)) {
                 // console.log("*** DEBUG change:npcsplX_data: " + JSON.stringify(cdata,null,"  "));
                 var category = cdata["Category"].toLowerCase();
@@ -9933,7 +9960,7 @@
                         _.extend(update,tmpupd);
 
                         var spellid = Object.keys(tmpupd)[0].substring(18, 38);
-                        console.log("*** DEBUG change:npcsplX_data spellid: " + spellid);
+                        // console.log("*** DEBUG change:npcsplX_data spellid: " + spellid);
 
                         setAttrs(update,{silent: true},() => {
                             update_spells(level,spellid);
@@ -9947,7 +9974,13 @@
     on("change:npcfeat_data", (e) => {
         // console.log("*** DEBUG change:npcfeat_data e: " + JSON.stringify(e,null,"  "));
         if(typeof e.newValue !== "undefined") {
-            var cdata = JSON.parse(e.newValue) || {};
+            var cdata;
+            try{
+                cdata = JSON.parse(e.newValue) || {};
+            }
+            catch(error){
+                cdata = {};
+            }
             if(! _.isEmpty(cdata)) {
                 // console.log("*** DEBUG change:npcfeat_data: " + JSON.stringify(cdata,null,"  "));
                 var category = cdata["Category"].toLowerCase();
@@ -10017,13 +10050,29 @@
             }
         }
         if(cdata["data-Spells"]) {
+            var objspells;
+            try{
+                objspells = JSON.parse(cdata["data-Spells"]);
+            }
+            catch(error) {
+                objspells = [];
+            }
             update["spells_flag"] = 1;
         } else {
+            objspells = [];
             update["spells_flag"] = 0;
         }
         if(cdata["data-Spell-like Abilities"]) {
+            var objlikes;
+            try{
+                objlikes = JSON.parse(cdata["data-Spell-like Abilities"]);
+            }
+            catch(error){
+                objlikes = [];
+            }
             update["spellabilities_flag"] = 1;
         } else {
+            var objlikes = [];
             update["spellabilities_flag"] = 0;
         }
         if(cdata["data-CR"]) {
@@ -10133,9 +10182,9 @@
                 update["caster1_spells_total_level_" + i] = parseInt(cdata["data-Spells per day-Level " + i]) || 0;
             }
         }
-        if(cdata["data-Spells"]) {
+        if(objspells.length) {
             // Counting the spells by level
-            var spellsbylevel = cdata["data-Spells"].reduce(function(sums,entry){
+            var spellsbylevel = objspells.reduce(function(sums,entry){
                 sums[entry.level] = (sums[entry.level] || 0) + 1;
                 return sums;
             },{});
@@ -10471,36 +10520,73 @@
             update["background"] = cdata["data-Description"];
         }
         if(cdata["data-Attacks"]) {
-            tmpobj = npcdrop_add_attacks(cdata["data-Attacks"]);
-            _.extend(update, tmpobj["update"]);
-            callbacks = callbacks.concat(tmpobj["callbacks"]);
+            var atkz;
+            try{
+                atkz = JSON.parse(cdata["data-Attacks"]);
+            }
+            catch(error){
+                atkz = [];
+            }
+            if(atkz.length) {
+                _.extend(update, npcdrop_add_attacks(atkz,update));
+            }
         }
         if(cdata["data-Special Atk"]) {
-            tmpobj = npcdrop_add_special_attacks(cdata["data-Special Atk"]);
-            _.extend(update, tmpobj);
+            var specz;
+            try{
+                specz = JSON.parse(cdata["data-Special Atk"]);
+            }
+            catch(error) {
+                specz = [];
+            }
+            if(specz.length) {
+                _.extend(update, npcdrop_add_special_attacks(specz));
+            }
         }
         if(cdata["data-Special Abilities"]) {
-            tmpobj = npcdrop_add_specabs(cdata["data-Special Abilities"]);
-            _.extend(update, tmpobj);
+            var abz;
+            try{
+                abz = JSON.parse(cdata["data-Special Abilities"]);
+            }
+            catch(error) {
+                abz = [];
+            }
+            if(abz.length) {
+                _.extend(update, npcdrop_add_specabs(abz));
+            }
         }
-        if(cdata["data-Spells"]) {
+        if(objspells.length) {
             doUpdateSpells = true;
-            _.each(cdata["data-Spells"], (obj) => {
+            _.each(objspells, (obj) => {
                 if(obj.name) {
                     pages.push("Spells:" + toTitleCase(obj.name));
                 }
             });
         }
-        if(cdata["data-Spell-like Abilities"]) {
+        if(objlikes.length) {
             doUpdateSpells = true;
-            _.each(cdata["data-Spell-like Abilities"], (obj) => {
+            _.each(objlikes, (obj) => {
                 if(obj["Name"] && obj["Spell"]) {
                     pages.push("Spells:" + toTitleCase(obj["Spell"]));
                 }
             });
         }
         if(cdata["data-Feats"]) {
-            _.each(cdata["data-Feats"], (obj) => {
+            var parsed;
+            try {
+                parsed = JSON.parse(cdata["data-Feats"]);
+            }
+            catch(error) {
+                parsed = [];
+            }
+            if(Array.isArray(parsed)) {
+                var objfeats = parsed;
+            } else {
+                var objfeats = [];
+                objfeats.push(parsed);
+            }
+            // console.log("*** DEBUG feats parsing: " + objfeats);
+            _.each(objfeats, (obj) => {
                 var featname = "";
                 if(obj.indexOf("(") === -1) {
                     featname = "Feats:" + obj.trim();
@@ -10509,47 +10595,52 @@
                 }
                 pages.push(featname);
             });
+        } else {
+            var objfeats = [];
         }
-        getCompendiumPage(pages,(cdatarr) => {
-            if(cdata["data-Spells"]) {
-                tmpobj = npcdrop_add_spells(cdata["data-Spells"],cdatarr);
+        getCompendiumPage(pages,(compendiumdata) => {
+            if(Array.isArray(compendiumdata)) {
+                var cdatarr = compendiumdata;
+            } else {
+                var cdatarr = [];
+                cdatarr.push(compendiumdata);
+            }
+            // console.log("*** DEBUG getCompendiumPage: " + cdatarr);
+            if(objspells.length) {
+                tmpobj = npcdrop_add_spells(objspells,cdatarr,update);
                 _.extend(update, tmpobj);
             }
-            if(cdata["data-Spell-like Abilities"]) {
-                tmpobj = npcdrop_add_spellike(cdata["data-Spell-like Abilities"],cdatarr);
+            if(objlikes.length) {
+                tmpobj = npcdrop_add_spellike(objlikes,cdatarr,update);
                 _.extend(update, tmpobj);
             }
-            if(cdata["data-Feats"]) {
-                tmpobj = npcdrop_add_feats(cdata["data-Feats"],cdatarr);
+            if(objfeats.length) {
+                tmpobj = npcdrop_add_feats(objfeats,cdatarr);
                 _.extend(update, tmpobj);
             }
-            setAttrs(update,{silent:true}, () => {
-                callbacks.forEach((callback) => {callback(); });
-                if(doUpdateSpells) {
-                    update_all_spells("all");
-                }
+            setAttrs(update,{silent:true},() => {
+                setAttrs({"build-flag-npc": 0},{silent: true});
             });
         });
     };
-    var npcdrop_add_attacks = function(objs) {
+    var npcdrop_add_attacks = function(objs,values) {
         // console.log("*** DEBUG npcdrop_add_attacks: " + JSON.stringify(objs,null,"  "));
         var update = {};
-        var callbacks = [];
-        var returnObj = {};
         var meleecount = 0;
         var rangedcount = 0;
         _.each(objs, (obj) => {
             var newrowid = generateRowID();
             var repsec = "";
+            var type = ""
             if(obj["Range"]) {
                 rangedcount++;
                 repsec = "repeating_npcatk-ranged_";
-                callbacks.push( function() {update_npc_attack("ranged",newrowid);} );
+                type = "ranged";
                 update[repsec + newrowid + "_atkrange"] = obj["Range"];
             } else {
                 meleecount++;
                 repsec = "repeating_npcatk-melee_";
-                callbacks.push( function() {update_npc_attack("melee",newrowid);} );
+                type = "melee";
             }
             if(obj["Name"]) { //atkname
                 update[repsec + newrowid + "_atkname"] = obj["Name"];
@@ -10597,6 +10688,10 @@
                 update[repsec + newrowid + "_descflag"] = 1;
                 update[repsec + newrowid + "_atkdesc"] = obj["Description"];
             }
+            var tmpvalues = {};
+            _.extend(tmpvalues,values,update);
+            tmpvalues["npc"] = "1";
+            _.extend(update,calc_npc_attack(type,newrowid,tmpvalues));
         });
         if(! _.isEmpty(update)) {
             update["meleeattacks_flag"] = (meleecount > 0) ? 1 : 0;
@@ -10605,11 +10700,11 @@
             update["meleeattacks_flag"] = 0;
             update["rangedattacks_flag"] = 0;
         }
-        returnObj["update"] = update;
+        // returnObj["update"] = update;
         // console.log("*** DEBUG npcdrop_add_attacks callbacks: " + callbacks);
-        returnObj["callbacks"] = callbacks;
+        // returnObj["callbacks"] = callbacks;
         // console.log("*** DEBUG npcdrop_add_attacks: " + JSON.stringify(returnObj,null,"  "));
-        return returnObj;
+        return update;
     };
     var npcdrop_add_special_attacks = function(objs) {
         // console.log("*** DEBUG npcdrop_add_special_attacks: " + JSON.stringify(objs,null,"  "));
@@ -10713,7 +10808,7 @@
         // console.log("*** DEBUG npcdrop_add_specabs update :" + JSON.stringify(update,null,"  "));
         return update;
     };
-    var npcdrop_add_spells = function(objs,cdatarr) {
+    var npcdrop_add_spells = function(objs,cdatarr, values) {
         // console.log("*** DEBUG npcdrop_add_spells objs : " + JSON.stringify(objs,null,"  "));
         var update = {};
         var baserepsec = "repeating_spell";
@@ -10806,12 +10901,16 @@
                         }
                     }
                 }
+                var tmpvalues = {};
+                _.extend(tmpvalues,values,update);
+                tmpvalues["npc"] = "1";
+                _.extend(update,calc_spell(level,newrowid,tmpvalues));
             }
         });
         // console.log("*** DEBUG npcdrop_add_spells update :" + JSON.stringify(update,null,"  "));
         return update;
     };
-    var npcdrop_add_spellike = function(objs,cdatarr) {
+    var npcdrop_add_spellike = function(objs,cdatarr,values) {
         // console.log("*** DEBUG npcdrop_add_spellike: " + JSON.stringify(objs,null,"  "));
         var update = {};
         var repsec = "repeating_spell-like_";
@@ -10822,24 +10921,24 @@
                 update[repsec + newrowid + "_spellname"] = obj["Name"];
                 update[repsec + newrowid + "_options-flag"] = 0;
                 update[repsec + newrowid + "_fromcompendium"] = "Spells:" + obj["Spell"];
-                if(obj["Times Per Day"]) {
-                    if(obj["Times Per Day"] == "Constant") {
+                if(obj["Frequency"]) {
+                    if(obj["Frequency"] == "Constant") {
                         update[repsec + newrowid + "_timesperday"] = "constant";
-                    } else if(obj["Times Per Day"] == "At Will") {
+                    } else if(obj["Frequency"] == "At Will") {
                         update[repsec + newrowid + "_timesperday"] = "at-will";
-                    } else if(obj["Times Per Day"] == "Per Day") {
+                    } else if(obj["Frequency"] == "Per Day") {
                         update[repsec + newrowid + "_timesperday"] = "per-day";
-                    } else if(obj["Times Per Day"] == "Per Week") {
+                    } else if(obj["Frequency"] == "Per Week") {
                         update[repsec + newrowid + "_timesperday"] = "per-week";
-                    } else if(obj["Times Per Day"] == "Per Month") {
+                    } else if(obj["Frequency"] == "Per Month") {
                         update[repsec + newrowid + "_timesperday"] = "per-month";
-                    } else if(obj["Times Per Day"] == "Every X Hours") {
+                    } else if(obj["Frequency"] == "Every X Hours") {
                         update[repsec + newrowid + "_timesperday"] = "every-hours";
                     }
-                    if(obj["Number Per Day"]) {
-                        update[repsec + newrowid + "_perday_max"] = parseInt(obj["Number Per Day"]) || 0;
+                    if(obj["Occurences"]) {
+                        update[repsec + newrowid + "_perday_max"] = parseInt(obj["Occurences"]) || 0;
                     }
-            }
+                }
                 if(! _.isEmpty(cdatarr)) {
                     var cdata = cdatarr.find(o => (o.name.toLowerCase() === obj["Spell"].toLowerCase() &&  o.data["Category"] === "Spells"));
                     if((typeof cdata !== "undefined") && (cdata.id)) {
@@ -10911,14 +11010,19 @@
                         }
                     }
                 }
+                var tmpvalues = {};
+                _.extend(tmpvalues,values,update);
+                tmpvalues["npc"] = "1";
+                _.extend(update,calc_spell("like",newrowid,tmpvalues));
             }
         });
         // console.log("*** DEBUG npcdrop_add_spellike update :" + JSON.stringify(update,null,"  "));
         return update;
     };
     var npcdrop_add_feats = function(objs,cdatarr) {
-        // console.log("*** DEBUG npcdrop_add_feats cdatarr :" + JSON.stringify(cdatarr,null,"  "));
+        // console.log("*** DEBUG npcdrop_add_feats cdatarr :" + cdatarr + " / " + JSON.stringify(cdatarr,null,"  "));
         var update = {};
+        // return update;
         var repsec = "repeating_feats_";
         _.each(objs, (obj) => {
             var newrowid = generateRowID();
@@ -11665,37 +11769,26 @@
         return update;
     };
     // --- NPC attacks
-    var update_npc_attacks_all = function() {
-        update_npc_attacks_melee();
-        update_npc_attacks_ranged();
-    };
-    var update_npc_attacks_melee = function() {
-        getSectionIDs("repeating_npcatk-melee", (idarray) => {
-            _.each(idarray, (id) => {
-                update_npc_attack("melee",id);
-            });
-        });
-    };
-    var update_npc_attacks_ranged = function () {
-        getSectionIDs("repeating_npcatk-ranged", (idarray) => {
-            _.each(idarray, (id) => {
-                update_npc_attack("ranged",id);
-            });
-        });
-    };
     var update_npc_attack = function(type,id) {
         // type = "melee" / "ranged"
-        var update = {}, i=0, display = "", multi = "", sdmg1 = "", sdmg2 = "", scrit1 = "", scrit2 = "", base = "repeating_npcatk-" + type + "_" + id + "_";
+        var base = "repeating_npcatk-" + type + "_" + id + "_";
         var fields = [base + "atkname",base + "atkflag",base + "atkmod",base + "multipleatk_flag",base + "atkmod2",base + "atkmod3",base + "atkmod4",base + "atkmod5",base + "atkmod6",base + "atkmod7",base + "atkmod8",base + "atkmod9",base + "atkcritrange",base + "dmgflag",base + "dmgbase",base + "dmgtype",base + "dmgcritmulti",base + "dmg2flag",base + "dmg2base",base + "dmg2type",base + "dmg2critmulti"];
         if(type == "ranged") {fields.push(base + "atkrange");}
         getAttrs(fields, (v) => {
-            display = v[base + "atkname"];
-            display += " " + (((parseInt(v[base  + "atkmod"]) || 0) > 0) ? "+" : "") + v[base  + "atkmod"];
-            var dmgcritmulti = parseInt(v[base + "dmgcritmulti"]) || 1;
-            var dmg2critmulti = parseInt(v[base + "dmg2critmulti"]) || 1;
-            // First attack
-            multi = "{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}";
-            // Damage
+            setAttrs(calc_npc_attack(type,id,v),{silent:true});
+        });
+    };
+    var calc_npc_attack = function(type,id,v) {
+        var base = "repeating_npcatk-" + type + "_" + id + "_";
+        var update = {}, display = "", multi = "", sdmg1 = "", sdmg2 = "", scrit1 = "", scrit2 = "";
+        display = v[base + "atkname"];
+        display += " " + (((parseInt(v[base  + "atkmod"]) || 0) > 0) ? "+" : "") + v[base  + "atkmod"];
+        var dmgcritmulti = parseInt(v[base + "dmgcritmulti"]) || 1;
+        var dmg2critmulti = parseInt(v[base + "dmg2critmulti"]) || 1;
+        // First attack
+        multi = "{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+        // Damage
+        if(v[base + "dmgflag"] && v[base + "dmgbase"]){
             if( (v[base + "dmgflag"] != "0") && (v[base + "dmgbase"].length > 0) ){
                 sdmg1 = "[[" + v[base + "dmgbase"] + "+@{rollmod_damage}[BONUS]]]";
                 multi += "{{rolldmg1=" + sdmg1 + "}}{{rolldmg1type=@{dmgtype}}}";
@@ -11708,6 +11801,8 @@
                     multi += "{{rolldmg1crit=" + scrit1 + "}}";
                 }
             }
+        }
+        if(v[base + "dmg2flag"] && v[base + "dmg2base"]){
             if( (v[base + "dmg2flag"] != "0") && (v[base + "dmg2base"].length > 0) ){
                 sdmg2 = "[[" + v[base + "dmg2base"] + "+@{rollmod_damage}[BONUS]]]";
                 multi += "{{rolldmg2=" + sdmg2 + "}}{{rolldmg2type=@{dmg2type}}}";
@@ -11720,62 +11815,62 @@
                     multi += "{{rolldmg2crit=" + scrit2 + "}}";
                 }
             }
-            // Multi attack
-            if(v[base + "multipleatk_flag"] == "1"){
-                for(var i = 2; i < 10; i++) {
-                    if (v[base  + "atkmod" + i] != "") {
-                        display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
-                        multi += "{{roll" + (i-1) + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + (i-1) + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
-                        if(sdmg1.length) {
-                            multi += "{{roll" + (i-1) + "dmg1=" + sdmg1 + "}}{{roll" + (i-1) + "dmg1type=" + v[base + "dmgtype"] +"}}";
-                            if(dmgcritmulti > 1) { multi += "{{roll" + (i-1) + "dmg1crit=" + scrit1 + "}}"; }
+        }
+        // Multi attack
+        if((v[base + "multipleatk_flag"] || "0") == "1"){
+            for(var i = 2; i < 10; i++) {
+                if (v[base  + "atkmod" + i]) {
+                    display += "/" + (((parseInt(v[base  + "atkmod" + i]) || 0) > 0) ? "+" : "") + v[base  + "atkmod" + i];
+                    multi += "{{roll" + (i-1) + "=[[1d20cs>@{atkcritrange}+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm" + (i-1) + "=[[1d20cs20+@{atkmod" + i + "}[MOD]+@{rollmod_attack}[BONUS]]]}}";
+                    if(sdmg1.length) {
+                        multi += "{{roll" + (i-1) + "dmg1=" + sdmg1 + "}}{{roll" + (i-1) + "dmg1type=" + v[base + "dmgtype"] +"}}";
+                        if(dmgcritmulti > 1) { multi += "{{roll" + (i-1) + "dmg1crit=" + scrit1 + "}}"; }
+                    }
+                    if(v[base + "dmg2flag"] == "1") {
+                        multi += "{{roll" + (i-1) + "dmg2=" + sdmg2 + "}}{{roll" + (i-1) + "dmg2type=" + v[base + "dmg2type"] +"}}";
+                        if(dmg2critmulti > 1) {
+                            multi += "{{roll" + (i-1) + "dmg2crit=" + scrit2 + "}}";
                         }
-                        if(v[base + "dmg2flag"] == "1") {
-                            multi += "{{roll" + (i-1) + "dmg2=" + sdmg2 + "}}{{roll" + (i-1) + "dmg2type=" + v[base + "dmg2type"] +"}}";
-                            if(dmg2critmulti > 1) {
-                                multi += "{{roll" + (i-1) + "dmg2crit=" + scrit2 + "}}";
-                            }
-                        }
                     }
                 }
             }
-            if((type == "ranged") && (v[base + "atkrange"] != "")) {
-                display += " " + v[base + "atkrange"];
-            }
-            if ((v[base  + "dmgflag"] != "0")||(v[base  + "dmg2flag"] != "0")) {
-                var dmg = "";
-                var dmg1 = "";
-                var dmg2 = "";
-                if(v[base  + "dmgflag"] != "0") {
-                    dmg1 += v[base + "dmgbase"];
-                    if((parseInt(v[base + "atkcritrange"]) || 20) < 20) {
-                        dmg1 += "/" + v[base + "atkcritrange"] + "-20";
-                    }
-                    if((parseInt(v[base + "dmgcritmulti"]) || 2) != 2) {
-                        dmg1 += "/x" + v[base + "dmgcritmulti"];
-                    }
-                    if(v[base + "dmgtype"] != "") {
-                        dmg1 += " " + v[base + "dmgtype"];
-                    }
+        }
+        if((type == "ranged") && (v[base + "atkrange"] || "").length) {
+            display += " " + v[base + "atkrange"];
+        }
+        if (((v[base  + "dmgflag"] || "0") != "0") || ((v[base  + "dmg2flag"] || "0") != "0")) {
+            var dmg = "";
+            var dmg1 = "";
+            var dmg2 = "";
+            if((v[base  + "dmgflag"] || "0") != "0") {
+                dmg1 += v[base + "dmgbase"];
+                if((parseInt(v[base + "atkcritrange"]) || 20) < 20) {
+                    dmg1 += "/" + v[base + "atkcritrange"] + "-20";
                 }
-                if (v[base  + "dmg2flag"] != "0") {
-                    if(v[base + "dmg2base"].trim() != "0") {
-                        dmg2 += v[base + "dmg2base"];
-                    }
-                    if(v[base + "dmg2type"] != "") {
-                        dmg2 += " " + v[base + "dmg2type"];
-                    }
-                    if((parseInt(v[base + "dmg2critmulti"]) || 1) != 1) {
-                        dmg2 += "/x" + v[base + "dmg2critmulti"];
-                    }
+                if((parseInt(v[base + "dmgcritmulti"]) || 2) != 2) {
+                    dmg1 += "/x" + v[base + "dmgcritmulti"];
                 }
-                dmg = dmg1 + ((dmg2.length >0) ? ", " : "") + dmg2;
-                if (dmg.length >0) { display += " (" + dmg + ")"; }
+                if(v[base + "dmgtype"] != "") {
+                    dmg1 += " " + v[base + "dmgtype"];
+                }
             }
-            update[base + "atkdisplay"] = display;
-            update[base + "multipleatk"] = multi;
-            setAttrs(update,{silent:true});
-        });
+            if ((v[base  + "dmg2flag"] || "0") != "0") {
+                if(v[base + "dmg2base"].trim() != "0") {
+                    dmg2 += v[base + "dmg2base"];
+                }
+                if(v[base + "dmg2type"] != "") {
+                    dmg2 += " " + v[base + "dmg2type"];
+                }
+                if((parseInt(v[base + "dmg2critmulti"]) || 1) != 1) {
+                    dmg2 += "/x" + v[base + "dmg2critmulti"];
+                }
+            }
+            dmg = dmg1 + ((dmg2.length >0) ? ", " : "") + dmg2;
+            if (dmg.length >0) { display += " (" + dmg + ")"; }
+        }
+        update[base + "atkdisplay"] = display;
+        update[base + "multipleatk"] = multi;
+        return update;
     };
 
     // === SKILLS
@@ -12197,7 +12292,7 @@
         if (pfoglobals_debug_mode) {console.log("*** DEBUG do_update_spell: " + level + " / " + attributename);}
         var spell_attribs = get_repsec_fields(repsec_agr, pfoglobals_spell_fields);
         getAttrs(spell_attribs, (v) => {
-            setAttrs(calc_spell(level, repsec_agr, v, attributename), {silent: true}, ()=>{
+            setAttrs(calc_spells(level, repsec_agr, v, attributename), {silent: true}, ()=>{
                 if (pfoglobals_debug_mode) {
                     var elapsed = new Date() - debug_start;
                     console.log("*** DEBUG time to update spells: " + elapsed);
@@ -12205,204 +12300,217 @@
             });
         });
     };
-    var calc_spell = function(level, repsec_agr, v, attributename = "") {
+    var calc_spells = function(level, repsec_agr, v, attributename = "") {
         var update = {};
         _.each(level, (spell_level) => {
             let spellids = repsec_agr.find((repsec) => repsec.section === "spell-" + spell_level).ids;
             _.each(spellids, (spellid) => {
                 if( (attributename.length === 0) || (attributename == "all") || (v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] && v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"].includes(attributename))) {
-                    // DEBUG
-                    if (pfoglobals_debug_mode) {console.log("*** DEBUG calc_spell: " + spell_level + " / " + spellid);}
-                    // Begin calc
-                    var stemp = "", rollbase = "", rollbasetemplate = "pc", conditionsnote = "";
-                    if (v.npc == "1") {
-                        rollbasetemplate = "npc";
-                    }
-                    var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"];
-                    var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"];
-                    var atkmod = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkmod"];
-                    var atkcritrange = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkcritrange"]) || 20;
-                    var dmgflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgflag"];
-                    var dmgbase = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg"];
-                    if (dmgbase.length == 0) {
-                        dmgbase = "0";
-                    }
-                    var dmgcritmulti = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgcritmulti"]) || 1;
-                    var dmgtype = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgtype"];
-                    var dmg2flag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag"];
-                    var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"];
-                    if (dmg2base.length == 0) {
-                        dmg2base = "0";
-                    }
-                    var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"];
-                    var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"];
-                    // == Display and Multiclass handling
-                    if (spell_level == "like") {
-                        if(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "every-hours") {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj["every-hours"].replace("X",v["repeating_spell-" + spell_level + "_" + spellid + "_perday_max"]);
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
-                        } else {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
-                            if(["per-day","per-week","per-month"].includes(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"])) {
-                                update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 1;
-                            } else {
-                                update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
-                            }
-                        }
-                    } else {
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
-                        // Multicasting
-                        if ((v.caster1_flag == "1") && (typeof v.caster1_class !== "undefined")) {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
-                        } else {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = " ";
-                        }
-                        if ((v.caster2_flag == "1") && (typeof v.caster2_class !== "undefined")) {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : " ";
-                        } else {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = " ";
-                        }
-                        if ((v.caster1_flag == "1") && (v.caster2_flag == "1")) {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
-                        } else {
-                            update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 0;
-                            if (v.caster1_flag == "1") {
-                                update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 1;
-                                cster = "1";
-                            } else if (v.caster2_flag == "1") {
-                                update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 2;
-                                cster = "2";
-                            }
-                        }
-                    }
-                    // == Save DC
-                    var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
-                    // == Rolls handling
-                    // base
-                    rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + "}}{{type=spell}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}";
-                    // spell level
-                    if (spell_level == "like") {
-                        if (v.npc == "1") {
-                            rollbase += "{{level=" + v.caster2_level + "}}";
-                        }
-                    } else {
-                        rollbase += "{{level=" + spell_level + "}}";
-                    }
-                    // caster class
-                    if ((v.npc !== "1") && (v.caster1_flag == "1") && (v.caster2_flag == "1") && (typeof v.caster1_class !== "undefined") && (typeof v.caster2_class !== "undefined")) {
-                        rollbase += "{{casterclass=" + ((cster == "1") ? v.caster1_class : v.caster2_class) + "}}";
-                    }
-                    // school
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"].length != 0) {
-                        rollbase += "{{school=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"] + "}}";
-                    }
-                    // casting time
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"].length != 0) {
-                        rollbase += "{{castingtime=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"] + "}}";
-                    }
-                    // component
-                    if (spell_level != "like") {
-                        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"].length != 0) {
-                            rollbase += "{{component=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"] + "}}";
-                        }
-                    }
-                    // range
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"].length != 0) {
-                        rollbase += "{{range=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"] + "}}";
-                    }
-                    // area
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellarea"].length != 0) {
-                        rollbase += "{{area=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellarea"] + "}}";
-                    }
-                    // targets
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelltargets"].length != 0) {
-                        rollbase += "{{targets=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelltargets"] + "}}";
-                    }
-                    // effect
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelleffect"].length != 0) {
-                        rollbase += "{{effect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelleffect"] + "}}";
-                    }
-                    // duration
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"].length != 0) {
-                        rollbase += "{{duration=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"] + "}}";
-                    }
-                    // saving throw
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {
-                        rollbase += "{{save=1}}{{savedc=[[" + savedc + "]]}}{{saveeffect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellsave"] + "}}";
-                    }
-                    // spell resistance
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag"] != "0") {
-                        rollbase += "{{sr=1}}{{spellresistance=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistance"] + "}}";
-                    }
-                    // desc
-                    if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {
-                        rollbase += "{{descflag=[[1]]}}{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";
-                    }
-                    // roll attack
-                    if(atkflag != "0") {
-                        if (atktype != "0") {
-                            atktype = "@{" + atktype + "_mod}";
-                        }
-                        if (atkmod.length == 0) {
-                            atkmod = "0";
-                        }
-                        rollbase += atkflag + "{{roll=[[1d20cs>" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+(@{attack_condition})[CONDITION]+@{rollmod_attack}[BONUS]]]}}";
-                        rollbase += "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+(@{attack_condition})[CONDITION]+@{rollmod_attack}[BONUS]]]}}";
-                        if (v.npc == "0") {
-                            conditionsnote += "@{attack_condition_note}";
-                            rollbase += "{{conditionsflag=[[@{attack_condition}]]}}{{conditions=@{conditions_display}}}";
-                        }
-                    }
-                    // roll damage
-                    if((dmgflag != "0") || (dmg2flag != "0")) {
-                        if(dmgflag != "0") {
-                            stemp = "" + dmgbase + "+@{rollmod_damage}[BONUS]";
-                            rollbase += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
-                            if( (atkflag != "0") && (dmgcritmulti >1) ) { // Critical damage
-                                stemp = "";
-                                for(i = 1; i <= dmgcritmulti; i++) { stemp += ((stemp.length > 0) ? "+" : "") + dmgbase; }
-                                rollbase += "{{dmg1crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
-                            }
-                        }
-                        if(dmg2flag != "0") {
-                            stemp = "" + dmg2base + "+@{rollmod_damage}[BONUS]";
-                            rollbase += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
-                            if( (atkflag != "0") && (dmgcritmulti >1) ) { // Critical damage
-                                stemp = "";
-                                for(i = 1; i <= dmgcritmulti; i++) {
-                                    stemp += ((stemp.length > 0) ? "+" : "") + dmg2base;
-                                }
-                                rollbase += "{{dmg2crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
-                            }
-                        }
-                    }
-                    // spell failure
-                    if ((v.npc !== "1") && (spell_level != "like")) {
-                        if( (v.armor_spell_failure != "0") && ( ((v.caster1_spell_failure == "1") && (cster == "1")) || ((cster == "2") && (v.caster2_spell_failure == "1"))) ) {
-                            rollbase += "{{spellfailureroll=[[1d100]]}}";
-                            rollbase += "{{spellfailure=[[" + v.armor_spell_failure + "]]}}";
-                            conditionsnote += "@{spell_condition_note}";
-                        }
-                    }
-                    // concentration
-                    if ((v.npc == "0") && (spell_level != "like")) {
-                        update["repeating_spell-" + spell_level + "_" + spellid + "_rollconcentration"] = v["caster" + cster + "_concentration_roll"];
-                        rollbase += "{{concentration=[" + getTranslationByKey("concentration") + "](~repeating_spell-" + spell_level + "_concentration)}}";
-                    }
-                    // notes & conditions
-                    if (v.npc == "0") {
-                        if(v["rollnotes_spell"] != "0") {
-                            rollbase += "{{shownotes=[[1]]}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";
-                        }
-                        rollbase += "{{conditionsnote=" + conditionsnote + "}}";
-                    }
-                    // == update
-                    update["repeating_spell-" + spell_level + "_" + spellid + "_spelldc"] = savedc;
-                    update["repeating_spell-" + spell_level + "_" + spellid + "_rollcontent"] = rollbase;
-                    // End calc
+                    _.extend(update,calc_spell(spell_level,spellid,v));
                 }
             });
         });
+        return update;
+    };
+    var calc_spell = function(spell_level,spellid,v) {
+        var update = {};
+        // DEBUG
+        if (pfoglobals_debug_mode) {console.log("*** DEBUG calc_spell: " + spell_level + " / " + spellid);}
+        // Begin calc
+        var stemp = "", rollbase = "", rollbasetemplate = "pc", conditionsnote = "";
+        if (v.npc == "1") {
+            rollbasetemplate = "npc";
+        }
+        var atkflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkflag"] || "0";
+        var atktype = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"] || "0";
+        var atkmod = v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkmod"] || "0";
+        var atkcritrange = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spellatkcritrange"]) || 20;
+        var dmgflag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgflag"] || "0";
+        var dmgbase = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg"] || "0";
+        if (! dmgbase.length) {
+            dmgbase = "0";
+        }
+        var dmgcritmulti = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgcritmulti"]) || 1;
+        var dmgtype = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgtype"] || "0";
+        var dmg2flag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag"] || "0";
+        var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"] || "0";
+        if (! dmg2base.length) {
+            dmg2base = "0";
+        }
+        var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"] || "0";
+        var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] || "1";
+        var csterflag1 = v.caster1_flag || "0";
+        var csterflag2 = v.caster2_flag || "0";
+        // == Display and Multiclass handling
+        if (spell_level == "like") {
+            if(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"] == "every-hours") {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj["every-hours"].replace("X",v["repeating_spell-" + spell_level + "_" + spellid + "_perday_max"]);
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
+            } else {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
+                if(["per-day","per-week","per-month"].includes(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"])) {
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 1;
+                } else {
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
+                }
+            }
+        } else {
+            update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"];
+            // Multicasting
+            if ((csterflag1 == "1") && (typeof v.caster1_class !== "undefined")) {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = (v.caster1_class.length > 0) ? v.caster1_class : " ";
+            } else {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster1_class"] = " ";
+            }
+            if ((csterflag2 == "1") && (typeof v.caster2_class !== "undefined")) {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = (v.caster2_class.length > 0) ? v.caster2_class : " ";
+            } else {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster2_class"] = " ";
+            }
+            if ((csterflag1 == "1") && (csterflag2 == "1")) {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 1;
+            } else {
+                update["repeating_spell-" + spell_level + "_" + spellid + "_spellmulticasters-flag"] = 0;
+                if (csterflag1 == "1") {
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 1;
+                    cster = "1";
+                } else if (csterflag2 == "1") {
+                    update["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] = 2;
+                    cster = "2";
+                }
+            }
+        }
+        // == Save DC
+        var savedc = 0 + (parseInt(v["caster" + cster + "_dc_level_" + spell_level]) || 0) + (parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldc_mod"]) || 0);
+        // == Rolls handling
+        // base
+        rollbase = "@{whispertype} &{template:" + rollbasetemplate + "}{{name=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + "}}{{type=spell}}{{showchar=@{rollshowchar}}}{{charname=@{character_name}}}";
+        // spell level
+        if (spell_level == "like") {
+            if (v.npc == "1") {
+                rollbase += "{{level=" + v.caster2_level + "}}";
+            }
+        } else {
+            rollbase += "{{level=" + spell_level + "}}";
+        }
+        // caster class
+        if ((v.npc !== "1") && (csterflag1 == "1") && (csterflag2 == "1") && (typeof v.caster1_class !== "undefined") && (typeof v.caster2_class !== "undefined")) {
+            rollbase += "{{casterclass=" + ((cster == "1") ? v.caster1_class : v.caster2_class) + "}}";
+        }
+        // school
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"]) {
+            rollbase += "{{school=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellschool"] + "}}";
+        }
+        // casting time
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"]) {
+            rollbase += "{{castingtime=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcastingtime"] + "}}";
+        }
+        // component
+        if (spell_level != "like") {
+            if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"]) {
+                rollbase += "{{component=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellcomponent"] + "}}";
+            }
+        }
+        // range
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"]) {
+            rollbase += "{{range=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellrange"] + "}}";
+        }
+        // area
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellarea"]) {
+            rollbase += "{{area=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellarea"] + "}}";
+        }
+        // targets
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelltargets"]) {
+            rollbase += "{{targets=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelltargets"] + "}}";
+        }
+        // effect
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelleffect"]) {
+            rollbase += "{{effect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelleffect"] + "}}";
+        }
+        // duration
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"]) {
+            rollbase += "{{duration=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellduration"] + "}}";
+        }
+        // saving throw
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"]) {
+            if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellsaveflag"] != "0") {
+                rollbase += "{{save=1}}{{savedc=[[" + savedc + "]]}}{{saveeffect=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellsave"] + "}}";
+            }
+        }
+        // spell resistance
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag"]) {
+            if(v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistanceflag"] != "0") {
+                rollbase += "{{sr=1}}{{spellresistance=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spellresistance"] + "}}";
+            }
+        }
+        // desc
+        if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"]) {
+            if(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldescflag"] != "0") {
+                rollbase += "{{descflag=[[1]]}}{{desc=" + v["repeating_spell-" + spell_level + "_" + spellid + "_spelldesc"] + "}}";
+            }
+        }
+        // roll attack
+        if(atkflag != "0") {
+            if (atktype != "0") {
+                atktype = "@{" + atktype + "_mod}";
+            }
+            if (atkmod.length == 0) {
+                atkmod = "0";
+            }
+            rollbase += atkflag + "{{roll=[[1d20cs>" + atkcritrange + "+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+(@{attack_condition})[CONDITION]+@{rollmod_attack}[BONUS]]]}}";
+            rollbase += "{{critconfirm=[[1d20cs20+" + atktype + "[" + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_spellatktype"]] + "]+" + atkmod + "[MOD]+(@{attack_condition})[CONDITION]+@{rollmod_attack}[BONUS]]]}}";
+            if (v.npc == "0") {
+                conditionsnote += "@{attack_condition_note}";
+                rollbase += "{{conditionsflag=[[@{attack_condition}]]}}{{conditions=@{conditions_display}}}";
+            }
+        }
+        // roll damage
+        if((dmgflag != "0") || (dmg2flag != "0")) {
+            if(dmgflag != "0") {
+                stemp = "" + dmgbase + "+@{rollmod_damage}[BONUS]";
+                rollbase += dmgflag + "{{dmg1=[[" + stemp + "]]}}{{dmg1type=" + dmgtype +"}}";
+                if( (atkflag != "0") && (dmgcritmulti >1) ) { // Critical damage
+                    stemp = "";
+                    for(i = 1; i <= dmgcritmulti; i++) { stemp += ((stemp.length > 0) ? "+" : "") + dmgbase; }
+                    rollbase += "{{dmg1crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
+                }
+            }
+            if(dmg2flag != "0") {
+                stemp = "" + dmg2base + "+@{rollmod_damage}[BONUS]";
+                rollbase += dmg2flag + "{{dmg2=[[" + stemp +"]]}}{{dmg2type=" + dmg2type + "}}";
+                if( (atkflag != "0") && (dmgcritmulti >1) ) { // Critical damage
+                    stemp = "";
+                    for(i = 1; i <= dmgcritmulti; i++) {
+                        stemp += ((stemp.length > 0) ? "+" : "") + dmg2base;
+                    }
+                    rollbase += "{{dmg2crit=[[(" + stemp +")+(@{rollmod_damage}*" + dmgcritmulti + ")[BONUS]]]}}";
+                }
+            }
+        }
+        // spell failure
+        if ((v.npc !== "1") && (spell_level != "like")) {
+            if( (v.armor_spell_failure != "0") && ( ((v.caster1_spell_failure == "1") && (cster == "1")) || ((cster == "2") && (v.caster2_spell_failure == "1"))) ) {
+                rollbase += "{{spellfailureroll=[[1d100]]}}";
+                rollbase += "{{spellfailure=[[" + v.armor_spell_failure + "]]}}";
+                conditionsnote += "@{spell_condition_note}";
+            }
+        }
+        // concentration
+        if ((v.npc == "0") && (spell_level != "like")) {
+            update["repeating_spell-" + spell_level + "_" + spellid + "_rollconcentration"] = v["caster" + cster + "_concentration_roll"];
+            rollbase += "{{concentration=[" + getTranslationByKey("concentration") + "](~repeating_spell-" + spell_level + "_concentration)}}";
+        }
+        // notes & conditions
+        if (v.npc == "0") {
+            if(v["rollnotes_spell"] != "0") {
+                rollbase += "{{shownotes=[[1]]}}{{notes=" + v["repeating_spell-" + spell_level + "_" + spellid + "_notes"] + "}}";
+            }
+            rollbase += "{{conditionsnote=" + conditionsnote + "}}";
+        }
+        // == update
+        update["repeating_spell-" + spell_level + "_" + spellid + "_spelldc"] = savedc;
+        update["repeating_spell-" + spell_level + "_" + spellid + "_rollcontent"] = rollbase;
+        // End calc
         return update;
     };
 
@@ -12752,7 +12860,7 @@
                     _.extend(v, update);
                     // Spells
                     if((v.caster1_flag == "1") || (v.caster2_flag == "1")) {
-                        update = calc_spell(["0","1","2","3","4","5","6","7","8","9","like"],repsec_agr.filter(current_section => current_section.section.substr(0,6) == "spell-"), v, "all");
+                        update = calc_spells(["0","1","2","3","4","5","6","7","8","9","like"],repsec_agr.filter(current_section => current_section.section.substr(0,6) == "spell-"), v, "all");
                         _.extend(big_update, update);
                         _.extend(v, update);
                     }
@@ -13724,7 +13832,7 @@
                 </div>
                 <div class="choice row race_feats custom_race">
                     <label>
-                        <span class="title" data-18n="feats:">Feats:</span>
+                        <span class="title" data-18n="bonus-feats:">Bonus Feats:</span>
                         <select class="choice race_feat_choice_row custom_race" name="comp_race_feat_choice">
                             <option value="" data-i18n="choose">Choose</option>
                         </select>
@@ -13860,10 +13968,10 @@
                         <select name="comp_class" accept="Category:Classes" required>
                             <option value="" data-i18n="choose">Choose</option>
                         </select>
-                        <button type="action" name="act_class" class="mancer_info">i</button>
+                        <button type="action" name="act_info_class" class="mancer_info">i</button>
                     </label>
                 </div>
-                <div class="choice row class_always custom_class">
+                <div class="choice row class_always custom_class"> <!-- alignment -->
                     <label>
                         <span class="title" data-18n="alignment:">Alignment:</span>
                         <select class="choice class_alignment_choice custom_class" name="comp_class_alignment_choice" required>
@@ -13872,22 +13980,110 @@
                         <span class="class_alignment_display class_text"></span>
                     </label>
                 </div>
-                <div class="choice row class_always custom_class">
+                <div class="choice row class_always custom_class"> <!-- HD -->
                     <label>
                         <span class="title" data-18n="hit-die:">Hit Die:</span>
                         <span class="class_hit_die class_text"></span>
                     </label>
                 </div>
-                <div class="choice row class_always custom_class">
+                <div class="choice row class_always custom_class"> <!-- class skills -->
                     <label>
                         <span class="title" data-18n="class-skills:">Class Skills:</span>
                         <span class="class_class_skills class_text"></span>
                     </label>
                 </div>
-                <div class="choice row class_always custom_class">
+                <div class="choice row class_always custom_class"> <!-- skill ranks -->
                     <label>
                         <span class="title" data-18n="skill-ranks:">Skill Ranks:</span>
                         <span class="class_skill_ranks class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_skill_bonus_row custom_class"> <!-- skill bonus -->
+                    <label>
+                        <span class="title" data-18n="skills-bonus:">Skills Bonus:</span>
+                        <span class="class_skill_bonus class_text"></span>
+                    </label>
+                </div>
+                <!-- TODO wealth -->
+                <div class="choice row class_always custom_class"> <!-- BAB -->
+                    <label>
+                        <span class="title" data-18n="base-attack-bonus:">Base Attack Bonus:</span>
+                        <span class="class_bab class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_always custom_class"> <!-- Saves -->
+                    <label class="inl">
+                        <span class="title" data-18n="fortitude:">Fortitude:</span>
+                        <span class="class_fortitude class_text"></span>
+                    </label>
+                    <label class="inl">
+                        <span class="title" data-18n="reflex:">Reflex:</span>
+                        <span class="class_reflex class_text"></span>
+                    </label>
+                    <label class="inl">
+                        <span class="title" data-18n="will:">Will:</span>
+                        <span class="class_will class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_speed_bonus_row custom_class"> <!-- speed bonus -->
+                    <label>
+                        <span class="title" data-18n="speed-bonus:">Speed Bonus:</span>
+                        <span class="class_speed_bonus class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_acsecondary_row custom_class"> <!-- AC sec ability -->
+                    <label>
+                        <span class="title" data-18n="ac-secondary-ability:">AC Secondary Ability:</span>
+                        <span class="class_acsecondary class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_spellcaster_row custom_class"> <!-- Spellcaster -->
+                    <label class="inl">
+                        <span class="title" data-18n="spellcasting-ability:">Spellcasting ability:</span>
+                        <span class="class_spellcasting_ability class_text"></span>
+                    </label>
+                    <label class="inl">
+                        <span class="title" data-18n="spellcaster-level:">Spellcaster level:</span>
+                        <span class="class_spellcaster_level class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_spelllike_row custom_class">
+                    <label>
+                        <span class="title" data-18n="spell-like-abilities:">Spell-Like Abilities:</span>
+                        <span class="class_spelllike class_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_languages_row custom_class"> <!-- Languages -->
+                    <label>
+                        <span class="title" data-18n="languages:">Languages:</span>
+                        <span class="class_languages race_text"></span>
+                    </label>
+                </div>
+                <div class="choice row class_bonusfeats_row custom_class"> <!-- Bonus Feats -->
+                    <label>
+                        <span class="title" data-18n="bonus-feats:">Bonus Feats:</span>
+                        <div class="choice class_feat_choice_row custom_class">
+                            <select name="comp_class_feat_choice">
+                                <option value="" data-i18n="choose">Choose</option>
+                            </select>
+                            <button type="action" name="act_info_class_feat_choice" class="mancer_info">i</button>
+                        </div>
+                        <div class="choice class_feat1_row custom_class">
+                            <span class="class_feat1 race_text"></span>
+                            <button type="action" name="act_info_class_feat1" class="mancer_info">i</button>
+                        </div>
+                        <div class="choice class_feat2_row custom_class">
+                            <span class="class_feat2 race_text"></span>
+                            <button type="action" name="act_info_class_feat2" class="mancer_info">i</button>
+                        </div>
+                        <div class="choice class_feat3_row custom_class">
+                            <span class="class_feat3 race_text"></span>
+                            <button type="action" name="act_info_class_feat3" class="mancer_info">i</button>
+                        </div>
+                        <div class="choice class_feat4_row custom_class">
+                            <span class="class_feat4 race_text"></span>
+                            <button type="action" name="act_info_class_feat4" class="mancer_info">i</button>
+                        </div>
                     </label>
                 </div>
 
@@ -14155,7 +14351,7 @@
 <!-- Mancer Workers -->
 <script type="text/worker">
     var abilityList = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
-    var getList = ["data-Ability Score Modifiers","data-Ability Score Choice","data-Race Speed","data-Fortitude Bonus","data-Reflex Bonus","data-Will Bonus","data-Skills Bonus","data-Skill Ranks Bonus","data-Feats","data-Spell-like abilities","data-Spell-like abilities prerequisites","data-Hit Die","data-Class skills","data-Skill Ranks","data-Skills bonus"];
+    var getList = ["data-Ability Score Modifiers","data-Ability Score Choice","data-Race Speed","data-Fortitude Bonus","data-Reflex Bonus","data-Will Bonus","data-Skills Bonus","data-Skill Ranks Bonus","data-Feats","data-Spell-like abilities","data-Spell-like abilities prerequisites","data-Hit Die","data-Class skills","data-Skill Ranks","data-Skills bonus","data-Bonus Feats"];
     var changeListeners = "mancerchange:race_ability_choice1";
     var costOfScore = {"7":"-4","8":"-2","9":"-1","10":"0","11":"1","12":"2","13":"3","14":"5","15":"7","16":"10","17":"13","18":"17"};
     var dicepoolChoices = ["3","4","5","6","7","8", "9", "10", "11", "12", "13"];
@@ -14674,94 +14870,201 @@
             });
         } else {
             getCompendiumPage(eventinfo.newValue, getList, (p) => {
-                var mancerdata = getCharmancerData();
-                var update = {};
-                var showList = ["class_always"];
-                var possibles = ["class_alignment_display","class_traits"];
-                var data = p["data"];
-                var values = {};
+                setAttrs(reset, () => {
+                    var mancerdata = getCharmancerData();
+                    var update = {};
+                    var showList = ["class_always"];
+                    var possibles = ["class_alignment_display","class_traits"];
+                    var data = p["data"];
+                    var values = {};
+                    var tmpint = 0;
 
-                console.log("*** DEBUG class raw data:" + JSON.stringify(data,null,"  "));
+                    console.log("*** DEBUG class raw data:" + JSON.stringify(data,null,"  "));
 
-               _.each(possibles, (key) => {
-                    update[key] = "";
-                });
-
-                if(data["data-Hit Die"]) {
-                    update["class_hit_die"] = data["data-Hit Die"];
-                }
-
-                if(data["data-Alignment Choice"]) {
-                    var aligarray = [];
-                    _.each(data["data-Alignment Choice"].split(","), (el) => {
-                        if(el.trim().length > 0) {
-                            aligarray.push(el.trim());
-                        }
+                    _.each(possibles, (key) => {
+                        update[key] = "";
                     });
-                    if(aligarray.length > 1) {
-                        console.log("*** DEBUG class alignment choices: " + aligarray);
-                        if(!showList["class_alignment_choice"]) {
-                            showList.push("class_alignment_choice");
+
+                    if(data["data-Hit Die"]) {
+                        update["class_hit_die"] = data["data-Hit Die"];
+                    }
+
+                    if(data["data-Alignment Choice"]) {
+                        var aligarray = [];
+                        _.each(data["data-Alignment Choice"].split(","), (el) => {
+                            if(el.trim().length > 0) {
+                                aligarray.push(el.trim());
+                            }
+                        });
+                        if(aligarray.length > 1) {
+                            console.log("*** DEBUG class alignment choices: " + aligarray);
+                            if(!showList["class_alignment_choice"]) {
+                                showList.push("class_alignment_choice");
+                            }
+                            setCharmancerOptions("class_alignment_choice",aligarray);
+                        } else {
+                            update["class_alignment_display"] = data["data-Alignment Choice"];
+                            values["class_alignment_choice"] = data["data-Alignment Choice"].trim();
                         }
-                        setCharmancerOptions("class_alignment_choice",aligarray);
+                    }
+
+                    if(data["data-Class skills"]) {
+                        update["class_class_skills"] = data["data-Class skills"];
+                    }
+                    if(data["data-Skill Ranks"]) {
+                        var bonus = 0;
+                        if(data["data-Skill Ranks"].indexOf("+") !== -1) {
+                            var ablt = data["data-Skill Ranks"].split("+")[1];
+                            if(mancerdata["l1-abilities"] && ablt.length) {
+                                ablt = ablt.toLowerCase().replace(" modifier","").trim();
+                                bonus = (parseInt(data["data-Skill Ranks"].split("+")[0]) || 0) + Math.floor(((parseInt(mancerdata["l1-abilities"].values[ablt]) || 10) - 10) / 2);
+                            }
+                        }
+                        update["class_skill_ranks"] = data["data-Skill Ranks"] + ((bonus > 0) ? " (" + bonus + ")" : "");
+                    }
+                    if(data["data-Skills bonus"]) {
+                        update["class_skill_bonus"] = data["data-Skills bonus"];
+                        showList.push("class_skill_bonus_row");
+                    }
+                    // TODO wealth
+                    if(data["data-Base Attack Bonus"]) {
+                        tmpint = parseInt(data["data-Base Attack Bonus"]) || 0;
+                        update["class_bab"] = "" + (tmpint < 0 ? "" : "+") + tmpint;
                     } else {
-                        update["class_alignment_display"] = data["data-Alignment Choice"];
-                        values["class_alignment_choice"] = data["data-Alignment Choice"].trim();
+                        update["class_bab"] = "+0";
                     }
-                }
-
-                if(data["data-Class skills"]) {
-                    update["class_class_skills"] = data["data-Class skills"];
-                }
-                if(data["data-Skill Ranks"]) {
-                    var bonus = 0;
-                    if(data["data-Skill Ranks"].indexOf("+") !== -1) {
-                        var ablt = data["data-Skill Ranks"].split("+")[1];
-                        if(mancerdata["l1-abilities"] && ablt.length) {
-                            ablt = ablt.toLowerCase().replace(" modifier","").trim();
-                            bonus = (parseInt(data["data-Skill Ranks"].split("+")[0]) || 0) + Math.floor(((parseInt(mancerdata["l1-abilities"].values[ablt]) || 10) - 10) / 2);
+                    if(data["data-Fortitude"]) {
+                        tmpint = parseInt(data["data-Fortitude"]) || 0;
+                        update["class_fortitude"] = "" + (tmpint < 0 ? "" : "+") + tmpint;
+                    } else {
+                        update["class_fortitude"] = "+0";
+                    }
+                    if(data["data-Reflex"]) {
+                        tmpint = parseInt(data["data-Reflex"]) || 0;
+                        update["class_reflex"] = "" + (tmpint < 0 ? "" : "+") + tmpint;
+                    } else {
+                        update["class_reflex"] = "+0";
+                    }
+                    if(data["data-Will"]) {
+                        tmpint = parseInt(data["data-Will"]) || 0;
+                        update["class_will"] = "" + (tmpint < 0 ? "" : "+") + tmpint;
+                    } else {
+                        update["class_will"] = "+0";
+                    }
+                    if(data["data-Speed bonus"]) {
+                        update["class_speed_bonus"] = data["data-Speed bonus"];
+                        showList.push("class_speed_bonus_row");
+                    }
+                    if(data["data-AC Seconday Ability"]) {
+                        update["class_acsecondary"] = data["data-AC Seconday Ability"];
+                        showList.push("class_acsecondary_row");
+                    }
+                    if(data["data-Spellcaster"]) {
+                        showList.push("class_spellcaster_row");
+                        update["class_spellcasting_ability"] = data["data-Spellcasting ability"];
+                        update["class_spellcaster_level"] = data["data-Spellcaster Level"];
+                    }
+                    if(data["data-Spell-like abilities"]) {
+                        update["class_spelllike"] = data["data-Spell-like abilities"];
+                        showList.push("class_spelllike_row");
+                    }
+                    if(data["data-Languages"]) {
+                        update["class_languages"] = data["data-Languages"];
+                        showList.push("class_languages_row");
+                    }
+                    if(data["data-Bonus Feats"] || data["data-Bonus Feats Choice"]) {
+                        showList.push("class_bonusfeats_row");
+                        if(data["data-Bonus Feats"]) {
+                            if(data["data-Bonus Feats"].indexOf(",") == -1) {
+                                showList.push("class_feat1_row");
+                                update["class_feat1"] = data["data-Bonus Feats"];
+                            } else {
+                                tmpint = 0;
+                                _.each(data["data-Bonus Feats"].split(","), (feat) => {
+                                    tmpint++;
+                                    showList.push("class_feat" + tmpint +  "_row");
+                                    update["class_feat" + tmpint] = feat.trim();
+                                });
+                            }
+                        }
+                        if(data["data-Bonus Feats Choice"]) {
+                            showList.push("class_feat_choice_row");
+                            if(data["data-Bonus Feats Choice"].indexOf(",") !== -1) {
+                                var featquery = [];
+                                _.each(data["data-Bonus Feats Choice"].split(","), (feat) => {
+                                    featquery.push(feat.trim());
+                                });
+                                setCharmancerOptions("class_feat_choice", featquery);
+                            } else {
+                                setCharmancerOptions("class_feat_choice", data["data-Bonus Feats Choice"]);
+                            }
                         }
                     }
-                    update["class_skill_ranks"] = data["data-Skill Ranks"] + ((bonus > 0) ? " (" + bonus + ")" : "");
-                }
-
-                if(data["data-Traits"] && data["data-Traits"].length > 0) {
-                    var traits_final = "";
-                    let tmp = data["data-Traits"].replace(/=&gt;/gi,":");
-                    var json = JSON.parse(tmp);
-                    _.each(json, (t, i) => {
-                        if(t["Name"]) {
-                            traits_final += "<b>" + t["Name"] + ".</b>";
-                            if(t["Type"] || t["Per-day"]) {
-                                traits_final += " (";
-                                if(t["Type"]) {traits_final += "<b>" + t["Type"] + "</b>";}
-                                if(t["Per-day"]) {
-                                    if(t["Type"]) {traits_final += " ,";}
-                                    traits_final += t["Per-day"] + " " + getTranslationByKey("per-day");
+                    if(data["data-Traits"] && data["data-Traits"].length > 0) {
+                        var traits_final = "";
+                        let tmp = data["data-Traits"].replace(/=&gt;/gi,":");
+                        var json = JSON.parse(tmp);
+                        _.each(json, (t, i) => {
+                            if(t["Name"]) {
+                                traits_final += "<b>" + t["Name"] + ".</b>";
+                                if(t["Type"] || t["Per-day"]) {
+                                    traits_final += " (";
+                                    if(t["Type"]) {traits_final += "<b>" + t["Type"] + "</b>";}
+                                    if(t["Per-day"]) {
+                                        if(t["Type"]) {traits_final += " ,";}
+                                        traits_final += t["Per-day"] + " " + getTranslationByKey("per-day");
+                                    }
+                                    traits_final += ")";
                                 }
-                                traits_final += ")";
-                            }
-                            if(t["Description"]) {
-                                traits_final += " " + t["Description"];
-                            }
-                            traits_final += "<br/>";
-                        };
-                        update["class_traits"] = traits_final;
-                    });
-                };
+                                if(t["Description"]) {
+                                    traits_final += " " + t["Description"];
+                                }
+                                traits_final += "<br/>";
+                            };
+                            update["class_traits"] = traits_final;
+                        });
+                    };
 
-                setAttrs(values, () => {
-                    setCharmancerText(update);
-                    showChoices(showList);
-                    recalcData();
+                    setAttrs(values, () => {
+                        setCharmancerText(update);
+                        showChoices(showList);
+                        recalcData();
+                    });
                 });
             });
         }
     });
     on("clicked:info_class", (eventinfo) => {
         var data = getCharmancerData();
-        var race = data["l1-class"] && data["l1-class"].values.race ? data["l1-class"].values.class : "Rules:Classes";
+        var race = data["l1-class"] && data["l1-class"].values.class ? data["l1-class"].values.class : "Rules:Classes";
         changeCompendiumPage("sheet-class-info", race);
+    });
+    on("mancerchange:class_feat_choice", (eventinfo) => {
+        if(eventinfo.sourceType == "player") {
+            if((eventinfo.newValue || "").length) {
+                changeCompendiumPage("sheet-class-info", eventinfo.newValue);
+            }
+        }
+    });
+    on("clicked:info_class_feat_choice", (eventinfo) => {
+        var data = getCharmancerData();
+        if (typeof data["l1-class"].values.class_feat_choice !== "undefined") {
+            changeCompendiumPage("sheet-class-info", "Feats:" + data["l1-class"].values.class_feat_choice);
+        }
+    });
+    on("clicked:info_class_feat1 clicked:info_class_feat2 clicked:info_class_feat3 clicked:info_class_feat4", (eventinfo) => {
+        //console.log("*** DEBUG clicked:info_class_featX: " + JSON.stringify(eventinfo,null,"  "));
+        // "triggerName": "clicked:info_class_feat1"
+        var data = getCharmancerData();
+        if (typeof data["l1-class"].data.class["data-Bonus Feats"] !== "undefined") {
+            var featz = data["l1-class"].data.class["data-Bonus Feats"];
+            if(featz.indexOf(",") == -1) {
+                changeCompendiumPage("sheet-class-info", "Feats:" + featz);
+            } else {
+                var tmpint = (parseInt(eventinfo["triggerName"].trim().slice(-1)) || 1)- 1;
+                changeCompendiumPage("sheet-class-info", "Feats:" + featz.split(",")[tmpint].trim());
+            }
+        }
     });
 
 
