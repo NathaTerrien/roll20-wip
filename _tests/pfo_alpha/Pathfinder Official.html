@@ -4,8 +4,8 @@
     <input type="hidden" class="optional-flag0" name="attr_build-flag-npc" value="0" />
     <div class="optional blk building">
         <div class="buildingtext">
-            <img style="width: 270px;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Pathfinder%20Official/img/logo.png" />
             <span data-18n="building-npc">BUILDING NPC ...</span>
+            <img style="width: 270px;" src="https://raw.githubusercontent.com/Roll20/roll20-character-sheets/master/Pathfinder%20Official/img/logo.png" />
         </div>
     </div>
     <div class="head-info compendium-drop-target bestiary">
@@ -10573,17 +10573,17 @@
         }
         if(cdata["data-Feats"]) {
             var parsed;
+            var objfeats;
             try {
                 parsed = JSON.parse(cdata["data-Feats"]);
             }
             catch(error) {
-                parsed = [];
+                parsed = cdata["data-Feats"].split(",");
             }
             if(Array.isArray(parsed)) {
-                var objfeats = parsed;
+                objfeats = parsed;
             } else {
-                var objfeats = [];
-                objfeats.push(parsed);
+                objfeats = [];
             }
             // console.log("*** DEBUG feats parsing: " + objfeats);
             _.each(objfeats, (obj) => {
@@ -10629,69 +10629,72 @@
         var meleecount = 0;
         var rangedcount = 0;
         _.each(objs, (obj) => {
-            var newrowid = generateRowID();
-            var repsec = "";
-            var type = ""
-            if(obj["Range"]) {
-                rangedcount++;
-                repsec = "repeating_npcatk-ranged_";
-                type = "ranged";
-                update[repsec + newrowid + "_atkrange"] = obj["Range"];
-            } else {
-                meleecount++;
-                repsec = "repeating_npcatk-melee_";
-                type = "melee";
-            }
-            if(obj["Name"]) { //atkname
+            if(obj["Name"]) {
+                var newrowid = generateRowID();
+                var repsec = "";
+                var type = ""
+                if(obj["Range"]) {
+                    rangedcount++;
+                    repsec = "repeating_npcatk-ranged_";
+                    type = "ranged";
+                    update[repsec + newrowid + "_atkrange"] = obj["Range"];
+                } else {
+                    meleecount++;
+                    repsec = "repeating_npcatk-melee_";
+                    type = "melee";
+                }
                 update[repsec + newrowid + "_atkname"] = obj["Name"];
                 update[repsec + newrowid + "_options-flag"] = 0;
-            }
-            if(obj["Attack Bonuses"]) { // atkmod -> atkmod9
-                if(obj["Attack Bonuses"].indexOf("/") == -1) {  // one attack
-                    update[repsec + newrowid + "_atkmod"] = obj["Attack Bonuses"].replace("+","").trim();
-                } else {  // multiple attacks, up to 9
-                    var atks = obj["Attack Bonuses"].split("/");
-                    update[repsec + newrowid + "_multipleatk_flag"] = 1;
-                    var i = 1;
-                    _.each(atks, (atk) => {
-                        update[repsec + newrowid + "_atkmod" + ((i > 1) ? i : "")] = atk.replace("+","").trim();
-                        i++;
-                    });
+                if(obj["Attack Bonuses"]) { // atkmod -> atkmod9
+                    var atkmodz = obj["Attack Bonuses"].replace(/[^\d\/\-]/gi, '');
+                    if(atkmodz.indexOf("/") == -1) {  // one attack
+                        update[repsec + newrowid + "_atkmod"] = atkmodz;
+                    } else {  // multiple attacks, up to 9
+                        var atks = atkmodz.split("/");
+                        update[repsec + newrowid + "_multipleatk_flag"] = 1;
+                        var i = 1;
+                        _.each(atks, (atk) => {
+                            update[repsec + newrowid + "_atkmod" + ((i > 1) ? i : "")] = atk;
+                            i++;
+                        });
+                    }
+                } else {
+                    update[repsec + newrowid + "_atkmod"] = "0";
                 }
+                if(obj["Critical Range"]) {
+                    update[repsec + newrowid + "_atkcritrange"] = parseInt(obj["Critical Range"]) || 20;
+                } else {
+                    update[repsec + newrowid + "_atkcritrange"] = 20;
+                }
+                if(obj["Damage 1"]) {
+                    update[repsec + newrowid + "_dmgflag"] = 1;
+                    update[repsec + newrowid + "_dmgbase"] = obj["Damage 1"];
+                }
+                if(obj["Damage 1 Notes or Type"]) {
+                    update[repsec + newrowid + "_dmgtype"] = obj["Damage 1 Notes or Type"];
+                }
+                if(obj["Damage 1 Critical Multiplier"]) {
+                    update[repsec + newrowid + "_dmgcritmulti"] = parseInt(obj["Damage 1 Critical Multiplier"].toLowerCase().replace("x","")) || 2;
+                }
+                if(obj["Damage 2"]) {
+                    update[repsec + newrowid + "_dmg2flag"] = 1;
+                    update[repsec + newrowid + "_dmg2base"] = obj["Damage 2"];
+                }
+                if(obj["Damage 2 Notes or Type"]) {
+                    update[repsec + newrowid + "_dmg2type"] = obj["Damage 2 Notes or Type"];
+                }
+                if(obj["Damage 2 Critical Multiplier"]) {
+                    update[repsec + newrowid + "_dmg2critmulti"] = parseInt(obj["Damage 2 Critical Multiplier"].toLowerCase().replace("x","")) || 2;
+                }
+                if(obj["Description"]) {
+                    update[repsec + newrowid + "_descflag"] = 1;
+                    update[repsec + newrowid + "_atkdesc"] = obj["Description"];
+                }
+                var tmpvalues = {};
+                _.extend(tmpvalues,values,update);
+                tmpvalues["npc"] = "1";
+                _.extend(update,calc_npc_attack(type,newrowid,tmpvalues));
             }
-            if(obj["Critical Range"]) {
-                update[repsec + newrowid + "_atkcritrange"] = parseInt(obj["Critical Range"]) || 20;
-            } else {
-                update[repsec + newrowid + "_atkcritrange"] = 20;
-            }
-            if(obj["Damage 1"]) {
-                update[repsec + newrowid + "_dmgflag"] = 1;
-                update[repsec + newrowid + "_dmgbase"] = obj["Damage 1"];
-            }
-            if(obj["Damage 1 Notes or Type"]) {
-                update[repsec + newrowid + "_dmgtype"] = obj["Damage 1 Notes or Type"];
-            }
-            if(obj["Damage 1 Critical Multiplier"]) {
-                update[repsec + newrowid + "_dmgcritmulti"] = parseInt(obj["Damage 1 Critical Multiplier"].toLowerCase().replace("x","")) || 2;
-            }
-            if(obj["Damage 2"]) {
-                update[repsec + newrowid + "_dmg2flag"] = 1;
-                update[repsec + newrowid + "_dmg2base"] = obj["Damage 2"];
-            }
-            if(obj["Damage 2 Notes or Type"]) {
-                update[repsec + newrowid + "_dmg2type"] = obj["Damage 2 Notes or Type"];
-            }
-            if(obj["Damage 2 Critical Multiplier"]) {
-                update[repsec + newrowid + "_dmg2critmulti"] = parseInt(obj["Damage 2 Critical Multiplier"].toLowerCase().replace("x","")) || 2;
-            }
-            if(obj["Description"]) {
-                update[repsec + newrowid + "_descflag"] = 1;
-                update[repsec + newrowid + "_atkdesc"] = obj["Description"];
-            }
-            var tmpvalues = {};
-            _.extend(tmpvalues,values,update);
-            tmpvalues["npc"] = "1";
-            _.extend(update,calc_npc_attack(type,newrowid,tmpvalues));
         });
         if(! _.isEmpty(update)) {
             update["meleeattacks_flag"] = (meleecount > 0) ? 1 : 0;
@@ -10721,10 +10724,12 @@
             }
             if(obj["Attack Bonus"]) { // atkmod
                 update[repsec + newrowid + "_atkflag"] = "{{attack=1}}{{roll=[[1d20cs>@{atkcritrange}+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}{{critconfirm=[[1d20cs20+@{atkmod}[MOD]+@{rollmod_attack}[BONUS]]]}}";
-                update[repsec + newrowid + "_atkmod"] = obj["Attack Bonus"].replace("+","").trim();
+                update[repsec + newrowid + "_atkmod"] = obj["Attack Bonus"].replace(/[^\d\-]/gi, '');
+            } else {
+                update[repsec + newrowid + "_atkflag"] = "0";
             }
             if(obj["Critical Range"]) {
-                update[repsec + newrowid + "_atkcritrange"] = parseInt(obj["Critical Range"]) || 20;
+                update[repsec + newrowid + "_atkcritrange"] = parseInt(obj["Critical Range"].replace(/[^\d]/gi, '')) || 20;
             } else {
                 update[repsec + newrowid + "_atkcritrange"] = 20;
             }
@@ -10741,11 +10746,20 @@
                 update[repsec + newrowid + "_atkeffect"] = obj["Effect"];
             }
             if(obj["Saving Throw"]) {
-                update[repsec + newrowid + "_atksaveflag"] = "{{save=1}}{{savedc=@{atkdc}}}{{saveeffect=@{atksave}}}";
                 update[repsec + newrowid + "_atksave"] = obj["Saving Throw"];
+                if(obj["Saving Throw"].toLowerCase().trim() == "none") {
+                    update[repsec + newrowid + "_atksaveflag"] = "0";
+                } else {
+                    update[repsec + newrowid + "_atksaveflag"] = "{{save=1}}{{savedc=@{atkdc}}}{{saveeffect=@{atksave}}}";
+                }
+            } else {
+                update[repsec + newrowid + "_atksave"] = " ";
             }
             if(obj["Saving Throw DC"]) {
-                update[repsec + newrowid + "_atkdc"] = parseInt(obj["Saving Throw DC"]) || 0;
+                if(! update[repsec + newrowid + "_atksaveflag"]) {
+                    update[repsec + newrowid + "_atksaveflag"] = "{{save=1}}{{savedc=@{atkdc}}}{{saveeffect=@{atksave}}}";
+                }
+                update[repsec + newrowid + "_atkdc"] = parseInt(obj["Saving Throw DC"].replace(/[^\d\-]/gi, '')) || 0;
             }
             if(obj["Damage 1"]) {
                 update[repsec + newrowid + "_dmgflag"] = "{{damage=1}}{{dmg1flag=1}}{{dmg1=[[@{dmgbase}[MOD]+@{rollmod_damage}[BONUS]]]}}{{dmg1type=@{dmgtype}}}{{dmg1crit=[[(@{dmgbase}[MOD]+@{rollmod_damage}[BONUS])*@{dmgcritmulti}]]}}";
@@ -10864,11 +10878,14 @@
                             } else {
                                 update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
                             }
-                            if(obj.dc) {
-                                update[repsec + newrowid + "_spelldc_mod"] = parseInt(obj.dc) || 0;
-                            }
                         } else {
-                            update[repsec + newrowid + "_spellsaveflag"] = 0;
+                            update[repsec + newrowid + "_spellsave"] = " ";
+                        }
+                        if(obj.dc) {
+                            if(! update[repsec + newrowid + "_spellsaveflag"]) {
+                                update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
+                            }
+                            update[repsec + newrowid + "_spelldc_mod"] = parseInt(String(obj.dc).replace(/[^\d]/gi, '')) || 0;
                         }
                         if(cdata.data["Spell Resistance"]) {
                             update[repsec + newrowid + "_spellresistance"] = cdata.data["Spell Resistance"];
@@ -10973,11 +10990,14 @@
                             } else {
                                 update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
                             }
-                            if(obj["DC"]) {
-                                update[repsec + newrowid + "_spelldc_mod"] = parseInt(obj["DC"]) || 0;
-                            }
                         } else {
-                            update[repsec + newrowid + "_spellsaveflag"] = 0;
+                            update[repsec + newrowid + "_spellsave"] = " ";
+                        }
+                        if(obj["DC"]) {
+                            if(! update[repsec + newrowid + "_spellsaveflag"]) {
+                                update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
+                            }
+                            update[repsec + newrowid + "_spelldc_mod"] = parseInt(obj["DC"].replace(/[^\d]/gi, '')) || 0;
                         }
                         if(cdata.data["Spell Resistance"]) {
                             update[repsec + newrowid + "_spellresistance"] = cdata.data["Spell Resistance"];
