@@ -1965,9 +1965,14 @@ input.sheet-tabconf:checked + span{
 }
 
 /* ===== MANCER ===== */
-
 .sheet-charmancer {
     padding: 0px;
+}
+
+.sheet-charmancer .sheet-flexrow {
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
 }
 
 .sheet-charmancer select {
@@ -1982,7 +1987,10 @@ input.sheet-tabconf:checked + span{
     display: inline;
     margin-right: 4px;
 }
-
+.sheet-charmancer label.sheet-subrow {
+    border-top: 1px dashed #999;
+    margin-top: 2px;
+}
 .sheet-charmancer.sheet-container {
     width: 100%;
     display: flex;
@@ -2172,12 +2180,31 @@ input.sheet-tabconf:checked + span{
     /* margin: 0 -1em 0 -.5em; */
     padding: 2px;
 }
-.sheet-charmancer .sheet-race_traits b {
+.sheet-charmancer .sheet-row:last-child {
+    border-width: 1px 1px 1px 1px;
+}
+
+.sheet-charmancer .sheet-race_traits,
+.sheet-charmancer .sheet-class_traits,
+.sheet-charmancer .sheet-subclass1_traits,
+.sheet-charmancer .sheet-subclass1_powers,
+.sheet-charmancer .sheet-subclass2_traits,
+.sheet-charmancer .sheet-subclass2_powers {
+    color: #404040;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+}
+.sheet-charmancer .sheet-race_traits b,
+.sheet-charmancer .sheet-class_traits b,
+.sheet-charmancer .sheet-subclass1_traits b,
+.sheet-charmancer .sheet-subclass1_powers b,
+.sheet-charmancer .sheet-subclass2_traits b,
+.sheet-charmancer .sheet-subclass2_powers b {
     display: block;
 }
-.sheet-charmancer .sheet-race_traits b + b {
+/* .sheet-charmancer .sheet-race_traits b + b {
     margin-top: .5em;
-}
+} */
 .sheet-charmancer select {
     margin-bottom: 0;
 }
@@ -2192,6 +2219,12 @@ input.sheet-tabconf:checked + span{
     font-weight: bold;
     font-size: inherit;
     color: inherit;
+    font-family: sans-serif;
+}
+.sheet-charmancer label.sheet-subrow span.sheet-title {
+    font-weight: bold;
+    font-size: inherit;
+    color: #999;
     font-family: sans-serif;
 }
 .sheet-charmancer label,
@@ -2256,21 +2289,18 @@ input.sheet-tabconf:checked + span{
     display: flex;
 }
 .sheet-charmancer button.sheet-mancer {
-    padding: 2px 4px 2px 4px;
-    height: 30px;
     border-radius: 4px;
     font-family: "Times New Roman";
-    font-size: 1.2em;
-    line-height: 1.0em;
     background: black;
     color: white;
     font-weight: bold;
-    vertical-align: top;
+    padding: 0px 2px 0px 2px;
+    font-size: 1.1em;
 }
 .sheet-charmancer button.sheet-mancer.sheet-d6:before {
     font-family: "dicefontd6";
     content: "f";
-    font-size: 1.5em;
+    font-size: 1.3em;
     line-height: 1.0em;
     margin: 0px 2px 0px 2px;
     font-weight: normal;
@@ -2295,6 +2325,43 @@ input.sheet-tabconf:checked + span{
     color: black;
     background: none;
 }
+
+.sheet-charmancer .sheet-skillitem {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    /* border-bottom: 1px dotted #BBB; */
+}
+.sheet-charmancer .sheet-skillitem:nth-child(even) {
+    background: #DDD;
+}
+.sheet-charmancer .sheet-skillitem:first-child{
+    margin-top: 10px;
+}
+.sheet-charmancer .sheet-skillitem .sheet-lab {
+    font-weight: bold;
+}
+.sheet-charmancer .sheet-skillitem .sheet-name_skill {
+    width: 190px;
+}
+.sheet-charmancer .sheet-skillitem .sheet-class_skill {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+.sheet-charmancer .sheet-skillitem .sheet-bonus_skill {
+    width: 35px;
+    text-align: right;
+}
+.sheet-charmancer .sheet-skillitem .sheet-total_skill {
+    width: 30px;
+    text-align: right;
+    font-weight: bold;
+    padding-right: 3px;
+}
+
 .sheet-charmancer .sheet-abilities_radio_strength,
 .sheet-charmancer .sheet-abilities_radio_dexterity,
 .sheet-charmancer .sheet-abilities_radio_constitution,
