@@ -9099,7 +9099,7 @@
     });
 
     // === Mancer handling
-    on("mancer:cancel", function(eventinfo) {
+    on("mancer:cancel", (eventinfo) => {
         if(!eventinfo["value"]) {return;};
         var update = {};
 
@@ -9113,18 +9113,658 @@
         };
         setAttrs(update);
     });
-    on("clicked:cancel", function() {
+    on("clicked:cancel", () => {
         showChoices(["cancel-prompt"]);
         // console.log(getCharmancerData());
         // console.log(recalcData());
     });
-    on("clicked:continue", function() {
+    on("clicked:continue", () => {
         hideChoices(["cancel-prompt"]);
+    });
+    on("mancerfinish:l1-mancer", (eventinfo) => {
+        // === VARIABLES ===
+        // console.log("*** Mancer finish: " + JSON.stringify(eventinfo,null,"  "));
+        const mncrAbilities = pfoglobals_abilities;
+        const mncrGetList = true;
+        var mancerdata = eventinfo.data;
+        var charUpd = {};
+        var bRaceData = false;
+        var bClassData = false;
+        var FeatsToLoad = [];
+        var SpellsToLoad = [];
+        var allSpells = [];
+        var allTraits = [];
+        var allPowers = [];
+        var allClassSkills = "";
+        var allSkillBonus = "";
+        var skillBonusNotes = {};
+        var finalspeed = 0;
+
+        // === INIT ===
+        charUpd["npc"] = 0;
+        charUpd["tabcurrent"] = "tabmain";
+        charUpd["l1mancer_status"] = "completed";
+        var toResetAsChar = ["languages","ac_notes","fortitude_notes","reflex_notes","will_notes","caster1_spells_notes","initiative_notes","speed_notes"];
+        toResetAsChar = toResetAsChar.concat(pfoglobals_skill_list.map((sk) => sk + "_notes"));
+        toResetAsChar = toResetAsChar.concat(pfoglobals_abilities.map((sk) => sk + "_notes"));
+        _.each(toResetAsChar,(attr) => {
+            charUpd[attr] = "";
+        });
+        var toResetAsZero = ["initiative_misc"];
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_ranks"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_misc"));
+        _.each(toResetAsZero,(attr) => {
+            charUpd[attr] = 0;
+        });
+
+        // === FUNCTIONS ===
+        var calc_abilities = function(data) {
+            var abilities_scores = {};
+            // --- Preparing ability scores detailed array
+            _.each(mncrAbilities, (ability) => {
+                abilities_scores[ability] = {"total": 0, "base":"0","race":"0","class":"0","subclass":"0","misc":"0"};
+            });
+            // --- Abilities base
+            if(data["l1-abilities"]) {
+                _.each(mncrAbilities, function(ability) {
+                    if(data["l1-abilities"].values[ability]) {
+                        abilities_scores[ability].base = parseInt(data["l1-abilities"].values[ability]) || 0;
+                    }
+                });
+            }
+            // --- Abilities race
+            if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race && data["l1-race"].data.race["data-Ability Score Modifiers"]) {
+                _.each(data["l1-race"].data.race["data-Ability Score Modifiers"].split(","), (modifier) => {
+                    var abrace = modifier.trim().toLowerCase();
+                    if(abilities_scores[abrace.split(" ")[0].trim()]) {
+                        abilities_scores[abrace.split(" ")[0].trim()].race = parseInt(abrace.split(" ")[1]) || 0;
+                    }
+                    else {
+                        console.log("*** DEBUG ERROR ability race unsplitable: " + abrace);
+                    }
+                });
+            } else if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race && data["l1-race"].data.race["data-Ability Score Choice"] && data["l1-race"].values["race_ability_choice1"]) {
+                abilities_scores[data["l1-race"].values["race_ability_choice1"]].race = parseInt(data["l1-race"].data.race["data-Ability Score Choice"].split("+")[1]) || 0;
+            }
+            // --- Abilities class
+            // --- Abilities subclass
+            if(data["l1-class"] && data["l1-class"].values.class_subclass1_ability_choice) {
+                var sbclsablt = data["l1-class"].values.class_subclass1_ability_choice.split("(")[0].toLowerCase().trim();
+                var sbclsabltvalue = data["l1-class"].values.class_subclass1_ability_choice.split("(")[1].replace(/[^\d\-]/gi, "");
+                abilities_scores[sbclsablt].subclass = parseInt(sbclsabltvalue) || 0;
+            }
+            // --- Abilities misc
+            // Final abilities calculation
+            _.each(mncrAbilities, (ability) => {
+                abilities_scores[ability].total = (parseInt(abilities_scores[ability].base) || 0) + (parseInt(abilities_scores[ability].race) || 0) + (parseInt(abilities_scores[ability].class) || 0) + (parseInt(abilities_scores[ability].subclass) || 0) + (parseInt(abilities_scores[ability].misc) || 0);
+            });
+            return abilities_scores;
+        };
+        var calc_abilities_mod = function(abilities_scores) {
+            var ability_mods = {};
+            _.each(mncrAbilities, (ability) => {
+                ability_mods[ability] = Math.floor(((parseInt(abilities_scores[ability].total) || 10) - 10) / 2);
+            });
+            return ability_mods;
+        };
+
+        // === 1.ABILITIES ===
+        setCharmancerText({"mancer_category":"Calculating Abilities","mancer_progress" :'<div style="width: 8%"></div>'});
+        var abilities_score = calc_abilities(mancerdata);
+        var ability_mods = calc_abilities_mod(abilities_score);
+        _.each(mncrAbilities, (ablt) => {
+            charUpd[ablt + "_base"] = parseInt(abilities_score[ablt].total) - parseInt(abilities_score[ablt].race);
+            charUpd[ablt + "_race"] = parseInt(abilities_score[ablt].race);
+            charUpd[ablt + "_mod"] = parseInt(ability_mods[ablt]);
+        });
+
+        // === 2.RACE ===
+        setCharmancerText({"mancer_category":"Applying Race","mancer_progress" :'<div style="width: 16%"></div>'});
+        if(mancerdata["l1-race"] && mancerdata["l1-race"].values.race) {
+            // Variables
+            charUpd["race"] = mancerdata["l1-race"].values.race.replace("Races:","");
+            // Static data
+            if(mancerdata["l1-race"].data && mancerdata["l1-race"].data.race) {
+                bRaceData = true;
+                // Size
+                charUpd["size"] = mancerdata["l1-race"].data.race["data-Size"].toLowerCase().trim();
+                // Speed
+                if(mancerdata["l1-race"].data.race["data-Race Speed"]) {
+                    finalspeed += parseInt(mancerdata["l1-race"].data.race["data-Race Speed"]) || 0;
+                }
+                if(mancerdata["l1-race"].data.race["data-Speed Not Modified"]) {
+                    charUpd["speed_notmodified"] = 1;
+                }
+                // Senses
+                if(mancerdata["l1-race"].data.race["data-Senses"]) {
+                    charUpd["senses"] = mancerdata["l1-race"].data.race["data-Senses"];
+                }
+                // Lanuages
+                if(mancerdata["l1-race"].data.race["data-Languages"]) {
+                    charUpd["languages"] += mancerdata["l1-race"].data.race["data-Languages"] + " ";
+                }
+                // AC notes
+                if(mancerdata["l1-race"].data.race["data-AC Notes"]) {
+                    charUpd["ac_notes"] = mancerdata["l1-race"].data.race["data-AC Notes"];
+                }
+                // Fortitude notes
+                if(mancerdata["l1-race"].data.race["data-Fortitude Notes"]) {
+                    charUpd["fortitude_notes"] += mancerdata["l1-race"].data.race["data-Fortitude Notes"] + " ";
+                }
+                // Reflex notes
+                if(mancerdata["l1-race"].data.race["data-Reflex Notes"]) {
+                    charUpd["reflex_notes"] += mancerdata["l1-race"].data.race["data-Reflex Notes"] + " ";
+                }
+                // Will notes
+                if(mancerdata["l1-race"].data.race["data-Will Notes"]) {
+                    charUpd["will_notes"] += mancerdata["l1-race"].data.race["data-Will Notes"] + " ";
+                }
+                // Skill notes
+                if(mancerdata["l1-race"].data.race["data-Skill Notes"]) {
+                    if(mancerdata["l1-race"].data.race["data-Skill Notes"].indexOf(":") != -1) {
+                        charUpd[mancerdata["l1-race"].data.race["data-Skill Notes"].split(":")[0].toLowerCase().trim() + "_notes"] += mancerdata["l1-race"].data.race["data-Skill Notes"].split(":")[1].trim();
+                    }
+                }
+                // Skill bonus
+                if(mancerdata["l1-race"].data.race["data-Skills Bonus"]) {
+                    allSkillBonus += mancerdata["l1-race"].data.race["data-Skills Bonus"] + ",";
+                    if(skillBonusNotes[mancerdata["l1-race"].values.race.replace("Races:","")]) {
+                        skillBonusNotes[mancerdata["l1-race"].values.race.replace("Races:","")] += mancerdata["l1-race"].data.race["data-Skills Bonus"] + ",";
+                    } else {
+                        skillBonusNotes[mancerdata["l1-race"].values.race.replace("Races:","")] = mancerdata["l1-race"].data.race["data-Skills Bonus"] + ",";
+                    }
+                }
+                if(mancerdata["l1-race"].values.race_skill_bonus_choice) {
+                    allSkillBonus += mancerdata["l1-race"].values.race_skill_bonus_choice + ",";
+                    if(skillBonusNotes[mancerdata["l1-race"].values.race.replace("Races:","")]) {
+                        skillBonusNotes[mancerdata["l1-race"].values.race.replace("Races:","")] += mancerdata["l1-race"].values.race_skill_bonus_choice + ",";
+                    } else {
+                        skillBonusNotes[mancerdata["l1-race"].values.race.replace("Races:","")] = mancerdata["l1-race"].values.race_skill_bonus_choice + ",";
+                    }
+                }
+                // Feats
+                if(mancerdata["l1-race"].values.race_feat_choice) {
+                    FeatsToLoad.push(mancerdata["l1-race"].values.race_feat_choice);
+                } else if(mancerdata["l1-race"].data.race["data-Feats"]) {
+
+                }
+                // Spell-like abilities
+                if(mancerdata["l1-race"].data.race["data-Spell-like abilities"]) {
+                    let splabz = "";
+                    if(mancerdata["l1-race"].data.race["data-Spell-like abilities prerequisites"]) {
+                        let ablt = (mancerdata["l1-race"].data.race["data-Spell-like abilities prerequisites"].split(" ")[0] || "").trim().toLowerCase();
+                        let minv = parseInt((mancerdata["l1-race"].data.race["data-Spell-like abilities prerequisites"].split(" ")[1] || "").trim().toLowerCase()) || 99;
+                        if( (parseInt(abilities_score[ablt].total) || 0) >= minv )  {
+                            splabz = mancerdata["l1-race"].data.race["data-Spell-like abilities"];
+                        }
+                    } else {
+                        splabz = mancerdata["l1-race"].data.race["data-Spell-like abilities"];
+                    }
+                    if(splabz.length) {
+                        charUpd["caster1_flag"] = 1;
+                        charUpd["caster_flag"] = 1;
+                        _.each(splabz.split(","), (splab) => {
+                            let pawa = {};
+                            pawa["Name"] = splab.trim();
+                            pawa["Type"] = "Sp";
+                            pawa["Spell-like"] = true;
+                            pawa["Spell-source"] = splab.trim();
+                            allPowers.push(pawa);
+                            SpellsToLoad.push("Spells:" + splab.trim());
+                        });
+                    }
+                }
+                // Traits
+                if(mancerdata["l1-race"].data.race["data-Traits"]) {
+                    _.each(mancerdata["l1-race"].data.race["data-Traits"], (trait) => {
+                        if(! trait["Type"]) {
+                            trait["Type"] = getTranslationByKey("race");
+                        }
+                        allTraits.push(trait);
+                    });
+                }
+            }
+        }
+
+        // === 3.CLASS ===
+        setCharmancerText({"mancer_category":"Applying Class","mancer_progress" :'<div style="width: 24%"></div>'});
+        charUpd["level"] = 1;
+        charUpd["class1_level"] = 1;
+        if(mancerdata["l1-class"] && mancerdata["l1-class"].values.class) {
+            // Variables
+            charUpd["class1_name"] = mancerdata["l1-class"].values.class.replace("Classes:","");
+            charUpd["class"] = charUpd["class1_name"] + " 1";
+            // Alignment
+            if(mancerdata["l1-class"].values.alignment_choice) {
+                charUpd["alignment"] = mancerdata["l1-class"].values.alignment_choice.toLowerCase();
+            }
+            // Static data
+            if(mancerdata["l1-class"].data && mancerdata["l1-class"].data.class) {
+                bClassData = true;
+                // Hit Die
+                if(mancerdata["l1-class"].data.class["data-Hit Die"]) {
+                    charUpd["class1_hitdietype"] = mancerdata["l1-class"].data.class["data-Hit Die"].toLowerCase().replace("d","");
+                    charUpd["hitdietype"] = charUpd["class1_hitdietype"];
+                    charUpd["hp_base"] = (parseInt(charUpd["class1_hitdietype"]) || 0) + (parseInt(ability_mods["constitution"]) || 0);
+                    charUpd["hp_base_max"] = charUpd["hp_base"];
+                    charUpd["hp"] = charUpd["hp_base"];
+                    charUpd["hp_max"] = charUpd["hp_base"];
+                }
+                // Class skills
+                if(mancerdata["l1-class"].data.class["data-Class skills"]) {
+                    allClassSkills += mancerdata["l1-class"].data.class["data-Class skills"] + ",";
+                }
+                // Skill Bonus
+                if(mancerdata["l1-class"].data.class["data-Skills bonus"]) {
+                    allSkillBonus += mancerdata["l1-class"].data.class["data-Skills bonus"] + ",";
+                    if(skillBonusNotes[mancerdata["l1-class"].values.class.replace("Classes:","")]) {
+                        skillBonusNotes[mancerdata["l1-class"].values.class.replace("Classes:","")] += mancerdata["l1-class"].data.class["data-Skills bonus"] + ",";
+                    } else {
+                        skillBonusNotes[mancerdata["l1-class"].values.class.replace("Classes:","")] = mancerdata["l1-class"].data.class["data-Skills bonus"] + ",";
+                    }
+                }
+                // Wealth
+                if(mancerdata["l1-class"].values["class_wealth"] && mancerdata["l1-class"].values["class_wealth"] == "starting" && mancerdata["l1-class"].values["class_gp"]) {
+                    charUpd["money_gp"] = parseInt(mancerdata["l1-class"].values["class_gp"]) || 0;
+                } else if(mancerdata["l1-class"].data.class["data-Average Wealth"]) {
+                    charUpd["money_gp"] = parseInt(mancerdata["l1-class"].data.class["data-Average Wealth"].replace("gp","").trim()) || 0;
+                }
+                // BAB
+                if(mancerdata["l1-class"].data.class["data-Base Attack Bonus"]) {
+                    charUpd["class1_bab"] = parseInt(mancerdata["l1-class"].data.class["data-Base Attack Bonus"]) || 0;
+                    charUpd["bab"] = charUpd["class1_bab"];
+                }
+                // Saves => at saves below
+                // Speeb Bonus
+                if(mancerdata["l1-class"].data.class["data-Speed bonus"]) {
+                    finalspeed += parseInt(mancerdata["l1-class"].data.class["data-Speed bonus"]) || 0;
+                    charUpd["speed_notes"] += "+" + mancerdata["l1-class"].data.class["data-Speed bonus"] + " (" + charUpd["class1_name"] + ") ";
+                }
+                // AC Secondary Ability
+                if(mancerdata["l1-class"].data.class["data-AC Secondary Ability"]) {
+                    charUpd["ac_ability_secondary"] = mancerdata["l1-class"].data.class["data-AC Secondary Ability"].toLowerCase();
+                    // Special cases
+                    if(charUpd["class1_name"] == "Monk") {
+                        charUpd["ac_secab_monk"] = 1;
+                    }
+                }
+                // Spellcasting
+                if(mancerdata["l1-class"].data.class["data-Spellcaster"]) {
+                    charUpd["caster1_flag"] = 1;
+                    charUpd["caster_flag"] = 1;
+                    charUpd["caster1_class"] = charUpd["class1_name"];
+                    // Spellcaster Level
+                    if(mancerdata["l1-class"].data.class["data-Spellcaster Level"]) {
+                        charUpd["caster1_level"] = parseInt(mancerdata["l1-class"].data.class["data-Spellcaster Level"]) || 0;
+                    } else {
+                        charUpd["caster1_level"] = 0;
+                    }
+                    // Spellcasting ability
+                    if(mancerdata["l1-class"].data.class["data-Spellcasting ability"]) {
+                        charUpd["caster1_ability"] = mancerdata["l1-class"].data.class["data-Spellcasting ability"].toLowerCase().trim();
+                    } else {
+                        charUpd["caster1_ability"] = "intelligence";
+                    }
+                    // Spell failure
+                    if(mancerdata["l1-class"].data.class["data-Magic Type"]) {
+                        charUpd["caster1_spell_failure"] = mancerdata["l1-class"].data.class["data-Magic Type"].toLowerCase() == "arcane" ? 1 : 0;
+                    }
+                    // Spells Per Day
+                    if(mancerdata["l1-class"].data.class["data-Spells Per Day"]) {
+                        let i = -1;
+                        _.each(mancerdata["l1-class"].data.class["data-Spells Per Day"].split(","),(qty) => {
+                            i++;
+                            charUpd["caster1_spells_perday_level_" + i] = parseInt(qty.trim()) || 0;;
+                            charUpd["caster1_spells_total_level_" + i] = charUpd["caster1_spells_perday_level_" + i];
+                            charUpd["caster_spells_flag_level_" + i] = 1;
+                        });
+                    }
+                    // Bonus Spells
+                    let spellablt = parseInt(abilities_score[charUpd["caster1_ability"]].total) || 10;
+                    if(spellablt > 11 && spellablt < 20) {
+                        charUpd["caster1_spells_bonus_level_1"] = 1;
+                    } else if(spellablt > 19) {
+                        charUpd["caster1_spells_bonus_level_1"] = 2;
+                    } else {
+                        charUpd["caster1_spells_bonus_level_1"] = 0;
+                    }
+                    charUpd["caster1_spells_total_level_1"] = (parseInt(charUpd["caster1_spells_total_level_1"]) || 0) + parseInt(charUpd["caster1_spells_bonus_level_1"]);
+                    // Spells known
+                    if(mancerdata["l1-class"].data.class["data-Spells Known"]) {
+                        let i = -1;
+                        _.each(mancerdata["l1-class"].data.class["data-Spells Known"].split(","),(qty) => {
+                            i++;
+                            charUpd["caster1_spells_known_level_" + i] = parseInt(qty.trim()) || 0;
+                            charUpd["caster_spells_flag_level_" + i] = 1;
+                        });
+                    }
+                    // Spell-like abilities
+                    if(mancerdata["l1-class"].data.class["data-Spell-like abilities"]) {
+                        _.each(mancerdata["l1-class"].data.class["data-Spell-like abilities"].split(","), (splab) => {
+                            let pawa = {};
+                            pawa["Name"] = splab.trim();
+                            pawa["Type"] = "Sp";
+                            pawa["Spell-like"] = true;
+                            pawa["Spell-source"] = splab.trim();
+                            allPowers.push(pawa);
+                            SpellsToLoad.push("Spells:" + splab.trim());
+                        });
+                    }
+                }
+                // Languages
+                if(mancerdata["l1-class"].data.class["data-Languages"]) {
+                    charUpd["languages"] += mancerdata["l1-class"].data.class["data-Languages"] + " ";
+                }
+                // Feats
+                if(mancerdata["l1-class"].data.class["data-Bonus Feats"]) {
+                    _.each(mancerdata["l1-class"].data.class["data-Bonus Feats"].split(","),(feat) => {
+                        FeatsToLoad.push("Feats:" + feat.trim());
+                    });
+                }
+                if(mancerdata["l1-class"].values.class_feat_choice) {
+                    FeatsToLoad.push(mancerdata["l1-class"].values.class_feat_choice);
+                }
+                // Traits
+                if(mancerdata["l1-class"].data.class["data-Traits"]) {
+                    allTraits = allTraits.concat(mancerdata["l1-class"].data.class["data-Traits"]);
+                }
+            }
+            // === SUBCLASS(ES)
+            for(var subcls = 1; subcls < 3; subcls++) {
+                if(mancerdata["l1-class"].values["class_subclass" + subcls]) {
+                    charUpd["caster1_spells_notes"] += mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","") + ", ";
+                    if(mancerdata["l1-class"].data["class_subclass" + subcls]) {
+                        // Ability bonus
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Ability bonus choice"]) {
+                            // TODO
+                        }
+                        //Saving Throw bonus
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Saving Throws bonus"]) {
+                            charUpd["fortitude_notes"] += mancerdata["l1-class"].data["class_subclass" + subcls]["data-Saving Throws bonus"] + " (" + mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","") + "). ";
+                            charUpd["reflex_notes"] += charUpd["fortitude_notes"];
+                            charUpd["will_notes"] += charUpd["fortitude_notes"];
+                        }
+                        // Initiative bonus
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Initiative Bonus"]) {
+                            charUpd["initiative_misc"] += (parseInt(charUpd["initiative_misc"]) || 0) + (parseInt(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Initiative Bonus"]) || 0);
+                            charUpd["initiative_notes"] += "+" + mancerdata["l1-class"].data["class_subclass" + subcls]["data-Initiative Bonus"] + " (" + mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","") + "). ";
+                        }
+                        // Speed Bonus //  => speed notes
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"]) {
+                            finalspeed += parseInt(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"]) || 0;
+                            charUpd["speed_notes"] += "+" + mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"] + " (" + mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","") + ") ";
+                        }
+                        // Class skills
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Class skills"]) {
+                            allClassSkills += mancerdata["l1-class"].data["class_subclass" + subcls]["data-Class skills"] + ",";
+                        }
+                        // Skill bonus
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Skills bonus"]) {
+                            allSkillBonus += mancerdata["l1-class"].data["class_subclass" + subcls]["data-Skills bonus"] + ",";
+                            if(skillBonusNotes[mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","")]) {
+                                skillBonusNotes[mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","")] += mancerdata["l1-class"].data["class_subclass" + subcls]["data-Skills bonus"] + ",";
+                            } else {
+                                skillBonusNotes[mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","")] = mancerdata["l1-class"].data["class_subclass" + subcls]["data-Skills bonus"] + ",";
+                            }
+                        }
+                        // Bonus Feat(s)
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Bonus Feat"]) {
+                            _.each(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Bonus Feat"].split(","),(feat) => {
+                                FeatsToLoad.push("Feats:" + feat.trim());
+                            });
+                        }
+                        // Domain Spell
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Domain Spells Level 1"]) {
+                            _.each(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Domain Spells Level 1"].split(","),(spell) => {
+                                let spl = {};
+                                spl["name"] = spell.trim();
+                                spl["level"] = 1;
+                                spl["domain"] = true;
+                                allSpells.push(spl);
+                                SpellsToLoad.push("Spells:" + spell.trim());
+                            });
+                        }
+                        // Traits
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Traits"]) {
+                            allTraits = allTraits.concat(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Traits"]);
+                        }
+                        // Powers
+                        if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Powers"]) {
+                            allPowers = allPowers.concat(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Powers"]);
+                            _.each(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Powers"], (pawa) => {
+                                if(pawa["Spell-source"]) {
+                                    SpellsToLoad.push("Spells:" + pawa["Spell-source"]);
+                                }
+                            });
+                        }
+                    }
+                }
+            }
+        }
+
+        // === 4.SPEED ===
+        setCharmancerText({"mancer_category":"Calculation Speed","mancer_progress" :'<div style="width: 32%"></div>'});
+        charUpd["speed_race"] = finalspeed;
+
+        // === 5.SAVES ===
+        setCharmancerText({"mancer_category":"Calculation Saving Throws","mancer_progress" :'<div style="width: 40%"></div>'});
+        var saves_array = [{"name": "fortitude","ability": "constitution"},{"name": "reflex","ability": "dexterity"},{"name": "will","ability": "wisdom"}];
+        var saves_scores = {};
+        // --- Preparing saves detailed array
+        _.each(saves_array, (save) => {
+            saves_scores[save.name] = {"total":0,"base":0,"race":0,"class":0,"subclass":0,"misc":0, "ability": save.ability};
+        });
+        // --- Abilities bonus
+        if(mancerdata["l1-abilities"]) {
+            _.each(saves_array, function(save) {
+                saves_scores[save.name].base = ability_mods[save.ability];
+            });
+        }
+        // --- Saves race
+        if(bRaceData) {
+            _.each(saves_array, (save) => {
+                if(mancerdata["l1-race"].data.race["data-" + save.name.charAt(0).toUpperCase() + save.name.slice(1) + " Bonus"]) {
+                    saves_scores[save.name].race = (parseInt(mancerdata["l1-race"].data.race["data-" + save.name.charAt(0).toUpperCase() + save.name.slice(1) + " Bonus"]) || 0);
+                    charUpd[save.name + "_notes"] += "+" + saves_scores[save.name].race + " (" + charUpd["race"] + "). ";
+                }
+            });
+        }
+        // --- Saves class
+        if(bClassData) {
+            if(mancerdata["l1-class"].data.class["data-Fortitude"]) {
+                saves_scores["fortitude"].class = parseInt(mancerdata["l1-class"].data.class["data-Fortitude"]) || 0;
+            }
+            if(mancerdata["l1-class"].data.class["data-Reflex"]) {
+                saves_scores["reflex"].class = parseInt(mancerdata["l1-class"].data.class["data-Reflex"]) || 0;
+            }
+            if(mancerdata["l1-class"].data.class["data-Will"]) {
+                saves_scores["will"].class = parseInt(mancerdata["l1-class"].data.class["data-Will"]) || 0;
+            }
+        }
+        // --- Saves subclass
+        var subclsvbonus = 0;
+        if(mancerdata["l1-class"].values.class_subclass1) {
+            if(mancerdata["l1-class"].data && mancerdata["l1-class"].data.class_subclass1 && mancerdata["l1-class"].data.class_subclass1["data-Saving Throws bonus"]) {
+                subclsvbonus = parseInt(mancerdata["l1-class"].data.class_subclass1["data-Saving Throws bonus"].replace(/[^\d\-]/gi, "")) || 0;
+                _.each(saves_array, (save) => {
+                    saves_scores[save.name].subclass = parseInt(saves_scores[save.name].subclass) + subclsvbonus;
+                });
+            }
+        }
+        if(mancerdata["l1-class"].values.class_subclass2) {
+            if(mancerdata["l1-class"].data && mancerdata["l1-class"].data.class_subclass2 && mancerdata["l1-class"].data.class_subclass2["data-Saving Throws bonus"]) {
+                subclsvbonus = parseInt(mancerdata["l1-class"].data.class_subclass2["data-Saving Throws bonus"].replace(/[^\d\-]/gi, "")) || 0;
+                _.each(saves_array, (save) => {
+                    saves_scores[save.name].subclass = parseInt(saves_scores[save.name].subclass) + subclsvbonus;
+                });
+            }
+        }
+        // --- Saves misc
+        // Final Saves calculation
+        _.each(saves_array, (save) => {
+            saves_scores[save.name].total = (parseInt(saves_scores[save.name].base) || 0) + (parseInt(saves_scores[save.name].race) || 0) + (parseInt(saves_scores[save.name].class) || 0) + (parseInt(saves_scores[save.name].subclass) || 0) + (parseInt(saves_scores[save.name].misc) || 0);
+            charUpd["class1_" + save.name] = (parseInt(saves_scores[save.name].class) || 0) + (parseInt(saves_scores[save.name].subclass) || 0);
+            charUpd[save.name + "_base"] = charUpd["class1_" + save.name];
+            charUpd[save.name + "_ability_mod"] = saves_scores[save.name].base;
+            charUpd[save.name + "_misc"] = (parseInt(saves_scores[save.name].race) || 0) + (parseInt(saves_scores[save.name].misc) || 0);
+            charUpd[save.name] = saves_scores[save.name].total;
+        });
+
+        // === 6.SKILLS
+        setCharmancerText({"mancer_category":"Calculation Skills","mancer_progress" :'<div style="width: 48%"></div>'});
+        // Class skills
+        if(allClassSkills.length) {
+            _.each(allClassSkills.split(","), (cls) => {
+                if(cls.trim().toLowerCase().replace(/[^a-z\s]/gi, "").replace(/\s/gi,"_").length) {
+                    charUpd[cls.trim().toLowerCase().replace(/[^a-z\s]/gi, "").replace(/\s/gi,"_") + "_classkill"] = 1;
+                }
+            });
+        }
+        // Bonus
+        if(allSkillBonus.length) {
+            _.each(allSkillBonus.split(","), (skl) => {
+                if(skl.indexOf("+") != -1) {
+                    let skill = skl.split("+")[0].trim().toLowerCase().replace(/[^a-z\s]/gi,"").trim().replace(/\s/gi,"_");
+                    charUpd[skill + "_misc"] = (parseInt(charUpd[skill + "_misc"]) || 0)
+                                      + (parseInt(skl.split("+")[1].replace(/[^\d\-]/gi, "")) || 0);
+                }
+            });
+        }
+        // Ranks
+        if(mancerdata["l1-skills"] && mancerdata["l1-skills"].values) {
+            _.each(Object.keys(mancerdata["l1-skills"].values), (skl) => {
+                if(skl.slice(-6) == "_ranks") {
+                    charUpd[skl] = mancerdata["l1-skills"].values[skl];
+                }
+            });
+        }
+        // Notes
+        if(! _.isEmpty(skillBonusNotes)) {
+            _.each(Object.keys(skillBonusNotes),(key) => {
+                if(skillBonusNotes[key]) {
+                    _.each(skillBonusNotes[key].split(","), (skl) => {
+                        if(skl.indexOf("+") != -1) {
+                            let skill = skl.split("+")[0].trim().toLowerCase().replace(/[^a-z\s]/gi, "").trim().replace(/\s/gi,"_");
+                            charUpd[skill + "_notes"] += "+" + skl.split("+")[1].replace(/[^\d\-]/gi, "") + " (" + key + "). ";
+                        }
+                    });
+                }
+            });
+        }
+
+        // === Add FEATS to load ===
+        if(mancerdata["l1-feats"] && mancerdata["l1-feats"].values["feat_lvl1_1"]) {
+            FeatsToLoad.push(mancerdata["l1-feats"].values["feat_lvl1_1"]);
+        }
+
+        //  === Add SPELLS to load ===
+        if(mancerdata["l1-spells"] && mancerdata["l1-spells"].values) {
+            for(var j = 0; j < 2; j++) {
+                for(var i = 1; i < 7; i++) {
+                    if(mancerdata["l1-spells"].values["spells_level_" + j + "_" + i]) {
+                        allSpells.push({"name":mancerdata["l1-spells"].values["spells_level_" + j + "_" + i],"level":j});
+                        SpellsToLoad.push(mancerdata["l1-spells"].values["spells_level_" + j + "_" + i]);
+                    }
+                }
+            }
+        }
+
+        // === 7.TRAITS ===
+        setCharmancerText({"mancer_category":"Adding Traits","mancer_progress" :'<div style="width: 56%"></div>'});
+        // console.log("*** MancerFinish traits: " + JSON.stringify(allTraits,null,"  "));
+        _.each(allTraits, (trait) => {
+            if(trait["Name"]) {
+                let sec = "repeating_abilities_" + generateRowID() + "_";
+                charUpd[sec + "name"] = trait["Name"];
+                charUpd[sec + "options-flag"] = 0;
+                if(trait["Type"]) {
+                    charUpd[sec + "type"] = trait["Type"];
+                }
+                if(trait["Per-day"]) {
+                    let perday = 0;
+                    if(trait["Per-day"].indexOf("+") == -1) {
+                        perday = parseInt(trait["Per-day"]) || 1;
+                    } else {
+                        perday = (parseInt(trait["Per-day"].split("+")[0].replace(/[^\d]/gi, "").trim()) || 1)
+                                + (parseInt(ability_mods[trait["Per-day"].split("+")[1].replace("modifier", "").trim().toLowerCase()]) || 0);
+                    }
+                    if(perday > 0) {
+                        charUpd[sec + "perday_max"] = perday;
+                    }
+                }
+                if(trait["Description"]) {
+                    charUpd[sec + "description"] = trait["Description"];
+                }
+            }
+        });
+
+        // === 11.ATTACKS === (special Monk ... one day)
+            // TODO
+
+        setCharmancerText({"mancer_category":"Loading Data","mancer_progress" :'<div style="width: 64%"></div>'});
+        // Loading Compendium Pages
+        let allCompendiumPages = [];
+        allCompendiumPages = allCompendiumPages.concat(FeatsToLoad,SpellsToLoad);
+        getCompendiumPage(allCompendiumPages,(compendiumdata) => {
+            if(Array.isArray(compendiumdata)) {
+                var cdatarr = compendiumdata;
+            } else {
+                var cdatarr = [];
+                cdatarr.push(compendiumdata);
+            }
+            // === 8.FEATS ===
+            setCharmancerText({"mancer_category":"Adding Feats","mancer_progress" :'<div style="width: 72%"></div>'});
+            // console.log("*** MancerFinish feats: " + FeatsToLoad);
+            if(FeatsToLoad.length) {
+                _.extend(charUpd,drop_add_feats(FeatsToLoad,cdatarr));
+            }
+
+            // === 9.SPELL LIKE ABILITIES ===
+            setCharmancerText({"mancer_category":"Adding Powers","mancer_progress" :'<div style="width: 80%"></div>'});
+            console.log("*** MancerFinish powers: " + JSON.stringify(allPowers,null,"  "));
+            if(allPowers.length) {
+                let tmpObj = drop_add_spellike(allPowers,cdatarr,charUpd,true);
+                _.extend(charUpd,tmpObj);
+            }
+
+            // === 10.SPELLS ===
+            setCharmancerText({"mancer_category":"Adding Spells","mancer_progress" :'<div style="width: 88%"></div>'});
+            // console.log("*** MancerFinish spells: " + JSON.stringify(SpellsToLoad,null,"  ") + " " + JSON.stringify(allSpells,null,"  "));
+            if(SpellsToLoad.length) {
+                _.extend(charUpd,drop_add_spells(allSpells,cdatarr,{},true));
+            }
+
+            console.log("*** DEBUG MancerFinish UPDATE: " + JSON.stringify(charUpd,null,"  "));
+            // === 12.FINAL ===
+            setAttrs(charUpd,{silent: true},() => {
+                setCharmancerText({"mancer_category":"Global update","mancer_progress" :'<div style="width: 100%"></div>'});
+                le_big_stuff("all",false,() => {
+                    update_coins_weight();
+                    console.log("*** DEBUG MancerFinish FINISH!");
+                    finishCharactermancer();
+                });
+            });
+        });
     });
 
     // === Drop
-    on("sheet:compendium-drop", (stuff) => {
-        // console.log("*** DEBUG drop parameter? :" + JSON.stringify(stuff,null,"  ")); => "triggerName": "sheet:compendium-drop"
+    on("sheet:compendium-drop", () => {
+        console.log("*** DEBUG compendium-drop");
+        var default_attr = {};
+        default_attr["bar1_value"] = 1;
+        default_attr["bar1_max"] = 10;
+        default_attr["bar3_link"] = "ac";
+        setDefaultToken(default_attr);
+        /*
+        getAttrs(["hp","hp_max"], (v) => {
+            var default_attr = {};
+            default_attr["bar1_value"] = parseInt(v.hp) || 1;
+            default_attr["bar1_max"] = parseInt(v.hp_max) || 1;
+            default_attr["bar3_link"] = "ac";
+            setDefaultToken(default_attr);
+        });
+        */
+        /*
         getAttrs(["hp_max","ac","size","cd_bar1_v","cd_bar1_m","cd_bar1_l","cd_bar2_v","cd_bar2_m","cd_bar2_l","cd_bar3_v","cd_bar3_m","cd_bar3_l"], (v) => {
             // TOKEN handling
             var default_attr = {};
@@ -9174,6 +9814,7 @@
 
             });
         });
+        */
     });
 
     // === Generals
@@ -9519,7 +10160,7 @@
         update_all_skills();
     });
     on("change:acrobatics_classkill change:acrobatics_ability change:acrobatics_ranks change:acrobatics_misc change:acrobatics_bonus change:acrobatics_armor_penalty", (e) => {
-        console.log("*** DEBUG acrobatics skill : " + JSON.stringify(e,null,"  "));
+        // console.log("*** DEBUG acrobatics skill : " + JSON.stringify(e,null,"  "));
         update_skill("acrobatics",e.sourceAttribute);
     });
     on("change:appraise_classkill change:appraise_ability change:appraise_ranks change:appraise_misc change:appraise_bonus change:appraise_armor_penalty", (e) => {
@@ -9858,7 +10499,7 @@
                 cdata = {};
             }
             if(! _.isEmpty(cdata)) {
-                // console.log("*** DEBUG change:npcdrop_data: " + JSON.stringify(cdata,null,"  "));
+                console.log("*** DEBUG change:npcdrop_data: " + JSON.stringify(cdata,null,"  "));
                 var category = cdata["Category"].toLowerCase();
                 if(category == "bestiary") {
                     setAttrs({"npc": 1,"options-flag-npc": 0,"build-flag-npc": 1},{silent: true}, ()=>{
@@ -9906,7 +10547,7 @@
                         update["npcsplike_category"] = "";
                         update["npcsplike_data"] = "";
 
-                        tmpupd = npcdrop_add_spellike(objs,pages);
+                        tmpupd = drop_add_spellike(objs,pages,{},false);
                         _.extend(update,tmpupd);
 
                         var spellid = Object.keys(tmpupd)[0].substring(21, 41);
@@ -9957,7 +10598,7 @@
                         update["npcspl" + level + "_category"] = "";
                         update["npcspl" + level + "_data"] = "";
 
-                        tmpupd = npcdrop_add_spells(objs,pages);
+                        tmpupd = drop_add_spells(objs,pages,{},false);
                         _.extend(update,tmpupd);
 
                         var spellid = Object.keys(tmpupd)[0].substring(18, 38);
@@ -10006,7 +10647,7 @@
                         update["npcfeat_category"] = "";
                         update["npcfeat_data"] = "";
 
-                        tmpupd = npcdrop_add_feats(objs,pages);
+                        tmpupd = drop_add_feats(objs,pages);
                         _.extend(update,tmpupd);
 
                         // console.log("*** DEBUG change:npcfeat_data update: " + JSON.stringify(update,null,"  "));
@@ -10608,15 +11249,15 @@
             }
             // console.log("*** DEBUG getCompendiumPage: " + cdatarr);
             if(objspells.length) {
-                tmpobj = npcdrop_add_spells(objspells,cdatarr,update);
+                tmpobj = drop_add_spells(objspells,cdatarr,update,false);
                 _.extend(update, tmpobj);
             }
             if(objlikes.length) {
-                tmpobj = npcdrop_add_spellike(objlikes,cdatarr,update);
+                tmpobj = drop_add_spellike(objlikes,cdatarr,update,false);
                 _.extend(update, tmpobj);
             }
             if(objfeats.length) {
-                tmpobj = npcdrop_add_feats(objfeats,cdatarr);
+                tmpobj = drop_add_feats(objfeats,cdatarr);
                 _.extend(update, tmpobj);
             }
             setAttrs(update,{silent:true},() => {
@@ -10800,7 +11441,7 @@
         return update;
     };
     var npcdrop_add_specabs = function(objs) {
-        // console.log("*** DEBUG npcdrop_add_spellike: " + JSON.stringify(objs,null,"  "));
+        // console.log("*** DEBUG npcdrop_add_specabs: " + JSON.stringify(objs,null,"  "));
         var update = {};
         var repsec = "repeating_abilities_";
         _.each(objs, (obj) => {
@@ -10827,8 +11468,74 @@
         // console.log("*** DEBUG npcdrop_add_specabs update :" + JSON.stringify(update,null,"  "));
         return update;
     };
-    var npcdrop_add_spells = function(objs,cdatarr, values) {
-        // console.log("*** DEBUG npcdrop_add_spells objs : " + JSON.stringify(objs,null,"  "));
+    var calc_npc_skill_display = function(skill,value,note) {
+        var update = {};
+        var display = "";
+        var flag = 0;
+        var intval = parseInt(value) || 0;
+        if (intval != 0 ) {
+            display += (intval >= 0) ? ("+" + intval) : ("" + intval);
+            flag = 1;
+        }
+        if(note && (note.length > 0)) {
+            if(display.length === 0) {display += "+0";}
+            display += " (" + note + ")";
+            flag = 1;
+        }
+        update[skill + "_display"] = display;
+        update[skill + "_flag"] = flag;
+        return update;
+    };
+
+    // === DROP / COMPENDIUM
+    var drop_add_feats = function(objs,cdatarr) {
+        // console.log("*** DEBUG drop_add_feats cdatarr :" + cdatarr + " / " + JSON.stringify(cdatarr,null,"  "));
+        var update = {};
+        // return update;
+        var repsec = "repeating_feats_";
+        _.each(objs, (obj) => {
+            var newrowid = generateRowID();
+            var featname = "";
+            if(obj.indexOf("(") === -1) {
+                featname = obj.trim();
+            } else {
+                featname = obj.split("(")[0].trim();
+            }
+            featname = featname.replace("Feats:","");
+            update[repsec + newrowid + "_name"] = obj.trim().replace("Feats:","");
+            update[repsec + newrowid + "_options-flag"] = 0;
+            update[repsec + newrowid + "_fromcompendium"] = "Feats:" + featname;
+            if(! _.isEmpty(cdatarr)) {
+                var cdata = cdatarr.find(o => ((o.data["Feat Name"]) && (o.data["Feat Name"].toLowerCase() === featname.toLowerCase()) && (o.data["Category"] === "Feats")));
+                // console.log("*** DEBUG drop_add_feats cdata :" + JSON.stringify(cdata,null,"  "));
+                if((typeof cdata !== "undefined") && (cdata.id)) {
+                    if(cdata.data["Feat Type"]) {
+                        if(["general","combat","critical","grit","item-creation","metamagic","monster","panache","performance","style","teamwork"].includes(cdata.data["Feat Type"].toLowerCase().trim())) {
+                            update[repsec + newrowid + "_type"] = cdata.data["Feat Type"].toLowerCase().trim();
+                        } else {
+                            update[repsec + newrowid + "_type"] = "misc";
+                        }
+                    }
+                    if(cdata.data["Prerequisites"]) {
+                        update[repsec + newrowid + "_prerequisites"] = cdata.data["Prerequisites"];
+                    }
+                    if(cdata.data["Benefit"]) {
+                        update[repsec + newrowid + "_benefits"] = cdata.data["Benefit"];
+                    }
+                    if(cdata.data["Normal"]) {
+                        update[repsec + newrowid + "_normal"] = cdata.data["Normal"];
+                    }
+                    if(cdata.data["data-description"]) {
+                        update[repsec + newrowid + "_description"] = cdata.data["data-description"];
+                    }
+                }
+            }
+        });
+        // console.log("*** DEBUG drop_add_feats update :" + JSON.stringify(update,null,"  "));
+        return update;
+    };
+    var drop_add_spells = function(objs, cdatarr, values, isPc = false) {
+        // console.log("*** DEBUG drop_add_spells objs : " + JSON.stringify(objs,null,"  "));
         var update = {};
         var baserepsec = "repeating_spell";
         _.each(objs, (obj) => {
@@ -10839,15 +11546,19 @@
                     level = parseInt(obj.level) || 0;
                 }
                 var repsec = baserepsec + "-" + level + "_";
-                update[repsec + newrowid + "_spellname"] = toTitleCase(obj.name);
+                update[repsec + newrowid + "_spellname"] = toTitleCase(obj.name.replace("Spells:",""));
                 if(obj.domain) {
-                    update[repsec + newrowid + "_spellname"] += " (D)";
+                    if(isPc) {
+                        update[repsec + newrowid + "_spelldomaineflag"] = 1;
+                    } else {
+                        update[repsec + newrowid + "_spellname"] += " (D)";
+                    }
                 }
                 update[repsec + newrowid + "_options-flag"] = 0;
                 update[repsec + newrowid + "_fromcompendium"] = "Spells:" + obj.name;
                 if(! _.isEmpty(cdatarr)) {
-                    var cdata = cdatarr.find(o => (o.name.toLowerCase() === obj.name.toLowerCase() && o.data["Category"] === "Spells"));
-                    // console.log("*** DEBUG npcdrop_add_spells cdata :" + JSON.stringify(cdata,null,"  "));
+                    var cdata = cdatarr.find(o => (o.name.toLowerCase() === obj.name.replace("Spells:","").toLowerCase() && o.data["Category"] === "Spells"));
+                    // console.log("*** DEBUG drop_add_spells cdata :" + JSON.stringify(cdata,null,"  "));
                     if((! _.isEmpty(cdata)) && (typeof cdata.id !== "undefined")) {
                         if(cdata.data["School"]) {
                             update[repsec + newrowid + "_spellschool"] = cdata.data["School"];
@@ -10902,6 +11613,11 @@
                         }
                         if(cdata.data["Spell Attack"]) {
                             update[repsec + newrowid + "_spellatkflag"] = "{{attack=1}}";
+                            if(cdata.data["Spell Attack"].toLowerCase().indexOf("ranged touch") !== -1) {
+                                update[repsec + newrowid + "_spellatktype"] =  "ranged";
+                            } else if(cdata.data["Spell Attack"].toLowerCase().indexOf("touch") !== -1) {
+                                update[repsec + newrowid + "_spellatktype"] =  "melee";
+                            }
                         }
                         if(cdata.data["Spell Damage"]) {
                             update[repsec + newrowid + "_spelldmgflag"] = "{{damage=1}} {{dmg1flag=1}}";
@@ -10925,186 +11641,232 @@
                 }
                 var tmpvalues = {};
                 _.extend(tmpvalues,values,update);
-                tmpvalues["npc"] = "1";
+                if(! isPc) {
+                    tmpvalues["npc"] = "1";
+                }
                 _.extend(update,calc_spell(level,newrowid,tmpvalues));
             }
         });
-        // console.log("*** DEBUG npcdrop_add_spells update :" + JSON.stringify(update,null,"  "));
+        // console.log("*** DEBUG drop_add_spells update :" + JSON.stringify(update,null,"  "));
         return update;
     };
-    var npcdrop_add_spellike = function(objs,cdatarr,values) {
-        // console.log("*** DEBUG npcdrop_add_spellike: " + JSON.stringify(objs,null,"  "));
+    var drop_add_spellike = function(objs,cdatarr,values, isPc = false) {
+        // console.log("*** DEBUG drop_add_spellike: " + JSON.stringify(objs,null,"  "));
         var update = {};
         var repsec = "repeating_spell-like_";
         _.each(objs, (obj) => {
-            if(obj["Name"] && obj["Spell"]) {
-                // console.log("*** DEBUG npcdrop_add_spellike getCompendiumPage :" + obj.name + " " + JSON.stringify(cdata,null,"  "));
+            if(obj["Name"]) {
+                // console.log("*** DEBUG drop_add_spellike getCompendiumPage :" + obj.name + " " + JSON.stringify(cdata,null,"  "));
                 var newrowid = generateRowID();
                 update[repsec + newrowid + "_spellname"] = obj["Name"];
                 update[repsec + newrowid + "_options-flag"] = 0;
-                update[repsec + newrowid + "_fromcompendium"] = "Spells:" + obj["Spell"];
-                if(obj["Frequency"]) {
-                    if(obj["Frequency"] == "Constant") {
-                        update[repsec + newrowid + "_timesperday"] = "constant";
-                    } else if(obj["Frequency"] == "At Will") {
-                        update[repsec + newrowid + "_timesperday"] = "at-will";
-                    } else if(obj["Frequency"] == "Per Day") {
+                if(isPc) {
+                    if(obj["Per-day"]) {
                         update[repsec + newrowid + "_timesperday"] = "per-day";
-                    } else if(obj["Frequency"] == "Per Week") {
-                        update[repsec + newrowid + "_timesperday"] = "per-week";
-                    } else if(obj["Frequency"] == "Per Month") {
-                        update[repsec + newrowid + "_timesperday"] = "per-month";
-                    } else if(obj["Frequency"] == "Every X Hours") {
-                        update[repsec + newrowid + "_timesperday"] = "every-hours";
-                    }
-                    if(obj["Occurences"]) {
-                        update[repsec + newrowid + "_perday_max"] = parseInt(obj["Occurences"]) || 0;
-                    }
-                }
-                if(! _.isEmpty(cdatarr)) {
-                    var cdata = cdatarr.find(o => (o.name.toLowerCase() === obj["Spell"].toLowerCase() &&  o.data["Category"] === "Spells"));
-                    if((typeof cdata !== "undefined") && (cdata.id)) {
-                        if(cdata.data["School"]) {
-                            update[repsec + newrowid + "_spellschool"] = cdata.data["School"];
-                        }
-                        if(cdata.data["Level"]) {
-                            update[repsec + newrowid + "_spellclasslevel"] = cdata.data["Level"];
-                        }
-                        if(cdata.data["Casting Time"]) {
-                            update[repsec + newrowid + "_spellcastingtime"] = cdata.data["Casting Time"];
-                        }
-                        if(cdata.data["Range"]) {
-                            update[repsec + newrowid + "_spellrange"] = cdata.data["Range"];
-                        }
-                        if(cdata.data["Area"]) {
-                            update[repsec + newrowid + "_spellarea"] = cdata.data["Area"];
-                        }
-                        if(cdata.data["Target"]) {
-                            update[repsec + newrowid + "_spelltargets"] = cdata.data["Target"];
-                        }
-                        if(cdata.data["Effect"]) {
-                            update[repsec + newrowid + "_spelleffect"] = cdata.data["Effect"];
-                        }
-                        if(cdata.data["Duration"]) {
-                            update[repsec + newrowid + "_spellduration"] = cdata.data["Duration"];
-                        }
-                        if(cdata.data["Saving Throw"]) {
-                            update[repsec + newrowid + "_spellsave"] = cdata.data["Saving Throw"];
-                            if(cdata.data["Saving Throw"].toLowerCase().trim() == "none") {
-                                update[repsec + newrowid + "_spellsaveflag"] = 0;
-                            } else {
-                                update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
-                            }
+                        let perday = 0;
+                        if(obj["Per-day"].indexOf("+") == -1) {
+                            perday = parseInt(obj["Per-day"]) || 1;
                         } else {
-                            update[repsec + newrowid + "_spellsave"] = " ";
+                            perday = (parseInt(obj["Per-day"].split("+")[0].replace(/[^\d]/gi, "").trim()) || 1)
+                                    + (parseInt(values[obj["Per-day"].split("+")[1].replace("modifier", "").trim().toLowerCase() + "_mod"]) || 0);
                         }
-                        if(obj["DC"]) {
-                            if(! update[repsec + newrowid + "_spellsaveflag"]) {
-                                update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
-                            }
-                            update[repsec + newrowid + "_spelldc_mod"] = parseInt(obj["DC"].replace(/[^\d]/gi, '')) || 0;
+                        if(perday > 0) {
+                            update[repsec + newrowid + "_perday_max"] = perday;
                         }
-                        if(cdata.data["Spell Resistance"]) {
-                            update[repsec + newrowid + "_spellresistance"] = cdata.data["Spell Resistance"];
-                            if(cdata.data["Spell Resistance"].toLowerCase().trim() == "no") {
-                                update[repsec + newrowid + "_spellresistanceflag"] = "0";
-                            } else {
-                                update[repsec + newrowid + "_spellresistanceflag"] = "{{sr=1}}";
-                            }
+                    } else {
+                        update[repsec + newrowid + "_timesperday"] = "at-will";
+                    }
+                } else {
+                    if(obj["Frequency"]) {
+                        if(obj["Frequency"] == "Constant") {
+                            update[repsec + newrowid + "_timesperday"] = "constant";
+                        } else if(obj["Frequency"] == "At Will") {
+                            update[repsec + newrowid + "_timesperday"] = "at-will";
+                        } else if(obj["Frequency"] == "Per Day") {
+                            update[repsec + newrowid + "_timesperday"] = "per-day";
+                        } else if(obj["Frequency"] == "Per Week") {
+                            update[repsec + newrowid + "_timesperday"] = "per-week";
+                        } else if(obj["Frequency"] == "Per Month") {
+                            update[repsec + newrowid + "_timesperday"] = "per-month";
+                        } else if(obj["Frequency"] == "Every X Hours") {
+                            update[repsec + newrowid + "_timesperday"] = "every-hours";
                         }
-                        if(cdata.data["Spell Attack"]) {
-                            update[repsec + newrowid + "_spellatkflag"] = "{{attack=1}}";
-                        }
-                        if(cdata.data["Spell Damage"]) {
-                            update[repsec + newrowid + "_spelldmgflag"] = "{{damage=1}} {{dmg1flag=1}}";
-                            update[repsec + newrowid + "_spelldmg"] = cdata.data["Spell Damage"];
-                        }
-                        if(cdata.data["Spell Damage Type"]) {
-                            update[repsec + newrowid + "_spelldmgtype"] = cdata.data["Spell Damage Type"];
-                        }
-                        if(cdata.data["Secondary Spell Damage"]) {
-                            update[repsec + newrowid + "_spelldmg2flag"] = "{{damage=1}} {{dmg2flag=1}}";
-                            update[repsec + newrowid + "_spelldmg2"] = cdata.data["Secondary Spell Damage"];
-                        }
-                        if(cdata.data["Secondary Spell Damage Type"]) {
-                            update[repsec + newrowid + "_spelldmg2type"] = cdata.data["Secondary Spell Damage Type"];
-                        }
-                        if(cdata["content"]) {
-                            update[repsec + newrowid + "_spelldesc"] = cdata["content"];
-                            update[repsec + newrowid + "_spelldescflag"] = "{{descflag=[[1]]}}";
+                        if(obj["Occurences"]) {
+                            update[repsec + newrowid + "_perday_max"] = parseInt(obj["Occurences"]) || 0;
                         }
                     }
                 }
+                // getting data from Spell source of the ability, if any
+                if(obj["Spell"] || obj["Spell-source"]) {
+                    update[repsec + newrowid + "_fromcompendium"] = "Spells:" + obj["Spell"];
+                    if(! _.isEmpty(cdatarr)) {
+                        let zespell = "";
+                        if(isPc) {
+                            zespell = obj["Spell-source"];
+                        } else {
+                            zespell = obj["Spell"];
+                        }
+                        var cdata = cdatarr.find(o => (o.name.toLowerCase() === zespell.toLowerCase() &&  o.data["Category"] === "Spells"));
+                        if((typeof cdata !== "undefined") && (cdata.id)) {
+                            if(cdata.data["School"]) {
+                                update[repsec + newrowid + "_spellschool"] = cdata.data["School"];
+                            }
+                            if(cdata.data["Level"]) {
+                                update[repsec + newrowid + "_spellclasslevel"] = cdata.data["Level"];
+                            }
+                            if(cdata.data["Casting Time"]) {
+                                update[repsec + newrowid + "_spellcastingtime"] = cdata.data["Casting Time"];
+                            }
+                            if(cdata.data["Range"]) {
+                                update[repsec + newrowid + "_spellrange"] = cdata.data["Range"];
+                            }
+                            if(cdata.data["Area"]) {
+                                update[repsec + newrowid + "_spellarea"] = cdata.data["Area"];
+                            }
+                            if(cdata.data["Target"]) {
+                                update[repsec + newrowid + "_spelltargets"] = cdata.data["Target"];
+                            }
+                            if(cdata.data["Effect"]) {
+                                update[repsec + newrowid + "_spelleffect"] = cdata.data["Effect"];
+                            }
+                            if(cdata.data["Duration"]) {
+                                update[repsec + newrowid + "_spellduration"] = cdata.data["Duration"];
+                            }
+                            if(cdata.data["Saving Throw"]) {
+                                update[repsec + newrowid + "_spellsave"] = cdata.data["Saving Throw"];
+                                if(cdata.data["Saving Throw"].toLowerCase().trim() == "none") {
+                                    update[repsec + newrowid + "_spellsaveflag"] = 0;
+                                } else {
+                                    update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
+                                }
+                            } else {
+                                update[repsec + newrowid + "_spellsave"] = " ";
+                            }
+                            if(obj["DC"]) {
+                                if(! update[repsec + newrowid + "_spellsaveflag"]) {
+                                    update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
+                                }
+                                update[repsec + newrowid + "_spelldc_mod"] = parseInt(obj["DC"].replace(/[^\d]/gi, '')) || 0;
+                            }
+                            if(cdata.data["Spell Resistance"]) {
+                                update[repsec + newrowid + "_spellresistance"] = cdata.data["Spell Resistance"];
+                                if(cdata.data["Spell Resistance"].toLowerCase().trim() == "no") {
+                                    update[repsec + newrowid + "_spellresistanceflag"] = "0";
+                                } else {
+                                    update[repsec + newrowid + "_spellresistanceflag"] = "{{sr=1}}";
+                                }
+                            }
+                            if(cdata.data["Spell Attack"]) {
+                                update[repsec + newrowid + "_spellatkflag"] = "{{attack=1}}";
+                            }
+                            if(cdata.data["Spell Damage"]) {
+                                update[repsec + newrowid + "_spelldmgflag"] = "{{damage=1}} {{dmg1flag=1}}";
+                                update[repsec + newrowid + "_spelldmg"] = cdata.data["Spell Damage"];
+                            }
+                            if(cdata.data["Spell Damage Type"]) {
+                                update[repsec + newrowid + "_spelldmgtype"] = cdata.data["Spell Damage Type"];
+                            }
+                            if(cdata.data["Secondary Spell Damage"]) {
+                                update[repsec + newrowid + "_spelldmg2flag"] = "{{damage=1}} {{dmg2flag=1}}";
+                                update[repsec + newrowid + "_spelldmg2"] = cdata.data["Secondary Spell Damage"];
+                            }
+                            if(cdata.data["Secondary Spell Damage Type"]) {
+                                update[repsec + newrowid + "_spelldmg2type"] = cdata.data["Secondary Spell Damage Type"];
+                            }
+                            if(cdata["content"]) {
+                                update[repsec + newrowid + "_spelldesc"] = cdata["content"];
+                                update[repsec + newrowid + "_spelldescflag"] = "{{descflag=[[1]]}}";
+                            }
+                        }
+                    }
+                }
+                // Completing or replacing data for PC (race/class/subclass feature)
+                if(isPc) {
+                    if(obj["Type"]) {
+                        update[repsec + newrowid + "_type"] = obj["Type"];
+                    }
+                    if(obj["Casting-time"]) {
+                        update[repsec + newrowid + "_spellcastingtime"] = obj["Casting-time"];
+                    }
+                    if(obj["Range"]) {
+                        update[repsec + newrowid + "_spellrange"] = obj["Range"];
+                    }
+                    if(obj["Area"]) {
+                        update[repsec + newrowid + "_spellarea"] = obj["Area"];
+                    }
+                    if(obj["Target"]) {
+                        update[repsec + newrowid + "_spelltargets"] = obj["Target"];
+                    }
+                    if(obj["Effect"]) {
+                        update[repsec + newrowid + "_spelleffect"] = obj["Effect"];
+                    }
+                    if(obj["Duration"]) {
+                        update[repsec + newrowid + "_spellduration"] = obj["Duration"];
+                    }
+                    if(obj["Save-DC"]) {
+                        let zedc = 0;
+                        if(obj["Save-DC"].indexOf("+") == -1) {
+                            zedc = parseInt(obj["Save-DC"].replace(/[^\d]/gi, '')) || 0;
+                        } else {
+                            _.each(obj["Save-DC"].split("+"),(elm) => {
+                                if(elm.toLowerCase().indexOf("modifier") != -1) {
+                                    zedc += (parseInt(values[elm.replace("modifier", "").trim().toLowerCase() + "_mod"]) || 0);
+                                } else if(elm.toLowerCase().indexOf("level") != -1) {
+                                    if(elm.toLowerCase().indexOf("1/2") == -1) {
+                                        zedc += parseInt(values["level"]) || 0;
+                                    }
+                                } else {
+                                    zedc += (parseInt(elm.replace(/[^\d]/gi, "").trim()) || 0)
+                                }
+                            });
+                        }
+                        if(zedc > 0) {
+                            update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
+                            update[repsec + newrowid + "_spelldc"] = zedc;
+                        }
+                    }
+                    if(obj["Attack"]) {
+                        update[repsec + newrowid + "_spellatkflag"] = "{{attack=1}}";
+                        if(obj["Attack"].toLowerCase().indexOf("melee") != -1) {
+                            update[repsec + newrowid + "_spellatkmod"] = "@{melee_mod}[" + obj["Attack"] + "]";
+                        } else if(obj["Attack"].toLowerCase().indexOf("ranged") != -1) {
+                            update[repsec + newrowid + "_spellatkmod"] = "@{ranged_mod}[" + obj["Attack"] + "]";
+                        } else {
+                            update[repsec + newrowid + "_spellatkmod"] = obj["Attack"];
+                        }
+                    }
+                    if(obj["Damage"]) {
+                        update[repsec + newrowid + "_spelldmgflag"] = "{{damage=1}} {{dmg1flag=1}}";
+                        if(obj["Damage"].indexOf("+") == -1) {
+                            update[repsec + newrowid + "_spelldmg"] = obj["Damage"];
+                        } else {
+                            update[repsec + newrowid + "_spelldmg"] = obj["Damage"].split("+")[0];
+                            if(obj["Damage"].split("+")[1].toLowerCase().indexOf("for every two") != -1) {
+                                // 1d6 + 1 point for every two cleric levels
+                                update[repsec + newrowid + "_spelldmg"] += "+[[floor(@{test|caster1_level}/2)]]";
+                            } else {
+                                update[repsec + newrowid + "_spelldmg"] += obj["Damage"].split("+")[1].replace(/[^\d\-\+\s]/gi, "").trim();
+                            }
+                        }
+                    }
+                    if(obj["Damage-type"]) {
+                        update[repsec + newrowid + "_spelldmgtype"] = obj["Damage-type"];
+                    }
+                    if(obj["Description"]) {
+                        update[repsec + newrowid + "_spelldescflag"] = "{{descflag=[[1]]}}";
+                        update[repsec + newrowid + "_spelldesc"] = obj["Description"];
+                    }
+                }
+                // Final calculation
                 var tmpvalues = {};
                 _.extend(tmpvalues,values,update);
-                tmpvalues["npc"] = "1";
+                if(! isPc) {
+                    tmpvalues["npc"] = "1";
+                }
                 _.extend(update,calc_spell("like",newrowid,tmpvalues));
             }
         });
-        // console.log("*** DEBUG npcdrop_add_spellike update :" + JSON.stringify(update,null,"  "));
-        return update;
-    };
-    var npcdrop_add_feats = function(objs,cdatarr) {
-        // console.log("*** DEBUG npcdrop_add_feats cdatarr :" + cdatarr + " / " + JSON.stringify(cdatarr,null,"  "));
-        var update = {};
-        // return update;
-        var repsec = "repeating_feats_";
-        _.each(objs, (obj) => {
-            var newrowid = generateRowID();
-            var featname = "";
-            if(obj.indexOf("(") === -1) {
-                featname = obj.trim();
-            } else {
-                featname = obj.split("(")[0].trim();
-            }
-            update[repsec + newrowid + "_name"] = obj.trim();
-            update[repsec + newrowid + "_options-flag"] = 0;
-            update[repsec + newrowid + "_fromcompendium"] = "Feats:" + featname;
-            if(! _.isEmpty(cdatarr)) {
-                var cdata = cdatarr.find(o => ((o.data["Feat Name"]) && (o.data["Feat Name"].toLowerCase() === featname.toLowerCase()) && (o.data["Category"] === "Feats")));
-                // console.log("*** DEBUG npcdrop_add_feats cdata :" + JSON.stringify(cdata,null,"  "));
-                if((typeof cdata !== "undefined") && (cdata.id)) {
-                    if(cdata.data["Feat Type"]) {
-                        if(["general","combat","critical","grit","item-creation","metamagic","monster","panache","performance","style","teamwork"].includes(cdata.data["Feat Type"].toLowerCase().trim())) {
-                            update[repsec + newrowid + "_type"] = cdata.data["Feat Type"].toLowerCase().trim();
-                        } else {
-                            update[repsec + newrowid + "_type"] = "misc";
-                        }
-                    }
-                    if(cdata.data["Prerequisites"]) {
-                        update[repsec + newrowid + "_prerequisites"] = cdata.data["Prerequisites"];
-                    }
-                    if(cdata.data["Benefit"]) {
-                        update[repsec + newrowid + "_benefits"] = cdata.data["Benefit"];
-                    }
-                    if(cdata.data["Normal"]) {
-                        update[repsec + newrowid + "_normal"] = cdata.data["Normal"];
-                    }
-                    if(cdata.data["data-description"]) {
-                        update[repsec + newrowid + "_description"] = cdata.data["data-description"];
-                    }
-                }
-            }
-        });
-        // console.log("*** DEBUG npcdrop_add_feats update :" + JSON.stringify(update,null,"  "));
-        return update;
-    };
-    var calc_npc_skill_display = function(skill,value,note) {
-        var update = {};
-        var display = "";
-        var flag = 0;
-        var intval = parseInt(value) || 0;
-        if (intval != 0 ) {
-            display += (intval >= 0) ? ("+" + intval) : ("" + intval);
-            flag = 1;
-        }
-        if(note && (note.length > 0)) {
-            if(display.length === 0) {display += "+0";}
-            display += " (" + note + ")";
-            flag = 1;
-        }
-        update[skill + "_display"] = display;
-        update[skill + "_flag"] = flag;
+        // console.log("*** DEBUG drop_add_spellike update :" + JSON.stringify(update,null,"  "));
         return update;
     };
 
@@ -12356,13 +13118,13 @@
             dmgbase = "0";
         }
         var dmgcritmulti = parseInt(v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgcritmulti"]) || 1;
-        var dmgtype = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgtype"] || "0";
+        var dmgtype = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmgtype"] || "";
         var dmg2flag = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2flag"] || "0";
         var dmg2base = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2"] || "0";
         if (! dmg2base.length) {
             dmg2base = "0";
         }
-        var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"] || "0";
+        var dmg2type = v["repeating_spell-" + spell_level + "_" + spellid + "_spelldmg2type"] || "";
         var cster = v["repeating_spell-" + spell_level + "_" + spellid + "_spellcaster"] || "1";
         var csterflag1 = v.caster1_flag || "0";
         var csterflag2 = v.caster2_flag || "0";
@@ -12711,7 +13473,7 @@
     };
 
     // == Big recalculate from ability updates
-    var le_big_stuff = function(ability, reset_conditions = false) {
+    var le_big_stuff = function(ability, reset_conditions = false, callback = null) {
         var debug_start = new Date();
         // DEBUG
         if (pfoglobals_debug_mode) {
@@ -12893,7 +13655,7 @@
                 // Updating (finally)
                 // DEBUG
                 if (pfoglobals_debug_mode) {
-                    console.log("*** DEBUG le_big_stuff update: " + JSON.stringify(big_update,null,"  "));
+                    console.log("*** DEBUG le_big_stuff big_update: " + JSON.stringify(big_update,null,"  "));
                     console.log("*** DEBUG le_big_stuff v: " + JSON.stringify(v,null,"  "));
                 }
                 setAttrs(big_update, {silent: true}, ()=>{
@@ -12903,6 +13665,16 @@
                         console.log("*** DEBUG le_big_stuff done in " + elapsed + "ms ");
                     } else {
                         console.log("Pathfinder sheet updated (" + elapsed + ")");
+                    }
+                    if(callback) {
+                        if (pfoglobals_debug_mode) {
+                            console.log("*** DEBUG le_big_stuff setAttrs Callback");
+                        }
+                        callback();
+                    } else {
+                        if (pfoglobals_debug_mode) {
+                            console.log("*** DEBUG le_big_stuff setAttrs NO Callback");
+                        }
                     }
                 });
             });
@@ -13381,7 +14153,7 @@
 
         <!-- === CONTENT == -->
         <div style="display: block; width: 100%; font-size: 1.3em; text-align: center;" data-i18n="charmancer-welcome">
-            Welcome to the Official Roll20 Pathfinder Character Builder.
+            Welcome to the Pathfinder by Roll20 Character Builder.
         </div>
 
         <!-- === NAVIGATION == -->
@@ -13392,7 +14164,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" data-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-welcome" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -13483,12 +14255,12 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="comp_pointbuy_points" value="0">
-        <input type="hidden" name="comp_max_pointbuy_points" value="0">
-        <input type="hidden" name="comp_dicepool" value="0">
-        <input type="hidden" name="comp_max_dicepool" value="0">
-        <input type="hidden" name="comp_roll_results" value="">
         <div class="choices">
+            <input type="hidden" name="comp_pointbuy_points" value="0">
+            <input type="hidden" name="comp_max_pointbuy_points" value="0">
+            <input type="hidden" name="comp_dicepool" value="0">
+            <input type="hidden" name="comp_max_dicepool" value="0">
+            <input type="hidden" name="comp_roll_results" value="">
             <div class="row">
                 <label class="hilite">
                     <span class="title" data-i18n="rollab-generation">Ability Scores Generation:</span>
@@ -13497,12 +14269,12 @@
                         <option value="standard" data-i18n="rollab-standard">Standard (4d6, drop lowest)</option>
                         <option value="classic" data-i18n="rollab-classic">Classic (3d6)</option>
                         <option value="heroic" data-i18n="rollab-heroic">Heroic (2d6+6)</option>
-                        <option value="dicepool_24" data-i18n="rollab-pool24">Dice Pool (24d6)</option>
-                        <option value="dicepool_28" data-i18n="rollab-pool28">Dice Pool (high powered 28d6)</option>
-                        <option value="purchase_low" data-i18n="rollab-purchase10">Purchase (Low Fantasy: 10)</option>
-                        <option value="purchase_standard" data-i18n="rollab-purchase15">Purchase (Standard Fantasy: 15)</option>
-                        <option value="purchase_high" data-i18n="rollab-purchase20">Purchase (High Fantasy: 20)</option>
-                        <option value="purchase_epic" data-i18n="rollab-purchase25">Purchase (Epic Fantasy: 25)</option>
+                        <option value="dicepool_24" data-i18n="rollab-dicepool_24">Dice Pool (24d6)</option>
+                        <option value="dicepool_28" data-i18n="rollab-dicepool_28">Dice Pool (high powered 28d6)</option>
+                        <option value="purchase_low" data-i18n="rollab-purchase_low">Purchase (Low Fantasy: 10)</option>
+                        <option value="purchase_standard" data-i18n="rollab-purchase_standard">Purchase (Standard Fantasy: 15)</option>
+                        <option value="purchase_high" data-i18n="rollab-purchase_high">Purchase (High Fantasy: 20)</option>
+                        <option value="purchase_epic" data-i18n="rollab-purchase_epic">Purchase (Epic Fantasy: 25)</option>
                         <option class="custom" value="custom" data-i18n="custom">Custom</option>
                     </select>
                 </label>
@@ -13678,7 +14450,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" data-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-abilities" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -13889,7 +14661,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" data-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-race" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -14036,9 +14808,9 @@
                         <span class="title" data-18n="starting-wealth:">Starting Wealth:</span>
                         <input type="radio" class="sheet-pseudocheck" name="comp_class_wealth" value="starting" checked="checked" /><span></span><span class="class_wealth_starting class_text"></span>
                         <input type="radio" class="sheet-pseudocheck" name="comp_class_wealth" value="average" /><span></span><span class="class_wealth_average class_text"></span>
+                        <!-- <input type="radio" name="comp_class_wealth" value="starting" /> Starting
+                        <input type="radio" name="comp_class_wealth" value="average" /> Average -->
                     </label>
-                    <!-- <input type="radio" name="comp_class_wealth" value="starting" />
-                    <input type="radio" name="comp_class_wealth" value="average" /> -->
                     <div class="choice class_wealthroll_display custom_class">
                         <div class="flexrow">
                             <button type="roll" class="myrol mancer" name="roll_rollwealth" value="&{template:mancerroll} {{title=Wealth Roll}} {{r1=[[1d0]]}} {{r1name=^{roll}}}">Roll Wealth</button>
@@ -14295,7 +15067,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" data-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-class" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -14773,7 +15545,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" data-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-skills" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -14953,7 +15725,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" data-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-feats" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -15188,7 +15960,111 @@
         </div>
 
         <!-- === CONTENT === -->
-        <p>This is the character summary.</p>
+        <div class="topbar">
+            <div class="sheet-attr-container">
+                <h4 data-i18n="strength">Strength</h4>
+                <div class="boxed greybg">
+                    <span class="strength_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="dexterity">Dexterity</h4>
+                <div class="boxed greybg">
+                    <span class="dexterity_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="constitution">Constitution</h4>
+                <div class="boxed greybg">
+                    <span class="constitution_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="intelligence">Intelligence</h4>
+                <div class="boxed greybg">
+                    <span class="intelligence_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="wisdom">Wisdom</h4>
+                <div class="boxed greybg">
+                    <span class="wisdom_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="charisma">Charisma</h4>
+                <div class="boxed greybg">
+                    <span class="charisma_total">-</span>
+                </div>
+            </div>
+            <span class="separator"></span>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="fortitude">Fortitude</h4>
+                <div class="boxed greybg">
+                    <span class="fortitude_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="reflex">Reflex</h4>
+                <div class="boxed greybg">
+                    <span class="reflex_total">-</span>
+                </div>
+            </div>
+            <div class="sheet-attr-container">
+                <h4 data-i18n="will">Will</h4>
+                <div class="boxed greybg">
+                    <span class="will_total">-</span>
+                </div>
+            </div>
+            <span class="separator"></span>
+            <div class="sheet-attr-container">
+                <h4 data-18n="hit-points">Hit Points</h4>
+                <div class="boxed greybg">
+                    <span class="hit_points">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary" style="width: 100%;">
+            <span class="choice summary_text sum_sum"></span>
+            <span class="choice summary_text red req sum_req_sum"></span>
+            <label class="subrow"> <!-- Abilities -->
+                <span class="title" data-18n="abilities">Abilities</span>
+                <div class="choice summary_text sum_abilities"></div>
+                <div class="choice summary_text red req sum_req_abilities"></div>
+                <div class="choice summary_text red sum_err_abilities"></div>
+            </label>
+            <label class="subrow">  <!-- Race -->
+                <span class="title" data-18n="race">Race</span>
+                <div class="choice summary_text sum_race"></div>
+                <div class="choice summary_text red req sum_req_race"></div>
+                <div class="choice summary_text red sum_err_race"></div>
+            </label>
+            <label class="subrow"> <!-- Class -->
+                <span class="title" data-18n="class">Class</span>
+                <div class="choice summary_text sum_class"></div>
+                <div class="choice summary_text red req sum_req_class"></div>
+                <div class="choice summary_text red sum_err_class"></div>
+            </label>
+            <label class="subrow"> <!-- Skills -->
+                <span class="title" data-18n="skills">Skills</span>
+                <div class="choice summary_text sum_skills"></div>
+                <div class="choice summary_text red req sum_req_skills"></div>
+                <div class="choice summary_text red sum_err_skills"></div>
+            </label>
+            <label class="subrow"> <!-- Feats -->
+                <span class="title" data-18n="feats">Feats</span>
+                <div class="choice summary_text sum_feats"></div>
+                <div class="choice summary_text red req sum_req_feats"></div>
+                <div class="choice summary_text red sum_err_feats"></div>
+            </label>
+            <label class="subrow"> <!-- Spells -->
+                <span class="title" data-18n="spells">Spells</span>
+                <div class="choice summary_text sum_spells"></div>
+                <div class="choice summary_text red req sum_req_spells"></div>
+                <div class="choice summary_text red sum_err_spells"></div>
+            </label>
+        </div>
 
         <!-- === NAVIGATION === -->
         <div class="bottombar">
@@ -15199,7 +16075,7 @@
         <div class="choice cancel-prompt">
             <p class="label" data-18n="mancer-cancel-question">Which Path to follow, Adventurer?</p>
             <div class="step cancel"><button type="cancel" value="l1-cancel" sdata-i18n="discard-and-exit">Discard and exit</button></div>
-            <div class="step done"><button type="cancel" value="l1-spells" data-i18n="save-and-exit">Save and Exit</button></div>
+            <div class="step done"><button type="cancel" value="l1-summary" data-i18n="save-and-exit">Save and Exit</button></div>
             <div class="step here"><button type="action" name="act_continue" data-i18n="mancer-continue">Continue Charactermancer</button></div>
             <p class="warning" data-18n="mancer-warning">Discard and Exit will cause all choices to be lost.</p>
         </div>
@@ -15207,17 +16083,32 @@
 </charmancer>
 <charmancer class="sheet-charmancer-final">
     <div class="charmancer">
-        <div class="row">
-            <h1>Building your character...</h1>
+        <!-- === NAVIGATION == -->
+        <div class="logos">
+            <img class="logo pf" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/_tests/pathfinderlogo_small.png" />
+            <img class="logo cm" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/_tests/charactermancer_small.png" />
+            <img class="logo r20" src="https://raw.githubusercontent.com/NathaTerrien/roll20-wip/master/_tests/roll20logo_small.png" />
         </div>
-        <div class="row">
-            <h2>Adding your <span class='mancer_category'></span></h2>
+
+        <!-- <div style="text-align: center;width: 100%;margin:30px;">
+            <h1 style="color:#BE202E;">Building your character...</h1>
+        </div> -->
+        <div class="steps center">
+            <div class="step here">
+                <span>Building your character...</span>
+            </div>
         </div>
-        <div class="row">
-            <h3><span class='mancer_progress'></span></h3>
+
+        <div style="text-align: center;">
+            <h5><span class="mancer_category"></span></h5>
         </div>
-        <input type="hidden" name='attr_mancer_category'>
-        <input type="hidden" name='attr_mancer_progress'>
+
+        <div>
+            <span class="mancer_progress"></span> <!-- <div style="width: 100%"></div> -->
+        </div>
+
+        <input type="hidden" name="attr_mancer_category">
+        <input type="hidden" name="attr_mancer_progress">
     </div>
 </charmancer>
 <!-- Mancer Templates -->
@@ -15547,6 +16438,7 @@
                     var showList = [];
                     var possibles = ["race_ability_score", "race_size", "race_speed", "race_senses", "race_languages", "race_acnotes", "race_fortitude", "race_reflex", "race_will", "race_skill_bonus", "race_skill_bonus_choice", "race_feat_display", "race_spell_display", "race_traits"];
                     var data = p["data"];
+                    var abilities_scores = calc_abilities(mancerdata);
 
                     // console.log("*** DEBUG race raw data:" + JSON.stringify(data,null,"  "));
 
@@ -15674,7 +16566,7 @@
                             var ablt = (data["data-Spell-like abilities prerequisites"].split(" ")[0] || "").trim().toLowerCase();
                             var minv = parseInt((data["data-Spell-like abilities prerequisites"].split(" ")[1] || "").trim().toLowerCase()) || 99;
                             // console.log(" *** DEBUG Spell-like: " + ablt + " >= " + minv);
-                            if( (parseInt(mancerdata["l1-abilities"].values[ablt]) || 0) >= minv )  {
+                            if( (parseInt(abilities_scores[ablt].total) || 0) >= minv )  {
                                 spltxt = data["data-Spell-like abilities"];
                             }
                         } else {
@@ -15908,16 +16800,16 @@
                                 aligarray.push(el.trim());
                             }
                         });
-                        if(aligarray.length > 1) {
+                        // if(aligarray.length > 1) {
                             // console.log("*** DEBUG class alignment choices: " + aligarray);
                             if(!showList["class_alignment_choice"]) {
                                 showList.push("class_alignment_choice");
                             }
                             setCharmancerOptions("class_alignment_choice",aligarray);
-                        } else {
+                        /* } else {
                             update["class_alignment_display"] = data["data-Alignment Choice"];
                             values["class_alignment_choice"] = data["data-Alignment Choice"].trim();
-                        }
+                        }*/
                     }
 
                     if(data["data-Class skills"]) {
@@ -16354,13 +17246,13 @@
 
     // === SPELLS ===
     on("page:l1-spells", () => {
-        hideChoices();
         var update = {};
         var showList = [];
         var values = {};
         var spellreset = {"spells_level_0_1":"","spells_level_0_2":"","spells_level_0_3":"","spells_level_0_4":"","spells_level_0_5":"","spells_level_0_6":"","spells_level_1_1":"","spells_level_1_2":"","spells_level_1_3":"","spells_level_1_4":"","spells_level_1_5":"","spells_level_1_6":""};
         var data = getCharmancerData();
 
+        hideChoices();
 
         if(data["l1-class"] && data["l1-class"].values.class) {
             if(data["l1-class"].data && data["l1-class"].data.class
@@ -16426,25 +17318,14 @@
                         querry = "Category:Spells";
                     }
 
-                    // Selected spells to disable
-                    var choices = [];
-                    for(var j = 0; j < 2; j++) {
-                        for(var i = 1; i < 7; i++) {
-                            if(data["l1-spells"].values["spells_level_" + j + "_" + i]) {
-                                choices.push(data["l1-spells"].values["spells_level_" + j + "_" + i]);
-                            }
-                        }
-                    }
-
-                    // Domaine spells
-                    for(j = 1; j < 3; j++) {
+                    // Domain spells
+                    for(var j = 1; j < 3; j++) {
                         if(data["l1-class"].values["class_subclass" + j]
                         && data["l1-class"].data["class_subclass" + j]
                         && data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"]) {
                             showList.push("spells_domainspell" + j + "_row");
                             update["spells_domain" + j] = getTranslationByKey("domaine-spell") + " (" + data["l1-class"].values["class_subclass" + j].replace("Subclasses:","") + "):";
                             update["spells_domainspell" + j] = data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"];
-                            choices.push("Spells:" + data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"]);
                         }
                     }
 
@@ -16464,12 +17345,10 @@
                         }
                         if(nbspells) {
                             showList.push("spells_level_" + spelllevel);
-                            for(i = 1; i < 7; i++) {
+                            for(var i = 1; i < 7; i++) {
                                 if(i <= nbspells) {
                                     showList.push("spells_level_" + spelllevel + "_" + i + "_row");
-                                    setCharmancerOptions("spells_level_" + spelllevel + "_" + i, querry.replace("CASTERLEVEL",spelllevel), () => {
-                                        disableCharmancerOptions("spells_level_" + spelllevel + "_" + i,choices);
-                                    });
+                                    setCharmancerOptions("spells_level_" + spelllevel + "_" + i, querry.replace("CASTERLEVEL",spelllevel));
                                 } else {
                                     values["spells_level_" + spelllevel + "_" + i] = "";
                                 }
@@ -16495,6 +17374,41 @@
             recalcData("spells");
         });
     });
+    on("mancerchange:spells_level_0_1 mancerchange:spells_level_0_2 mancerchange:spells_level_0_3 mancerchange:spells_level_0_4 mancerchange:spells_level_0_5 mancerchange:spells_level_0_6 mancerchange:spells_level_1_1 mancerchange:spells_level_1_2 mancerchange:spells_level_1_3 mancerchange:spells_level_1_4 mancerchange:spells_level_1_5 mancerchange:spells_level_1_6", (eventinfo) => {
+
+        if(eventinfo.newValue && eventinfo.sourceType == "player") {
+            changeCompendiumPage("sheet-spells-info", eventinfo.newValue);
+        }
+
+        var data = getCharmancerData();
+        // Selected spells to disable
+        var choices = [];
+        for(var j = 0; j < 2; j++) {
+            for(var i = 1; i < 7; i++) {
+                if(data["l1-spells"].values["spells_level_" + j + "_" + i]) {
+                    choices.push(data["l1-spells"].values["spells_level_" + j + "_" + i]);
+                }
+            }
+        }
+
+        // Domain spells
+        for(j = 1; j < 3; j++) {
+            if(data["l1-class"] && data["l1-class"].values["class_subclass" + j]
+            && data["l1-class"].data["class_subclass" + j]
+            && data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"]) {
+                choices.push("Spells:" + data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"]);
+            }
+        }
+
+        // console.log("*** DEBUG change:spells_level_x_y choices: " + choices);
+
+        // Disable spells
+        for(j = 0; j < 2; j++) {
+            for(i = 1; i < 7; i++) {
+                disableCharmancerOptions("spells_level_" + j + "_" + i,choices);
+            }
+        }
+    });
     on("clicked:spells_level_0_1 clicked:spells_level_0_2 clicked:spells_level_0_3 clicked:spells_level_0_4 clicked:spells_level_1_1 clicked:spells_level_1_2 clicked:spells_level_1_3 clicked:spells_level_1_4 clicked:spells_level_1_5 clicked:spells_level_1_6", (eventinfo) => {
         // "triggerName": "clicked:spells_level_0_1"
         var spell = eventinfo["triggerName"].replace("clicked:","");
@@ -16511,6 +17425,317 @@
             && data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"]) {
             changeCompendiumPage("sheet-spells-info", "Spells:" + data["l1-class"].data["class_subclass" + j]["data-Domain Spells Level 1"]);
         }
+    });
+
+    // === SUMMARY ===
+    on("page:l1-summary", () => {
+        var returnObj = recalcData("summary") || {};
+
+        hideChoices();
+        var update = {};
+        var showList = [];
+        var nogo = false;
+        var data = getCharmancerData();
+
+        _.each(["abilities","race","class","skills","feats","feats"],(cat) => {
+            _.each(["_req","_err","_"], (lab) => {
+                update["sum" + lab + "_" + cat] = "";
+            });
+        });
+
+        // === ABILITIES ===
+        if(data["l1-abilities"] && data["l1-abilities"].values
+            && data["l1-abilities"].values["abilities"]
+            && data["l1-abilities"].values["strength"]
+            && data["l1-abilities"].values["dexterity"]
+            && data["l1-abilities"].values["constitution"]
+            && data["l1-abilities"].values["intelligence"]
+            && data["l1-abilities"].values["wisdom"]
+            && data["l1-abilities"].values["charisma"]) {
+                showList.push("sum_abilities");
+                let method = "";
+                if(data["l1-abilities"].values["abilities"] == "custom") {
+                    method = getTranslationByKey("custom");
+                } else {
+                    method = getTranslationByKey("rollab-" + data["l1-abilities"].values["abilities"]);
+                }
+                update["sum_abilities"] = "You have generated your Ability Scores using the <b>" + method + "</b> method.";
+        } else {
+            nogo = true;
+            showList.push("sum_req_abilities");
+            update["sum_req_abilities"] = "You need to generate your Ability Scores.";
+        }
+
+        // === RACE ===
+        if(data["l1-race"] && data["l1-race"].values.race) {
+            showList.push("sum_race");
+            update["sum_race"] = "Your Race is <b>" + data["l1-race"].values.race.replace("Races:","") + "</b>.";
+            if(data["l1-race"].data && data["l1-race"].data.race) {
+                // race_ability_choice1
+                if(data["l1-race"].data.race["data-Ability Score Choice"] && (! data["l1-race"].values["race_ability_choice1"])) {
+                    nogo = true;
+                    showList.push("sum_req_race");
+                    update["sum_req_race"] = (update["sum_req_race"].length > 0 ? " " : "") + "You haven't picked an Ability Score Increase.";
+                }
+                // race_skill_bonus_choice
+                if(data["l1-race"].data.race["data-Skills Bonus Choice"] && (! data["l1-race"].values["race_skill_bonus_choice"])) {
+                    nogo = true;
+                    showList.push("sum_req_race");
+                    update["sum_req_race"] = (update["sum_req_race"].length > 0 ? " " : "") + "You haven't picked a Skill Bonus.";
+                }
+                // race_feat_choice
+                if(data["l1-race"].data.race["data-Feats"] && data["l1-race"].data.race["data-Feats"] == "Any" && (! data["l1-race"].values["race_feat_choice"])) {
+                    nogo = true;
+                    showList.push("sum_req_race");
+                    update["sum_req_race"] = (update["sum_req_race"].length > 0 ? " " : "") + "You haven't picked a Bonus Feat.";
+                }
+            }
+        } else {
+            nogo = true;
+            showList.push("sum_req_race");
+            update["sum_req_race"] = "You need to v a Race.";
+        }
+
+        // === CLASS ===
+        if(data["l1-class"] && data["l1-class"].values.class) {
+            showList.push("sum_class");
+            update["sum_class"] = "Your Class is <b>" + data["l1-class"].values.class.replace("Classes:","") + "</b>.";
+            // Alignment
+            if(! data["l1-class"].values.class_alignment_choice) {
+                showList.push("sum_err_class");
+                update["sum_err_class"] += (update["sum_err_class"].length > 0 ? " " : "") + "Your haven't chosen your alignment.";
+            }
+            // Wealth
+            if(data["l1-class"].values["class_wealth"]
+                && data["l1-class"].values["class_wealth"] == "starting"
+                && ((! data["l1-class"].values["class_gp"]) || (data["l1-class"].values["class_gp"] && data["l1-class"].values["class_gp"] == "0"))) {
+                showList.push("sum_err_class");
+                update["sum_err_class"] += (update["sum_err_class"].length > 0 ? " " : "") + "Your haven't roll your Starting Wealth.";
+            }
+            if(data["l1-class"].data && data["l1-class"].data.class) {
+                // Subclasses
+                if(data["l1-class"].data.class["data-Subclass Name"]) {
+                    if(data["l1-class"].values.class_subclass1) {
+                        update["sum_class"] += " Your <b>" + data["l1-class"].data.class["data-Subclass Name"] + "</b> is <b>" + data["l1-class"].values.class_subclass1.replace("Subclasses:","") + "</b>.";
+                        if(data["l1-class"].data.class_subclass1) {
+                            // Ability Choice
+                            if(data["l1-class"].data.class_subclass1["data-Ability bonus choice"]
+                                && (! data["l1-class"].values["class_subclass1_ability_choice"])) {
+                                    nogo = true;
+                                    showList.push("sum_req_class");
+                                    update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick an Ability Score Increase.";
+                            }
+                            // Subclass Skill Choice
+                            if(data["l1-class"].data.class_subclass1["data-Class skills"]
+                                && (data["l1-class"].data.class_subclass1["data-Class skills"].indexOf("Any") != -1)
+                                && (! data["l1-class"].values["class_subclass1_classkills_choice"])) {
+                                    nogo = true;
+                                    showList.push("sum_req_class");
+                                    update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick a Class Skill.";
+                            }
+                        }
+                    } else {
+                        nogo = true;
+                        showList.push("sum_req_class");
+                        update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick a " + data["l1-class"].data.class["data-Subclass Name"] + ".";
+                    }
+                    if(data["l1-class"].values.class_subclass2) {
+                        update["sum_class"] += " Your <b>second " + data["l1-class"].data.class["data-Subclass Name"] + "</b> is <b>" + data["l1-class"].values.class_subclass2.replace("Subclasses:","") + "</b>.";
+                        if(data["l1-class"].data.class_subclass2) {
+                            // Ability Choice
+                            if(data["l1-class"].data.class_subclass2["data-Ability bonus choice"]
+                                && (! data["l1-class"].values["class_subclass2_ability_choice"])) {
+                                    nogo = true;
+                                    showList.push("sum_req_class");
+                                    update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick an Ability Score Increase.";
+                            }
+                            // Subclass Skill Choice
+                            if(data["l1-class"].data.class_subclass2["data-Class skills"]
+                                && (data["l1-class"].data.class_subclass2["data-Class skills"].indexOf("Any") != -1)
+                                && (! data["l1-class"].values["class_subclass2_classkills_choice"])) {
+                                    nogo = true;
+                                    showList.push("sum_req_class");
+                                    update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick a Class Skill.";
+                            }
+                        }
+                    } else if(data["l1-class"].data.class["data-Subclass Number"] == "2") {
+                        nogo = true;
+                        showList.push("sum_req_class");
+                        update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick a second " + data["l1-class"].data.class["data-Subclass Name"] + ".";
+                    }
+                }
+                // Feat Choice
+                if(data["l1-class"].data.class["data-Bonus Feats Choice"]
+                    && (! data["l1-class"].values["class_feat_choice"])) {
+                    nogo = true;
+                    showList.push("sum_req_class");
+                    update["sum_req_class"] += (update["sum_req_class"].length > 0 ? " " : "") + "Your need to pick a Bonus Feat.";
+                }
+            }
+        } else {
+            nogo = true;
+            showList.push("sum_req_class");
+            update["sum_req_class"] += (update["sum_req_class"].length > 0 ? "<br/>" : "") + "Your need to pick a Class."
+        }
+
+        // === SKILLS ===
+        if(data["l1-class"] && data["l1-class"].values.class) {
+            if(data["l1-skills"] && data["l1-skills"].values) {
+                var listskill = "";
+                _.each(Object.keys(data["l1-skills"].values),(skl) => {
+                    if(skl.indexOf("_ranks") > -1) {
+                        if((parseInt(data["l1-skills"].values[skl]) || 0) > 0) {
+                            listskill += (listskill.length > 0 ? ", " : "") + getTranslationByKey(skl.replace("_ranks",""));
+                        }
+                    }
+                });
+                if(listskill.length) {
+                    showList.push("sum_skills");
+                    update["sum_skills"] = "You picked the following Skills: <b>" + listskill + "</b>.";
+                    if(! _.isEmpty(returnObj) && returnObj.skillranks) {
+                        if( (parseInt(returnObj.skillranks.current) || 0) > 0 ) {
+                            nogo = true;
+                            showList.push("sum_req_skills");
+                            update["sum_req_skills"] = "You haven't spent all your  Skill Ranks.";
+                        }
+                    }
+                } else {
+                    nogo = true;
+                    showList.push("sum_req_skills");
+                    update["sum_req_skills"] = "You have not picked any Skill.";
+                }
+            } else {
+                nogo = true;
+                showList.push("sum_req_skills");
+                update["sum_req_skills"] = "You have not picked any Skill.";
+            }
+        } else {
+            showList.push("sum_err_skills");
+            update["sum_err_skills"] = "Your need to pick a Class."
+        }
+
+        // === FEATS ===
+        if(data["l1-feats"] && data["l1-feats"].values["feat_lvl1_1"]) {
+            showList.push("sum_feats");
+            update["sum_feats"] = "You have picked <b>" + data["l1-feats"].values["feat_lvl1_1"].replace("Feats:","") + "</b>.";
+        } else {
+            nogo = true;
+            showList.push("sum_req_feats");
+            update["sum_req_feats"] = "You need to pick a Feat.";
+        }
+
+        // === SPELLS ===
+        if(data["l1-class"] && data["l1-class"].values.class) {
+            if(data["l1-class"].data && data["l1-class"].data.class
+            && data["l1-class"].data.class["data-Spellcaster"]
+            && (data["l1-class"].data.class["data-Spells Per Day"] || data["l1-class"].data.class["data-Spells Known"])) {
+                if(data["l1-spells"] && data["l1-spells"].values) {
+                    // Abilities mods
+                    var abilities_scores = calc_abilities(data);
+                    var ability_mods = calc_abilities_mod(abilities_scores);
+
+                    // Check ability
+                    var ablt = 10;
+                    var ablt_name = getTranslationByKey("intelligence");
+                    if(data["l1-class"].data.class["data-Spellcasting ability"]) {
+                        ablt = parseInt(abilities_scores[data["l1-class"].data.class["data-Spellcasting ability"].toLowerCase()].total) || 10;
+                        ablt_name = getTranslationByKey(data["l1-class"].data.class["data-Spellcasting ability"].toLowerCase());
+                    }
+                    if(ablt < 10 ) {
+                        showList.push("sum_err_spells");
+                        update["sum_err_spells"] = data["l1-class"].values.class.replace("Classes:","") + " "
+                        + getTranslationByKey("cant-cast-with")
+                        + " " + ablt + " " + ablt_name;
+                    } else {
+                        // Bonus spells
+                            /* ablt < 10 : Can’t cast spells tied to this ability
+                            ablt > 9 && ablt < 12 : 0 bonus spells
+                            ablt > 11 && ablt < 20 : 1 bonus spells
+                            ablt > 19 : 2 bonus spells */
+                        var bonuspells = [0,0];
+                        if(ablt > 11 && ablt < 20) {
+                            bonuspells[1] = 1;
+                        } else if(ablt > 19) {
+                            bonuspells[1] = 2;
+                        }
+
+                        // Spells known/per day
+                        var lvlarr;
+                        var prepared = false;
+                        if(data["l1-class"].data.class["data-Spells Known"]) {
+                            lvlarr = data["l1-class"].data.class["data-Spells Known"].split(",");
+                        } else {
+                            prepared = true;
+                            lvlarr = data["l1-class"].data.class["data-Spells Per Day"].split(",");
+                        }
+
+                        // Spell choices
+                        var spellschosen = "";
+                        var allspellschosen = true;
+                        var spelllevel = -1;
+                        _.each(lvlarr, (lvl) => {
+                            spelllevel++;
+                            var nbspells = 0;
+                            if(lvl.indexOf("+") == -1) {
+                                nbspells = parseInt(lvl) || 0;
+                            } else {
+                                nbspells = (parseInt(lvl.split("+")[0].toLowerCase().trim()) || 0) + (parseInt(ability_mods[lvl.split("+")[1].toLowerCase().trim()]) || 0);
+                            }
+                            // Adding bonus spells for prepared spells (not spells known)
+                            if(prepared) {
+                                nbspells += (bonuspells[spelllevel] || 0);
+                            }
+                            if(nbspells) {
+                                for(var i = 1; i < 7; i++) {
+                                    if(i <= nbspells) {
+                                        if(data["l1-spells"].values["spells_level_" + spelllevel + "_" + i]) {
+                                            spellschosen += (spellschosen.length > 0 ? ", " : "") + data["l1-spells"].values["spells_level_" + spelllevel + "_" + i].replace("Spells:","");
+                                        } else {
+                                            allspellschosen = false;
+                                        }
+                                    }
+                                }
+                            }
+                            if(spellschosen.length) {
+                                showList.push("sum_spells");
+                                update["sum_spells"] = "You have selected the following Spells: <b>" + spellschosen + "</b>.";
+                                if(! allspellschosen) {
+                                    nogo = true;
+                                    showList.push("sum_req_spells");
+                                    update["sum_req_spells"] = "Your haven't picked all your Spells.";
+                                }
+                            } else {
+                                nogo = true;
+                                showList.push("sum_req_spells");
+                                update["sum_req_spells"] = "Your haven't picked any Spells.";
+                            }
+                        });
+                    }
+                } else {
+                    nogo = true;
+                    showList.push("sum_req_spells");
+                    update["sum_req_spells"] = "Your haven't picked any Spells.";
+                }
+            } else {
+                showList.push("sum_spells");
+                update["sum_spells"] = getTranslationByKey("character-no-spells");
+            }
+        } else {
+            showList.push("sum_err_spells");
+            update["sum_err_spells"] = "Your need to pick a Class."
+        }
+
+        // === Final phrase on top ===
+        if(nogo) {
+            showList.push("sum_req_sum");
+            update["sum_req_sum"] = "You have missed some required fields";
+        } else {
+            showList.push("sum_sum");
+            update["sum_sum"] = "If you are ready to build your character, click <b>APPLY</b>.";
+        }
+
+        setCharmancerText(update);
+        showChoices(showList);
     });
 
     // === GENERAL FUNCTIONS
@@ -16566,6 +17791,7 @@
     var recalcData = function(currentStep = "") {
         var data = getCharmancerData();
         var update = {};
+        var returnObj = {};
 
         console.log("*** DEBUG recalcData before:" + JSON.stringify(data,null,"  "));
 
@@ -16600,8 +17826,8 @@
         // --- Saves race
         if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race) {
             _.each(saves_array, (save) => {
-                if(data["l1-race"].data.race[save.name.charAt(0).toUpperCase() + save.name.slice(1) + " Bonus"]) {
-                    saves_scores[save.name].race = (parseInt(data["l1-race"].data.race[save.name.charAt(0).toUpperCase() + save.name.slice(1) + " Bonus"]) || 0);
+                if(data["l1-race"].data.race["data-" + save.name.charAt(0).toUpperCase() + save.name.slice(1) + " Bonus"]) {
+                    saves_scores[save.name].race = (parseInt(data["l1-race"].data.race["data-" + save.name.charAt(0).toUpperCase() + save.name.slice(1) + " Bonus"]) || 0);
                 }
             });
         }
@@ -16657,7 +17883,7 @@
 
         // === Skill ranks ===
         var ranks = {"current":0,"max":0};
-        if(["class","skills"].includes(currentStep)) {
+        if(["class","skills","summary"].includes(currentStep)) {
             var rankablt = "intelligence";
             var rankbase = 0;
             var rankbonus = 0;
@@ -16696,6 +17922,10 @@
 
             if(currentStep == "class") {
                 update["class_skill_ranks_total"] = "(" + ranks.max + ")";
+            }
+
+            if(currentStep == "summary") {
+                returnObj["skillranks"] = ranks;
             }
         }
 
@@ -16774,7 +18004,7 @@
             }
                 // class data-Skills bonus
             if(data["l1-class"] && data["l1-class"].data.class && data["l1-class"].data.class["data-Skills bonus"]) {
-                bonusskill += ((bonusskill.length) ? "," : "") + data["l1-race"].data.race["data-Skills Bonus"];
+                bonusskill += ((bonusskill.length) ? "," : "") + data["l1-class"].data.class["data-Skills bonus"];
             }
                 // Sublcass1 data-Skills bonus
             if(data["l1-class"] && data["l1-class"].values["class_subclass1"]) {
@@ -16791,7 +18021,7 @@
                 // Calculation
             _.each(bonusskill.split(","), (skl) => {
                 if(skl.indexOf("+") != -1) {
-                    var skill = skl.split("+")[0].trim().toLowerCase().replace(/[^a-z\s]/gi, "").replace(" ","_");
+                    var skill = skl.split("+")[0].trim().toLowerCase().replace(/[^a-z\s]/gi, "").trim().replace(/\s/gi,"_");
                     skillbonus[skill] = (parseInt(skillbonus[skill]) || 0)
                                       + (parseInt(skl.split("+")[1].replace(/[^\d\-]/gi, "")) || 0);
                 }
@@ -16809,7 +18039,7 @@
             });
         }
 
-
         setCharmancerText(update);
+        return returnObj;
     };
 </script>
