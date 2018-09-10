@@ -687,18 +687,39 @@ span.sheet-npc-section {
 }
 
 .sheet-multiclass {
+    display: flex;
+    justify-content: space-between;
     text-align: left;
-    white-space: nowrap;
+    flex-wrap: nowrap;
+    padding-right: 10px;
+}
+.sheet-multiclass-a {
+    width: 220px;
+}
+.sheet-multiclass-b {
+    width: 160px;
+}
+.sheet-multiclass-c {
+    width: 230px;
+}
+.sheet-multiclass-d {
+    width: 190px;
+}
+.sheet-multiclass-a,
+.sheet-multiclass-b,
+.sheet-multiclass-c,
+.sheet-multiclass-d {
+    text-align: right;
 }
 .sheet-multiclass .sheet-lab {
     width: 30px;
     font-weight: bold;
 }
-.sheet-labline.sheet-multiclass.sheet-bord {border-bottom: 1px dotted #CCC;}
+.sheet-multiclass.sheet-labline.sheet-bord {border-bottom: 1px dotted #CCC;}
 .sheet-multiclass .sheet-lab.sheet-spellcasting {
-    width: 176px;
     text-transform: uppercase;
-    text-align: left;
+    text-align: center;
+    width: auto;
 }
 .sheet-multiclass .sheet-lab.sheet-class {width: 140px;}
 .sheet-multiclass .sheet-lab.sheet-fav {width: 15px;}
@@ -920,7 +941,8 @@ select.sheet-size {width: 80px;}
 
 /* ===== BUTTONS ===== */
 button[type="compendium"].sheet-myrol,
-button[type="roll"].sheet-myrol {
+button[type="roll"].sheet-myrol,
+button[type="action"].sheet-myrol {
     text-align: center;
     text-decoration: none;
     background:none;
@@ -983,6 +1005,14 @@ button[type="compendium"].sheet-myrol {
 }
 .sheet-fromcompendium:not([value=""]) + button[type="compendium"].sheet-myrol {
     display: inline-block;
+}
+
+button[type="action"].sheet-myrol {
+    border: 1px dotted transparent;
+    border-radius: 10%;
+}
+button[type="action"].sheet-myrol:hover {
+    border-color: #BE202E;
 }
 
 /* ===== PSEUDO CHECKS and RADIOS ===== */
@@ -1172,7 +1202,7 @@ input.sheet-tabmain + span,
 input.sheet-tabadd + span,
 input.sheet-tabspell + span,
 input.sheet-tabconf + span{
-    color: #666666;
+    color: #2E2E2E;
     background-color: #BBBBBB;
     font-size: 0.85em;
     text-align:center;
@@ -2502,3 +2532,19 @@ input.sheet-tabconf:checked + span{
     height: 100%;
 }
 
+.sheet-charmancer button.sheet-apply {
+    display: none;
+}
+.sheet-charmancer button.sheet-apply.sheet-not {
+    display: block;
+}
+.sheet-charmancer input.sheet-apply:not([value="0"]) ~ button.sheet-apply {
+    display: block;
+}
+.sheet-charmancer input.sheet-apply:not([value="0"]) ~ button.sheet-apply.sheet-not {
+    display: none;
+}
+.sheet-charmancer button.sheet-apply.sheet-not:hover {
+    color: #DDD;
+    cursor: not-allowed;
+}
