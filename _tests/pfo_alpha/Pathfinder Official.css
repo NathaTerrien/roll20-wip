@@ -694,13 +694,13 @@ span.sheet-npc-section {
     padding-right: 10px;
 }
 .sheet-multiclass-a {
-    width: 220px;
+    width: 210px;
 }
 .sheet-multiclass-b {
-    width: 160px;
+    width: 200px;
 }
 .sheet-multiclass-c {
-    width: 230px;
+    width: 220px;
 }
 .sheet-multiclass-d {
     width: 190px;
@@ -710,6 +710,7 @@ span.sheet-npc-section {
 .sheet-multiclass-c,
 .sheet-multiclass-d {
     text-align: right;
+    white-space: nowrap;
 }
 .sheet-multiclass .sheet-lab {
     width: 30px;
@@ -2217,8 +2218,8 @@ input.sheet-tabconf:checked + span{
     /* margin: 0 -1em 0 -.5em; */
     padding: 2px;
 }
-.sheet-charmancer .sheet-row:last-child {
-    border-width: 1px 1px 1px 1px;
+.sheet-charmancer .sheet-row.sheet-last {
+    border-width: 0px 1px 1px 1px;
 }
 
 .sheet-charmancer .sheet-race_traits,
@@ -2307,7 +2308,8 @@ input.sheet-tabconf:checked + span{
     display: inline-block;
     margin-left: 4px;
 }
-.sheet-charmancer .sheet-abilities_custom span.sheet-title {
+.sheet-charmancer .sheet-abilities_custom span.sheet-title,
+.sheet-charmancer .sheet-custom_race.sheet-race_abilities label span.sheet-title {
     width: 100px;
 }
 .sheet-charmancer .sheet-warning {

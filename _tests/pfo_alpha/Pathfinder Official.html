@@ -20,17 +20,23 @@
                 <input type="hidden" name="attrk_npc_fromcompendium" class="fromcompendium" value="" />
                 <button class="myrol" type="compendium" name="attr_npc_fromcompendium" data-i18n-title="open-compendium-item" title="Open Compendium Item"></button>
             </div>
-            <div style="margin-right:6px;">
-                <span class="big" data-i18n="cr-u">CR</span>
-                <span class="big" name="attr_npc_cr" title="@{npc_cr}"></span>
+            <div class="big" style="margin-right:6px;">
+                <span data-i18n="cr-u">CR</span>
+                <span name="attr_npc_cr" title="@{npc_cr}"></span>
+                <input type="hidden" class="optional-flag" name="attr_npc_mr" value="" /><div class="optional inl">
+                        / <span data-i18n="mr-u">MR</span>
+                        <span name="attr_npc_mr" title="@{npc_mr}"></span>
+                </div>
             </div>
         </div>  <!-- END Display name and CR -->
-        <div class="options" style="margin-bottom: 6px;">
+        <div class="options" style="margin-bottom: 6px;"> <!-- NPC options / base entry -->
             <div class="topspace myrow">
                 <span class="lbl" data-i18n="name">Name</span>
                 <input type="text" name="attr_character_name" class="underlined" spellcheck="false" title="@{character_name}" />
                 <span class="lbl margindent" data-i18n="cr-u">CR</span>
                 <input type="text" name="attr_npc_cr" class="underlined small" spellcheck="false" title="@{npc_cr}" />
+                <span class="lbl margindent" data-i18n="mr-u">MR</span>
+                <input type="text" name="attr_npc_mr" value="" class="underlined small" spellcheck="false" title="@{npc_mr}" />
                 <span class="lbl margindent" data-i18n="xp-u">XP</span>
                 <input type="text" name="attr_xp" class="underlined medium" title="@{attr_xp}" />
             </div>
@@ -354,6 +360,10 @@
                 <span class="lbl skill" data-i18n="use_magic_device">Use Magic Device*</span>
                 <input type="number" name="attr_use_magic_device" class="nospin underlined sml" value="0" title="@{use_magic_device}" />
                 <input type="text" name="attr_use_magic_device_notes" class="underlined medium" title="@{use_magic_device_notes}" data-i18n-placeholder="notes" placeholder="Notes" />
+            </div>
+            <div class="myrow">
+                <span class="lbl bold" data-i18n="skills-notes">Skills Notes</span>
+                <input type="text" name="attr_skills_notes" class="underlined senses" spellcheck="false" title="@{skills_notes}" />
             </div>
             <div class="myrow">
                 <span class="lbl bold" data-i18n="languages">Languages</span>
@@ -2325,6 +2335,7 @@
             <input type="hidden" class="optional-flag0" name="attr_swim_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="roll_npc_swim" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{swim}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{swim}[MOD]]]}} {{abilitytype=@{swim_notes}}}"><span data-i18n="swim">Swim</span> <span name="attr_swim_display"></span></button>,</span>
             <input type="hidden" class="optional-flag0" name="attr_use_magic_device_flag" value="0" /><span class="optional inl"><button class="myrol" type="roll" name="roll_npc_usemagicdevice" data-i18n-title="skill-roll" title="Roll Skill" value="@{whispertype} &{template:npc} {{name=^{use_magic_device}}} {{type=skill}} {{showchar=@{rollshowchar}}} {{charname=@{character_name}}} {{roll=[[1d20+@{use_magic_device}[MOD]]]}} {{abilitytype=@{use_magic_device_notes}}}"><span data-i18n="use_magic_device">Use Magic Device</span> <span name="attr_use_magic_device_display"></span></button>,</span>
             <input type="hidden" class="optional-flag" name="attr_skills_racial_modifiers" value="" /><span class="optional inl"><span class="bold" data-i18n="racial-modifiers">Racial Modifiers</span>&nbsp;<span name="attr_skills_racial_modifiers"></span></span>
+            <input type="hidden" class="optional-flag" name="attr_skills_notes" value="" /><span class="optional inl"><span class="bold" data-i18n="notes">Notes</span>&nbsp;<span name="attr_skills_notes"></span></span>
         </div>
         <div class="myrow">
             <span class="bold" data-i18n="languages">Languages</span>
@@ -3346,7 +3357,7 @@
                 <div class="options">
                     <div class="myrow">
                         <div class="boxed greybg"><span name="attr_speed_base" class="pseudoattr" title="@{speed_base}"></span></div>
-                        <span class="lab">= Min(</span> <div class="boxed greybg"><span name="attr_speed_race" class="pseudoattr" title="@{speed_race}"></span></div>
+                        <span class="lab">= Min(</span> <div class="boxed greybg"><span name="attr_speed_character" class="pseudoattr" title="@{speed_character}"></span></div>
                         <div class="boxed greybg"><span name="attr_speed_armor" class="pseudoattr" title="@{speed_armor}"></span></div>
                         <div class="boxed greybg"><span name="attr_speed_encumbrance" class="pseudoattr" title="@{speed_encumbrance}"></span></div>
                         <span class="lbl">)</span>
@@ -3359,7 +3370,7 @@
                     <div class="myrow labline bottom">
                         <span class="lab" data-i18n="speed" data-i18n-title="speed" title="Speed">Speed</span>
                         <span class="lab">&nbsp;</span>
-                        <span class="lab" data-i18n="race" data-i18n-title="race" title="Race">Race</span>
+                        <span class="lab" data-i18n="base" title="Race + Class(es)">Base</span>
                         <span class="lab" data-i18n="armor" data-i18n-title="armor" title="Armor">Armor</span>
                         <span class="lab" data-i18n="load" data-i18n-title="load" title="Load">Load</span>
                         <span class="lbl">&nbsp;</span>
@@ -7645,6 +7656,7 @@
                         <span class="lab" data-i18n="fort-u" data-i18n-title="fortitude" title="Fortitude">FORT</span>
                         <span class="lab" data-i18n="ref-u" data-i18n-title="reflex" title="Reflex">REF</span>
                         <span class="lab" data-i18n="will-u" data-i18n-title="will" title="Will">WILL</span>
+                        <span class="lab" data-i18n="speed" data-i18n-title="speed-bonus:" title="Speed Bonus:">Speed</span>
                     </div>
                     <div class="multiclass-c">
                         <span class="sheet-lab" style="width: 40px;" data-i18n="ranks">Ranks</span>
@@ -7680,6 +7692,7 @@
                         <input type="number" name="attr_class1_fortitude" value="0" class="nospin underlined sml" title="@{class1_fortitude}" />
                         <input type="number" name="attr_class1_reflex" value="0" class="nospin underlined sml" title="@{class1_reflex}" />
                         <input type="number" name="attr_class1_will" value="0" class="nospin underlined sml" title="@{class1_will}" />
+                        <input type="number" name="attr_class1_speed" value="0" class="nospin underlined sml" title="@{class1_speed}" />
                     </div>
                     <div class="multiclass-c">
                         (<input type="number" name="attr_class1_skillranks_base" value="0" class="nospin underlined sml" title="@{class1_skillranks_base}" />
@@ -7724,6 +7737,7 @@
                         <input type="number" name="attr_class2_fortitude" value="0" class="nospin underlined sml" title="@{class2_fortitude}" />
                         <input type="number" name="attr_class2_reflex" value="0" class="nospin underlined sml" title="@{class2_reflex}" />
                         <input type="number" name="attr_class2_will" value="0" class="nospin underlined sml" title="@{class2_will}" />
+                        <input type="number" name="attr_class2_speed" value="0" class="nospin underlined sml" title="@{class2_speed}" />
                     </div>
                     <div class="multiclass-c">
                         (<input type="number" name="attr_class2_skillranks_base" value="0" class="nospin underlined sml" title="@{class2_skillranks_base}" />
@@ -7769,6 +7783,7 @@
                         <input type="number" name="attr_class3_fortitude" value="0" class="nospin underlined sml" title="@{class3_fortitude}" />
                         <input type="number" name="attr_class3_reflex" value="0" class="nospin underlined sml" title="@{class3_reflex}" />
                         <input type="number" name="attr_class3_will" value="0" class="nospin underlined sml" title="@{class3_will}" />
+                        <input type="number" name="attr_class3_speed" value="0" class="nospin underlined sml" title="@{class3_speed}" />
                     </div>
                     <div class="multiclass-c">
                         (<input type="number" name="attr_class3_skillranks_base" value="0" class="nospin underlined sml" title="@{class3_skillranks_base}" />
@@ -7793,6 +7808,10 @@
                         <div class="boxed greybg"><span name="attr_fortitude_base" class="pseudoattr" title="@{fortitude_base}"></span></div>
                         <div class="boxed greybg"><span name="attr_reflex_base" class="pseudoattr" title="@{reflex_base}"></span></div>
                         <div class="boxed greybg"><span name="attr_will_base" class="pseudoattr" title="@{will_base}"></span></div>
+                        <div class="boxed greybg">
+                            <input type="hidden" name="speed_class" value="0" />
+                            <span name="attr_speed_class" class="pseudoattr" title="@{speed_class}"></span>
+                        </div>
                     </div>
                     <div class="multiclass-c">
                         <input type="hidden" name="attr_skills_ranks_total_max" value="0" />
@@ -9148,9 +9167,10 @@
     /* === GLOBAL VARIABLES === */
     var pfoglobals_debug_mode = 0;
 
-    var pfoglobals_currentversion = 1.15;
+    const pfoglobals_currentversion = 1.15;
     var pfoglobals_i18n_obj = {};
     var pfoglobals_initdone = 0;
+
     const pfoglobals_abilities = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
     const pfoglobals_abilities_fields = ["strength_base","strength_race","strength_bonus","strength_condition","dexterity_base","dexterity_race","dexterity_bonus","dexterity_condition","constitution_base","constitution_race","constitution_bonus","intelligence_base","intelligence_race","intelligence_bonus","wisdom_base","wisdom_race","wisdom_bonus","charisma_base","charisma_race","charisma_bonus"];
     const pfoglobals_mods = ["strength_mod","dexterity_mod","constitution_mod","intelligence_mod","wisdom_mod","charisma_mod","none_mod"];
@@ -9177,8 +9197,8 @@
     const pfoglobals_concentration_fields = ["npc","caster1_level","caster1_ability","caster1_ability_mod","caster1_concentration_misc","caster1_concentration_bonus","caster2_level","caster2_ability","caster2_ability_mod","caster2_concentration_misc","caster2_concentration_bonus"].concat(pfoglobals_mods);
     const pfoglobals_spells_dc_fields = ["npc","caster1_ability","caster1_ability_mod","caster1_dc_misc","caster1_dcbonus_level_0","caster1_dcbonus_level_1","caster1_dcbonus_level_2","caster1_dcbonus_level_3","caster1_dcbonus_level_4","caster1_dcbonus_level_5","caster1_dcbonus_level_6","caster1_dcbonus_level_7","caster1_dcbonus_level_8","caster1_dcbonus_level_9","caster2_ability","caster2_ability_mod","caster2_dc_misc","caster2_dcbonus_level_0","caster2_dcbonus_level_1","caster2_dcbonus_level_2","caster2_dcbonus_level_3","caster2_dcbonus_level_4","caster2_dcbonus_level_5","caster2_dcbonus_level_6","caster2_dcbonus_level_7","caster2_dcbonus_level_8","caster2_dcbonus_level_9"].concat(pfoglobals_mods);
     const pfoglobals_size = [{"size":"fine","atkac":8,"cmb":-8,"fly":8,"stealth":16,"load":0.125,"squares":0.5},{"size":"diminutive","atkac":4,"cmb":-4,"fly":6,"stealth":12,"load":0.25,"squares":0.5},{"size":"tiny","atkac":2,"cmb":-2,"fly":4,"stealth":8,"load":0.5,"squares":0.5},{"size":"small","atkac":1,"cmb":-1,"fly":2,"stealth":4,"load":0.75,"squares":0.75},{"size":"medium","atkac":0,"cmb":0,"fly":0,"stealth":0,"load":1,"squares":1.0},{"size":"large","atkac":-1,"cmb":1,"fly":-2,"stealth":-4,"load":2,"squares":2.0},{"size":"huge","atkac":-2,"cmb":2,"fly":-4,"stealth":-8,"load":4,"squares":3.0},{"size":"gargantuan","atkac":-4,"cmb":4,"fly":-6,"stealth":-12,"load":8,"squares":4.0},{"size":"colossal","atkac":-8,"cmb":8,"fly":-8,"stealth":-16,"load":16,"squares":4.0}];
-    const pfoglobals_encumbrance_fields = ["npc","encumbrance_load_bonus","encumbrance_load_multiplier","strength","encumbrance_size","encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_race","encumbrance","encumbrance_display"];
-    const pfoglobals_speed_fields = ["speed_race","encumbrance","speed_notmodified","speed_encumbrance","speed_armor","encumbrance_run_factor","armor_run_factor","speed_base","speed_bonus","speed_run_factor","speed_condition_multiplier","speed_condition_norun","speed_condition_nospeed"];
+    const pfoglobals_encumbrance_fields = ["npc","encumbrance_load_bonus","encumbrance_load_multiplier","strength","encumbrance_size","encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","speed_race","speed_class","encumbrance","encumbrance_display"];
+    const pfoglobals_speed_fields = ["speed_race","speed_class","encumbrance","speed_notmodified","speed_encumbrance","speed_armor","encumbrance_run_factor","armor_run_factor","speed_base","speed_bonus","speed_run_factor","speed_condition_multiplier","speed_condition_norun","speed_condition_nospeed"];
     const pfoglobals_conditions = ["condition_bleed","condition_blinded","condition_confused","condition_cowering","condition_dazed","condition_dazzled","condition_deafened","condition_disabled","condition_dying","condition_energy_drained","condition_entangled","condition_exhausted","condition_fascinated","condition_fatigued","condition_flat-footed","condition_frightened","condition_grappled","condition_helpless","condition_incorporeal","condition_invisible","condition_nauseated","condition_panicked","condition_paralyzed","condition_petrified","condition_pinned","condition_prone","condition_shaken","condition_sickened","condition_stable","condition_staggered","condition_stunned","condition_unconscious"];
 
     /* === EVENTS === */
@@ -9253,95 +9273,10 @@
         var allClassSkills = "";
         var allSkillBonus = "";
         var skillBonusNotes = {};
-        var finalspeed = 0;
+        var finalRaceSpeed = 0;
+        var finalClassSpeed = 0;
         var allRepSecs = ["attacks","skillcraft","skillknowledge","skillperform","skillprofession","skillcustom","acitems","gear","feats","abilities","spell-like","metamagic"];
         for(var i = 0; i < 10; i++) {allRepSecs.push("spell-" + i);}
-
-        // === INIT ===
-        setCharmancerText({"mancer_category":"Resetting Attributes","mancer_progress" :'<div style="width: 4%"></div>'});
-        charUpd["npc"] = 0;
-        charUpd["tabcurrent"] = "tabmain";
-        charUpd["l1mancer_status"] = "completed";
-            // -- Reset to empty string
-        var toResetAsChar = ["class1_name","class2_name","class3_name","languages","senses","ac_notes","fortitude_notes","reflex_notes","will_notes","caster1_class","caster2_class","caster1_spells_notes","caster2_spells_notes","initiative_notes","speed_notes","encumbrance_display","encumbrance_load_notes","misc_notes","background","bab_notes","cmb_notes","melee_notes","ranged_notes","cmd_notes","sr_notes"];
-        toResetAsChar = toResetAsChar.concat(pfoglobals_skill_list.map((sk) => sk + "_notes"));
-        toResetAsChar = toResetAsChar.concat(pfoglobals_abilities.map((sk) => sk + "_notes"));
-        _.each(toResetAsChar,(attr) => {
-            charUpd[attr] = "";
-        });
-            // -- Reset to zero
-        var toResetAsZero = ["caster_flag","class2_level","class3_level","initiative_misc","money_cp","money_sp","money_gp","money_pp","xp",""];
-        for(var i = 1; i < 4; i++) {
-            toResetAsZero.push("class" + i + "_bab","class" + i + "_fortitude","class" + i + "_reflex","class" + i + "_will");
-        }
-        for(var j = 1; j < 3; j++) {
-            for(var i = 0; i < 10; i++) {
-                toResetAsZero.push("caster" + j + "_spells_known_level_" + i, "caster" + j + "_spells_perday_level_" + i, "caster" + j + "_spells_bonus_level_" + i, "caster" + j + "_spells_prepared_level_" + i, "caster" + j + "_spells_total_level_" + i, "caster" + j + "_dc_level_" + i, "caster" + j + "_dcbonus_level_" + i,"caster_spells_flag_level_" + i);
-            }
-        }
-        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_ranks"));
-        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_misc"));
-        toResetAsZero = toResetAsZero.concat(pfoglobals_abilities,pfoglobals_abilities_fields,pfoglobals_mods,pfoglobals_initiative_fields,["ac_condition_nobonus","ac_ability_mod","encumbrance_ability_maximum","ac_ability_maximum","ac_secab_monk"],pfoglobals_ac_fields,pfoglobals_babs_fields,pfoglobals_skill_fields,["caster1_flag","caster2_flag","caster1_level","caster1_ability_mod","caster1_concentration_misc","caster1_concentration_bonus","caster2_level","caster2_ability_mod","caster2_concentration_misc","caster2_concentration_bonus"],["encumbrance_load_bonus","encumbrance_size","encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","encumbrance"],["encumbrance","speed_notmodified","speed_encumbrance","speed_armor","speed_base","speed_bonus","speed_run_factor","speed_condition_multiplier","speed_condition_norun","speed_condition_nospeed"],pfoglobals_conditions,["armor_spell_failure","caster1_ability_mod","caster1_dc_misc","caster2_ability_mod","caster2_dc_misc"],["class1_skillranks_base","class2_skillranks_base","class3_skillranks_base"]);
-        toResetAsZero = _.uniq(toResetAsZero);
-        _.each(toResetAsZero,(attr) => {
-            charUpd[attr] = 0;
-        });
-            // -- Reset to One
-        var toResetAsOne = ["class1_level","level","class_favored","encumbrance_load_multiplier","caster1_spell_failure","caster2_spell_failure"];
-        _.each(toResetAsOne,(attr) => {
-            charUpd[attr] = 1;
-        });
-            // -- Reset to default value
-        charUpd["class2_hitdietype"] = 8;
-        charUpd["class3_hitdietype"] = 8;
-        charUpd["xp_max"] = 2000;
-        charUpd["encumbrance_run_factor"] = 4;
-        charUpd["armor_run_factor"] = 4;
-        charUpd["ac_ability_primary"] = "dexterity";
-        charUpd["ac_ability_secondary"] = "";
-        charUpd["fortitude_ability"] = "constitution";
-        charUpd["reflex_ability"] = "dexterity";
-        charUpd["will_ability"] = "wisdom";
-        charUpd["cmb_ability"] = "strength";
-        charUpd["melee_ability"] = "strength";
-        charUpd["ranged_ability"] = "dexterity";
-        charUpd["acrobatics_ability"] = "dexterity";
-        charUpd["appraise_ability"] = "intelligence";
-        charUpd["bluff_ability"] = "charisma";
-        charUpd["climb_ability"] = "strength";
-        charUpd["craft_ability"] = "intelligence";
-        charUpd["diplomacy_ability"] = "charisma";
-        charUpd["disable_device_ability"] = "dexterity";
-        charUpd["disguise_ability"] = "charisma";
-        charUpd["escape_artist_ability"] = "dexterity";
-        charUpd["fly_ability"] = "dexterity";
-        charUpd["handle_animal_ability"] = "charisma";
-        charUpd["heal_ability"] = "wisdom";
-        charUpd["intimidate_ability"] = "charisma";
-        charUpd["knowledge_arcana_ability"] = "intelligence";
-        charUpd["knowledge_dungeoneering_ability"] = "intelligence";
-        charUpd["knowledge_engineering_ability"] = "intelligence";
-        charUpd["knowledge_geography_ability"] = "intelligence";
-        charUpd["knowledge_history_ability"] = "intelligence";
-        charUpd["knowledge_local_ability"] = "intelligence";
-        charUpd["knowledge_nature_ability"] = "intelligence";
-        charUpd["knowledge_nobility_ability"] = "intelligence";
-        charUpd["knowledge_planes_ability"] = "intelligence";
-        charUpd["knowledge_religion_ability"] = "intelligence";
-        charUpd["linguistics_ability"] = "intelligence";
-        charUpd["perception_ability"] = "wisdom";
-        charUpd["perform_ability"] = "charisma";
-        charUpd["profession_ability"] = "wisdom";
-        charUpd["ride_ability"] = "dexterity";
-        charUpd["sense_motive_ability"] = "wisdom";
-        charUpd["sleight_of_hand_ability"] = "dexterity";
-        charUpd["spellcraft_ability"] = "intelligence";
-        charUpd["stealth_ability"] = "dexterity";
-        charUpd["survival_ability"] = "wisdom";
-        charUpd["swim_ability"] = "strength";
-        charUpd["use_magic_device_ability"] = "charisma";
-        charUpd["caster1_ability"] = "intelligence";
-        charUpd["caster2_ability"] = "intelligence";
 
         // === FUNCTIONS ===
         var calc_abilities = function(data) {
@@ -9359,18 +9294,30 @@
                 });
             }
             // --- Abilities race
-            if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race && data["l1-race"].data.race["data-Ability Score Modifiers"]) {
-                _.each(data["l1-race"].data.race["data-Ability Score Modifiers"].split(","), (modifier) => {
-                    var abrace = modifier.trim().toLowerCase();
-                    if(abilities_scores[abrace.split(" ")[0].trim()]) {
-                        abilities_scores[abrace.split(" ")[0].trim()].race = parseInt(abrace.split(" ")[1]) || 0;
+            if(data["l1-race"]) {
+                if(data["l1-race"].data && data["l1-race"].data.race) {
+                    if(data["l1-race"].data.race["data-Ability Score Modifiers"]) {
+                        _.each(data["l1-race"].data.race["data-Ability Score Modifiers"].split(","), (modifier) => {
+                            var abrace = modifier.trim().toLowerCase();
+                            if(abilities_scores[abrace.split(" ")[0].trim()]) {
+                                abilities_scores[abrace.split(" ")[0].trim()].race = parseInt(abrace.split(" ")[1]) || 0;
+                            }
+                            else {
+                                console.log("*** DEBUG ERROR ability race unsplitable: " + abrace);
+                            }
+                        });
+                    } else if(data["l1-race"].data.race["data-Ability Score Choice"] && data["l1-race"].values["race_ability_choice1"]) {
+                        abilities_scores[data["l1-race"].values["race_ability_choice1"]].race = parseInt(data["l1-race"].data.race["data-Ability Score Choice"].split("+")[1]) || 0;
                     }
-                    else {
-                        console.log("*** DEBUG ERROR ability race unsplitable: " + abrace);
-                    }
-                });
-            } else if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race && data["l1-race"].data.race["data-Ability Score Choice"] && data["l1-race"].values["race_ability_choice1"]) {
-                abilities_scores[data["l1-race"].values["race_ability_choice1"]].race = parseInt(data["l1-race"].data.race["data-Ability Score Choice"].split("+")[1]) || 0;
+                }
+                if(data["l1-race"].values["race"] == "Index:Races") {
+                    //Custom race abilities bonuses
+                    _.each(mncrAbilities, (ability) => {
+                        if(data["l1-race"].values["race_" + ability]) {
+                            abilities_scores[ability].race = data["l1-race"].values["race_" + ability];
+                        }
+                    });
+                }
             }
             // --- Abilities class
             // --- Abilities subclass
@@ -9394,6 +9341,14 @@
             return ability_mods;
         };
 
+        // === INIT ===
+        setCharmancerText({"mancer_category":"Resetting Attributes","mancer_progress" :'<div style="width: 4%"></div>'});
+        charUpd["npc"] = 0;
+        charUpd["tabcurrent"] = "tabmain";
+        charUpd["l1mancer_status"] = "completed";
+        // -- Reset / Initialize
+        _.extend(charUpd, calc_reset_pc());
+
         // === 1.ABILITIES ===
         setCharmancerText({"mancer_category":"Calculating Abilities","mancer_progress" :'<div style="width: 8%"></div>'});
         var abilities_score = calc_abilities(mancerdata);
@@ -9408,7 +9363,14 @@
         setCharmancerText({"mancer_category":"Applying Race","mancer_progress" :'<div style="width: 16%"></div>'});
         if(mancerdata["l1-race"] && mancerdata["l1-race"].values.race) {
             // Variables
-            charUpd["race"] = mancerdata["l1-race"].values.race.replace("Races:","");
+            if(mancerdata["l1-race"].values.race == "Index:Races") {
+                // Custom race
+                charUpd["race"] = (mancerdata["l1-race"].values["race_custom_name"] || "Unknown");
+                charUpd["size"] = (mancerdata["l1-race"].values["race_custom_size"] || "medium");
+                finalRaceSpeed += (parseInt(mancerdata["l1-race"].values["race_custom_speed"]) || 30);
+            } else {
+                charUpd["race"] = mancerdata["l1-race"].values.race.replace("Races:","");
+            }
             // Static data
             if(mancerdata["l1-race"].data && mancerdata["l1-race"].data.race) {
                 bRaceData = true;
@@ -9416,7 +9378,7 @@
                 charUpd["size"] = mancerdata["l1-race"].data.race["data-Size"].toLowerCase().trim();
                 // Speed
                 if(mancerdata["l1-race"].data.race["data-Race Speed"]) {
-                    finalspeed += parseInt(mancerdata["l1-race"].data.race["data-Race Speed"]) || 0;
+                    finalRaceSpeed += (parseInt(mancerdata["l1-race"].data.race["data-Race Speed"]) || 0);
                 }
                 if(mancerdata["l1-race"].data.race["data-Speed Not Modified"]) {
                     charUpd["speed_notmodified"] = 1;
@@ -9573,7 +9535,7 @@
                 // Saves => at saves below
                 // Speeb Bonus
                 if(mancerdata["l1-class"].data.class["data-Speed bonus"]) {
-                    finalspeed += parseInt(mancerdata["l1-class"].data.class["data-Speed bonus"]) || 0;
+                    finalClassSpeed += (parseInt(mancerdata["l1-class"].data.class["data-Speed bonus"]) || 0);
                     charUpd["speed_notes"] += "+" + mancerdata["l1-class"].data.class["data-Speed bonus"] + " (" + charUpd["class1_name"] + ") ";
                 }
                 // AC Secondary Ability
@@ -9687,7 +9649,7 @@
                         }
                         // Speed Bonus //  => speed notes
                         if(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"]) {
-                            finalspeed += parseInt(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"]) || 0;
+                            finalClassSpeed += (parseInt(mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"]) || 0);
                             charUpd["speed_notes"] += "+" + mancerdata["l1-class"].data["class_subclass" + subcls]["data-Base Speed Bonus"] + " (" + mancerdata["l1-class"].data.class["data-Subclass Name"] + ": " + mancerdata["l1-class"].values["class_subclass" + subcls].replace("Subclasses:","") + ") ";
                         }
                         // Class skills
@@ -9740,7 +9702,9 @@
 
         // === 4.SPEED ===
         setCharmancerText({"mancer_category":"Calculation Speed","mancer_progress" :'<div style="width: 32%"></div>'});
-        charUpd["speed_race"] = finalspeed;
+        charUpd["speed_race"] = finalRaceSpeed;
+        charUpd["class1_speed"] = finalClassSpeed;
+        charUpd["speed_class"] = finalClassSpeed;
 
         // === 5.SAVES ===
         setCharmancerText({"mancer_category":"Calculation Saving Throws","mancer_progress" :'<div style="width: 40%"></div>'});
@@ -9937,6 +9901,7 @@
                 setAttrs(charUpd,{silent: true},() => {
                     setCharmancerText({"mancer_category":"Global update","mancer_progress" :'<div style="width: 100%"></div>'});
                     le_big_stuff("all",false,() => {
+                        update_ac_items();
                         update_coins_weight();
                         if (pfoglobals_debug_mode) {console.log("*** DEBUG MancerFinish FINISH!");}
                         finishCharactermancer();
@@ -9958,13 +9923,13 @@
     });
 
     // === Drop
-    on("sheet:compendium-drop", () => {
+    /* on("sheet:compendium-drop", () => {
         getAttrs(["npcdrop_data"], (v) => {
             check_npc_drop(v["npcdrop_data"], () => {
                 update_default_token();
             });
         });
-    });
+    }); */
 
     // === Generals
     on("change:npc", (e) => {
@@ -10111,6 +10076,10 @@
     on("change:class1_will change:class2_will change:class3_will", (e) => {
         update_class_numbers("will");
     });
+    on("change:class1_speed change:class2_speed change:class3_speed", (e) => {
+        update_class_numbers("speed");
+    });
+
     on("change:class1_skillranks_base change:class2_skillranks_base change:class3_skillranks_base", (e) => {
         update_skillranks_total();
     });
@@ -10237,7 +10206,7 @@
     });
 
     // === SPEED
-    on("change:speed_race", () => {
+    on("change:speed_race change:speed_class", () => {
         update_ac_items();
     });
     on("change:speed_notmodified change:speed_encumbrance change:speed_armor change:armor_run_factor change:encumbrance_run_factor change:speed_base change:speed_bonus change:speed_run_factor change:speed_condition change:speed_condition_multiplier change:speed_condition_nospeed change:speed_condition_norun", () => {
@@ -10642,14 +10611,14 @@
         });
     });
     // --- NPC Compendium drops
-    /* on("change:npcdrop_data", (e) => {
-        console.log("*** DEBUG change:npcdrop_data: " + JSON.stringify(e,null,"  "));
-        if(e && e.sourceType && e.sourceType == "player" && e.newValue) {
+    on("change:npcdrop_data", (e) => {
+        if(pfoglobals_debug_mode) {console.log("*** DEBUG change:npcdrop_data: " + JSON.stringify(e,null,"  "));}
+        if(e && e.newValue) { // && e.sourceType && e.sourceType == "player"
             check_npc_drop(e.newValue, () => {
                 update_default_token();
             });
         }
-    }); */
+    });
 
     on("change:npcsplike_data", (e) => {
         if(typeof e.newValue !== "undefined") {
@@ -10828,607 +10797,639 @@
     const update_npc_drop = function(cdata, attrs,callback) {
         if (pfoglobals_debug_mode) {console.log("*** DEBUG update_npc_drop cdata: " + JSON.stringify(cdata,null,"  "));}
         var update = {};
-        var tmpobj = {};
-        var doUpdateSpells = false;
-        var callbacks = [];
-        var pages = [];
-        // Base NPC information
+        // Initialize NPC & show building splash
         update["version"] = pfoglobals_currentversion;
         update["l1mancer_status"] = "completed";
         update["npc"] = 1;
-        update["armor_spell_failure"] = 0;
         update["options-flag-npc"] = 0;
-        if(attrs["npcdrop_name"]) {
-            update["character_name"] = attrs["npcdrop_name"];
-        }
-        if(attrs["npcdrop_uniq"]) {
-            update["npc_fromcompendium"] = attrs["npcdrop_uniq"];
-        } else {
-            update["npc_fromcompendium"] = "Bestiary:" + attrs["npcdrop_name"];
-        }
-        // Compendium data handling
-        if(cdata["data-Size"]) {
-            if(["fine","diminutive","tiny","small","medium","large","huge","gargantuan","colossal"].includes(cdata["data-Size"].toLowerCase())) {
-                update["size"] = cdata["data-Size"].toLowerCase();
-                update["size_display"] = getTranslationByKey(cdata["data-Size"].toLowerCase());
+        setAttrs(update, {silent: true},() => {
+            update = {};
+            var tmpobj = {};
+            var doUpdateSpells = false;
+            var callbacks = [];
+            var pages = [];
+            // Base NPC information
+            update["armor_spell_failure"] = 0;
+            if(attrs["npcdrop_name"]) {
+                update["character_name"] = attrs["npcdrop_name"];
+            }
+            if(attrs["npcdrop_uniq"]) {
+                update["npc_fromcompendium"] = attrs["npcdrop_uniq"];
             } else {
-                update["size_display"] = cdata["data-Size"];
+                update["npc_fromcompendium"] = "Bestiary:" + attrs["npcdrop_name"];
             }
-        }
-        if(cdata["data-Spells"]) {
-            var objspells;
-            try{
-                objspells = JSON.parse(cdata["data-Spells"]);
-            }
-            catch(error) {
-                objspells = [];
-            }
-            update["spells_flag"] = 1;
-        } else {
-            objspells = [];
-            update["spells_flag"] = 0;
-        }
-        if(cdata["data-Spell-like Abilities"]) {
-            var objlikes;
-            try{
-                objlikes = JSON.parse(cdata["data-Spell-like Abilities"]);
-            }
-            catch(error){
-                objlikes = [];
-            }
-            update["spellabilities_flag"] = 1;
-        } else {
-            var objlikes = [];
-            update["spellabilities_flag"] = 0;
-        }
-        if(cdata["data-CR"]) {
-            update["npc_cr"] = cdata["data-CR"];
-        }
-        if(cdata["data-XP"]) {
-            update["xp"] = cdata["data-XP"];
-        }
-        if(cdata["data-Race Class Level"]) {
-            update["class"] = cdata["data-Race Class Level"];
-        }
-        if(cdata["data-Alignment"]) {
-            update["npc_alignment"] = cdata["data-Alignment"];
-        }
-        if(cdata["data-Type"]) {
-            update["npc_type"] = cdata["data-Type"];
-        }
-        if(cdata["data-Initiative"]) {
-            update["initiative"] = parseInt(cdata["data-Initiative"]) || 0;
-        }
-        if(cdata["data-Senses"]) {
-            update["senses"] = cdata["data-Senses"];
-        }
-        if(cdata["data-Aura"]) {
-            update["aura"] = cdata["data-Aura"];
-        }
-        if(cdata["data-AC"]) {
-            update["ac"] = (parseInt(cdata["data-AC"]) || 0);
-        }
-        if(cdata["data-AC Touch"]) {
-            update["ac_touch"] = (parseInt(cdata["data-AC Touch"]) || 0);
-        }
-        if(cdata["data-AC Flat-Footed"]) {
-            update["ac_flatfooted"] = (parseInt(cdata["data-AC Flat-Footed"]) || 0);
-        }
-        if(cdata["data-AC Notes"]) {
-            update["ac_notes"] = cdata["data-AC Notes"];
-        }
-        if(cdata["data-HP"]) {
-            update["hp"] = parseInt(cdata["data-HP"]) || 0;
-            update["hp_max"] = parseInt(cdata["data-HP"]) || 0;
-        }
-        if(cdata["data-HP Notes"]) {
-            update["hp_notes"] = cdata["data-HP Notes"];
-        }
-        if(cdata["data-HP Roll"]) {
-            update["hd_roll"] = cdata["data-HP Roll"];
-        }
-        if(cdata["data-HD"]) {
-            update["hd"] = cdata["data-HD"];
-        }
-        if(cdata["data-Fort"]) {
-            update["fortitude"] = parseInt(cdata["data-Fort"]) || 0;
-        }
-        if(cdata["data-Ref"]) {
-            update["reflex"] = parseInt(cdata["data-Ref"]) || 0;
-        }
-        if(cdata["data-Will"]) {
-            update["will"] = parseInt(cdata["data-Will"]) || 0;
-        }
-        if(cdata["data-Save Modifiers"]) {
-            update["saves_modifiers"] = cdata["data-Save Modifiers"];
-        }
-        if(cdata["data-SR"]) {
-            update["sr"] = parseInt(cdata["data-SR"]) || 0;
-        }
-        if(cdata["data-Defensive Abilities"]) {
-            update["defensive_abilities"] = cdata["data-Defensive Abilities"];
-        }
-        if(cdata["data-DR"]) {
-            update["npc_dr"] = cdata["data-DR"];
-        }
-        if(cdata["data-Immunities"]) {
-            update["immune"] = cdata["data-Immunities"];
-        }
-        if(cdata["data-Resistances"]) {
-            update["resist"] = cdata["data-Resistances"];
-        }
-        if(cdata["data-Weaknesses"]) {
-            update["weaknesses"] = cdata["data-Weaknesses"];
-        }
-        if(cdata["data-Speed"]) {
-            update["npc_speed"] = cdata["data-Speed"];
-        }
-        if(cdata["data-Space"]) {
-            update["space"] = cdata["data-Space"];
-        }
-        if(cdata["data-Reach"]) {
-            update["reach"] = cdata["data-Reach"];
-        }
-        if(cdata["data-Spell-Like Abilities Caster Level"]) {
-            update["caster2_level"] = parseInt(cdata["data-Spell-Like Abilities Caster Level"]) || 0;
-        }
-        if(cdata["data-Spell-Like Abilities Concentration"]) {
-            update["caster2_concentration"] = parseInt(cdata["data-Spell-Like Abilities Concentration"]) || 0;
-        }
-        if(cdata["data-Spell Caster Level"]) {
-            update["caster1_level"] = parseInt(cdata["data-Spell Caster Level"]) || 0;
-        }
-        if(cdata["data-Spell Caster Concentration"]) {
-            update["caster1_concentration"] = parseInt(cdata["data-Spell Caster Concentration"]) || 0;
-        }
-        // Spells infos (except spells) & per day
-        for(var i = 1; i < 10; i++) {
-            if(cdata["data-Spells per day-Level " + i]) {
-                update["caster1_spells_perday_level_" + i] = parseInt(cdata["data-Spells per day-Level " + i]) || 0;
-                update["caster1_spells_total_level_" + i] = parseInt(cdata["data-Spells per day-Level " + i]) || 0;
-            }
-        }
-        if(objspells.length) {
-            // Counting the spells by level
-            var spellsbylevel = objspells.reduce(function(sums,entry){
-                sums[entry.level] = (sums[entry.level] || 0) + 1;
-                return sums;
-            },{});
-            for(var i = 1; i < 10; i++) {
-                if( (spellsbylevel["" + i]) && (! update["caster1_spells_perday_level_" + i])  ) {
-                    update["caster1_spells_perday_level_" + i] = spellsbylevel["" + i];
-                    update["caster1_spells_total_level_" + i] =  spellsbylevel["" + i];
+            // Compendium data handling
+            if(cdata["data-Size"]) {
+                if(["fine","diminutive","tiny","small","medium","large","huge","gargantuan","colossal"].includes(cdata["data-Size"].toLowerCase())) {
+                    update["size"] = cdata["data-Size"].toLowerCase();
+                    update["size_display"] = getTranslationByKey(cdata["data-Size"].toLowerCase());
+                } else {
+                    update["size_display"] = cdata["data-Size"];
                 }
             }
-        }
-        if(cdata["data-Bloodlines Domains Schools"]) {
-            update["caster1_spells_notes"] = cdata["data-Bloodlines Domains Schools"];
-        }
-        //
-        if(cdata["data-Tactics"]) {
-            update["tactics"] = cdata["data-Tactics"];
-        }
-        // Basic Stats
-        if(cdata["data-STR"]) {
-            update["strength"] = parseInt(cdata["data-STR"]) || 0;
+            if(cdata["data-Spells"]) {
+                var objspells;
+                try{
+                    objspells = JSON.parse(cdata["data-Spells"]);
+                }
+                catch(error) {
+                    objspells = [];
+                }
+                update["spells_flag"] = 1;
+            } else {
+                objspells = [];
+                update["spells_flag"] = 0;
+            }
+            if(cdata["data-Spell-like Abilities"]) {
+                var objlikes;
+                try{
+                    objlikes = JSON.parse(cdata["data-Spell-like Abilities"]);
+                }
+                catch(error){
+                    objlikes = [];
+                }
+                update["spellabilities_flag"] = 1;
+            } else {
+                var objlikes = [];
+                update["spellabilities_flag"] = 0;
+            }
+            if(cdata["data-CR"]) {
+                update["npc_cr"] = cdata["data-CR"];
+            }
+            if(cdata["data-MR"]) {
+                update["npc_mr"] = cdata["data-MR"];
+            }
+            if(cdata["data-XP"]) {
+                update["xp"] = cdata["data-XP"];
+            }
+            if(cdata["data-Race Class Level"]) {
+                update["class"] = cdata["data-Race Class Level"];
+            }
+            if(cdata["data-Alignment"]) {
+                update["npc_alignment"] = cdata["data-Alignment"];
+            }
+            if(cdata["data-Type"]) {
+                update["npc_type"] = cdata["data-Type"];
+            }
+            if(cdata["data-Initiative"]) {
+                update["initiative"] = parseInt(cdata["data-Initiative"]) || 0;
+            }
+            if(cdata["data-Senses"]) {
+                update["senses"] = cdata["data-Senses"];
+            }
+            if(cdata["data-Aura"]) {
+                update["aura"] = cdata["data-Aura"];
+            }
+            if(cdata["data-AC"]) {
+                update["ac"] = (parseInt(cdata["data-AC"]) || 0);
+            }
+            if(cdata["data-AC Touch"]) {
+                update["ac_touch"] = (parseInt(cdata["data-AC Touch"]) || 0);
+            }
+            if(cdata["data-AC Flat-Footed"]) {
+                update["ac_flatfooted"] = (parseInt(cdata["data-AC Flat-Footed"]) || 0);
+            }
+            if(cdata["data-AC Notes"]) {
+                update["ac_notes"] = cdata["data-AC Notes"];
+            }
+            if(cdata["data-HP"]) {
+                update["hp"] = parseInt(cdata["data-HP"]) || 0;
+                update["hp_max"] = parseInt(cdata["data-HP"]) || 0;
+            }
+            if(cdata["data-HP Notes"]) {
+                update["hp_notes"] = cdata["data-HP Notes"];
+            }
+            if(cdata["data-HP Roll"]) {
+                update["hd_roll"] = cdata["data-HP Roll"];
+            }
+            if(cdata["data-HD"]) {
+                update["hd"] = cdata["data-HD"];
+            }
+            if(cdata["data-Fort"]) {
+                update["fortitude"] = parseInt(cdata["data-Fort"]) || 0;
+            }
+            if(cdata["data-Ref"]) {
+                update["reflex"] = parseInt(cdata["data-Ref"]) || 0;
+            }
+            if(cdata["data-Will"]) {
+                update["will"] = parseInt(cdata["data-Will"]) || 0;
+            }
+            if(cdata["data-Save Modifiers"]) {
+                update["saves_modifiers"] = cdata["data-Save Modifiers"];
+            }
+            if(cdata["data-SR"]) {
+                update["sr"] = parseInt(cdata["data-SR"]) || 0;
+            }
+            if(cdata["data-Defensive Abilities"]) {
+                update["defensive_abilities"] = cdata["data-Defensive Abilities"];
+            }
+            if(cdata["data-DR"]) {
+                update["npc_dr"] = cdata["data-DR"];
+            }
+            if(cdata["data-Immunities"]) {
+                update["immune"] = cdata["data-Immunities"];
+            }
+            if(cdata["data-Resistances"]) {
+                update["resist"] = cdata["data-Resistances"];
+            }
+            if(cdata["data-Weaknesses"]) {
+                update["weaknesses"] = cdata["data-Weaknesses"];
+            }
+            if(cdata["data-Speed"]) {
+                update["npc_speed"] = cdata["data-Speed"];
+            }
+            if(cdata["data-Space"]) {
+                update["space"] = cdata["data-Space"];
+            }
+            if(cdata["data-Reach"]) {
+                update["reach"] = cdata["data-Reach"];
+            }
+            if(cdata["data-Spell-Like Abilities Caster Level"]) {
+                update["caster2_level"] = parseInt(cdata["data-Spell-Like Abilities Caster Level"]) || 0;
+            }
+            if(cdata["data-Spell-Like Abilities Concentration"]) {
+                update["caster2_concentration"] = parseInt(cdata["data-Spell-Like Abilities Concentration"]) || 0;
+            }
+            if(cdata["data-Spell Caster Level"]) {
+                update["caster1_level"] = parseInt(cdata["data-Spell Caster Level"]) || 0;
+            }
+            if(cdata["data-Spell Caster Concentration"]) {
+                update["caster1_concentration"] = parseInt(cdata["data-Spell Caster Concentration"]) || 0;
+            }
+            // Spells infos (except spells) & per day
+            for(var i = 1; i < 10; i++) {
+                if(cdata["data-Spells per day-Level " + i]) {
+                    update["caster1_spells_perday_level_" + i] = parseInt(cdata["data-Spells per day-Level " + i]) || 0;
+                    update["caster1_spells_total_level_" + i] = parseInt(cdata["data-Spells per day-Level " + i]) || 0;
+                }
+            }
+            if(objspells.length) {
+                // Counting the spells by level
+                var spellsbylevel = objspells.reduce(function(sums,entry){
+                    sums[entry.level] = (sums[entry.level] || 0) + 1;
+                    return sums;
+                },{});
+                for(var i = 1; i < 10; i++) {
+                    if( (spellsbylevel["" + i]) && (! update["caster1_spells_perday_level_" + i])  ) {
+                        update["caster1_spells_perday_level_" + i] = spellsbylevel["" + i];
+                        update["caster1_spells_total_level_" + i] =  spellsbylevel["" + i];
+                    }
+                }
+            }
+            if(cdata["data-Bloodlines Domains Schools"]) {
+                update["caster1_spells_notes"] = cdata["data-Bloodlines Domains Schools"];
+            }
+            //
+            if(cdata["data-Tactics"]) {
+                update["tactics"] = cdata["data-Tactics"];
+            }
+            // Basic Stats
+            if(cdata["data-STR"]) {
+                update["strength"] = parseInt(cdata["data-STR"]) || 0;
+            } else {
+                update["strength"] = 0;
+            }
             tmpobj = calc_ability_mod("strength",update);
             _.extend(update, tmpobj);
-        }
-        if(cdata["data-DEX"]) {
-            update["dexterity"] = parseInt(cdata["data-DEX"]) || 0;
+            if(cdata["data-DEX"]) {
+                update["dexterity"] = parseInt(cdata["data-DEX"]) || 0;
+            } else {
+                update["dexterity"] = 0;
+            }
             tmpobj = calc_ability_mod("dexterity",update);
             _.extend(update, tmpobj);
-        }
-        if(cdata["data-CON"]) {
-            update["constitution"] = parseInt(cdata["data-CON"]) || 0;
+            if(cdata["data-CON"]) {
+                update["constitution"] = parseInt(cdata["data-CON"]) || 0;
+            } else {
+                update["constitution"] = 0;
+            }
             tmpobj = calc_ability_mod("constitution",update);
             _.extend(update, tmpobj);
-        }
-        if(cdata["data-INT"]) {
-            update["intelligence"] = parseInt(cdata["data-INT"]) || 0;
+            if(cdata["data-INT"]) {
+                update["intelligence"] = parseInt(cdata["data-INT"]) || 0;
+            } else {
+                update["intelligence"] = 0;
+            }
             tmpobj = calc_ability_mod("intelligence",update);
             _.extend(update, tmpobj);
-        }
-        if(cdata["data-WIS"]) {
-            update["wisdom"] = parseInt(cdata["data-WIS"]) || 0;
+            if(cdata["data-WIS"]) {
+                update["wisdom"] = parseInt(cdata["data-WIS"]) || 0;
+            } else {
+                update["wisdom"] = 0;
+            }
             tmpobj = calc_ability_mod("wisdom",update);
             _.extend(update, tmpobj);
-        }
-        if(cdata["data-CHA"]) {
-            update["charisma"] = parseInt(cdata["data-CHA"]) || 0;
+            if(cdata["data-CHA"]) {
+                update["charisma"] = parseInt(cdata["data-CHA"]) || 0;
+            } else {
+                update["charisma"] = 0;
+            }
             tmpobj = calc_ability_mod("charisma",update);
             _.extend(update, tmpobj);
-        }
-        if(cdata["data-Base Atk"]) {
-            update["bab"] = parseInt(cdata["data-Base Atk"]) || 0;
-        }
-        if(cdata["data-CMB"]) {
-            update["cmb_mod"] = parseInt(cdata["data-CMB"]) || 0;
-        }
-        if(cdata["data-CMB Notes"]) {
-            update["cmb_notes"] = cdata["data-CMB Notes"];
-        }
-        if(cdata["data-CMD"]) {
-            update["cmd_mod"] = parseInt(cdata["data-CMD"]) || 0;
-        }
-        if(cdata["data-CMD Notes"]) {
-            update["cmd_notes"] = cdata["data-CMD Notes"];
-        }
-        if(cdata["data-Skills Racial Modifiers"]) {
-            update["skills_racial_modifiers"] = cdata["data-Skills Racial Modifiers"];
-        }
-        // skills
-        if(cdata["data-Acrobatics"]) {
-            update["acrobatics"] = parseInt(cdata["data-Acrobatics"]) || 0;
-        }
-        if(cdata["data-Acrobatics Notes"]) {
-            update["acrobatics_notes"] = cdata["data-Acrobatics Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("acrobatics",(cdata["data-Acrobatics"] || ""),(cdata["data-Acrobatics Notes"] || "")));
-        if(cdata["data-Appraise"]) {
-            update["appraise"] = parseInt(cdata["data-Appraise"]) || 0;
-        }
-        if(cdata["data-Appraise Notes"]) {
-            update["appraise_notes"] = cdata["data-Appraise Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("appraise",(cdata["data-Appraise"] || ""),(cdata["data-Appraise Notes"] || "")));
-        if(cdata["data-Bluff"]) {
-            update["bluff"] = parseInt(cdata["data-Bluff"]) || 0;
-        }
-        if(cdata["data-Bluff Notes"]) {
-            update["bluff_notes"] = cdata["data-Bluff Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("bluff",(cdata["data-Bluff"] || ""),(cdata["data-Bluff Notes"] || "")));
-        if(cdata["data-Climb"]) {
-            update["climb"] = parseInt(cdata["data-Climb"]) || 0;
-        }
-        if(cdata["data-Climb Notes"]) {
-            update["climb_notes"] = cdata["data-Climb Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("climb",(cdata["data-Climb"] || ""),(cdata["data-Climb Notes"] || "")));
-        if(cdata["data-Craft"]) {
-            update["craft"] = parseInt(cdata["data-Craft"]) || 0;
-        }
-        if(cdata["data-Craft Notes"]) {
-            update["craft_notes"] = cdata["data-Craft Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("craft",(cdata["data-Craft"] || ""),(cdata["data-Craft Notes"] || "")));
-        if(cdata["data-Diplomacy"]) {
-            update["diplomacy"] = parseInt(cdata["data-Diplomacy"]) || 0;
-        }
-        if(cdata["data-Diplomacy Notes"]) {
-            update["diplomacy_notes"] = cdata["data-Diplomacy Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("diplomacy",(cdata["data-Diplomacy"] || ""),(cdata["data-Diplomacy Notes"] || "")));
-        if(cdata["data-Disable Device"]) {
-            update["disable_device"] = parseInt(cdata["data-Disable Device"]) || 0;
-        }
-        if(cdata["data-Disable Device Notes"]) {
-            update["disable_device_notes"] = cdata["data-Disable Device Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("disable_device",(cdata["data-Disable Device"] || ""),(cdata["data-Disable Device Notes"] || "")));
-        if(cdata["data-Disguise"]) {
-            update["disguise"] = parseInt(cdata["data-Disguise"]) || 0;
-        }
-        if(cdata["data-Disguise Notes"]) {
-            update["disguise_notes"] = cdata["data-Disguise Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("disguise",(cdata["data-Disguise"] || ""),(cdata["data-Disguise Notes"] || "")));
-        if(cdata["data-Escape Artist"]) {
-            update["escape_artist"] = parseInt(cdata["data-Escape Artist"]) || 0;
-        }
-        if(cdata["data-Escape Artist Notes"]) {
-            update["escape_artist_notes"] = cdata["data-Escape Artist Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("escape_artist",(cdata["data-Escape Artist"] || ""),(cdata["data-Escape Artist Notes"] || "")));
-        if(cdata["data-Fly"]) {
-            update["fly"] = parseInt(cdata["data-Fly"]) || 0;
-        }
-        if(cdata["data-Fly Notes"]) {
-            update["fly_notes"] = cdata["data-Fly Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("fly",(cdata["data-Fly"] || ""),(cdata["data-Fly Notes"] || "")));
-        if(cdata["data-Handle Animal"]) {
-            update["handle_animal"] = parseInt(cdata["data-Handle Animal"]) || 0;
-        }
-        if(cdata["data-Handle Animal Notes"]) {
-            update["handle_animal_notes"] = cdata["data-Handle Animal Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("handle_animal",(cdata["data-Handle Animal"] || ""),(cdata["data-Handle Animal Notes"] || "")));
-        if(cdata["data-Heal"]) {
-            update["heal"] = parseInt(cdata["data-Heal"]) || 0;
-        }
-        if(cdata["data-Heal Notes"]) {
-            update["heal_notes"] = cdata["data-Heal Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("heal",(cdata["data-Heal"] || ""),(cdata["data-Heal Notes"] || "")));
-        if(cdata["data-Intimidate"]) {
-            update["intimidate"] = parseInt(cdata["data-Intimidate"]) || 0;
-        }
-        if(cdata["data-Intimidate Notes"]) {
-            update["intimidate_notes"] = cdata["data-Intimidate Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("intimidate",(cdata["data-Intimidate"] || ""),(cdata["data-Intimidate Notes"] || "")));
-        if(cdata["data-Knowledge Arcana"]) {
-            update["knowledge_arcana"] = parseInt(cdata["data-Knowledge Arcana"]) || 0;
-        }
-        if(cdata["data-Knowledge Arcana Notes"]) {
-            update["knowledge_arcana_notes"] = cdata["data-Knowledge Arcana Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_arcana",(cdata["data-Knowledge Arcana"] || ""),(cdata["data-Knowledge Arcana Notes"] || "")));
-        if(cdata["data-Knowledge Dungeoneering"]) {
-            update["knowledge_dungeoneering"] = parseInt(cdata["data-Knowledge Dungeoneering"]) || 0;
-        }
-        if(cdata["data-Knowledge Dungeoneering Notes"]) {
-            update["knowledge_dungeoneering_notes"] = cdata["data-Knowledge Dungeoneering Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_dungeoneering",(cdata["data-Knowledge Dungeoneering"] || ""),(cdata["data-Knowledge Dungeoneering Notes"] || "")));
-        if(cdata["data-Knowledge Engineering"]) {
-            update["knowledge_engineering"] = parseInt(cdata["data-Knowledge Engineering"]) || 0;
-        }
-        if(cdata["data-Knowledge Engineering Notes"]) {
-            update["knowledge_engineering_notes"] = cdata["data-Knowledge Engineering Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_engineering",(cdata["data-Knowledge Engineering"] || ""),(cdata["data-Knowledge Engineering Notes"] || "")));
-        if(cdata["data-Knowledge Geography"]) {
-            update["knowledge_geography"] = parseInt(cdata["data-Knowledge Geography"]) || 0;
-        }
-        if(cdata["data-Knowledge Geography Notes"]) {
-            update["knowledge_geography_notes"] = cdata["data-Knowledge Geography Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_geography",(cdata["data-Knowledge Geography"] || ""),(cdata["data-Knowledge Geography Notes"] || "")));
-        if(cdata["data-Knowledge History"]) {
-            update["knowledge_history"] = parseInt(cdata["data-Knowledge History"]) || 0;
-        }
-        if(cdata["data-Knowledge History Notes"]) {
-            update["knowledge_history_notes"] = cdata["data-Knowledge History Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_history",(cdata["data-Knowledge History"] || ""),(cdata["data-Knowledge History Notes"] || "")));
-        if(cdata["data-Knowledge Local"]) {
-            update["knowledge_local"] = parseInt(cdata["data-Knowledge Local"]) || 0;
-        }
-        if(cdata["data-Knowledge Local Notes"]) {
-            update["knowledge_local_notes"] = cdata["data-Knowledge Local Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_local",(cdata["data-Knowledge Local"] || ""),(cdata["data-Knowledge Local Notes"] || "")));
-        if(cdata["data-Knowledge Nature"]) {
-            update["knowledge_nature"] = parseInt(cdata["data-Knowledge Nature"]) || 0;
-        }
-        if(cdata["data-Knowledge Nature Notes"]) {
-            update["knowledge_nature_notes"] = cdata["data-Knowledge Nature Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_nature",(cdata["data-Knowledge Nature"] || ""),(cdata["data-Knowledge Nature Notes"] || "")));
-        if(cdata["data-Knowledge Nobility"]) {
-            update["knowledge_nobility"] = parseInt(cdata["data-Knowledge Nobility"]) || 0;
-        }
-        if(cdata["data-Knowledge Nobility Notes"]) {
-            update["knowledge_nobility_notes"] = cdata["data-Knowledge Nobility Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_nobility",(cdata["data-Knowledge Nobility"] || ""),(cdata["data-Knowledge Nobility Notes"] || "")));
-        if(cdata["data-Knowledge Planes"]) {
-            update["knowledge_planes"] = parseInt(cdata["data-Knowledge Planes"]) || 0;
-        }
-        if(cdata["data-Knowledge Planes Notes"]) {
-            update["knowledge_planes_notes"] = cdata["data-Knowledge Planes Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_planes",(cdata["data-Knowledge Planes"] || ""),(cdata["data-Knowledge Planes Notes"] || "")));
-        if(cdata["data-Knowledge Religion"]) {
-            update["knowledge_religion"] = parseInt(cdata["data-Knowledge Religion"]) || 0;
-        }
-        if(cdata["data-Knowledge Religion Notes"]) {
-            update["knowledge_religion_notes"] = cdata["data-Knowledge Religion Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("knowledge_religion",(cdata["data-Knowledge Religion"] || ""),(cdata["data-Knowledge Religion Notes"] || "")));
-        if(cdata["data-Linguistics"]) {
-            update["linguistics"] = parseInt(cdata["data-Linguistics"]) || 0;
-        }
-        if(cdata["data-Linguistics Notes"]) {
-            update["linguistics_notes"] = cdata["data-Linguistics Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("linguistics",(cdata["data-Linguistics"] || ""),(cdata["data-Linguistics Notes"] || "")));
-        if(cdata["data-Perception"]) {
-            update["perception"] = parseInt(cdata["data-Perception"]) || 0;
-        }
-        if(cdata["data-Perception Notes"]) {
-            update["perception_notes"] = cdata["data-Perception Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("perception",(cdata["data-Perception"] || ""),(cdata["data-Perception Notes"] || "")));
-        if(cdata["data-Perform"]) {
-            update["perform"] = parseInt(cdata["data-Perform"]) || 0;
-        }
-        if(cdata["data-Perform Notes"]) {
-            update["perform_notes"] = cdata["data-Perform Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("perform",(cdata["data-Perform"] || ""),(cdata["data-Perform Notes"] || "")));
-        if(cdata["data-Profession"]) {
-            update["profession"] = parseInt(cdata["data-Profession"]) || 0;
-        }
-        if(cdata["data-Profession Notes"]) {
-            update["profession_notes"] = cdata["data-Profession Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("profession",(cdata["data-Profession"] || ""),(cdata["data-Profession Notes"] || "")));
-        if(cdata["data-Ride"]) {
-            update["ride"] = parseInt(cdata["data-Ride"]) || 0;
-        }
-        if(cdata["data-Ride Notes"]) {
-            update["ride_notes"] = cdata["data-Ride Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("ride",(cdata["data-Ride"] || ""),(cdata["data-Ride Notes"] || "")));
-        if(cdata["data-Sense Motive"]) {
-            update["sense_motive"] = parseInt(cdata["data-Sense Motive"]) || 0;
-        }
-        if(cdata["data-Sense Motive Notes"]) {
-            update["sense_motive_notes"] = cdata["data-Sense Motive Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("sense_motive",(cdata["data-Sense Motive"] || ""),(cdata["data-Sense Motive Notes"] || "")));
-        if(cdata["data-Sleight Of Hand"]) {
-            update["sleight_of_hand"] = parseInt(cdata["data-Sleight Of Hand"]) || 0;
-        }
-        if(cdata["data-Sleight Of Hand Notes"]) {
-            update["sleight_of_hand_notes"] = cdata["data-Sleight Of Hand Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("sleight_of_hand",(cdata["data-Sleight Of Hand"] || ""),(cdata["data-Sleight Of Hand Notes"] || "")));
-        if(cdata["data-Spellcraft"]) {
-            update["spellcraft"] = parseInt(cdata["data-Spellcraft"]) || 0;
-        }
-        if(cdata["data-Spellcraft Notes"]) {
-            update["spellcraft_notes"] = cdata["data-Spellcraft Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("spellcraft",(cdata["data-Spellcraft"] || ""),(cdata["data-Spellcraft Notes"] || "")));
-        if(cdata["data-Stealth"]) {
-            update["stealth"] = parseInt(cdata["data-Stealth"]) || 0;
-        }
-        if(cdata["data-Stealth Notes"]) {
-            update["stealth_notes"] = cdata["data-Stealth Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("stealth",(cdata["data-Stealth"] || ""),(cdata["data-Stealth Notes"] || "")));
-        if(cdata["data-Survival"]) {
-            update["survival"] = parseInt(cdata["data-Survival"]) || 0;
-        }
-        if(cdata["data-Survival Notes"]) {
-            update["survival_notes"] = cdata["data-Survival Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("survival",(cdata["data-Survival"] || ""),(cdata["data-Survival Notes"] || "")));
-        if(cdata["data-Swim"]) {
-            update["swim"] = parseInt(cdata["data-Swim"]) || 0;
-        }
-        if(cdata["data-Swim Notes"]) {
-            update["swim_notes"] = cdata["data-Swim Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("swim",(cdata["data-Swim"] || ""),(cdata["data-Swim Notes"] || "")));
-        if(cdata["data-Use Magic Device"]) {
-            update["use_magic_device"] = parseInt(cdata["data-Use Magic Device"]) || 0;
-        }
-        if(cdata["data-Use Magic Device Notes"]) {
-            update["use_magic_device_notes"] = cdata["data-Use Magic Device Notes"];
-        }
-        _.extend(update,calc_npc_skill_display("use_magic_device",(cdata["data-Use Magic Device"] || ""),(cdata["data-Use Magic Device Notes"] || "")));
-        // End skills
-        if(cdata["data-Languages"]) {
-            update["languages"] = cdata["data-Languages"];
-        }
-        if(cdata["data-SQ"]) {
-            update["sq"] = cdata["data-SQ"];
-        }
-        if(cdata["data-Combat Gear"]) {
-            update["combat_gear"] = cdata["data-Combat Gear"];
-        }
-        if(cdata["data-Environment"]) {
-            update["environment"] = cdata["data-Environment"];
-        }
-        if(cdata["data-Organization"]) {
-            update["organization"] = cdata["data-Organization"];
-        }
-        if(cdata["data-Treasure"]) {
-            update["treasure"] = cdata["data-Treasure"];
-        }
-        if(cdata["data-Description"]) {
-            update["background"] = cdata["data-Description"];
-        }
-        if(cdata["data-Attacks"]) {
-            var atkz;
-            try{
-                atkz = JSON.parse(cdata["data-Attacks"]);
-            }
-            catch(error){
-                atkz = [];
-            }
-            if(atkz.length) {
-                _.extend(update, npcdrop_add_attacks(atkz,update));
-            }
-        }
-        if(cdata["data-Special Atk"]) {
-            var specz;
-            try{
-                specz = JSON.parse(cdata["data-Special Atk"]);
-            }
-            catch(error) {
-                specz = [];
-            }
-            if(specz.length) {
-                _.extend(update, npcdrop_add_special_attacks(specz));
-            }
-        }
-        if(cdata["data-Special abilities"]) {
-            var abz;
-            try{
-                abz = JSON.parse(cdata["data-Special Abilities"]);
-            }
-            catch(error) {
-                abz = [];
-            }
-            if(abz.length) {
-                _.extend(update, npcdrop_add_specabs(abz));
-            }
-        }
-        if(objspells.length) {
-            doUpdateSpells = true;
-            _.each(objspells, (obj) => {
-                if(obj.name) {
-                    pages.push("Spells:" + toTitleCase(obj.name));
-                }
-            });
-        }
-        if(objlikes.length) {
-            doUpdateSpells = true;
-            _.each(objlikes, (obj) => {
-                if(obj["Name"] && obj["Spell"]) {
-                    pages.push("Spells:" + toTitleCase(obj["Spell"]));
-                }
-            });
-        }
-        if(cdata["data-Feats"]) {
-            var parsed;
-            var objfeats;
-            try {
-                parsed = JSON.parse(cdata["data-Feats"]);
-            }
-            catch(error) {
-                parsed = cdata["data-Feats"].split(",");
-            }
-            if(Array.isArray(parsed)) {
-                objfeats = parsed;
+            if(cdata["data-Base Atk"]) {
+                update["bab"] = parseInt(cdata["data-Base Atk"]) || 0;
             } else {
-                objfeats = [];
+                update["bab"] = 0;
             }
-            if (pfoglobals_debug_mode) {console.log("*** DEBUG update_npc_drop feats parsing: " + objfeats);}
-            _.each(objfeats, (obj) => {
-                var featname = "";
-                if(obj.indexOf("(") === -1) {
-                    featname = "Feats:" + obj.trim();
-                } else {
-                    featname = "Feats:" + obj.split("(")[0].trim();
-                }
-                pages.push(featname);
-            });
-        } else {
-            var objfeats = [];
-        }
-        getCompendiumPage(pages,(compendiumdata) => {
-            if(Array.isArray(compendiumdata)) {
-                var cdatarr = compendiumdata;
+            if(cdata["data-CMB"]) {
+                update["cmb_mod"] = parseInt(cdata["data-CMB"]) || 0;
             } else {
-                var cdatarr = [];
-                cdatarr.push(compendiumdata);
+                update["cmb_mod"] = 0;
             }
-            if (pfoglobals_debug_mode) {console.log("*** DEBUG update_npc_drop getCompendiumPage: " + cdatarr);}
+            if(cdata["data-CMB Notes"]) {
+                update["cmb_notes"] = cdata["data-CMB Notes"];
+            }
+            if(cdata["data-CMD"]) {
+                update["cmd_mod"] = parseInt(cdata["data-CMD"]) || 0;
+            } else {
+                update["cmd_mod"] = 0;
+            }
+            if(cdata["data-CMD Notes"]) {
+                update["cmd_notes"] = cdata["data-CMD Notes"];
+            }
+            if(cdata["data-Skills Racial Modifiers"]) {
+                update["skills_racial_modifiers"] = cdata["data-Skills Racial Modifiers"];
+            }
+            // skills
+            if(cdata["data-Acrobatics"]) {
+                update["acrobatics"] = parseInt(cdata["data-Acrobatics"]) || 0;
+            }
+            if(cdata["data-Acrobatics Notes"]) {
+                update["acrobatics_notes"] = cdata["data-Acrobatics Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("acrobatics",(cdata["data-Acrobatics"] || ""),(cdata["data-Acrobatics Notes"] || "")));
+            if(cdata["data-Appraise"]) {
+                update["appraise"] = parseInt(cdata["data-Appraise"]) || 0;
+            }
+            if(cdata["data-Appraise Notes"]) {
+                update["appraise_notes"] = cdata["data-Appraise Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("appraise",(cdata["data-Appraise"] || ""),(cdata["data-Appraise Notes"] || "")));
+            if(cdata["data-Bluff"]) {
+                update["bluff"] = parseInt(cdata["data-Bluff"]) || 0;
+            }
+            if(cdata["data-Bluff Notes"]) {
+                update["bluff_notes"] = cdata["data-Bluff Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("bluff",(cdata["data-Bluff"] || ""),(cdata["data-Bluff Notes"] || "")));
+            if(cdata["data-Climb"]) {
+                update["climb"] = parseInt(cdata["data-Climb"]) || 0;
+            }
+            if(cdata["data-Climb Notes"]) {
+                update["climb_notes"] = cdata["data-Climb Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("climb",(cdata["data-Climb"] || ""),(cdata["data-Climb Notes"] || "")));
+            if(cdata["data-Craft"]) {
+                update["craft"] = parseInt(cdata["data-Craft"]) || 0;
+            }
+            if(cdata["data-Craft Notes"]) {
+                update["craft_notes"] = cdata["data-Craft Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("craft",(cdata["data-Craft"] || ""),(cdata["data-Craft Notes"] || "")));
+            if(cdata["data-Diplomacy"]) {
+                update["diplomacy"] = parseInt(cdata["data-Diplomacy"]) || 0;
+            }
+            if(cdata["data-Diplomacy Notes"]) {
+                update["diplomacy_notes"] = cdata["data-Diplomacy Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("diplomacy",(cdata["data-Diplomacy"] || ""),(cdata["data-Diplomacy Notes"] || "")));
+            if(cdata["data-Disable Device"]) {
+                update["disable_device"] = parseInt(cdata["data-Disable Device"]) || 0;
+            }
+            if(cdata["data-Disable Device Notes"]) {
+                update["disable_device_notes"] = cdata["data-Disable Device Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("disable_device",(cdata["data-Disable Device"] || ""),(cdata["data-Disable Device Notes"] || "")));
+            if(cdata["data-Disguise"]) {
+                update["disguise"] = parseInt(cdata["data-Disguise"]) || 0;
+            }
+            if(cdata["data-Disguise Notes"]) {
+                update["disguise_notes"] = cdata["data-Disguise Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("disguise",(cdata["data-Disguise"] || ""),(cdata["data-Disguise Notes"] || "")));
+            if(cdata["data-Escape Artist"]) {
+                update["escape_artist"] = parseInt(cdata["data-Escape Artist"]) || 0;
+            }
+            if(cdata["data-Escape Artist Notes"]) {
+                update["escape_artist_notes"] = cdata["data-Escape Artist Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("escape_artist",(cdata["data-Escape Artist"] || ""),(cdata["data-Escape Artist Notes"] || "")));
+            if(cdata["data-Fly"]) {
+                update["fly"] = parseInt(cdata["data-Fly"]) || 0;
+            }
+            if(cdata["data-Fly Notes"]) {
+                update["fly_notes"] = cdata["data-Fly Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("fly",(cdata["data-Fly"] || ""),(cdata["data-Fly Notes"] || "")));
+            if(cdata["data-Handle Animal"]) {
+                update["handle_animal"] = parseInt(cdata["data-Handle Animal"]) || 0;
+            }
+            if(cdata["data-Handle Animal Notes"]) {
+                update["handle_animal_notes"] = cdata["data-Handle Animal Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("handle_animal",(cdata["data-Handle Animal"] || ""),(cdata["data-Handle Animal Notes"] || "")));
+            if(cdata["data-Heal"]) {
+                update["heal"] = parseInt(cdata["data-Heal"]) || 0;
+            }
+            if(cdata["data-Heal Notes"]) {
+                update["heal_notes"] = cdata["data-Heal Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("heal",(cdata["data-Heal"] || ""),(cdata["data-Heal Notes"] || "")));
+            if(cdata["data-Intimidate"]) {
+                update["intimidate"] = parseInt(cdata["data-Intimidate"]) || 0;
+            }
+            if(cdata["data-Intimidate Notes"]) {
+                update["intimidate_notes"] = cdata["data-Intimidate Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("intimidate",(cdata["data-Intimidate"] || ""),(cdata["data-Intimidate Notes"] || "")));
+            if(cdata["data-Knowledge Arcana"]) {
+                update["knowledge_arcana"] = parseInt(cdata["data-Knowledge Arcana"]) || 0;
+            }
+            if(cdata["data-Knowledge Arcana Notes"]) {
+                update["knowledge_arcana_notes"] = cdata["data-Knowledge Arcana Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_arcana",(cdata["data-Knowledge Arcana"] || ""),(cdata["data-Knowledge Arcana Notes"] || "")));
+            if(cdata["data-Knowledge Dungeoneering"]) {
+                update["knowledge_dungeoneering"] = parseInt(cdata["data-Knowledge Dungeoneering"]) || 0;
+            }
+            if(cdata["data-Knowledge Dungeoneering Notes"]) {
+                update["knowledge_dungeoneering_notes"] = cdata["data-Knowledge Dungeoneering Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_dungeoneering",(cdata["data-Knowledge Dungeoneering"] || ""),(cdata["data-Knowledge Dungeoneering Notes"] || "")));
+            if(cdata["data-Knowledge Engineering"]) {
+                update["knowledge_engineering"] = parseInt(cdata["data-Knowledge Engineering"]) || 0;
+            }
+            if(cdata["data-Knowledge Engineering Notes"]) {
+                update["knowledge_engineering_notes"] = cdata["data-Knowledge Engineering Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_engineering",(cdata["data-Knowledge Engineering"] || ""),(cdata["data-Knowledge Engineering Notes"] || "")));
+            if(cdata["data-Knowledge Geography"]) {
+                update["knowledge_geography"] = parseInt(cdata["data-Knowledge Geography"]) || 0;
+            }
+            if(cdata["data-Knowledge Geography Notes"]) {
+                update["knowledge_geography_notes"] = cdata["data-Knowledge Geography Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_geography",(cdata["data-Knowledge Geography"] || ""),(cdata["data-Knowledge Geography Notes"] || "")));
+            if(cdata["data-Knowledge History"]) {
+                update["knowledge_history"] = parseInt(cdata["data-Knowledge History"]) || 0;
+            }
+            if(cdata["data-Knowledge History Notes"]) {
+                update["knowledge_history_notes"] = cdata["data-Knowledge History Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_history",(cdata["data-Knowledge History"] || ""),(cdata["data-Knowledge History Notes"] || "")));
+            if(cdata["data-Knowledge Local"]) {
+                update["knowledge_local"] = parseInt(cdata["data-Knowledge Local"]) || 0;
+            }
+            if(cdata["data-Knowledge Local Notes"]) {
+                update["knowledge_local_notes"] = cdata["data-Knowledge Local Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_local",(cdata["data-Knowledge Local"] || ""),(cdata["data-Knowledge Local Notes"] || "")));
+            if(cdata["data-Knowledge Nature"]) {
+                update["knowledge_nature"] = parseInt(cdata["data-Knowledge Nature"]) || 0;
+            }
+            if(cdata["data-Knowledge Nature Notes"]) {
+                update["knowledge_nature_notes"] = cdata["data-Knowledge Nature Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_nature",(cdata["data-Knowledge Nature"] || ""),(cdata["data-Knowledge Nature Notes"] || "")));
+            if(cdata["data-Knowledge Nobility"]) {
+                update["knowledge_nobility"] = parseInt(cdata["data-Knowledge Nobility"]) || 0;
+            }
+            if(cdata["data-Knowledge Nobility Notes"]) {
+                update["knowledge_nobility_notes"] = cdata["data-Knowledge Nobility Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_nobility",(cdata["data-Knowledge Nobility"] || ""),(cdata["data-Knowledge Nobility Notes"] || "")));
+            if(cdata["data-Knowledge Planes"]) {
+                update["knowledge_planes"] = parseInt(cdata["data-Knowledge Planes"]) || 0;
+            }
+            if(cdata["data-Knowledge Planes Notes"]) {
+                update["knowledge_planes_notes"] = cdata["data-Knowledge Planes Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_planes",(cdata["data-Knowledge Planes"] || ""),(cdata["data-Knowledge Planes Notes"] || "")));
+            if(cdata["data-Knowledge Religion"]) {
+                update["knowledge_religion"] = parseInt(cdata["data-Knowledge Religion"]) || 0;
+            }
+            if(cdata["data-Knowledge Religion Notes"]) {
+                update["knowledge_religion_notes"] = cdata["data-Knowledge Religion Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("knowledge_religion",(cdata["data-Knowledge Religion"] || ""),(cdata["data-Knowledge Religion Notes"] || "")));
+            if(cdata["data-Linguistics"]) {
+                update["linguistics"] = parseInt(cdata["data-Linguistics"]) || 0;
+            }
+            if(cdata["data-Linguistics Notes"]) {
+                update["linguistics_notes"] = cdata["data-Linguistics Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("linguistics",(cdata["data-Linguistics"] || ""),(cdata["data-Linguistics Notes"] || "")));
+            if(cdata["data-Perception"]) {
+                update["perception"] = parseInt(cdata["data-Perception"]) || 0;
+            }
+            if(cdata["data-Perception Notes"]) {
+                update["perception_notes"] = cdata["data-Perception Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("perception",(cdata["data-Perception"] || ""),(cdata["data-Perception Notes"] || "")));
+            if(cdata["data-Perform"]) {
+                update["perform"] = parseInt(cdata["data-Perform"]) || 0;
+            }
+            if(cdata["data-Perform Notes"]) {
+                update["perform_notes"] = cdata["data-Perform Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("perform",(cdata["data-Perform"] || ""),(cdata["data-Perform Notes"] || "")));
+            if(cdata["data-Profession"]) {
+                update["profession"] = parseInt(cdata["data-Profession"]) || 0;
+            }
+            if(cdata["data-Profession Notes"]) {
+                update["profession_notes"] = cdata["data-Profession Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("profession",(cdata["data-Profession"] || ""),(cdata["data-Profession Notes"] || "")));
+            if(cdata["data-Ride"]) {
+                update["ride"] = parseInt(cdata["data-Ride"]) || 0;
+            }
+            if(cdata["data-Ride Notes"]) {
+                update["ride_notes"] = cdata["data-Ride Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("ride",(cdata["data-Ride"] || ""),(cdata["data-Ride Notes"] || "")));
+            if(cdata["data-Sense Motive"]) {
+                update["sense_motive"] = parseInt(cdata["data-Sense Motive"]) || 0;
+            }
+            if(cdata["data-Sense Motive Notes"]) {
+                update["sense_motive_notes"] = cdata["data-Sense Motive Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("sense_motive",(cdata["data-Sense Motive"] || ""),(cdata["data-Sense Motive Notes"] || "")));
+            if(cdata["data-Sleight Of Hand"]) {
+                update["sleight_of_hand"] = parseInt(cdata["data-Sleight Of Hand"]) || 0;
+            }
+            if(cdata["data-Sleight Of Hand Notes"]) {
+                update["sleight_of_hand_notes"] = cdata["data-Sleight Of Hand Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("sleight_of_hand",(cdata["data-Sleight Of Hand"] || ""),(cdata["data-Sleight Of Hand Notes"] || "")));
+            if(cdata["data-Spellcraft"]) {
+                update["spellcraft"] = parseInt(cdata["data-Spellcraft"]) || 0;
+            }
+            if(cdata["data-Spellcraft Notes"]) {
+                update["spellcraft_notes"] = cdata["data-Spellcraft Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("spellcraft",(cdata["data-Spellcraft"] || ""),(cdata["data-Spellcraft Notes"] || "")));
+            if(cdata["data-Stealth"]) {
+                update["stealth"] = parseInt(cdata["data-Stealth"]) || 0;
+            }
+            if(cdata["data-Stealth Notes"]) {
+                update["stealth_notes"] = cdata["data-Stealth Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("stealth",(cdata["data-Stealth"] || ""),(cdata["data-Stealth Notes"] || "")));
+            if(cdata["data-Survival"]) {
+                update["survival"] = parseInt(cdata["data-Survival"]) || 0;
+            }
+            if(cdata["data-Survival Notes"]) {
+                update["survival_notes"] = cdata["data-Survival Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("survival",(cdata["data-Survival"] || ""),(cdata["data-Survival Notes"] || "")));
+            if(cdata["data-Swim"]) {
+                update["swim"] = parseInt(cdata["data-Swim"]) || 0;
+            }
+            if(cdata["data-Swim Notes"]) {
+                update["swim_notes"] = cdata["data-Swim Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("swim",(cdata["data-Swim"] || ""),(cdata["data-Swim Notes"] || "")));
+            if(cdata["data-Use Magic Device"]) {
+                update["use_magic_device"] = parseInt(cdata["data-Use Magic Device"]) || 0;
+            }
+            if(cdata["data-Use Magic Device Notes"]) {
+                update["use_magic_device_notes"] = cdata["data-Use Magic Device Notes"];
+            }
+            _.extend(update,calc_npc_skill_display("use_magic_device",(cdata["data-Use Magic Device"] || ""),(cdata["data-Use Magic Device Notes"] || "")));
+            if(cdata["data-Skills Misc"]) {
+                update["skills_notes"] = cdata["data-Skills Misc"];
+            }
+            // End skills
+            if(cdata["data-Languages"]) {
+                update["languages"] = cdata["data-Languages"];
+            }
+            if(cdata["data-SQ"]) {
+                update["sq"] = cdata["data-SQ"];
+            }
+            if(cdata["data-Combat Gear"]) {
+                update["combat_gear"] = cdata["data-Combat Gear"];
+            }
+            if(cdata["data-Environment"]) {
+                update["environment"] = cdata["data-Environment"];
+            }
+            if(cdata["data-Organization"]) {
+                update["organization"] = cdata["data-Organization"];
+            }
+            if(cdata["data-Treasure"]) {
+                update["treasure"] = cdata["data-Treasure"];
+            }
+            if(cdata["data-Description"]) {
+                update["background"] = cdata["data-Description"];
+            }
+            if(cdata["data-Attacks"]) {
+                var atkz;
+                try{
+                    atkz = JSON.parse(cdata["data-Attacks"]);
+                }
+                catch(error){
+                    atkz = [];
+                }
+                if(atkz.length) {
+                    _.extend(update, npcdrop_add_attacks(atkz,update));
+                }
+            }
+            if(cdata["data-Special Atk"]) {
+                var specz;
+                try{
+                    specz = JSON.parse(cdata["data-Special Atk"]);
+                }
+                catch(error) {
+                    specz = [];
+                }
+                if(specz.length) {
+                    _.extend(update, npcdrop_add_special_attacks(specz));
+                }
+            }
+            if(cdata["data-Special abilities"]) {
+                var abz;
+                try{
+                    abz = JSON.parse(cdata["data-Special Abilities"]);
+                }
+                catch(error) {
+                    abz = [];
+                }
+                if(abz.length) {
+                    _.extend(update, npcdrop_add_specabs(abz));
+                }
+            }
             if(objspells.length) {
-                tmpobj = drop_add_spells(objspells,cdatarr,update,false);
-                _.extend(update, tmpobj);
+                doUpdateSpells = true;
+                _.each(objspells, (obj) => {
+                    if(obj.name) {
+                        pages.push("Spells:" + toTitleCase(obj.name));
+                    }
+                });
             }
             if(objlikes.length) {
-                tmpobj = drop_add_spellike(objlikes,cdatarr,update,false);
-                _.extend(update, tmpobj);
-            }
-            if(objfeats.length) {
-                tmpobj = drop_add_feats(objfeats,cdatarr);
-                _.extend(update, tmpobj);
-            }
-            setAttrs(update,{silent:true},() => {
-                setAttrs({"build-flag-npc": 0},{silent: true},() => {
-                    if(callback) {
-                        callback();
+                doUpdateSpells = true;
+                _.each(objlikes, (obj) => {
+                    if(obj["Name"] && obj["Spell"]) {
+                        pages.push("Spells:" + toTitleCase(obj["Spell"]));
                     }
+                });
+            }
+            if(cdata["data-Feats"]) {
+                var parsed;
+                var objfeats;
+                try {
+                    parsed = JSON.parse(cdata["data-Feats"]);
+                }
+                catch(error) {
+                    parsed = cdata["data-Feats"].split(",");
+                }
+                if(Array.isArray(parsed)) {
+                    objfeats = parsed;
+                } else {
+                    objfeats = [];
+                }
+                if (pfoglobals_debug_mode) {console.log("*** DEBUG update_npc_drop feats parsing: " + objfeats);}
+                _.each(objfeats, (obj) => {
+                    var featname = "";
+                    if(obj.indexOf("(") === -1) {
+                        featname = "Feats:" + obj.trim();
+                    } else {
+                        featname = "Feats:" + obj.split("(")[0].trim();
+                    }
+                    pages.push(featname);
+                });
+            } else {
+                var objfeats = [];
+            }
+            // Do 2 setAttrs: one "quick", one "long" (after getCompendiumPages), to avoid setTokenAttrs timeout
+            setAttrs(update,{silent:true},() => {
+                if(callback) {
+                    callback();
+                }
+                update = {};
+                getCompendiumPage(pages,(compendiumdata) => {
+                    if(Array.isArray(compendiumdata)) {
+                        var cdatarr = compendiumdata;
+                    } else {
+                        var cdatarr = [];
+                        cdatarr.push(compendiumdata);
+                    }
+                    if (pfoglobals_debug_mode) {console.log("*** DEBUG update_npc_drop getCompendiumPage: " + cdatarr);}
+                    if(objspells.length) {
+                        tmpobj = drop_add_spells(objspells,cdatarr,update,false);
+                        _.extend(update, tmpobj);
+                    }
+                    if(objlikes.length) {
+                        tmpobj = drop_add_spellike(objlikes,cdatarr,update,false);
+                        _.extend(update, tmpobj);
+                    }
+                    if(objfeats.length) {
+                        tmpobj = drop_add_feats(objfeats,cdatarr);
+                        _.extend(update, tmpobj);
+                    }
+                    setAttrs(update,{silent:true},() => {
+                        // Hide building splash
+                        setAttrs({"build-flag-npc": 0},{silent: true});
+                    });
                 });
             });
         });
@@ -11691,12 +11692,12 @@
                     if(v["cd_bar2_v"]) {default_attr["bar2_value"] = v["cd_bar2_v"];}
                     if(v["cd_bar2_m"]) {default_attr["bar2_max"] = v["cd_bar2_m"];}
                 }
+                else {default_attr["bar2_link"] = "ac";}
                 if(v["cd_bar3_l"]) {default_attr["bar3_link"] = v["cd_bar3_l"];}
                 else if(v["cd_bar3_v"] || v["cd_bar3_m"]) {
                     if(v["cd_bar3_v"]) {default_attr["bar3_value"] = v["cd_bar3_v"];}
                     if(v["cd_bar3_m"]) {default_attr["bar3_max"] = v["cd_bar3_m"];}
                 }
-                else {default_attr["bar3_link"] = "ac";}
                 setDefaultToken(default_attr);
             });
         });
@@ -12241,10 +12242,19 @@
         getAttrs(fields, (v) => {
             if(v.npc != "1") {
                 var finalattr = "", total = 0;
-                total = (parseInt(v["class1_" + attr]) || 0) + (parseInt(v["class2_" + attr]) || 0) + (parseInt(v["class3_" + attr]) || 0);
-                if (["level","bab"].includes(attr)) {finalattr = attr;}
-                else {finalattr = attr + "_base";}
-                if(attr == "bab") {update["bab_max"] = total;}
+                for(var i = 1; i < 4; i++) {
+                    total += (parseInt(v["class" + i + "_" + attr]) || 0);
+                }
+                if (["level","bab"].includes(attr)) {
+                    finalattr = attr;
+                } else if(["speed"].includes(attr)) {
+                    finalattr = attr + "_class";
+                } else {
+                    finalattr = attr + "_base";
+                }
+                if(attr == "bab") {
+                    update["bab_max"] = total;
+                }
                 update[finalattr] = total;
                 setAttrs(update,{silent: false},() => {
                     if(attr == "level") {
@@ -12269,7 +12279,7 @@
     const update_ac_items = function() {
         // DEBUG
         if (pfoglobals_debug_mode) {console.log("*** DEBUG update_ac_items");}
-        var update = {}, attrs = ["speed_race","caster1_flag","caster2_flag","speed_armor","armor_run_factor","armor_check_penalty","armor_spell_failure"];
+        var update = {}, attrs = ["speed_race","speed_class", "caster1_flag","caster2_flag","speed_armor","armor_run_factor","armor_check_penalty","armor_spell_failure"];
         getSectionIDs("repeating_acitems", (idarray) => {
             _.each(idarray, (itemid) => {
                 attrs.push("repeating_acitems_" + itemid + "_equipped");
@@ -12289,9 +12299,10 @@
                 attrs.push("repeating_acitems_" + itemid + "_run_factor");
             });
             getAttrs(attrs, (v) => {
-                var update = {}, bonusarmor = 0, bonusshield = 0, bonusff = 0, bonustouch = 0, bonusnatural = 0, bonusdeflection = 0, bonusdodge = 0, checkpen = 0, maxdex = 99, spellf = 0, maxab = "-", speedrace = parseInt(v.speed_race) || 30, run = 4;
-                var speedreduced = calc_reduced_speed(speedrace); // heavy and medium armor
-                var speed = speedrace;
+                var update = {}, bonusarmor = 0, bonusshield = 0, bonusff = 0, bonustouch = 0, bonusnatural = 0, bonusdeflection = 0, bonusdodge = 0, checkpen = 0, maxdex = 99, spellf = 0, maxab = "-", run = 4;
+                var speedbase = (parseInt(v.speed_race) || 30) + (parseInt(v.speed_class) || 0);
+                var speedreduced = calc_reduced_speed(speedbase); // heavy and medium armor
+                var speed = speedbase;
                 _.each(idarray, (itemid) => {
                     if ( v["repeating_acitems_" + itemid + "_equipped"] == "1" ) {
                         if (v["repeating_acitems_" + itemid + "_type"] == "shield") {bonusshield += parseInt(v["repeating_acitems_" + itemid + "_ac_bonus"]) || 0;}
@@ -12304,7 +12315,7 @@
                         checkpen += parseInt(v["repeating_acitems_" + itemid + "_check_penalty"]) || 0;
                         if ((parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 99) != 0) {maxdex = Math.min(maxdex, parseInt(v["repeating_acitems_" + itemid + "_max_dex_bonus"]) || 99);}
                         spellf += parseInt(v["repeating_acitems_" + itemid + "_spell_failure"]) || 0;
-                        if(["heavy","medium"].includes(v["repeating_acitems_" + itemid + "_type"])) {speed = Math.min(speed,speedrace,speedreduced);}
+                        if(["heavy","medium"].includes(v["repeating_acitems_" + itemid + "_type"])) {speed = Math.min(speed,speedbase,speedreduced);}
                         run = Math.min(run, parseInt(v["repeating_acitems_" + itemid + "_run_factor"]) || 4);
                     }
                 });
@@ -13010,17 +13021,17 @@
         if (pfoglobals_debug_mode) {console.log("*** DEBUG calc_speed call");}
         var update = {};
         // Speed encumbrance
-        var speedrace = parseInt(v.speed_race) || 30;
-        var speed_encumbrance = speedrace;
+        var speed_base = (parseInt(v.speed_race) || 30) + (parseInt(v.speed_class) || 0);
+        update["speed_character"] = speed_base;
+        var speed_encumbrance = speed_base;
         if (["medium","heavy"].includes(v.encumbrance)) {
-            speed_encumbrance = calc_reduced_speed(speedrace);
+            speed_encumbrance = calc_reduced_speed(speed_base);
         } else if (v.encumbrance == "over") {
             speed_encumbrance = 5;
         }
         update["speed_encumbrance"] = speed_encumbrance;
         v.speed_encumbrance = speed_encumbrance;
         // Speed base
-        var speed_base = parseInt(v.speed_race) || 30;
         if (v.speed_notmodified != "1") {
             speed_base = Math.min(speed_base, parseInt(v.speed_encumbrance) || 30, parseInt(v.speed_armor) || 30);
         }
@@ -13122,7 +13133,8 @@
     var calc_encumbrance = function(v) {
         // DEBUG
         if (pfoglobals_debug_mode) {console.log("*** DEBUG calc_encumbrance call");}
-        var update = {}, checkpen = 0, speedrace = parseInt(v.speed_race) || 30, dexmax = 99, maxab = "-", runfactor = 4, display = "", weight = parseInt(v.encumbrance_gear_weight) || 0;
+        var update = {}, checkpen = 0, dexmax = 99, maxab = "-", runfactor = 4, display = "", weight = parseInt(v.encumbrance_gear_weight) || 0;
+        var speedbase = (parseInt(v.speed_race) || 30) + (parseInt(v.speed_class) || 0);
         var bonus = parseInt(v.encumbrance_load_bonus) || 0;
         var str = (parseInt(v.strength) || 10) + bonus;
         var multi = parseFloat(v.encumbrance_load_multiplier) || 1.0;
@@ -13131,7 +13143,7 @@
         var medium = Math.floor((heavy / 3) * 2);
         var light = Math.floor(heavy / 3);
         var prevenc = v.encumbrance; // light / medium / heavy / over
-        var speed = speedrace;
+        var speed = speedbase;
         var newenc = prevenc;
         update["encumbrance_load_light"] = light;
         update["encumbrance_load_medium"] = medium;
@@ -13145,13 +13157,13 @@
         if((weight > light) && (weight <= medium)) {
             newenc = "medium";
             checkpen = -3;
-            speed = calc_reduced_speed(speedrace);
+            speed = calc_reduced_speed(speedbase);
             dexmax = 3;
             runfactor = 4;
         } else if ((weight > medium) && (weight <= heavy)) {
             newenc = "heavy";
             checkpen = -6;
-            speed = calc_reduced_speed(speedrace);
+            speed = calc_reduced_speed(speedbase);
             dexmax = 1;
             runfactor = 3;
         } else if (weight > heavy) {
@@ -13734,6 +13746,8 @@
         get_repsec_ids(JSON.parse(JSON.stringify(all_repsecs)), (repsec_agr)=>{
             // Gathering all necessary attributes
             var tmpfields = [];
+            // Size
+            tmpfields.push("size");
             // Saves attributes
             _.each(["fortitude","reflex","will"],(savename)=>{
                 tmpfields.push(...pfoglobals_save_attr.map((fld) => savename + "_" + fld));
@@ -13835,6 +13849,10 @@
                 }
                 // === Other PC only stuff
                 if(v.npc !== "1") {
+                    // Size
+                    update = calc_pc_size(v.size);
+                    _.extend(big_update, update);
+                    _.extend(v, update);
                     // Flex abilities
                     update = {};
                     _.each(pfoglobals_flex_abilities, (ablt) => {
@@ -13849,7 +13867,7 @@
                     update = calc_initiative(v);
                     _.extend(big_update, update);
                     _.extend(v, update);
-                                        // AC
+                    // AC
                     update = calc_ac_ability(ability,v);
                     _.extend(big_update, update);
                     _.extend(v, update);
@@ -14064,6 +14082,150 @@
     };
 
     // === Version and updating
+    const calc_reset_pc = function() {
+        var update = {};
+
+        // -- Reset to empty string
+        var toResetAsChar = ["class1_name","class2_name","class3_name","languages","senses","ac_notes","fortitude_notes","reflex_notes","will_notes","caster1_class","caster2_class","caster1_spells_notes","caster2_spells_notes","initiative_notes","speed_notes","encumbrance_display","encumbrance_load_notes","misc_notes","background","bab_notes","cmb_notes","melee_notes","ranged_notes","cmd_notes","sr_notes","craft_name","perform_name","profession_name"];
+        toResetAsChar = toResetAsChar.concat(pfoglobals_abilities.map((ablt) => ablt + "_notes"));
+        toResetAsChar = toResetAsChar.concat(pfoglobals_skill_list.map((sk) => sk + "_notes"));
+        _.each(toResetAsChar,(attr) => {
+            update[attr] = "";
+        });
+
+        // -- Reset to zero
+        var toResetAsZero = ["caster_flag","class2_level","class3_level","initiative_misc","money_cp","money_sp","money_gp","money_pp","xp",""];
+        for(var i = 1; i < 4; i++) {
+            toResetAsZero.push("class" + i + "_bab","class" + i + "_fortitude","class" + i + "_reflex","class" + i + "_will","class" + i + "_skillranks_base","class" + i + "_speed");
+        }
+        for(var j = 1; j < 3; j++) {
+            for(var i = 0; i < 10; i++) {
+                toResetAsZero.push("caster" + j + "_spells_known_level_" + i, "caster" + j + "_spells_perday_level_" + i, "caster" + j + "_spells_bonus_level_" + i, "caster" + j + "_spells_prepared_level_" + i, "caster" + j + "_spells_total_level_" + i, "caster" + j + "_dc_level_" + i, "caster" + j + "_dcbonus_level_" + i,"caster_spells_flag_level_" + i);
+            }
+        }
+
+        toResetAsZero = toResetAsZero.concat(pfoglobals_abilities.map((ablt) => ablt + "_race"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_abilities.map((ablt) => ablt + "_bonus"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_abilities.map((ablt) => ablt + "_condition"));
+
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_classkill"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_ability_mod"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_ranks"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_misc"));
+        toResetAsZero = toResetAsZero.concat(pfoglobals_skill_list.map((sk) => sk + "_bonus"));
+
+        toResetAsZero = toResetAsZero.concat(pfoglobals_mods,["initiative_misc","initiative_bonus"],["fortitude_base","fortitude_ability_mod","fortitude_misc","fortitude_bonus","reflex_base","reflex_ability_mod","reflex_misc","reflex_bonus","will_base","will_ability_mod","will_misc","will_bonus"],["encumbrance_ability_maximum"],["ac_condition_nobonus","ac_bonus","ac_ability_mod","ac_armor","ac_shield","ac_size","ac_natural","ac_deflection","ac_misc","ac_dodge","ac_touch_bonus","ac_flatfooted_bonus","ac_natural_bonus","ac_deflection_bonus","ac_dodge_bonus","ac_noflatflooted","ac_touchshield","ac_condition","ac_secab_monk","ac_ff_ability_mod"],["bab","bab_max","bab_multi","bab_size","cmb_mod","cmb_size","cmb_ability_mod","cmb_misc","cmb_bonus","melee_mod","melee_ability_mod","melee_misc","melee_bonus","ranged_mod","ranged_ability_mod","ranged_misc","ranged_bonus","cmd_misc","cmd_bonus","cmd_condition"],pfoglobals_skill_fields,["caster1_flag","caster2_flag","caster1_level","caster1_ability_mod","caster1_concentration","caster1_concentration_misc","caster1_concentration_bonus","caster2_level","caster2_ability_mod","caster2_concentration","caster2_concentration_misc","caster2_concentration_bonus"],["encumbrance_load_bonus","stealth_size","encumbrance_size","fly_size","encumbrance_gear_weight","encumbrance_load_light","encumbrance_load_medium","encumbrance_load_heavy","encumbrance"],["encumbrance","speed_notmodified","speed_bonus","speed_condition_multiplier","speed_condition_norun","speed_condition_nospeed","speed_class"],pfoglobals_conditions,["armor_spell_failure","caster1_dc_misc","caster2_dc_misc"]);
+
+        toResetAsZero = _.uniq(toResetAsZero);
+        _.each(toResetAsZero,(attr) => {
+            update[attr] = 0;
+        });
+
+        // -- Reset to One (1)
+        var toResetAsOne = ["class1_level","level","class_favored","encumbrance_load_multiplier","caster1_spell_failure","caster2_spell_failure"];
+        _.each(toResetAsOne,(attr) => {
+            update[attr] = 1;
+        });
+
+        // -- Reset to default value
+        _.each(pfoglobals_abilities, (ablt) => {
+            update[ablt] = 10;
+            update[ablt + "_base"] = 10;
+        });
+        update["ac"] = 10;
+        update["ac_touch"] = 10;
+        update["ac_flatfooted"] = 10;
+        update["class1_hitdietype"] = 8;
+        update["class2_hitdietype"] = 8;
+        update["class3_hitdietype"] = 8;
+        update["xp_max"] = 2000;
+        update["encumbrance_run_factor"] = 4;
+        update["armor_run_factor"] = 4;
+        update["ac_ability_primary"] = "dexterity";
+        update["ac_ability_secondary"] = "";
+        update["ac_ability_maximum"] = "-";
+
+        update["fortitude_ability"] = "constitution";
+        update["reflex_ability"] = "dexterity";
+        update["will_ability"] = "wisdom";
+
+        update["cmb_ability"] = "strength";
+        update["melee_ability"] = "strength";
+        update["ranged_ability"] = "dexterity";
+        update["cmd_mod"] = 10;
+
+        update["speed"] = 30;
+        update["speed_base"] = 30;
+        update["speed_character"] = 30;
+        update["speed_encumbrance"] = 30;
+        update["speed_armor"] = 30;
+        update["speed_run_factor"] = 4;
+        update["speed_run"] = 120;
+        update["speed_swim"] = 7.5;
+        update["speed_climb"] = 7.5;
+
+        update["encumbrance_load_light"] = 33;
+        update["encumbrance_load_medium"] = 66;
+        update["encumbrance_load_heavy"] = 100;
+        update["encumbrance_lift_head"] = 100;
+        update["encumbrance_lift_ground"] = 200;
+        update["encumbrance_drag_push"] = 500;
+        update["encumbrance_check_penalty"] = 0;
+        update["encumbrance_ability_maximum"] = "-";
+        update["encumbrance_run_factor"] = 4;
+        update["encumbrance_coins_weight"] = 0;
+
+        update["acrobatics_ability"] = "dexterity";
+        update["appraise_ability"] = "intelligence";
+        update["bluff_ability"] = "charisma";
+        update["climb_ability"] = "strength";
+        update["craft_ability"] = "intelligence";
+        update["diplomacy_ability"] = "charisma";
+        update["disable_device_ability"] = "dexterity";
+        update["disguise_ability"] = "charisma";
+        update["escape_artist_ability"] = "dexterity";
+        update["fly_ability"] = "dexterity";
+        update["handle_animal_ability"] = "charisma";
+        update["heal_ability"] = "wisdom";
+        update["intimidate_ability"] = "charisma";
+        update["knowledge_arcana_ability"] = "intelligence";
+        update["knowledge_dungeoneering_ability"] = "intelligence";
+        update["knowledge_engineering_ability"] = "intelligence";
+        update["knowledge_geography_ability"] = "intelligence";
+        update["knowledge_history_ability"] = "intelligence";
+        update["knowledge_local_ability"] = "intelligence";
+        update["knowledge_nature_ability"] = "intelligence";
+        update["knowledge_nobility_ability"] = "intelligence";
+        update["knowledge_planes_ability"] = "intelligence";
+        update["knowledge_religion_ability"] = "intelligence";
+        update["linguistics_ability"] = "intelligence";
+        update["perception_ability"] = "wisdom";
+        update["perform_ability"] = "charisma";
+        update["profession_ability"] = "wisdom";
+        update["ride_ability"] = "dexterity";
+        update["sense_motive_ability"] = "wisdom";
+        update["sleight_of_hand_ability"] = "dexterity";
+        update["spellcraft_ability"] = "intelligence";
+        update["stealth_ability"] = "dexterity";
+        update["survival_ability"] = "wisdom";
+        update["swim_ability"] = "strength";
+        update["use_magic_device_ability"] = "charisma";
+
+        update["acrobatics_armor_penalty"] = "1";
+        update["climb_armor_penalty"] = "1";
+        update["disable_device_armor_penalty"] = "1";
+        update["escape_artist_armor_penalty"] = "1";
+        update["fly_armor_penalty"] = "1";
+        update["ride_armor_penalty"] = "1";
+        update["sleight_of_hand_armor_penalty"] = "1";
+        update["stealth_armor_penalty"] = "1";
+        update["swim_armor_penalty"] = "1";
+
+        update["caster1_ability"] = "intelligence";
+        update["caster2_ability"] = "intelligence";
+
+        return update;
+    };
     var check_l1_mancer = function() {
         getAttrs(["l1mancer_status","npc"], function(v) {
             if(v.npc !== "1") {
@@ -14080,196 +14242,7 @@
         getAttrs(["character_name","npc"], (v) => {
             console.log("Initializing character " + v.character_name);
             if(v.npc !== "1") {
-                var update = {};
-                update["level"] = 1;
-                // Attributes
-                update["strength_mod"] = 0;
-                update["dexterity_mod"] = 0;
-                update["constitution_mod"] = 0;
-                update["intelligence_mod"] = 0;
-                update["wisdom_mod"] = 0;
-                update["charisma_mod"] = 0;
-                update["initiative"] = 0;
-                update["hitdietype"] = "8";
-                // Size
-                update["ac_size"] = 0;
-                update["bab_size"] = 0;
-                update["cmb_size"] = 0;
-                update["fly_size"] = 0;
-                update["stealth_size"] = 0;
-                update["encumbrance_size"] = 1;
-                // AC
-                update["ac_armor"] = 0;
-                update["ac_shield"] = 0;
-                update["ac_flatfooted_bonus"] = 0;
-                update["ac_touch_bonus"] = 0;
-                update["ac_natural_bonus"] = 0;
-                update["ac_deflection_bonus"] = 0;
-                update["ac_dodge_bonus"] = 0;
-                update["ac_ability_mod"] = 0;
-                update["ac_ability_maximum"] = "-";
-                update["armor_check_penalty"] = 0;
-                update["armor_spell_failure"] = 0;
-                update["armor_run_factor"] = 4;
-                update["ac"] = 10;
-                update["ac_touch"] = 0;
-                update["ac_flatfooted"] = 0;
-                // Saves
-                update["fortitude_base"] = 0;
-                update["reflex_base"] = 0;
-                update["will_base"] = 0;
-                update["fortitude_ability_mod"] = 0;
-                update["reflex_ability_mod"] = 0;
-                update["will_ability_mod"] = 0;
-                update["fortitude"] = 0;
-                update["reflex"] = 0;
-                update["will"] = 0;
-                // BABs
-                update["bab"] = 0;
-                update["bab_max"] = 0;
-                update["cmb_ability_mod"] = 0;
-                update["melee_ability_mod"] = 0;
-                update["ranged_ability_mod"] = 0;
-                update["cmb_mod"] = 0;
-                update["melee_mod"] = 0;
-                update["ranged_mod"] = 0;
-                update["cmd_mod"] = 10;
-                // Speed
-                update["speed"] = 30;
-                update["speed_base"] = 30;
-                update["speed_encumbrance"] = 30;
-                update["speed_armor"] = 30;
-                update["speed_run_factor"] = 4;
-                update["speed_run"] = 120;
-                update["speed_swim"] = 7.5;
-                update["speed_climb"] = 7.5;
-                // Encumbrance
-                update["encumbrance_load_light"] = 33;
-                update["encumbrance_load_medium"] = 66;
-                update["encumbrance_load_heavy"] = 100;
-                update["encumbrance_lift_head"] = 100;
-                update["encumbrance_lift_ground"] = 200;
-                update["encumbrance_drag_push"] = 500;
-                update["encumbrance_check_penalty"] = 0;
-                update["encumbrance_ability_maximum"] = "-";
-                update["encumbrance_run_factor"] = 4;
-                update["encumbrance_coins_weight"] = 0;
-                // Skills
-                update["acrobatics_ability_mod"] = 0;
-                update["appraise_ability_mod"] = 0;
-                update["bluff_ability_mod"] = 0;
-                update["climb_ability_mod"] = 0;
-                update["craft_ability_mod"] = 0;
-                update["diplomacy_ability_mod"] = 0;
-                update["disable_device_ability_mod"] = 0;
-                update["disguise_ability_mod"] = 0;
-                update["escape_artist_ability_mod"] = 0;
-                update["fly_ability_mod"] = 0;
-                update["handle_animal_ability_mod"] = 0;
-                update["heal_ability_mod"] = 0;
-                update["intimidate_ability_mod"] = 0;
-                update["knowledge_arcana_ability_mod"] = 0;
-                update["knowledge_dungeoneering_ability_mod"] = 0;
-                update["knowledge_engineering_ability_mod"] = 0;
-                update["knowledge_geography_ability_mod"] = 0;
-                update["knowledge_history_ability_mod"] = 0;
-                update["knowledge_local_ability_mod"] = 0;
-                update["knowledge_nature_ability_mod"] = 0;
-                update["knowledge_nobility_ability_mod"] = 0;
-                update["knowledge_planes_ability_mod"] = 0;
-                update["knowledge_religion_ability_mod"] = 0;
-                update["linguistics_ability_mod"] = 0;
-                update["perception_ability_mod"] = 0;
-                update["perform_ability_mod"] = 0;
-                update["profession_ability_mod"] = 0;
-                update["ride_ability_mod"] = 0;
-                update["sense_motive_ability_mod"] = 0;
-                update["sleight_of_hand_ability_mod"] = 0;
-                update["spellcraft_ability_mod"] = 0;
-                update["stealth_ability_mod"] = 0;
-                update["survival_ability_mod"] = 0;
-                update["swim_ability_mod"] = 0;
-                update["use_magic_device_ability_mod"] = 0;
-                update["acrobatics"] = 0;
-                update["appraise"] = 0;
-                update["bluff"] = 0;
-                update["climb"] = 0;
-                update["craft"] = 0;
-                update["diplomacy"] = 0;
-                update["disable_device"] = 0;
-                update["disguise"] = 0;
-                update["escape_artist"] = 0;
-                update["fly"] = 0;
-                update["handle_animal"] = 0;
-                update["heal"] = 0;
-                update["intimidate"] = 0;
-                update["knowledge_arcana"] = 0;
-                update["knowledge_dungeoneering"] = 0;
-                update["knowledge_engineering"] = 0;
-                update["knowledge_geography"] = 0;
-                update["knowledge_history"] = 0;
-                update["knowledge_local"] = 0;
-                update["knowledge_nature"] = 0;
-                update["knowledge_nobility"] = 0;
-                update["knowledge_planes"] = 0;
-                update["knowledge_religion"] = 0;
-                update["linguistics"] = 0;
-                update["perception"] = 0;
-                update["perform"] = 0;
-                update["profession"] = 0;
-                update["ride"] = 0;
-                update["sense_motive"] = 0;
-                update["sleight_of_hand"] = 0;
-                update["spellcraft"] = 0;
-                update["stealth"] = 0;
-                update["survival"] = 0;
-                update["swim"] = 0;
-                update["use_magic_device"] = 0;
-                // Making sure to display the "Apply" check...
-                update["acrobatics_ability"] = "dexterity";
-                update["acrobatics_armor_penalty"] = "1";
-                update["climb_ability"] = "strength";
-                update["climb_armor_penalty"] = "1";
-                update["disable_device_ability"] = "dexterity";
-                update["disable_device_armor_penalty"] = "1";
-                update["escape_artist_ability"] = "dexterity";
-                update["escape_artist_armor_penalty"] = "1";
-                update["fly_ability"] = "dexterity";
-                update["fly_armor_penalty"] = "1";
-                update["ride_ability"] = "dexterity";
-                update["ride_armor_penalty"] = "1";
-                update["sleight_of_hand_ability"] = "dexterity";
-                update["sleight_of_hand_armor_penalty"] = "1";
-                update["stealth_ability"] = "dexterity";
-                update["stealth_armor_penalty"] = "1";
-                update["swim_ability"] = "strength";
-                update["swim_armor_penalty"] = "1";
-                update["skill_check_penalty"] = 0;
-                // Spells / spellcasting
-                update["caster1_ability_mod"] = 0;
-                update["caster1_concentration"] = 0;
-                update["caster1_dc_level_0"] = 0;
-                update["caster1_dc_level_1"] = 0;
-                update["caster1_dc_level_2"] = 0;
-                update["caster1_dc_level_3"] = 0;
-                update["caster1_dc_level_4"] = 0;
-                update["caster1_dc_level_5"] = 0;
-                update["caster1_dc_level_6"] = 0;
-                update["caster1_dc_level_7"] = 0;
-                update["caster1_dc_level_8"] = 0;
-                update["caster1_dc_level_9"] = 0;
-                update["caster2_ability_mod"] = 0;
-                update["caster2_concentration"] = 0;
-                update["caster2_dc_level_0"] = 0;
-                update["caster2_dc_level_1"] = 0;
-                update["caster2_dc_level_2"] = 0;
-                update["caster2_dc_level_3"] = 0;
-                update["caster2_dc_level_4"] = 0;
-                update["caster2_dc_level_5"] = 0;
-                update["caster2_dc_level_6"] = 0;
-                update["caster2_dc_level_7"] = 0;
-                update["caster2_dc_level_8"] = 0;
-                update["caster2_dc_level_9"] = 0;
+                var update = calc_reset_pc();
                 // UPDATE
                 setAttrs(update, {silent: true}, () => {
                     doneupdating();
@@ -14277,13 +14250,13 @@
             }
         });
     };
-    var update_to_1_07 = function (doneupdating) {
+    var update_to_1_07 = function(doneupdating) {
         console.log("UPDATING TO v1.07");
         setAttrs({"ac_natural_bonus": 0,"ac_deflection_bonus":0,"ac_dodge_bonus":0},{silent: true},() => {
             doneupdating();
         });
     };
-    var update_to_1_08 = function (doneupdating) {
+    var update_to_1_08 = function(doneupdating) {
         console.log("UPDATING TO v1.08");
         getAttrs(["ac_ability_mod","npc"], (v) => {
             if(v.npc !== "1") {
@@ -14308,7 +14281,7 @@
             }
         });
     };
-    var update_to_1_10 = function (doneupdating) {
+    var update_to_1_10 = function(doneupdating) {
         console.log("UPDATING TO v1.10");
         getAttrs(["dexterity","hp","hp_max","npc"], (v) => {
             if(v.npc !== "1") {
@@ -14329,7 +14302,7 @@
             }
         });
     };
-    var update_to_1_12 = function (doneupdating) {
+    var update_to_1_12 = function(doneupdating) {
         console.log("UPDATING TO v1.12");
         getAttrs(["npc"], (v) => {
             if(v.npc !== "1") {
@@ -14338,7 +14311,7 @@
             doneupdating();
         });
     };
-    var update_to_1_14 = function (doneupdating) {
+    var update_to_1_14 = function(doneupdating) {
         console.log("UPDATING TO v1.14");
         getAttrs(["npc","size"], (v) => {
             if(v.npc !== "1") {
@@ -14350,8 +14323,17 @@
         });
         doneupdating();
     };
+    var update_to_1_16 = function() {
+        console.log("UPDATING TO v1.16");
+        getAttrs(["npc"], (v) => {
+            if(v.npc !== "1") {
+                update_speed();
+            }
+        });
+    };
     var versioning = function(initChar = false) {
         getAttrs(["version"], (v) => {
+            // 1.16 TODO
             var vrs = parseFloat(v["version"]) || 0.0;
             if (vrs === pfoglobals_currentversion) {
                 console.log("Pathfinder by Roll20 v" + vrs);
@@ -14712,6 +14694,7 @@
                     </div>
                 </div>
             </div>
+            <div class="row last"></div>
         </div>
 
         <div class="info">
@@ -14825,11 +14808,16 @@
                         <span class="title" data-18n="choose-race">Choose a race:</span>
                         <select name="comp_race" accept="Category:Races" required>
                             <option value="" data-i18n="choose">Choose</option>
+                            <option class="custom" value="Index:Races" data-i18n="custom">Custom</option>
                         </select>
                         <button type="action" name="act_info_race" class="mancer_info">i</button>
+                        <label class="choice custom_race">
+                            <span class="title" data-18n="name:">Name:</span>
+                            <input type="text" name="comp_race_custom_name" data-i18n-placeholder="race" placeholder="Race" />
+                        </label>
                     </label>
                 </div>
-                <div class="choice row race_always custom_race">
+                <div class="choice row race_always custom_race"> <!-- ABILITIES -->
                     <label class="hilite">
                         <span class="title" data-18n="ability-score-increase">Ability Score Increase:</span>
                         <span class="race_ability_score race_text"></span>
@@ -14844,85 +14832,138 @@
                             <option value="charisma" data-i18n="charisma">Charisma</option>
                         </select>
                     </label>
+                    <div class="choice custom_race race_abilities">
+                        <label>
+                            <span class="title" data-i18n="strength">Strength:</span>
+                            <div class="boxed">
+                                <input type="number" name="comp_race_strength" value="0" />
+                            </div>
+                        </label>
+                        <label>
+                            <span class="title" data-i18n="dexterity">Dexterity:</span>
+                            <div class="boxed">
+                                <input type="number" name="comp_race_dexterity" value="0" />
+                            </div>
+                        </label>
+                        <label>
+                            <span class="title" data-i18n="constitution">Constitution:</span>
+                            <div class="boxed">
+                                <input type="number" name="comp_race_constitution" value="0" />
+                            </div>
+                        </label>
+                        <label>
+                            <span class="title" data-i18n="intelligence">Intelligence:</span>
+                            <div class="boxed">
+                                <input type="number" name="comp_race_intelligence" value="0" />
+                            </div>
+                        </label>
+                        <label>
+                            <span class="title" data-i18n="wisdom">Wisdom:</span>
+                            <div class="boxed">
+                                <input type="number" name="comp_race_wisdom" value="0" />
+                            </div>
+                        </label>
+                        <label>
+                            <span class="title" data-i18n="charisma">Charisma:</span>
+                            <div class="boxed">
+                                <input type="number" name="comp_race_charisma" value="0" />
+                            </div>
+                        </label>
+                    </div>
                 </div>
-                <div class="choice row race_always custom_race">
+                <div class="choice row race_always custom_race"> <!-- SIZE -->
                     <label>
                         <span class="title" data-18n="size:" >Size:</span>
                         <span class="race_size race_text"></span>
+                        <select class="choice custom_race" name="comp_race_custom_size">
+                            <option value="fine" data-i18n="fine">Fine</option>
+                            <option value="diminutive" data-i18n="diminutive">Diminutive</option>
+                            <option value="tiny" data-i18n="tiny">Tiny</option>
+                            <option value="small" data-i18n="small">Small</option>
+                            <option value="medium" data-i18n="medium" selected="selected">Medium</option>
+                            <option value="large" data-i18n="large">Large</option>
+                            <option value="huge" data-i18n="huge">Huge</option>
+                            <option value="gargantuan" data-i18n="gargantuan">Gargantuan</option>
+                            <option value="colossal" data-i18n="colossal">Colossal</option>
+                        </select>
                     </label>
                 </div>
-                <div class="choice row race_always custom_race">
+                <div class="choice row race_always custom_race"> <!-- SPEED -->
                     <label>
                         <span class="title" data-18n="speed:">Speed:</span>
                         <span class="race_speed race_text"></span>
+                        <span class="choice custom_race">
+                            <input type="number" name="comp_race_custom_speed" value="30" /> ft.
+                        </span>
                     </label>
                 </div>
-                <div class="choice row race_senses_row custom_race">
+                <div class="choice row race_senses_row"> <!-- SENSES -->
                     <label>
                         <span class="title" data-18n="senses:">Senses:</span>
                         <span class="race_senses race_text"></span>
                     </label>
                 </div>
-                <div class="choice row race_always custom_race">
+                <div class="choice row race_always"> <!-- LANGUAGES -->
                     <label>
                         <span class="title" data-18n="languages:">Languages:</span>
                         <span class="race_languages race_text"></span>
                     </label>
                 </div>
-                <div class="choice row race_acnotes_row custom_race">
+                <div class="choice row race_acnotes_row"> <!-- AC -->
                     <label>
                         <span class="title" data-18n="ac-u:">AC:</span>
                         <span class="race_acnotes race_text"></span>
                     </label>
                 </div>
-                <div class="choice row race_saves_row custom_race">
-                    <div class="choice race_fortitude_row custom_race">
+                <div class="choice row race_saves_row "> <!-- SAVING THROWS -->
+                    <div class="choice race_fortitude_row ">
                         <label>
                             <span class="title" data-18n="fortitude:">Fortitude:</span>
                             <span class="race_fortitude race_text"></span>
                         </label>
                     </div>
-                    <div class="choice race_reflex_row custom_race">
+                    <div class="choice race_reflex_row ">
                         <label>
                             <span class="title" data-18n="reflex:">Reflex:</span>
                             <span class="race_reflex race_text"></span>
                         </label>
                     </div>
-                    <div class="choice race_will_row custom_race">
+                    <div class="choice race_will_row ">
                         <label>
                             <span class="title" data-18n="will:">Will:</span>
                             <span class="race_will race_text"></span>
                         </label>
                     </div>
                 </div>
-                <div class="choice row race_skills custom_race">
+                <div class="choice row race_skills"> <!-- SKILLS -->
                     <label class="hilite">
                         <span class="title" data-18n="skills-bonus:">Skills Bonus:</span>
-                        <select class="choice race_skill_bonus_choice_row custom_race" name="comp_race_skill_bonus_choice">
+                        <select class="choice race_skill_bonus_choice_row" name="comp_race_skill_bonus_choice">
                             <option value="" data-i18n="choose">Choose</option>
                         </select>
                         <span class="race_skill_bonus race_text"></span>
                     </label>
                 </div>
-                <div class="choice row race_feats custom_race">
+                <div class="choice row race_feats"> <!-- FEATS -->
                     <label class="hilite">
                         <span class="title" data-18n="bonus-feats:">Bonus Feats:</span>
-                        <select class="choice race_feat_choice_row custom_race" name="comp_race_feat_choice">
+                        <select class="choice race_feat_choice_row" name="comp_race_feat_choice">
                             <option value="" data-i18n="choose">Choose</option>
                         </select>
                         <span class="race_feat_display race_text"></span>
                         <button type="action" name="act_info_race_feat" class="mancer_info">i</button>
                     </label>
                 </div>
-                <div class="choice row race_spells custom_race">
+                <div class="choice row race_spells"> <!-- SPELLS -->
                     <label>
                         <span class="title" data-18n="spell-like-abilities:">Spell-Like Abilities:</span>
                         <span class="race_spell_display race_text"></span>
                     </label>
                 </div>
-                <div class="choice row race_traits race_text">
+                <div class="choice row race_traits race_text"> <!-- TRAITS -->
                 </div>
             </div>
+            <div class="row last"></div>
         </div>
 
         <div class="info">
@@ -15325,9 +15366,9 @@
                         </label>
                     </div>
                 </div>
-
                 <div class="choice row class_always class_traits class_text"> <!-- Traits -->
                 </div>
+                <div class="row last"></div>
             </div>
         </div>
 
@@ -15926,7 +15967,7 @@
                         <button type="action" name="act_info_feat_lvl1_1" class="mancer_info">i</button>
                     </label>
                 </div>
-                <div class="choice row race_feats custom_race"> <!-- Race Feats -->
+                <div class="choice row race_feats"> <!-- Race Feats -->
                     <label>
                         <span class="title" data-18n="race">Race</span>
                         <span class="title" data-18n="bonus-feats:">Bonus Feats:</span>
@@ -15934,7 +15975,7 @@
                         <button type="action" name="act_info_race_feat" class="mancer_info">i</button>
                     </label>
                 </div>
-                <div class="choice row class_bonusfeats_row custom_class"> <!-- Class Feats -->
+                <div class="choice row class_bonusfeats_row"> <!-- Class Feats -->
                     <label>
                         <span class="title" data-18n="class">Class</span>
                         <span class="title" data-18n="bonus-feats:">Bonus Feats:</span>
@@ -15986,6 +16027,7 @@
                             </div>
                     </label>
                 </div>
+                <div class="row last"></div>
             </div>
         </div>
 
@@ -16193,6 +16235,7 @@
                         <button type="action" name="act_spells_domainspell2" class="mancer_info">i</button>
                     </label>
                 </div>
+                <div class="row"></div>
             </div>
         </div>
 
@@ -16457,7 +16500,7 @@
 </rolltemplate>
 <!-- Mancer Workers -->
 <script type="text/worker">
-    const mncrDebugMode = true;
+    const mncrDebugMode = false;
 
     const mncrAbilities = ["strength","dexterity","constitution","intelligence","wisdom","charisma"];
     const mncrGetList = true;
@@ -16706,7 +16749,7 @@
         }
 
         if(eventinfo.sourceType == "player") {
-            reset = {race_name: "", race_ability_choice1: "", race_skill_bonus_choice: "", race_feat_choice: ""};
+            reset = {race_name: "", race_ability_choice1: "", race_skill_bonus_choice: "", race_feat_choice: "", race_custom_name: "", race_strength:0, race_dexterity: 0, race_constitution:0, race_intelligence:0, race_wisdom:0, race_charisma:0, race_custom_size: "medium", race_custom_speed:30};
         }
 
         if(eventinfo.newValue === "Index:Races") {
@@ -16899,7 +16942,14 @@
         changeCompendiumPage("sheet-race-info", race);
     });
     on("mancerchange:race_ability_choice1", (eventinfo) => {
-        recalcData("race");
+        if(eventinfo.sourceType == "player") {
+            recalcData("race");
+        }
+    });
+    on("mancerchange:race_strength mancerchange:race_dexterity mancerchange:race_constitution mancerchange:race_intelligence mancerchange:race_wisdom mancerchange:race_charisma", (eventinfo) => {
+        if(eventinfo.sourceType == "player") {
+            recalcData("race");
+        }
     });
     on("mancerchange:race_feat_choice", (eventinfo) => {
         if(eventinfo.sourceType == "player") {
@@ -17749,7 +17799,11 @@
         // === RACE ===
         if(data["l1-race"] && data["l1-race"].values.race) {
             showList.push("sum_race");
-            update["sum_race"] = "Your Race is <b>" + data["l1-race"].values.race.replace("Races:","") + "</b>.";
+            if(data["l1-race"].values.race == "Index:Races") {
+                update["sum_race"] = "Your Custom Race is <b>" + (data["l1-race"].values["race_custom_name"] || "Unknown") + "</b>.";
+            } else {
+                update["sum_race"] = "Your Race is <b>" + data["l1-race"].values.race.replace("Races:","") + "</b>.";
+            }
             if(data["l1-race"].data && data["l1-race"].data.race) {
                 // race_ability_choice1
                 if(data["l1-race"].data.race["data-Ability Score Choice"] && (! data["l1-race"].values["race_ability_choice1"])) {
@@ -18087,18 +18141,30 @@
             });
         }
         // --- Abilities race
-        if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race && data["l1-race"].data.race["data-Ability Score Modifiers"]) {
-            _.each(data["l1-race"].data.race["data-Ability Score Modifiers"].split(","), (modifier) => {
-                var abrace = modifier.trim().toLowerCase();
-                if(abilities_scores[abrace.split(" ")[0].trim()]) {
-                    abilities_scores[abrace.split(" ")[0].trim()].race = parseInt(abrace.split(" ")[1]) || 0;
+        if(data["l1-race"]) {
+            if(data["l1-race"].data && data["l1-race"].data.race) {
+                if(data["l1-race"].data.race["data-Ability Score Modifiers"]) {
+                    _.each(data["l1-race"].data.race["data-Ability Score Modifiers"].split(","), (modifier) => {
+                        var abrace = modifier.trim().toLowerCase();
+                        if(abilities_scores[abrace.split(" ")[0].trim()]) {
+                            abilities_scores[abrace.split(" ")[0].trim()].race = parseInt(abrace.split(" ")[1]) || 0;
+                        }
+                        else {
+                            console.log("*** DEBUG ERROR ability race unsplitable: " + abrace);
+                        }
+                    });
+                } else if(data["l1-race"].data.race["data-Ability Score Choice"] && data["l1-race"].values["race_ability_choice1"]) {
+                    abilities_scores[data["l1-race"].values["race_ability_choice1"]].race = parseInt(data["l1-race"].data.race["data-Ability Score Choice"].split("+")[1]) || 0;
                 }
-                else {
-                    console.log("*** DEBUG ERROR ability race unsplitable: " + abrace);
-                }
-            });
-        } else if(data["l1-race"] && data["l1-race"].data && data["l1-race"].data.race && data["l1-race"].data.race["data-Ability Score Choice"] && data["l1-race"].values["race_ability_choice1"]) {
-            abilities_scores[data["l1-race"].values["race_ability_choice1"]].race = parseInt(data["l1-race"].data.race["data-Ability Score Choice"].split("+")[1]) || 0;
+            }
+            if(data["l1-race"].values["race"] == "Index:Races") {
+                //Custom race abilities bonuses
+                _.each(mncrAbilities, (ability) => {
+                    if(data["l1-race"].values["race_" + ability]) {
+                        abilities_scores[ability].race = data["l1-race"].values["race_" + ability];
+                    }
+                });
+            }
         }
         // --- Abilities class
         // --- Abilities subclass
