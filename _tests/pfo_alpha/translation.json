@@ -1,4 +1,9 @@
 {
+    "return-to:": "Return to:",
+    "edit-sheet": "Edit sheet directly",
+    "npc-new": "Create an NPC",
+    "mancer-confirm-yes": "Use the Charactermancer",
+    "do_you_want_mancer": "How do you want to create this character?",
     "skills-notes": "Skills Notes",
     "mr-u": "MR",
     "per-level": "per level",
