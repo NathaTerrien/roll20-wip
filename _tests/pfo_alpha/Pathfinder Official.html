@@ -20,7 +20,7 @@
         <div class="blacklabel pnty" style="width: 100%;">  <!-- Display Name and CR -->
             <div style="margin-left:14px;">
                 <span class="big" style="margin-right:6px;" name="attr_character_name"></span>
-                <input type="hidden" name="attrk_npc_fromcompendium" class="fromcompendium" value="" />
+                <input type="hidden" name="attr_npc_fromcompendium" class="fromcompendium" value="" />
                 <button class="myrol" type="compendium" name="attr_npc_fromcompendium" data-i18n-title="open-compendium-item" title="Open Compendium Item"></button>
             </div>
             <div class="npc-icons">
@@ -783,6 +783,7 @@
                                 <select name="attr_timesperday">
                                     <option value="constant" data-18n="constant">constant</option>
                                     <option value="at-will" data-18n="at-will" checked="checked">at will</option>
+                                    <option value="per-hour" data-18n="per-hour">per hour</option>
                                     <option value="per-day" data-18n="per-day">per day</option>
                                     <option value="per-week" data-18n="per-week">per week</option>
                                     <option value="per-month" data-18n="per-month">per month</option>
@@ -12084,6 +12085,8 @@
                             update[repsec + newrowid + "_timesperday"] = "constant";
                         } else if(obj["Frequency"].toLowerCase().trim() == "at will") {
                             update[repsec + newrowid + "_timesperday"] = "at-will";
+                        } else if(obj["Frequency"].toLowerCase().trim() == "per hour") {
+                            update[repsec + newrowid + "_timesperday"] = "per-hour";
                         } else if(obj["Frequency"].toLowerCase().trim() == "per day") {
                             update[repsec + newrowid + "_timesperday"] = "per-day";
                         } else if(obj["Frequency"].toLowerCase().trim() == "per week") {
@@ -13599,7 +13602,7 @@
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
             } else {
                 update["repeating_spell-" + spell_level + "_" + spellid + "_spelldisplay"] = v["repeating_spell-" + spell_level + "_" + spellid + "_spellname"] + " — " + pfoglobals_i18n_obj[v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"]];
-                if(["per-day","per-week","per-month","per-year"].includes(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"])) {
+                if(["per-hour","per-day","per-week","per-month","per-year"].includes(v["repeating_spell-" + spell_level + "_" + spellid + "_timesperday"])) {
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 1;
                 } else {
                     update["repeating_spell-" + spell_level + "_" + spellid + "_spellprepared"] = 0;
@@ -14251,6 +14254,7 @@
         pfoglobals_i18n_obj["0"] = "";
         pfoglobals_i18n_obj["constant"] = getTranslationByKey("constant");
         pfoglobals_i18n_obj["at-will"] = getTranslationByKey("at-will");
+        pfoglobals_i18n_obj["per-hour"] = getTranslationByKey("per-hour");
         pfoglobals_i18n_obj["per-day"] = getTranslationByKey("per-day");
         pfoglobals_i18n_obj["per-week"] = getTranslationByKey("per-week");
         pfoglobals_i18n_obj["per-month"] = getTranslationByKey("per-month");
