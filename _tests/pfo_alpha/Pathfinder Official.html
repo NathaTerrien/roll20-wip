@@ -16,6 +16,7 @@
         <input type="hidden" name="attr_npcdrop_category" accept="Category" />
         <input type="hidden" name="attr_npcdrop_data" accept="data" /> <!-- catch-all the rest -->
         <input checked="checked" class="options-flag" name="attr_options-flag-npc" type="checkbox" data-i18n-title="show-hide-options" title="Show/hide options"><span>y</span>
+        <input type="hidden" class="npc_expansion" name="attr_npc_expansion" value="0" />
         <div class="blacklabel pnty" style="width: 100%;">  <!-- Display Name and CR -->
             <div style="margin-left:14px;">
                 <span class="big" style="margin-right:6px;" name="attr_character_name"></span>
@@ -9985,15 +9986,6 @@
         });
     });
 
-    // === Drop
-    /* on("sheet:compendium-drop", () => {
-        getAttrs(["npcdrop_data"], (v) => {
-            check_npc_drop(v["npcdrop_data"], () => {
-                update_default_token();
-            });
-        });
-    }); */
-
     // === Generals
     on("change:npc", (e) => {
         if((typeof e.newValue == "undefined") || (e.newValue !== "1")) {
@@ -10682,7 +10674,6 @@
             });
         }
     });
-
     on("change:npcsplike_data", (e) => {
         if(typeof e.newValue !== "undefined") {
             var cdata;
@@ -10889,6 +10880,10 @@
             }
             if(cdata["icon-CreatureType"]) {
                 update["npc_icon_type"] = cdata["icon-CreatureType"].toLowerCase().trim();
+            }
+            // Expansion for header color
+            if(cdata["Expansion"] || cdata["expansion"]) { // "Expansion\":\"8\" => Bestiary
+                update["npc_expansion"] = cdata["Expansion"] || cdata["expansion"];
             }
             // === Compendium data handling
             if(cdata["data-Size"]) {
@@ -12063,7 +12058,7 @@
         var repsec = "repeating_spell-like_";
         _.each(objs, (obj) => {
             if(obj["Name"]) {
-                // console.log("*** DEBUG drop_add_spellike getCompendiumPage :" + obj.name + " " + JSON.stringify(cdata,null,"  "));
+                if (pfoglobals_debug_mode) {console.log("*** DEBUG drop_add_spellike obj :" + JSON.stringify(obj,null,"  "))};
                 var newrowid = generateRowID();
                 update[repsec + newrowid + "_spellname"] = obj["Name"];
                 update[repsec + newrowid + "_options-flag"] = 0;
@@ -12102,8 +12097,8 @@
                         } else { // default
                             update[repsec + newrowid + "_timesperday"] = "at-will";
                         }
-                        if(obj["Occurences"]) {
-                            update[repsec + newrowid + "_perday_max"] = parseInt(obj["Occurences"]) || 0;
+                        if(obj["Occurences"] || obj["Occurrences"]) { // in case of typo
+                            update[repsec + newrowid + "_perday_max"] = parseInt(obj["Occurrences"]) || parseInt(obj["Occurences"]) || 0;
                         }
                     }
                 }
@@ -12120,39 +12115,55 @@
                         var cdata = cdatarr.find(o => (o.name.toLowerCase().trim() === zespell.toLowerCase().trim() &&  o.data["Category"] === "Spells"));
                         if(cdata && cdata.id  && cdata.data) {
                             update[repsec + newrowid + "_fromcompendium"] = "Spells:" + cdata["name"];
-                            if(cdata.data["School"]) {
+                            if(obj["School"]) {
+                                update[repsec + newrowid + "_spellschool"] = obj["School"];
+                            } else if (cdata.data["School"]) {
                                 update[repsec + newrowid + "_spellschool"] = cdata.data["School"];
                             }
-                            if(cdata.data["Level"]) {
+                            if(obj["Level"]) {
+                                update[repsec + newrowid + "_spellclasslevel"] = obj["Level"];
+                            } else if(cdata.data["Level"]) {
                                 update[repsec + newrowid + "_spellclasslevel"] = cdata.data["Level"];
                             }
-                            if(cdata.data["Casting Time"]) {
+                            if(obj["Casting Time"]) {
+                                update[repsec + newrowid + "_spellcastingtime"] = obj["Casting Time"];
+                            } else if(cdata.data["Casting Time"]) {
                                 update[repsec + newrowid + "_spellcastingtime"] = cdata.data["Casting Time"];
                             }
-                            if(cdata.data["Range"]) {
+                            if(obj["Range"]) {
+                                update[repsec + newrowid + "_spellrange"] = obj["Range"];
+                            } else if(cdata.data["Range"]) {
                                 update[repsec + newrowid + "_spellrange"] = cdata.data["Range"];
                             }
-                            if(cdata.data["Area"]) {
+                            if(obj["Area"]) {
+                                update[repsec + newrowid + "_spellarea"] = obj["Area"];
+                            } else if(cdata.data["Area"]) {
                                 update[repsec + newrowid + "_spellarea"] = cdata.data["Area"];
                             }
-                            if(cdata.data["Target"]) {
+                            if(obj["Target"]) {
+                                update[repsec + newrowid + "_spelltargets"] = obj["Target"];
+                            } else if(cdata.data["Target"]) {
                                 update[repsec + newrowid + "_spelltargets"] = cdata.data["Target"];
                             }
-                            if(cdata.data["Effect"]) {
+                            if(obj["Effect"]) {
+                                update[repsec + newrowid + "_spelleffect"] = obj["Effect"];
+                            } else if(cdata.data["Effect"]) {
                                 update[repsec + newrowid + "_spelleffect"] = cdata.data["Effect"];
                             }
-                            if(cdata.data["Duration"]) {
+                            if(obj["Duration"]) {
+                                update[repsec + newrowid + "_spellduration"] = obj["Duration"];
+                            } else if(cdata.data["Duration"]) {
                                 update[repsec + newrowid + "_spellduration"] = cdata.data["Duration"];
                             }
-                            if(cdata.data["Saving Throw"]) {
+                            if(obj["Saving Throw"]) {
+                                update[repsec + newrowid + "_spellsave"] = obj["Saving Throw"];
+                            } else if(cdata.data["Saving Throw"]) {
                                 update[repsec + newrowid + "_spellsave"] = cdata.data["Saving Throw"];
-                                if(cdata.data["Saving Throw"].toLowerCase().trim() == "none") {
-                                    update[repsec + newrowid + "_spellsaveflag"] = 0;
-                                } else {
-                                    update[repsec + newrowid + "_spellsaveflag"] = "{{save=1}}";
-                                }
                             } else {
                                 update[repsec + newrowid + "_spellsave"] = " ";
+                            }
+                            if(update[repsec + newrowid + "_spellsave"]) {
+                                update[repsec + newrowid + "_spellsaveflag"] = (update[repsec + newrowid + "_spellsave"].toLowerCase().trim() == "none") ? "0" : "{{save=1}}";
                             }
                             if(obj["DC"]) {
                                 if(! update[repsec + newrowid + "_spellsaveflag"]) {
@@ -12160,33 +12171,52 @@
                                 }
                                 update[repsec + newrowid + "_spelldc_mod"] = parseInt(obj["DC"].replace(/[^\d]/gi, '')) || 0;
                             }
-                            if(cdata.data["Spell Resistance"]) {
+                            if(obj["Spell Resistance"]) {
+                                update[repsec + newrowid + "_spellresistance"] = obj["Spell Resistance"];
+                            } else if(cdata.data["Spell Resistance"]) {
                                 update[repsec + newrowid + "_spellresistance"] = cdata.data["Spell Resistance"];
-                                if(cdata.data["Spell Resistance"].toLowerCase().trim() == "no") {
-                                    update[repsec + newrowid + "_spellresistanceflag"] = "0";
-                                } else {
-                                    update[repsec + newrowid + "_spellresistanceflag"] = "{{sr=1}}";
-                                }
                             }
-                            if(cdata.data["Spell Attack"]) {
+                            if(update[repsec + newrowid + "_spellresistance"]) {
+                                update[repsec + newrowid + "_spellresistanceflag"] = (update[repsec + newrowid + "_spellresistance"].toLowerCase().trim() == "no") ? "0" : "{{sr=1}}";
+                            }
+                            if(obj["Spell Attack"]) {
+                                update[repsec + newrowid + "_spellatkmod"] = obj["Spell Attack"];
+                                update[repsec + newrowid + "_spellatkflag"] = "{{attack=1}}";
+                            } else if(cdata.data["Spell Attack"]) {
                                 update[repsec + newrowid + "_spellatkflag"] = "{{attack=1}}";
                             }
-                            if(cdata.data["Spell Damage"]) {
-                                update[repsec + newrowid + "_spelldmgflag"] = "{{damage=1}} {{dmg1flag=1}}";
+                            if(obj["Spell Damage"]) {
+                                update[repsec + newrowid + "_spelldmg"] = obj["Spell Damage"];
+                            } else if(cdata.data["Spell Damage"]) {
                                 update[repsec + newrowid + "_spelldmg"] = cdata.data["Spell Damage"];
                             }
-                            if(cdata.data["Spell Damage Type"]) {
+                            if(update[repsec + newrowid + "_spelldmg"]) {
+                                update[repsec + newrowid + "_spelldmgflag"] = "{{damage=1}} {{dmg1flag=1}}";
+                            }
+                            if(obj["Spell Damage Type"]) {
+                                update[repsec + newrowid + "_spelldmgtype"] = obj["Spell Damage Type"];
+                            } else if(cdata.data["Spell Damage Type"]) {
                                 update[repsec + newrowid + "_spelldmgtype"] = cdata.data["Spell Damage Type"];
                             }
-                            if(cdata.data["Secondary Spell Damage"]) {
-                                update[repsec + newrowid + "_spelldmg2flag"] = "{{damage=1}} {{dmg2flag=1}}";
+                            if(obj["Secondary Spell Damage"]) {
+                                update[repsec + newrowid + "_spelldmg2"] = obj["Secondary Spell Damage"];
+                            } else if(cdata.data["Secondary Spell Damage"]) {
                                 update[repsec + newrowid + "_spelldmg2"] = cdata.data["Secondary Spell Damage"];
                             }
-                            if(cdata.data["Secondary Spell Damage Type"]) {
+                            if(update[repsec + newrowid + "_spelldmg2"]) {
+                                update[repsec + newrowid + "_spelldmg2flag"] = "{{damage=1}} {{dmg2flag=1}}";
+                            }
+                            if(obj["Secondary Spell Damage Type"]) {
+                                update[repsec + newrowid + "_spelldmg2type"] = obj["Secondary Spell Damage Type"];
+                            } else if(cdata.data["Secondary Spell Damage Type"]) {
                                 update[repsec + newrowid + "_spelldmg2type"] = cdata.data["Secondary Spell Damage Type"];
                             }
-                            if(cdata["content"]) {
+                            if(obj["content"]) {
+                                update[repsec + newrowid + "_spelldesc"] = obj["content"];
+                            } else if(cdata["content"]) {
                                 update[repsec + newrowid + "_spelldesc"] = cdata["content"];
+                            }
+                            if(update[repsec + newrowid + "_spelldesc"]) {
                                 update[repsec + newrowid + "_spelldescflag"] = "{{descflag=[[1]]}}";
                             }
                         }
