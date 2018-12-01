@@ -974,7 +974,7 @@
                         =<input type="number" name="attr_parade" value="3" title="Parade totale" readonly />
                     </div>
                     <div class="input">
-                        <div class="comptext" data-i18n="resistance">R&Eacute;SISTANCE</div>
+                        <div class="comptext" data-i18n="resistance-u">R&Eacute;SISTANCE</div>
                         <input type="number" name="attr_resistance_base" value="4" title="Valeur de Résistance de base" readonly />
                         +<input type="number" name="attr_resistance_bonus" value="0" title="Armure (torse) et autres bonus de vigueur"/>
                         =<input type="number" name="attr_resistance" value="4" title="Résistance totale" readonly />
@@ -1763,7 +1763,7 @@
                 joker = "1d6";
                 nbbless = 3;
                 logo = 1;
-                lib = "Personnage";
+                lib = getTranslationByKey("personnage");
                 break;
             case 1: //PNJ Joker
                 ispnj = 1;
@@ -1774,7 +1774,7 @@
                 joker = "1d6";
                 nbbless = 3;
                 logo = 0;
-                lib = "Joker (PNJ)";
+                lib = getTranslationByKey("joker-pnj");
                 break;
             case 2: //Sous-fifre
                 ispnj = 1;
@@ -1785,7 +1785,7 @@
                 joker = "0d4";
                 nbbless = 3;
                 logo = 0;
-                lib = "Sous-fifre (PNJ)";
+                lib = getTranslationByKey("sous-fifre-pnj");
                 break;
             case 3: //Bras droit
                 ispnj = 1;
@@ -1796,7 +1796,7 @@
                 joker = "1d6";
                 nbbless = 0;
                 logo = 0;
-                lib = "Bras droit (PNJ)";
+                lib = getTranslationByKey("bras-droit-pnj");
                 break;
             case 4: //Extra
                 ispnj = 1;
@@ -1807,7 +1807,7 @@
                 joker = "0d4";
                 nbbless = 0;
                 logo = 0;
-                lib = "Extra (PNJ)";
+                lib = getTranslationByKey("extra-pnj-short");
                 break;
             default: //Personnalisé
                 ispnj = 1;
@@ -1818,7 +1818,7 @@
                 joker = "1d6";
                 nbbless = 3;
                 logo = 0;
-                lib = "PNJ personnalisé";
+                lib = getTranslationByKey("pnj-custom");
         }
         setAttrs({
             "pnj": ispnj,
@@ -2001,12 +2001,12 @@
         if (eventinfo.newValue == 1) {
             cibleparade = "@{target|parade}";
             cibleresistance = "@{target|resistance}";
-            ciblearcane = "?{Difficulté|4}";
+            ciblearcane = "?{" + getTranslationByKey("difficulte") + "|4}";
             atknom = "@{target|character_name}";
         } else {
-            cibleparade = "?{Parade|4}";
-            cibleresistance = "?{Résistance|4}";
-            ciblearcane = "?{Difficulté|4}";
+            cibleparade = "?{" + getTranslationByKey("parade") + "|4}";
+            cibleresistance = "?{" + getTranslationByKey("resistance") + "|4}";
+            ciblearcane = "?{" + getTranslationByKey("difficulte") + "|4}";
             atknom = "-";
         }
         setAttrs({
