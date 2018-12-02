@@ -934,7 +934,7 @@
             </div>
             <div class="colblock"> <!-- DEGATS -->
                 <div style="text-align: left;">
-                    <div class="redtitle1" style="display: inline-block;" data-i18n="degats">DÉGÂTS</div>
+                    <div class="redtitle1" style="display: inline-block;" data-i18n="degats-u">DÉGÂTS</div>
                     <div class="redtitle3" style="text-align: right;width:100px;" data-i18n="secoue-u">SECOUÉ</div>
                     <input type="checkbox" class="secoue" name="attr_secoue" value='1' data-i18n-title="secoue" title="Secoué" /><span></span>
                 </div>
@@ -1001,7 +1001,7 @@
                 <input type="checkbox" name="attr_dispPossessions" value="1" class="dispchk" data-i18n-title="show-hide-content" title="Afficher/masquer le contenu" checked /><span class="dispchk">E</span>
                 <div class="dispchk">
                     <div class="redtitle2 disp" data-i18n="argent">ARGENT</div>
-                    <input type="checkbox" name="attr_argentdisplay" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                    <input type="checkbox" name="attr_argentdisplay" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                     <textarea name="attr_argent" class="textdesc" style="width: 175px;" data-i18n-placeholder="money-treasure" placeholder="Argent & Richesses" data-i18n-title="money-treasure" title="Argent & Richesses"></textarea>
                     <div class="input">
                         <div class="blacktext2" data-i18n="encombrementmax">Encombrement maximum: </div>
@@ -1049,7 +1049,7 @@
                     </div>
                     <div class="blacktext1" data-i18n="signes">Signes particuliers: </div>
                     <div class="input">
-                        <input type="checkbox" name="attr_signedisplay" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                        <input type="checkbox" name="attr_signedisplay" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                         <textarea name="attr_signe" class="textdesc" style="width: 246px;" data-i18n-placeholder="signes" placeholder="Signes particuliers" data-i18n-title="signes" title="Signes particuliers"></textarea>
                     </div>
                 </div>
@@ -1072,7 +1072,7 @@
                         <div class="redtitle2"><div class="nopnj" data-i18n="atouts">ATOUTS</div><div class="pnj"><span data-i18n="aptitudes">APTITUDES</span> (+)</div></div>
                         <fieldset class="repeating_atouts"> <!-- ATOUTS -->
                             <div class="input">
-                                <input type="checkbox" name="attr_atoutdisplay" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                                <input type="checkbox" name="attr_atoutdisplay" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                                 <textarea name="attr_atout" class="textdesc" style="width: 244px;" data-i18n-placeholder="atout" placeholder="Atout" data-i18n-title="atout" title="Atout"></textarea>
                             </div>
                         </fieldset>
@@ -1081,7 +1081,7 @@
                         <div class="redtitle2"><div class="nopnj" data-i18n="handicaps">HANDICAPS</div><div class="pnj"><span data-i18n="aptitudes">APTITUDES</span> (-)</div></div>
                         <fieldset class="repeating_handicaps"> <!-- ATOUTS -->
                             <div class="input">
-                                <input type="checkbox" name="attr_handicapdisplay" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                                <input type="checkbox" name="attr_handicapdisplay" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                                 <textarea name="attr_handicap" class="textdesc" style="width: 244px;" data-i18n-placeholder="handicap" placeholder="Handicap" data-i18n-title="handicap" title="Handicap"></textarea>
                             </div>
                         </fieldset>
@@ -1129,22 +1129,25 @@
                     name="Btrel-Arme1"
                     class="btRolrel"
                     value="@{relRollArmeFixe1}"
-                    title="Arme N°1"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="Btjet-Arme1"
                     class="btRoljet"
                     value="@{jetRollArmeFixe1}"
-                    title="Arme N°1"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="BtBrut-Arme1"
                     class="btRolbrut"
-                    value="/em @{character_name} attaque avec @{arme1_nom}:&#010;/roll @{arme1_comp_brut}&#010;Dégâts :&#010;/roll @{jetRollArmeFixe1Dgt}&#010;Dégâts supplémentaires si relance : [[1d6!!]]"
-                    title="Arme N°1"
+                    value="/em @{character_name} @{text_attaque-avec} @{arme1_nom}:&#010;/roll @{arme1_comp_brut}&#010;@{text_degats} :&#010;/roll @{jetRollArmeFixe1Dgt}&#010;@{text_degats-relance} : [[1d6!!]]"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <input type="text" class="compspe"  name="attr_arme1_nom" data-i18n-placeholder="weapon1-name" placeholder="Nom de l'arme n°1"/>
-                <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <SELECT name="attr_arme1_comp" style="width: 55px;margin-left:3px;margin-right:3px;" data-i18n-title="competence" title="Compétence">
                     <OPTION value="0" SELECTED data-i18n="choisir"> - Choisir une compétence :</OPTION>
                     <OPTION value="Combat" data-i18n="combat">Combat</OPTION>
                     <OPTION value="Lancer" data-i18n="lancer">Lancer</OPTION>
@@ -1154,7 +1157,7 @@
                 <input type="hidden" name="attr_arme1_comp_rel" value="0" />
                 <input type="hidden" name="attr_arme1_comp_jet" value="0" />
                 <input type="hidden" name="attr_arme1_comp_brut" value="0" />
-                <SELECT name="attr_arme1_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
+                <SELECT name="attr_arme1_dgt_force" style="width:35px;" data-i18n-title="apply-str-dmg" title="Application de la Force aux dégâts (Combat et Lancer)">
                     <OPTION value="@{RollBastForce}" SELECTED data-i18n="force-u">FORCE</OPTION>
                     <OPTION value="0d4">_</OPTION>
                 </SELECT>+<input name="attr_arme1_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
@@ -1166,10 +1169,10 @@
                     <OPTION value="12" data-i18n="d12">d12</OPTION>
                 </SELECT>+<input name="attr_arme1_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
                 <input name="attr_arme1_portee" type="text" style="width:100px;margin-right:3px;" data-i18n-placeholder="portee" placeholder="Portée" />
-                <input name="attr_arme1_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
-                <input name="attr_arme1_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme1_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
-                <input name="attr_arme1_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-                <input type="checkbox" name="attr_arme1display" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                <input name="attr_arme1_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="cadence-tir" title="Cadence de Tir" />
+                <input name="attr_arme1_mun" type="number" style="width:40px;" value="0" min="0" data-i18n-title="amunition-cur" title="Munitions courantes" />/<input name="attr_arme1_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" data-i18n-title="amunition-max" title="Munitions maximum" />
+                <input name="attr_arme1_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="armor-pen" title="Pénétration d'Armure" />
+                <input type="checkbox" name="attr_arme1display" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                 <textarea name="attr_arme1_notes" class="textdesc" style="width: 171px;" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
             </div> <!-- FIN ARME FIXE 1 -->
             <div class="input"> <!-- ARME FIXE 2 -->
@@ -1177,22 +1180,25 @@
                     name="Btrel-Arme2"
                     class="btRolrel"
                     value="@{relRollArmeFixe2}"
-                    title="Attaque Arme n°2"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="Btjet-Arme2"
                     class="btRoljet"
                     value="@{jetRollArmeFixe2}"
-                    title="Attaque Arme n°2"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="BtBrut-Arme2"
                     class="btRolbrut"
-                    value="/em @{character_name} Attaque avec @{arme2_nom}:&#010;/roll @{arme2_comp_brut}&#010;Dégâts :&#010;/roll @{jetRollArmeFixe2Dgt}&#010;Dégâts supplémentaires si relance : [[1d6!!]]"
-                    title="Attaque Arme n°2"
+                    value="/em @{character_name} @{text_attaque-avec} @{arme2_nom}:&#010;/roll @{arme2_comp_brut}&#010;@{text_degats} :&#010;/roll @{jetRollArmeFixe2Dgt}&#010;@{text_degats-relance} : [[1d6!!]]"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <input type="text" class="compspe"  name="attr_arme2_nom" data-i18n-placeholder="weapon2-name" placeholder="Nom de l'arme n°2"/>
-                <SELECT name="attr_arme2_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <SELECT name="attr_arme2_comp" style="width: 55px;margin-left:3px;margin-right:3px;" data-i18n-title="competence" title="Compétence">
                     <OPTION value="0" SELECTED data-i18n="choisir"> - Choisir une compétence :</OPTION>
                     <OPTION value="Combat" data-i18n="combat">
                     <OPTION value="Lancer" data-i18n="lancer">Lancer</OPTION>
@@ -1202,7 +1208,7 @@
                 <input type="hidden" name="attr_arme2_comp_rel" value="0" />
                 <input type="hidden" name="attr_arme2_comp_jet" value="0" />
                 <input type="hidden" name="attr_arme2_comp_brut" value="0" />
-                <SELECT name="attr_arme2_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
+                <SELECT name="attr_arme2_dgt_force" style="width:35px;" data-i18n-title="apply-str-dmg" title="Application de la Force aux dégâts (Combat et Lancer)">
                     <OPTION value="@{RollBastForce}" SELECTED data-i18n="force-u">FORCE</OPTION>
                     <OPTION value="0d4">_</OPTION>
                 </SELECT>+<input name="attr_arme2_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
@@ -1214,10 +1220,10 @@
                     <OPTION value="12" data-i18n="d12">d12</OPTION>
                 </SELECT>+<input name="attr_arme2_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
                 <input name="attr_arme2_portee" type="text" style="width:100px;margin-right:3px;" data-i18n-placeholder="portee" placeholder="Portée" />
-                <input name="attr_arme2_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
-                <input name="attr_arme2_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme2_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
-                <input name="attr_arme2_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-                <input type="checkbox" name="attr_arme2display" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                <input name="attr_arme2_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="cadence-tir" title="Cadence de Tir" />
+                <input name="attr_arme2_mun" type="number" style="width:40px;" value="0" min="0" data-i18n-title="amunition-cur" title="Munitions courantes" />/<input name="attr_arme2_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" data-i18n-title="amunition-max" title="Munitions maximum" />
+                <input name="attr_arme2_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="armor-pen" title="Pénétration d'Armure" />
+                <input type="checkbox" name="attr_arme2display" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                 <textarea name="attr_arme2_notes" class="textdesc" style="width: 171px;" data-i18n-placeholder="notes" placeholder="Notes"></textarea>
             </div> <!-- FIN ARME FIXE 2 -->
             <div class="input"> <!-- ARME FIXE 3 -->
@@ -1225,22 +1231,25 @@
                     name="Btrel-Arme3"
                     class="btRolrel"
                     value="@{relRollArmeFixe3}"
-                    title="Attaque Arme n°3"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="Btjet-Arme3"
                     class="btRoljet"
                     value="@{jetRollArmeFixe3}"
-                    title="Attaque Arme n°3"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <button type="roll"
                     name="BtBrut-Arme3"
                     class="btRolbrut"
-                    value="/em @{character_name} Attaque avec @{arme3_nom}:&#010;/roll @{arme3_comp_brut}&#010;Dégâts :&#010;/roll @{jetRollArmeFixe3Dgt}&#010;Dégâts supplémentaires si relance : [[1d6!!]]"
-                    title="Attaque Arme n°3"
+                    value="/em @{character_name} @{text_attaque-avec} @{arme3_nom}:&#010;/roll @{arme3_comp_brut}&#010;@{text_degats} :&#010;/roll @{jetRollArmeFixe3Dgt}&#010;@{text_degats-relance} : [[1d6!!]]"
+                    data-i18n-title="attaque"
+                    title="Attaque"
                     >&nbsp;</button>
                 <input type="text" class="compspe"  name="attr_arme3_nom" data-i18n-placeholder="weapon3-name" placeholder="Nom de l'arme n°3" />
-                <SELECT name="attr_arme3_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                <SELECT name="attr_arme3_comp" style="width: 55px;margin-left:3px;margin-right:3px;" data-i18n-title="competence" title="Compétence">
                     <OPTION value="0" SELECTED data-i18n="choisir"> - Choisir une compétence :</OPTION>
                     <OPTION value="Combat" data-i18n="combat">
                     <OPTION value="Lancer" data-i18n="lancer">Lancer</OPTION>
@@ -1250,7 +1259,7 @@
                 <input type="hidden" name="attr_arme3_comp_rel" value="0" />
                 <input type="hidden" name="attr_arme3_comp_jet" value="0" />
                 <input type="hidden" name="attr_arme3_comp_brut" value="0" />
-                <SELECT name="attr_arme3_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
+                <SELECT name="attr_arme3_dgt_force" style="width:35px;" data-i18n-title="apply-str-dmg" title="Application de la Force aux dégâts (Combat et Lancer)">
                     <OPTION value="@{RollBastForce}" SELECTE data-i18n="force-u">FORCE</OPTION>
                     <OPTION value="0d4">_</OPTION>
                 </SELECT>+<input name="attr_arme3_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
@@ -1262,10 +1271,10 @@
                     <OPTION value="12" data-i18n="d12">d12</OPTION>
                 </SELECT>+<input name="attr_arme3_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
                 <input name="attr_arme3_portee" type="text" style="width:100px;margin-right:3px;" data-i18n-placeholder="portee" placeholder="Portée" />
-                <input name="attr_arme3_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
-                <input name="attr_arme3_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_arme3_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
-                <input name="attr_arme3_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-                <input type="checkbox" name="attr_arme3display" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                <input name="attr_arme3_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="cadence-tir" title="Cadence de Tir" />
+                <input name="attr_arme3_mun" type="number" style="width:40px;" value="0" min="0" data-i18n-title="amunition-cur" title="Munitions courantes" />/<input name="attr_arme3_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" data-i18n-title="amunition-max" title="Munitions maximum" />
+                <input name="attr_arme3_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="armor-pen" title="Pénétration d'Armure" />
+                <input type="checkbox" name="attr_arme3display" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                 <textarea name="attr_arme3_notes" class="textdesc" style="width: 171px;" data-i18n-placeholder="notes" placeholder="Notes" title="Notes sur l'arme"></textarea>
             </div> <!-- FIN ARME FIXE 3 -->
             <fieldset class="repeating_armes">
@@ -1273,23 +1282,26 @@
                     <button type="roll"
                         name="Btrel-ArmeD"
                         class="btRolrel"
-                        value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{armeD_comp_rel} ]]}} {{degatsrel=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[Dégâts : arme]  + (?{Mod. dégâts|0})[Modificateur aux dégâts] - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}} {{degatsrelplus=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[Dégâts : arme] + 1d6!!  + (?{Mod. dégâts|0})[Modificateur aux dégâts] - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 ]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
+                        value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{armeD_comp_rel} ]]}} {{degatsrel=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[@{text_weap-dmg}]  + @{rolldmgquery} - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 ]]}} {{degatsrelplus=[[ { floor( ( @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[@{text_weap-dmg}] + 1d6!!  + @{rolldmgquery} - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 ]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
+                        data-i18n-title="attaque"
                         title="Attaque"
                         >&nbsp;</button>
                     <button type="roll"
                         name="Btjet-ArmeD"
                         class="btRoljet"
-                        value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{armeD_comp_jet} ]]}} {{degats=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts] ]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
+                        value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{armeD_nom}}}  {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{armeD_comp_jet} ]]}} {{degats=[[  @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[@{text_weap-dmg}] + @{rolldmgquery} ]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{armeD_comp}}}"
+                        data-i18n-title="attaque"
                         title="Attaque"
                         >&nbsp;</button>
                     <button type="roll"
                         name="BtBrut-ArmeD"
                         class="btRolbrut"
-                        value="/em @{character_name} Attaque avec @{armeD_nom}:&#010;/roll @{armeD_comp_brut}&#010;Dégâts :&#010;/roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]&#010;Dégâts supplémentaires si relance : [[1d6!!]]"
+                        value="/em @{character_name} @{text_attaque-avec} @{armeD_nom}:&#010;/roll @{armeD_comp_brut}&#010;@{text_degats} :&#010;/roll @{armeD_dgt_force} + @{armeD_dgt_nbde}d@{armeD_dgt_de}!!+(@{armeD_dgt_bonus})[@{text_weap-dmg}] + @{rolldmgquery}&#010;@{text_degats-relance} : [[1d6!!]]"
+                        data-i18n-title="attaque"
                         title="Attaque"
                         >&nbsp;</button>
                     <input type="text" class="compspe"  name="attr_armeD_nom" data-i18n-placeholder="weapon-name" placeholder="Nom de l'arme" title="Nom de l'arme" />
-                    <SELECT name="attr_armeD_comp" style="width: 55px;margin-left:3px;margin-right:3px;" title="Compétence utilisée avec cette arme">
+                    <SELECT name="attr_armeD_comp" style="width: 55px;margin-left:3px;margin-right:3px;" data-i18n-title="competence" title="Compétence">
                         <OPTION value="0" SELECTED data-i18n="choisir"> - Choisir une compétence :</OPTION>
                         <OPTION value="Combat" data-i18n="combat">
                         <OPTION value="Lancer" data-i18n="lancer">Lancer</OPTION>
@@ -1299,7 +1311,7 @@
                     <input type="hidden" name="attr_armeD_comp_rel" value="0" />
                     <input type="hidden" name="attr_armeD_comp_jet" value="0" />
                     <input type="hidden" name="attr_armeD_comp_brut" value="0" />
-                    <SELECT name="attr_armeD_dgt_force" style="width:35px;" title="Application de la Force aux dégâts (Combat et Lancer)">
+                    <SELECT name="attr_armeD_dgt_force" style="width:35px;" data-i18n-title="apply-str-dmg" title="Application de la Force aux dégâts (Combat et Lancer)">
                         <OPTION value="@{RollBastForce}" SELECTE data-i18n="force-u">FORCE</OPTION>
                         <OPTION value="0d4">_</OPTION>
                     </SELECT>+<input name="attr_armeD_dgt_nbde" style="width:30px;" type="number" value="1" min="0" title="Nombre de dés de dégâts" />
@@ -1311,10 +1323,10 @@
                         <OPTION value="12" data-i18n="d12">d12</OPTION>
                     </SELECT>+<input name="attr_armeD_dgt_bonus" style="width:30px;margin-right:3px;" type="number" value="0" title="Bonus aux dégâts" />
                     <input name="attr_armeD_portee" type="text" style="width:100px;margin-right:3px;" data-i18n-placeholder="portee" placeholder="Portée" />
-                    <input name="attr_armeD_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Cadence de Tir" />
-                    <input name="attr_armeD_mun" type="number" style="width:40px;" value="0" min="0" title="Munitions courantes" />/<input name="attr_armeD_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" title="Munitions maximum" />
-                    <input name="attr_armeD_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" title="Pénétration d'Armure" />
-                    <input type="checkbox" name="attr_armeDdisplay" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                    <input name="attr_armeD_cdt" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="cadence-tir" title="Cadence de Tir" />
+                    <input name="attr_armeD_mun" type="number" style="width:40px;" value="0" min="0" data-i18n-title="amunition-cur" title="Munitions courantes" />/<input name="attr_armeD_mun_max" type="number" style="width:40px;margin-right:3px;" value="0" min="0" data-i18n-title="amunition-max" title="Munitions maximum" />
+                    <input name="attr_armeD_pa" type="number" style="width:30px;margin-right:3px;" value="0" min="0" data-i18n-title="armor-pen" title="Pénétration d'Armure" />
+                    <input type="checkbox" name="attr_armeDdisplay" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                     <textarea name="attr_armeD_notes" class="textdesc" style="width: 171px;" data-i18n-placeholder="notes" placeholder="Notes" title="Notes sur l'arme"></textarea>
                 </div> <!-- FIN ARME DYNAMIQUE -->
             </fieldset>
@@ -1344,7 +1356,7 @@
                     <input name="attr_pouv_pp" type="number" style="width:30px;" value="0" min="0" title="Coût en Points de Pouvoir" />
                     <input name="attr_pouv_portee" type="text" style="width:100px;margin-right:3px;" data-i18n-placeholder="portee" placeholder="Portée" />
                     <input name="attr_pouv_duree" type="text" style="width:100px;margin-right:3px;" data-i18n-placeholder="duree" placeholder="Durée" />
-                    <input type="checkbox" name="attr_pouvoirdisplay" class="loupe" title="Agrandir/Réduire la description" /><span>s</span>
+                    <input type="checkbox" name="attr_pouvoirdisplay" class="loupe" data-i18n-title="enlarge-desc" title="Agrandir/Réduire la description" /><span>s</span>
                     <textarea name="attr_pouv_effets" class="textdesc" style="width: 300px;" data-i18n-placeholder="effects" placeholder="Effets"></textarea>
                 </div> <!-- FIN POUVOIR DYNAMIQUE -->
             </fieldset>
@@ -1509,9 +1521,16 @@
     <input type="hidden" name="attr_text_tir" value="" />
     <input type="hidden" name="attr_text_tripes" value="" />
     <input type="hidden" name="attr_text_vigueur" value="" />
+    <input type="hidden" name="attr_text_attaque-avec" value="" />
+    <input type="hidden" name="attr_text_degats" value="" />
+    <input type="hidden" name="attr_text_degats-relance" value="" />
+    <input type="hidden" name="attr_text_weap-dmg" value="" />
+    <input type="hidden" name="attr_text_resistance" value="" />
+    <input type="hidden" name="attr_text_damage-mod" value="" />
     <!-- Roll querries -->
     <input type="hidden" name="attr_rollmodquery" value="(?{@{text_modificateur}|0})[@{text_modificateur}]" />
     <input type="hidden" name="attr_rolldiffquery" value="?{@{text_difficulte}|4})[@{text_difficulte}]" />
+    <input type="hidden" name="attr_rolldmgquery" value="(?{@{text_damage-mod}|0})[@{text_damage-mod}]" />
     <!-- STATS -->
     <input type="hidden" name="attr_RollAGI" value="{ 1d@{agilite_de}!![@{text_agilite}] , @{joker_de}!![@{text_joker}] }kh1 + (@{agilite_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollAGI" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAGI} } ) /(@{rolldiffquery}), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
@@ -1534,10 +1553,10 @@
     <input type="hidden" name="attr_jetRollVIG" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=Vigueur}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{jet=[[@{rollVIG}]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}}" />
 
     <!-- COMBAT -->
-    <input type="text" hidden readonly name="attr_cibleparade" value="@{Target|parade}" />
-    <input type="text" hidden readonly name="attr_cibleresistance" value="@{Target|resistance}" />
-    <input type="text" hidden readonly name="attr_ciblearcane" value="@{rolldiffquery}" />
-    <input type="text" hidden readonly name="attr_atknom" value="@{target|character_name}" />
+    <input type="hidden" name="attr_cibleparade" value="@{Target|parade}" />
+    <input type="hidden" name="attr_cibleresistance" value="@{Target|resistance}" />
+    <input type="hidden" name="attr_ciblearcane" value="@{rolldiffquery}" />
+    <input type="hidden" name="attr_atknom" value="@{target|character_name}" />
 
     <input type="hidden" name="attr_RollBastCombat" value="{ 1d@{combat_de}!![@{text_combat}],@{joker_de}!![@{text_joker}]}kh1 + (@{combat_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollBastCombat" value="{ floor( ( { @{RollBastCombat} } - (@{cibleparade}[Parade] - 4 ) ) /4), 0d0 }kh1 " />
@@ -1555,26 +1574,26 @@
     <input type="hidden" name="attr_relRollBastArcane" value="{ floor( ( { @{RollBastArcane} } ) / ( @{ciblearcane})[@{text_difficulte}] ), 0d0 }kh1 " />
     <input type="hidden" name="attr_jetRollBastArcane" value="@{RollBastArcane}" />
 
-    <input type="hidden" name="attr_RollBastForce" value="1d@{force_de}!!+(@{force_bonus})[Dégâts : Force]" />
+    <input type="hidden" name="attr_RollBastForce" value="1d@{force_de}!!+(@{force_bonus})[@{text_force}]" />
 
     <!-- WEAPONS -->
     <input type="hidden" name="attr_relRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[ @{arme1_comp_rel} ]]}} {{degatsrel=[[@{relRollArmeFixe1Dgt}]]}} {{degatsrelplus=[[@{relRollArmeFixe1DgtPlus}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
     <input type="hidden" name="attr_jetRollArmeFixe1" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme1_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme1_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe1Dgt}]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme1_comp}}}" />
-    <input type="hidden" name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + (@{arme1_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]" />
-    <input type="hidden" name="attr_relRollArmeFixe1Dgt" value="{ floor( ( @{jetRollArmeFixe1Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
-    <input type="hidden" name="attr_relRollArmeFixe1DgtPlus" value="{ floor( ( @{jetRollArmeFixe1Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="hidden" name="attr_jetRollArmeFixe1Dgt" value="@{arme1_dgt_force} + @{arme1_dgt_nbde}d@{arme1_dgt_de}!! + (@{arme1_dgt_bonus})[@{text_weap-dmg}] + @{rolldmgquery}" />
+    <input type="hidden" name="attr_relRollArmeFixe1Dgt" value="{ floor( ( @{jetRollArmeFixe1Dgt} - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="hidden" name="attr_relRollArmeFixe1DgtPlus" value="{ floor( ( @{jetRollArmeFixe1Dgt}+1d6!! - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 " />
 
     <input type="hidden" name="attr_relRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme2_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe2Dgt}]]}} {{degatsrelplus=[[@{relRollArmeFixe2DgtPlus}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
     <input type="hidden" name="attr_jetRollArmeFixe2" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme2_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme2_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe2Dgt}]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme2_comp}}}" />
-    <input type="hidden" name="attr_jetRollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + (@{arme2_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]" />
-    <input type="hidden" name="attr_relRollArmeFixe2Dgt" value="{ floor( ( @{jetRollArmeFixe2Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
-    <input type="hidden" name="attr_relRollArmeFixe2DgtPlus" value="{ floor( ( @{jetRollArmeFixe2Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="hidden" name="attr_jetRollArmeFixe2Dgt" value="@{arme2_dgt_force} + @{arme2_dgt_nbde}d@{arme2_dgt_de}!! + (@{arme2_dgt_bonus})[@{text_weap-dmg}] + @{rolldmgquery}" />
+    <input type="hidden" name="attr_relRollArmeFixe2Dgt" value="{ floor( ( @{jetRollArmeFixe2Dgt} - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="hidden" name="attr_relRollArmeFixe2DgtPlus" value="{ floor( ( @{jetRollArmeFixe2Dgt}+1d6!! - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 " />
 
     <input type="hidden" name="attr_relRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{relances=[[@{arme3_comp_rel}]]}} {{degatsrel=[[@{relRollArmeFixe3Dgt}]]}} {{degatsrelplus=[[@{relRollArmeFixe3DgtPlus}]]}} {{atkcible=[[@{atkcible}]]}} {{cible=@{atknom}}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
     <input type="hidden" name="attr_jetRollArmeFixe3" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=@{arme3_nom}}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{attaque=1}} {{jet=[[ @{arme3_comp_jet} ]]}} {{degats=[[@{jetRollArmeFixe3Dgt}]]}} {{degatsplus=[[1d6!!]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}} {{competence=@{arme3_comp}}}" />
-    <input type="hidden" name="attr_jetRollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + (@{arme3_dgt_bonus})[Dégâts : arme] + (?{Mod. dégâts|0})[Modificateur aux dégâts]" />
-    <input type="hidden" name="attr_relRollArmeFixe3Dgt" value="{ floor( ( @{jetRollArmeFixe3Dgt} - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
-    <input type="hidden" name="attr_relRollArmeFixe3DgtPlus" value="{ floor( ( @{jetRollArmeFixe3Dgt}+1d6!! - (@{cibleresistance}[Résistance] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="hidden" name="attr_jetRollArmeFixe3Dgt" value="@{arme3_dgt_force} + @{arme3_dgt_nbde}d@{arme3_dgt_de}!! + (@{arme3_dgt_bonus})[@{text_weap-dmg}] + @{rolldmgquery}" />
+    <input type="hidden" name="attr_relRollArmeFixe3Dgt" value="{ floor( ( @{jetRollArmeFixe3Dgt} - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 " />
+    <input type="hidden" name="attr_relRollArmeFixe3DgtPlus" value="{ floor( ( @{jetRollArmeFixe3Dgt}+1d6!! - (@{cibleresistance}[@{text_resistance}] - 4 ) ) /4), 0d0 }kh1 " />
 
     <!-- SKILLS -->
     <input type="hidden" name="attr_RollIncomp" value="{ 1d4!![@{text_nonentraine}],@{joker_de}!![@{text_joker}]}kh1 + (-2)[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] + @{rollmodquery}" />
@@ -1809,6 +1828,12 @@
             update["text_tir"] = getTranslationByKey("tir");
             update["text_tripes"] = getTranslationByKey("tripes");
             update["text_vigueur"] = getTranslationByKey("vigueur");
+            update["text_attaque-avec"] = getTranslationByKey("attaque-avec");
+            update["text_degats"] = getTranslationByKey("degats");
+            update["text_degats-relance"] = getTranslationByKey("degats-relance");
+            update["text_weap-dmg"] = getTranslationByKey("weap-dmg");
+            update["text_resistance"] = getTranslationByKey("resistance");
+            update["text_damage-mod"] = getTranslationByKey("damage-mod");
             // Version
             var vers = parseFloat(values.sheetVersion) || 0;
             if (vers < 3.0) {
