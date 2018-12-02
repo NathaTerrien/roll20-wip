@@ -1530,12 +1530,18 @@
     <input type="hidden" name="attr_text_dejoker" value="" />
     <input type="hidden" name="attr_text_yes" value="" />
     <input type="hidden" name="attr_text_no" value="" />
+    <input type="hidden" name="attr_text_portee" value="" />
+    <input type="hidden" name="attr_text_courte" value="" />
+    <input type="hidden" name="attr_text_moyenne" value="" />
+    <input type="hidden" name="attr_text_longue" value="" />
 
     <!-- Roll querries -->
     <input type="hidden" name="attr_rollmodquery" value="(?{@{text_modificateur}|0})[@{text_modificateur}]" />
     <input type="hidden" name="attr_rolldiffquery" value="?{@{text_difficulte}|4})[@{text_difficulte}]" />
     <input type="hidden" name="attr_rolldmgquery" value="(?{@{text_damage-mod}|0})[@{text_damage-mod}]" />
     <input type="hidden" name="attr_rolljokerquery" value="?{@{text_dejoker}?|@{text_yes},@{joker_de}!|@{text_no},0d4}[@{text_joker}]" />
+    <input type="hidden" name="attr_rollrngquery" value="?{@{text_portee}|@{text_courte},0|@{text_moyenne},2|@{text_longue},4}[@{text_portee}]" />
+
     <!-- STATS -->
     <input type="hidden" name="attr_RollAGI" value="{ 1d@{agilite_de}!![@{text_agilite}] , @{joker_de}!![@{text_joker}] }kh1 + (@{agilite_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollAGI" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAGI} } ) /(@{rolldiffquery}), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
@@ -1567,11 +1573,11 @@
     <input type="hidden" name="attr_relRollBastCombat" value="{ floor( ( { @{RollBastCombat} } - (@{cibleparade}[Parade] - 4 ) ) /4), 0d0 }kh1 " />
     <input type="hidden" name="attr_jetRollBastCombat" value="@{RollBastCombat}" />
 
-    <input type="hidden" name="attr_RollBastLancer" value="{ 1d@{lancer_de}!![@{text_lancer}],@{joker_de}!![@{text_joker}]}kh1 + (@{lancer_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + @{rollmodquery}" />
+    <input type="hidden" name="attr_RollBastLancer" value="{ 1d@{lancer_de}!![@{text_lancer}],@{joker_de}!![@{text_joker}]}kh1 + (@{lancer_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] - @{rollrngquery} + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollBastLancer" value="{ floor( ( { @{rollBastLancer} } ) /4), 0d0 }kh1" />
     <input type="hidden" name="attr_jetRollBastLancer" value="@{RollBastLancer}" />
 
-    <input type="hidden" name="attr_RollBastTir" value="{ 1d@{tir_de}!![@{text_tir}], @{rolljokerquery}}kh1 + (@{tir_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + @{rollmodquery}" />
+    <input type="hidden" name="attr_RollBastTir" value="{ 1d@{tir_de}!![@{text_tir}], @{rolljokerquery}}kh1 + (@{tir_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] - @{rollrngquery} + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4), 0d0 }kh1" />
     <input type="hidden" name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
@@ -1839,9 +1845,14 @@
             update["text_weap-dmg"] = getTranslationByKey("weap-dmg");
             update["text_resistance"] = getTranslationByKey("resistance");
             update["text_damage-mod"] = getTranslationByKey("damage-mod");
-            update[text_dejoker"] = getTranslationByKey("dejoker");
+            update["text_dejoker"] = getTranslationByKey("dejoker");
             update["text_yes"] = getTranslationByKey("yes");
             update["text_no"] = getTranslationByKey("no");
+            update["text_portee"] = getTranslationByKey("portee");
+            update["text_courte"] = getTranslationByKey("courte");
+            update["text_moyenne"] = getTranslationByKey("moyenne");
+            update["text_longue"] = getTranslationByKey("longue");
+
             // Version
             var vers = parseFloat(values.sheetVersion) || 0;
             if (vers < 3.0) {

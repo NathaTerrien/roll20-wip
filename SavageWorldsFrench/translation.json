@@ -1,4 +1,7 @@
 {
+    "courte"         : "Courte",
+    "moyenne"        : "Moyenne",
+    "longue"         : "Longue",
     "yes"            : "Oui",
     "no"             : "Non",
     "use-target-title":"Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc.",
