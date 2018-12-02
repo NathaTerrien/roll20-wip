@@ -1,4 +1,7 @@
 {
+    "yes"            : "Oui",
+    "no"             : "Non",
+    "use-target-title":"Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc.",
     "damage-mod"     : "Modificateur aux dégâts",
     "weap-dmg"       : "Dégâts : arme",
     "enlarge-desc"   : "Agrandir/Réduire la description",
@@ -70,7 +73,7 @@
     "est"            : "est",
     "contre"         : "contre",
     "fait-jet"       : "fait un jet",
-    "attaque"        : "attaque",
+    "attaque"        : "Attaque",
     "attaque-avec"   : "attaque avec",
     "pouvoir-de"     : "Pouvoir de",
     "0-la"           : "0 : la 1re blessure met hors combat",

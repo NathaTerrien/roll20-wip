@@ -1438,7 +1438,7 @@
                 <div class="optionEtat" data-i18n="templates">Templates :</div>
                 <input type="checkbox" name="attr_templateetat" class="optionEtat" value="1" title="Afficher l'état du personnage dans les templates de jet" checked /><span class="optionEtat" data-i18n="etats">Etats</span>
                 <div class="optionCible" data-i18n="attaques">Attaques :</div>
-                <input type="checkbox" name="attr_atkcible"  class="optionCible" value="1" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." checked /><span class="optionCible" data-i18n="cible">Cible</span>
+                <input type="checkbox" name="attr_atkcible"  class="optionCible" value="1" data-i18n-title="use-target-title" title="Utiliser les pions cibles lors des attaques pour déterminer le seuil de réussite via la résistance de la cible etc." checked /><span class="optionCible" data-i18n="cible">Cible</span>
             </div>
             <div class="col">
                 <div class="conftitre" data-i18n="affichage">AFFICHAGE DES COMPETENCES</div>
@@ -1527,10 +1527,15 @@
     <input type="hidden" name="attr_text_weap-dmg" value="" />
     <input type="hidden" name="attr_text_resistance" value="" />
     <input type="hidden" name="attr_text_damage-mod" value="" />
+    <input type="hidden" name="attr_text_dejoker" value="" />
+    <input type="hidden" name="attr_text_yes" value="" />
+    <input type="hidden" name="attr_text_no" value="" />
+
     <!-- Roll querries -->
     <input type="hidden" name="attr_rollmodquery" value="(?{@{text_modificateur}|0})[@{text_modificateur}]" />
     <input type="hidden" name="attr_rolldiffquery" value="?{@{text_difficulte}|4})[@{text_difficulte}]" />
     <input type="hidden" name="attr_rolldmgquery" value="(?{@{text_damage-mod}|0})[@{text_damage-mod}]" />
+    <input type="hidden" name="attr_rolljokerquery" value="?{@{text_dejoker}?|@{text_yes},@{joker_de}!|@{text_no},0d4}[@{text_joker}]" />
     <!-- STATS -->
     <input type="hidden" name="attr_RollAGI" value="{ 1d@{agilite_de}!![@{text_agilite}] , @{joker_de}!![@{text_joker}] }kh1 + (@{agilite_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollAGI" value="&{template:sawo} {{etat=[[@{templateetat}]]}} {{name=Agilité}} {{perso=@{character_name}}} {{secoue=[[@{secoue}]]}} {{relances=[[  { floor( ( { @{rollAGI} } ) /(@{rolldiffquery}), 0d0 }kh1 ]]}} {{blessures=[[@{blessures}]]}} {{fatigue=[[@{fatigue}]]}} {{encombrement=[[@{encombrement}]]}}" />
@@ -1566,11 +1571,11 @@
     <input type="hidden" name="attr_relRollBastLancer" value="{ floor( ( { @{rollBastLancer} } ) /4), 0d0 }kh1" />
     <input type="hidden" name="attr_jetRollBastLancer" value="@{RollBastLancer}" />
 
-    <input type="hidden" name="attr_RollBastTir" value="{ 1d@{tir_de}!![@{text_tir}],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[@{text_joker}]}kh1 + (@{tir_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + @{rollmodquery}" />
+    <input type="hidden" name="attr_RollBastTir" value="{ 1d@{tir_de}!![@{text_tir}], @{rolljokerquery}}kh1 + (@{tir_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] - @{encombrement}[@{text_encombrement}] - ?{Portée|Courte,0|Moyenne,2|Longue,4}[Portée] + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollBastTir" value="{ floor( ( { @{rollBastTir} } ) /4), 0d0 }kh1" />
     <input type="hidden" name="attr_jetRollBastTir" value="@{RollBastTir}" />
 
-    <input type="hidden" name="attr_RollBastArcane" value="{ 1d@{arcane_de}!![@{text_arcane}],?{Dé joker ?|Oui,@{joker_de}!|Non,0d4}[@{text_joker}]}kh1 + (@{arcane_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] + @{rollmodquery}" />
+    <input type="hidden" name="attr_RollBastArcane" value="{ 1d@{arcane_de}!![@{text_arcane}], @{rolljokerquery}}kh1 + (@{arcane_bonus})[@{text_bonus}] - @{malusblessures}[@{text_blessures}] - @{malusfatigue}[@{text_fatigue}] + @{rollmodquery}" />
     <input type="hidden" name="attr_relRollBastArcane" value="{ floor( ( { @{RollBastArcane} } ) / ( @{ciblearcane})[@{text_difficulte}] ), 0d0 }kh1 " />
     <input type="hidden" name="attr_jetRollBastArcane" value="@{RollBastArcane}" />
 
@@ -1786,7 +1791,7 @@
 <script type="text/worker">
     // Version handling and translation text loading
     on("sheet:opened",function(){
-        getAttrs(["sheetVersion"], function(values) {
+        getAttrs(["sheetVersion","atkcible"], function(values) {
             var update = {};
             // Translation text for rolls
             update["text_agilite"] = getTranslationByKey("agilite");
@@ -1834,6 +1839,9 @@
             update["text_weap-dmg"] = getTranslationByKey("weap-dmg");
             update["text_resistance"] = getTranslationByKey("resistance");
             update["text_damage-mod"] = getTranslationByKey("damage-mod");
+            update[text_dejoker"] = getTranslationByKey("dejoker");
+            update["text_yes"] = getTranslationByKey("yes");
+            update["text_no"] = getTranslationByKey("no");
             // Version
             var vers = parseFloat(values.sheetVersion) || 0;
             if (vers < 3.0) {
@@ -1846,6 +1854,20 @@
                     }
                     update["sheetVersion"] = 3.0;
                 });
+            }
+            if (vers < 3.2) {
+                if ((parseInt(values.atkcible) || 0) == 1) {
+                    update["cibleparade"] = "@{target|parade}";
+                    update["cibleresistance"] = "@{target|resistance}";
+                    update["ciblearcane"] = "?{" + getTranslationByKey("difficulte") + "|4}";
+                    update["atknom"] = "@{target|character_name}";
+                } else {
+                    update["cibleparade"] = "?{" + getTranslationByKey("parade") + "|4}";
+                    update["cibleresistance"] = "?{" + getTranslationByKey("resistance") + "|4}";
+                    update["ciblearcane"] = "?{" + getTranslationByKey("difficulte") + "|4}";
+                    update["atknom"] = "-";
+                }
+                update["sheetVersion"] = 3.2;
             }
             setAttrs(update);
         });
